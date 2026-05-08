@@ -343,6 +343,26 @@
             .stats-grid { grid-template-columns: 1fr 1fr; }
             .example-selector { flex-direction: column; }
         }
+        .formula-tag {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+            letter-spacing: 0.02em;
+        }
+        .formula-tag.booklet {
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #86efac;
+        }
+        .formula-tag.learn {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fcd34d;
+        }
     </style>
 </head>
 <body>
@@ -919,12 +939,12 @@
 <h2>Key Formulae</h2>
 <div class="card">
     <ul style="margin-left: 1.5rem; line-height: 2.4;">
-        <li><strong>Binomial probability:</strong> \(P(X = r) = \binom{n}{r} p^r (1-p)^{n-r}\)</li>
-        <li><strong>Binomial conditions:</strong> Fixed \(n\) trials, fixed probability \(p\), independent trials, two outcomes</li>
-        <li><strong>One-tailed (upper):</strong> \(H_1: p > p_0\), calculate \(P(X \geq \text{obs})\), compare to \(\alpha\)</li>
-        <li><strong>One-tailed (lower):</strong> \(H_1: p < p_0\), calculate \(P(X \leq \text{obs})\), compare to \(\alpha\)</li>
-        <li><strong>Two-tailed:</strong> \(H_1: p \neq p_0\), compare to \(\frac{\alpha}{2}\) in the appropriate tail</li>
-        <li><strong>Type I error:</strong> Rejecting \(H_0\) when \(H_0\) is true. Probability = actual significance level.</li>
+        <li><strong>Binomial probability:</strong> \(P(X = r) = \binom{n}{r} p^r (1-p)^{n-r}\) <span class="formula-tag learn">Learn this</span></li>
+        <li><strong>Binomial conditions:</strong> Fixed \(n\) trials, fixed probability \(p\), independent trials, two outcomes <span class="formula-tag learn">Learn this</span></li>
+        <li><strong>One-tailed (upper):</strong> \(H_1: p > p_0\), calculate \(P(X \geq \text{obs})\), compare to \(\alpha\) <span class="formula-tag learn">Learn this</span></li>
+        <li><strong>One-tailed (lower):</strong> \(H_1: p < p_0\), calculate \(P(X \leq \text{obs})\), compare to \(\alpha\) <span class="formula-tag learn">Learn this</span></li>
+        <li><strong>Two-tailed:</strong> \(H_1: p \neq p_0\), compare to \(\frac{\alpha}{2}\) in the appropriate tail <span class="formula-tag learn">Learn this</span></li>
+        <li><strong>Type I error:</strong> Rejecting \(H_0\) when \(H_0\) is true. Probability = actual significance level. <span class="formula-tag learn">Learn this</span></li>
     </ul>
 </div>
 

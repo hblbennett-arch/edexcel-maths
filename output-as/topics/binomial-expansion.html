@@ -343,6 +343,27 @@
             .stats-grid { grid-template-columns: 1fr 1fr; }
             .example-selector { flex-direction: column; }
         }
+
+        .formula-tag {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+            letter-spacing: 0.02em;
+        }
+        .formula-tag.booklet {
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #86efac;
+        }
+        .formula-tag.learn {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fcd34d;
+        }
     </style>
 </head>
 <body>
@@ -710,11 +731,11 @@
 <!-- KEY FORMULAE -->
 <h2>Key Formulae</h2>
 <div class="card">
-    <h3>The Binomial Theorem (positive integer \(n\))</h3>
+    <h3>The Binomial Theorem (positive integer \(n\)) <span class="formula-tag booklet">In formula booklet</span></h3>
     <p>$$(a + b)^n = \sum_{r=0}^{n} \binom{n}{r} a^{n-r} b^r$$</p>
     <p style="margin-top: 1rem;">where \(\displaystyle\binom{n}{r} = \frac{n!}{r!(n-r)!}\)</p>
     <p style="margin-top: 1rem;">The general term (the term in \(x^r\)) is: \(\binom{n}{r} a^{n-r} b^r\)</p>
-    <h3 style="margin-top: 1.5rem;">Useful \(\binom{n}{r}\) values</h3>
+    <h3 style="margin-top: 1.5rem;">Useful \(\binom{n}{r}\) values <span class="formula-tag learn">Learn this</span></h3>
     <p>\(\binom{n}{0} = 1\), \(\binom{n}{1} = n\), \(\binom{n}{2} = \frac{n(n-1)}{2}\), \(\binom{n}{3} = \frac{n(n-1)(n-2)}{6}\)</p>
 </div>
 

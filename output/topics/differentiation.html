@@ -348,6 +348,27 @@
             .stats-grid { grid-template-columns: 1fr 1fr; }
             .example-selector { flex-direction: column; }
         }
+
+        .formula-tag {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+            letter-spacing: 0.02em;
+        }
+        .formula-tag.booklet {
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #86efac;
+        }
+        .formula-tag.learn {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fcd34d;
+        }
     </style>
 </head>
 <body>
@@ -1012,14 +1033,14 @@
 <h2>Key Formulae Reference</h2>
 <div class="card">
     <ul style="margin-left: 1.5rem; line-height: 2.4;">
-        <li><strong>Power rule:</strong> \(\frac{d}{dx}(x^n) = nx^{n-1}\) (works for all real \(n\))</li>
-        <li><strong>Product rule:</strong> \(\frac{d}{dx}(uv) = u\frac{dv}{dx} + v\frac{du}{dx}\)</li>
-        <li><strong>Quotient rule:</strong> \(\frac{d}{dx}\left(\frac{u}{v}\right) = \frac{v\frac{du}{dx} - u\frac{dv}{dx}}{v^2}\)</li>
-        <li><strong>Chain rule:</strong> \(\frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}\)</li>
-        <li><strong>Exponential:</strong> \(\frac{d}{dx}(e^{kx}) = ke^{kx}\)</li>
-        <li><strong>Trigonometric:</strong> \(\frac{d}{dx}(\sin x) = \cos x\), \(\quad \frac{d}{dx}(\cos x) = -\sin x\), \(\quad \frac{d}{dx}(\tan x) = \sec^2 x\)</li>
-        <li><strong>Logarithmic:</strong> \(\frac{d}{dx}(\ln x) = \frac{1}{x}\)</li>
-        <li><strong>First principles:</strong> \(f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}\)</li>
+        <li><strong>Power rule:</strong> <span class="formula-tag learn">Learn this</span> \(\frac{d}{dx}(x^n) = nx^{n-1}\) (works for all real \(n\))</li>
+        <li><strong>Product rule:</strong> <span class="formula-tag learn">Learn this</span> \(\frac{d}{dx}(uv) = u\frac{dv}{dx} + v\frac{du}{dx}\)</li>
+        <li><strong>Quotient rule:</strong> <span class="formula-tag learn">Learn this</span> \(\frac{d}{dx}\left(\frac{u}{v}\right) = \frac{v\frac{du}{dx} - u\frac{dv}{dx}}{v^2}\)</li>
+        <li><strong>Chain rule:</strong> <span class="formula-tag learn">Learn this</span> \(\frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}\)</li>
+        <li><strong>Exponential:</strong> <span class="formula-tag learn">Learn this</span> \(\frac{d}{dx}(e^{kx}) = ke^{kx}\)</li>
+        <li><strong>Trigonometric:</strong> <span class="formula-tag learn">Learn this</span> \(\frac{d}{dx}(\sin x) = \cos x\), \(\quad \frac{d}{dx}(\cos x) = -\sin x\), \(\quad \frac{d}{dx}(\tan x) = \sec^2 x\)</li>
+        <li><strong>Logarithmic:</strong> <span class="formula-tag learn">Learn this</span> \(\frac{d}{dx}(\ln x) = \frac{1}{x}\)</li>
+        <li><strong>First principles:</strong> <span class="formula-tag booklet">In formula booklet</span> \(f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}\)</li>
     </ul>
 </div>
 

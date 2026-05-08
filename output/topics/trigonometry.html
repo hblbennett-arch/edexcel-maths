@@ -349,6 +349,26 @@
             .stats-grid { grid-template-columns: 1fr 1fr; }
             .example-selector { flex-direction: column; }
         }
+        .formula-tag {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+            letter-spacing: 0.02em;
+        }
+        .formula-tag.booklet {
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #86efac;
+        }
+        .formula-tag.learn {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fcd34d;
+        }
     </style>
 </head>
 <body>
@@ -900,8 +920,8 @@
             <span class="arrow">&#9654;</span>
         </div>
         <div class="step-reveal-content">
-            <div class="motivation">We want \(\sin x + 2\cos x \equiv R\sin(x+\alpha)\). To find \(R\) and \(\alpha\), expand the right-hand side using the addition formula and then match up the coefficients of \(\sin x\) and \(\cos x\) on each side.</div>
-            <p>Expand \(R\sin(x+\alpha)\) using the addition formula:</p>
+            <div class="motivation">We want \(\sin x + 2\cos x \equiv R\sin(x+\alpha)\). To find \(R\) and \(\alpha\), expand the right-hand side using the compound angle formula and then match up the coefficients of \(\sin x\) and \(\cos x\) on each side.</div>
+            <p>Expand \(R\sin(x+\alpha)\) using the compound angle formula:</p>
             <p>$$R\sin(x+\alpha) = R\sin x\cos\alpha + R\cos x\sin\alpha$$</p>
             <div class="algebra-chain">
                 <p class="reason">Compare with \(\sin x + 2\cos x\):</p>
@@ -1103,25 +1123,31 @@
 
 <h2>Key Formulae and Identities</h2>
 <div class="card">
-    <h3>Pythagorean Identities</h3>
+    <h3>Compound Angle Formulae <span class="formula-tag booklet">In formula booklet</span></h3>
     <ul style="margin-left: 1.5rem; line-height: 2.2;">
-        <li>\(\sin^2\theta + \cos^2\theta = 1\)</li>
-        <li>\(1 + \tan^2\theta = \sec^2\theta\)</li>
-        <li>\(1 + \cot^2\theta = \text{cosec}^2\theta\)</li>
+        <li>\(\sin(A \pm B) = \sin A\cos B \pm \cos A\sin B\)</li>
+        <li>\(\cos(A \pm B) = \cos A\cos B \mp \sin A\sin B\)</li>
+        <li>\(\tan(A \pm B) = \dfrac{\tan A \pm \tan B}{1 \mp \tan A\tan B}\)</li>
     </ul>
-    <h3>Double Angle Formulae</h3>
+    <h3>Double Angle Formulae <span class="formula-tag learn">Learn this</span></h3>
     <ul style="margin-left: 1.5rem; line-height: 2.2;">
         <li>\(\sin 2\theta = 2\sin\theta\cos\theta\)</li>
         <li>\(\cos 2\theta = \cos^2\theta - \sin^2\theta = 2\cos^2\theta - 1 = 1 - 2\sin^2\theta\)</li>
         <li>\(\tan 2\theta = \frac{2\tan\theta}{1 - \tan^2\theta}\)</li>
     </ul>
-    <h3>Small Angle Approximations (radians only)</h3>
+    <h3>Pythagorean Identities <span class="formula-tag learn">Learn this</span></h3>
+    <ul style="margin-left: 1.5rem; line-height: 2.2;">
+        <li>\(\sin^2\theta + \cos^2\theta = 1\)</li>
+        <li>\(1 + \tan^2\theta = \sec^2\theta\)</li>
+        <li>\(1 + \cot^2\theta = \text{cosec}^2\theta\)</li>
+    </ul>
+    <h3>Small Angle Approximations (radians only) <span class="formula-tag booklet">In formula booklet</span></h3>
     <ul style="margin-left: 1.5rem; line-height: 2.2;">
         <li>\(\sin\theta \approx \theta\)</li>
         <li>\(\cos\theta \approx 1 - \frac{\theta^2}{2}\)</li>
         <li>\(\tan\theta \approx \theta\)</li>
     </ul>
-    <h3>Sectors and Arcs (radians)</h3>
+    <h3>Sectors and Arcs (radians) <span class="formula-tag booklet">In formula booklet</span></h3>
     <ul style="margin-left: 1.5rem; line-height: 2.2;">
         <li>Arc length: \(s = r\theta\)</li>
         <li>Sector area: \(A = \frac{1}{2}r^2\theta\)</li>

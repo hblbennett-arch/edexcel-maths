@@ -351,6 +351,27 @@
             margin: 0.25rem 0;
         }
 
+        .formula-tag {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+            letter-spacing: 0.02em;
+        }
+        .formula-tag.booklet {
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #86efac;
+        }
+        .formula-tag.learn {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fcd34d;
+        }
+
         @media (max-width: 600px) {
             body { padding: 1rem; }
             h1 { font-size: 1.5rem; }
@@ -390,20 +411,20 @@
 <div class="card">
     <div class="algebra-chain">
         <p>$$(x - a)^2 + (y - b)^2 = r^2$$</p>
-        <p class="reason">Circle with centre \((a, b)\) and radius \(r\)</p>
+        <p class="reason">Circle with centre \((a, b)\) and radius \(r\) <span class="formula-tag learn">Learn this</span></p>
     </div>
     <p style="margin: 1rem 0 0.5rem; color: var(--muted); font-size: 0.9rem;">When given in expanded form, complete the square to get back to the standard form above. For example:</p>
     <div class="algebra-chain">
         <p>$$x^2 + y^2 - 10x - 8y + 32 = 0$$</p>
         <p>$$(x - 5)^2 - 25 + (y - 4)^2 - 16 + 32 = 0$$</p>
         <p>$$(x - 5)^2 + (y - 4)^2 = 9$$</p>
-        <p class="reason">So centre is \((5, 4)\) and radius is \(\sqrt{9} = 3\)</p>
+        <p class="reason">So centre is \((5, 4)\) and radius is \(\sqrt{9} = 3\) <span class="formula-tag learn">Learn this</span></p>
     </div>
     <p style="margin-top: 1rem;"><strong>Key geometric facts:</strong></p>
     <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
-        <li>The tangent to a circle is <strong>perpendicular</strong> to the radius at the point of contact</li>
-        <li>A vertical line \(x = k\) is tangent to circle if the distance from centre to line equals the radius</li>
-        <li>A line intersects a circle at 0, 1, or 2 points (discriminant test)</li>
+        <li>The tangent to a circle is <strong>perpendicular</strong> to the radius at the point of contact <span class="formula-tag learn">Learn this</span></li>
+        <li>A vertical line \(x = k\) is tangent to circle if the distance from centre to line equals the radius <span class="formula-tag learn">Learn this</span></li>
+        <li>A line intersects a circle at 0, 1, or 2 points (discriminant test) <span class="formula-tag learn">Learn this</span></li>
     </ul>
 </div>
 

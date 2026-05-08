@@ -337,6 +337,27 @@
             margin: 0.25rem 0;
         }
 
+        .formula-tag {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+            letter-spacing: 0.02em;
+        }
+        .formula-tag.booklet {
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #86efac;
+        }
+        .formula-tag.learn {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fcd34d;
+        }
+
         @media (max-width: 600px) {
             body { padding: 1rem; }
             h1 { font-size: 1.5rem; }
@@ -887,16 +908,16 @@
 <!-- KEY FORMULAE -->
 <h2>Key Formulae</h2>
 <div class="card">
-    <h3>Arithmetic Sequences</h3>
+    <h3>Arithmetic Sequences <span class="formula-tag learn">Learn this</span></h3>
     <p>nth term: \(u_n = a + (n-1)d\)</p>
     <p>Sum of first \(n\) terms: \(S_n = \frac{n}{2}(2a + (n-1)d) = \frac{n}{2}(a + l)\)</p>
 
-    <h3 style="margin-top: 1.5rem;">Geometric Sequences</h3>
+    <h3 style="margin-top: 1.5rem;">Geometric Sequences <span class="formula-tag learn">Learn this</span></h3>
     <p>nth term: \(u_n = ar^{n-1}\)</p>
     <p>Sum of first \(n\) terms: \(S_n = \frac{a(1-r^n)}{1-r} \quad (r \neq 1)\)</p>
     <p>Sum to infinity (only when \(|r| < 1\)): \(S_\infty = \frac{a}{1-r}\)</p>
 
-    <h3 style="margin-top: 1.5rem;">Useful Relationships</h3>
+    <h3 style="margin-top: 1.5rem;">Useful Relationships <span class="formula-tag learn">Learn this</span></h3>
     <p>\(S_\infty - S_n = \frac{ar^n}{1-r}\) (the "tail" after \(n\) terms)</p>
     <p>Dividing terms: \(\frac{u_m}{u_k} = r^{m-k}\) (eliminates \(a\))</p>
 </div>

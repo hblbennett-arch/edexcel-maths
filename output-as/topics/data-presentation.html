@@ -339,6 +339,27 @@
             margin: 0.25rem 0;
         }
 
+        .formula-tag {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+            letter-spacing: 0.02em;
+        }
+        .formula-tag.booklet {
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #86efac;
+        }
+        .formula-tag.learn {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fcd34d;
+        }
+
         @media (max-width: 600px) {
             body { padding: 1rem; }
             h1 { font-size: 1.5rem; }
@@ -927,12 +948,12 @@
 <h2>Key Formulae</h2>
 <div class="card">
     <ul style="margin-left: 1.5rem; line-height: 2.4;">
-        <li><strong>Frequency density:</strong> \(\text{FD} = \frac{\text{Frequency}}{\text{Class width}}\)</li>
-        <li><strong>Mean (grouped):</strong> \(\bar{x} = \frac{\sum fx}{n}\) where \(x\) = midpoint</li>
-        <li><strong>Standard deviation:</strong> \(\sigma = \sqrt{\frac{\sum fx^2}{n} - \bar{x}^2}\)</li>
-        <li><strong>Linear interpolation:</strong> \(Q = L + \frac{\text{position} - F}{f} \times w\)</li>
-        <li><strong>Outlier fences:</strong> Below \(Q_1 - 1.5 \times \text{IQR}\) or above \(Q_3 + 1.5 \times \text{IQR}\)</li>
-        <li><strong>Skewness from quartiles:</strong> If \(Q_3 - Q_2 > Q_2 - Q_1\), positive skew</li>
+        <li><strong>Frequency density:</strong> \(\text{FD} = \frac{\text{Frequency}}{\text{Class width}}\) <span class="formula-tag learn">Learn this</span></li>
+        <li><strong>Mean (grouped):</strong> \(\bar{x} = \frac{\sum fx}{n}\) where \(x\) = midpoint <span class="formula-tag learn">Learn this</span></li>
+        <li><strong>Standard deviation:</strong> \(\sigma = \sqrt{\frac{\sum fx^2}{n} - \bar{x}^2}\) <span class="formula-tag learn">Learn this</span></li>
+        <li><strong>Linear interpolation:</strong> \(Q = L + \frac{\text{position} - F}{f} \times w\) <span class="formula-tag learn">Learn this</span></li>
+        <li><strong>Outlier fences:</strong> Below \(Q_1 - 1.5 \times \text{IQR}\) or above \(Q_3 + 1.5 \times \text{IQR}\) <span class="formula-tag learn">Learn this</span></li>
+        <li><strong>Skewness from quartiles:</strong> If \(Q_3 - Q_2 > Q_2 - Q_1\), positive skew <span class="formula-tag learn">Learn this</span></li>
     </ul>
 </div>
 

@@ -340,6 +340,27 @@
         .diagram-container { margin: 1.5rem 0; text-align: center; }
         .diagram-container svg { max-width: 100%; height: auto; border: 1px solid var(--border); border-radius: 8px; background: #fff; }
 
+        .formula-tag {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+            letter-spacing: 0.02em;
+        }
+        .formula-tag.booklet {
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #86efac;
+        }
+        .formula-tag.learn {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fcd34d;
+        }
+
         @media (max-width: 600px) {
             body { padding: 1rem; }
             h1 { font-size: 1.5rem; }
@@ -379,15 +400,15 @@
 <div class="card">
     <div class="algebra-chain">
         <p>$$y - y_1 = m(x - x_1)$$</p>
-        <p class="reason">Equation of line through \((x_1, y_1)\) with gradient \(m\)</p>
+        <p class="reason">Equation of line through \((x_1, y_1)\) with gradient \(m\) <span class="formula-tag learn">Learn this</span></p>
         <p>$$m = \frac{y_2 - y_1}{x_2 - x_1}$$</p>
-        <p class="reason">Gradient between two points</p>
+        <p class="reason">Gradient between two points <span class="formula-tag learn">Learn this</span></p>
         <p>$$m_1 \times m_2 = -1$$</p>
-        <p class="reason">Perpendicular lines condition (negative reciprocal gradients)</p>
+        <p class="reason">Perpendicular lines condition (negative reciprocal gradients) <span class="formula-tag learn">Learn this</span></p>
         <p>$$\text{Midpoint} = \left(\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}\right)$$</p>
-        <p class="reason">Midpoint of a line segment</p>
+        <p class="reason">Midpoint of a line segment <span class="formula-tag learn">Learn this</span></p>
         <p>$$\text{Area of triangle} = \frac{1}{2}|x_1(y_2-y_3) + x_2(y_3-y_1) + x_3(y_1-y_2)|$$</p>
-        <p class="reason">Area from three vertices (the "shoelace" formula)</p>
+        <p class="reason">Area from three vertices (the "shoelace" formula) <span class="formula-tag learn">Learn this</span></p>
     </div>
 </div>
 

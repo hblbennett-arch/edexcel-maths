@@ -348,6 +348,27 @@
             .stats-grid { grid-template-columns: 1fr 1fr; }
             .example-selector { flex-direction: column; }
         }
+
+        .formula-tag {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+            letter-spacing: 0.02em;
+        }
+        .formula-tag.booklet {
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #86efac;
+        }
+        .formula-tag.learn {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fcd34d;
+        }
     </style>
 </head>
 <body>
@@ -1033,13 +1054,13 @@
 <h2>Key Formulae Reference</h2>
 <div class="card">
     <ul style="margin-left: 1.5rem; line-height: 2.4;">
-        <li><strong>Power rule:</strong> \(\dfrac{d}{dx}(ax^n) = anx^{n-1}\)</li>
-        <li><strong>First principles:</strong> \(f'(x) = \displaystyle\lim_{h \to 0} \frac{f(x+h) - f(x)}{h}\)</li>
-        <li><strong>Tangent at \((a, f(a))\):</strong> \(y - f(a) = f'(a)(x - a)\)</li>
-        <li><strong>Normal at \((a, f(a))\):</strong> \(y - f(a) = -\dfrac{1}{f'(a)}(x - a)\)</li>
-        <li><strong>Stationary points:</strong> Solve \(f'(x) = 0\)</li>
-        <li><strong>Nature:</strong> \(f''(a) > 0 \Rightarrow\) minimum; \(f''(a) < 0 \Rightarrow\) maximum</li>
-        <li><strong>Increasing:</strong> \(f'(x) > 0\); <strong>Decreasing:</strong> \(f'(x) < 0\)</li>
+        <li><strong>Power rule:</strong> \(\dfrac{d}{dx}(ax^n) = anx^{n-1}\) <span class="formula-tag learn">Learn this</span></li>
+        <li><strong>First principles:</strong> \(f'(x) = \displaystyle\lim_{h \to 0} \frac{f(x+h) - f(x)}{h}\) <span class="formula-tag booklet">In formula booklet</span></li>
+        <li><strong>Tangent at \((a, f(a))\):</strong> \(y - f(a) = f'(a)(x - a)\) <span class="formula-tag learn">Learn this</span></li>
+        <li><strong>Normal at \((a, f(a))\):</strong> \(y - f(a) = -\dfrac{1}{f'(a)}(x - a)\) <span class="formula-tag learn">Learn this</span></li>
+        <li><strong>Stationary points:</strong> Solve \(f'(x) = 0\) <span class="formula-tag learn">Learn this</span></li>
+        <li><strong>Nature:</strong> \(f''(a) > 0 \Rightarrow\) minimum; \(f''(a) < 0 \Rightarrow\) maximum <span class="formula-tag learn">Learn this</span></li>
+        <li><strong>Increasing:</strong> \(f'(x) > 0\); <strong>Decreasing:</strong> \(f'(x) < 0\) <span class="formula-tag learn">Learn this</span></li>
     </ul>
 </div>
 

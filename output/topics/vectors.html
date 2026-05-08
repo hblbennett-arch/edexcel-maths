@@ -348,6 +348,26 @@
             .stats-grid { grid-template-columns: 1fr 1fr; }
             .example-selector { flex-direction: column; }
         }
+        .formula-tag {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+            letter-spacing: 0.02em;
+        }
+        .formula-tag.booklet {
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #86efac;
+        }
+        .formula-tag.learn {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fcd34d;
+        }
     </style>
 </head>
 <body>
@@ -901,13 +921,22 @@
 
 <h2>Key Formulae and Results</h2>
 <div class="card">
+    <h3>Position Vectors and Distance Formula <span class="formula-tag learn">Learn this</span></h3>
     <ul style="margin-left: 1.5rem; line-height: 2.2;">
         <li><strong>Direction vector:</strong> \(\overrightarrow{AB} = \overrightarrow{OB} - \overrightarrow{OA}\) (end minus start)</li>
         <li><strong>Magnitude:</strong> \(|\mathbf{a}| = \sqrt{x^2 + y^2 + z^2}\) for \(\mathbf{a} = x\mathbf{i} + y\mathbf{j} + z\mathbf{k}\)</li>
-        <li><strong>Parallel:</strong> \(\mathbf{a} \parallel \mathbf{b} \iff \mathbf{a} = k\mathbf{b}\) for some scalar \(k\)</li>
-        <li><strong>Collinear:</strong> A, B, C collinear \(\iff \overrightarrow{AC} = \lambda \overrightarrow{AB}\) (parallel AND share a point)</li>
         <li><strong>Midpoint:</strong> M is midpoint of AB \(\implies \overrightarrow{OM} = \frac{1}{2}(\overrightarrow{OA} + \overrightarrow{OB})\)</li>
         <li><strong>Section formula:</strong> Point dividing AB in ratio \(m:n\) has position vector \(\frac{n\overrightarrow{OA} + m\overrightarrow{OB}}{m+n}\)</li>
+    </ul>
+
+    <h3>Scalar (Dot) Product <span class="formula-tag learn">Learn this</span></h3>
+    <ul style="margin-left: 1.5rem; line-height: 2.2;">
+        <li><strong>Parallel:</strong> \(\mathbf{a} \parallel \mathbf{b} \iff \mathbf{a} = k\mathbf{b}\) for some scalar \(k\)</li>
+        <li><strong>Collinear:</strong> A, B, C collinear \(\iff \overrightarrow{AC} = \lambda \overrightarrow{AB}\) (parallel AND share a point)</li>
+    </ul>
+
+    <h3>Vector Equation of a Line <span class="formula-tag learn">Learn this</span></h3>
+    <ul style="margin-left: 1.5rem; line-height: 2.2;">
         <li><strong>Trapezium:</strong> Exactly one pair of parallel sides</li>
         <li><strong>Rhombus:</strong> Parallelogram with all sides equal (diagonals are perpendicular)</li>
     </ul>

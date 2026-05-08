@@ -348,6 +348,27 @@
             .stats-grid { grid-template-columns: 1fr 1fr; }
             .example-selector { flex-direction: column; }
         }
+
+        .formula-tag {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+            letter-spacing: 0.02em;
+        }
+        .formula-tag.booklet {
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #86efac;
+        }
+        .formula-tag.learn {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fcd34d;
+        }
     </style>
 </head>
 <body>
@@ -1093,12 +1114,12 @@
 <h2>Key Formulae Reference</h2>
 <div class="card">
     <ul style="margin-left: 1.5rem; line-height: 2.4;">
-        <li><strong>Power rule:</strong> \(\displaystyle\int x^n\, dx = \frac{x^{n+1}}{n+1} + c \quad (n \neq -1)\)</li>
-        <li><strong>Constant multiple:</strong> \(\displaystyle\int af(x)\, dx = a\int f(x)\, dx\)</li>
-        <li><strong>Sum rule:</strong> \(\displaystyle\int [f(x) + g(x)]\, dx = \int f(x)\, dx + \int g(x)\, dx\)</li>
-        <li><strong>Definite integral:</strong> \(\displaystyle\int_a^b f(x)\, dx = F(b) - F(a)\)</li>
-        <li><strong>Area below x-axis:</strong> \(\displaystyle\text{Area} = -\int_a^b f(x)\, dx\) when \(f(x) < 0\) on \([a,b]\)</li>
-        <li><strong>Area between curves:</strong> \(\displaystyle\text{Area} = \int_a^b [\text{top}(x) - \text{bottom}(x)]\, dx\)</li>
+        <li><strong>Power rule:</strong> \(\displaystyle\int x^n\, dx = \frac{x^{n+1}}{n+1} + c \quad (n \neq -1)\) <span class="formula-tag learn">Learn this</span></li>
+        <li><strong>Constant multiple:</strong> \(\displaystyle\int af(x)\, dx = a\int f(x)\, dx\) <span class="formula-tag learn">Learn this</span></li>
+        <li><strong>Sum rule:</strong> \(\displaystyle\int [f(x) + g(x)]\, dx = \int f(x)\, dx + \int g(x)\, dx\) <span class="formula-tag learn">Learn this</span></li>
+        <li><strong>Definite integral:</strong> \(\displaystyle\int_a^b f(x)\, dx = F(b) - F(a)\) <span class="formula-tag learn">Learn this</span></li>
+        <li><strong>Area below x-axis:</strong> \(\displaystyle\text{Area} = -\int_a^b f(x)\, dx\) when \(f(x) < 0\) on \([a,b]\) <span class="formula-tag learn">Learn this</span></li>
+        <li><strong>Area between curves:</strong> \(\displaystyle\text{Area} = \int_a^b [\text{top}(x) - \text{bottom}(x)]\, dx\) <span class="formula-tag learn">Learn this</span></li>
     </ul>
 </div>
 

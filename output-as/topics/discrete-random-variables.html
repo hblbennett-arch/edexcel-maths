@@ -211,6 +211,27 @@
         ul, ol { margin: 0.5rem 0 0.5rem 1.5rem; }
         li { margin-bottom: 0.3rem; }
 
+        .formula-tag {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+            letter-spacing: 0.02em;
+        }
+        .formula-tag.booklet {
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #86efac;
+        }
+        .formula-tag.learn {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fcd34d;
+        }
+
         @media (max-width: 600px) {
             body { padding: 1rem; }
             h1 { font-size: 1.5rem; }
@@ -247,23 +268,23 @@
 <h2>Key Formulae</h2>
 
 <div class="formula-box">
-    <p><strong>Sum of probabilities:</strong></p>
+    <p><strong>Sum of probabilities:</strong> <span class="formula-tag learn">Learn this</span></p>
     $$\sum_{\text{all } x} P(X = x) = 1$$
 </div>
 
 <div class="formula-box">
-    <p><strong>Expected Value (Mean):</strong></p>
+    <p><strong>Expected Value (Mean):</strong> <span class="formula-tag learn">Learn this</span></p>
     $$E(X) = \mu = \sum x \cdot P(X = x)$$
 </div>
 
 <div class="formula-box">
-    <p><strong>Variance:</strong></p>
+    <p><strong>Variance:</strong> <span class="formula-tag learn">Learn this</span></p>
     $$\text{Var}(X) = E(X^2) - [E(X)]^2$$
     <p style="margin-top: 0.5rem; font-size: 0.9rem;">where \(E(X^2) = \sum x^2 \cdot P(X = x)\)</p>
 </div>
 
 <div class="formula-box">
-    <p><strong>Standard Deviation:</strong></p>
+    <p><strong>Standard Deviation:</strong> <span class="formula-tag learn">Learn this</span></p>
     $$\sigma = \sqrt{\text{Var}(X)}$$
 </div>
 

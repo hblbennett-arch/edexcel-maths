@@ -345,6 +345,27 @@
             .stats-grid { grid-template-columns: 1fr 1fr; }
             .example-selector { flex-direction: column; }
         }
+
+        .formula-tag {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+            letter-spacing: 0.02em;
+        }
+        .formula-tag.booklet {
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #86efac;
+        }
+        .formula-tag.learn {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fcd34d;
+        }
     </style>
 </head>
 <body>
@@ -931,14 +952,14 @@
 
 <h2>Key Formulae to Memorise</h2>
 <div class="card">
-    <h3 style="margin-top: 0;">Generalised Binomial Expansion (for any \(n\))</h3>
+    <h3 style="margin-top: 0;">Generalised Binomial Expansion (for any \(n\)) <span class="formula-tag learn">Learn this</span></h3>
     <p style="margin: 0.75rem 0;">$$(1+x)^n = 1 + nx + \frac{n(n-1)}{2!}x^2 + \frac{n(n-1)(n-2)}{3!}x^3 + \cdots$$</p>
     <p style="color: var(--muted); font-size: 0.9rem;">Valid for \(|x| < 1\). When \(n\) is a positive integer, the series terminates. Otherwise, it is infinite.</p>
 
-    <h3>Positive Integer Expansion</h3>
+    <h3>Positive Integer Expansion <span class="formula-tag booklet">In formula booklet</span></h3>
     <p style="margin: 0.75rem 0;">$$(a+b)^n = \sum_{r=0}^{n} \binom{n}{r} a^{n-r} b^r \quad \text{where} \quad \binom{n}{r} = \frac{n!}{r!(n-r)!}$$</p>
 
-    <h3>Validity Conditions</h3>
+    <h3>Validity Conditions <span class="formula-tag learn">Learn this</span></h3>
     <ul style="margin-left: 1.5rem; line-height: 2.2;">
         <li>\((1+bx)^n\) is valid for \(|bx| < 1\), i.e. \(|x| < \frac{1}{|b|}\)</li>
         <li>\((a+bx)^n = a^n(1 + \frac{b}{a}x)^n\) is valid for \(\left|\frac{b}{a}x\right| < 1\), i.e. \(|x| < \left|\frac{a}{b}\right|\)</li>
