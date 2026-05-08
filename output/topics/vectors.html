@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vectors — Edexcel A Level Maths</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #2b6cb0;
+            --success: #276749;
+            --warning: #c05621;
+            --danger: #c53030;
+            --bg: #f7fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #2d3748;
+            --muted: #718096;
+            --mark: #805ad5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        h1 { color: var(--primary); margin-bottom: 0.5rem; font-size: 2rem; }
+        h2 { color: var(--primary); margin: 2.5rem 0 1rem; font-size: 1.4rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        h3 { color: var(--accent); margin: 1.5rem 0 0.75rem; font-size: 1.15rem; }
+
+        .subtitle { color: var(--muted); margin-bottom: 2rem; font-size: 1.05rem; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--accent); }
+        .stat-card .label { font-size: 0.85rem; color: var(--muted); }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .approach-step {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .approach-step:last-child { border-bottom: none; }
+
+        .step-number {
+            background: var(--accent);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .step-content { flex: 1; }
+        .step-content strong { color: var(--primary); }
+
+        .pitfall-box {
+            background: #fff5f5;
+            border: 1px solid #fed7d7;
+            border-left: 4px solid var(--danger);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .pitfall-box h3 { color: var(--danger); margin-top: 0; }
+        .pitfall-box ul { margin-left: 1.5rem; margin-top: 0.5rem; }
+        .pitfall-box li { margin: 0.5rem 0; }
+
+        .tip-box {
+            background: #f0fff4;
+            border: 1px solid #c6f6d5;
+            border-left: 4px solid var(--success);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .tip-box h3 { color: var(--success); margin-top: 0; }
+
+        /* Question index table */
+        .question-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.92rem;
+        }
+
+        .question-table th {
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+        }
+
+        .question-table td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .question-table tr:hover { background: #ebf8ff; }
+
+        .question-table a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .question-table a:hover { text-decoration: underline; }
+
+        .question-table .go-btn {
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+        }
+
+        .question-table .go-btn:hover { background: var(--primary); }
+
+        /* Worked examples */
+        .example-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .example-tab {
+            padding: 0.5rem 1rem;
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .example-tab:hover { border-color: var(--accent); }
+        .example-tab.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+        .example-panel { display: none; }
+        .example-panel.active { display: block; }
+
+        .question-text {
+            background: #ebf8ff;
+            border: 1px solid #bee3f8;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.02rem;
+        }
+
+        .question-text .links {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #bee3f8;
+            font-size: 0.85rem;
+        }
+
+        .question-text .links a {
+            color: var(--accent);
+            text-decoration: none;
+            margin-right: 1.5rem;
+        }
+
+        .question-text .links a:hover { text-decoration: underline; }
+
+        .step-reveal {
+            margin: 0.75rem 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .step-reveal-header {
+            padding: 0.75rem 1rem;
+            background: #edf2f7;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background 0.2s;
+            gap: 0.5rem;
+        }
+
+        .step-reveal-header:hover { background: #e2e8f0; }
+
+        .step-reveal-header .arrow {
+            transition: transform 0.3s;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .step-reveal-header.open .arrow { transform: rotate(90deg); }
+
+        .step-reveal-content {
+            display: none;
+            padding: 1.25rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .step-reveal-content.open { display: block; }
+
+        .part-label {
+            display: inline-block;
+            background: #ebf8ff;
+            color: var(--accent);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        .mark-badge {
+            display: inline-block;
+            background: #faf5ff;
+            color: var(--mark);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border: 1px solid #e9d8fd;
+        }
+
+        .mark-award {
+            background: #faf5ff;
+            border: 1px solid #e9d8fd;
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            color: var(--mark);
+            font-weight: 600;
+        }
+
+        .mark-award::before {
+            content: "\2713 ";
+        }
+
+        .examiner-note {
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            border-radius: 6px;
+            padding: 0.75rem;
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .examiner-note::before {
+            content: "Examiner: ";
+            font-weight: 700;
+            color: var(--warning);
+        }
+
+        .show-all-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            transition: background 0.2s;
+        }
+
+        .show-all-btn:hover { background: var(--primary); }
+
+        .motivation {
+            background: #eef6ff;
+            border: 1px solid #c3dafe;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.93rem;
+        }
+
+        .motivation::before {
+            content: "\1F4AD Thinking: ";
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .algebra-chain {
+            margin: 0.5rem 0;
+            padding-left: 1rem;
+            border-left: 3px solid var(--border);
+        }
+
+        .algebra-chain .reason {
+            color: var(--muted);
+            font-size: 0.85rem;
+            font-style: italic;
+            margin: 0.25rem 0;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            h1 { font-size: 1.5rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .example-selector { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<p style="margin-bottom: 1rem;"><a href="../index.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">&larr; All Topics</a></p>
+
+<h1>Vectors</h1>
+<p class="subtitle">Position vectors, magnitude, direction, geometric proofs (parallel, collinear, trapezium, rhombus) in 2D and 3D</p>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="number">11/14</div>
+        <div class="label">Papers with vectors (2018-2024)</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">3-6</div>
+        <div class="label">Typical marks</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">Q2-13</div>
+        <div class="label">Paper position</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">2 parts</div>
+        <div class="label">Standard structure</div>
+    </div>
+</div>
+
+<!-- FULL QUESTION INDEX -->
+<h2>All Past Paper Questions on This Topic</h2>
+<p style="margin-bottom: 1rem; color: var(--muted);">Every vectors question from Edexcel 9MA0 (2018-2024). Click "Worked Example" to see a full guided solution.</p>
+
+<table class="question-table">
+    <thead>
+        <tr>
+            <th>Paper</th>
+            <th>Question</th>
+            <th>Description</th>
+            <th>Marks</th>
+            <th>Links</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>P1 Oct 2020</td>
+            <td>Q3</td>
+            <td>3D vectors; find \(\overrightarrow{AB}\), prove OABC is a trapezium</td>
+            <td>4</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FOctober%202020%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FOctober%202020%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p1-oct20-q3'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P2 June 2018</td>
+            <td>Q2</td>
+            <td>3D vectors; find position vector of D where \(\overrightarrow{AB} = \overrightarrow{BD}\); use \(|\overrightarrow{AC}| = 4\) to find \(a\)</td>
+            <td>5</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202018%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202018%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p2-jun18-q2'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P2 June 2022</td>
+            <td>Q13</td>
+            <td>3D vectors; collinear points, find \(p\); parallel condition to find \(|\overrightarrow{OD}|\)</td>
+            <td>6</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202022%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202022%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p2-jun22-q13'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P1 June 2022</td>
+            <td>Q10</td>
+            <td>3D vectors; prove parallelogram is a rhombus; find exact area</td>
+            <td>6</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202022%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202022%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p1-jun22-q10'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P2 June 2023</td>
+            <td>Q7</td>
+            <td>2D vectors; show AD parallel to BC; calculate average speed around quadrilateral</td>
+            <td>6</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202023%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202023%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 June 2024</td>
+            <td>Q7</td>
+            <td>3D vectors; find \(\overrightarrow{AB}\); point P on line \(l\) with \(|\overrightarrow{AP}| = 2|\overrightarrow{BP}|\)</td>
+            <td>5</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202024%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202024%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 June 2023</td>
+            <td>Q3</td>
+            <td>3D vectors; show \(|\overrightarrow{OA}| = \sqrt{38}\); find smallest \(a\) so \(|\overrightarrow{OB}| > |\overrightarrow{OA}|\)</td>
+            <td>3</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202023%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202023%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 Oct 2020</td>
+            <td>Q2</td>
+            <td>General vectors; P, Q, R collinear with Q one third from P to R; show \(\mathbf{q} = \frac{1}{3}(\mathbf{r} + 2\mathbf{p})\)</td>
+            <td>3</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FOctober%202020%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FOctober%202020%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 June 2019</td>
+            <td>Q11</td>
+            <td>Geometric proof; triangle OAB with \(|\overrightarrow{OC}| = 2|\overrightarrow{OA}|\); prove ON:NB = 2:1</td>
+            <td>6</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202019%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202019%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- GUIDED APPROACH -->
+<h2>The Approach</h2>
+<div class="card">
+    <p style="margin-bottom: 1rem; color: var(--muted);">The standard structure for Edexcel vector questions:</p>
+
+    <div class="approach-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+            <strong>Identify what vectors you have and what you need</strong><br>
+            Write down the given position vectors. Identify what the question asks: a direction vector (\(\overrightarrow{AB}\)), a magnitude (\(|\overrightarrow{AB}|\)), or a geometric relationship (parallel, collinear). Remember: \(\overrightarrow{AB} = \overrightarrow{OB} - \overrightarrow{OA}\) (end minus start).
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+            <strong>Find the direction vectors you need</strong><br>
+            Subtract position vectors to get direction vectors between points. For geometric proofs, you need to compare vectors: if \(\overrightarrow{AB} = k\overrightarrow{CD}\) for scalar \(k\), then AB is parallel to CD. If points are collinear, one vector is a scalar multiple of another.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+            <strong>Apply the geometric condition and conclude</strong><br>
+            For parallel: show one vector = scalar multiple of another. For collinearity: show the vectors share a common point AND are parallel. For magnitude: use \(|\mathbf{v}| = \sqrt{x^2 + y^2 + z^2}\). Always write an explicit conclusion statement.
+        </div>
+    </div>
+</div>
+
+<!-- EXAMINER PITFALLS -->
+<div class="pitfall-box">
+    <h3>Common Pitfalls (from Examiner Reports)</h3>
+    <ul>
+        <li><strong>Direction errors (wrong way around):</strong> \(\overrightarrow{AB} = \overrightarrow{OB} - \overrightarrow{OA}\), NOT \(\overrightarrow{OA} - \overrightarrow{OB}\). The end point comes first in the subtraction. Getting this backwards reverses the sign.</li>
+        <li><strong>Confusing position vectors and direction vectors:</strong> A position vector gives the location of a point relative to O. A direction vector (like \(\overrightarrow{AB}\)) gives the displacement between two points. They are different things.</li>
+        <li><strong>Not concluding geometric proofs:</strong> Showing \(\overrightarrow{OC} = 2\overrightarrow{AB}\) is NOT enough. You must explicitly state "therefore OC is parallel to AB" and "therefore OABC is a trapezium." The conclusion earns the A mark.</li>
+        <li><strong>Forgetting "only one pair" for trapezium:</strong> A trapezium has exactly one pair of parallel sides. If the question says "trapezium" you may need to show the other pair is NOT parallel.</li>
+        <li><strong>Using coordinates instead of vectors:</strong> Writing \((3, -8, 2)\) instead of \(3\mathbf{i} - 8\mathbf{j} + 2\mathbf{k}\) loses the A mark. Use proper vector notation.</li>
+    </ul>
+</div>
+
+<div class="tip-box">
+    <h3>What Top Candidates Do</h3>
+    <ul>
+        <li>Write the subtraction out in full: \(\overrightarrow{AB} = (3\mathbf{i} - 3\mathbf{j} - 4\mathbf{k}) - (2\mathbf{i} + 5\mathbf{j} - 6\mathbf{k})\) before simplifying.</li>
+        <li>State the parallel condition clearly: "Since \(\overrightarrow{OC} = 2\overrightarrow{AB}\), OC is parallel to AB."</li>
+        <li>For collinearity, show two things: (1) vectors are parallel AND (2) they share a common point.</li>
+        <li>For "show that" magnitude questions, show the individual squares: \(\sqrt{5^2 + 3^2 + 2^2} = \sqrt{25 + 9 + 4} = \sqrt{38}\).</li>
+        <li>Keep vector notation consistent throughout (either \(\mathbf{i}, \mathbf{j}, \mathbf{k}\) or column vectors, not a mix).</li>
+    </ul>
+</div>
+
+<!-- WORKED EXAMPLES -->
+<h2>Worked Examples</h2>
+<div class="example-selector">
+    <div class="example-tab active" onclick="selectExample('ex-p1-oct20-q3')">P1 Oct 2020 Q3 (Trapezium)</div>
+    <div class="example-tab" onclick="selectExample('ex-p2-jun18-q2')">P2 June 2018 Q2 (Magnitude)</div>
+    <div class="example-tab" onclick="selectExample('ex-p2-jun22-q13')">P2 June 2022 Q13 (Collinear)</div>
+    <div class="example-tab" onclick="selectExample('ex-p1-jun22-q10')">P1 June 2022 Q10 (Rhombus)</div>
+</div>
+
+<!-- ===================== EXAMPLE: P1 Oct 2020 Q3 ===================== -->
+<div class="example-panel active" id="ex-p1-oct20-q3">
+    <div class="question-text">
+        <p><strong>Paper 1 — October 2020 — Question 3</strong> (4 marks)</p>
+        <p>Relative to a fixed origin O:</p>
+        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+            <li>point A has position vector \(2\mathbf{i} + 5\mathbf{j} - 6\mathbf{k}\)</li>
+            <li>point B has position vector \(3\mathbf{i} - 3\mathbf{j} - 4\mathbf{k}\)</li>
+            <li>point C has position vector \(2\mathbf{i} - 16\mathbf{j} + 4\mathbf{k}\)</li>
+        </ul>
+        <p style="margin-top: 0.75rem;"><strong>(a)</strong> Find \(\overrightarrow{AB}\). <em>[2 marks]</em></p>
+        <p><strong>(b)</strong> Show that quadrilateral OABC is a trapezium, giving reasons for your answer. <em>[2 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FOctober%202020%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FOctober%202020%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Find \(\overrightarrow{AB}\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We need to find the direction vector from A to B. The formula is always "end minus start": \(\overrightarrow{AB} = \overrightarrow{OB} - \overrightarrow{OA}\). This gives the displacement you'd travel going from A to B.</div>
+            <p>Apply \(\overrightarrow{AB} = \overrightarrow{OB} - \overrightarrow{OA}\):</p>
+            <div class="algebra-chain">
+                <p>$$\overrightarrow{AB} = (3\mathbf{i} - 3\mathbf{j} - 4\mathbf{k}) - (2\mathbf{i} + 5\mathbf{j} - 6\mathbf{k})$$</p>
+                <p class="reason">Subtract component by component: \(3-2\), \(-3-5\), \(-4-(-6)\)</p>
+                <p>$$\overrightarrow{AB} = \mathbf{i} - 8\mathbf{j} + 2\mathbf{k}$$</p>
+            </div>
+            <div class="mark-award">M1 — Attempts subtraction of position vectors (either way around)</div>
+            <div class="mark-award">A1 — Correct: \(\mathbf{i} - 8\mathbf{j} + 2\mathbf{k}\)</div>
+            <div class="examiner-note">The answer must be in vector form. Writing \((1, -8, 2)\) as coordinates loses the A1 mark. Column vector notation is acceptable.</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 2: Show OABC is a trapezium</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">A trapezium has one pair of parallel sides. The vertices are O, A, B, C so the sides are OA, AB, BC, and OC. We need to show that one pair is parallel. Two vectors are parallel if one is a scalar multiple of the other. Let's compare \(\overrightarrow{OC}\) with \(\overrightarrow{AB}\) since we already know \(\overrightarrow{AB}\).</div>
+            <p>We already have \(\overrightarrow{AB} = \mathbf{i} - 8\mathbf{j} + 2\mathbf{k}\).</p>
+            <p>The position vector of C gives us \(\overrightarrow{OC}\) directly:</p>
+            <p>$$\overrightarrow{OC} = 2\mathbf{i} - 16\mathbf{j} + 4\mathbf{k}$$</p>
+            <p>Now compare:</p>
+            <div class="algebra-chain">
+                <p>$$\overrightarrow{OC} = 2\mathbf{i} - 16\mathbf{j} + 4\mathbf{k} = 2(\mathbf{i} - 8\mathbf{j} + 2\mathbf{k}) = 2\overrightarrow{AB}$$</p>
+            </div>
+            <p><strong>Since \(\overrightarrow{OC} = 2\overrightarrow{AB}\), the vectors are parallel (one is a scalar multiple of the other).</strong></p>
+            <p><strong>Therefore OC is parallel to AB, so OABC is a trapezium.</strong></p>
+            <div class="mark-award">M1 — Compares \(\overrightarrow{OC}\) with \(\overrightarrow{AB}\) by stating one is a scalar multiple of the other</div>
+            <div class="mark-award">A1 — Complete argument: correct calculation, states parallel, concludes "trapezium"</div>
+            <div class="examiner-note">You must include all three elements: (1) show the scalar multiple relationship \(\overrightarrow{OC} = 2\overrightarrow{AB}\), (2) state "therefore parallel", (3) conclude "trapezium". Just showing the calculation without the conclusion loses the A1.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p1-oct20-q3')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: P2 June 2018 Q2 ===================== -->
+<div class="example-panel" id="ex-p2-jun18-q2">
+    <div class="question-text">
+        <p><strong>Paper 2 — June 2018 — Question 2</strong> (5 marks)</p>
+        <p>Relative to a fixed origin O:</p>
+        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+            <li>the point A has position vector \(2\mathbf{i} + 3\mathbf{j} - 4\mathbf{k}\)</li>
+            <li>the point B has position vector \(4\mathbf{i} - 2\mathbf{j} + 3\mathbf{k}\)</li>
+            <li>the point C has position vector \(a\mathbf{i} + 5\mathbf{j} - 2\mathbf{k}\), where \(a\) is a constant and \(a < 0\)</li>
+        </ul>
+        <p style="margin-top: 0.75rem;">D is the point such that \(\overrightarrow{AB} = \overrightarrow{BD}\).</p>
+        <p><strong>(a)</strong> Find the position vector of D. <em>[2 marks]</em></p>
+        <p>Given \(|\overrightarrow{AC}| = 4\)</p>
+        <p><strong>(b)</strong> Find the value of \(a\). <em>[3 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202018%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202018%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Find \(\overrightarrow{AB}\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The condition \(\overrightarrow{AB} = \overrightarrow{BD}\) tells us that D is the point you reach by continuing past B by the same displacement as A to B. First we need to find \(\overrightarrow{AB}\), then use it to locate D.</div>
+            <p>Find \(\overrightarrow{AB} = \overrightarrow{OB} - \overrightarrow{OA}\):</p>
+            <div class="algebra-chain">
+                <p>$$\overrightarrow{AB} = (4\mathbf{i} - 2\mathbf{j} + 3\mathbf{k}) - (2\mathbf{i} + 3\mathbf{j} - 4\mathbf{k})$$</p>
+                <p>$$= 2\mathbf{i} - 5\mathbf{j} + 7\mathbf{k}$$</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 2: Find the position vector of D</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Since \(\overrightarrow{BD} = \overrightarrow{AB}\), we can find D by adding \(\overrightarrow{AB}\) to the position of B. The position vector of D is \(\overrightarrow{OD} = \overrightarrow{OB} + \overrightarrow{BD} = \overrightarrow{OB} + \overrightarrow{AB}\).</div>
+            <p>Since \(\overrightarrow{BD} = \overrightarrow{AB} = 2\mathbf{i} - 5\mathbf{j} + 7\mathbf{k}\):</p>
+            <div class="algebra-chain">
+                <p>$$\overrightarrow{OD} = \overrightarrow{OB} + \overrightarrow{BD}$$</p>
+                <p>$$= (4\mathbf{i} - 2\mathbf{j} + 3\mathbf{k}) + (2\mathbf{i} - 5\mathbf{j} + 7\mathbf{k})$$</p>
+                <p>$$= 6\mathbf{i} - 7\mathbf{j} + 10\mathbf{k}$$</p>
+            </div>
+            <div class="mark-award">M1 — Strategy to find \(\overrightarrow{OD}\), e.g. \(\overrightarrow{OD} = \overrightarrow{OB} + \overrightarrow{AB}\) or equivalent</div>
+            <div class="mark-award">A1 — Correct position vector: \(6\mathbf{i} - 7\mathbf{j} + 10\mathbf{k}\)</div>
+            <div class="examiner-note">Alternative methods: \(\overrightarrow{OD} = 2\overrightarrow{OB} - \overrightarrow{OA}\) also works. The key is recognising that \(\overrightarrow{AB} = \overrightarrow{BD}\) means B is the midpoint of AD. Giving coordinates \((6, -7, 10)\) without proper vector form loses the A1.</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 3: Use magnitude condition to find \(a\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We're told \(|\overrightarrow{AC}| = 4\). The magnitude formula is \(|\overrightarrow{AC}| = \sqrt{(a-2)^2 + (5-3)^2 + (-2-(-4))^2}\). Setting this equal to 4 gives us an equation in \(a\). Since \(a < 0\), we'll need to consider which solution satisfies that condition.</div>
+            <p>Find \(\overrightarrow{AC}\):</p>
+            <div class="algebra-chain">
+                <p>$$\overrightarrow{AC} = (a\mathbf{i} + 5\mathbf{j} - 2\mathbf{k}) - (2\mathbf{i} + 3\mathbf{j} - 4\mathbf{k}) = (a-2)\mathbf{i} + 2\mathbf{j} + 2\mathbf{k}$$</p>
+            </div>
+            <p>Apply the magnitude condition \(|\overrightarrow{AC}| = 4\):</p>
+            <div class="algebra-chain">
+                <p>$$\sqrt{(a-2)^2 + 2^2 + 2^2} = 4$$</p>
+                <p class="reason">Square both sides:</p>
+                <p>$$(a-2)^2 + 4 + 4 = 16$$</p>
+                <p class="reason">Simplify:</p>
+                <p>$$(a-2)^2 = 8$$</p>
+                <p class="reason">Take square root:</p>
+                <p>$$a - 2 = \pm 2\sqrt{2}$$</p>
+                <p>$$a = 2 + 2\sqrt{2} \quad \text{or} \quad a = 2 - 2\sqrt{2}$$</p>
+            </div>
+            <p>Since \(a < 0\), and \(2 + 2\sqrt{2} \approx 4.83 > 0\), while \(2 - 2\sqrt{2} \approx -0.83 < 0\):</p>
+            <p>$$\boxed{a = 2 - 2\sqrt{2}}$$</p>
+            <div class="mark-award">M1 — Setting up Pythagoras with \(|\overrightarrow{AC}| = 4\) correctly</div>
+            <div class="mark-award">A1 — Correct simplification to \((a-2)^2 = 8\)</div>
+            <div class="mark-award">A1 — Correct final answer \(a = 2 - 2\sqrt{2}\) (selecting negative root)</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p2-jun18-q2')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: P2 June 2022 Q13 ===================== -->
+<div class="example-panel" id="ex-p2-jun22-q13">
+    <div class="question-text">
+        <p><strong>Paper 2 — June 2022 — Question 13</strong> (6 marks)</p>
+        <p>Relative to a fixed origin O:</p>
+        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+            <li>the point A has position vector \(4\mathbf{i} - 3\mathbf{j} + 5\mathbf{k}\)</li>
+            <li>the point B has position vector \(4\mathbf{j} + 6\mathbf{k}\)</li>
+            <li>the point C has position vector \(-16\mathbf{i} + p\mathbf{j} + 10\mathbf{k}\), where \(p\) is a constant</li>
+        </ul>
+        <p style="margin-top: 0.75rem;">Given that A, B and C lie on a straight line,</p>
+        <p><strong>(a)</strong> find the value of \(p\). <em>[3 marks]</em></p>
+        <p>The line segment OB is extended to a point D so that CD is parallel to OA.</p>
+        <p><strong>(b)</strong> Find \(|\overrightarrow{OD}|\), writing your answer as a fully simplified surd. <em>[3 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202022%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202022%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Find direction vector \(\overrightarrow{AB}\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">If A, B, and C are collinear (lie on a straight line), then \(\overrightarrow{AC}\) must be a scalar multiple of \(\overrightarrow{AB}\). We'll find \(\overrightarrow{AB}\) first, then use the collinearity condition to find \(p\).</div>
+            <p>Find \(\overrightarrow{AB} = \overrightarrow{OB} - \overrightarrow{OA}\):</p>
+            <div class="algebra-chain">
+                <p>$$\overrightarrow{AB} = (0\mathbf{i} + 4\mathbf{j} + 6\mathbf{k}) - (4\mathbf{i} - 3\mathbf{j} + 5\mathbf{k})$$</p>
+                <p>$$= -4\mathbf{i} + 7\mathbf{j} + \mathbf{k}$$</p>
+            </div>
+            <div class="mark-award">M1 — Attempts at least two of the relevant vectors (AB, AC, or BC)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 2: Use collinearity to find \(p\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">For A, B, C to be collinear, \(\overrightarrow{AC}\) must equal \(\lambda \overrightarrow{AB}\) for some scalar \(\lambda\). We can use the \(\mathbf{i}\) or \(\mathbf{k}\) components to find \(\lambda\), then use the \(\mathbf{j}\) component to find \(p\).</div>
+            <p>Find \(\overrightarrow{AC}\):</p>
+            <div class="algebra-chain">
+                <p>$$\overrightarrow{AC} = (-16\mathbf{i} + p\mathbf{j} + 10\mathbf{k}) - (4\mathbf{i} - 3\mathbf{j} + 5\mathbf{k})$$</p>
+                <p>$$= -20\mathbf{i} + (p+3)\mathbf{j} + 5\mathbf{k}$$</p>
+            </div>
+            <p>For collinearity, \(\overrightarrow{AC} = \lambda \overrightarrow{AB}\). Comparing \(\mathbf{i}\) components:</p>
+            <div class="algebra-chain">
+                <p>$$-20 = \lambda \times (-4) \implies \lambda = 5$$</p>
+                <p class="reason">Check with \(\mathbf{k}\) components: \(5 = 5 \times 1 = 5\) &#10003;</p>
+            </div>
+            <p>Now use the \(\mathbf{j}\) component:</p>
+            <div class="algebra-chain">
+                <p>$$p + 3 = 5 \times 7 = 35$$</p>
+                <p>$$\boxed{p = 32}$$</p>
+            </div>
+            <div class="mark-award">dM1 — Uses the parallel/collinear condition to set up an equation for \(p\)</div>
+            <div class="mark-award">A1 — \(p = 32\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 3: Find \(|\overrightarrow{OD}|\) using the parallel condition</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">D lies on OB extended, so \(\overrightarrow{OD} = \lambda \overrightarrow{OB} = \lambda(4\mathbf{j} + 6\mathbf{k})\) for some \(\lambda > 1\). The condition is that CD is parallel to OA. If we find \(\overrightarrow{CD}\) in terms of \(\lambda\) and force it to be parallel to \(\overrightarrow{OA} = 4\mathbf{i} - 3\mathbf{j} + 5\mathbf{k}\), we can determine \(\lambda\).</div>
+            <p>Since D lies on OB extended: \(\overrightarrow{OD} = \lambda(4\mathbf{j} + 6\mathbf{k}) = 4\lambda\mathbf{j} + 6\lambda\mathbf{k}\)</p>
+            <p>Find \(\overrightarrow{CD} = \overrightarrow{OD} - \overrightarrow{OC}\):</p>
+            <div class="algebra-chain">
+                <p>$$\overrightarrow{CD} = (4\lambda\mathbf{j} + 6\lambda\mathbf{k}) - (-16\mathbf{i} + 32\mathbf{j} + 10\mathbf{k})$$</p>
+                <p>$$= 16\mathbf{i} + (4\lambda - 32)\mathbf{j} + (6\lambda - 10)\mathbf{k}$$</p>
+            </div>
+            <p>For CD parallel to \(\overrightarrow{OA} = 4\mathbf{i} - 3\mathbf{j} + 5\mathbf{k}\), ratios of components must be equal:</p>
+            <div class="algebra-chain">
+                <p class="reason">Using \(\mathbf{i}\) and \(\mathbf{j}\) components: \(\frac{16}{4} = \frac{4\lambda - 32}{-3}\)</p>
+                <p>$$4 = \frac{4\lambda - 32}{-3}$$</p>
+                <p>$$-12 = 4\lambda - 32$$</p>
+                <p>$$4\lambda = 20 \implies \lambda = 5$$</p>
+            </div>
+            <p>Therefore \(\overrightarrow{OD} = 5(4\mathbf{j} + 6\mathbf{k}) = 20\mathbf{j} + 30\mathbf{k}\)</p>
+            <p>Find the magnitude:</p>
+            <div class="algebra-chain">
+                <p>$$|\overrightarrow{OD}| = \sqrt{20^2 + 30^2} = \sqrt{400 + 900} = \sqrt{1300}$$</p>
+                <p class="reason">Simplify: \(\sqrt{1300} = \sqrt{100 \times 13} = 10\sqrt{13}\)</p>
+            </div>
+            <p>$$\boxed{|\overrightarrow{OD}| = 10\sqrt{13}}$$</p>
+            <div class="mark-award">M1 — Deduces \(\overrightarrow{OD} = \lambda\overrightarrow{OB}\) and attempts \(\overrightarrow{CD}\)</div>
+            <div class="mark-award">dM1 — Correct use of "CD parallel to OA" to find \(\lambda\)</div>
+            <div class="mark-award">A1 — \(|\overrightarrow{OD}| = 10\sqrt{13}\)</div>
+            <div class="examiner-note">The answer must be a fully simplified surd. Writing \(\sqrt{1300}\) without simplifying to \(10\sqrt{13}\) loses the final A1. Alternative method: use similar triangles with the ratio from part (a).</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p2-jun22-q13')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: P1 June 2022 Q10 ===================== -->
+<div class="example-panel" id="ex-p1-jun22-q10">
+    <div class="question-text">
+        <p><strong>Paper 1 — June 2022 — Question 10</strong> (6 marks)</p>
+        <p>Figure 3 shows a sketch of a parallelogram PQRS.</p>
+        <p>Given that:</p>
+        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+            <li>\(\overrightarrow{PQ} = 2\mathbf{i} + 3\mathbf{j} - 4\mathbf{k}\)</li>
+            <li>\(\overrightarrow{QR} = 5\mathbf{i} - 2\mathbf{k}\)</li>
+        </ul>
+        <p style="margin-top: 0.75rem;"><strong>(a)</strong> Show that parallelogram PQRS is a rhombus. <em>[2 marks]</em></p>
+        <p><strong>(b)</strong> Find the exact area of the rhombus PQRS. <em>[4 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202022%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202022%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Show the parallelogram is a rhombus</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">A rhombus is a parallelogram with all sides equal. Since PQRS is already given as a parallelogram, we know opposite sides are equal (\(|\overrightarrow{PQ}| = |\overrightarrow{SR}|\) and \(|\overrightarrow{QR}| = |\overrightarrow{PS}|\)). So we just need to show that two adjacent sides are also equal: \(|\overrightarrow{PQ}| = |\overrightarrow{QR}|\).</div>
+            <p>Find the magnitudes of two adjacent sides:</p>
+            <div class="algebra-chain">
+                <p>$$|\overrightarrow{PQ}| = \sqrt{2^2 + 3^2 + (-4)^2} = \sqrt{4 + 9 + 16} = \sqrt{29}$$</p>
+                <p>$$|\overrightarrow{QR}| = \sqrt{5^2 + 0^2 + (-2)^2} = \sqrt{25 + 0 + 4} = \sqrt{29}$$</p>
+            </div>
+            <p><strong>Since \(|\overrightarrow{PQ}| = |\overrightarrow{QR}| = \sqrt{29}\), and PQRS is a parallelogram, all four sides have equal length. Therefore PQRS is a rhombus.</strong></p>
+            <div class="mark-award">M1 — Attempts both \(|\overrightarrow{PQ}|\) and \(|\overrightarrow{QR}|\)</div>
+            <div class="mark-award">A1 — Shows both equal \(\sqrt{29}\) and concludes "rhombus"</div>
+            <div class="examiner-note">You must show the calculation for both magnitudes — not just state they are equal. The conclusion "therefore rhombus" (or equivalent) is required for the A1.</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 2: Find the diagonals of the rhombus</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The area of a rhombus is \(\frac{1}{2} \times d_1 \times d_2\) where \(d_1\) and \(d_2\) are the lengths of the diagonals. The diagonals of parallelogram PQRS are PR and QS. Using the parallelogram law: \(\overrightarrow{PR} = \overrightarrow{PQ} + \overrightarrow{QR}\) and \(\overrightarrow{QS} = -\overrightarrow{PQ} + \overrightarrow{PS} = \overrightarrow{QR} - \overrightarrow{PQ}\) (since \(\overrightarrow{PS} = \overrightarrow{QR}\) in a parallelogram).</div>
+            <p>Find diagonal \(\overrightarrow{PR}\):</p>
+            <div class="algebra-chain">
+                <p>$$\overrightarrow{PR} = \overrightarrow{PQ} + \overrightarrow{QR} = (2\mathbf{i} + 3\mathbf{j} - 4\mathbf{k}) + (5\mathbf{i} - 2\mathbf{k})$$</p>
+                <p>$$= 7\mathbf{i} + 3\mathbf{j} - 6\mathbf{k}$$</p>
+            </div>
+            <p>Find diagonal \(\overrightarrow{QS}\):</p>
+            <div class="algebra-chain">
+                <p class="reason">In a parallelogram, \(\overrightarrow{PS} = \overrightarrow{QR}\), so \(\overrightarrow{QS} = \overrightarrow{QP} + \overrightarrow{PS} = -\overrightarrow{PQ} + \overrightarrow{QR}\)</p>
+                <p>$$\overrightarrow{QS} = -(2\mathbf{i} + 3\mathbf{j} - 4\mathbf{k}) + (5\mathbf{i} - 2\mathbf{k})$$</p>
+                <p>$$= 3\mathbf{i} - 3\mathbf{j} + 2\mathbf{k}$$</p>
+            </div>
+            <div class="mark-award">M1 — Attempts both diagonal vectors PR and QS</div>
+            <div class="mark-award">A1 — Both correct: \(\overrightarrow{PR} = 7\mathbf{i} + 3\mathbf{j} - 6\mathbf{k}\) and \(\overrightarrow{QS} = 3\mathbf{i} - 3\mathbf{j} + 2\mathbf{k}\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 3: Calculate the area using diagonal lengths</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The area of a rhombus = \(\frac{1}{2} |d_1| |d_2|\) where \(d_1\) and \(d_2\) are the diagonal vectors. This works because the diagonals of a rhombus are perpendicular (we could verify: \(\overrightarrow{PR} \cdot \overrightarrow{QS} = 21 - 9 - 12 = 0\)).</div>
+            <p>Find the diagonal lengths:</p>
+            <div class="algebra-chain">
+                <p>$$|\overrightarrow{PR}| = \sqrt{7^2 + 3^2 + (-6)^2} = \sqrt{49 + 9 + 36} = \sqrt{94}$$</p>
+                <p>$$|\overrightarrow{QS}| = \sqrt{3^2 + (-3)^2 + 2^2} = \sqrt{9 + 9 + 4} = \sqrt{22}$$</p>
+            </div>
+            <p>Area of rhombus PQRS:</p>
+            <div class="algebra-chain">
+                <p>$$\text{Area} = \frac{1}{2} \times |\overrightarrow{PR}| \times |\overrightarrow{QS}| = \frac{1}{2} \times \sqrt{94} \times \sqrt{22}$$</p>
+                <p class="reason">Simplify: \(\sqrt{94 \times 22} = \sqrt{2068} = \sqrt{4 \times 517} = 2\sqrt{517}\)</p>
+                <p>$$= \frac{1}{2} \times 2\sqrt{517} = \sqrt{517}$$</p>
+            </div>
+            <p>$$\boxed{\text{Area} = \sqrt{517}}$$</p>
+            <div class="mark-award">dM1 — Correct method for area using \(\frac{1}{2} |\overrightarrow{PR}| \times |\overrightarrow{QS}|\)</div>
+            <div class="mark-award">A1 — \(\sqrt{517}\)</div>
+            <div class="examiner-note">The diagonals of a rhombus are perpendicular, so the formula \(\frac{1}{2} d_1 d_2\) applies. This is the key insight. Alternatively, you could use the cross product method or the cosine rule, but the diagonal approach is cleanest here.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p1-jun22-q10')">Show Full Solution</button>
+</div>
+
+<!-- PATTERN RECOGNITION -->
+<h2>How to Recognise This Question Type</h2>
+<div class="card">
+    <p>Look for these signals in the question:</p>
+    <ul style="margin-left: 1.5rem; line-height: 2;">
+        <li>"Relative to a fixed origin O" — this is the standard preamble for all vector questions</li>
+        <li>Points given with <strong>position vectors</strong> using \(\mathbf{i}\), \(\mathbf{j}\), \(\mathbf{k}\) notation</li>
+        <li>Keywords: <strong>parallel</strong>, <strong>collinear</strong>, <strong>trapezium</strong>, <strong>rhombus</strong>, <strong>parallelogram</strong></li>
+        <li>Finding \(|\overrightarrow{AB}|\) or a condition like \(|\overrightarrow{AC}| = k\)</li>
+        <li>"Show that..." with a geometric conclusion</li>
+        <li>Usually Q2-Q5 on the paper (early, moderate difficulty), or Q10-Q13 for harder geometric proofs</li>
+    </ul>
+</div>
+
+<h2>Key Formulae and Results</h2>
+<div class="card">
+    <ul style="margin-left: 1.5rem; line-height: 2.2;">
+        <li><strong>Direction vector:</strong> \(\overrightarrow{AB} = \overrightarrow{OB} - \overrightarrow{OA}\) (end minus start)</li>
+        <li><strong>Magnitude:</strong> \(|\mathbf{a}| = \sqrt{x^2 + y^2 + z^2}\) for \(\mathbf{a} = x\mathbf{i} + y\mathbf{j} + z\mathbf{k}\)</li>
+        <li><strong>Parallel:</strong> \(\mathbf{a} \parallel \mathbf{b} \iff \mathbf{a} = k\mathbf{b}\) for some scalar \(k\)</li>
+        <li><strong>Collinear:</strong> A, B, C collinear \(\iff \overrightarrow{AC} = \lambda \overrightarrow{AB}\) (parallel AND share a point)</li>
+        <li><strong>Midpoint:</strong> M is midpoint of AB \(\implies \overrightarrow{OM} = \frac{1}{2}(\overrightarrow{OA} + \overrightarrow{OB})\)</li>
+        <li><strong>Section formula:</strong> Point dividing AB in ratio \(m:n\) has position vector \(\frac{n\overrightarrow{OA} + m\overrightarrow{OB}}{m+n}\)</li>
+        <li><strong>Trapezium:</strong> Exactly one pair of parallel sides</li>
+        <li><strong>Rhombus:</strong> Parallelogram with all sides equal (diagonals are perpendicular)</li>
+    </ul>
+</div>
+
+<script>
+    // Toggle individual step
+    function toggleStep(header) {
+        header.classList.toggle('open');
+        header.nextElementSibling.classList.toggle('open');
+    }
+
+    // Show all steps in a panel
+    function showAllSteps(panelId) {
+        const panel = document.getElementById(panelId);
+        panel.querySelectorAll('.step-reveal-header').forEach(h => h.classList.add('open'));
+        panel.querySelectorAll('.step-reveal-content').forEach(c => c.classList.add('open'));
+    }
+
+    // Select an example (tab switching)
+    function selectExample(panelId) {
+        // Deactivate all tabs and panels
+        document.querySelectorAll('.example-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.example-panel').forEach(p => p.classList.remove('active'));
+
+        // Activate the selected panel
+        document.getElementById(panelId).classList.add('active');
+
+        // Find and activate the matching tab
+        const tabs = document.querySelectorAll('.example-tab');
+        const tabMap = {
+            'ex-p1-oct20-q3': 0,
+            'ex-p2-jun18-q2': 1,
+            'ex-p2-jun22-q13': 2,
+            'ex-p1-jun22-q10': 3
+        };
+        if (tabMap[panelId] !== undefined) {
+            tabs[tabMap[panelId]].classList.add('active');
+        }
+
+        // Scroll to worked examples section
+        document.getElementById(panelId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Render KaTeX on load
+    document.addEventListener('DOMContentLoaded', function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ]
+        });
+    });
+</script>
+
+</body>
+</html>

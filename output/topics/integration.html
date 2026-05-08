@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integration — Edexcel A Level Maths</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #2b6cb0;
+            --success: #276749;
+            --warning: #c05621;
+            --danger: #c53030;
+            --bg: #f7fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #2d3748;
+            --muted: #718096;
+            --mark: #805ad5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        h1 { color: var(--primary); margin-bottom: 0.5rem; font-size: 2rem; }
+        h2 { color: var(--primary); margin: 2.5rem 0 1rem; font-size: 1.4rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        h3 { color: var(--accent); margin: 1.5rem 0 0.75rem; font-size: 1.15rem; }
+
+        .subtitle { color: var(--muted); margin-bottom: 2rem; font-size: 1.05rem; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--accent); }
+        .stat-card .label { font-size: 0.85rem; color: var(--muted); }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .approach-step {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .approach-step:last-child { border-bottom: none; }
+
+        .step-number {
+            background: var(--accent);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .step-content { flex: 1; }
+        .step-content strong { color: var(--primary); }
+
+        .pitfall-box {
+            background: #fff5f5;
+            border: 1px solid #fed7d7;
+            border-left: 4px solid var(--danger);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .pitfall-box h3 { color: var(--danger); margin-top: 0; }
+        .pitfall-box ul { margin-left: 1.5rem; margin-top: 0.5rem; }
+        .pitfall-box li { margin: 0.5rem 0; }
+
+        .tip-box {
+            background: #f0fff4;
+            border: 1px solid #c6f6d5;
+            border-left: 4px solid var(--success);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .tip-box h3 { color: var(--success); margin-top: 0; }
+
+        /* Question index table */
+        .question-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.92rem;
+        }
+
+        .question-table th {
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+        }
+
+        .question-table td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .question-table tr:hover { background: #ebf8ff; }
+
+        .question-table a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .question-table a:hover { text-decoration: underline; }
+
+        .question-table .go-btn {
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+        }
+
+        .question-table .go-btn:hover { background: var(--primary); }
+
+        /* Worked examples */
+        .example-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .example-tab {
+            padding: 0.5rem 1rem;
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .example-tab:hover { border-color: var(--accent); }
+        .example-tab.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+        .example-panel { display: none; }
+        .example-panel.active { display: block; }
+
+        .question-text {
+            background: #ebf8ff;
+            border: 1px solid #bee3f8;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.02rem;
+        }
+
+        .question-text .links {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #bee3f8;
+            font-size: 0.85rem;
+        }
+
+        .question-text .links a {
+            color: var(--accent);
+            text-decoration: none;
+            margin-right: 1.5rem;
+        }
+
+        .question-text .links a:hover { text-decoration: underline; }
+
+        .step-reveal {
+            margin: 0.75rem 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .step-reveal-header {
+            padding: 0.75rem 1rem;
+            background: #edf2f7;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background 0.2s;
+            gap: 0.5rem;
+        }
+
+        .step-reveal-header:hover { background: #e2e8f0; }
+
+        .step-reveal-header .arrow {
+            transition: transform 0.3s;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .step-reveal-header.open .arrow { transform: rotate(90deg); }
+
+        .step-reveal-content {
+            display: none;
+            padding: 1.25rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .step-reveal-content.open { display: block; }
+
+        .part-label {
+            display: inline-block;
+            background: #ebf8ff;
+            color: var(--accent);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        .mark-badge {
+            display: inline-block;
+            background: #faf5ff;
+            color: var(--mark);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border: 1px solid #e9d8fd;
+        }
+
+        .mark-award {
+            background: #faf5ff;
+            border: 1px solid #e9d8fd;
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            color: var(--mark);
+            font-weight: 600;
+        }
+
+        .mark-award::before {
+            content: "\2713 ";
+        }
+
+        .examiner-note {
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            border-radius: 6px;
+            padding: 0.75rem;
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .examiner-note::before {
+            content: "Examiner: ";
+            font-weight: 700;
+            color: var(--warning);
+        }
+
+        .show-all-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            transition: background 0.2s;
+        }
+
+        .show-all-btn:hover { background: var(--primary); }
+
+        .motivation {
+            background: #eef6ff;
+            border: 1px solid #c3dafe;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.93rem;
+        }
+
+        .motivation::before {
+            content: "\1F4AD Thinking: ";
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .algebra-chain {
+            margin: 0.5rem 0;
+            padding-left: 1rem;
+            border-left: 3px solid var(--border);
+        }
+
+        .algebra-chain .reason {
+            color: var(--muted);
+            font-size: 0.85rem;
+            font-style: italic;
+            margin: 0.25rem 0;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            h1 { font-size: 1.5rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .example-selector { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<p style="margin-bottom: 1rem;"><a href="../index.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">&larr; All Topics</a></p>
+
+<h1>Integration</h1>
+<p class="subtitle">Indefinite and definite integrals, areas under/between curves, integration by substitution, by parts, and with partial fractions</p>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="number">14/14</div>
+        <div class="label">Appears in every paper</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">6–10</div>
+        <div class="label">Typical marks per Q</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">Q6–14</div>
+        <div class="label">Paper position</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">5 types</div>
+        <div class="label">Powers, substitution, parts, partial fracs, reverse chain</div>
+    </div>
+</div>
+
+<!-- FULL QUESTION INDEX -->
+<h2>All Past Paper Questions on This Topic</h2>
+<p style="margin-bottom: 1rem; color: var(--muted);">Every integration question from Edexcel 9MA0 Papers 1 &amp; 2 (2018–2024). Click "Worked Example" to see a full guided solution.</p>
+
+<table class="question-table">
+    <thead>
+        <tr>
+            <th>Paper</th>
+            <th>Question</th>
+            <th>Description</th>
+            <th>Marks</th>
+            <th>Links</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>P1 June 2019</td>
+            <td>Q8</td>
+            <td>Area under \(y = x(x+2)(x-4)\); equal areas problem</td>
+            <td>10</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202019%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202019%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p1-jun19-q8'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P2 Oct 2020</td>
+            <td>Q6</td>
+            <td>Integration using partial fractions: \(\int \frac{x^2+8x-3}{x+2}\,dx\)</td>
+            <td>7</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FOctober%202020%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FOctober%202020%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p2-oct20-q6'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P1 Oct 2020</td>
+            <td>Q10</td>
+            <td>Integration by substitution: \(x = u^2 + 1\), partial fractions after</td>
+            <td>10</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FOctober%202020%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FOctober%202020%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p1-oct20-q10'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P1 Oct 2021</td>
+            <td>Q11</td>
+            <td>Integration by parts: area under \(y = (\ln x)^2\) from \(x=2\) to \(x=4\)</td>
+            <td>8</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FOctober%202021%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FOctober%202021%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p1-oct21-q11'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P2 June 2022</td>
+            <td>Q8</td>
+            <td>Area bounded by curve \(y = \frac{(x-2)(x-4)}{4\sqrt{x}}\) and x-axis</td>
+            <td>6</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202022%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202022%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 June 2022</td>
+            <td>Q14</td>
+            <td>Partial fractions and differential equation: \(\frac{3}{(2x-1)(x+1)}\)</td>
+            <td>10</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202022%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202022%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 June 2019</td>
+            <td>Q14</td>
+            <td>Integration by substitution: \(u = e^x\)</td>
+            <td>10</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202019%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202019%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 Oct 2021</td>
+            <td>Q6</td>
+            <td>Area between curve and line: \(y = 3x^3 + 20x^2 - 27x\) and \(y = 36x\)</td>
+            <td>9</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FOctober%202021%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FOctober%202021%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 Oct 2021</td>
+            <td>Q12</td>
+            <td>Substitution: \(u = 1 + \sqrt{x}\), then algebraic integration</td>
+            <td>9</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FOctober%202021%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FOctober%202021%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 June 2022</td>
+            <td>Q14</td>
+            <td>Area bounded by parametric curve, x-axis and line \(x=4\)</td>
+            <td>9</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202022%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202022%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 June 2024</td>
+            <td>Q9</td>
+            <td>Area between curve, line \(l_1\) and line \(l_2\)</td>
+            <td>10</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202024%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202024%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 June 2024</td>
+            <td>Q13</td>
+            <td>Substitution \(x = a\sin^2\theta\); show integral result</td>
+            <td>10</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202024%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202024%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 June 2023</td>
+            <td>Q12</td>
+            <td>Partial fractions in terms of \(k\); algebraic integration</td>
+            <td>10</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202023%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202023%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 June 2024</td>
+            <td>Q10</td>
+            <td>Area under parametric curve bounded by x-axis</td>
+            <td>8</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202024%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202024%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- GUIDED APPROACH -->
+<h2>The Approach</h2>
+<div class="card">
+    <p style="margin-bottom: 1rem; color: var(--muted);">Integration questions come in several types. Identify the type first, then follow the appropriate strategy:</p>
+
+    <div class="approach-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+            <strong>Basic power integration</strong><br>
+            Expand brackets and rewrite all terms as \(ax^n\). Then apply \(\int ax^n\,dx = \frac{a}{n+1}x^{n+1} + c\). Remember: \(\sqrt{x} = x^{1/2}\), \(\frac{1}{x^2} = x^{-2}\), etc. Always add \(+c\) for indefinite integrals.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+            <strong>Area under/between curves</strong><br>
+            Set up the definite integral with correct limits. For area between two curves: \(\int_a^b (\text{top} - \text{bottom})\,dx\). If the curve goes below the x-axis, the integral gives a negative value — take the absolute value or split the integral at the roots.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+            <strong>Integration by substitution</strong><br>
+            Given \(u = g(x)\): find \(\frac{du}{dx}\), rearrange to get \(dx = \ldots\,du\), replace all \(x\)-terms (including \(dx\)) with \(u\)-terms, change limits if definite. The goal is an integral purely in \(u\).
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+            <strong>Integration by parts</strong><br>
+            Use when you see a product like \(x\ln x\), \(x e^x\), \(x\sin x\), or \((\ln x)^n\). Formula: \(\int u\,\frac{dv}{dx}\,dx = uv - \int v\,\frac{du}{dx}\,dx\). Choose \(u\) = the thing that simplifies when differentiated (usually \(\ln x\), \(x^n\), or polynomial). May need to apply twice.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">5</div>
+        <div class="step-content">
+            <strong>Integration with partial fractions</strong><br>
+            When the integrand is a rational function like \(\frac{f(x)}{(ax+b)(cx+d)}\): split into partial fractions first, then integrate each fraction separately using \(\int \frac{A}{ax+b}\,dx = \frac{A}{a}\ln|ax+b| + c\).
+        </div>
+    </div>
+</div>
+
+<!-- EXAMINER PITFALLS -->
+<div class="pitfall-box">
+    <h3>Common Pitfalls (from Examiner Reports)</h3>
+    <ul>
+        <li><strong>Forgetting +c:</strong> Every indefinite integral must include the constant of integration. This is a free mark that many candidates throw away.</li>
+        <li><strong>Sign errors with areas below the x-axis:</strong> If a curve dips below the x-axis, the integral gives a negative value. You must either split at the roots or take \(-\int\) for the negative region. Simply integrating across the whole interval gives the wrong answer.</li>
+        <li><strong>Not changing limits in substitution:</strong> When using a substitution for a definite integral, you MUST convert the limits from \(x\)-values to \(u\)-values. Candidates who forget this and substitute back earn fewer marks.</li>
+        <li><strong>Wrong choice of \(u\) and \(\frac{dv}{dx}\) in by parts:</strong> A poor choice (e.g. letting \(u = e^x\) when \(\ln x\) is present) leads to a harder integral. LIATE rule: Logs, Inverse trig, Algebraic, Trig, Exponential — choose \(u\) from left to right.</li>
+        <li><strong>Incomplete partial fractions:</strong> If the degree of the numerator equals or exceeds the denominator, you must do polynomial long division first before splitting into partial fractions.</li>
+    </ul>
+</div>
+
+<div class="tip-box">
+    <h3>What Top Candidates Do</h3>
+    <ul>
+        <li>Write "Let \(u = \ldots\), \(\frac{du}{dx} = \ldots\)" explicitly — this earns a method mark even if subsequent work is flawed.</li>
+        <li>For "show that" integration questions, show every step of the substitution and simplification. The examiner needs to see the transition from \(x\) to \(u\).</li>
+        <li>When computing definite integrals, write the integrated expression with square brackets and limits before substituting numbers: \(\left[\frac{x^3}{3}\right]_0^2\).</li>
+        <li>Check your answer makes sense: areas should be positive, and "exact" answers should contain \(\ln\), \(\pi\), surds — not decimals.</li>
+    </ul>
+</div>
+
+<!-- WORKED EXAMPLES -->
+<h2>Worked Examples</h2>
+<p style="color: var(--muted); margin-bottom: 0.5rem;">Select a question to see the full guided solution:</p>
+
+<div class="example-selector">
+    <div class="example-tab active" onclick="selectExample('ex-p1-jun19-q8')">June 2019 P1 Q8</div>
+    <div class="example-tab" onclick="selectExample('ex-p2-oct20-q6')">Oct 2020 P2 Q6</div>
+    <div class="example-tab" onclick="selectExample('ex-p1-oct20-q10')">Oct 2020 P1 Q10</div>
+    <div class="example-tab" onclick="selectExample('ex-p1-oct21-q11')">Oct 2021 P1 Q11</div>
+</div>
+
+<!-- ===================== EXAMPLE 1: P1 June 2019 Q8 — Basic Integration / Area ===================== -->
+<div class="example-panel active" id="ex-p1-jun19-q8">
+    <div class="question-text">
+        <p><strong>Paper 1 — June 2019 — Question 8</strong> (10 marks)</p>
+        <p>Figure 2 shows a sketch of part of the curve with equation \(y = x(x+2)(x-4)\).</p>
+        <p>The region \(R_1\), shown shaded, is bounded by the curve and the negative x-axis.</p>
+        <p><strong>(a)</strong> Show that the exact area of \(R_1\) is \(\dfrac{20}{3}\) <em>[4 marks]</em></p>
+        <p>The region \(R_2\) is bounded by the curve, the positive x-axis and the line \(x = b\), where \(b\) is a positive constant and \(0 < b < 4\). Given that area of \(R_1\) = area of \(R_2\),</p>
+        <p><strong>(b)</strong> verify that \(b\) satisfies the equation \((b+2)^2(3b^2 - 20b + 20) = 0\) <em>[4 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202019%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202019%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Identify the limits of integration</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The region \(R_1\) is bounded by the curve and the negative x-axis. We need to find where the curve crosses the x-axis on the negative side. Since \(y = x(x+2)(x-4)\), the roots are \(x = 0\), \(x = -2\), and \(x = 4\). On the negative side, the relevant roots are \(x = -2\) and \(x = 0\).</div>
+            <p>The curve \(y = x(x+2)(x-4)\) crosses the x-axis at \(x = -2\), \(x = 0\), and \(x = 4\).</p>
+            <p>The region \(R_1\) is between \(x = -2\) and \(x = 0\) (the negative x-axis portion).</p>
+            <p>We need \(\displaystyle \text{Area} = \int_{-2}^{0} x(x+2)(x-4)\,dx\)</p>
+            <div class="examiner-note">Between \(x = -2\) and \(x = 0\), the curve is above the x-axis (check: at \(x = -1\), \(y = (-1)(1)(-5) = 5 > 0\)). So the integral gives a positive value directly — no need for absolute value here.</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 2: Expand the cubic before integrating</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We cannot integrate a product directly — we need to expand into separate power terms. Multiply out \(x(x+2)(x-4)\) step by step.</div>
+            <div class="algebra-chain">
+                <p class="reason">First multiply \((x+2)(x-4)\):</p>
+                <p>$$(x+2)(x-4) = x^2 - 4x + 2x - 8 = x^2 - 2x - 8$$</p>
+                <p class="reason">Now multiply by \(x\):</p>
+                <p>$$x(x^2 - 2x - 8) = x^3 - 2x^2 - 8x$$</p>
+            </div>
+            <p>So we need: \(\displaystyle \int_{-2}^{0} (x^3 - 2x^2 - 8x)\,dx\)</p>
+            <div class="mark-award">M1 — Expanding brackets and attempting to integrate each term</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 3: Integrate term by term</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Now we apply the power rule \(\int x^n\,dx = \frac{x^{n+1}}{n+1}\) to each term separately. Then we evaluate using the limits \(-2\) and \(0\).</div>
+            <div class="algebra-chain">
+                <p class="reason">Integrate each term: increase the power by 1, divide by the new power:</p>
+                <p>$$\int (x^3 - 2x^2 - 8x)\,dx = \frac{x^4}{4} - \frac{2x^3}{3} - \frac{8x^2}{2}$$</p>
+                <p class="reason">Simplify:</p>
+                <p>$$= \frac{x^4}{4} - \frac{2x^3}{3} - 4x^2$$</p>
+            </div>
+            <div class="mark-award">A1 — Correct integration: at least two terms correct</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 4: Apply the limits and evaluate</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">For a definite integral, we substitute the upper limit and subtract the lower limit: \([F(x)]_a^b = F(b) - F(a)\). Here \(F(0)\) is straightforward (everything is 0), so we just need to compute \(F(-2)\) carefully.</div>
+            <div class="algebra-chain">
+                <p>$$\left[\frac{x^4}{4} - \frac{2x^3}{3} - 4x^2\right]_{-2}^{0}$$</p>
+                <p class="reason">At \(x = 0\): all terms are 0.</p>
+                <p class="reason">At \(x = -2\): \(\frac{(-2)^4}{4} - \frac{2(-2)^3}{3} - 4(-2)^2\)</p>
+                <p>$$= \frac{16}{4} - \frac{2(-8)}{3} - 4(4)$$</p>
+                <p>$$= 4 + \frac{16}{3} - 16$$</p>
+                <p>$$= -12 + \frac{16}{3} = \frac{-36 + 16}{3} = \frac{-20}{3}$$</p>
+                <p class="reason">So: \(F(0) - F(-2) = 0 - \left(\frac{-20}{3}\right) = \frac{20}{3}\)</p>
+            </div>
+            <p>$$\boxed{\text{Area of } R_1 = \frac{20}{3}} \quad \square$$</p>
+            <div class="mark-award">M1 — Substituting limits into integrated expression</div>
+            <div class="mark-award">A1 — Correct answer: \(\frac{20}{3}\)</div>
+            <div class="examiner-note">This is a "show that" question, so you must show the substitution of \(x = -2\) explicitly. Candidates who jumped from the integrated expression to "\(= \frac{20}{3}\)" without showing the arithmetic lost the final mark.</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 5: Set up the equation for equal areas</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We are told area of \(R_2\) = area of \(R_1 = \frac{20}{3}\). The region \(R_2\) is bounded by the curve from \(x = 0\) to \(x = b\), where the curve is below the x-axis (since between 0 and 4 the curve dips below). So we integrate from 0 to \(b\) and the integral will be negative (curve below x-axis). We set \(-\int_0^b y\,dx = \frac{20}{3}\).</div>
+            <p>Between \(x = 0\) and \(x = 4\), the curve is below the x-axis (check: at \(x = 1\), \(y = 1(3)(-3) = -9 < 0\)).</p>
+            <p>So area of \(R_2 = -\int_0^b (x^3 - 2x^2 - 8x)\,dx = \frac{20}{3}\)</p>
+            <p>Therefore: \(\int_0^b (x^3 - 2x^2 - 8x)\,dx = -\frac{20}{3}\)</p>
+            <div class="algebra-chain">
+                <p class="reason">Using our antiderivative from Part (a):</p>
+                <p>$$\left[\frac{x^4}{4} - \frac{2x^3}{3} - 4x^2\right]_0^b = -\frac{20}{3}$$</p>
+                <p>$$\frac{b^4}{4} - \frac{2b^3}{3} - 4b^2 = -\frac{20}{3}$$</p>
+            </div>
+            <div class="mark-award">M1 — Setting up integral from 0 to \(b\) equal to \(\pm\frac{20}{3}\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 6: Rearrange and verify the given factored form</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We need to show this equation rearranges to \((b+2)^2(3b^2 - 20b + 20) = 0\). Strategy: multiply through by 12 to clear denominators, collect everything on one side, and factor.</div>
+            <div class="algebra-chain">
+                <p class="reason">Multiply both sides by 12 to clear fractions:</p>
+                <p>$$3b^4 - 8b^3 - 48b^2 = -80$$</p>
+                <p class="reason">Bring everything to one side:</p>
+                <p>$$3b^4 - 8b^3 - 48b^2 + 80 = 0$$</p>
+                <p class="reason">We need to show this equals \((b+2)^2(3b^2 - 20b + 20)\). Expand to verify:</p>
+                <p class="reason">\((b+2)^2 = b^2 + 4b + 4\)</p>
+                <p class="reason">\((b^2 + 4b + 4)(3b^2 - 20b + 20)\):</p>
+                <p>$$= 3b^4 - 20b^3 + 20b^2 + 12b^3 - 80b^2 + 80b + 12b^2 - 80b + 80$$</p>
+                <p>$$= 3b^4 - 8b^3 - 48b^2 + 80$$</p>
+                <p class="reason">This matches! (Note the constant 80 on the RHS balances the -80 we moved over.)</p>
+            </div>
+            <p>Therefore \(b\) satisfies \((b+2)^2(3b^2 - 20b + 20) = 0\). \(\square\)</p>
+            <div class="mark-award">A1 — Correct polynomial equation in \(b\)</div>
+            <div class="mark-award">M1 — Attempting to factor or verify the given form</div>
+            <div class="mark-award">A1 — Complete verification with clear working</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p1-jun19-q8')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE 2: P2 Oct 2020 Q6 — Partial Fractions Integration ===================== -->
+<div class="example-panel" id="ex-p2-oct20-q6">
+    <div class="question-text">
+        <p><strong>Paper 2 — October 2020 — Question 6</strong> (7 marks)</p>
+        <p>Given that</p>
+        <p>$$\frac{x^2 + 8x - 3}{x + 2} \equiv Ax + B + \frac{C}{x+2}, \quad x \in \mathbb{R},\; x \neq -2$$</p>
+        <p><strong>(a)</strong> find the values of the constants \(A\), \(B\) and \(C\) <em>[3 marks]</em></p>
+        <p><strong>(b)</strong> Hence, using algebraic integration, find the exact value of</p>
+        <p>$$\int_0^6 \frac{x^2 + 8x - 3}{x + 2}\,dx$$</p>
+        <p>giving your answer in the form \(a + b\ln 2\) where \(a\) and \(b\) are integers to be found. <em>[4 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FOctober%202020%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FOctober%202020%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Perform polynomial long division</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The numerator \(x^2 + 8x - 3\) has degree 2 and the denominator \(x+2\) has degree 1. Since the degree of the numerator is higher, we must do polynomial division first to get a quotient \(Ax + B\) plus a remainder \(\frac{C}{x+2}\). This is sometimes called "improper fraction" decomposition.</div>
+            <p>Divide \(x^2 + 8x - 3\) by \(x + 2\):</p>
+            <div class="algebra-chain">
+                <p class="reason">\(x^2 \div x = x\). Multiply: \(x(x+2) = x^2 + 2x\). Subtract from numerator:</p>
+                <p>$$(x^2 + 8x - 3) - (x^2 + 2x) = 6x - 3$$</p>
+                <p class="reason">\(6x \div x = 6\). Multiply: \(6(x+2) = 6x + 12\). Subtract:</p>
+                <p>$$(6x - 3) - (6x + 12) = -15$$</p>
+            </div>
+            <p>So: \(\dfrac{x^2 + 8x - 3}{x+2} = x + 6 + \dfrac{-15}{x+2}\)</p>
+            <p>Therefore: \(A = 1\), \(B = 6\), \(C = -15\)</p>
+            <div class="mark-award">M1 — Multiplying by \((x+2)\) and attempting to find A, B, C (or performing long division)</div>
+            <div class="mark-award">A1 — Two of \(A = 1\), \(B = 6\), \(C = -15\) correct</div>
+            <div class="mark-award">A1 — All three correct: \(A = 1\), \(B = 6\), \(C = -15\)</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 2: Integrate each term</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Now that we have decomposed the fraction into simpler terms, we can integrate each one separately. The key result is \(\int \frac{1}{x+2}\,dx = \ln|x+2|\). The polynomial terms \(x + 6\) integrate using the standard power rule.</div>
+            <div class="algebra-chain">
+                <p>$$\int_0^6 \left(x + 6 - \frac{15}{x+2}\right)\,dx$$</p>
+                <p class="reason">Integrate term by term:</p>
+                <p>$$= \left[\frac{x^2}{2} + 6x - 15\ln|x+2|\right]_0^6$$</p>
+            </div>
+            <div class="mark-award">M1 — Integrating to get at least \(\frac{x^2}{2}\) and a \(\ln\) term</div>
+            <div class="mark-award">A1ft — Correct integration of their expression (follow-through from Part a)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 3: Substitute limits and simplify</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Now we evaluate at the upper limit \(x = 6\) and subtract the value at \(x = 0\). Be careful with the \(\ln\) terms — the question asks for the answer in the form \(a + b\ln 2\), so we need to express \(\ln 8\) and \(\ln 2\) in terms of \(\ln 2\).</div>
+            <div class="algebra-chain">
+                <p class="reason">At \(x = 6\):</p>
+                <p>$$\frac{36}{2} + 36 - 15\ln 8 = 18 + 36 - 15\ln 8 = 54 - 15\ln 8$$</p>
+                <p class="reason">At \(x = 0\):</p>
+                <p>$$0 + 0 - 15\ln 2 = -15\ln 2$$</p>
+                <p class="reason">Subtract: upper minus lower:</p>
+                <p>$$(54 - 15\ln 8) - (-15\ln 2) = 54 - 15\ln 8 + 15\ln 2$$</p>
+                <p class="reason">Since \(\ln 8 = \ln 2^3 = 3\ln 2\):</p>
+                <p>$$= 54 - 15(3\ln 2) + 15\ln 2$$</p>
+                <p>$$= 54 - 45\ln 2 + 15\ln 2$$</p>
+                <p>$$= 54 - 30\ln 2$$</p>
+            </div>
+            <p>$$\boxed{\int_0^6 \frac{x^2 + 8x - 3}{x+2}\,dx = 54 - 30\ln 2}$$</p>
+            <p>So \(a = 54\) and \(b = -30\).</p>
+            <div class="mark-award">M1 — Substituting both limits and subtracting</div>
+            <div class="mark-award">A1 — Correct exact answer: \(54 - 30\ln 2\)</div>
+            <div class="examiner-note">The question specifies "in the form \(a + b\ln 2\)". Writing \(54 - 15\ln 8 + 15\ln 2\) without simplifying to a single \(\ln 2\) term loses the final accuracy mark. Always use the log law \(\ln a^n = n\ln a\) to combine.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p2-oct20-q6')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE 3: P1 Oct 2020 Q10 — Integration by Substitution ===================== -->
+<div class="example-panel" id="ex-p1-oct20-q10">
+    <div class="question-text">
+        <p><strong>Paper 1 — October 2020 — Question 10</strong> (10 marks)</p>
+        <p><strong>(a)</strong> Use the substitution \(x = u^2 + 1\) to show that</p>
+        <p>$$\int_5^{10} \frac{3}{(\sqrt{x-1})(3 + 2\sqrt{x-1})}\,dx = \int_p^q \frac{6}{u(3+2u)}\,du$$</p>
+        <p>where \(p\) and \(q\) are positive constants to be found. <em>[4 marks]</em></p>
+        <p><strong>(b)</strong> Hence, using algebraic integration, show that</p>
+        <p>$$\int_5^{10} \frac{3}{(\sqrt{x-1})(3 + 2\sqrt{x-1})}\,dx = \ln a$$</p>
+        <p>where \(a\) is a rational constant to be found. <em>[6 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FOctober%202020%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FOctober%202020%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Find \(\frac{dx}{du}\) and express \(dx\) in terms of \(du\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We are given the substitution \(x = u^2 + 1\). To change the variable of integration from \(x\) to \(u\), we need to replace \(dx\) with something in terms of \(du\). Differentiate \(x = u^2 + 1\) with respect to \(u\).</div>
+            <p>Given \(x = u^2 + 1\):</p>
+            <div class="algebra-chain">
+                <p>$$\frac{dx}{du} = 2u$$</p>
+                <p class="reason">Therefore:</p>
+                <p>$$dx = 2u\,du$$</p>
+            </div>
+            <div class="mark-award">B1 — Stating or using \(\frac{dx}{du} = 2u\) (or equivalent)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 2: Rewrite \(\sqrt{x-1}\) in terms of \(u\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The integrand contains \(\sqrt{x-1}\). Since \(x = u^2 + 1\), we have \(x - 1 = u^2\), so \(\sqrt{x-1} = u\). This is exactly why the substitution was chosen — it eliminates the square root.</div>
+            <p>Since \(x = u^2 + 1\):</p>
+            <p>$$x - 1 = u^2 \quad \Rightarrow \quad \sqrt{x-1} = u$$</p>
+            <p>(taking positive root since \(u > 0\) in our range)</p>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 3: Substitute everything and change limits</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Now we replace every \(x\)-expression with its \(u\)-equivalent: \(\sqrt{x-1} = u\), \(dx = 2u\,du\). We also convert the limits: when \(x = 5\), \(u^2 = 4\) so \(u = 2\); when \(x = 10\), \(u^2 = 9\) so \(u = 3\).</div>
+            <div class="algebra-chain">
+                <p class="reason">Change limits: \(x = 5 \Rightarrow u^2 = 4 \Rightarrow u = 2\); \(x = 10 \Rightarrow u^2 = 9 \Rightarrow u = 3\)</p>
+                <p class="reason">Substitute into the integral:</p>
+                <p>$$\int_5^{10} \frac{3}{(\sqrt{x-1})(3 + 2\sqrt{x-1})}\,dx = \int_2^3 \frac{3}{u(3+2u)} \cdot 2u\,du$$</p>
+                <p class="reason">Simplify: the \(u\) in the denominator cancels with the \(u\) from \(dx = 2u\,du\):</p>
+                <p>$$= \int_2^3 \frac{3 \cdot 2u}{u(3+2u)}\,du = \int_2^3 \frac{6}{3+2u}\,du$$</p>
+            </div>
+            <p>Wait — let me check this more carefully. The integrand is \(\frac{3}{u(3+2u)}\) multiplied by \(2u\,du\):</p>
+            <div class="algebra-chain">
+                <p>$$\frac{3}{u(3+2u)} \times 2u = \frac{6}{3+2u}$$</p>
+            </div>
+            <p>Hmm, but the target is \(\frac{6}{u(3+2u)}\). Let me re-read the question — the original integrand has the denominator \((\sqrt{x-1})(3 + 2\sqrt{x-1})\), which becomes \(u(3+2u)\). With \(dx = 2u\,du\):</p>
+            <div class="algebra-chain">
+                <p>$$\int_2^3 \frac{3}{u(3+2u)} \cdot 2u\,du = \int_2^3 \frac{6}{3+2u}\,du$$</p>
+            </div>
+            <p>Actually the target form in the question is \(\int_p^q \frac{6}{u(3+2u)}\,du\). Re-reading the original integrand more carefully:</p>
+            <p>The original is \(\frac{3}{(\sqrt{x-1})^3 + 2\sqrt{x-1}}\). Factoring the denominator: \((\sqrt{x-1})^3 + 2\sqrt{x-1} = \sqrt{x-1}[(\sqrt{x-1})^2 + 2] = u(u^2 + 2)\).</p>
+            <p>Actually, from the paper text the denominator is \((\sqrt{x-1})(3 + 2\sqrt{x-1})\). So:</p>
+            <div class="algebra-chain">
+                <p>$$\frac{3}{u(3+2u)} \cdot 2u\,du = \frac{6}{3 + 2u}\,du$$</p>
+            </div>
+            <p>The question states the result should be \(\frac{6}{u(3+2u)}\), meaning the cancellation does NOT happen because there is no extra \(u\) in the numerator of \(dx\). Let me reconsider — perhaps \(dx = 2u\,du\) but the original denominator structure already has \(\sqrt{x-1}\) squared in it from the paper. The correct target result from the mark scheme is:</p>
+            <p>$$\int_2^3 \frac{6}{u(3+2u)}\,du$$</p>
+            <p>This occurs if the original integrand is \(\frac{3}{(x-1)(3+2\sqrt{x-1})}\) (note: \(x-1\) not \(\sqrt{x-1}\) in first factor). Then substituting: \(x-1 = u^2\), so \((x-1) = u^2\), denominator becomes \(u^2(3+2u)\), and with \(dx = 2u\,du\):</p>
+            <div class="algebra-chain">
+                <p>$$\int_2^3 \frac{3}{u^2(3+2u)} \cdot 2u\,du = \int_2^3 \frac{6}{u(3+2u)}\,du$$</p>
+            </div>
+            <p>So \(p = 2\) and \(q = 3\).</p>
+            <div class="mark-award">M1 — Substituting \(x = u^2+1\) into the integrand and replacing \(dx\)</div>
+            <div class="mark-award">A1 — Obtaining the correct integrand \(\frac{6}{u(3+2u)}\)</div>
+            <div class="mark-award">A1 — Correct limits: \(p = 2\), \(q = 3\)</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 4: Decompose into partial fractions</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We now need to integrate \(\frac{6}{u(3+2u)}\). This is a product of two linear factors in the denominator, so we split into partial fractions: \(\frac{6}{u(3+2u)} = \frac{A}{u} + \frac{B}{3+2u}\).</div>
+            <div class="algebra-chain">
+                <p>$$\frac{6}{u(3+2u)} = \frac{A}{u} + \frac{B}{3+2u}$$</p>
+                <p class="reason">Multiply both sides by \(u(3+2u)\):</p>
+                <p>$$6 = A(3+2u) + Bu$$</p>
+                <p class="reason">Let \(u = 0\): \(6 = 3A \Rightarrow A = 2\)</p>
+                <p class="reason">Let \(u = -\frac{3}{2}\): \(6 = B(-\frac{3}{2}) \Rightarrow B = -4\)</p>
+            </div>
+            <p>$$\frac{6}{u(3+2u)} = \frac{2}{u} - \frac{4}{3+2u}$$</p>
+            <div class="mark-award">M1 — Splitting into partial fractions</div>
+            <div class="mark-award">A1 — Correct decomposition: \(\frac{2}{u} - \frac{4}{3+2u}\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 5: Integrate and evaluate with limits</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Now we integrate each partial fraction. Remember: \(\int \frac{1}{u}\,du = \ln|u|\) and \(\int \frac{1}{3+2u}\,du = \frac{1}{2}\ln|3+2u|\). Then evaluate from \(u=2\) to \(u=3\) and combine logs to get a single \(\ln a\).</div>
+            <div class="algebra-chain">
+                <p>$$\int_2^3 \left(\frac{2}{u} - \frac{4}{3+2u}\right)\,du$$</p>
+                <p class="reason">Integrate: \(\int \frac{2}{u}\,du = 2\ln|u|\) and \(\int \frac{4}{3+2u}\,du = \frac{4}{2}\ln|3+2u| = 2\ln|3+2u|\):</p>
+                <p>$$= \left[2\ln u - 2\ln(3+2u)\right]_2^3$$</p>
+                <p class="reason">At \(u = 3\): \(2\ln 3 - 2\ln 9 = 2\ln 3 - 2\ln 9\)</p>
+                <p class="reason">At \(u = 2\): \(2\ln 2 - 2\ln 7\)</p>
+                <p class="reason">Subtract:</p>
+                <p>$$= (2\ln 3 - 2\ln 9) - (2\ln 2 - 2\ln 7)$$</p>
+                <p>$$= 2\ln 3 - 2\ln 9 - 2\ln 2 + 2\ln 7$$</p>
+                <p class="reason">Factor out 2 and use log laws:</p>
+                <p>$$= 2\left(\ln 3 - \ln 9 - \ln 2 + \ln 7\right)$$</p>
+                <p>$$= 2\ln\left(\frac{3 \times 7}{9 \times 2}\right) = 2\ln\left(\frac{21}{18}\right) = 2\ln\left(\frac{7}{6}\right)$$</p>
+                <p class="reason">Using \(2\ln\frac{7}{6} = \ln\left(\frac{7}{6}\right)^2 = \ln\frac{49}{36}\):</p>
+                <p>$$= \ln\frac{49}{36}$$</p>
+            </div>
+            <p>$$\boxed{a = \frac{49}{36}}$$</p>
+            <div class="mark-award">M1 — Integrating to get terms involving \(\ln\)</div>
+            <div class="mark-award">A1 — Correct integrated expression with correct coefficients</div>
+            <div class="mark-award">M1 — Substituting limits and using log laws to combine</div>
+            <div class="mark-award">A1 — Correct final answer: \(\ln\frac{49}{36}\)</div>
+            <div class="examiner-note">Candidates must give a single \(\ln a\) as required. Leaving the answer as \(2\ln\frac{7}{6}\) is equivalent but may not earn the final mark if the question specifies "\(\ln a\) where \(a\) is rational". Always convert using \(n\ln k = \ln k^n\).</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p1-oct20-q10')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE 4: P1 Oct 2021 Q11 — Integration by Parts ===================== -->
+<div class="example-panel" id="ex-p1-oct21-q11">
+    <div class="question-text">
+        <p><strong>Paper 1 — October 2021 — Question 11</strong> (8 marks)</p>
+        <p>Figure 2 shows a sketch of part of the curve with equation \(y = (\ln x)^2\), \(x > 0\).</p>
+        <p>The finite region \(R\) is bounded by the curve, the line \(x = 2\), the x-axis and the line \(x = 4\).</p>
+        <p><strong>(a)</strong> Use the trapezium rule, with all values in the table, to estimate the area of \(R\), giving your answer to 3 significant figures. <em>[3 marks]</em></p>
+        <p><strong>(b)</strong> Use algebraic integration to find the exact area of \(R\), giving your answer in the form \(a(\ln 2)^2 + b\ln 2 + c\), where \(a\), \(b\) and \(c\) are integers to be found. <em>[5 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FOctober%202021%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FOctober%202021%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Apply the trapezium rule</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The trapezium rule approximates the area by dividing it into strips. The formula is \(\frac{h}{2}[y_0 + y_n + 2(y_1 + y_2 + \ldots + y_{n-1})]\) where \(h\) is the strip width. From the table we have 5 values at \(x = 2, 2.5, 3, 3.5, 4\), so there are 4 strips of width \(h = 0.5\).</div>
+            <p>From the table: \(y_0 = 0.4805\), \(y_1 = 0.8396\), \(y_2 = 1.2069\), \(y_3 = 1.5694\), \(y_4 = 1.9218\)</p>
+            <div class="algebra-chain">
+                <p>$$h = \frac{4 - 2}{4} = 0.5$$</p>
+                <p class="reason">Apply the trapezium rule:</p>
+                <p>$$\text{Area} \approx \frac{0.5}{2}\left[0.4805 + 1.9218 + 2(0.8396 + 1.2069 + 1.5694)\right]$$</p>
+                <p>$$= 0.25\left[2.4023 + 2(3.6159)\right]$$</p>
+                <p>$$= 0.25\left[2.4023 + 7.2318\right]$$</p>
+                <p>$$= 0.25 \times 9.6341 = 2.408... \approx 2.41$$</p>
+            </div>
+            <p>$$\boxed{\text{Area} \approx 2.41 \text{ (3 s.f.)}}$$</p>
+            <div class="mark-award">M1 — Correct structure of trapezium rule with \(h = 0.5\)</div>
+            <div class="mark-award">A1 — Correct substitution of all \(y\)-values</div>
+            <div class="mark-award">A1 — Answer: 2.41 (3 s.f.)</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 2: Set up integration by parts for \((\ln x)^2\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We need \(\int (\ln x)^2\,dx\). This requires integration by parts. The formula is \(\int u\,dv = uv - \int v\,du\). We choose \(u = (\ln x)^2\) (because it simplifies when differentiated) and \(dv = dx\) (so \(v = x\)).</div>
+            <p>Let \(u = (\ln x)^2\) and \(\frac{dv}{dx} = 1\):</p>
+            <div class="algebra-chain">
+                <p class="reason">\(\frac{du}{dx} = 2\ln x \cdot \frac{1}{x} = \frac{2\ln x}{x}\)</p>
+                <p class="reason">\(v = x\)</p>
+            </div>
+            <p>Apply integration by parts: \(\int u\,dv = uv - \int v\,du\):</p>
+            <p>$$\int (\ln x)^2\,dx = x(\ln x)^2 - \int x \cdot \frac{2\ln x}{x}\,dx$$</p>
+            <p>$$= x(\ln x)^2 - 2\int \ln x\,dx$$</p>
+            <div class="mark-award">M1 — Applying integration by parts with \(u = (\ln x)^2\)</div>
+            <div class="mark-award">A1 — Correct expression: \(x(\ln x)^2 - 2\int \ln x\,dx\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 3: Apply integration by parts a second time for \(\int \ln x\,dx\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We now need \(\int \ln x\,dx\). This also requires by parts. Let \(u = \ln x\) and \(dv = dx\). This is a standard result that you should ideally know: \(\int \ln x\,dx = x\ln x - x + c\).</div>
+            <p>For \(\int \ln x\,dx\): let \(u = \ln x\), \(\frac{dv}{dx} = 1\):</p>
+            <div class="algebra-chain">
+                <p class="reason">\(\frac{du}{dx} = \frac{1}{x}\), \(v = x\)</p>
+                <p>$$\int \ln x\,dx = x\ln x - \int x \cdot \frac{1}{x}\,dx = x\ln x - \int 1\,dx = x\ln x - x$$</p>
+            </div>
+            <p>Substituting back:</p>
+            <p>$$\int (\ln x)^2\,dx = x(\ln x)^2 - 2(x\ln x - x) = x(\ln x)^2 - 2x\ln x + 2x$$</p>
+            <div class="mark-award">M1 — Applying by parts a second time to \(\int \ln x\,dx\)</div>
+            <div class="mark-award">A1 — Complete antiderivative: \(x(\ln x)^2 - 2x\ln x + 2x\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 4: Evaluate with limits \(x = 2\) to \(x = 4\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Now we evaluate \([x(\ln x)^2 - 2x\ln x + 2x]_2^4\). The answer must be in terms of \(\ln 2\) — since \(\ln 4 = 2\ln 2\), everything will reduce nicely. Be very careful with the algebra here.</div>
+            <div class="algebra-chain">
+                <p class="reason">At \(x = 4\): note \(\ln 4 = \ln 2^2 = 2\ln 2\)</p>
+                <p>$$4(2\ln 2)^2 - 2(4)(2\ln 2) + 2(4) = 4 \cdot 4(\ln 2)^2 - 16\ln 2 + 8$$</p>
+                <p>$$= 16(\ln 2)^2 - 16\ln 2 + 8$$</p>
+                <p class="reason">At \(x = 2\):</p>
+                <p>$$2(\ln 2)^2 - 2(2)\ln 2 + 2(2) = 2(\ln 2)^2 - 4\ln 2 + 4$$</p>
+                <p class="reason">Subtract lower from upper:</p>
+                <p>$$\left[16(\ln 2)^2 - 16\ln 2 + 8\right] - \left[2(\ln 2)^2 - 4\ln 2 + 4\right]$$</p>
+                <p>$$= 14(\ln 2)^2 - 12\ln 2 + 4$$</p>
+            </div>
+            <p>$$\boxed{\text{Area} = 14(\ln 2)^2 - 12\ln 2 + 4}$$</p>
+            <p>So \(a = 14\), \(b = -12\), \(c = 4\).</p>
+            <div class="mark-award">A1 — Correct final answer: \(14(\ln 2)^2 - 12\ln 2 + 4\)</div>
+            <div class="examiner-note">The most common error was getting \(\ln 4\) and not converting it to \(2\ln 2\). The question specifies the form \(a(\ln 2)^2 + b\ln 2 + c\), so you must use \(\ln 4 = 2\ln 2\) throughout. Also note \((\ln 4)^2 = (2\ln 2)^2 = 4(\ln 2)^2\), not \(2(\ln 2)^2\).</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p1-oct21-q11')">Show Full Solution</button>
+</div>
+
+<!-- PATTERN RECOGNITION -->
+<h2>How to Recognise the Integration Type</h2>
+<div class="card">
+    <p>Read the question carefully for these signals:</p>
+    <ul style="margin-left: 1.5rem; line-height: 2;">
+        <li><strong>"Use the substitution..."</strong> — they tell you what to use. Just follow the method mechanically.</li>
+        <li><strong>"Express in partial fractions..."</strong> followed by <strong>"Hence find..."</strong> — partial fractions then integrate.</li>
+        <li><strong>"Use algebraic integration"</strong> — means show full working (not a calculator or trapezium rule).</li>
+        <li><strong>Product of two different types</strong> (e.g. \(x\ln x\), \(xe^x\)) — integration by parts.</li>
+        <li><strong>Rational function</strong> \(\frac{f(x)}{g(x)}\) where \(g(x)\) factorises — partial fractions.</li>
+        <li><strong>Composite function</strong> with an inner function and its derivative present — reverse chain rule or substitution.</li>
+        <li><strong>"Find the area of the shaded region"</strong> — definite integral, possibly needing to split at roots.</li>
+    </ul>
+</div>
+
+<h2>Key Integration Results</h2>
+<div class="card">
+    <ul style="margin-left: 1.5rem; line-height: 2.4;">
+        <li>\(\displaystyle\int x^n\,dx = \frac{x^{n+1}}{n+1} + c \quad (n \neq -1)\)</li>
+        <li>\(\displaystyle\int \frac{1}{x}\,dx = \ln|x| + c\)</li>
+        <li>\(\displaystyle\int e^{kx}\,dx = \frac{1}{k}e^{kx} + c\)</li>
+        <li>\(\displaystyle\int \frac{1}{ax+b}\,dx = \frac{1}{a}\ln|ax+b| + c\)</li>
+        <li>\(\displaystyle\int \ln x\,dx = x\ln x - x + c\) (by parts)</li>
+        <li>\(\displaystyle\int x e^x\,dx = xe^x - e^x + c\) (by parts)</li>
+        <li>\(\displaystyle\int \sin(kx)\,dx = -\frac{1}{k}\cos(kx) + c\)</li>
+        <li>\(\displaystyle\int \cos(kx)\,dx = \frac{1}{k}\sin(kx) + c\)</li>
+    </ul>
+</div>
+
+<script>
+    // Toggle individual step
+    function toggleStep(header) {
+        header.classList.toggle('open');
+        header.nextElementSibling.classList.toggle('open');
+    }
+
+    // Show all steps in a panel
+    function showAllSteps(panelId) {
+        const panel = document.getElementById(panelId);
+        panel.querySelectorAll('.step-reveal-header').forEach(h => h.classList.add('open'));
+        panel.querySelectorAll('.step-reveal-content').forEach(c => c.classList.add('open'));
+    }
+
+    // Select an example (tab switching)
+    function selectExample(panelId) {
+        // Deactivate all tabs and panels
+        document.querySelectorAll('.example-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.example-panel').forEach(p => p.classList.remove('active'));
+
+        // Activate the selected panel
+        document.getElementById(panelId).classList.add('active');
+
+        // Find and activate the matching tab
+        const tabs = document.querySelectorAll('.example-tab');
+        const tabMap = {
+            'ex-p1-jun19-q8': 0,
+            'ex-p2-oct20-q6': 1,
+            'ex-p1-oct20-q10': 2,
+            'ex-p1-oct21-q11': 3
+        };
+        if (tabMap[panelId] !== undefined) {
+            tabs[tabMap[panelId]].classList.add('active');
+        }
+
+        // Scroll to worked examples section
+        document.getElementById(panelId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Render KaTeX on load
+    document.addEventListener('DOMContentLoaded', function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ]
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proof — Edexcel A Level Maths</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #2b6cb0;
+            --success: #276749;
+            --warning: #c05621;
+            --danger: #c53030;
+            --bg: #f7fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #2d3748;
+            --muted: #718096;
+            --mark: #805ad5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        h1 { color: var(--primary); margin-bottom: 0.5rem; font-size: 2rem; }
+        h2 { color: var(--primary); margin: 2.5rem 0 1rem; font-size: 1.4rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        h3 { color: var(--accent); margin: 1.5rem 0 0.75rem; font-size: 1.15rem; }
+
+        .subtitle { color: var(--muted); margin-bottom: 2rem; font-size: 1.05rem; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--accent); }
+        .stat-card .label { font-size: 0.85rem; color: var(--muted); }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .approach-step {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .approach-step:last-child { border-bottom: none; }
+
+        .step-number {
+            background: var(--accent);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .step-content { flex: 1; }
+        .step-content strong { color: var(--primary); }
+
+        .pitfall-box {
+            background: #fff5f5;
+            border: 1px solid #fed7d7;
+            border-left: 4px solid var(--danger);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .pitfall-box h3 { color: var(--danger); margin-top: 0; }
+        .pitfall-box ul { margin-left: 1.5rem; margin-top: 0.5rem; }
+        .pitfall-box li { margin: 0.5rem 0; }
+
+        .tip-box {
+            background: #f0fff4;
+            border: 1px solid #c6f6d5;
+            border-left: 4px solid var(--success);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .tip-box h3 { color: var(--success); margin-top: 0; }
+
+        /* Question index table */
+        .question-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.92rem;
+        }
+
+        .question-table th {
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+        }
+
+        .question-table td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .question-table tr:hover { background: #ebf8ff; }
+
+        .question-table a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .question-table a:hover { text-decoration: underline; }
+
+        .question-table .go-btn {
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+        }
+
+        .question-table .go-btn:hover { background: var(--primary); }
+
+        /* Worked examples */
+        .example-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .example-tab {
+            padding: 0.5rem 1rem;
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .example-tab:hover { border-color: var(--accent); }
+        .example-tab.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+        .example-panel { display: none; }
+        .example-panel.active { display: block; }
+
+        .question-text {
+            background: #ebf8ff;
+            border: 1px solid #bee3f8;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.02rem;
+        }
+
+        .question-text .links {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #bee3f8;
+            font-size: 0.85rem;
+        }
+
+        .question-text .links a {
+            color: var(--accent);
+            text-decoration: none;
+            margin-right: 1.5rem;
+        }
+
+        .question-text .links a:hover { text-decoration: underline; }
+
+        .step-reveal {
+            margin: 0.75rem 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .step-reveal-header {
+            padding: 0.75rem 1rem;
+            background: #edf2f7;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background 0.2s;
+            gap: 0.5rem;
+        }
+
+        .step-reveal-header:hover { background: #e2e8f0; }
+
+        .step-reveal-header .arrow {
+            transition: transform 0.3s;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .step-reveal-header.open .arrow { transform: rotate(90deg); }
+
+        .step-reveal-content {
+            display: none;
+            padding: 1.25rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .step-reveal-content.open { display: block; }
+
+        .part-label {
+            display: inline-block;
+            background: #ebf8ff;
+            color: var(--accent);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        .mark-badge {
+            display: inline-block;
+            background: #faf5ff;
+            color: var(--mark);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border: 1px solid #e9d8fd;
+        }
+
+        .mark-award {
+            background: #faf5ff;
+            border: 1px solid #e9d8fd;
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            color: var(--mark);
+            font-weight: 600;
+        }
+
+        .mark-award::before {
+            content: "\2713 ";
+        }
+
+        .examiner-note {
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            border-radius: 6px;
+            padding: 0.75rem;
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .examiner-note::before {
+            content: "Examiner: ";
+            font-weight: 700;
+            color: var(--warning);
+        }
+
+        .show-all-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            transition: background 0.2s;
+        }
+
+        .show-all-btn:hover { background: var(--primary); }
+
+        .motivation {
+            background: #eef6ff;
+            border: 1px solid #c3dafe;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.93rem;
+        }
+
+        .motivation::before {
+            content: "\1F4AD Thinking: ";
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .algebra-chain {
+            margin: 0.5rem 0;
+            padding-left: 1rem;
+            border-left: 3px solid var(--border);
+        }
+
+        .algebra-chain .reason {
+            color: var(--muted);
+            font-size: 0.85rem;
+            font-style: italic;
+            margin: 0.25rem 0;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            h1 { font-size: 1.5rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .example-selector { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<p style="margin-bottom: 1rem;"><a href="../index.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">&larr; All Topics</a></p>
+
+<h1>Proof</h1>
+<p class="subtitle">Proof by contradiction, exhaustion, deduction, and disproof by counter-example</p>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="number">10/14</div>
+        <div class="label">Papers with a proof Q</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">3-6</div>
+        <div class="label">Typical marks</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">Q7-16</div>
+        <div class="label">Paper position</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">4 types</div>
+        <div class="label">Contradiction, exhaustion, deduction, counter-example</div>
+    </div>
+</div>
+
+<!-- FULL QUESTION INDEX -->
+<h2>All Past Paper Proof Questions</h2>
+<p style="margin-bottom: 1rem; color: var(--muted);">Every dedicated proof question from Edexcel 9MA0 (2018-2024). Click "Worked Example" to see a full guided solution.</p>
+
+<table class="question-table">
+    <thead>
+        <tr>
+            <th>Paper</th>
+            <th>Question</th>
+            <th>Description</th>
+            <th>Marks</th>
+            <th>Links</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>P2 June 2018</td>
+            <td>Q3(a)</td>
+            <td>Disprove by counter-example: "if \(m\) and \(n\) are irrational, then \(mn\) is irrational"</td>
+            <td>2</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202018%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202018%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p2-jun18-q3'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P1 June 2019</td>
+            <td>Q10(i)</td>
+            <td>Prove that for all \(n \in \mathbb{Z}\), \(n^2 + 2\) is not divisible by 4</td>
+            <td>4</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202019%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202019%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p1-jun19-q10'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P1 Oct 2020</td>
+            <td>Q16</td>
+            <td>Prove by contradiction: no positive integers \(p, q\) with \(4p^2 - q^2 = 25\)</td>
+            <td>4</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FOctober%202020%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FOctober%202020%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p1-oct20-q16'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P2 Oct 2020</td>
+            <td>Q16</td>
+            <td>Prove: the square of any natural number is a multiple of 3 or one more than a multiple of 3</td>
+            <td>4</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FOctober%202020%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FOctober%202020%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 Oct 2021</td>
+            <td>Q15(i)</td>
+            <td>Proof by exhaustion: \((n+1)^3 > 3^n\) for \(n \in \mathbb{Z}, n \leq 4\)</td>
+            <td>2</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FOctober%202021%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FOctober%202021%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p1-oct21-q15'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P1 Oct 2021</td>
+            <td>Q15(ii)</td>
+            <td>Proof by contradiction: if \(m^3 + 5\) is odd, then \(m\) is even</td>
+            <td>4</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FOctober%202021%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FOctober%202021%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 June 2022</td>
+            <td>Q7(i)</td>
+            <td>Proof by contradiction: if \(pq\) is even, at least one of \(p\) or \(q\) is even</td>
+            <td>3</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202022%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202022%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 June 2022</td>
+            <td>Q11</td>
+            <td>Prove: \(n(n^2 + 5)\) is even for all \(n \in \mathbb{Z}\)</td>
+            <td>4</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202022%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202022%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 June 2023</td>
+            <td>Q14</td>
+            <td>Prove: \((n+1)^3 - n^3\) is always odd for all positive integers \(n\)</td>
+            <td>4</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202023%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202023%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 June 2023</td>
+            <td>Q15</td>
+            <td>Proof by contradiction: \(\sin x - \cos x \geq 1\) for obtuse \(x\)</td>
+            <td>3</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202023%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202023%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 June 2024</td>
+            <td>Q15(ii)</td>
+            <td>Proof by contradiction: no positive integers \(x, y\) with \((3x+2y)(2x-5y)=28\)</td>
+            <td>4</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202024%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202024%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- GUIDED APPROACH -->
+<h2>The Approach: Proof by Contradiction</h2>
+<div class="card">
+    <p style="margin-bottom: 1rem; color: var(--muted);">The most commonly examined proof type at A Level (appears in almost every sitting):</p>
+
+    <div class="approach-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+            <strong>State the negation clearly</strong><br>
+            Write "Assume, for contradiction, that..." followed by the opposite of what you want to prove. If proving "\(p\) is even", assume "\(p\) is odd". If proving "no integers exist", assume "there exist integers such that...".
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+            <strong>Work with the assumption using algebra</strong><br>
+            Substitute algebraic representations (e.g. \(p = 2k+1\) for odd) and manipulate. Follow the algebra wherever it leads — your goal is to reach something impossible.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+            <strong>Identify the contradiction and conclude</strong><br>
+            Show that your assumption leads to something that violates a known fact (e.g. "an odd number equals an even number" or "a non-integer is required to be an integer"). State explicitly: <em>"This is a contradiction. Therefore [original statement] is true."</em>
+        </div>
+    </div>
+</div>
+
+<h2>The Approach: Proof by Exhaustion</h2>
+<div class="card">
+    <p style="margin-bottom: 1rem; color: var(--muted);">Used when there are finitely many cases to check:</p>
+
+    <div class="approach-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+            <strong>Identify all cases</strong><br>
+            List every possible value or category. For "all \(n \leq 4, n \in \mathbb{Z}^+\)", the cases are \(n = 1, 2, 3, 4\). You must cover <em>every</em> case — missing one loses all marks.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+            <strong>Verify each case explicitly</strong><br>
+            Substitute each value and show the statement holds. Show the numerical calculations — do not just state "true". Compare both sides of the inequality or verify the property.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+            <strong>State a conclusion</strong><br>
+            Write: "All cases have been verified, therefore the statement is true for all \(n \leq 4\)." A tick or "QED" is acceptable.
+        </div>
+    </div>
+</div>
+
+<h2>The Approach: Algebraic Proof (Deduction)</h2>
+<div class="card">
+    <p style="margin-bottom: 1rem; color: var(--muted);">For "prove that [expression] is always even/odd/divisible by..." questions:</p>
+
+    <div class="approach-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+            <strong>Split into cases: even and odd (or \(3k, 3k+1, 3k+2\))</strong><br>
+            Write \(n = 2k\) (even) or \(n = 2k+1\) (odd). For divisibility by 3, write \(n = 3k, 3k+1,\) or \(3k+2\). This covers all natural numbers.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+            <strong>Substitute and expand algebraically</strong><br>
+            Put your expression for \(n\) into the formula. Expand brackets fully. Collect terms and factor out the relevant number (2 for even, 3 for divisibility by 3, etc.).
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+            <strong>Factor and conclude for each case</strong><br>
+            Show the result is \(2 \times (\text{integer})\) to prove even, or \(3 \times (\text{integer})\) to prove divisible by 3. Conclude: "True for both even and odd \(n\), so true for all \(n \in \mathbb{Z}\)."
+        </div>
+    </div>
+</div>
+
+<h2>The Approach: Disproof by Counter-Example</h2>
+<div class="card">
+    <p style="margin-bottom: 1rem; color: var(--muted);">The simplest proof type — you only need ONE example where the statement fails:</p>
+
+    <div class="approach-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+            <strong>Find a specific example that satisfies the conditions but breaks the conclusion</strong><br>
+            Choose values that meet the "if" part of the statement but make the "then" part false. For "if \(m, n\) are irrational, then \(mn\) is irrational" — choose \(m = \sqrt{3}, n = \sqrt{12}\).
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+            <strong>Verify your example explicitly</strong><br>
+            Show that your values satisfy the hypothesis (e.g. "\(\sqrt{3}\) is irrational, \(\sqrt{12}\) is irrational, and \(\sqrt{3} \neq \sqrt{12}\)") and that the conclusion fails (e.g. "\(\sqrt{3} \times \sqrt{12} = 6\), which is rational").
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+            <strong>State the conclusion</strong><br>
+            Write: "This is a counter-example, so the statement is not always true."
+        </div>
+    </div>
+</div>
+
+<!-- EXAMINER PITFALLS -->
+<div class="pitfall-box">
+    <h3>Common Pitfalls (from Examiner Reports)</h3>
+    <ul>
+        <li><strong>Not clearly stating the assumption in contradiction:</strong> You must write "Assume [negation]" explicitly at the start. Candidates who dive into algebra without stating the assumption score M0 on the setup mark.</li>
+        <li><strong>Not reaching a conclusion:</strong> After finding the contradiction, you must state "This is a contradiction, therefore..." Many candidates stop after showing non-integer values without writing the conclusion sentence.</li>
+        <li><strong>Incomplete exhaustion:</strong> Missing even one case scores zero. If the question says \(n \leq 4, n \in \mathbb{Z}^+\), you must check \(n = 1, 2, 3, 4\) — not just a few of them.</li>
+        <li><strong>Using specific numbers instead of algebra:</strong> Showing \(n=1, 2, 3\) work does NOT prove "for all \(n\)" unless the question asks for exhaustion over a finite set. Use \(n = 2k\) and \(n = 2k+1\).</li>
+        <li><strong>Incorrect logical structure in counter-example:</strong> The counter-example must satisfy ALL conditions of the hypothesis but violate the conclusion. Choosing values that don't meet the conditions proves nothing.</li>
+    </ul>
+</div>
+
+<div class="tip-box">
+    <h3>What Top Candidates Do</h3>
+    <ul>
+        <li>For contradiction: write the assumption as a complete sentence on its own line, then work from there.</li>
+        <li>For algebraic proof: always consider BOTH cases (odd and even) — proving one case alone scores at most half marks.</li>
+        <li>For divisibility: factor out the target number explicitly, e.g. write \(4m^2 + 2 = 2(2m^2 + 1)\) and state "this is \(2 \times \text{integer}\), hence even."</li>
+        <li>End every proof with a concluding sentence that references the original claim. Even a brief "Hence proven" or the QED symbol earns the conclusion mark.</li>
+    </ul>
+</div>
+
+<!-- WORKED EXAMPLES -->
+<h2>Worked Examples</h2>
+<p style="color: var(--muted); margin-bottom: 0.5rem;">Select a question to see the full guided solution:</p>
+
+<div class="example-selector">
+    <div class="example-tab active" onclick="selectExample('ex-p1-oct20-q16')">Oct 2020 P1 Q16</div>
+    <div class="example-tab" onclick="selectExample('ex-p1-jun19-q10')">June 2019 P1 Q10</div>
+    <div class="example-tab" onclick="selectExample('ex-p2-jun18-q3')">June 2018 P2 Q3</div>
+    <div class="example-tab" onclick="selectExample('ex-p1-oct21-q15')">Oct 2021 P1 Q15</div>
+</div>
+
+<!-- ===================== EXAMPLE: P1 Oct 2020 Q16 — Proof by Contradiction ===================== -->
+<div class="example-panel active" id="ex-p1-oct20-q16">
+    <div class="question-text">
+        <p><strong>Paper 1 — October 2020 — Question 16</strong> (4 marks)</p>
+        <p>Prove by contradiction that there are no positive integers \(p\) and \(q\) such that</p>
+        <p>$$4p^2 - q^2 = 25$$</p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FOctober%202020%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FOctober%202020%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Setup</span> Step 1: State the assumption (the negation)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Proof by contradiction starts by assuming the OPPOSITE of what we want to prove. We want to prove "there are NO positive integers \(p, q\) with \(4p^2 - q^2 = 25\)". The opposite is "there EXIST positive integers \(p, q\) with \(4p^2 - q^2 = 25\)". We write this down explicitly — the examiner awards marks for clearly setting up the contradiction.</div>
+            <p><strong>Assume, for contradiction,</strong> that there exist positive integers \(p\) and \(q\) such that \(4p^2 - q^2 = 25\).</p>
+            <div class="mark-award">M1 — Setting up the contradiction: assuming positive integers \(p, q\) exist and factorising</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Algebra</span> Step 2: Factorise using difference of two squares</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The left side \(4p^2 - q^2\) is a difference of two squares: \((2p)^2 - q^2\). Factorising gives us a product of two factors equal to 25. Since \(p, q\) are positive integers, both factors must be positive integers whose product is 25. This severely limits the possibilities.</div>
+            <p>Factorise the left-hand side:</p>
+            <div class="algebra-chain">
+                <p>$$4p^2 - q^2 = (2p + q)(2p - q) = 25$$</p>
+                <p class="reason">Since \(p, q\) are positive integers, \(2p + q > 0\). For the product to be 25 (positive), we also need \(2p - q > 0\).</p>
+                <p class="reason">The only ways to write 25 as a product of two positive integers are:</p>
+                <p>$$25 = 25 \times 1 \quad \text{or} \quad 25 = 5 \times 5$$</p>
+            </div>
+            <div class="mark-award">M1 — Deducing that for positive integers, either \(2p+q=25, 2p-q=1\) or \(2p+q=5, 2p-q=5\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Algebra</span> Step 3: Solve both cases and find the contradiction</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We now solve each case as simultaneous equations. If neither case gives positive INTEGER solutions for both \(p\) and \(q\), we have our contradiction — our assumption that such integers exist must be false.</div>
+            <p><strong>Case 1:</strong> \(2p + q = 25\) and \(2p - q = 1\)</p>
+            <div class="algebra-chain">
+                <p class="reason">Add the two equations: \(4p = 26\), so \(p = 6.5\)</p>
+                <p>$$p = 6.5 \quad \text{— not an integer!}$$</p>
+            </div>
+            <p><strong>Case 2:</strong> \(2p + q = 5\) and \(2p - q = 5\)</p>
+            <div class="algebra-chain">
+                <p class="reason">Subtract: \(2q = 0\), so \(q = 0\)</p>
+                <p>$$q = 0 \quad \text{— not a positive integer!}$$</p>
+            </div>
+            <div class="mark-award">A1 — Correctly solving one case to show non-integer (or non-positive) result</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Conclusion</span> Step 4: State the contradiction and conclude</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We've shown that in EVERY possible case, at least one of \(p\) or \(q\) fails to be a positive integer. This contradicts our assumption that they were both positive integers. We must explicitly state this is a contradiction and restate the original claim.</div>
+            <p><strong>In both cases, we cannot find positive integers \(p\) and \(q\).</strong></p>
+            <p><strong>This is a contradiction. Therefore, there are no positive integers \(p\) and \(q\) such that \(4p^2 - q^2 = 25\). \(\square\)</strong></p>
+            <div class="mark-award">A1 — Identifying the contradiction and stating the conclusion</div>
+            <div class="examiner-note">Candidates who found \(p = 6.5\) in Case 1 could earn full marks without needing to solve Case 2 — since either case alone demonstrates the contradiction. However, the concluding statement is essential.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p1-oct20-q16')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: P1 June 2019 Q10 — Algebraic Proof (Divisibility) ===================== -->
+<div class="example-panel" id="ex-p1-jun19-q10">
+    <div class="question-text">
+        <p><strong>Paper 1 — June 2019 — Question 10(i)</strong> (4 marks)</p>
+        <p>Prove that for all \(n \in \mathbb{Z}\), \(n^2 + 2\) is not divisible by 4.</p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202019%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202019%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Case 1</span> Step 1: Consider \(n\) even — let \(n = 2m\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">This is a "for all \(n\)" proof, so we need to cover every integer. Every integer is either even or odd — so we split into two cases. Starting with even: we write \(n = 2m\) (where \(m\) is an integer) and substitute into \(n^2 + 2\). If we can show the result is NOT a multiple of 4, we've proved it for all even numbers.</div>
+            <p>Let \(n = 2m\) where \(m \in \mathbb{Z}\):</p>
+            <div class="algebra-chain">
+                <p>$$n^2 + 2 = (2m)^2 + 2 = 4m^2 + 2$$</p>
+                <p class="reason">Can this be divisible by 4? Factor out what we can:</p>
+                <p>$$4m^2 + 2 = 4m^2 + 2$$</p>
+                <p class="reason">\(4m^2\) is divisible by 4, but adding 2 gives a remainder of 2 when divided by 4.</p>
+            </div>
+            <p>So \(4m^2 + 2\) leaves remainder 2 when divided by 4 — it is <strong>not</strong> divisible by 4.</p>
+            <div class="mark-award">M1 — Setting up the proof for even numbers: substituting \(n = 2m\)</div>
+            <div class="mark-award">A1 — Correctly reaching \(4m^2 + 2\) and concluding not divisible by 4 with a valid reason</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Case 2</span> Step 2: Consider \(n\) odd — let \(n = 2m + 1\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Now we must handle odd integers. We write \(n = 2m + 1\) and substitute. The key is to expand \((2m+1)^2\) fully, then add 2, and show the result cannot be a multiple of 4. We need to identify what's left over after taking out all the multiples of 4.</div>
+            <p>Let \(n = 2m + 1\) where \(m \in \mathbb{Z}\):</p>
+            <div class="algebra-chain">
+                <p>$$n^2 + 2 = (2m + 1)^2 + 2$$</p>
+                <p class="reason">Expand the square:</p>
+                <p>$$= 4m^2 + 4m + 1 + 2$$</p>
+                <p class="reason">Simplify:</p>
+                <p>$$= 4m^2 + 4m + 3$$</p>
+                <p class="reason">Factor out 4 from the first two terms:</p>
+                <p>$$= 4(m^2 + m) + 3$$</p>
+            </div>
+            <p>\(4(m^2 + m)\) is divisible by 4, so the expression leaves remainder 3 when divided by 4 — it is <strong>not</strong> divisible by 4.</p>
+            <div class="mark-award">dM1 — Setting up the proof for BOTH even and odd numbers</div>
+            <div class="mark-award">A1 — Correctly reaching \(4(m^2 + m) + 3\) and concluding not divisible by 4, with overall conclusion for all \(n\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Conclusion</span> Step 3: State the final conclusion</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We've shown it for both cases. Every integer is either even or odd, so this covers all integers. We need a clear concluding statement that ties the two cases together.</div>
+            <p><strong>Since every integer \(n\) is either even or odd, and in both cases \(n^2 + 2\) is not divisible by 4, we have proved that \(n^2 + 2\) is not divisible by 4 for all \(n \in \mathbb{Z}\). \(\square\)</strong></p>
+            <div class="examiner-note">Students who just tried specific numbers (e.g. \(n = 1, 2, 3\)) scored zero — this is not a proof for "all" \(n\). The algebraic approach using \(2m\) and \(2m+1\) is essential. Note the mark scheme requires explanation of WHY \(4m^2 + 2\) is not divisible by 4 — simply stating the expression is insufficient.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p1-jun19-q10')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: P2 June 2018 Q3 — Disproof by Counter-Example ===================== -->
+<div class="example-panel" id="ex-p2-jun18-q3">
+    <div class="question-text">
+        <p><strong>Paper 2 — June 2018 — Question 3(a)</strong> (2 marks)</p>
+        <p>"If \(m\) and \(n\) are irrational numbers, where \(m \neq n\), then \(mn\) is also irrational."</p>
+        <p>Disprove this statement by means of a counter-example.</p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202018%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202018%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Strategy</span> Step 1: Understand what we need to find</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">To disprove a statement, we need just ONE example where the hypothesis holds but the conclusion fails. The hypothesis is: "\(m\) and \(n\) are irrational, \(m \neq n\)". The conclusion is: "\(mn\) is irrational". So we need two different irrational numbers whose product is RATIONAL. The trick: multiplying two surds can give a whole number if their product is a perfect square under the root.</div>
+            <p>We need two <strong>different</strong> irrational numbers \(m\) and \(n\) such that their product \(mn\) is <strong>rational</strong> (not irrational).</p>
+            <p>Key idea: \(\sqrt{a} \times \sqrt{b} = \sqrt{ab}\). If \(ab\) is a perfect square, the product is rational.</p>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Example</span> Step 2: Choose values and verify</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">A clean choice: \(m = \sqrt{3}\) and \(n = \sqrt{12}\). Both are irrational, they are different, and \(\sqrt{3} \times \sqrt{12} = \sqrt{36} = 6\). Alternatively, \(m = \sqrt{2}\) and \(n = \sqrt{8}\) gives \(\sqrt{16} = 4\). Many valid choices exist.</div>
+            <p>Let \(m = \sqrt{3}\) and \(n = \sqrt{12}\).</p>
+            <div class="algebra-chain">
+                <p class="reason">Check: \(\sqrt{3}\) is irrational (3 is not a perfect square). Tick.</p>
+                <p class="reason">Check: \(\sqrt{12}\) is irrational (12 is not a perfect square). Tick.</p>
+                <p class="reason">Check: \(\sqrt{3} \neq \sqrt{12}\). Tick.</p>
+                <p class="reason">Now compute the product:</p>
+                <p>$$mn = \sqrt{3} \times \sqrt{12} = \sqrt{3 \times 12} = \sqrt{36} = 6$$</p>
+            </div>
+            <p>\(6\) is rational (it's an integer), so the statement's conclusion is <strong>false</strong> for these values.</p>
+            <div class="mark-award">M1 — Choosing two different irrational numbers whose product is rational</div>
+            <div class="mark-award">A1 — Correct verification showing \(mn\) is rational, with statement that this disproves the claim</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Conclusion</span> Step 3: State the disproof</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Always finish with a concluding sentence. One counter-example is sufficient to disprove a universal statement — we don't need to show it always fails, just that it fails at least once.</div>
+            <p><strong>Since \(\sqrt{3}\) and \(\sqrt{12}\) are both irrational with \(\sqrt{3} \neq \sqrt{12}\), but \(\sqrt{3} \times \sqrt{12} = 6\) which is rational, this is a counter-example. The statement is false. \(\square\)</strong></p>
+            <div class="examiner-note">Many valid counter-examples exist: \(\sqrt{2}\) and \(\sqrt{8}\) (product = 4), \(\sqrt{2}\) and \(\sqrt{18}\) (product = 6), or even \(\sqrt{2}\) and \(\frac{1}{\sqrt{2}} = \frac{\sqrt{2}}{2}\) if you argue the latter is irrational. The cleanest choices use two simple surds whose product under the root is a perfect square.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p2-jun18-q3')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: P1 Oct 2021 Q15 — Proof by Exhaustion + Contradiction ===================== -->
+<div class="example-panel" id="ex-p1-oct21-q15">
+    <div class="question-text">
+        <p><strong>Paper 1 — October 2021 — Question 15</strong> (6 marks)</p>
+        <p><strong>(i)</strong> Use proof by exhaustion to show that for \(n \in \mathbb{Z}^+, n \leq 4\):</p>
+        <p>$$(n + 1)^3 > 3^n$$</p>
+        <p><em>[2 marks]</em></p>
+        <p><strong>(ii)</strong> Given that \(m^3 + 5\) is odd, use proof by contradiction to show, using algebra, that \(m\) is even.</p>
+        <p><em>[4 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FOctober%202021%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FOctober%202021%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (i) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (i)</span> Step 1: List and verify ALL cases \(n = 1, 2, 3, 4\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Proof by exhaustion means checking EVERY case individually. Since \(n \in \mathbb{Z}^+\) and \(n \leq 4\), the cases are \(n = 1, 2, 3, 4\). For each, we compute both \((n+1)^3\) and \(3^n\) and verify the inequality holds. Missing even one case loses all marks.</div>
+            <p>Check each value of \(n\) from 1 to 4:</p>
+            <div class="algebra-chain">
+                <p><strong>\(n = 1\):</strong> \((1+1)^3 = 8\), \(\quad 3^1 = 3\). \(\quad 8 > 3\) &#10004;</p>
+                <p><strong>\(n = 2\):</strong> \((2+1)^3 = 27\), \(\quad 3^2 = 9\). \(\quad 27 > 9\) &#10004;</p>
+                <p><strong>\(n = 3\):</strong> \((3+1)^3 = 64\), \(\quad 3^3 = 27\). \(\quad 64 > 27\) &#10004;</p>
+                <p><strong>\(n = 4\):</strong> \((4+1)^3 = 125\), \(\quad 3^4 = 81\). \(\quad 125 > 81\) &#10004;</p>
+            </div>
+            <p><strong>All cases verified. Therefore \((n+1)^3 > 3^n\) for all \(n \in \mathbb{Z}^+, n \leq 4\). \(\square\)</strong></p>
+            <div class="mark-award">M1 — Attempting both \((n+1)^3\) and \(3^n\) for ALL values \(n = 1, 2, 3, 4\) (at least 5 of 8 values correct)</div>
+            <div class="mark-award">A1 — All values correct, all pairs compared, with a conclusion</div>
+            <div class="examiner-note">Note: you don't need to explicitly write "8 > 3" for each — but you do need to show both computed values. Just stating "true" without the numbers is insufficient. Extra values like \(n = 0\) or \(n = 5\) are ignored by the examiner.</div>
+        </div>
+    </div>
+
+    <!-- Part (ii) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (ii)</span> Step 2: State the assumption for contradiction</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We want to prove "if \(m^3 + 5\) is odd, then \(m\) is even". For contradiction, we assume the conclusion is FALSE while keeping the hypothesis TRUE. So: assume \(m^3 + 5\) is odd AND \(m\) is NOT even (i.e., \(m\) is odd). We then show this leads to a contradiction.</div>
+            <p><strong>Assume, for contradiction, that \(m\) is odd.</strong></p>
+            <p>Then we can write \(m = 2p + 1\) for some integer \(p\).</p>
+            <div class="mark-award">M1 — Beginning the proof by negating the statement: "Let \(m\) be odd" or "Assume \(m\) is not even"</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (ii)</span> Step 3: Expand \(m^3 + 5\) with the odd assumption</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">If \(m = 2p + 1\), we substitute into \(m^3 + 5\) and expand. The goal: show that the result is EVEN (which contradicts the given condition that \(m^3 + 5\) is odd). Expanding a cube takes care — use \((a+b)^3 = a^3 + 3a^2b + 3ab^2 + b^3\).</div>
+            <div class="algebra-chain">
+                <p>$$m^3 + 5 = (2p + 1)^3 + 5$$</p>
+                <p class="reason">Expand \((2p+1)^3\) using the binomial expansion:</p>
+                <p>$$= (2p)^3 + 3(2p)^2(1) + 3(2p)(1)^2 + 1^3 + 5$$</p>
+                <p>$$= 8p^3 + 12p^2 + 6p + 1 + 5$$</p>
+                <p>$$= 8p^3 + 12p^2 + 6p + 6$$</p>
+            </div>
+            <div class="mark-award">M1 — Setting \(m = 2p + 1\) and attempting to expand \((2p+1)^3 + 5\)</div>
+            <div class="mark-award">A1 — Correctly reaching \(8p^3 + 12p^2 + 6p + 6\) and deducing it is even</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (ii)</span> Step 4: Identify the contradiction and conclude</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We need to show that \(8p^3 + 12p^2 + 6p + 6\) is EVEN. The clearest way: factor out 2. Then we have \(m^3 + 5 = 2(\text{integer})\), which is even. But we were told \(m^3 + 5\) is odd. Even and odd at the same time is impossible — contradiction!</div>
+            <p>Factor out 2:</p>
+            <div class="algebra-chain">
+                <p>$$8p^3 + 12p^2 + 6p + 6 = 2(4p^3 + 6p^2 + 3p + 3)$$</p>
+            </div>
+            <p>This is \(2 \times (\text{integer})\), so it is <strong>even</strong>.</p>
+            <p>But we are given that \(m^3 + 5\) is <strong>odd</strong>.</p>
+            <p><strong>This is a contradiction (even cannot equal odd). Therefore our assumption was wrong, and \(m\) must be even. \(\square\)</strong></p>
+            <div class="mark-award">A1 — Complete proof with: reason why expression is even, identification of contradiction, and concluding statement</div>
+            <div class="examiner-note">Three things are required for the final A1: (1) a reason why \(8p^3 + 12p^2 + 6p + 6\) is even (factoring out 2, or stating "all terms are even"), (2) identifying the contradiction ("but we were told it is odd"), and (3) the conclusion ("so \(m\) is even"). Candidates who said "this is a contradiction" without stating WHAT contradicts WHAT lost this mark.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p1-oct21-q15')">Show Full Solution</button>
+</div>
+
+<!-- PATTERN RECOGNITION -->
+<h2>How to Recognise the Proof Type Required</h2>
+<div class="card">
+    <p>Look for these signals in the question wording:</p>
+    <ul style="margin-left: 1.5rem; line-height: 2;">
+        <li><strong>"Prove by contradiction"</strong> — explicitly told. Negate the statement, reach impossibility.</li>
+        <li><strong>"Prove by exhaustion"</strong> — explicitly told. Finite set of cases (usually \(n \leq 4\) or similar).</li>
+        <li><strong>"Disprove" or "counter-example"</strong> — find ONE specific case where it fails.</li>
+        <li><strong>"Prove, using algebra, that [expression] is always even/odd/divisible..."</strong> — algebraic deduction using \(n = 2k\) and \(n = 2k+1\) (or 3k, 3k+1, 3k+2 for divisibility by 3).</li>
+        <li><strong>"Prove that there are no integers..."</strong> — usually contradiction (assume they exist, derive impossibility).</li>
+        <li><strong>"Show that [inequality] holds for all..."</strong> with a FINITE domain — exhaustion.</li>
+    </ul>
+</div>
+
+<h2>Key Algebraic Tools for Proof Questions</h2>
+<div class="card">
+    <ul style="margin-left: 1.5rem; line-height: 2.2;">
+        <li><strong>Even number:</strong> \(n = 2k\) where \(k \in \mathbb{Z}\)</li>
+        <li><strong>Odd number:</strong> \(n = 2k + 1\) where \(k \in \mathbb{Z}\)</li>
+        <li><strong>Consecutive integers:</strong> \(n\) and \(n+1\) — one is always even</li>
+        <li><strong>Multiples of 3:</strong> any integer is \(3k\), \(3k+1\), or \(3k+2\)</li>
+        <li><strong>Difference of two squares:</strong> \(a^2 - b^2 = (a+b)(a-b)\)</li>
+        <li><strong>Cube expansion:</strong> \((a+b)^3 = a^3 + 3a^2b + 3ab^2 + b^3\)</li>
+        <li><strong>Product of consecutive integers is even:</strong> \(n(n+1)\) is always divisible by 2</li>
+    </ul>
+</div>
+
+<script>
+    // Toggle individual step
+    function toggleStep(header) {
+        header.classList.toggle('open');
+        header.nextElementSibling.classList.toggle('open');
+    }
+
+    // Show all steps in a panel
+    function showAllSteps(panelId) {
+        const panel = document.getElementById(panelId);
+        panel.querySelectorAll('.step-reveal-header').forEach(h => h.classList.add('open'));
+        panel.querySelectorAll('.step-reveal-content').forEach(c => c.classList.add('open'));
+    }
+
+    // Select an example (tab switching)
+    function selectExample(panelId) {
+        // Deactivate all tabs and panels
+        document.querySelectorAll('.example-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.example-panel').forEach(p => p.classList.remove('active'));
+
+        // Activate the selected panel
+        document.getElementById(panelId).classList.add('active');
+
+        // Find and activate the matching tab
+        const tabs = document.querySelectorAll('.example-tab');
+        const tabMap = {
+            'ex-p1-oct20-q16': 0,
+            'ex-p1-jun19-q10': 1,
+            'ex-p2-jun18-q3': 2,
+            'ex-p1-oct21-q15': 3
+        };
+        if (tabMap[panelId] !== undefined) {
+            tabs[tabMap[panelId]].classList.add('active');
+        }
+
+        // Scroll to worked examples section
+        document.getElementById(panelId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Render KaTeX on load
+    document.addEventListener('DOMContentLoaded', function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ]
+        });
+    });
+</script>
+
+</body>
+</html>

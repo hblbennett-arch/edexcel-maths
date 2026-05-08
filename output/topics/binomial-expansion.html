@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binomial Expansion — Edexcel A Level Maths</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #2b6cb0;
+            --success: #276749;
+            --warning: #c05621;
+            --danger: #c53030;
+            --bg: #f7fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #2d3748;
+            --muted: #718096;
+            --mark: #805ad5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        h1 { color: var(--primary); margin-bottom: 0.5rem; font-size: 2rem; }
+        h2 { color: var(--primary); margin: 2.5rem 0 1rem; font-size: 1.4rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        h3 { color: var(--accent); margin: 1.5rem 0 0.75rem; font-size: 1.15rem; }
+
+        .subtitle { color: var(--muted); margin-bottom: 2rem; font-size: 1.05rem; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--accent); }
+        .stat-card .label { font-size: 0.85rem; color: var(--muted); }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .approach-step {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .approach-step:last-child { border-bottom: none; }
+
+        .step-number {
+            background: var(--accent);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .step-content { flex: 1; }
+        .step-content strong { color: var(--primary); }
+
+        .pitfall-box {
+            background: #fff5f5;
+            border: 1px solid #fed7d7;
+            border-left: 4px solid var(--danger);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .pitfall-box h3 { color: var(--danger); margin-top: 0; }
+        .pitfall-box ul { margin-left: 1.5rem; margin-top: 0.5rem; }
+        .pitfall-box li { margin: 0.5rem 0; }
+
+        .tip-box {
+            background: #f0fff4;
+            border: 1px solid #c6f6d5;
+            border-left: 4px solid var(--success);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .tip-box h3 { color: var(--success); margin-top: 0; }
+
+        /* Question index table */
+        .question-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.92rem;
+        }
+
+        .question-table th {
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+        }
+
+        .question-table td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .question-table tr:hover { background: #ebf8ff; }
+
+        .question-table a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .question-table a:hover { text-decoration: underline; }
+
+        .question-table .go-btn {
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+        }
+
+        .question-table .go-btn:hover { background: var(--primary); }
+
+        /* Worked examples */
+        .example-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .example-tab {
+            padding: 0.5rem 1rem;
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .example-tab:hover { border-color: var(--accent); }
+        .example-tab.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+        .example-panel { display: none; }
+        .example-panel.active { display: block; }
+
+        .question-text {
+            background: #ebf8ff;
+            border: 1px solid #bee3f8;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.02rem;
+        }
+
+        .question-text .links {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #bee3f8;
+            font-size: 0.85rem;
+        }
+
+        .question-text .links a {
+            color: var(--accent);
+            text-decoration: none;
+            margin-right: 1.5rem;
+        }
+
+        .question-text .links a:hover { text-decoration: underline; }
+
+        .step-reveal {
+            margin: 0.75rem 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .step-reveal-header {
+            padding: 0.75rem 1rem;
+            background: #edf2f7;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background 0.2s;
+            gap: 0.5rem;
+        }
+
+        .step-reveal-header:hover { background: #e2e8f0; }
+
+        .step-reveal-header .arrow {
+            transition: transform 0.3s;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .step-reveal-header.open .arrow { transform: rotate(90deg); }
+
+        .step-reveal-content {
+            display: none;
+            padding: 1.25rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .step-reveal-content.open { display: block; }
+
+        .part-label {
+            display: inline-block;
+            background: #ebf8ff;
+            color: var(--accent);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        .mark-badge {
+            display: inline-block;
+            background: #faf5ff;
+            color: var(--mark);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border: 1px solid #e9d8fd;
+        }
+
+        .mark-award {
+            background: #faf5ff;
+            border: 1px solid #e9d8fd;
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            color: var(--mark);
+            font-weight: 600;
+        }
+
+        .mark-award::before {
+            content: "\2713 ";
+        }
+
+        .examiner-note {
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            border-radius: 6px;
+            padding: 0.75rem;
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .examiner-note::before {
+            content: "Examiner: ";
+            font-weight: 700;
+            color: var(--warning);
+        }
+
+        .show-all-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            transition: background 0.2s;
+        }
+
+        .show-all-btn:hover { background: var(--primary); }
+
+        .motivation {
+            background: #eef6ff;
+            border: 1px solid #c3dafe;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.93rem;
+        }
+
+        .motivation::before {
+            content: "\1F4AD Thinking: ";
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .algebra-chain {
+            margin: 0.5rem 0;
+            padding-left: 1rem;
+            border-left: 3px solid var(--border);
+        }
+
+        .algebra-chain .reason {
+            color: var(--muted);
+            font-size: 0.85rem;
+            font-style: italic;
+            margin: 0.25rem 0;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            h1 { font-size: 1.5rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .example-selector { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<p style="margin-bottom: 1rem;"><a href="../index.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">&larr; All Topics</a></p>
+
+<h1>Binomial Expansion</h1>
+<p class="subtitle">Expanding \((1+x)^n\) for positive integer and fractional/negative \(n\), validity conditions, and approximations</p>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="number">8/14</div>
+        <div class="label">Papers with this topic</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">3–10</div>
+        <div class="label">Typical marks</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">Q1–9</div>
+        <div class="label">Paper position</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">2 types</div>
+        <div class="label">Integer n / fractional n</div>
+    </div>
+</div>
+
+<!-- FULL QUESTION INDEX -->
+<h2>All Past Paper Questions on This Topic</h2>
+<p style="margin-bottom: 1rem; color: var(--muted);">Every binomial expansion question from Edexcel 9MA0 (2018–2024). Click "Worked Example" to see a full guided solution.</p>
+
+<table class="question-table">
+    <thead>
+        <tr>
+            <th>Paper</th>
+            <th>Question</th>
+            <th>Description</th>
+            <th>Marks</th>
+            <th>Links</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>P1 Oct 2020</td>
+            <td>Q1</td>
+            <td>Expand \((1+8x)^{\frac{1}{2}}\) first 4 terms; use to approximate \(\sqrt{5}\)</td>
+            <td>5</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FOctober%202020%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FOctober%202020%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p1-oct20-q1'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P2 Oct 2020</td>
+            <td>Q4</td>
+            <td>In \((a+2x)^7\), coefficient of \(x^4\) is 15120; find \(a\)</td>
+            <td>3</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FOctober%202020%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FOctober%202020%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p2-oct20-q4'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P1 June 2018</td>
+            <td>Q11</td>
+            <td>Show \(\sqrt{\frac{1+4x}{1-x}} \approx 1 + \frac{5}{2}x - \frac{5}{8}x^2\); validity; approximate \(\sqrt{6}\)</td>
+            <td>10</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202018%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202018%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p1-jun18-q11'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P1 June 2019</td>
+            <td>Q4</td>
+            <td>Expand \((4-x)^{\frac{1}{2}}\) first 3 terms; validity; which substitution for \(\sqrt{2}\)</td>
+            <td>6</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202019%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202019%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 Oct 2021</td>
+            <td>Q9</td>
+            <td>Partial fractions then binomial expansions of \((2+5x)^{-2}\) and \((1-2x)^{-1}\); find range of validity</td>
+            <td>7</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FOctober%202021%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FOctober%202021%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 June 2022</td>
+            <td>Q7</td>
+            <td>Expand \(\sqrt{4-9x}\) first 4 terms; overestimate or underestimate for \(\sqrt{3}\)</td>
+            <td>5</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202022%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202022%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p2-jun22-q7'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P2 June 2023</td>
+            <td>Q11</td>
+            <td>Expand \((3+x)^{-2}\) first 3 terms; use in integration</td>
+            <td>4</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202023%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202023%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 June 2024</td>
+            <td>Q2</td>
+            <td>Expand \((1-9x)^{\frac{1}{2}}\) first 4 terms; explain why \(x = -\frac{2}{9}\) is not valid</td>
+            <td>4</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202024%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202024%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- GUIDED APPROACH -->
+<h2>The Approach</h2>
+<div class="card">
+    <p style="margin-bottom: 1rem; color: var(--muted);">Edexcel tests binomial expansion in two main flavours:</p>
+
+    <h3 style="margin-top: 0.5rem;">Type 1: Fractional/Negative \(n\) (Year 2 — most common)</h3>
+    <div class="approach-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+            <strong>Rewrite in the form \((1 + bx)^n\)</strong><br>
+            If the expression is like \((a + bx)^n\), factor out \(a^n\) first: e.g. \((4-9x)^{\frac{1}{2}} = 4^{\frac{1}{2}}\left(1 - \frac{9x}{4}\right)^{\frac{1}{2}} = 2\left(1 - \frac{9x}{4}\right)^{\frac{1}{2}}\). The expansion formula only works directly when the first term inside the bracket is 1.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+            <strong>Apply the generalised binomial expansion</strong><br>
+            $$(1+x)^n = 1 + nx + \frac{n(n-1)}{2!}x^2 + \frac{n(n-1)(n-2)}{3!}x^3 + \cdots$$
+            Replace \(x\) with your expression (e.g. \(-\frac{9x}{4}\)) and compute each term carefully.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+            <strong>Simplify and state validity</strong><br>
+            Collect terms and don't forget to multiply by the factor taken out in Step 1. State the validity condition: the expansion is valid when \(|bx| < 1\), i.e. \(|x| < \frac{1}{|b|}\).
+        </div>
+    </div>
+
+    <h3>Type 2: Positive Integer \(n\) (Year 1)</h3>
+    <div class="approach-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+            <strong>Use \(\binom{n}{r}\) notation</strong><br>
+            $$(a+b)^n = \sum_{r=0}^{n} \binom{n}{r} a^{n-r} b^r$$
+            For finding a specific coefficient, identify the term containing \(x^k\) and calculate its coefficient using \(\binom{n}{r}\).
+        </div>
+    </div>
+</div>
+
+<!-- EXAMINER PITFALLS -->
+<div class="pitfall-box">
+    <h3>Common Pitfalls (from Examiner Reports)</h3>
+    <ul>
+        <li><strong>Forgetting the validity condition:</strong> When \(n\) is not a positive integer, the expansion is only valid for \(|x| < 1\) (or \(|bx| < 1\) if you expanded \((1+bx)^n\)). This is almost always tested and worth a mark.</li>
+        <li><strong>Sign errors with negative \(n\):</strong> When \(n = -2\), the term \(n(n-1) = (-2)(-3) = +6\), not \(-6\). Double negatives catch many candidates.</li>
+        <li><strong>Forgetting to factor out the constant:</strong> Expanding \((4-9x)^{1/2}\) directly without first writing it as \(2(1 - \frac{9x}{4})^{1/2}\) produces wrong answers. You MUST have 1 as the first term.</li>
+        <li><strong>Bracket errors:</strong> When the \(x\)-term is something like \(-\frac{9x}{4}\), forgetting to square the entire expression (including the negative) when computing term 3 is extremely common.</li>
+        <li><strong>Confusing number of terms:</strong> "First 4 terms" means up to and including the \(x^3\) term (since the first term is the constant 1).</li>
+    </ul>
+</div>
+
+<div class="tip-box">
+    <h3>What Top Candidates Do</h3>
+    <ul>
+        <li>Write out the general formula explicitly before substituting — this earns method marks even if arithmetic goes wrong later.</li>
+        <li>Keep each term on a separate line when expanding, showing the binomial coefficient, the power of the bracket term, and the simplification.</li>
+        <li>For validity: state \(|bx| < 1\) then immediately solve for \(|x| < \frac{1}{|b|}\). Write both forms.</li>
+        <li>When approximating surds, clearly show: (i) what value of \(x\) you're substituting, (ii) why it gives the surd (show both sides of the equation), and (iii) that \(x\) is within the valid range.</li>
+    </ul>
+</div>
+
+<!-- WORKED EXAMPLES -->
+<h2>Worked Examples</h2>
+<p style="color: var(--muted); margin-bottom: 0.5rem;">Select a question to see the full guided solution:</p>
+
+<div class="example-selector">
+    <div class="example-tab active" onclick="selectExample('ex-p1-oct20-q1')">Oct 2020 P1 Q1</div>
+    <div class="example-tab" onclick="selectExample('ex-p2-oct20-q4')">Oct 2020 P2 Q4</div>
+    <div class="example-tab" onclick="selectExample('ex-p2-jun22-q7')">June 2022 P2 Q7</div>
+    <div class="example-tab" onclick="selectExample('ex-p1-jun18-q11')">June 2018 P1 Q11</div>
+</div>
+
+<!-- ===================== EXAMPLE 1: P1 Oct 2020 Q1 — Fractional n, approximation ===================== -->
+<div class="example-panel active" id="ex-p1-oct20-q1">
+    <div class="question-text">
+        <p><strong>Paper 1 — October 2020 — Question 1</strong> (5 marks)</p>
+        <p><strong>(a)</strong> Find the first four terms, in ascending powers of \(x\), of the binomial expansion of</p>
+        <p>$$(1 + 8x)^{\frac{1}{2}}$$</p>
+        <p>giving each term in simplest form. <em>[3 marks]</em></p>
+        <p><strong>(b)</strong> Explain how you could use \(x = \frac{1}{32}\) in the expansion to find an approximation for \(\sqrt{5}\). There is no need to carry out the calculation. <em>[2 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FOctober%202020%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FOctober%202020%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Write down the binomial expansion formula</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We need to expand \((1+8x)^{1/2}\) which is already in the form \((1+bx)^n\) with \(b=8\) and \(n=\frac{1}{2}\). Since \(n\) is not a positive integer, we use the generalised binomial expansion. We need 4 terms (constant, \(x\), \(x^2\), \(x^3\)).</div>
+            <p>The generalised binomial expansion is:</p>
+            <p>$$(1+x)^n = 1 + nx + \frac{n(n-1)}{2!}x^2 + \frac{n(n-1)(n-2)}{3!}x^3 + \cdots$$</p>
+            <p>Here \(n = \frac{1}{2}\) and we replace \(x\) with \(8x\):</p>
+            <p>$$(1+8x)^{\frac{1}{2}} = 1 + \frac{1}{2}(8x) + \frac{\frac{1}{2}(\frac{1}{2}-1)}{2!}(8x)^2 + \frac{\frac{1}{2}(\frac{1}{2}-1)(\frac{1}{2}-2)}{3!}(8x)^3 + \cdots$$</p>
+            <div class="mark-award">M1 — Correct structure for the binomial expansion with \(n = \frac{1}{2}\), showing at least term 3 or term 4 with correct binomial coefficient</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 2: Calculate each term</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Now we compute each term carefully. The key is to evaluate \(n(n-1)\), \(n(n-1)(n-2)\) etc. with \(n = \frac{1}{2}\), and compute powers of \(8x\). The most common error is with signs: \(\frac{1}{2} - 1 = -\frac{1}{2}\) and \(\frac{1}{2} - 2 = -\frac{3}{2}\).</div>
+            <div class="algebra-chain">
+                <p class="reason">Term 1 (constant): \(1\)</p>
+                <p class="reason">Term 2 (\(x\) term): \(\frac{1}{2} \times 8x = 4x\)</p>
+                <p class="reason">Term 3 (\(x^2\) term): \(\frac{\frac{1}{2} \times (-\frac{1}{2})}{2} \times (8x)^2 = \frac{-\frac{1}{4}}{2} \times 64x^2 = -\frac{1}{8} \times 64x^2 = -8x^2\)</p>
+                <p class="reason">Term 4 (\(x^3\) term): \(\frac{\frac{1}{2} \times (-\frac{1}{2}) \times (-\frac{3}{2})}{6} \times (8x)^3 = \frac{\frac{3}{8}}{6} \times 512x^3 = \frac{1}{16} \times 512x^3 = 32x^3\)</p>
+            </div>
+            <p>$$\boxed{(1+8x)^{\frac{1}{2}} = 1 + 4x - 8x^2 + 32x^3 + \cdots}$$</p>
+            <div class="mark-award">A1 — Correct unsimplified expression</div>
+            <div class="mark-award">A1 — All four terms correctly simplified: \(1 + 4x - 8x^2 + 32x^3\)</div>
+            <div class="examiner-note">Note the alternating signs from the third term onwards. When \(n = \frac{1}{2}\), term 3 is negative but term 4 is positive because \((-\frac{1}{2})(-\frac{3}{2}) = +\frac{3}{4}\). Many candidates lose marks by getting the sign wrong on term 4.</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 3: Explain how to approximate \(\sqrt{5}\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We need to show that substituting \(x = \frac{1}{32}\) into our expansion gives \(\sqrt{5}\). The strategy: substitute into the LHS \((1+8x)^{1/2}\) and show it equals \(\sqrt{5}\). Then the RHS (our expansion) gives the approximation. We need to show both sides explicitly.</div>
+            <p>Substitute \(x = \frac{1}{32}\) into the left-hand side:</p>
+            <div class="algebra-chain">
+                <p>$$(1 + 8x)^{\frac{1}{2}} = \left(1 + 8 \times \frac{1}{32}\right)^{\frac{1}{2}} = \left(1 + \frac{1}{4}\right)^{\frac{1}{2}} = \left(\frac{5}{4}\right)^{\frac{1}{2}} = \frac{\sqrt{5}}{2}$$</p>
+            </div>
+            <p>So substituting \(x = \frac{1}{32}\) into the expansion gives an approximation for \(\frac{\sqrt{5}}{2}\).</p>
+            <p><strong>Therefore: multiply the result by 2 to obtain an approximation for \(\sqrt{5}\).</strong></p>
+            <div class="mark-award">M1 — Substituting \(x = \frac{1}{32}\) into \((1+8x)^{1/2}\) to obtain \(\frac{\sqrt{5}}{2}\) or equivalent</div>
+            <div class="mark-award">A1 — Complete explanation: substitute into expansion and multiply result by 2</div>
+            <div class="examiner-note">You must show the connection between both sides. Simply stating "substitute \(x = \frac{1}{32}\) into the expansion" without showing why this gives \(\sqrt{5}\) earns M0. The examiner needs to see the left-hand side evaluated to see \(\sqrt{5}\) appear.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p1-oct20-q1')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE 2: P2 Oct 2020 Q4 — Positive integer n, finding coefficient ===================== -->
+<div class="example-panel" id="ex-p2-oct20-q4">
+    <div class="question-text">
+        <p><strong>Paper 2 — October 2020 — Question 4</strong> (3 marks)</p>
+        <p>In the binomial expansion of</p>
+        <p>$$(a + 2x)^7 \quad \text{where } a \text{ is a constant}$$</p>
+        <p>the coefficient of \(x^4\) is 15120.</p>
+        <p>Find the value of \(a\). <em>[3 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FOctober%202020%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FOctober%202020%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label"></span> Step 1: Identify the general term in \((a+2x)^7\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">This is a positive integer power expansion (Year 1 content). We need the term containing \(x^4\). In the expansion of \((a+b)^n\), the general term is \(\binom{n}{r}a^{n-r}b^r\). Here \(n=7\), the first term is \(a\), and the second term is \(2x\). We need the term where the power of \(2x\) is 4.</div>
+            <p>Using the binomial theorem, the general term of \((a + 2x)^7\) is:</p>
+            <p>$$\binom{7}{r} \cdot a^{7-r} \cdot (2x)^r$$</p>
+            <p>For the \(x^4\) term, we need \(r = 4\):</p>
+            <p>$$\binom{7}{4} \cdot a^{7-4} \cdot (2x)^4 = \binom{7}{4} \cdot a^3 \cdot 2^4 \cdot x^4$$</p>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label"></span> Step 2: Calculate the coefficient and set equal to 15120</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Now we compute the numerical parts: \(\binom{7}{4} = 35\) and \(2^4 = 16\). The coefficient of \(x^4\) is everything multiplied together except the \(x^4\) itself. We set this equal to 15120 and solve for \(a\).</div>
+            <div class="algebra-chain">
+                <p class="reason">Calculate \(\binom{7}{4} = \frac{7!}{4! \cdot 3!} = \frac{7 \times 6 \times 5}{3 \times 2 \times 1} = 35\)</p>
+                <p class="reason">Calculate \(2^4 = 16\)</p>
+                <p>The coefficient of \(x^4\) is: \(35 \times a^3 \times 16 = 560a^3\)</p>
+            </div>
+            <div class="mark-award">M1 — Correct expression for the coefficient: \(\binom{7}{4} \cdot a^3 \cdot 2^4\) or equivalent (= \(560a^3\))</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label"></span> Step 3: Solve for \(a\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We have \(560a^3 = 15120\). Dividing and cube-rooting gives us \(a\).</div>
+            <div class="algebra-chain">
+                <p>$$560a^3 = 15120$$</p>
+                <p class="reason">Divide both sides by 560:</p>
+                <p>$$a^3 = \frac{15120}{560} = 27$$</p>
+                <p class="reason">Take the cube root:</p>
+                <p>$$\boxed{a = 3}$$</p>
+            </div>
+            <div class="mark-award">A1 — Correct equation \(560a^3 = 15120\) or equivalent</div>
+            <div class="mark-award">A1 — \(a = 3\)</div>
+            <div class="examiner-note">This is a fairly short question (3 marks, early in the paper). The most common error is using the wrong binomial coefficient: candidates confuse \(\binom{7}{4}\) with \(\binom{7}{3}\) — but since \(\binom{7}{4} = \binom{7}{3} = 35\), this particular mistake doesn't actually cause a wrong answer here. However, forgetting to include \(2^4\) (the power of 2 from \((2x)^4\)) definitely does.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p2-oct20-q4')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE 3: P2 June 2022 Q7 — sqrt(4-9x), overestimate ===================== -->
+<div class="example-panel" id="ex-p2-jun22-q7">
+    <div class="question-text">
+        <p><strong>Paper 2 — June 2022 — Question 7</strong> (5 marks)</p>
+        <p><strong>(a)</strong> Find the first four terms, in ascending powers of \(x\), of the binomial expansion of</p>
+        <p>$$\sqrt{4 - 9x}$$</p>
+        <p>writing each term in simplest form. <em>[4 marks]</em></p>
+        <p><strong>(b)</strong> A student uses this expansion with \(x = \frac{1}{9}\) to find an approximation for \(\sqrt{3}\). Using the answer to part (a) and without doing any calculations, state whether this approximation will be an overestimate or an underestimate of \(\sqrt{3}\), giving a brief reason for your answer. <em>[1 mark]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202022%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202022%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Factor out a constant to get the form \((1 + bx)^n\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We cannot expand \(\sqrt{4-9x}\) directly because the formula requires the first term inside the bracket to be 1. We need to factor out the constant first. Since \(\sqrt{4-9x} = (4-9x)^{1/2}\), we factor out \(4^{1/2} = 2\).</div>
+            <p>Rewrite the expression:</p>
+            <div class="algebra-chain">
+                <p>$$\sqrt{4-9x} = (4-9x)^{\frac{1}{2}} = \left[4\left(1 - \frac{9x}{4}\right)\right]^{\frac{1}{2}}$$</p>
+                <p class="reason">Apply the power to both factors:</p>
+                <p>$$= 4^{\frac{1}{2}} \cdot \left(1 - \frac{9x}{4}\right)^{\frac{1}{2}} = 2\left(1 - \frac{9x}{4}\right)^{\frac{1}{2}}$$</p>
+            </div>
+            <div class="mark-award">B1 — Taking out a factor of \(\sqrt{4} = 2\) and writing \(2(1 - \frac{9x}{4})^{1/2}\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 2: Expand \(\left(1 - \frac{9x}{4}\right)^{\frac{1}{2}}\) using the formula</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Now we apply the generalised binomial expansion with \(n = \frac{1}{2}\) and replacing \(x\) with \(-\frac{9x}{4}\). Be very careful with the negative sign — when we square it, it becomes positive; when we cube it, it stays negative.</div>
+            <p>Using \((1+u)^n = 1 + nu + \frac{n(n-1)}{2!}u^2 + \frac{n(n-1)(n-2)}{3!}u^3 + \cdots\) with \(u = -\frac{9x}{4}\) and \(n = \frac{1}{2}\):</p>
+            <div class="algebra-chain">
+                <p class="reason">Term 1: \(1\)</p>
+                <p class="reason">Term 2: \(\frac{1}{2}\left(-\frac{9x}{4}\right) = -\frac{9x}{8}\)</p>
+                <p class="reason">Term 3: \(\frac{\frac{1}{2}(-\frac{1}{2})}{2}\left(-\frac{9x}{4}\right)^2 = \frac{-\frac{1}{4}}{2} \times \frac{81x^2}{16} = -\frac{1}{8} \times \frac{81x^2}{16} = -\frac{81x^2}{128}\)</p>
+                <p class="reason">Term 4: \(\frac{\frac{1}{2}(-\frac{1}{2})(-\frac{3}{2})}{6}\left(-\frac{9x}{4}\right)^3 = \frac{\frac{3}{8}}{6} \times \left(-\frac{729x^3}{64}\right) = \frac{1}{16} \times \left(-\frac{729x^3}{64}\right) = -\frac{729x^3}{1024}\)</p>
+            </div>
+            <div class="mark-award">M1 — Correct structure for term 3 or term 4 with correct binomial coefficient</div>
+            <div class="mark-award">A1 — Correct unsimplified expression for the expansion of \((1 - \frac{9x}{4})^{1/2}\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 3: Multiply by 2 and write the final answer</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Don't forget the factor of 2 we took out at the start. Multiply every term by 2 to get the final expansion of \(\sqrt{4-9x}\).</div>
+            <div class="algebra-chain">
+                <p>$$\sqrt{4-9x} = 2\left(1 - \frac{9x}{8} - \frac{81x^2}{128} - \frac{729x^3}{1024} - \cdots\right)$$</p>
+                <p class="reason">Distribute the 2:</p>
+                <p>$$= 2 - \frac{9x}{4} - \frac{81x^2}{64} - \frac{729x^3}{512} - \cdots$$</p>
+            </div>
+            <p>$$\boxed{\sqrt{4-9x} = 2 - \frac{9x}{4} - \frac{81x^2}{64} - \frac{729x^3}{512} + \cdots}$$</p>
+            <div class="mark-award">A1 — Correct final simplified expansion with all four terms</div>
+            <div class="examiner-note">All terms are negative after the constant (since \(n = \frac{1}{2}\) and the bracket contains a minus sign). This observation is key for Part (b).</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 4: Overestimate or underestimate?</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The student uses only the first 4 terms. But the full (infinite) expansion has more terms beyond these. If we can determine the sign of those missing terms, we know whether the truncated approximation is too big or too small. Looking at our expansion: every term after the first is negative (since \(x > 0\)).</div>
+            <p>Note: when \(x = \frac{1}{9}\), \(\sqrt{4 - 9 \times \frac{1}{9}} = \sqrt{4-1} = \sqrt{3}\).</p>
+            <p>Looking at the expansion, all terms after the constant 2 are <strong>negative</strong> (since \(x > 0\)).</p>
+            <p>The expansion is infinite, and the student is using only the first four terms. The remaining (omitted) terms are also all negative.</p>
+            <p><strong>The approximation is an overestimate</strong>, because the missing negative terms would make the true value smaller.</p>
+            <div class="mark-award">B1 — States "overestimate" with reason: all omitted terms are negative (so the true value is less than the approximation)</div>
+            <div class="examiner-note">The key reasoning is: the omitted terms are negative, so adding them would decrease the sum. Therefore the truncated expansion (without them) is larger than the true value — an overestimate.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p2-jun22-q7')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE 4: P1 June 2018 Q11 — Combined expansions, validity, approximation ===================== -->
+<div class="example-panel" id="ex-p1-jun18-q11">
+    <div class="question-text">
+        <p><strong>Paper 1 — June 2018 — Question 11</strong> (10 marks)</p>
+        <p><strong>(a)</strong> Use binomial expansions to show that</p>
+        <p>$$\sqrt{\frac{1+4x}{1-x}} \approx 1 + \frac{5}{2}x - \frac{5}{8}x^2$$</p>
+        <p><em>[6 marks]</em></p>
+        <p><strong>(b)</strong> A student substitutes \(x = \frac{1}{2}\) into both sides of the approximation shown in part (a) in an attempt to find an approximation to \(\sqrt{6}\). Give a reason why the student should not use \(x = \frac{1}{2}\). <em>[1 mark]</em></p>
+        <p><strong>(c)</strong> Substitute \(x = \frac{1}{11}\) into \(\displaystyle\frac{1+4x}{1-x}\) to obtain an approximation to \(\sqrt{6}\). Give your answer as a fraction. <em>[3 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202018%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202018%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Rewrite as a product of two binomial expressions</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The expression \(\sqrt{\frac{1+4x}{1-x}}\) involves a fraction under a square root. We can split it into a product of two separate binomial expressions, each of which we can expand individually. Using index laws: \(\sqrt{\frac{a}{b}} = a^{1/2} \times b^{-1/2}\).</div>
+            <p>Rewrite the expression using index laws:</p>
+            <p>$$\sqrt{\frac{1+4x}{1-x}} = (1+4x)^{\frac{1}{2}} \cdot (1-x)^{-\frac{1}{2}}$$</p>
+            <p>We will expand each factor separately (up to the \(x^2\) term), then multiply the results.</p>
+            <div class="mark-award">B1 — Key step of writing the expression as \((1+4x)^{1/2}(1-x)^{-1/2}\) or equivalent setup for binomial expansion</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 2: Expand \((1+4x)^{\frac{1}{2}}\) up to \(x^2\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Apply the binomial formula with \(n = \frac{1}{2}\) replacing \(x\) with \(4x\). We only need terms up to \(x^2\) since the target answer is a quadratic.</div>
+            <div class="algebra-chain">
+                <p>$$(1+4x)^{\frac{1}{2}} = 1 + \frac{1}{2}(4x) + \frac{\frac{1}{2}(-\frac{1}{2})}{2!}(4x)^2 + \cdots$$</p>
+                <p class="reason">Term 2: \(\frac{1}{2} \times 4x = 2x\)</p>
+                <p class="reason">Term 3: \(\frac{-\frac{1}{4}}{2} \times 16x^2 = -\frac{1}{8} \times 16x^2 = -2x^2\)</p>
+            </div>
+            <p>$$(1+4x)^{\frac{1}{2}} \approx 1 + 2x - 2x^2$$</p>
+            <div class="mark-award">M1 — Correct attempt at the binomial expansion of \((1+4x)^{1/2}\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 3: Expand \((1-x)^{-\frac{1}{2}}\) up to \(x^2\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Now expand the second factor with \(n = -\frac{1}{2}\) replacing \(x\) with \(-x\). Be careful: \(n(n-1) = (-\frac{1}{2})(-\frac{3}{2}) = +\frac{3}{4}\), and \((-x)^2 = x^2\) (positive!).</div>
+            <div class="algebra-chain">
+                <p>$$(1-x)^{-\frac{1}{2}} = 1 + \left(-\frac{1}{2}\right)(-x) + \frac{(-\frac{1}{2})(-\frac{3}{2})}{2!}(-x)^2 + \cdots$$</p>
+                <p class="reason">Term 2: \(-\frac{1}{2} \times (-x) = \frac{x}{2}\)</p>
+                <p class="reason">Term 3: \(\frac{+\frac{3}{4}}{2} \times x^2 = \frac{3}{8}x^2\)</p>
+            </div>
+            <p>$$(1-x)^{-\frac{1}{2}} \approx 1 + \frac{1}{2}x + \frac{3}{8}x^2$$</p>
+            <div class="mark-award">M1 — Correct attempt at the binomial expansion of \((1-x)^{-1/2}\)</div>
+            <div class="mark-award">A1 — Both expansions correct and simplified</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 4: Multiply the two expansions together</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We need to multiply \((1 + 2x - 2x^2)\) by \((1 + \frac{1}{2}x + \frac{3}{8}x^2)\). Since we only need terms up to \(x^2\), we can ignore any products that would give \(x^3\) or higher. Systematically: collect the constant term, then all terms contributing to \(x\), then all terms contributing to \(x^2\).</div>
+            <div class="algebra-chain">
+                <p class="reason">Constant term: \(1 \times 1 = 1\)</p>
+                <p class="reason">Coefficient of \(x\): \(1 \times \frac{1}{2} + 2 \times 1 = \frac{1}{2} + 2 = \frac{5}{2}\)</p>
+                <p class="reason">Coefficient of \(x^2\): \(1 \times \frac{3}{8} + 2 \times \frac{1}{2} + (-2) \times 1 = \frac{3}{8} + 1 - 2 = \frac{3}{8} - 1 = -\frac{5}{8}\)</p>
+            </div>
+            <p>$$\boxed{\sqrt{\frac{1+4x}{1-x}} \approx 1 + \frac{5}{2}x - \frac{5}{8}x^2} \quad \square$$</p>
+            <div class="mark-award">dM1 — Multiplying the two expansions and collecting terms up to \(x^2\)</div>
+            <div class="mark-award">A1* — Reaching the given answer with complete, rigorous working</div>
+            <div class="examiner-note">Since this is a "show that" question, every step must be visible. The examiner needs to see both separate expansions AND the multiplication. Jumping from the two expansions directly to the final answer loses marks.</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 5: Why \(x = \frac{1}{2}\) should not be used</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The expansion of \((1+4x)^{1/2}\) is valid for \(|4x| < 1\), i.e. \(|x| < \frac{1}{4}\). The expansion of \((1-x)^{-1/2}\) is valid for \(|{-x}| < 1\), i.e. \(|x| < 1\). For the combined expansion to be valid, BOTH conditions must hold, so we need \(|x| < \frac{1}{4}\). Since \(\frac{1}{2} > \frac{1}{4}\), the expansion is not valid at \(x = \frac{1}{2}\).</div>
+            <p>The expansion of \((1+4x)^{1/2}\) is only valid when \(|4x| < 1\), i.e. \(|x| < \frac{1}{4}\).</p>
+            <p>Since \(x = \frac{1}{2}\) does not satisfy \(|x| < \frac{1}{4}\), <strong>the expansion is not valid for this value of \(x\)</strong>.</p>
+            <div class="mark-award">B1 — States that the expansion is not valid for \(x = \frac{1}{2}\) because it exceeds the range \(|x| < \frac{1}{4}\) (or \(|4x| < 1\))</div>
+            <div class="examiner-note">Simply stating "\(\frac{1}{2}\) is too big" without reference to the validity condition (\(|x| < \frac{1}{4}\) or \(|4x| < 1\)) does NOT earn this mark. You must connect it to the convergence condition of the binomial expansion.</div>
+        </div>
+    </div>
+
+    <!-- Part (c) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)</span> Step 6: Substitute \(x = \frac{1}{11}\) to approximate \(\sqrt{6}\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">First check: when \(x = \frac{1}{11}\), what does the LHS become? \(\frac{1+4(\frac{1}{11})}{1-\frac{1}{11}} = \frac{\frac{15}{11}}{\frac{10}{11}} = \frac{15}{10} = \frac{3}{2}\). So \(\sqrt{\frac{1+4x}{1-x}} = \sqrt{\frac{3}{2}}\). We need to connect this to \(\sqrt{6}\). Now substitute into the RHS expansion.</div>
+            <p>First verify: with \(x = \frac{1}{11}\):</p>
+            <div class="algebra-chain">
+                <p>$$\frac{1 + 4 \times \frac{1}{11}}{1 - \frac{1}{11}} = \frac{\frac{15}{11}}{\frac{10}{11}} = \frac{15}{10} = \frac{3}{2}$$</p>
+                <p class="reason">So \(\sqrt{\frac{1+4x}{1-x}} = \sqrt{\frac{3}{2}} = \frac{\sqrt{6}}{2}\)</p>
+            </div>
+            <p>Substitute \(x = \frac{1}{11}\) into the expansion:</p>
+            <div class="algebra-chain">
+                <p>$$\frac{\sqrt{6}}{2} \approx 1 + \frac{5}{2} \times \frac{1}{11} - \frac{5}{8} \times \frac{1}{121}$$</p>
+                <p>$$= 1 + \frac{5}{22} - \frac{5}{968}$$</p>
+                <p class="reason">Find common denominator (968 = 8 \times 121):</p>
+                <p>$$= \frac{968}{968} + \frac{220}{968} - \frac{5}{968} = \frac{1183}{968}$$</p>
+            </div>
+            <p>Therefore:</p>
+            <p>$$\sqrt{6} \approx 2 \times \frac{1183}{968} = \boxed{\frac{1183}{484}}$$</p>
+            <div class="mark-award">M1 — Substituting \(x = \frac{1}{11}\) into both sides and connecting to \(\sqrt{6}\)</div>
+            <div class="mark-award">A1 — Correct numerical evaluation (finding both sides as fractions)</div>
+            <div class="mark-award">A1 — Final answer \(\frac{1183}{484}\) (or equivalent such as \(\frac{2366}{968}\))</div>
+            <div class="examiner-note">Note that \(\frac{1}{11} < \frac{1}{4}\) so this value of \(x\) IS within the valid range — unlike the \(x = \frac{1}{2}\) from Part (b). The approximation gives \(\sqrt{6} \approx 2.4441\ldots\) compared to the true value \(\sqrt{6} = 2.4495\ldots\) — quite accurate!</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p1-jun18-q11')">Show Full Solution</button>
+</div>
+
+<!-- PATTERN RECOGNITION -->
+<h2>How to Recognise This Question Type</h2>
+<div class="card">
+    <p>Look for these signals in the question:</p>
+    <ul style="margin-left: 1.5rem; line-height: 2;">
+        <li><strong>"Find the first [3/4] terms, in ascending powers of \(x\)"</strong> — direct expansion question</li>
+        <li><strong>"The coefficient of \(x^k\) is..."</strong> — positive integer \(n\) coefficient question (Year 1)</li>
+        <li><strong>A surd or fractional power</strong> like \(\sqrt{1+3x}\) or \((2+x)^{-3}\) — generalised expansion (Year 2)</li>
+        <li><strong>"State the range of values of \(x\) for which the expansion is valid"</strong> — validity condition</li>
+        <li><strong>"Use your expansion to find an approximation"</strong> — substitute a value of \(x\)</li>
+        <li>Usually Q1–Q4 on Paper 1 or Paper 2 (early in paper), worth 3–6 marks. Harder combined versions (like June 2018 Q11) can appear later for 7–10 marks.</li>
+    </ul>
+</div>
+
+<h2>Key Formulae to Memorise</h2>
+<div class="card">
+    <h3 style="margin-top: 0;">Generalised Binomial Expansion (for any \(n\))</h3>
+    <p style="margin: 0.75rem 0;">$$(1+x)^n = 1 + nx + \frac{n(n-1)}{2!}x^2 + \frac{n(n-1)(n-2)}{3!}x^3 + \cdots$$</p>
+    <p style="color: var(--muted); font-size: 0.9rem;">Valid for \(|x| < 1\). When \(n\) is a positive integer, the series terminates. Otherwise, it is infinite.</p>
+
+    <h3>Positive Integer Expansion</h3>
+    <p style="margin: 0.75rem 0;">$$(a+b)^n = \sum_{r=0}^{n} \binom{n}{r} a^{n-r} b^r \quad \text{where} \quad \binom{n}{r} = \frac{n!}{r!(n-r)!}$$</p>
+
+    <h3>Validity Conditions</h3>
+    <ul style="margin-left: 1.5rem; line-height: 2.2;">
+        <li>\((1+bx)^n\) is valid for \(|bx| < 1\), i.e. \(|x| < \frac{1}{|b|}\)</li>
+        <li>\((a+bx)^n = a^n(1 + \frac{b}{a}x)^n\) is valid for \(\left|\frac{b}{a}x\right| < 1\), i.e. \(|x| < \left|\frac{a}{b}\right|\)</li>
+        <li>When combining two expansions, the <strong>stricter</strong> (smaller) validity range applies</li>
+    </ul>
+</div>
+
+<script>
+    // Toggle individual step
+    function toggleStep(header) {
+        header.classList.toggle('open');
+        header.nextElementSibling.classList.toggle('open');
+    }
+
+    // Show all steps in a panel
+    function showAllSteps(panelId) {
+        const panel = document.getElementById(panelId);
+        panel.querySelectorAll('.step-reveal-header').forEach(h => h.classList.add('open'));
+        panel.querySelectorAll('.step-reveal-content').forEach(c => c.classList.add('open'));
+    }
+
+    // Select an example (tab switching)
+    function selectExample(panelId) {
+        // Deactivate all tabs and panels
+        document.querySelectorAll('.example-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.example-panel').forEach(p => p.classList.remove('active'));
+
+        // Activate the selected panel
+        document.getElementById(panelId).classList.add('active');
+
+        // Find and activate the matching tab
+        const tabs = document.querySelectorAll('.example-tab');
+        const tabMap = {
+            'ex-p1-oct20-q1': 0,
+            'ex-p2-oct20-q4': 1,
+            'ex-p2-jun22-q7': 2,
+            'ex-p1-jun18-q11': 3
+        };
+        if (tabMap[panelId] !== undefined) {
+            tabs[tabMap[panelId]].classList.add('active');
+        }
+
+        // Scroll to worked examples section
+        document.getElementById(panelId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Render KaTeX on load
+    document.addEventListener('DOMContentLoaded', function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ]
+        });
+    });
+</script>
+
+</body>
+</html>

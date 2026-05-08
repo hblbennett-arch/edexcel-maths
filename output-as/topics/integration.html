@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integration — Edexcel AS Level Maths</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #2b6cb0;
+            --success: #276749;
+            --warning: #c05621;
+            --danger: #c53030;
+            --bg: #f7fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #2d3748;
+            --muted: #718096;
+            --mark: #805ad5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        h1 { color: var(--primary); margin-bottom: 0.5rem; font-size: 2rem; }
+        h2 { color: var(--primary); margin: 2.5rem 0 1rem; font-size: 1.4rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        h3 { color: var(--accent); margin: 1.5rem 0 0.75rem; font-size: 1.15rem; }
+
+        .subtitle { color: var(--muted); margin-bottom: 2rem; font-size: 1.05rem; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--accent); }
+        .stat-card .label { font-size: 0.85rem; color: var(--muted); }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .approach-step {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .approach-step:last-child { border-bottom: none; }
+
+        .step-number {
+            background: var(--accent);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .step-content { flex: 1; }
+        .step-content strong { color: var(--primary); }
+
+        .pitfall-box {
+            background: #fff5f5;
+            border: 1px solid #fed7d7;
+            border-left: 4px solid var(--danger);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .pitfall-box h3 { color: var(--danger); margin-top: 0; }
+        .pitfall-box ul { margin-left: 1.5rem; margin-top: 0.5rem; }
+        .pitfall-box li { margin: 0.5rem 0; }
+
+        .tip-box {
+            background: #f0fff4;
+            border: 1px solid #c6f6d5;
+            border-left: 4px solid var(--success);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .tip-box h3 { color: var(--success); margin-top: 0; }
+
+        /* Question index table */
+        .question-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.92rem;
+        }
+
+        .question-table th {
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+        }
+
+        .question-table td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .question-table tr:hover { background: #ebf8ff; }
+
+        .question-table a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .question-table a:hover { text-decoration: underline; }
+
+        .question-table .go-btn {
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+        }
+
+        .question-table .go-btn:hover { background: var(--primary); }
+
+        /* Worked examples */
+        .example-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .example-tab {
+            padding: 0.5rem 1rem;
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .example-tab:hover { border-color: var(--accent); }
+        .example-tab.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+        .example-panel { display: none; }
+        .example-panel.active { display: block; }
+
+        .question-text {
+            background: #ebf8ff;
+            border: 1px solid #bee3f8;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.02rem;
+        }
+
+        .question-text .links {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #bee3f8;
+            font-size: 0.85rem;
+        }
+
+        .question-text .links a {
+            color: var(--accent);
+            text-decoration: none;
+            margin-right: 1.5rem;
+        }
+
+        .question-text .links a:hover { text-decoration: underline; }
+
+        .step-reveal {
+            margin: 0.75rem 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .step-reveal-header {
+            padding: 0.75rem 1rem;
+            background: #edf2f7;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background 0.2s;
+            gap: 0.5rem;
+        }
+
+        .step-reveal-header:hover { background: #e2e8f0; }
+
+        .step-reveal-header .arrow {
+            transition: transform 0.3s;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .step-reveal-header.open .arrow { transform: rotate(90deg); }
+
+        .step-reveal-content {
+            display: none;
+            padding: 1.25rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .step-reveal-content.open { display: block; }
+
+        .part-label {
+            display: inline-block;
+            background: #ebf8ff;
+            color: var(--accent);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        .mark-badge {
+            display: inline-block;
+            background: #faf5ff;
+            color: var(--mark);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border: 1px solid #e9d8fd;
+        }
+
+        .mark-award {
+            background: #faf5ff;
+            border: 1px solid #e9d8fd;
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            color: var(--mark);
+            font-weight: 600;
+        }
+
+        .mark-award::before {
+            content: "\2713 ";
+        }
+
+        .examiner-note {
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            border-radius: 6px;
+            padding: 0.75rem;
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .examiner-note::before {
+            content: "Examiner: ";
+            font-weight: 700;
+            color: var(--warning);
+        }
+
+        .show-all-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            transition: background 0.2s;
+        }
+
+        .show-all-btn:hover { background: var(--primary); }
+
+        .motivation {
+            background: #eef6ff;
+            border: 1px solid #c3dafe;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.93rem;
+        }
+
+        .motivation::before {
+            content: "Thinking: ";
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .algebra-chain {
+            margin: 0.5rem 0;
+            padding-left: 1rem;
+            border-left: 3px solid var(--border);
+        }
+
+        .algebra-chain .reason {
+            color: var(--muted);
+            font-size: 0.85rem;
+            font-style: italic;
+            margin: 0.25rem 0;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            h1 { font-size: 1.5rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .example-selector { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<p style="margin-bottom: 1rem;"><a href="../index.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">&larr; All Topics</a></p>
+
+<h1>Integration</h1>
+<p class="subtitle">Indefinite integrals, definite integrals, areas under curves, areas between curves, finding curves from gradient functions &mdash; AS Level 8MA0 Paper 1</p>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="number">Every year</div>
+        <div class="label">Appears in every sitting</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">4&ndash;10</div>
+        <div class="label">Typical marks</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">Q1&ndash;Q10</div>
+        <div class="label">Paper position</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">2&ndash;3 Qs</div>
+        <div class="label">Questions per paper</div>
+    </div>
+</div>
+
+<!-- FULL QUESTION INDEX -->
+<h2>All Past Paper Questions on This Topic</h2>
+<p style="margin-bottom: 1rem; color: var(--muted);">Every integration question from Edexcel 8MA0 Paper 1 (2018&ndash;2024). Click "Worked Example" to see a full guided solution.</p>
+
+<table class="question-table">
+    <thead>
+        <tr>
+            <th>Paper</th>
+            <th>Question</th>
+            <th>Description</th>
+            <th>Marks</th>
+            <th>Links</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>June 2018</td>
+            <td>Q1</td>
+            <td>Find \(\int \left(\frac{2}{3}x^3 - 6\sqrt{x} + 1\right) dx\)</td>
+            <td>4</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202018%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202018%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-basic'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>June 2019</td>
+            <td>Q3</td>
+            <td>Find \(\int \left(\frac{4}{x^3} + kx\right) dx\) and evaluate definite integral to find \(k\)</td>
+            <td>7</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202019%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202019%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>June 2020</td>
+            <td>Q7</td>
+            <td>Given \(\int_1^k \frac{5}{2\sqrt{x}} + 3\, dx = 4\), show that \(3k + 5\sqrt{k} - 12 = 0\)</td>
+            <td>8</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202020%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202020%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>June 2020</td>
+            <td>Q10</td>
+            <td>Use factor theorem on cubic; find area under curve using algebraic integration</td>
+            <td>10</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202020%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202020%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-area'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>June 2020</td>
+            <td>Q14</td>
+            <td>Given \(g'(x)\) is cubic, curve passes through origin with stationary point at \((2,9)\); find \(g(x)\)</td>
+            <td>9</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202020%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202020%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-curve'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>Nov 2021</td>
+            <td>Q3</td>
+            <td>Find \(\int \frac{3x^4 - 4}{2x^3}\, dx\)</td>
+            <td>4</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FNovember%202021%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FNovember%202021%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>Nov 2021</td>
+            <td>Q9</td>
+            <td>Find constant \(k\) such that \(\int_k^9 \frac{6}{\sqrt{x}}\, dx = 20\)</td>
+            <td>4</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FNovember%202021%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FNovember%202021%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>Nov 2021</td>
+            <td>Q14</td>
+            <td>Curve with max at M; find area of R bounded by curve, horizontal line and y-axis</td>
+            <td>10</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FNovember%202021%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FNovember%202021%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>June 2022</td>
+            <td>Q1</td>
+            <td>Find \(\int \left(8x^{-3} - \frac{3}{2\sqrt{x}} + 5\right) dx\)</td>
+            <td>4</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202022%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202022%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>June 2022</td>
+            <td>Q10</td>
+            <td>Curve \(y = \frac{1}{3}x^2 - 2\sqrt{x} + 3\); tangent at P; find area of R bounded by curve, tangent, axes</td>
+            <td>10</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202022%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202022%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>June 2023</td>
+            <td>Q5</td>
+            <td>Area R bounded by \(y = 4x^2 + 3\), y-axis and \(y = 23\); show area is \(k\sqrt{5}\)</td>
+            <td>5</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202023%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202023%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>June 2024</td>
+            <td>Q1</td>
+            <td>Find \(\int 2x^{-3}\, dx\)</td>
+            <td>3</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202024%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202024%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>June 2024</td>
+            <td>Q8</td>
+            <td>Curve \(y = x^3 - 14x + 23\); tangent at A; area between curve and tangent line = 108</td>
+            <td>10</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202024%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202024%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-between'); return false;">Worked Example</a></td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- GUIDED APPROACH -->
+<h2>Guided Approach</h2>
+<div class="card">
+    <p style="margin-bottom: 1rem; color: var(--muted);">The key integration techniques for AS Level (Year 1 only):</p>
+
+    <div class="approach-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+            <strong>Rewrite in index form before integrating</strong><br>
+            Rewrite terms like \(\sqrt{x}\), \(\frac{1}{x^2}\), \(\frac{3}{2\sqrt{x}}\) using fractional/negative powers. For example: \(\sqrt{x} = x^{1/2}\), \(\frac{1}{x^2} = x^{-2}\), \(\frac{1}{\sqrt{x}} = x^{-1/2}\). This allows you to apply the power rule directly.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+            <strong>Apply the power rule: \(\int x^n\, dx = \frac{x^{n+1}}{n+1} + c\)</strong><br>
+            Increase the power by 1 and divide by the new power. Always add \(+ c\) for indefinite integrals. For definite integrals, evaluate using limits instead (no constant needed).
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+            <strong>For areas: set up the correct integral</strong><br>
+            Area under a curve: \(\int_a^b y\, dx\). Area between a curve and a line: \(\int_a^b (\text{top} - \text{bottom})\, dx\). If the curve is below the x-axis, the integral is negative &mdash; take the absolute value or negate.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+            <strong>Finding a curve from its gradient function</strong><br>
+            If given \(f'(x)\) (or \(\frac{dy}{dx}\)), integrate to find \(f(x)\). Use a known point on the curve to find the constant of integration \(c\).
+        </div>
+    </div>
+</div>
+
+<!-- EXAMINER PITFALLS -->
+<div class="pitfall-box">
+    <h3>Common Pitfalls (from Examiner Reports)</h3>
+    <ul>
+        <li><strong>Forgetting +c:</strong> In indefinite integrals, omitting the constant of integration loses a mark every time. This is the single most common error at AS Level.</li>
+        <li><strong>Not simplifying before integrating:</strong> You cannot integrate \(\frac{3x^4 - 4}{2x^3}\) directly. You must split the fraction first: \(\frac{3x}{2} - 2x^{-3}\). Similarly, expand brackets before integrating.</li>
+        <li><strong>Sign errors with negative areas:</strong> When a curve is below the x-axis, \(\int_a^b y\, dx\) gives a negative value. The area is positive, so you must negate or take the modulus. Many candidates lose marks by not recognising this.</li>
+        <li><strong>Wrong limits for area between curves:</strong> Always find the intersection points first, then integrate \((\text{upper function} - \text{lower function})\) between those limits.</li>
+        <li><strong>Confusing differentiation and integration:</strong> Integration increases the power by 1 (and divides). Differentiation decreases the power by 1 (and multiplies). Do not mix these up under exam pressure.</li>
+    </ul>
+</div>
+
+<div class="tip-box">
+    <h3>What Top Candidates Do</h3>
+    <ul>
+        <li>Always show the rewriting step: write \(\frac{4}{x^3} = 4x^{-3}\) explicitly before integrating.</li>
+        <li>For definite integrals, use square brackets with limits: \(\left[\frac{x^2}{2}\right]_a^b\) then show substitution of each limit separately.</li>
+        <li>When finding area between curves, clearly state which is "top" and which is "bottom" in the region.</li>
+        <li>Check your answer by differentiating it &mdash; you should get back the original integrand.</li>
+    </ul>
+</div>
+
+<!-- WORKED EXAMPLES -->
+<h2>Worked Examples</h2>
+<p style="color: var(--muted); margin-bottom: 0.5rem;">Select a question to see the full guided solution:</p>
+
+<div class="example-selector">
+    <div class="example-tab active" onclick="selectExample('ex-basic')">Basic Integrate</div>
+    <div class="example-tab" onclick="selectExample('ex-curve')">Find Curve from f'(x)</div>
+    <div class="example-tab" onclick="selectExample('ex-area')">Area Under Curve</div>
+    <div class="example-tab" onclick="selectExample('ex-between')">Area Between Curves</div>
+</div>
+
+<!-- ===================== EXAMPLE 1: Basic Integration (June 2022 Q1 style) ===================== -->
+<div class="example-panel active" id="ex-basic">
+    <div class="question-text">
+        <p><strong>AS Paper 1 &mdash; June 2022 &mdash; Question 1</strong> (4 marks)</p>
+        <p>Find</p>
+        <p>$$\int \left(8x^{-3} - \frac{3}{2\sqrt{x}} + 5\right) dx$$</p>
+        <p>giving your answer in simplest form.</p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202022%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202022%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Step 1</span> Rewrite all terms in index notation</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Before integrating, every term must be in the form \(ax^n\). The middle term \(\frac{3}{2\sqrt{x}}\) contains a square root in the denominator &mdash; we rewrite \(\frac{1}{\sqrt{x}} = x^{-1/2}\). The first term is already in index form.</div>
+            <p>Rewrite the integrand:</p>
+            <div class="algebra-chain">
+                <p class="reason">\(8x^{-3}\) is already in index form.</p>
+                <p class="reason">\(\frac{3}{2\sqrt{x}} = \frac{3}{2} \cdot x^{-1/2}\)</p>
+                <p class="reason">\(5 = 5x^0\) (constant term).</p>
+            </div>
+            <p>$$\int \left(8x^{-3} - \frac{3}{2}x^{-1/2} + 5\right) dx$$</p>
+        </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Step 2</span> Apply the power rule to each term</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The integration rule is \(\int x^n\, dx = \frac{x^{n+1}}{n+1}\). Apply this to each term separately, being very careful with the new power and the coefficient.</div>
+            <div class="algebra-chain">
+                <p class="reason">First term: \(\int 8x^{-3}\, dx = \frac{8x^{-2}}{-2} = -4x^{-2}\)</p>
+                <p class="reason">Second term: \(\int -\frac{3}{2}x^{-1/2}\, dx = -\frac{3}{2} \cdot \frac{x^{1/2}}{1/2} = -\frac{3}{2} \cdot 2x^{1/2} = -3x^{1/2}\)</p>
+                <p class="reason">Third term: \(\int 5\, dx = 5x\)</p>
+            </div>
+            <div class="mark-award">M1 &mdash; Integrating to get a term of the form \(ax^{-2}\)</div>
+            <div class="mark-award">A1 &mdash; At least two terms correct</div>
+        </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Step 3</span> Write the final answer in simplest form with +c</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The question says "simplest form" &mdash; so we should convert back from index notation to fraction/surd form where appropriate. And we must include the constant of integration \(+c\).</div>
+            <div class="algebra-chain">
+                <p class="reason">\(-4x^{-2} = -\frac{4}{x^2}\)</p>
+                <p class="reason">\(-3x^{1/2} = -3\sqrt{x}\)</p>
+            </div>
+            <p>$$\boxed{-\frac{4}{x^2} - 3\sqrt{x} + 5x + c}$$</p>
+            <div class="mark-award">A1 &mdash; All three terms correct in simplest form</div>
+            <div class="mark-award">B1 &mdash; +c included</div>
+            <div class="examiner-note">The most common error was with the middle term. Many candidates forgot to divide by the new power (1/2), effectively getting \(-\frac{3}{2}x^{1/2}\) instead of \(-3x^{1/2}\). Always check: differentiating your answer should give back the integrand.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-basic')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE 2: Find Curve from f'(x) (June 2020 Q14) ===================== -->
+<div class="example-panel" id="ex-curve">
+    <div class="question-text">
+        <p><strong>AS Paper 1 &mdash; June 2020 &mdash; Question 14</strong> (9 marks)</p>
+        <p>A curve has equation \(y = g(x)\). Given that:</p>
+        <ul style="margin: 0.5rem 0 0.5rem 1.5rem;">
+            <li>\(g(x)\) is a cubic expression in which the coefficient of \(x^3\) is equal to the coefficient of \(x\)</li>
+            <li>the curve passes through the origin</li>
+            <li>the curve has a stationary point at \((2, 9)\)</li>
+        </ul>
+        <p><strong>(a)</strong> Find \(g(x)\). <em>[7 marks]</em></p>
+        <p><strong>(b)</strong> Prove that the stationary point at \((2, 9)\) is a maximum. <em>[2 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202020%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202020%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Set up the general form of \(g'(x)\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">If \(g(x)\) is cubic, then \(g'(x)\) is quadratic. A stationary point means \(g'(2) = 0\). We also know the coefficient of \(x^3\) in \(g(x)\) equals the coefficient of \(x\). Let us call this common coefficient \(a\). Then \(g(x) = ax^3 + bx^2 + ax + d\) (where the \(x^3\) and \(x\) coefficients are both \(a\)).</div>
+            <p>Since \(g(x)\) is cubic with coefficient of \(x^3\) = coefficient of \(x\), write:</p>
+            <p>$$g(x) = ax^3 + bx^2 + ax + d$$</p>
+            <p>Differentiating:</p>
+            <p>$$g'(x) = 3ax^2 + 2bx + a$$</p>
+            <div class="mark-award">M1 &mdash; Setting up cubic with the constraint on coefficients</div>
+        </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 2: Use the condition that the curve passes through the origin</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The curve passes through \((0, 0)\), meaning \(g(0) = 0\). Substituting \(x = 0\) into our expression for \(g(x)\) immediately gives us the value of \(d\).</div>
+            <p>Substitute \(x = 0\), \(g(0) = 0\):</p>
+            <p>$$a(0)^3 + b(0)^2 + a(0) + d = 0$$</p>
+            <p>$$d = 0$$</p>
+            <p>So \(g(x) = ax^3 + bx^2 + ax\).</p>
+            <div class="mark-award">B1 &mdash; \(d = 0\) (constant of integration found)</div>
+        </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 3: Use the stationary point condition \(g'(2) = 0\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">At a stationary point, the gradient is zero. So \(g'(2) = 0\). This gives us one equation relating \(a\) and \(b\).</div>
+            <p>Substitute \(x = 2\) into \(g'(x) = 3ax^2 + 2bx + a\):</p>
+            <div class="algebra-chain">
+                <p>$$g'(2) = 3a(4) + 2b(2) + a = 0$$</p>
+                <p>$$12a + 4b + a = 0$$</p>
+                <p>$$13a + 4b = 0 \quad \text{...(1)}$$</p>
+            </div>
+            <div class="mark-award">M1 &mdash; Using \(g'(2) = 0\)</div>
+        </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 4: Use the point \((2, 9)\) on the curve: \(g(2) = 9\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The curve passes through \((2, 9)\), so \(g(2) = 9\). This gives us a second equation in \(a\) and \(b\), which together with equation (1) lets us solve the simultaneous equations.</div>
+            <p>Substitute \(x = 2\) into \(g(x) = ax^3 + bx^2 + ax\):</p>
+            <div class="algebra-chain">
+                <p>$$g(2) = 8a + 4b + 2a = 9$$</p>
+                <p>$$10a + 4b = 9 \quad \text{...(2)}$$</p>
+            </div>
+            <div class="mark-award">M1 &mdash; Using \(g(2) = 9\) to form second equation</div>
+        </div>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 5: Solve simultaneously for \(a\) and \(b\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We have two equations in two unknowns. Subtract (2) from (1) to eliminate \(b\), giving us \(a\) directly. Then substitute back to find \(b\).</div>
+            <div class="algebra-chain">
+                <p>From (1): \(13a + 4b = 0\)</p>
+                <p>From (2): \(10a + 4b = 9\)</p>
+                <p class="reason">Subtract (2) from (1):</p>
+                <p>$$3a = -9$$</p>
+                <p>$$a = -3$$</p>
+                <p class="reason">Substitute into (1): \(13(-3) + 4b = 0\)</p>
+                <p>$$-39 + 4b = 0$$</p>
+                <p>$$b = \frac{39}{4}$$</p>
+            </div>
+            <div class="mark-award">A1 &mdash; \(a = -3\)</div>
+            <div class="mark-award">A1 &mdash; \(b = \frac{39}{4}\)</div>
+        </div>
+    </div>
+
+    <!-- Step 6 -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 6: Write the final answer</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Now substitute the values of \(a\), \(b\), and \(d\) back into \(g(x) = ax^3 + bx^2 + ax\).</div>
+            <p>$$\boxed{g(x) = -3x^3 + \frac{39}{4}x^2 - 3x}$$</p>
+            <div class="mark-award">A1 &mdash; Correct final expression for \(g(x)\)</div>
+            <div class="examiner-note">This is a challenging question that combines integration concepts (finding a function from its derivative) with simultaneous equations. The key insight is recognising that "coefficient of \(x^3\) equals coefficient of \(x\)" reduces the number of unknowns.</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 7: Prove the stationary point is a maximum</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">To prove a stationary point is a maximum, we use the second derivative test. If \(g''(2) < 0\), the curve is concave (bending downward) at that point, confirming a maximum.</div>
+            <p>Find \(g''(x)\):</p>
+            <div class="algebra-chain">
+                <p>$$g'(x) = -9x^2 + \frac{39}{2}x - 3$$</p>
+                <p>$$g''(x) = -18x + \frac{39}{2}$$</p>
+                <p class="reason">Substitute \(x = 2\):</p>
+                <p>$$g''(2) = -18(2) + \frac{39}{2} = -36 + 19.5 = -16.5$$</p>
+            </div>
+            <p><strong>Since \(g''(2) = -16.5 < 0\), the stationary point at \((2, 9)\) is a maximum.</strong></p>
+            <div class="mark-award">M1 &mdash; Finding \(g''(x)\) and substituting \(x = 2\)</div>
+            <div class="mark-award">A1 &mdash; Correct value, correct sign, correct conclusion "maximum"</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-curve')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE 3: Area Under Curve (June 2020 Q10) ===================== -->
+<div class="example-panel" id="ex-area">
+    <div class="question-text">
+        <p><strong>AS Paper 1 &mdash; June 2020 &mdash; Question 10</strong> (10 marks)</p>
+        <p>\(g(x) = 2x^3 + x^2 - 41x - 70\)</p>
+        <p><strong>(a)</strong> Use the factor theorem to show that \(g(x)\) is divisible by \((x - 5)\). <em>[2 marks]</em></p>
+        <p><strong>(b)</strong> Hence, showing all your working, write \(g(x)\) as a product of three linear factors. <em>[4 marks]</em></p>
+        <p>The finite region R is bounded by the curve with equation \(y = g(x)\) and the x-axis, and lies below the x-axis.</p>
+        <p><strong>(c)</strong> Find, using algebraic integration, the exact value of the area of R. <em>[4 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202020%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202020%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Use the factor theorem &mdash; show \(g(5) = 0\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The factor theorem states: if \(g(a) = 0\), then \((x - a)\) is a factor of \(g(x)\). To show \(g(x)\) is divisible by \((x - 5)\), we simply need to show \(g(5) = 0\).</div>
+            <div class="algebra-chain">
+                <p>$$g(5) = 2(5)^3 + (5)^2 - 41(5) - 70$$</p>
+                <p>$$= 2(125) + 25 - 205 - 70$$</p>
+                <p>$$= 250 + 25 - 205 - 70$$</p>
+                <p>$$= 0 \checkmark$$</p>
+            </div>
+            <p><strong>Since \(g(5) = 0\), by the factor theorem \((x - 5)\) is a factor of \(g(x)\).</strong></p>
+            <div class="mark-award">M1 &mdash; Substituting \(x = 5\) into \(g(x)\)</div>
+            <div class="mark-award">A1 &mdash; Correct evaluation showing = 0, with conclusion stated</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 2: Divide \(g(x)\) by \((x-5)\) to find the quadratic factor</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We know \(g(x) = (x-5) \times (\text{quadratic})\). To find the quadratic, we can use polynomial division or compare coefficients. The quadratic will then factorise into two linear factors.</div>
+            <p>Divide \(2x^3 + x^2 - 41x - 70\) by \((x - 5)\):</p>
+            <div class="algebra-chain">
+                <p class="reason">Using algebraic long division or inspection:</p>
+                <p>$$g(x) = (x - 5)(2x^2 + 11x + 14)$$</p>
+                <p class="reason">Now factorise the quadratic \(2x^2 + 11x + 14\):</p>
+                <p class="reason">Find two numbers that multiply to give \(2 \times 14 = 28\) and add to give \(11\): these are \(4\) and \(7\).</p>
+                <p>$$2x^2 + 11x + 14 = (2x + 7)(x + 2)$$</p>
+            </div>
+            <p>$$\boxed{g(x) = (x-5)(2x+7)(x+2)}$$</p>
+            <div class="mark-award">M1 &mdash; Attempting algebraic division by \((x-5)\)</div>
+            <div class="mark-award">A1 &mdash; Correct quadratic \(2x^2 + 11x + 14\)</div>
+            <div class="mark-award">M1 &mdash; Factorising the quadratic</div>
+            <div class="mark-award">A1 &mdash; Three correct linear factors</div>
+        </div>
+    </div>
+
+    <!-- Part (c) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)</span> Step 3: Identify the limits of integration</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The region R lies below the x-axis. The roots of \(g(x) = 0\) are \(x = 5\), \(x = -\frac{7}{2}\), and \(x = -2\). We need to identify which interval gives the portion below the x-axis. Since the leading coefficient is positive (\(2x^3\)), the cubic goes from \(-\infty\) to \(+\infty\). The curve is below the x-axis between \(x = -2\) and \(x = 5\) (you can verify by checking \(g(0) = -70 < 0\)).</div>
+            <p>The roots are \(x = -\frac{7}{2}\), \(x = -2\), and \(x = 5\).</p>
+            <p>Check \(g(0) = -70 < 0\), so the curve is below the x-axis between \(x = -2\) and \(x = 5\).</p>
+            <p>Therefore we integrate from \(-2\) to \(5\).</p>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)</span> Step 4: Integrate \(g(x)\) and evaluate between limits</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Since the region is below the x-axis, \(\int_{-2}^{5} g(x)\, dx\) will give a negative value. The area is the absolute value. We integrate term by term, then substitute the limits.</div>
+            <div class="algebra-chain">
+                <p>$$\int (2x^3 + x^2 - 41x - 70)\, dx = \frac{2x^4}{4} + \frac{x^3}{3} - \frac{41x^2}{2} - 70x$$</p>
+                <p>$$= \frac{x^4}{2} + \frac{x^3}{3} - \frac{41x^2}{2} - 70x$$</p>
+            </div>
+            <div class="mark-award">M1 &mdash; Integrating to get at least two correct terms</div>
+            <p>Evaluate at \(x = 5\):</p>
+            <div class="algebra-chain">
+                <p>$$\frac{625}{2} + \frac{125}{3} - \frac{1025}{2} - 350 = -200 + \frac{125}{3} - 350 = -550 + \frac{125}{3} = \frac{-1650 + 125}{3} = \frac{-1525}{3}$$</p>
+            </div>
+            <p>Evaluate at \(x = -2\):</p>
+            <div class="algebra-chain">
+                <p>$$\frac{16}{2} + \frac{-8}{3} - \frac{164}{2} - (-140) = 8 - \frac{8}{3} - 82 + 140 = 66 - \frac{8}{3} = \frac{198 - 8}{3} = \frac{190}{3}$$</p>
+            </div>
+            <p>$$\int_{-2}^{5} g(x)\, dx = \frac{-1525}{3} - \frac{190}{3} = \frac{-1715}{3}$$</p>
+            <div class="mark-award">M1 &mdash; Substituting correct limits and subtracting</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)</span> Step 5: State the area (take the modulus)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The integral gives \(-\frac{1715}{3}\) because the curve is below the x-axis. Area is always positive, so we take the absolute value.</div>
+            <p>Since R is below the x-axis:</p>
+            <p>$$\text{Area of } R = \left|\frac{-1715}{3}\right| = \boxed{\frac{1715}{3}}$$</p>
+            <div class="mark-award">A1 &mdash; Correct exact area \(\frac{1715}{3}\) (or \(571\frac{2}{3}\))</div>
+            <div class="examiner-note">Many candidates integrated correctly but forgot to negate the result. Since the question says "the exact value of the area" and area must be positive, you must write the positive value. Candidates who wrote \(-\frac{1715}{3}\) as their final answer lost the A1.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-area')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE 4: Area Between Curve and Line (June 2024 Q8) ===================== -->
+<div class="example-panel" id="ex-between">
+    <div class="question-text">
+        <p><strong>AS Paper 1 &mdash; June 2024 &mdash; Question 8</strong> (10 marks)</p>
+        <p>Figure 3 shows a sketch of the curve C with equation \(y = x^3 - 14x + 23\).</p>
+        <p>The line \(l\) is the tangent to C at the point A, also shown in Figure 3.</p>
+        <p>Given that \(l\) has equation \(y = -2x + 7\):</p>
+        <p><strong>(a)</strong> Show, using calculus, that the x coordinate of A is 2. <em>[3 marks]</em></p>
+        <p>The line \(l\) cuts C again at the point B.</p>
+        <p><strong>(b)</strong> Verify that the x coordinate of B is \(-4\). <em>[2 marks]</em></p>
+        <p>The finite region R, shown shaded in Figure 3, is bounded by C and \(l\).</p>
+        <p>Using algebraic integration,</p>
+        <p><strong>(c)</strong> Show that the area of R is 108. <em>[5 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202024%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202024%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Differentiate the curve and set gradient equal to tangent gradient</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The tangent line \(l\) has equation \(y = -2x + 7\), so its gradient is \(-2\). At point A, the gradient of the curve must equal the gradient of the tangent. We differentiate the curve and set \(\frac{dy}{dx} = -2\).</div>
+            <p>Differentiate \(y = x^3 - 14x + 23\):</p>
+            <p>$$\frac{dy}{dx} = 3x^2 - 14$$</p>
+            <div class="mark-award">M1 &mdash; Differentiating the curve equation</div>
+            <p>At A, gradient of curve = gradient of tangent:</p>
+            <div class="algebra-chain">
+                <p>$$3x^2 - 14 = -2$$</p>
+                <p>$$3x^2 = 12$$</p>
+                <p>$$x^2 = 4$$</p>
+                <p>$$x = \pm 2$$</p>
+            </div>
+            <div class="mark-award">A1 &mdash; Solving to get \(x = \pm 2\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 2: Confirm which value gives a point on both the curve and the line</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We got \(x = 2\) or \(x = -2\). Point A must lie on both the curve and the line. We check which value satisfies both equations.</div>
+            <p>Check \(x = 2\) on the curve: \(y = 8 - 28 + 23 = 3\)</p>
+            <p>Check \(x = 2\) on the line: \(y = -4 + 7 = 3\) &mdash; same point, so A is at \((2, 3)\).</p>
+            <p>Check \(x = -2\) on the curve: \(y = -8 + 28 + 23 = 43\)</p>
+            <p>Check \(x = -2\) on the line: \(y = 4 + 7 = 11\) &mdash; different, so \(x = -2\) is not on the tangent.</p>
+            <p><strong>Therefore the x coordinate of A is 2.</strong></p>
+            <div class="mark-award">A1 &mdash; Confirming \(x = 2\) with valid reasoning (point lies on both curve and line)</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 3: Verify \(x = -4\) is the other intersection</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">"Verify" means show that \(x = -4\) satisfies the equation where the curve meets the line. We substitute into both and check they give the same y value.</div>
+            <p>At \(x = -4\):</p>
+            <div class="algebra-chain">
+                <p class="reason">On the curve: \(y = (-4)^3 - 14(-4) + 23 = -64 + 56 + 23 = 15\)</p>
+                <p class="reason">On the line: \(y = -2(-4) + 7 = 8 + 7 = 15\)</p>
+            </div>
+            <p><strong>Since both give \(y = 15\), the point B has coordinates \((-4, 15)\) and lies on both C and \(l\).</strong></p>
+            <div class="mark-award">M1 &mdash; Substituting \(x = -4\) into at least one equation</div>
+            <div class="mark-award">A1 &mdash; Both values shown equal with conclusion stated</div>
+        </div>
+    </div>
+
+    <!-- Part (c) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)</span> Step 4: Set up the integral for area between curve and line</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The area between two curves (or a curve and a line) from \(x = a\) to \(x = b\) is \(\int_a^b (\text{top} - \text{bottom})\, dx\). From the sketch, between \(x = -4\) and \(x = 2\), the line \(l\) is above the curve C. So we integrate (line &minus; curve).</div>
+            <p>Area of R = \(\int_{-4}^{2} [(\text{line}) - (\text{curve})]\, dx\)</p>
+            <div class="algebra-chain">
+                <p>$$= \int_{-4}^{2} [(-2x + 7) - (x^3 - 14x + 23)]\, dx$$</p>
+                <p class="reason">Expand and simplify:</p>
+                <p>$$= \int_{-4}^{2} (-2x + 7 - x^3 + 14x - 23)\, dx$$</p>
+                <p>$$= \int_{-4}^{2} (-x^3 + 12x - 16)\, dx$$</p>
+            </div>
+            <div class="mark-award">M1 &mdash; Setting up integral of (line &minus; curve) with correct limits</div>
+            <div class="mark-award">A1 &mdash; Correct simplified integrand \(-x^3 + 12x - 16\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)</span> Step 5: Integrate term by term</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Apply the power rule to each term: increase the power by 1 and divide by the new power. Then evaluate at the upper and lower limits.</div>
+            <div class="algebra-chain">
+                <p>$$\int (-x^3 + 12x - 16)\, dx = -\frac{x^4}{4} + 6x^2 - 16x$$</p>
+            </div>
+            <div class="mark-award">M1 &mdash; Integrating to get at least two correct terms (with \(x^n \to \frac{x^{n+1}}{n+1}\))</div>
+            <p>Evaluate at \(x = 2\):</p>
+            <div class="algebra-chain">
+                <p>$$-\frac{16}{4} + 6(4) - 16(2) = -4 + 24 - 32 = -12$$</p>
+            </div>
+            <p>Evaluate at \(x = -4\):</p>
+            <div class="algebra-chain">
+                <p>$$-\frac{256}{4} + 6(16) - 16(-4) = -64 + 96 + 64 = 96$$</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)</span> Step 6: Subtract limits and conclude</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The definite integral equals [value at upper limit] minus [value at lower limit]. Since we set up "top minus bottom", the result should be positive (it represents an area).</div>
+            <div class="algebra-chain">
+                <p>$$\left[-\frac{x^4}{4} + 6x^2 - 16x\right]_{-4}^{2} = (-12) - (96) = -108$$</p>
+            </div>
+            <p>Wait &mdash; this is negative! That means between \(x=-4\) and \(x=2\), the curve is actually above the line (not below). So we take the absolute value:</p>
+            <p>$$\text{Area of } R = |{-108}| = \boxed{108} \quad \square$$</p>
+            <div class="mark-award">A1 &mdash; Correct substitution of limits</div>
+            <div class="mark-award">A1 &mdash; Area = 108 (as required)</div>
+            <div class="examiner-note">An alternative (and neater) approach: since the curve is above the line between \(x=-4\) and \(x=2\), you could integrate (curve &minus; line) instead, which gives +108 directly. Either approach is acceptable. The key point: always check whether your "top minus bottom" order is correct, or simply take the modulus at the end.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-between')">Show Full Solution</button>
+</div>
+
+<!-- PATTERN RECOGNITION -->
+<h2>How to Recognise Integration Questions</h2>
+<div class="card">
+    <p>Look for these signals in the question:</p>
+    <ul style="margin-left: 1.5rem; line-height: 2;">
+        <li>The integral sign \(\int\) &mdash; immediate giveaway for basic integration (Q1 position, 3&ndash;4 marks)</li>
+        <li><strong>"Find the area of the region R"</strong> or <strong>"using algebraic integration"</strong> &mdash; definite integral required</li>
+        <li><strong>"The curve passes through the point..."</strong> combined with a derivative &mdash; integrate and find \(c\)</li>
+        <li><strong>"Find f(x)"</strong> given <strong>"f'(x) = ..."</strong> &mdash; indefinite integration with boundary condition</li>
+        <li>A shaded region on a diagram between a curve and a line or the x-axis</li>
+        <li>The word <strong>"exact"</strong> &mdash; leave your answer as a fraction or surd, do not use decimals</li>
+    </ul>
+</div>
+
+<h2>Key Formulae Reference</h2>
+<div class="card">
+    <ul style="margin-left: 1.5rem; line-height: 2.4;">
+        <li><strong>Power rule:</strong> \(\displaystyle\int x^n\, dx = \frac{x^{n+1}}{n+1} + c \quad (n \neq -1)\)</li>
+        <li><strong>Constant multiple:</strong> \(\displaystyle\int af(x)\, dx = a\int f(x)\, dx\)</li>
+        <li><strong>Sum rule:</strong> \(\displaystyle\int [f(x) + g(x)]\, dx = \int f(x)\, dx + \int g(x)\, dx\)</li>
+        <li><strong>Definite integral:</strong> \(\displaystyle\int_a^b f(x)\, dx = F(b) - F(a)\)</li>
+        <li><strong>Area below x-axis:</strong> \(\displaystyle\text{Area} = -\int_a^b f(x)\, dx\) when \(f(x) < 0\) on \([a,b]\)</li>
+        <li><strong>Area between curves:</strong> \(\displaystyle\text{Area} = \int_a^b [\text{top}(x) - \text{bottom}(x)]\, dx\)</li>
+    </ul>
+</div>
+
+<script>
+    // Toggle individual step
+    function toggleStep(header) {
+        header.classList.toggle('open');
+        header.nextElementSibling.classList.toggle('open');
+    }
+
+    // Show all steps in a panel
+    function showAllSteps(panelId) {
+        const panel = document.getElementById(panelId);
+        panel.querySelectorAll('.step-reveal-header').forEach(h => h.classList.add('open'));
+        panel.querySelectorAll('.step-reveal-content').forEach(c => c.classList.add('open'));
+    }
+
+    // Select an example (tab switching)
+    function selectExample(panelId) {
+        // Deactivate all tabs and panels
+        document.querySelectorAll('.example-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.example-panel').forEach(p => p.classList.remove('active'));
+
+        // Activate the selected panel
+        document.getElementById(panelId).classList.add('active');
+
+        // Find and activate the matching tab
+        const tabs = document.querySelectorAll('.example-tab');
+        const tabMap = {
+            'ex-basic': 0,
+            'ex-curve': 1,
+            'ex-area': 2,
+            'ex-between': 3
+        };
+        if (tabMap[panelId] !== undefined) {
+            tabs[tabMap[panelId]].classList.add('active');
+        }
+
+        // Scroll to worked examples section
+        document.getElementById(panelId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Render KaTeX on load
+    document.addEventListener('DOMContentLoaded', function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ]
+        });
+    });
+</script>
+
+</body>
+</html>

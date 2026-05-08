@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coordinate Geometry — Circles — Edexcel AS Maths</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #2b6cb0;
+            --success: #276749;
+            --warning: #c05621;
+            --danger: #c53030;
+            --bg: #f7fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #2d3748;
+            --muted: #718096;
+            --mark: #805ad5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        h1 { color: var(--primary); margin-bottom: 0.5rem; font-size: 2rem; }
+        h2 { color: var(--primary); margin: 2.5rem 0 1rem; font-size: 1.4rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        h3 { color: var(--accent); margin: 1.5rem 0 0.75rem; font-size: 1.15rem; }
+
+        .subtitle { color: var(--muted); margin-bottom: 2rem; font-size: 1.05rem; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--accent); }
+        .stat-card .label { font-size: 0.85rem; color: var(--muted); }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .approach-step {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .approach-step:last-child { border-bottom: none; }
+
+        .step-number {
+            background: var(--accent);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .step-content { flex: 1; }
+        .step-content strong { color: var(--primary); }
+
+        .pitfall-box {
+            background: #fff5f5;
+            border: 1px solid #fed7d7;
+            border-left: 4px solid var(--danger);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .pitfall-box h3 { color: var(--danger); margin-top: 0; }
+        .pitfall-box ul { margin-left: 1.5rem; margin-top: 0.5rem; }
+        .pitfall-box li { margin: 0.5rem 0; }
+
+        .tip-box {
+            background: #f0fff4;
+            border: 1px solid #c6f6d5;
+            border-left: 4px solid var(--success);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .tip-box h3 { color: var(--success); margin-top: 0; }
+
+        .question-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.92rem;
+        }
+
+        .question-table th {
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+        }
+
+        .question-table td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .question-table tr:hover { background: #ebf8ff; }
+
+        .question-table a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .question-table a:hover { text-decoration: underline; }
+
+        .question-table .go-btn {
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+        }
+
+        .question-table .go-btn:hover { background: var(--primary); }
+
+        .example-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .example-tab {
+            padding: 0.5rem 1rem;
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .example-tab:hover { border-color: var(--accent); }
+        .example-tab.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+        .example-panel { display: none; }
+        .example-panel.active { display: block; }
+
+        .question-text {
+            background: #ebf8ff;
+            border: 1px solid #bee3f8;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.02rem;
+        }
+
+        .question-text .links {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #bee3f8;
+            font-size: 0.85rem;
+        }
+
+        .question-text .links a {
+            color: var(--accent);
+            text-decoration: none;
+            margin-right: 1.5rem;
+        }
+
+        .question-text .links a:hover { text-decoration: underline; }
+
+        .step-reveal {
+            margin: 0.75rem 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .step-reveal-header {
+            padding: 0.75rem 1rem;
+            background: #edf2f7;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background 0.2s;
+            gap: 0.5rem;
+        }
+
+        .step-reveal-header:hover { background: #e2e8f0; }
+
+        .step-reveal-header .arrow {
+            transition: transform 0.3s;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .step-reveal-header.open .arrow { transform: rotate(90deg); }
+
+        .step-reveal-content {
+            display: none;
+            padding: 1.25rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .step-reveal-content.open { display: block; }
+
+        .part-label {
+            display: inline-block;
+            background: #ebf8ff;
+            color: var(--accent);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        .mark-badge {
+            display: inline-block;
+            background: #faf5ff;
+            color: var(--mark);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border: 1px solid #e9d8fd;
+        }
+
+        .mark-award {
+            background: #faf5ff;
+            border: 1px solid #e9d8fd;
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            color: var(--mark);
+            font-weight: 600;
+        }
+
+        .mark-award::before {
+            content: "\2713 ";
+        }
+
+        .examiner-note {
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            border-radius: 6px;
+            padding: 0.75rem;
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .examiner-note::before {
+            content: "Examiner: ";
+            font-weight: 700;
+            color: var(--warning);
+        }
+
+        .show-all-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            transition: background 0.2s;
+        }
+
+        .show-all-btn:hover { background: var(--primary); }
+
+        .motivation {
+            background: #eef6ff;
+            border: 1px solid #c3dafe;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.93rem;
+        }
+
+        .motivation::before {
+            content: "\1F4AD Thinking: ";
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .algebra-chain {
+            margin: 0.5rem 0;
+            padding-left: 1rem;
+            border-left: 3px solid var(--border);
+        }
+
+        .algebra-chain .reason {
+            color: var(--muted);
+            font-size: 0.85rem;
+            font-style: italic;
+            margin: 0.25rem 0;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            h1 { font-size: 1.5rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .example-selector { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<p style="margin-bottom: 1rem;"><a href="../index.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">&larr; All Topics</a></p>
+
+<h1>Coordinate Geometry — Circles</h1>
+<p class="subtitle">Equations of circles, completing the square, tangents, and intersections with lines</p>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="number">7/7</div>
+        <div class="label">Papers (every sitting)</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">6-10</div>
+        <div class="label">Typical marks</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">Q8-Q13</div>
+        <div class="label">Paper position</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">2-3 parts</div>
+        <div class="label">Standard structure</div>
+    </div>
+</div>
+
+<!-- KEY FORMULAE -->
+<h2>Key Formulae</h2>
+<div class="card">
+    <div class="algebra-chain">
+        <p>$$(x - a)^2 + (y - b)^2 = r^2$$</p>
+        <p class="reason">Circle with centre \((a, b)\) and radius \(r\)</p>
+        <p>$$x^2 + y^2 + 2gx + 2fy + c = 0$$</p>
+        <p class="reason">Expanded form: centre \((-g, -f)\), radius \(\sqrt{g^2 + f^2 - c}\)</p>
+    </div>
+    <p style="margin-top: 1rem;"><strong>Key geometric facts:</strong></p>
+    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+        <li>The tangent to a circle is <strong>perpendicular</strong> to the radius at the point of contact</li>
+        <li>A vertical line \(x = k\) is tangent to circle if the distance from centre to line equals the radius</li>
+        <li>A line intersects a circle at 0, 1, or 2 points (discriminant test)</li>
+    </ul>
+</div>
+
+<!-- FULL QUESTION INDEX -->
+<h2>All Past Paper Questions on This Topic</h2>
+<p style="margin-bottom: 1rem; color: var(--muted);">Every circle question from Edexcel 8MA0 Paper 1 (2018-2024).</p>
+
+<table class="question-table">
+    <thead>
+        <tr>
+            <th>Paper</th>
+            <th>Question</th>
+            <th>Description</th>
+            <th>Marks</th>
+            <th>Links</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>P1 June 2018</td>
+            <td>Q14</td>
+            <td>\(x^2+y^2-4x+10y+9=0\): find centre/radius; line \(y=kx\) cuts C at two points — find range of \(k\)</td>
+            <td>9</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202018%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202018%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-jun18-q14'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P1 June 2019</td>
+            <td>Q10</td>
+            <td>\(x^2+y^2-4x+8y-8=0\): centre/radius; vertical tangent \(x=k\) — find values of \(k\)</td>
+            <td>5</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202019%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202019%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-jun19-q10'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P1 June 2022</td>
+            <td>Q11</td>
+            <td>\(x^2+y^2-10x-8y+32=0\): centre/radius; shortest distance to line \(2y+x+6=0\)</td>
+            <td>8</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202022%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202022%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-jun22-q11'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P1 June 2023</td>
+            <td>Q6</td>
+            <td>Circle C with given equation: find centre and radius</td>
+            <td>6</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202023%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202023%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 June 2024</td>
+            <td>Q10</td>
+            <td>Circle with centre P(-1, k+8), point Q on C, tangent at Q has gradient -2: show \(k^2-3k-10=0\); find equation of C</td>
+            <td>8</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202024%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202024%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-jun24-q10'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P1 Nov 2021</td>
+            <td>Q15</td>
+            <td>Circle with centre N(7,4); tangent \(y=\frac{1}{3}x\) at P: find line PN; equation of C; second tangent</td>
+            <td>9</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FNovember%202021%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FNovember%202021%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 June 2020</td>
+            <td>Q10</td>
+            <td>Circle equation; line intersects circle — find points of intersection</td>
+            <td>7</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202020%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202020%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- GUIDED APPROACH -->
+<h2>Guided Approach</h2>
+<div class="card">
+    <p style="margin-bottom: 1rem; color: var(--muted);">The standard approach for circle questions:</p>
+
+    <div class="approach-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+            <strong>Complete the square to find centre and radius</strong><br>
+            Given \(x^2 + y^2 + 2gx + 2fy + c = 0\), complete the square in \(x\) and \(y\) separately. Compare with \((x-a)^2 + (y-b)^2 = r^2\) to read off centre and radius.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+            <strong>Use the tangent-radius relationship</strong><br>
+            If a tangent touches the circle at point P, the radius to P is perpendicular to the tangent. Use: gradient of radius \(\times\) gradient of tangent \(= -1\).
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+            <strong>Substitute line into circle for intersections</strong><br>
+            To find where a line meets a circle: substitute the line equation into the circle equation, get a quadratic, and solve. Use the discriminant: \(b^2 - 4ac > 0\) for two intersections, \(= 0\) for tangent, \(< 0\) for no intersection.
+        </div>
+    </div>
+</div>
+
+<!-- EXAMINER PITFALLS -->
+<div class="pitfall-box">
+    <h3>Common Pitfalls (from Examiner Reports)</h3>
+    <ul>
+        <li><strong>Sign errors in completing the square:</strong> In \(x^2 - 10x\), the centre x-coordinate is \(+5\), not \(-5\). Remember: \(x^2 - 10x = (x-5)^2 - 25\).</li>
+        <li><strong>Forgetting to square root for radius:</strong> After completing the square, the RHS is \(r^2\), not \(r\). You must take the square root.</li>
+        <li><strong>Wrong perpendicular gradient:</strong> The perpendicular gradient is \(-\frac{1}{m}\), not \(-m\). If the tangent has gradient \(\frac{1}{3}\), the radius has gradient \(-3\).</li>
+        <li><strong>Not using discriminant correctly:</strong> For a tangent, set discriminant \(= 0\). For "two distinct points", set discriminant \(> 0\). State which condition you're using.</li>
+        <li><strong>Arithmetic errors in expansion:</strong> When substituting a line into the circle, expand carefully. Check by substituting your answers back into both equations.</li>
+    </ul>
+</div>
+
+<div class="tip-box">
+    <h3>What Top Candidates Do</h3>
+    <ul>
+        <li>Write the completed square form clearly: \((x-5)^2 + (y-4)^2 = 9\), then state "centre (5, 4), radius 3"</li>
+        <li>When finding tangent conditions, always state "tangent means discriminant = 0" before computing</li>
+        <li>Draw a quick sketch showing the circle, its centre, and the relevant line — this catches sign errors</li>
+        <li>For shortest distance problems: distance from centre to line minus the radius</li>
+    </ul>
+</div>
+
+<!-- WORKED EXAMPLES -->
+<h2>Worked Examples</h2>
+<p style="color: var(--muted); margin-bottom: 0.5rem;">Select a question to see the full guided solution:</p>
+
+<div class="example-selector">
+    <div class="example-tab active" onclick="selectExample('ex-jun18-q14')">June 2018 Q14</div>
+    <div class="example-tab" onclick="selectExample('ex-jun19-q10')">June 2019 Q10</div>
+    <div class="example-tab" onclick="selectExample('ex-jun22-q11')">June 2022 Q11</div>
+    <div class="example-tab" onclick="selectExample('ex-jun24-q10')">June 2024 Q10</div>
+</div>
+
+<!-- ===================== EXAMPLE: June 2018 Q14 ===================== -->
+<div class="example-panel active" id="ex-jun18-q14">
+    <div class="question-text">
+        <p><strong>Paper 1 — June 2018 — Question 14</strong> (9 marks)</p>
+        <p>The circle C has equation</p>
+        <p>$$x^2 + y^2 - 4x + 10y + 9 = 0$$</p>
+        <p><strong>(a)</strong> Find (i) the coordinates of the centre of C, (ii) the radius of C. <em>[3 marks]</em></p>
+        <p>The line with equation \(y = kx\), where \(k\) is a constant, cuts C at two distinct points.</p>
+        <p><strong>(b)</strong> Find the range of values for \(k\). <em>[6 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202018%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202018%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Complete the square to find centre and radius</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The equation is in expanded form. To find centre and radius, we need it in the form \((x-a)^2 + (y-b)^2 = r^2\). Complete the square separately for the \(x\) terms and the \(y\) terms.</div>
+            <div class="algebra-chain">
+                <p>$$x^2 + y^2 - 4x + 10y + 9 = 0$$</p>
+                <p class="reason">Group \(x\) and \(y\) terms:</p>
+                <p>$$(x^2 - 4x) + (y^2 + 10y) + 9 = 0$$</p>
+                <p class="reason">Complete the square for \(x\): half of \(-4\) is \(-2\), square it to get \(4\)</p>
+                <p>$$(x - 2)^2 - 4 + (y^2 + 10y) + 9 = 0$$</p>
+                <p class="reason">Complete the square for \(y\): half of \(10\) is \(5\), square it to get \(25\)</p>
+                <p>$$(x - 2)^2 - 4 + (y + 5)^2 - 25 + 9 = 0$$</p>
+                <p class="reason">Collect constants: \(-4 - 25 + 9 = -20\)</p>
+                <p>$$(x - 2)^2 + (y + 5)^2 = 20$$</p>
+            </div>
+            <p><strong>Centre: \((2, -5)\)</strong></p>
+            <p><strong>Radius: \(\sqrt{20} = 2\sqrt{5}\)</strong></p>
+            <div class="mark-award">B1 — Centre \((2, -5)\)</div>
+            <div class="mark-award">M1 — Attempt to complete the square in both \(x\) and \(y\)</div>
+            <div class="mark-award">A1 — Radius \(= 2\sqrt{5}\) (or \(\sqrt{20}\))</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 2: Substitute \(y = kx\) into the circle equation</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">For the line \(y = kx\) to cut the circle at two distinct points, when we substitute into the circle equation we must get a quadratic with positive discriminant (\(b^2 - 4ac > 0\)). First, do the substitution to get the quadratic.</div>
+            <div class="algebra-chain">
+                <p class="reason">Substitute \(y = kx\) into \(x^2 + y^2 - 4x + 10y + 9 = 0\):</p>
+                <p>$$x^2 + (kx)^2 - 4x + 10(kx) + 9 = 0$$</p>
+                <p>$$x^2 + k^2x^2 - 4x + 10kx + 9 = 0$$</p>
+                <p class="reason">Collect terms by power of \(x\):</p>
+                <p>$$(1 + k^2)x^2 + (10k - 4)x + 9 = 0$$</p>
+            </div>
+            <div class="mark-award">M1 — Substituting \(y = kx\) and forming a quadratic in \(x\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 3: Apply the discriminant condition</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">For TWO distinct intersection points, the discriminant must be strictly positive: \(b^2 - 4ac > 0\). Here \(a = (1+k^2)\), \(b = (10k-4)\), \(c = 9\). We compute the discriminant and solve the resulting inequality.</div>
+            <p>For two distinct points: \(b^2 - 4ac > 0\)</p>
+            <div class="algebra-chain">
+                <p>$$(10k - 4)^2 - 4(1 + k^2)(9) > 0$$</p>
+                <p class="reason">Expand \((10k-4)^2 = 100k^2 - 80k + 16\):</p>
+                <p>$$100k^2 - 80k + 16 - 36(1 + k^2) > 0$$</p>
+                <p class="reason">Expand: \(-36 - 36k^2\):</p>
+                <p>$$100k^2 - 80k + 16 - 36 - 36k^2 > 0$$</p>
+                <p>$$64k^2 - 80k - 20 > 0$$</p>
+                <p class="reason">Divide through by 4:</p>
+                <p>$$16k^2 - 20k - 5 > 0$$</p>
+            </div>
+            <div class="mark-award">M1 — Setting up discriminant \(> 0\)</div>
+            <div class="mark-award">A1 — Correct simplified quadratic inequality</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 4: Solve the quadratic inequality</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We need to find where \(16k^2 - 20k - 5 > 0\). First find the roots using the quadratic formula, then determine which intervals satisfy the inequality (since the coefficient of \(k^2\) is positive, the quadratic is positive OUTSIDE the roots).</div>
+            <div class="algebra-chain">
+                <p class="reason">Use the quadratic formula on \(16k^2 - 20k - 5 = 0\):</p>
+                <p>$$k = \frac{20 \pm \sqrt{400 + 320}}{32} = \frac{20 \pm \sqrt{720}}{32}$$</p>
+                <p class="reason">\(\sqrt{720} = 12\sqrt{5}\):</p>
+                <p>$$k = \frac{20 \pm 12\sqrt{5}}{32} = \frac{5 \pm 3\sqrt{5}}{8}$$</p>
+            </div>
+            <p>Since the coefficient of \(k^2\) is positive, the parabola opens upward, so the quadratic is \(> 0\) when:</p>
+            <p>$$\boxed{k < \frac{5 - 3\sqrt{5}}{8} \quad \text{or} \quad k > \frac{5 + 3\sqrt{5}}{8}}$$</p>
+            <div class="mark-award">M1 — Using quadratic formula to find critical values</div>
+            <div class="mark-award">A1 — Correct exact critical values</div>
+            <div class="mark-award">A1 — Correct inequality (outside the roots)</div>
+            <div class="examiner-note">Many candidates correctly found the critical values but then wrote the wrong inequality direction. Since the quadratic in \(k\) has positive leading coefficient, it's positive OUTSIDE the roots. A quick sketch of the parabola helps you get this right every time.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-jun18-q14')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: June 2019 Q10 ===================== -->
+<div class="example-panel" id="ex-jun19-q10">
+    <div class="question-text">
+        <p><strong>Paper 1 — June 2019 — Question 10</strong> (5 marks)</p>
+        <p>A circle C has equation</p>
+        <p>$$x^2 + y^2 - 4x + 8y - 8 = 0$$</p>
+        <p><strong>(a)</strong> Find (i) the coordinates of the centre of C, (ii) the exact radius of C. <em>[3 marks]</em></p>
+        <p>The straight line with equation \(x = k\), where \(k\) is a constant, is a tangent to C.</p>
+        <p><strong>(b)</strong> Find the possible values for \(k\). <em>[2 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202019%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202019%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Complete the square</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Same technique as always: complete the square in \(x\) and \(y\) to convert from expanded form to standard form.</div>
+            <div class="algebra-chain">
+                <p>$$x^2 + y^2 - 4x + 8y - 8 = 0$$</p>
+                <p class="reason">Complete square for \(x\): \(x^2 - 4x = (x-2)^2 - 4\)</p>
+                <p class="reason">Complete square for \(y\): \(y^2 + 8y = (y+4)^2 - 16\)</p>
+                <p>$$(x-2)^2 - 4 + (y+4)^2 - 16 - 8 = 0$$</p>
+                <p>$$(x-2)^2 + (y+4)^2 = 28$$</p>
+            </div>
+            <p><strong>Centre: \((2, -4)\)</strong></p>
+            <p><strong>Radius: \(\sqrt{28} = 2\sqrt{7}\)</strong></p>
+            <div class="mark-award">B1 — Centre \((2, -4)\)</div>
+            <div class="mark-award">M1A1 — Radius \(= 2\sqrt{7}\)</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 2: Find values of \(k\) for vertical tangent</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">A vertical line \(x = k\) is tangent to a circle when the horizontal distance from the centre to the line equals the radius. The centre is at \(x = 2\), and the radius is \(2\sqrt{7}\). So the tangent lines are at distance \(2\sqrt{7}\) left and right of \(x = 2\).</div>
+            <p>The vertical line \(x = k\) is tangent to the circle when the distance from the centre to the line equals the radius.</p>
+            <p>Distance from centre \((2, -4)\) to the line \(x = k\) is \(|k - 2|\).</p>
+            <div class="algebra-chain">
+                <p>$$|k - 2| = 2\sqrt{7}$$</p>
+                <p class="reason">Solve:</p>
+                <p>$$k - 2 = 2\sqrt{7} \quad \text{or} \quad k - 2 = -2\sqrt{7}$$</p>
+                <p>$$k = 2 + 2\sqrt{7} \quad \text{or} \quad k = 2 - 2\sqrt{7}$$</p>
+            </div>
+            <p><strong>The possible values are \(k = 2 + 2\sqrt{7}\) and \(k = 2 - 2\sqrt{7}\)</strong></p>
+            <div class="mark-award">M1 — Setting distance from centre to line equal to radius</div>
+            <div class="mark-award">A1 — Both correct values of \(k\)</div>
+            <div class="examiner-note">This is a quick question (2 marks) that tests whether you understand the geometric relationship. No quadratic or discriminant is needed here — just the simple fact that vertical tangent lines sit exactly one radius away from the centre horizontally.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-jun19-q10')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: June 2022 Q11 ===================== -->
+<div class="example-panel" id="ex-jun22-q11">
+    <div class="question-text">
+        <p><strong>Paper 1 — June 2022 — Question 11</strong> (8 marks)</p>
+        <p>Figure 3 shows the circle C with equation</p>
+        <p>$$x^2 + y^2 - 10x - 8y + 32 = 0$$</p>
+        <p>and the line \(l\) with equation \(2y + x + 6 = 0\)</p>
+        <p><strong>(a)</strong> Find (i) the coordinates of the centre of C, (ii) the radius of C. <em>[3 marks]</em></p>
+        <p><strong>(b)</strong> Find the shortest distance between C and \(l\). <em>[5 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202022%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202022%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Complete the square</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Standard completing the square to extract centre and radius from expanded form.</div>
+            <div class="algebra-chain">
+                <p>$$x^2 + y^2 - 10x - 8y + 32 = 0$$</p>
+                <p class="reason">\(x^2 - 10x = (x-5)^2 - 25\)</p>
+                <p class="reason">\(y^2 - 8y = (y-4)^2 - 16\)</p>
+                <p>$$(x-5)^2 - 25 + (y-4)^2 - 16 + 32 = 0$$</p>
+                <p>$$(x-5)^2 + (y-4)^2 = 9$$</p>
+            </div>
+            <p><strong>Centre: \((5, 4)\), Radius: \(3\)</strong></p>
+            <div class="mark-award">B1 — Centre \((5, 4)\)</div>
+            <div class="mark-award">M1A1 — Radius \(= 3\)</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 2: Find distance from centre to the line</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The shortest distance from the circle to a line equals the distance from the centre to the line, minus the radius. We use the point-to-line distance formula: for line \(ax + by + c = 0\) and point \((x_1, y_1)\), distance = \(\frac{|ax_1 + by_1 + c|}{\sqrt{a^2 + b^2}}\).</div>
+            <p>The line is \(x + 2y + 6 = 0\) (rearranging \(2y + x + 6 = 0\)).</p>
+            <p>Here \(a = 1\), \(b = 2\), \(c = 6\), and the centre is \((5, 4)\).</p>
+            <div class="algebra-chain">
+                <p>$$d = \frac{|1(5) + 2(4) + 6|}{\sqrt{1^2 + 2^2}}$$</p>
+                <p>$$= \frac{|5 + 8 + 6|}{\sqrt{5}}$$</p>
+                <p>$$= \frac{19}{\sqrt{5}}$$</p>
+                <p class="reason">Rationalise: \(\frac{19}{\sqrt{5}} = \frac{19\sqrt{5}}{5}\)</p>
+            </div>
+            <div class="mark-award">M1 — Using the correct distance formula</div>
+            <div class="mark-award">A1 — Distance from centre to line \(= \frac{19}{\sqrt{5}}\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 3: Subtract the radius to get shortest distance to circle</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The distance from the centre to the line is the distance from the centre to the nearest point on the line. But we want the distance from the CIRCLE to the line — so we subtract the radius (since the edge of the circle is one radius closer to the line than the centre is).</div>
+            <div class="algebra-chain">
+                <p>$$\text{Shortest distance} = \frac{19}{\sqrt{5}} - 3$$</p>
+                <p class="reason">Simplify: \(\frac{19}{\sqrt{5}} - 3 = \frac{19 - 3\sqrt{5}}{\sqrt{5}} = \frac{19\sqrt{5} - 15}{5}\)</p>
+            </div>
+            <p><strong>Shortest distance \(= \frac{19\sqrt{5} - 15}{5}\)</strong> (or equivalently \(\frac{19}{\sqrt{5}} - 3 \approx 5.50\))</p>
+            <div class="mark-award">M1 — Subtracting the radius from the centre-to-line distance</div>
+            <div class="mark-award">A1 — Correct exact answer in simplified surd form</div>
+            <div class="mark-award">A1 — Fully simplified</div>
+            <div class="examiner-note">Some candidates found the distance from centre to line but forgot to subtract the radius. The question asks for the shortest distance between the circle and the line — not between the centre and the line. Always check what the question is actually asking for.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-jun22-q11')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: June 2024 Q10 ===================== -->
+<div class="example-panel" id="ex-jun24-q10">
+    <div class="question-text">
+        <p><strong>Paper 1 — June 2024 — Question 10</strong> (8 marks)</p>
+        <p>Figure 4 shows a sketch of the circle C:</p>
+        <ul style="margin: 0.5rem 0 0.5rem 1.5rem;">
+            <li>the point \(P(-1, k+8)\) is the centre of C</li>
+            <li>the point \(Q(3, k^2 - 2k)\) lies on C</li>
+            <li>\(k\) is a positive constant</li>
+            <li>the line \(l\) is the tangent to C at Q</li>
+        </ul>
+        <p>Given that the gradient of \(l\) is \(-2\):</p>
+        <p><strong>(a)</strong> show that \(k^2 - 3k - 10 = 0\) <em>[4 marks]</em></p>
+        <p><strong>(b)</strong> Hence find an equation for C. <em>[4 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202024%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202024%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Find the gradient of PQ (radius)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The tangent at Q is perpendicular to the radius PQ. We know the tangent gradient is \(-2\), so the radius PQ has gradient \(\frac{1}{2}\) (negative reciprocal). We can also express the gradient of PQ using the coordinates of P and Q, then set them equal.</div>
+            <p>Since tangent is perpendicular to radius at the point of contact:</p>
+            <p>Gradient of tangent \(\times\) gradient of PQ \(= -1\)</p>
+            <div class="algebra-chain">
+                <p>$$(-2) \times m_{PQ} = -1$$</p>
+                <p>$$m_{PQ} = \frac{1}{2}$$</p>
+            </div>
+            <div class="mark-award">M1 — Using perpendicularity: gradient of radius = \(\frac{1}{2}\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 2: Express gradient of PQ in terms of \(k\) and equate</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Now calculate the gradient of PQ using the gradient formula \(\frac{y_2 - y_1}{x_2 - x_1}\) with \(P(-1, k+8)\) and \(Q(3, k^2-2k)\). Set this equal to \(\frac{1}{2}\) and simplify to reach the required equation.</div>
+            <div class="algebra-chain">
+                <p>$$m_{PQ} = \frac{(k^2 - 2k) - (k+8)}{3 - (-1)} = \frac{k^2 - 2k - k - 8}{4} = \frac{k^2 - 3k - 8}{4}$$</p>
+                <p class="reason">Set this equal to \(\frac{1}{2}\):</p>
+                <p>$$\frac{k^2 - 3k - 8}{4} = \frac{1}{2}$$</p>
+                <p class="reason">Multiply both sides by 4:</p>
+                <p>$$k^2 - 3k - 8 = 2$$</p>
+                <p class="reason">Subtract 2 from both sides:</p>
+                <p>$$\boxed{k^2 - 3k - 10 = 0} \quad \square$$</p>
+            </div>
+            <div class="mark-award">M1 — Writing gradient of PQ as \(\frac{k^2 - 3k - 8}{4}\)</div>
+            <div class="mark-award">A1 — Setting equal to \(\frac{1}{2}\)</div>
+            <div class="mark-award">A1 — Reaching the given result with clear working</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 3: Solve for \(k\) and find the centre</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We solve \(k^2 - 3k - 10 = 0\) to find \(k\). Since we're told \(k\) is positive, we reject the negative root. Then substitute back to find the actual coordinates of P and Q.</div>
+            <div class="algebra-chain">
+                <p>$$k^2 - 3k - 10 = 0$$</p>
+                <p class="reason">Factorise: \((k-5)(k+2) = 0\)</p>
+                <p>$$k = 5 \quad \text{or} \quad k = -2$$</p>
+                <p class="reason">Since \(k\) is positive: \(k = 5\)</p>
+            </div>
+            <p>Centre P: \((-1, 5+8) = (-1, 13)\)</p>
+            <p>Point Q: \((3, 25 - 10) = (3, 15)\)</p>
+            <div class="mark-award">M1 — Solving the quadratic and selecting \(k = 5\)</div>
+            <div class="mark-award">A1 — Centre \((-1, 13)\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 4: Find the radius and write the equation</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The radius is the distance PQ. We have both points, so use the distance formula. Then write the equation in the standard form \((x-a)^2 + (y-b)^2 = r^2\).</div>
+            <div class="algebra-chain">
+                <p>$$r = PQ = \sqrt{(3-(-1))^2 + (15-13)^2}$$</p>
+                <p>$$= \sqrt{4^2 + 2^2} = \sqrt{16 + 4} = \sqrt{20}$$</p>
+            </div>
+            <p>The equation of C is:</p>
+            <p>$$\boxed{(x+1)^2 + (y-13)^2 = 20}$$</p>
+            <div class="mark-award">M1 — Finding distance PQ as the radius</div>
+            <div class="mark-award">A1 — Correct equation of C</div>
+            <div class="examiner-note">The equation can also be left in expanded form \(x^2 + y^2 + 2x - 26y + 150 = 0\). Both forms are accepted. Make sure you write \(r^2 = 20\), not \(r^2 = \sqrt{20}\) — a surprisingly common error.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-jun24-q10')">Show Full Solution</button>
+</div>
+
+<!-- PATTERN RECOGNITION -->
+<h2>How to Recognise This Question Type</h2>
+<div class="card">
+    <p>Look for these signals:</p>
+    <ul style="margin-left: 1.5rem; line-height: 2;">
+        <li>An equation with \(x^2 + y^2\) plus linear terms — always a circle</li>
+        <li>The word <strong>"tangent"</strong> — use perpendicularity or discriminant = 0</li>
+        <li>"Find the range of values of \(k\)" — always discriminant-based</li>
+        <li>Questions about <strong>shortest distance</strong> — use point-to-line formula, then subtract radius</li>
+        <li>Given a tangent gradient — use the perpendicular gradient relationship for the radius</li>
+    </ul>
+</div>
+
+<script>
+    function toggleStep(header) {
+        header.classList.toggle('open');
+        header.nextElementSibling.classList.toggle('open');
+    }
+
+    function showAllSteps(panelId) {
+        const panel = document.getElementById(panelId);
+        panel.querySelectorAll('.step-reveal-header').forEach(h => h.classList.add('open'));
+        panel.querySelectorAll('.step-reveal-content').forEach(c => c.classList.add('open'));
+    }
+
+    function selectExample(panelId) {
+        document.querySelectorAll('.example-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.example-panel').forEach(p => p.classList.remove('active'));
+
+        document.getElementById(panelId).classList.add('active');
+
+        const tabs = document.querySelectorAll('.example-tab');
+        const tabMap = {
+            'ex-jun18-q14': 0,
+            'ex-jun19-q10': 1,
+            'ex-jun22-q11': 2,
+            'ex-jun24-q10': 3
+        };
+        if (tabMap[panelId] !== undefined) {
+            tabs[tabMap[panelId]].classList.add('active');
+        }
+
+        document.getElementById(panelId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ]
+        });
+    });
+</script>
+
+</body>
+</html>

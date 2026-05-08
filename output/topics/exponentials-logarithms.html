@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exponentials &amp; Logarithms — Edexcel A Level Maths</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #2b6cb0;
+            --success: #276749;
+            --warning: #c05621;
+            --danger: #c53030;
+            --bg: #f7fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #2d3748;
+            --muted: #718096;
+            --mark: #805ad5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        h1 { color: var(--primary); margin-bottom: 0.5rem; font-size: 2rem; }
+        h2 { color: var(--primary); margin: 2.5rem 0 1rem; font-size: 1.4rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        h3 { color: var(--accent); margin: 1.5rem 0 0.75rem; font-size: 1.15rem; }
+
+        .subtitle { color: var(--muted); margin-bottom: 2rem; font-size: 1.05rem; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--accent); }
+        .stat-card .label { font-size: 0.85rem; color: var(--muted); }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .approach-step {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .approach-step:last-child { border-bottom: none; }
+
+        .step-number {
+            background: var(--accent);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .step-content { flex: 1; }
+        .step-content strong { color: var(--primary); }
+
+        .pitfall-box {
+            background: #fff5f5;
+            border: 1px solid #fed7d7;
+            border-left: 4px solid var(--danger);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .pitfall-box h3 { color: var(--danger); margin-top: 0; }
+        .pitfall-box ul { margin-left: 1.5rem; margin-top: 0.5rem; }
+        .pitfall-box li { margin: 0.5rem 0; }
+
+        .tip-box {
+            background: #f0fff4;
+            border: 1px solid #c6f6d5;
+            border-left: 4px solid var(--success);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .tip-box h3 { color: var(--success); margin-top: 0; }
+
+        /* Question index table */
+        .question-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.92rem;
+        }
+
+        .question-table th {
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+        }
+
+        .question-table td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .question-table tr:hover { background: #ebf8ff; }
+
+        .question-table a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .question-table a:hover { text-decoration: underline; }
+
+        .question-table .go-btn {
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+        }
+
+        .question-table .go-btn:hover { background: var(--primary); }
+
+        /* Worked examples */
+        .example-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .example-tab {
+            padding: 0.5rem 1rem;
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .example-tab:hover { border-color: var(--accent); }
+        .example-tab.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+        .example-panel { display: none; }
+        .example-panel.active { display: block; }
+
+        .question-text {
+            background: #ebf8ff;
+            border: 1px solid #bee3f8;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.02rem;
+        }
+
+        .question-text .links {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #bee3f8;
+            font-size: 0.85rem;
+        }
+
+        .question-text .links a {
+            color: var(--accent);
+            text-decoration: none;
+            margin-right: 1.5rem;
+        }
+
+        .question-text .links a:hover { text-decoration: underline; }
+
+        .step-reveal {
+            margin: 0.75rem 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .step-reveal-header {
+            padding: 0.75rem 1rem;
+            background: #edf2f7;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background 0.2s;
+            gap: 0.5rem;
+        }
+
+        .step-reveal-header:hover { background: #e2e8f0; }
+
+        .step-reveal-header .arrow {
+            transition: transform 0.3s;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .step-reveal-header.open .arrow { transform: rotate(90deg); }
+
+        .step-reveal-content {
+            display: none;
+            padding: 1.25rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .step-reveal-content.open { display: block; }
+
+        .part-label {
+            display: inline-block;
+            background: #ebf8ff;
+            color: var(--accent);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        .mark-badge {
+            display: inline-block;
+            background: #faf5ff;
+            color: var(--mark);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border: 1px solid #e9d8fd;
+        }
+
+        .mark-award {
+            background: #faf5ff;
+            border: 1px solid #e9d8fd;
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            color: var(--mark);
+            font-weight: 600;
+        }
+
+        .mark-award::before {
+            content: "\2713 ";
+        }
+
+        .examiner-note {
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            border-radius: 6px;
+            padding: 0.75rem;
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .examiner-note::before {
+            content: "Examiner: ";
+            font-weight: 700;
+            color: var(--warning);
+        }
+
+        .show-all-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            transition: background 0.2s;
+        }
+
+        .show-all-btn:hover { background: var(--primary); }
+
+        .motivation {
+            background: #eef6ff;
+            border: 1px solid #c3dafe;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.93rem;
+        }
+
+        .motivation::before {
+            content: "\1F4AD Thinking: ";
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .algebra-chain {
+            margin: 0.5rem 0;
+            padding-left: 1rem;
+            border-left: 3px solid var(--border);
+        }
+
+        .algebra-chain .reason {
+            color: var(--muted);
+            font-size: 0.85rem;
+            font-style: italic;
+            margin: 0.25rem 0;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            h1 { font-size: 1.5rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .example-selector { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<p style="margin-bottom: 1rem;"><a href="../index.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">&larr; All Topics</a></p>
+
+<h1>Exponentials &amp; Logarithms</h1>
+<p class="subtitle">Laws of logarithms, solving exponential equations, exponential models (growth/decay), log-linear and log-log graphs, natural logarithm ln</p>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="number">13/14</div>
+        <div class="label">Papers with this topic</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">3-9</div>
+        <div class="label">Typical marks</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">Q2-Q13</div>
+        <div class="label">Paper position</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">2 types</div>
+        <div class="label">Pure algebra + Modelling</div>
+    </div>
+</div>
+
+<!-- FULL QUESTION INDEX -->
+<h2>All Past Paper Questions on This Topic</h2>
+<p style="margin-bottom: 1rem; color: var(--muted);">Every exponentials/logarithms question from Edexcel 9MA0 (2018-2024). Click "Worked Example" to see a full guided solution.</p>
+
+<table class="question-table">
+    <thead>
+        <tr>
+            <th>Paper</th>
+            <th>Question</th>
+            <th>Description</th>
+            <th>Marks</th>
+            <th>Links</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>P1 Oct 2020</td>
+            <td>Q2</td>
+            <td>Solve \(4^{3p-1} = 5210\) by taking logarithms</td>
+            <td>3</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FOctober%202020%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FOctober%202020%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p1-oct20-q2'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P2 Oct 2020</td>
+            <td>Q3</td>
+            <td>Solve \(2\log(4-x) = \log(x+8)\), identify invalid root</td>
+            <td>5</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FOctober%202020%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FOctober%202020%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p2-oct20-q3'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P2 Oct 2021</td>
+            <td>Q3</td>
+            <td>Solve \(\log_3(12y+5) - \log_3(1-3y) = 2\)</td>
+            <td>3</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FOctober%202021%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FOctober%202021%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 Oct 2021</td>
+            <td>Q10</td>
+            <td>Log-log graph: pendulum \(T = al^b\), find constants from graph</td>
+            <td>6</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FOctober%202021%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FOctober%202021%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 June 2019</td>
+            <td>Q7</td>
+            <td>Exponential model: car depreciation \(V = 20000 \times 0.8^t\)</td>
+            <td>7</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202019%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202019%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 June 2019</td>
+            <td>Q9</td>
+            <td>Log-log graph: braking distance \(d = kV^n\), find model from data</td>
+            <td>9</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202019%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202019%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p2-jun19-q9'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P1 June 2022</td>
+            <td>Q10</td>
+            <td>Exponential model: bees \(N_b = 45 + 220e^{0.05t}\) vs wasps; find when equal</td>
+            <td>8</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202022%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202022%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p1-jun22-q10'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P1 June 2023</td>
+            <td>Q5</td>
+            <td>Laws of logs: express in terms of \(a = \log_2 x\) and \(b = \log_2(x+8)\)</td>
+            <td>6</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202023%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202023%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 June 2023</td>
+            <td>Q10</td>
+            <td>Log-linear graph: phone value \(V = ab^t\), find model and evaluate</td>
+            <td>7</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202023%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202023%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 June 2023</td>
+            <td>Q3</td>
+            <td>Log equation: \(\log_2(x+3) + \log_2(x+10) = 2 + 2\log_2 x\)</td>
+            <td>5</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202023%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202023%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p2-jun23-q3'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P2 June 2024</td>
+            <td>Q13</td>
+            <td>Log-linear graph: world population \(P = ab^t\), interpret and predict</td>
+            <td>9</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202024%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202024%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 June 2022</td>
+            <td>Q5</td>
+            <td>Trapezium rule applied to \(\displaystyle\int \log_3(2x)\,dx\)</td>
+            <td>5</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202022%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202022%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- GUIDED APPROACH -->
+<h2>The Approach</h2>
+<div class="card">
+    <p style="margin-bottom: 1rem; color: var(--muted);">Exponentials &amp; logarithms questions fall into two main categories. Here is how to tackle each:</p>
+
+    <h3 style="margin-top: 0;">Type 1: Solving Log/Exponential Equations</h3>
+    <div class="approach-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+            <strong>Apply log laws to combine terms</strong><br>
+            Use \(\log a + \log b = \log(ab)\), \(\log a - \log b = \log\!\left(\frac{a}{b}\right)\), and \(n\log a = \log(a^n)\) to reduce to a single logarithm on each side.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+            <strong>Remove the logarithm</strong><br>
+            If \(\log_b(\text{expression}) = k\), then \(\text{expression} = b^k\). This converts the log equation into a polynomial (usually quadratic). If you have an exponential equation like \(a^x = k\), take logs of both sides.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+            <strong>Solve and check validity</strong><br>
+            Solve the resulting equation. Then <em>check each solution</em>: you cannot take the log of a negative number or zero. Reject any root that makes the argument of a logarithm non-positive, and state your reason.
+        </div>
+    </div>
+
+    <h3>Type 2: Exponential Models &amp; Log Graphs</h3>
+    <div class="approach-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+            <strong>Take logarithms of the model equation</strong><br>
+            For \(y = ab^x\): take \(\log_{10}\) to get \(\log y = \log a + x\log b\). This is linear in \(x\) with gradient \(\log b\) and intercept \(\log a\).<br>
+            For \(y = kx^n\): take \(\log_{10}\) to get \(\log y = \log k + n\log x\), which is linear in \(\log x\).
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+            <strong>Read gradient and intercept from the graph</strong><br>
+            Use the two given points on the straight line to find the gradient and y-intercept. Match these to the transformed equation to find the constants.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+            <strong>Convert back to find original constants</strong><br>
+            If \(\log a = c\) then \(a = 10^c\). If \(\log b = m\) then \(b = 10^m\). State the complete model and interpret in context.
+        </div>
+    </div>
+</div>
+
+<!-- EXAMINER PITFALLS -->
+<div class="pitfall-box">
+    <h3>Common Pitfalls (from Examiner Reports)</h3>
+    <ul>
+        <li><strong>Taking log of a negative:</strong> When solving log equations, candidates find both roots of the quadratic but forget to check whether they make the argument of the log negative. Always substitute back and reject invalid roots with a clear reason.</li>
+        <li><strong>Confusing log laws:</strong> \(\log(a+b) \neq \log a + \log b\). The addition law is \(\log a + \log b = \log(ab)\). Similarly \(\log(a-b) \neq \log a - \log b\).</li>
+        <li><strong>Forgetting to convert from \(\log a\) to \(a\):</strong> In modelling questions, candidates find \(\log_{10} a = 0.81\) but then state \(a = 0.81\) instead of \(a = 10^{0.81}\).</li>
+        <li><strong>Mixing up log-linear vs log-log:</strong> For \(y = ab^x\), plot \(\log y\) against \(x\). For \(y = kx^n\), plot \(\log y\) against \(\log x\). Getting these confused leads to wrong identification of gradient/intercept.</li>
+        <li><strong>Not giving exact answers:</strong> When asked for exact values, leave answers as \(\log_2 3\) or \(\frac{\ln 3}{\ln 2}\) rather than decimals.</li>
+    </ul>
+</div>
+
+<div class="tip-box">
+    <h3>What Top Candidates Do</h3>
+    <ul>
+        <li>Write down the log law being used at each step, e.g. "using \(\log a + \log b = \log(ab)\)" -- this earns method marks even if a slip follows.</li>
+        <li>When rejecting a root, explicitly state: "Reject \(x = ...\) because \(\log_2(\text{negative})\) is undefined" -- this earns the final accuracy mark.</li>
+        <li>In modelling questions, clearly state \(\log_{10} y = (\text{gradient}) \times x + (\text{intercept})\) and match terms -- this systematic approach avoids errors.</li>
+        <li>For equations like \(e^{0.05t} = k\), write \(0.05t = \ln k\) then \(t = \frac{\ln k}{0.05}\) -- each line is a method mark.</li>
+    </ul>
+</div>
+
+<!-- WORKED EXAMPLES -->
+<h2>Worked Examples</h2>
+<p style="margin-bottom: 1rem; color: var(--muted);">Click each step to reveal. Try the question yourself first, then check your method.</p>
+
+<div class="example-selector">
+    <div class="example-tab active" onclick="selectExample('ex-p2-oct20-q3')">P2 Oct 2020 Q3</div>
+    <div class="example-tab" onclick="selectExample('ex-p2-jun23-q3')">P2 June 2023 Q3</div>
+    <div class="example-tab" onclick="selectExample('ex-p2-jun19-q9')">P2 June 2019 Q9</div>
+    <div class="example-tab" onclick="selectExample('ex-p1-jun22-q10')">P1 June 2022 Q10</div>
+    <div class="example-tab" onclick="selectExample('ex-p1-oct20-q2')">P1 Oct 2020 Q2</div>
+</div>
+
+<!-- EXAMPLE 1: P2 Oct 2020 Q3 - Log equation with validity -->
+<div class="example-panel active" id="ex-p2-oct20-q3">
+    <div class="question-text">
+        <span class="part-label">Q3</span> <span class="mark-badge">5 marks</span>
+        <p style="margin-top: 0.5rem;"><strong>(a)</strong> Given that \(2\log(4-x) = \log(x+8)\), show that \(x^2 - 9x + 8 = 0\).</p>
+        <p style="margin-top: 0.5rem;"><strong>(b)(i)</strong> Write down the roots of the equation \(x^2 - 9x + 8 = 0\).</p>
+        <p><strong>(b)(ii)</strong> State which of the roots in (b)(i) is not a solution of the original equation, giving a reason.</p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FOctober%202020%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FOctober%202020%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Apply the power law for logarithms</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">I see \(2\log(4-x)\) on the left. The power law says \(n\log a = \log(a^n)\), so I can rewrite this as a single log.</div>
+            <div class="algebra-chain">
+                <p>\(2\log(4-x) = \log(x+8)\)</p>
+                <p class="reason">Apply power law: \(2\log(4-x) = \log(4-x)^2\)</p>
+                <p>\(\log(4-x)^2 = \log(x+8)\)</p>
+            </div>
+            <div class="mark-award">M1 -- Uses the power law correctly to write \(\log(4-x)^2\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Remove the logarithms and expand</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Both sides are \(\log(\text{something})\). Since \(\log A = \log B \implies A = B\), I can equate the arguments.</div>
+            <div class="algebra-chain">
+                <p>\((4-x)^2 = x + 8\)</p>
+                <p class="reason">Expand the left side</p>
+                <p>\(16 - 8x + x^2 = x + 8\)</p>
+                <p class="reason">Collect all terms on one side</p>
+                <p>\(x^2 - 8x + 16 - x - 8 = 0\)</p>
+                <p>\(x^2 - 9x + 8 = 0 \quad \checkmark\)</p>
+            </div>
+            <div class="mark-award">M1 -- Removes logs and forms a correct equation without logs</div>
+            <div class="mark-award">A1 -- Correctly arrives at the printed answer with all working shown</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Factorise and check validity</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">I need to factorise \(x^2 - 9x + 8\). I'm looking for two numbers that multiply to 8 and add to -9. That's -1 and -8.</div>
+            <div class="algebra-chain">
+                <p>\(x^2 - 9x + 8 = (x-1)(x-8) = 0\)</p>
+                <p>\(x = 1 \quad \text{or} \quad x = 8\)</p>
+            </div>
+            <p style="margin-top: 1rem;"><strong>Validity check:</strong></p>
+            <p>If \(x = 8\): then \(4 - x = 4 - 8 = -4\), and \(\log(-4)\) is <strong>not defined</strong>.</p>
+            <p style="margin-top: 0.5rem;">Therefore \(x = 8\) is not a valid solution of the original equation.</p>
+            <p style="margin-top: 0.5rem;">Check \(x = 1\): \(\log(4-1) = \log 3\) (valid), \(\log(1+8) = \log 9\) (valid). And \(2\log 3 = \log 9\) -- confirmed.</p>
+            <div class="mark-award">B1 -- Both roots stated: \(x = 1\) and \(x = 8\)</div>
+            <div class="mark-award">B1 -- States \(x = 8\) is invalid because it makes the argument of log negative</div>
+            <div class="examiner-note">Many candidates found both roots but failed to give a clear reason for rejecting \(x = 8\). Simply writing "doesn't work" is not enough. You must reference the fact that \(\log(\text{negative})\) is undefined.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps(this)">Show All Steps</button>
+</div>
+
+<!-- EXAMPLE 2: P2 June 2023 Q3 - Log equation with base 2 -->
+<div class="example-panel" id="ex-p2-jun23-q3">
+    <div class="question-text">
+        <span class="part-label">Q3</span> <span class="mark-badge">5 marks</span>
+        <p style="margin-top: 0.5rem;"><strong>(a)</strong> Given that \(\log_2(x+3) + \log_2(x+10) = 2 + 2\log_2 x\), show that \(3x^2 - 13x - 30 = 0\).</p>
+        <p style="margin-top: 0.5rem;"><strong>(b)(i)</strong> Write down the roots of \(3x^2 - 13x - 30 = 0\).</p>
+        <p><strong>(b)(ii)</strong> Hence state which root is not a solution of the original equation, giving a reason.</p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202023%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202023%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Apply log laws to both sides</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">I need to combine the left side using the addition law, and rewrite the right side. The constant 2 can be written as \(\log_2 4\), and \(2\log_2 x = \log_2 x^2\).</div>
+            <div class="algebra-chain">
+                <p><strong>Left side:</strong> \(\log_2(x+3) + \log_2(x+10) = \log_2[(x+3)(x+10)]\)</p>
+                <p class="reason">Addition law: \(\log a + \log b = \log(ab)\)</p>
+                <p><strong>Right side:</strong> \(2 + 2\log_2 x = \log_2 4 + \log_2 x^2 = \log_2(4x^2)\)</p>
+                <p class="reason">Using \(2 = \log_2 4\) and power law then addition law</p>
+            </div>
+            <div class="mark-award">M1 -- Uses at least one correct log law (addition, power, or converting the constant)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Equate arguments and expand to quadratic</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Now both sides are a single \(\log_2\). So I can equate the arguments and expand.</div>
+            <div class="algebra-chain">
+                <p>\(\log_2[(x+3)(x+10)] = \log_2(4x^2)\)</p>
+                <p class="reason">If \(\log_2 A = \log_2 B\) then \(A = B\)</p>
+                <p>\((x+3)(x+10) = 4x^2\)</p>
+                <p class="reason">Expand the left side</p>
+                <p>\(x^2 + 13x + 30 = 4x^2\)</p>
+                <p class="reason">Rearrange: bring everything to one side</p>
+                <p>\(0 = 4x^2 - x^2 - 13x - 30\)</p>
+                <p>\(3x^2 - 13x - 30 = 0 \quad \checkmark\)</p>
+            </div>
+            <div class="mark-award">dM1 -- Fully correct log work leading to an equation without logs (depends on first M1)</div>
+            <div class="mark-award">A1 -- Obtains the printed answer \(3x^2 - 13x - 30 = 0\) with no errors</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Solve the quadratic and reject invalid root</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">I need to factorise \(3x^2 - 13x - 30\). Product = \(3 \times (-30) = -90\), sum = \(-13\). Factors: \(-18\) and \(+5\).</div>
+            <div class="algebra-chain">
+                <p>\(3x^2 - 13x - 30 = (3x + 5)(x - 6) = 0\)</p>
+                <p>\(x = 6 \quad \text{or} \quad x = -\tfrac{5}{3}\)</p>
+            </div>
+            <p style="margin-top: 1rem;"><strong>Validity check:</strong></p>
+            <p>If \(x = -\tfrac{5}{3}\): the original equation has \(2\log_2 x\), which requires \(x > 0\).</p>
+            <p>Since \(-\tfrac{5}{3} < 0\), \(\log_2\!\left(-\tfrac{5}{3}\right)\) is <strong>not defined</strong>.</p>
+            <p style="margin-top: 0.5rem;">Therefore \(x = -\tfrac{5}{3}\) is not a valid solution.</p>
+            <div class="mark-award">B1 -- Both roots correct: \(x = 6\) and \(x = -\frac{5}{3}\)</div>
+            <div class="mark-award">B1 -- Rejects \(x = -\frac{5}{3}\) with reason: cannot take \(\log_2\) of a negative number</div>
+            <div class="examiner-note">The mark scheme accepts any valid reason referencing the domain restriction: "\(\log_2\) of a negative is not real" or "\(x\) must be positive for \(\log_2 x\) to exist". Simply stating "negative so rejected" without linking to the log is insufficient.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps(this)">Show All Steps</button>
+</div>
+
+<!-- EXAMPLE 3: P2 June 2019 Q9 - Log-log modelling -->
+<div class="example-panel" id="ex-p2-jun19-q9">
+    <div class="question-text">
+        <span class="part-label">Q9</span> <span class="mark-badge">9 marks</span>
+        <p style="margin-top: 0.5rem;">A research engineer tests braking distance. The braking distance, \(d\) metres, at speed \(V\) km/h is modelled by \(d = kV^n\) where \(k\) and \(n\) are constants.</p>
+        <p style="margin-top: 0.5rem;">A graph of \(\log_{10} d\) against \(\log_{10} V\) gives a straight line. A data point is \((30, 20)\) on the original \(d\) vs \(V\) graph.</p>
+        <p style="margin-top: 0.5rem;"><strong>(a)</strong> Explain how the log-log graph supports the model \(d = kV^n\), and show \(k \approx 0.017\). [3]</p>
+        <p><strong>(b)</strong> Find a complete equation for the model giving \(n\) to 3 s.f. [3]</p>
+        <p><strong>(c)</strong> Sean drives at 60 km/h in wet conditions and notices a puddle 100 m ahead. Reaction time 0.8 s. Can he stop in time? [3]</p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202019%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202019%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Take logs of the model to get a linear form</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">If \(d = kV^n\), I take \(\log_{10}\) of both sides. This should give something linear, which explains the straight-line graph.</div>
+            <div class="algebra-chain">
+                <p>\(d = kV^n\)</p>
+                <p class="reason">Take \(\log_{10}\) of both sides</p>
+                <p>\(\log_{10} d = \log_{10}(kV^n)\)</p>
+                <p class="reason">Use \(\log(ab) = \log a + \log b\) and \(\log(a^n) = n\log a\)</p>
+                <p>\(\log_{10} d = \log_{10} k + n\log_{10} V\)</p>
+            </div>
+            <p style="margin-top: 0.75rem;">This has the form \(Y = nX + c\) where \(Y = \log_{10} d\), \(X = \log_{10} V\), gradient \(= n\), intercept \(= \log_{10} k\).</p>
+            <p style="margin-top: 0.5rem;">A straight line on the \(\log_{10} d\) vs \(\log_{10} V\) graph confirms the relationship \(d = kV^n\).</p>
+            <div class="mark-award">M1 -- Takes logs correctly to obtain a linear relationship</div>
+            <div class="mark-award">A1 -- Correctly identifies that a straight line on a log-log plot supports the power model</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Use the intercept to show \(k \approx 0.017\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The y-intercept of the log-log graph (where \(\log_{10} V = 0\)) gives \(\log_{10} k\). From the graph, this intercept is approximately \(-1.77\).</div>
+            <div class="algebra-chain">
+                <p>\(\log_{10} k \approx -1.77\)</p>
+                <p class="reason">Convert back: \(k = 10^{-1.77}\)</p>
+                <p>\(k \approx 0.017\)</p>
+            </div>
+            <div class="mark-award">A1 -- Shows \(k \approx 0.017\) from the intercept of the log-log graph</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Find \(n\) using the data point</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">I know \(d = kV^n\) with \(k = 0.017\) and the data point \((V, d) = (30, 20)\). I substitute to find \(n\).</div>
+            <div class="algebra-chain">
+                <p>\(20 = 0.017 \times 30^n\)</p>
+                <p class="reason">Divide both sides by 0.017</p>
+                <p>\(\frac{20}{0.017} = 30^n\)</p>
+                <p>\(1176.47... = 30^n\)</p>
+                <p class="reason">Take \(\log_{10}\) of both sides</p>
+                <p>\(\log_{10}(1176.47) = n\log_{10}(30)\)</p>
+                <p>\(n = \frac{\log_{10}(1176.47)}{\log_{10}(30)} = \frac{3.0706...}{1.4771...}\)</p>
+                <p>\(n = 2.08 \text{ (3 s.f.)}\)</p>
+            </div>
+            <div class="mark-award">M1 -- Substitutes the data point into the model with \(k = 0.017\)</div>
+            <div class="mark-award">M1 -- Correct method to isolate \(n\) using logarithms</div>
+            <div class="mark-award">A1 -- \(n = 2.08\) (3 s.f.)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)</span> Apply the model: can Sean stop in time?</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Sean is at 60 km/h. I need the braking distance from the model, plus the distance covered during 0.8 seconds of reaction time.</div>
+            <div class="algebra-chain">
+                <p><strong>Braking distance:</strong></p>
+                <p>\(d = 0.017 \times 60^{2.08}\)</p>
+                <p>\(d = 0.017 \times 4741.6... = 80.6 \text{ m}\)</p>
+                <p><strong>Distance during reaction time:</strong></p>
+                <p class="reason">Convert 60 km/h to m/s: \(60 \times \frac{1000}{3600} = \frac{50}{3}\) m/s</p>
+                <p>\(\text{Reaction distance} = \frac{50}{3} \times 0.8 = 13.3 \text{ m}\)</p>
+                <p><strong>Total stopping distance:</strong></p>
+                <p>\(80.6 + 13.3 = 93.9 \text{ m}\)</p>
+            </div>
+            <p style="margin-top: 0.75rem;">Since \(93.9 < 100\), Sean <strong>can</strong> stop before reaching the puddle.</p>
+            <div class="mark-award">M1 -- Substitutes \(V = 60\) into the model to find braking distance</div>
+            <div class="mark-award">M1 -- Calculates reaction distance and adds to braking distance</div>
+            <div class="mark-award">A1 -- Correct conclusion with supporting calculation</div>
+            <div class="examiner-note">Candidates who forgot to convert km/h to m/s for the reaction distance calculation lost the final mark. Always check units are consistent. Note: 60 km/h = 16.67 m/s, so in 0.8 s the car travels 13.3 m.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps(this)">Show All Steps</button>
+</div>
+
+<!-- EXAMPLE 4: P1 June 2022 Q10 - Exponential model with e -->
+<div class="example-panel" id="ex-p1-jun22-q10">
+    <div class="question-text">
+        <span class="part-label">Q10</span> <span class="mark-badge">8 marks</span>
+        <p style="margin-top: 0.5rem;">A scientist studies bees and wasps on an island.</p>
+        <p>The number of bees (thousands): \(N_b = 45 + 220e^{0.05t}\)</p>
+        <p>The number of wasps (thousands): \(N_w = 10 + 800e^{-0.05t}\)</p>
+        <p>where \(t\) is years from the start of the study.</p>
+        <p style="margin-top: 0.5rem;"><strong>(a)</strong> Find the number of bees at the start of the study. [1]</p>
+        <p><strong>(b)</strong> Show that, 10 years after the start, the number of bees was increasing at approximately 18 thousand per year. [3]</p>
+        <p><strong>(c)</strong> Find the value of \(T\) when there are equal numbers of bees and wasps, to 2 d.p. [4]</p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202022%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202022%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Find initial number of bees</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">"At the start of the study" means \(t = 0\). I substitute into the formula, remembering that \(e^0 = 1\).</div>
+            <div class="algebra-chain">
+                <p>\(N_b = 45 + 220e^{0.05 \times 0} = 45 + 220e^0 = 45 + 220(1) = 265\)</p>
+            </div>
+            <p style="margin-top: 0.5rem;">The number of bees at the start is <strong>265 thousand</strong> (or 265 000).</p>
+            <div class="mark-award">B1 -- 265 thousand (must indicate thousands, not just "265")</div>
+            <div class="examiner-note">The mark scheme requires reference to thousands. Writing just "265" without indicating the unit risks losing this mark. The answer "265 000" is also acceptable.</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Differentiate and evaluate the rate of growth</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">"Rate of increase" means I need \(\frac{dN_b}{dt}\). For \(Ce^{kt}\), the derivative is \(Cke^{kt}\). The constant 45 differentiates to zero.</div>
+            <div class="algebra-chain">
+                <p>\(N_b = 45 + 220e^{0.05t}\)</p>
+                <p class="reason">Differentiate with respect to \(t\)</p>
+                <p>\(\frac{dN_b}{dt} = 220 \times 0.05 \times e^{0.05t} = 11e^{0.05t}\)</p>
+                <p class="reason">Substitute \(t = 10\)</p>
+                <p>\(\frac{dN_b}{dt}\bigg|_{t=10} = 11e^{0.05 \times 10} = 11e^{0.5}\)</p>
+                <p>\(= 11 \times 1.6487... = 18.14...\)</p>
+                <p>\(\approx 18 \text{ thousand per year} \quad \checkmark\)</p>
+            </div>
+            <div class="mark-award">M1 -- Differentiates to get \(ke^{0.05t}\) where \(k \neq 220\)</div>
+            <div class="mark-award">M1 -- Substitutes \(t = 10\) into their derivative</div>
+            <div class="mark-award">A1 -- Shows intermediate value (e.g. \(11e^{0.5}\) or awrt 18.1) and concludes approximately 18 thousand per year</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)</span> Set equal and form a quadratic in \(e^{0.05t}\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">I need to find when \(N_b = N_w\). Setting them equal gives an equation with both \(e^{0.05t}\) and \(e^{-0.05t}\). The key insight is that \(e^{-0.05t} = \frac{1}{e^{0.05t}}\), so I can multiply through to get a quadratic.</div>
+            <div class="algebra-chain">
+                <p>\(45 + 220e^{0.05t} = 10 + 800e^{-0.05t}\)</p>
+                <p class="reason">Rearrange</p>
+                <p>\(220e^{0.05t} - 800e^{-0.05t} + 35 = 0\)</p>
+                <p class="reason">Multiply every term by \(e^{0.05t}\) (always positive, so inequality unchanged)</p>
+                <p>\(220(e^{0.05t})^2 + 35e^{0.05t} - 800 = 0\)</p>
+            </div>
+            <p style="margin-top: 0.5rem;">This is a quadratic in \(e^{0.05t}\).</p>
+            <div class="mark-award">M1 -- Sets both models equal and simplifies constant terms</div>
+            <div class="mark-award">A1 -- Correct quadratic equation in \(e^{0.05t}\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)</span> Solve the quadratic and find \(T\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">I use the quadratic formula with \(a = 220\), \(b = 35\), \(c = -800\). Since \(e^{0.05t} > 0\) always, I reject any negative solution.</div>
+            <div class="algebra-chain">
+                <p>Let \(u = e^{0.05t}\). Then \(220u^2 + 35u - 800 = 0\)</p>
+                <p>\(u = \frac{-35 \pm \sqrt{35^2 + 4(220)(800)}}{2(220)}\)</p>
+                <p>\(u = \frac{-35 \pm \sqrt{1225 + 704000}}{440}\)</p>
+                <p>\(u = \frac{-35 \pm \sqrt{705225}}{440} = \frac{-35 \pm 839.77...}{440}\)</p>
+                <p>\(u = 1.829... \quad \text{or} \quad u = -1.988...\)</p>
+                <p class="reason">Reject \(u = -1.988\) since \(e^{0.05t} > 0\)</p>
+                <p>\(e^{0.05t} = 1.829...\)</p>
+                <p class="reason">Take natural log of both sides</p>
+                <p>\(0.05t = \ln(1.829...) = 0.6041...\)</p>
+                <p>\(t = \frac{0.6041...}{0.05} = 12.08...\)</p>
+            </div>
+            <p style="margin-top: 0.5rem;"><strong>\(T = 12.08\)</strong> (to 2 decimal places)</p>
+            <div class="mark-award">M1 -- Solves quadratic for \(u = e^{0.05t}\), then takes \(\ln\) to find \(t\)</div>
+            <div class="mark-award">A1 -- \(T = 12.08\)</div>
+            <div class="examiner-note">The substitution \(u = e^{0.05t}\) (or multiplying through by \(e^{0.05t}\)) is the key step most candidates missed. Those who attempted to take \(\ln\) directly of a sum like \(\ln(220e^{0.05t} + 35)\) made a fundamental error -- you cannot split \(\ln\) across addition.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps(this)">Show All Steps</button>
+</div>
+
+<!-- EXAMPLE 5: P1 Oct 2020 Q2 - Simple exponential equation -->
+<div class="example-panel" id="ex-p1-oct20-q2">
+    <div class="question-text">
+        <span class="part-label">Q2</span> <span class="mark-badge">3 marks</span>
+        <p style="margin-top: 0.5rem;">By taking logarithms of both sides, solve the equation</p>
+        <p style="margin-top: 0.5rem;">\[4^{3p-1} = 5210\]</p>
+        <p>giving the value of \(p\) to one decimal place.</p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FOctober%202020%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FOctober%202020%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Solution</span> Take logs and apply the power rule</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The unknown \(p\) is in the exponent, so I take logarithms of both sides. Any base works -- I will use \(\log_{10}\). Then I bring the exponent down using the power rule \(\log(a^n) = n\log a\).</div>
+            <div class="algebra-chain">
+                <p>\(4^{3p-1} = 5210\)</p>
+                <p class="reason">Take \(\log_{10}\) of both sides</p>
+                <p>\(\log(4^{3p-1}) = \log(5210)\)</p>
+                <p class="reason">Power rule: bring the exponent down</p>
+                <p>\((3p-1)\log 4 = \log 5210\)</p>
+            </div>
+            <div class="mark-award">M1 -- Takes logs correctly and applies the power rule to bring the exponent down</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Solution</span> Solve for \(p\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Now I isolate \(p\) using standard algebra -- divide by \(\log 4\), then solve the linear equation in \(p\).</div>
+            <div class="algebra-chain">
+                <p>\(3p - 1 = \frac{\log 5210}{\log 4}\)</p>
+                <p class="reason">Calculate: \(\log 5210 = 3.7168...\), \(\log 4 = 0.6021...\)</p>
+                <p>\(3p - 1 = 6.1726...\)</p>
+                <p>\(3p = 7.1726...\)</p>
+                <p>\(p = 2.3908...\)</p>
+                <p>\(p = 2.4 \text{ (1 d.p.)}\)</p>
+            </div>
+            <div class="mark-award">M1 -- Correct method to isolate \(p\) (divides by \(\log 4\) and solves linear equation)</div>
+            <div class="mark-award">A1 -- \(p = 2.4\)</div>
+            <div class="examiner-note">This is a straightforward "take logs" question worth 3 easy marks. The most common error is writing \(\log(3p-1) \times \log 4\) instead of \((3p-1)\log 4\). Remember: the power rule says the <em>entire exponent</em> multiplies the log of the base.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps(this)">Show All Steps</button>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            {left: "\\[", right: "\\]", display: true},
+            {left: "\\(", right: "\\)", display: false}
+        ],
+        throwOnError: false
+    });
+});
+
+function toggleStep(header) {
+    header.classList.toggle('open');
+    const content = header.nextElementSibling;
+    content.classList.toggle('open');
+    // Re-render KaTeX in newly visible content
+    if (content.classList.contains('open') && window.renderMathInElement) {
+        renderMathInElement(content, {
+            delimiters: [
+                {left: "\\[", right: "\\]", display: true},
+                {left: "\\(", right: "\\)", display: false}
+            ],
+            throwOnError: false
+        });
+    }
+}
+
+function showAllSteps(btn) {
+    const panel = btn.closest('.example-panel');
+    panel.querySelectorAll('.step-reveal-header').forEach(function(h) {
+        if (!h.classList.contains('open')) {
+            h.classList.add('open');
+            h.nextElementSibling.classList.add('open');
+        }
+    });
+    // Re-render all maths
+    if (window.renderMathInElement) {
+        renderMathInElement(panel, {
+            delimiters: [
+                {left: "\\[", right: "\\]", display: true},
+                {left: "\\(", right: "\\)", display: false}
+            ],
+            throwOnError: false
+        });
+    }
+    btn.style.display = 'none';
+}
+
+function selectExample(id) {
+    // Deactivate all tabs and panels
+    document.querySelectorAll('.example-tab').forEach(function(t) { t.classList.remove('active'); });
+    document.querySelectorAll('.example-panel').forEach(function(p) { p.classList.remove('active'); });
+    // Activate the selected one
+    document.getElementById(id).classList.add('active');
+    // Find and activate the matching tab
+    document.querySelectorAll('.example-tab').forEach(function(t) {
+        if (t.getAttribute('onclick').indexOf(id) !== -1) {
+            t.classList.add('active');
+        }
+    });
+    // Reset show-all buttons
+    document.getElementById(id).querySelectorAll('.show-all-btn').forEach(function(b) { b.style.display = 'inline-block'; });
+    // Scroll to examples section
+    document.getElementById(id).scrollIntoView({behavior: 'smooth', block: 'start'});
+    // Re-render KaTeX
+    if (window.renderMathInElement) {
+        renderMathInElement(document.getElementById(id), {
+            delimiters: [
+                {left: "\\[", right: "\\]", display: true},
+                {left: "\\(", right: "\\)", display: false}
+            ],
+            throwOnError: false
+        });
+    }
+}
+</script>
+
+</body>
+</html>

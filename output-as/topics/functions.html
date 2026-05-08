@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions — Edexcel AS Level Maths</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #2b6cb0;
+            --success: #276749;
+            --warning: #c05621;
+            --danger: #c53030;
+            --bg: #f7fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #2d3748;
+            --muted: #718096;
+            --mark: #805ad5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        h1 { color: var(--primary); margin-bottom: 0.5rem; font-size: 2rem; }
+        h2 { color: var(--primary); margin: 2.5rem 0 1rem; font-size: 1.4rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        h3 { color: var(--accent); margin: 1.5rem 0 0.75rem; font-size: 1.15rem; }
+
+        .subtitle { color: var(--muted); margin-bottom: 2rem; font-size: 1.05rem; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--accent); }
+        .stat-card .label { font-size: 0.85rem; color: var(--muted); }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .approach-step {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .approach-step:last-child { border-bottom: none; }
+
+        .step-number {
+            background: var(--accent);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .step-content { flex: 1; }
+        .step-content strong { color: var(--primary); }
+
+        .pitfall-box {
+            background: #fff5f5;
+            border: 1px solid #fed7d7;
+            border-left: 4px solid var(--danger);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .pitfall-box h3 { color: var(--danger); margin-top: 0; }
+        .pitfall-box ul { margin-left: 1.5rem; margin-top: 0.5rem; }
+        .pitfall-box li { margin: 0.5rem 0; }
+
+        .tip-box {
+            background: #f0fff4;
+            border: 1px solid #c6f6d5;
+            border-left: 4px solid var(--success);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .tip-box h3 { color: var(--success); margin-top: 0; }
+
+        .question-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.92rem;
+        }
+
+        .question-table th {
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+        }
+
+        .question-table td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .question-table tr:hover { background: #ebf8ff; }
+
+        .question-table a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .question-table a:hover { text-decoration: underline; }
+
+        .question-table .go-btn {
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+        }
+
+        .question-table .go-btn:hover { background: var(--primary); }
+
+        .example-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .example-tab {
+            padding: 0.5rem 1rem;
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .example-tab:hover { border-color: var(--accent); }
+        .example-tab.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+        .example-panel { display: none; }
+        .example-panel.active { display: block; }
+
+        .question-text {
+            background: #ebf8ff;
+            border: 1px solid #bee3f8;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.02rem;
+        }
+
+        .question-text .links {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #bee3f8;
+            font-size: 0.85rem;
+        }
+
+        .question-text .links a {
+            color: var(--accent);
+            text-decoration: none;
+            margin-right: 1.5rem;
+        }
+
+        .question-text .links a:hover { text-decoration: underline; }
+
+        .step-reveal {
+            margin: 0.75rem 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .step-reveal-header {
+            padding: 0.75rem 1rem;
+            background: #edf2f7;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background 0.2s;
+            gap: 0.5rem;
+        }
+
+        .step-reveal-header:hover { background: #e2e8f0; }
+
+        .step-reveal-header .arrow {
+            transition: transform 0.3s;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .step-reveal-header.open .arrow { transform: rotate(90deg); }
+
+        .step-reveal-content {
+            display: none;
+            padding: 1.25rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .step-reveal-content.open { display: block; }
+
+        .part-label {
+            display: inline-block;
+            background: #ebf8ff;
+            color: var(--accent);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        .mark-award {
+            background: #faf5ff;
+            border: 1px solid #e9d8fd;
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            color: var(--mark);
+            font-weight: 600;
+        }
+
+        .mark-award::before {
+            content: "\2713 ";
+        }
+
+        .examiner-note {
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            border-radius: 6px;
+            padding: 0.75rem;
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .examiner-note::before {
+            content: "Examiner: ";
+            font-weight: 700;
+            color: var(--warning);
+        }
+
+        .show-all-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            transition: background 0.2s;
+        }
+
+        .show-all-btn:hover { background: var(--primary); }
+
+        .motivation {
+            background: #eef6ff;
+            border: 1px solid #c3dafe;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.93rem;
+        }
+
+        .motivation::before {
+            content: "Thinking: ";
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .algebra-chain {
+            margin: 0.5rem 0;
+            padding-left: 1rem;
+            border-left: 3px solid var(--border);
+        }
+
+        .algebra-chain .reason {
+            color: var(--muted);
+            font-size: 0.85rem;
+            font-style: italic;
+            margin: 0.25rem 0;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            h1 { font-size: 1.5rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .example-selector { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<p style="margin-bottom: 1rem;"><a href="../index.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">&larr; All Topics</a></p>
+
+<h1>Functions</h1>
+<p class="subtitle">Composite functions \(fg(x)\), inverses \(f^{-1}(x)\), domain and range, graph transformations</p>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="number">5/7</div>
+        <div class="label">Appears in most sittings</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">6-10</div>
+        <div class="label">Typical marks</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">Q8-14</div>
+        <div class="label">Paper position</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">3-4 parts</div>
+        <div class="label">Standard structure</div>
+    </div>
+</div>
+
+<!-- FULL QUESTION INDEX -->
+<h2>All Past Paper Questions on This Topic</h2>
+<p style="margin-bottom: 1rem; color: var(--muted);">Functions questions from Edexcel 8MA0/01 (2018-2024).</p>
+
+<table class="question-table">
+    <thead>
+        <tr>
+            <th>Paper</th>
+            <th>Question</th>
+            <th>Description</th>
+            <th>Marks</th>
+            <th>Links</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>June 2018</td>
+            <td>Q11</td>
+            <td>Given \(f(x) = 3x + 2\), \(g(x) = x^2 - 4\); find \(fg(x)\), solve \(fg(x) = g(x)\)</td>
+            <td>7</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202018%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202018%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-jun18-q11'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>June 2019</td>
+            <td>Q12</td>
+            <td>Given \(f(x) = \frac{2x+1}{x-3}\); find \(f^{-1}(x)\), state domain; find \(ff(x)\)</td>
+            <td>8</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202019%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202019%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-jun19-q12'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>June 2022</td>
+            <td>Q9</td>
+            <td>Function with restricted domain; find inverse and sketch both on same axes</td>
+            <td>9</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202022%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202022%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-jun22-q9'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>June 2023</td>
+            <td>Q10</td>
+            <td>Composite and inverse functions with quadratic \(g(x)\); state range of \(gf\)</td>
+            <td>8</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202023%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202023%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>June 2024</td>
+            <td>Q11</td>
+            <td>Functions with exponential; find inverse, domain, and solve \(f(x) = f^{-1}(x)\)</td>
+            <td>10</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202024%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202024%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- GUIDED APPROACH -->
+<h2>Guided Approach</h2>
+<div class="card">
+    <p style="margin-bottom: 1rem; color: var(--muted);">The key operations with functions at AS level:</p>
+
+    <div class="approach-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+            <strong>Composite functions: \(fg(x)\) means "apply \(g\) first, then \(f\)"</strong><br>
+            Replace \(x\) in \(f\) with the entire expression \(g(x)\). Common mistake: doing it the wrong way round. \(fg(x) = f(g(x))\) is NOT the same as \(gf(x) = g(f(x))\).
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+            <strong>Inverse functions: swap \(x\) and \(y\), then rearrange</strong><br>
+            Write \(y = f(x)\), swap \(x\) and \(y\) to get \(x = f(y)\), then rearrange to make \(y\) the subject. The domain of \(f^{-1}\) is the range of \(f\), and vice versa.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+            <strong>Domain and range</strong><br>
+            Domain = set of allowed inputs (what \(x\) can be). Range = set of possible outputs (what \(f(x)\) can be). Watch for: division by zero (exclude from domain), square roots of negatives, logarithms of non-positives.
+        </div>
+    </div>
+</div>
+
+<!-- EXAMINER PITFALLS -->
+<div class="pitfall-box">
+    <h3>Common Pitfalls (from Examiner Reports)</h3>
+    <ul>
+        <li><strong>Order of composition:</strong> \(fg(x)\) means "do \(g\) first, then \(f\)". Many candidates compute \(gf(x)\) instead. Remember: read right to left.</li>
+        <li><strong>Domain of inverse:</strong> The domain of \(f^{-1}\) equals the RANGE of \(f\). Candidates who just copy the original domain lose marks.</li>
+        <li><strong>Not rearranging fully for inverse:</strong> After swapping \(x\) and \(y\), some candidates leave the answer with \(y\) still buried in a fraction or square root.</li>
+        <li><strong>Forgetting domain restrictions:</strong> If \(f\) has domain \(x > 2\), this affects what inputs are valid for composites like \(fg\).</li>
+    </ul>
+</div>
+
+<div class="tip-box">
+    <h3>What Top Candidates Do</h3>
+    <ul>
+        <li>For composites: write \(fg(x) = f[\text{replace x with } g(x)]\) to make the substitution explicit.</li>
+        <li>For inverses: lay out "Let \(y = f(x)\). Swap: \(x = ...\). Rearrange: \(y = ...\). Therefore \(f^{-1}(x) = ...\)"</li>
+        <li>Always state domain and range using correct notation: e.g. "\(x \in \mathbb{R}, x \neq 3\)" or "\(f(x) > 0\)".</li>
+    </ul>
+</div>
+
+<!-- WORKED EXAMPLES -->
+<h2>Worked Examples</h2>
+<p style="color: var(--muted); margin-bottom: 0.5rem;">Select a question to see the full guided solution:</p>
+
+<div class="example-selector">
+    <div class="example-tab active" onclick="selectExample('ex-jun18-q11')">June 2018 Q11</div>
+    <div class="example-tab" onclick="selectExample('ex-jun19-q12')">June 2019 Q12</div>
+    <div class="example-tab" onclick="selectExample('ex-jun22-q9')">June 2022 Q9</div>
+</div>
+
+<!-- ===================== EXAMPLE: June 2018 Q11 ===================== -->
+<div class="example-panel active" id="ex-jun18-q11">
+    <div class="question-text">
+        <p><strong>AS Paper 1 — June 2018 — Question 11</strong> (7 marks)</p>
+        <p>The functions \(f\) and \(g\) are defined as:</p>
+        <p>\(f(x) = 3x + 2, \quad x \in \mathbb{R}\)</p>
+        <p>\(g(x) = x^2 - 4, \quad x \in \mathbb{R}\)</p>
+        <p><strong>(a)</strong> Find \(fg(x)\). <em>[2 marks]</em></p>
+        <p><strong>(b)</strong> Solve \(fg(x) = g(x)\). <em>[5 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202018%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202018%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Find \(fg(x)\) — substitute \(g(x)\) into \(f\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">\(fg(x)\) means \(f(g(x))\) — we apply \(g\) first (giving \(x^2 - 4\)), then feed that result into \(f\). So wherever \(f\) has an \(x\), we replace it with \(g(x) = x^2 - 4\).</div>
+            <div class="algebra-chain">
+                <p>$$fg(x) = f(g(x)) = f(x^2 - 4)$$</p>
+                <p class="reason">Replace \(x\) in \(f(x) = 3x + 2\) with \((x^2 - 4)\):</p>
+                <p>$$= 3(x^2 - 4) + 2$$</p>
+                <p>$$= 3x^2 - 12 + 2$$</p>
+                <p>$$= 3x^2 - 10$$</p>
+            </div>
+            <div class="mark-award">M1 — Substituting \(g(x)\) into \(f\) (correct order)</div>
+            <div class="mark-award">A1 — \(fg(x) = 3x^2 - 10\)</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 2: Set up and solve \(fg(x) = g(x)\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We need to solve \(3x^2 - 10 = x^2 - 4\). This is a quadratic equation — rearrange to standard form, then solve by factoring or using the quadratic formula.</div>
+            <div class="algebra-chain">
+                <p>$$3x^2 - 10 = x^2 - 4$$</p>
+                <p class="reason">Subtract \(x^2 - 4\) from both sides:</p>
+                <p>$$2x^2 - 6 = 0$$</p>
+                <p class="reason">Factor:</p>
+                <p>$$2(x^2 - 3) = 0$$</p>
+                <p>$$x^2 = 3$$</p>
+                <p>$$x = \pm\sqrt{3}$$</p>
+            </div>
+            <div class="mark-award">M1 — Setting \(fg(x) = g(x)\) and forming a quadratic</div>
+            <div class="mark-award">A1 — Correct simplified quadratic: \(2x^2 - 6 = 0\)</div>
+            <div class="mark-award">M1 — Solving the quadratic</div>
+            <div class="mark-award">A1 — \(x = \sqrt{3}\)</div>
+            <div class="mark-award">A1 — \(x = -\sqrt{3}\) (both roots needed)</div>
+            <div class="examiner-note">Candidates who found \(fg(x)\) incorrectly in part (a) could still earn method marks here by correctly setting up and solving their equation. Both solutions must be given — writing only the positive root loses the final A1.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-jun18-q11')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: June 2019 Q12 ===================== -->
+<div class="example-panel" id="ex-jun19-q12">
+    <div class="question-text">
+        <p><strong>AS Paper 1 — June 2019 — Question 12</strong> (8 marks)</p>
+        <p>The function \(f\) is defined as \(f(x) = \frac{2x + 1}{x - 3}, \quad x \in \mathbb{R}, x \neq 3\)</p>
+        <p><strong>(a)</strong> Find \(f^{-1}(x)\) and state its domain. <em>[4 marks]</em></p>
+        <p><strong>(b)</strong> Find \(ff(x)\), giving your answer in its simplest form. <em>[4 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202019%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202019%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Find the inverse — swap and rearrange</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">To find \(f^{-1}(x)\): write \(y = \frac{2x+1}{x-3}\), swap \(x\) and \(y\) to get \(x = \frac{2y+1}{y-3}\), then rearrange to make \(y\) the subject. The key technique for rational functions is to multiply both sides by the denominator, then collect all \(y\) terms on one side.</div>
+            <div class="algebra-chain">
+                <p>Let \(y = \frac{2x + 1}{x - 3}\). Swap \(x\) and \(y\):</p>
+                <p>$$x = \frac{2y + 1}{y - 3}$$</p>
+                <p class="reason">Multiply both sides by \((y - 3)\):</p>
+                <p>$$x(y - 3) = 2y + 1$$</p>
+                <p class="reason">Expand:</p>
+                <p>$$xy - 3x = 2y + 1$$</p>
+                <p class="reason">Collect \(y\) terms on one side:</p>
+                <p>$$xy - 2y = 3x + 1$$</p>
+                <p class="reason">Factor out \(y\):</p>
+                <p>$$y(x - 2) = 3x + 1$$</p>
+                <p class="reason">Divide both sides by \((x - 2)\):</p>
+                <p>$$y = \frac{3x + 1}{x - 2}$$</p>
+            </div>
+            <p>$$f^{-1}(x) = \frac{3x + 1}{x - 2}$$</p>
+            <div class="mark-award">M1 — Attempting to swap and rearrange (or equivalent method)</div>
+            <div class="mark-award">A1 — Correct algebra reaching \(\frac{3x+1}{x-2}\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 2: State the domain of \(f^{-1}\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The domain of \(f^{-1}\) equals the range of \(f\). For \(f(x) = \frac{2x+1}{x-3}\), the horizontal asymptote is \(y = 2\) (leading coefficients: \(\frac{2}{1}\)), so the range of \(f\) is \(y \neq 2\). Therefore the domain of \(f^{-1}\) is \(x \neq 2\).</div>
+            <p>Domain of \(f^{-1}\): \(x \in \mathbb{R}, x \neq 2\)</p>
+            <p><em>(This also makes sense from the formula since \(f^{-1}(x) = \frac{3x+1}{x-2}\) is undefined when \(x = 2\).)</em></p>
+            <div class="mark-award">B1 — Domain: \(x \neq 2\) (or equivalent notation)</div>
+            <div class="mark-award">A1 — Full answer with correct working</div>
+            <div class="examiner-note">Some candidates wrote \(x \neq 3\) (copying the original domain) instead of \(x \neq 2\). Remember: the domain of the inverse is the range of the original function.</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 3: Find \(ff(x)\) — substitute \(f(x)\) into itself</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">\(ff(x) = f(f(x))\). We replace every \(x\) in \(f\) with \(f(x) = \frac{2x+1}{x-3}\). This creates a compound fraction that we'll need to simplify carefully.</div>
+            <div class="algebra-chain">
+                <p>$$ff(x) = f\left(\frac{2x+1}{x-3}\right) = \frac{2\left(\frac{2x+1}{x-3}\right) + 1}{\left(\frac{2x+1}{x-3}\right) - 3}$$</p>
+                <p class="reason">Simplify numerator: \(2 \cdot \frac{2x+1}{x-3} + 1 = \frac{2(2x+1)}{x-3} + \frac{x-3}{x-3} = \frac{4x+2+x-3}{x-3} = \frac{5x-1}{x-3}\)</p>
+                <p class="reason">Simplify denominator: \(\frac{2x+1}{x-3} - 3 = \frac{2x+1}{x-3} - \frac{3(x-3)}{x-3} = \frac{2x+1-3x+9}{x-3} = \frac{-x+10}{x-3}\)</p>
+                <p class="reason">Divide the fractions:</p>
+                <p>$$ff(x) = \frac{\frac{5x-1}{x-3}}{\frac{-x+10}{x-3}} = \frac{5x-1}{-x+10} = \frac{5x-1}{10-x}$$</p>
+            </div>
+            <p>$$ff(x) = \frac{5x - 1}{10 - x}$$</p>
+            <div class="mark-award">M1 — Substituting \(f(x)\) into \(f\) (correct structure)</div>
+            <div class="mark-award">M1 — Multiplying out compound fractions</div>
+            <div class="mark-award">A1 — Correct simplified numerator: \(5x - 1\)</div>
+            <div class="mark-award">A1 — Correct final answer: \(\frac{5x-1}{10-x}\)</div>
+            <div class="examiner-note">The compound fraction algebra is where most marks are lost. The common error is forgetting to find a common denominator when adding/subtracting fractions. Writing the numerator and denominator simplification separately (as shown) helps avoid errors.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-jun19-q12')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: June 2022 Q9 ===================== -->
+<div class="example-panel" id="ex-jun22-q9">
+    <div class="question-text">
+        <p><strong>AS Paper 1 — June 2022 — Question 9</strong> (9 marks)</p>
+        <p>The function \(f\) is defined as \(f(x) = (x - 3)^2 + 1, \quad x \geq 3\)</p>
+        <p><strong>(a)</strong> State the range of \(f\). <em>[1 mark]</em></p>
+        <p><strong>(b)</strong> Find \(f^{-1}(x)\) and state its domain. <em>[4 marks]</em></p>
+        <p><strong>(c)</strong> Explain why the inverse of \(f\) would not exist without the domain restriction \(x \geq 3\). <em>[1 mark]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202022%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202022%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Find the range of \(f\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Since \(x \geq 3\), the expression \((x-3)^2\) achieves its minimum value of 0 when \(x = 3\), so \(f(x) = (x-3)^2 + 1 \geq 0 + 1 = 1\). As \(x\) increases beyond 3, \(f(x)\) increases without bound.</div>
+            <p>Range of \(f\): \(f(x) \geq 1\) (or equivalently \(y \geq 1\))</p>
+            <div class="mark-award">B1 — \(f(x) \geq 1\)</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 2: Find the inverse</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Swap \(x\) and \(y\), then rearrange. Since we have a squared term, we'll take a square root — and because the domain restricts \(x \geq 3\) (so \(x - 3 \geq 0\)), we take the POSITIVE root only.</div>
+            <div class="algebra-chain">
+                <p>Let \(y = (x-3)^2 + 1\). Swap:</p>
+                <p>$$x = (y-3)^2 + 1$$</p>
+                <p class="reason">Subtract 1:</p>
+                <p>$$x - 1 = (y-3)^2$$</p>
+                <p class="reason">Take square root (positive only, since original domain gives \(y - 3 \geq 0\)):</p>
+                <p>$$\sqrt{x-1} = y - 3$$</p>
+                <p class="reason">Add 3:</p>
+                <p>$$y = 3 + \sqrt{x-1}$$</p>
+            </div>
+            <p>$$f^{-1}(x) = 3 + \sqrt{x - 1}$$</p>
+            <p><strong>Domain of \(f^{-1}\)</strong>: \(x \geq 1\) (this is the range of \(f\))</p>
+            <div class="mark-award">M1 — Swapping and attempting to rearrange</div>
+            <div class="mark-award">A1 — Taking positive root (justified by domain)</div>
+            <div class="mark-award">A1 — \(f^{-1}(x) = 3 + \sqrt{x-1}\)</div>
+            <div class="mark-award">B1 — Domain: \(x \geq 1\)</div>
+        </div>
+    </div>
+
+    <!-- Part (c) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)</span> Step 3: Explain why domain restriction is needed</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">A function only has an inverse if it is one-to-one (each output comes from exactly one input). Without the restriction \(x \geq 3\), the quadratic \((x-3)^2 + 1\) is NOT one-to-one because it is symmetric about \(x = 3\) — both \(x = 2\) and \(x = 4\) give the same output.</div>
+            <p>Without the domain restriction, \(f\) would not be one-to-one (it would be a many-to-one function). For example, both \(x = 2\) and \(x = 4\) give \(f(x) = 2\). A function must be one-to-one to have an inverse.</p>
+            <div class="mark-award">B1 — Explanation that \(f\) would not be one-to-one without the restriction (or equivalent reasoning)</div>
+            <div class="examiner-note">Simply saying "it's a quadratic so it doesn't have an inverse" is too vague. You need to explain WHY: "the function is not one-to-one" or "two different x values map to the same y value" or "it fails the horizontal line test".</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-jun22-q9')">Show Full Solution</button>
+</div>
+
+<!-- KEY CONCEPTS -->
+<h2>Key Concepts</h2>
+<div class="card">
+    <h3>Composition Rules</h3>
+    <p>\(fg(x) = f(g(x))\) — apply \(g\) first, then \(f\)</p>
+    <p>\(gf(x) = g(f(x))\) — apply \(f\) first, then \(g\)</p>
+    <p>\(ff(x) = f(f(x))\) — apply \(f\) twice</p>
+
+    <h3 style="margin-top: 1.5rem;">Inverse Function Properties</h3>
+    <p>Domain of \(f^{-1}\) = Range of \(f\)</p>
+    <p>Range of \(f^{-1}\) = Domain of \(f\)</p>
+    <p>\(f(f^{-1}(x)) = x\) and \(f^{-1}(f(x)) = x\)</p>
+    <p>Graph of \(f^{-1}\) is a reflection of graph of \(f\) in the line \(y = x\)</p>
+
+    <h3 style="margin-top: 1.5rem;">Graph Transformations</h3>
+    <p>\(f(x) + a\): translate UP by \(a\)</p>
+    <p>\(f(x + a)\): translate LEFT by \(a\)</p>
+    <p>\(af(x)\): stretch vertically by factor \(a\)</p>
+    <p>\(f(ax)\): stretch horizontally by factor \(\frac{1}{a}\)</p>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\(", right: "\\)", display: false}
+        ]
+    });
+});
+
+function toggleStep(header) {
+    header.classList.toggle('open');
+    const content = header.nextElementSibling;
+    content.classList.toggle('open');
+}
+
+function selectExample(id) {
+    document.querySelectorAll('.example-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.example-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+}
+
+function showAllSteps(panelId) {
+    const panel = document.getElementById(panelId);
+    panel.querySelectorAll('.step-reveal-header').forEach(h => h.classList.add('open'));
+    panel.querySelectorAll('.step-reveal-content').forEach(c => c.classList.add('open'));
+}
+</script>
+</body>
+</html>

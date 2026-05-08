@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partial Fractions — Edexcel A Level Maths</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #2b6cb0;
+            --success: #276749;
+            --warning: #c05621;
+            --danger: #c53030;
+            --bg: #f7fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #2d3748;
+            --muted: #718096;
+            --mark: #805ad5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        h1 { color: var(--primary); margin-bottom: 0.5rem; font-size: 2rem; }
+        h2 { color: var(--primary); margin: 2.5rem 0 1rem; font-size: 1.4rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        h3 { color: var(--accent); margin: 1.5rem 0 0.75rem; font-size: 1.15rem; }
+
+        .subtitle { color: var(--muted); margin-bottom: 2rem; font-size: 1.05rem; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--accent); }
+        .stat-card .label { font-size: 0.85rem; color: var(--muted); }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .approach-step {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .approach-step:last-child { border-bottom: none; }
+
+        .step-number {
+            background: var(--accent);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .step-content { flex: 1; }
+        .step-content strong { color: var(--primary); }
+
+        .pitfall-box {
+            background: #fff5f5;
+            border: 1px solid #fed7d7;
+            border-left: 4px solid var(--danger);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .pitfall-box h3 { color: var(--danger); margin-top: 0; }
+        .pitfall-box ul { margin-left: 1.5rem; margin-top: 0.5rem; }
+        .pitfall-box li { margin: 0.5rem 0; }
+
+        .tip-box {
+            background: #f0fff4;
+            border: 1px solid #c6f6d5;
+            border-left: 4px solid var(--success);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .tip-box h3 { color: var(--success); margin-top: 0; }
+
+        /* Question index table */
+        .question-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.92rem;
+        }
+
+        .question-table th {
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+        }
+
+        .question-table td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .question-table tr:hover { background: #ebf8ff; }
+
+        .question-table a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .question-table a:hover { text-decoration: underline; }
+
+        .question-table .go-btn {
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+        }
+
+        .question-table .go-btn:hover { background: var(--primary); }
+
+        /* Worked examples */
+        .example-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .example-tab {
+            padding: 0.5rem 1rem;
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .example-tab:hover { border-color: var(--accent); }
+        .example-tab.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+        .example-panel { display: none; }
+        .example-panel.active { display: block; }
+
+        .question-text {
+            background: #ebf8ff;
+            border: 1px solid #bee3f8;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.02rem;
+        }
+
+        .question-text .links {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #bee3f8;
+            font-size: 0.85rem;
+        }
+
+        .question-text .links a {
+            color: var(--accent);
+            text-decoration: none;
+            margin-right: 1.5rem;
+        }
+
+        .question-text .links a:hover { text-decoration: underline; }
+
+        .step-reveal {
+            margin: 0.75rem 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .step-reveal-header {
+            padding: 0.75rem 1rem;
+            background: #edf2f7;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background 0.2s;
+            gap: 0.5rem;
+        }
+
+        .step-reveal-header:hover { background: #e2e8f0; }
+
+        .step-reveal-header .arrow {
+            transition: transform 0.3s;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .step-reveal-header.open .arrow { transform: rotate(90deg); }
+
+        .step-reveal-content {
+            display: none;
+            padding: 1.25rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .step-reveal-content.open { display: block; }
+
+        .part-label {
+            display: inline-block;
+            background: #ebf8ff;
+            color: var(--accent);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        .mark-badge {
+            display: inline-block;
+            background: #faf5ff;
+            color: var(--mark);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border: 1px solid #e9d8fd;
+        }
+
+        .mark-award {
+            background: #faf5ff;
+            border: 1px solid #e9d8fd;
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            color: var(--mark);
+            font-weight: 600;
+        }
+
+        .mark-award::before {
+            content: "\2713 ";
+        }
+
+        .examiner-note {
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            border-radius: 6px;
+            padding: 0.75rem;
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .examiner-note::before {
+            content: "Examiner: ";
+            font-weight: 700;
+            color: var(--warning);
+        }
+
+        .show-all-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            transition: background 0.2s;
+        }
+
+        .show-all-btn:hover { background: var(--primary); }
+
+        .motivation {
+            background: #eef6ff;
+            border: 1px solid #c3dafe;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.93rem;
+        }
+
+        .motivation::before {
+            content: "\1F4AD Thinking: ";
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .algebra-chain {
+            margin: 0.5rem 0;
+            padding-left: 1rem;
+            border-left: 3px solid var(--border);
+        }
+
+        .algebra-chain .reason {
+            color: var(--muted);
+            font-size: 0.85rem;
+            font-style: italic;
+            margin: 0.25rem 0;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            h1 { font-size: 1.5rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .example-selector { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<p style="margin-bottom: 1rem;"><a href="../index.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">&larr; All Topics</a></p>
+
+<h1>Partial Fractions</h1>
+<p class="subtitle">Decomposing algebraic fractions into simpler fractions for integration, binomial expansion, and differential equations</p>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="number">7/14</div>
+        <div class="label">Papers with this topic</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">3–7</div>
+        <div class="label">Typical marks (PF part)</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">Q10–14</div>
+        <div class="label">Paper position</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">Paper 2</div>
+        <div class="label">Usually appears in</div>
+    </div>
+</div>
+
+<!-- FULL QUESTION INDEX -->
+<h2>All Past Paper Questions on This Topic</h2>
+<p style="margin-bottom: 1rem; color: var(--muted);">Every partial fractions question from Edexcel 9MA0 (2018–2024). Click "Worked Example" to see a full guided solution.</p>
+
+<table class="question-table">
+    <thead>
+        <tr>
+            <th>Paper</th>
+            <th>Question</th>
+            <th>Description</th>
+            <th>Marks</th>
+            <th>Links</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>P2 June 2018</td>
+            <td>Q11</td>
+            <td>Improper fraction \(\frac{1+11x-6x^2}{(x-3)(1-2x)} \equiv A + \frac{B}{x-3} + \frac{C}{1-2x}\); prove f is decreasing</td>
+            <td>7</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202018%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202018%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p2-jun18-q11'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P2 June 2022</td>
+            <td>Q14</td>
+            <td>Distinct linear factors \(\frac{3}{(2x-1)(x+1)}\); separable DE for oxygen production</td>
+            <td>10</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202022%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202022%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p2-jun22-q14'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P2 June 2023</td>
+            <td>Q10</td>
+            <td>Distinct linear factors with parameter \(\frac{3kx+18}{(x+4)(x-2)}\); integration to find \(k\)</td>
+            <td>7</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202023%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202023%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p2-jun23-q10'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P2 June 2024</td>
+            <td>Q12</td>
+            <td>Distinct linear factors \(\frac{1}{V(25-V)}\); separable DE for plant cell volume</td>
+            <td>12</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202024%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202024%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 June 2018</td>
+            <td>Q14</td>
+            <td>Partial fractions used in separable DE for mouse population model</td>
+            <td>10</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202018%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202018%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 Oct 2020</td>
+            <td>Q11</td>
+            <td>Repeated factor partial fractions within binomial expansion context</td>
+            <td>8</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FOctober%202020%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FOctober%202020%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 Oct 2021</td>
+            <td>Q13</td>
+            <td>Partial fractions as part of a differential equation (logistic growth)</td>
+            <td>9</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FOctober%202021%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FOctober%202021%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- GUIDED APPROACH -->
+<h2>Guided Approach</h2>
+<div class="card">
+    <p style="margin-bottom: 1rem; color: var(--muted);">The standard method for decomposing into partial fractions:</p>
+
+    <div class="approach-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+            <strong>Check if the fraction is improper</strong><br>
+            Compare the degree of the numerator with the degree of the denominator. If the numerator's degree is greater than or equal to the denominator's degree, you must perform polynomial long division first. The result is a polynomial plus a proper fraction.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+            <strong>Write the correct form of the decomposition</strong><br>
+            For distinct linear factors \((ax+b)(cx+d)\): use \(\frac{A}{ax+b} + \frac{B}{cx+d}\).<br>
+            For a repeated factor \((ax+b)^2\): use \(\frac{A}{ax+b} + \frac{B}{(ax+b)^2}\).<br>
+            For three factors: add an extra term for each factor.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+            <strong>Multiply both sides by the full denominator</strong><br>
+            This clears the fractions and gives you an identity. Then either substitute strategic values of \(x\) (values that make each factor zero) or compare coefficients to find the unknown constants.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+            <strong>Write out the final partial fractions</strong><br>
+            Substitute your values of \(A\), \(B\), \(C\) back into the decomposition form. Check by recombining if time permits.
+        </div>
+    </div>
+</div>
+
+<!-- EXAMINER PITFALLS -->
+<div class="pitfall-box">
+    <h3>Common Pitfalls (from Examiner Reports)</h3>
+    <ul>
+        <li><strong>Sign errors when substituting:</strong> When you substitute \(x = -1\) (to make \((x+1) = 0\)), carefully track negatives through the algebra. This is the single most common error in partial fractions questions.</li>
+        <li><strong>Forgetting to divide first for improper fractions:</strong> If the numerator has the same or higher degree than the denominator, you MUST perform algebraic division before decomposing. Writing \(\frac{A}{x-3} + \frac{B}{1-2x}\) when there should also be a constant term \(A + ...\) loses all marks.</li>
+        <li><strong>Missing the repeated factor term:</strong> For \(\frac{1}{(x-1)^2(x+2)}\), you need \(\frac{A}{x-1} + \frac{B}{(x-1)^2} + \frac{C}{x+2}\), not just two terms. Missing the \(\frac{B}{(x-1)^2}\) term means you cannot possibly get the right answer.</li>
+        <li><strong>Writing just the constants, not the fractions:</strong> You must write out the complete partial fractions (e.g. \(\frac{2}{x-3} + \frac{1}{x+1}\)), not just "\(A=2, B=1\)". The mark scheme explicitly states the fractions must be seen.</li>
+        <li><strong>Incorrect integration of \(\frac{1}{ax+b}\):</strong> The integral is \(\frac{1}{a}\ln|ax+b|\), not \(\ln|ax+b|\). Forgetting the \(\frac{1}{a}\) factor when the coefficient of \(x\) is not 1 is very common.</li>
+    </ul>
+</div>
+
+<div class="tip-box">
+    <h3>What Top Candidates Do</h3>
+    <ul>
+        <li>State the form of the decomposition explicitly before starting any algebra — this earns a B1 mark even if subsequent work has errors.</li>
+        <li>Use the "cover-up" method for speed: cover up \((x-3)\) in the original fraction and substitute \(x=3\) to read off the numerator of the \(\frac{...}{x-3}\) term immediately.</li>
+        <li>After finding constants, write the complete fractions with a therefore symbol — this is where the A1 mark lives.</li>
+        <li>When partial fractions are used in integration (Parts b/c), write \(\int\) of the partial fractions separately — don't try to integrate before splitting.</li>
+    </ul>
+</div>
+
+<!-- WORKED EXAMPLES -->
+<h2>Worked Examples</h2>
+<p style="color: var(--muted); margin-bottom: 0.5rem;">Select a question to see the full guided solution:</p>
+
+<div class="example-selector">
+    <div class="example-tab active" onclick="selectExample('ex-p2-jun22-q14')">June 2022 P2 Q14</div>
+    <div class="example-tab" onclick="selectExample('ex-p2-jun18-q11')">June 2018 P2 Q11</div>
+    <div class="example-tab" onclick="selectExample('ex-p2-jun23-q10')">June 2023 P2 Q10</div>
+</div>
+
+<!-- ===================== EXAMPLE: P2 June 2022 Q14 — Distinct Linear Factors ===================== -->
+<div class="example-panel active" id="ex-p2-jun22-q14">
+    <div class="question-text">
+        <p><strong>Paper 2 — June 2022 — Question 14</strong> (10 marks)</p>
+        <p><strong>(a)</strong> Express \(\displaystyle \frac{3}{(2x-1)(x+1)}\) in partial fractions. <em>[3 marks]</em></p>
+        <p>When chemical A and chemical B are mixed, oxygen is produced. The total volume of oxygen produced, \(V\) m\(^3\), \(t\) hours after the chemicals were mixed, is modelled by the differential equation</p>
+        <p>$$\frac{dV}{dt} = \frac{3V}{(2t-1)(t+1)}, \quad V > 0, \quad t > k$$</p>
+        <p>where \(k\) is a constant. Given that exactly 2 hours after the chemicals were mixed, a total volume of 3 m\(^3\) of oxygen had been produced,</p>
+        <p><strong>(b)</strong> solve the differential equation to show that \(\displaystyle V = \frac{3(2t-1)}{t+1}\) <em>[5 marks]</em></p>
+        <p><strong>(c)</strong> Explain the significance of the value of \(k\) in the context of the model. <em>[2 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202022%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202022%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Write the correct form of the decomposition</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We have two distinct linear factors in the denominator: \((2x-1)\) and \((x+1)\). For distinct linear factors, we write one constant over each factor. This form earns a mark immediately just for being written down correctly.</div>
+            <p>Since the denominator has two distinct linear factors, we write:</p>
+            <p>$$\frac{3}{(2x-1)(x+1)} = \frac{A}{2x-1} + \frac{B}{x+1}$$</p>
+            <div class="mark-award">M1 — Correct form of partial fraction decomposition stated</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 2: Multiply through and find the constants</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Multiplying both sides by \((2x-1)(x+1)\) clears the denominators and gives us an identity. Then we substitute values of \(x\) that make each factor zero to isolate \(A\) and \(B\) one at a time. This is faster and less error-prone than comparing coefficients.</div>
+            <p>Multiply both sides by \((2x-1)(x+1)\):</p>
+            <p>$$3 = A(x+1) + B(2x-1)$$</p>
+            <div class="algebra-chain">
+                <p class="reason">Substitute \(x = -1\) (makes \((x+1) = 0\), eliminating the \(A\) term):</p>
+                <p>$$3 = A(0) + B(2(-1)-1) = B(-3)$$</p>
+                <p>$$B = -1$$</p>
+                <p class="reason">Substitute \(x = \frac{1}{2}\) (makes \((2x-1) = 0\), eliminating the \(B\) term):</p>
+                <p>$$3 = A\left(\frac{1}{2}+1\right) + B(0) = A\left(\frac{3}{2}\right)$$</p>
+                <p>$$A = 2$$</p>
+            </div>
+            <div class="mark-award">M1 — Correct method to find both constants (substitution or comparing coefficients)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 3: Write the final answer as complete fractions</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The A1 mark requires the complete partial fractions written out — not just the values of A and B. Always write the full decomposition as your final answer.</div>
+            <p>$$\frac{3}{(2x-1)(x+1)} = \frac{2}{2x-1} + \frac{-1}{x+1} = \frac{2}{2x-1} - \frac{1}{x+1}$$</p>
+            <div class="mark-award">A1 — Correct partial fractions written in full (not just values of A, B)</div>
+            <div class="examiner-note">Candidates who wrote only "A = 2, B = -1" without writing the fractions out lost the A1 mark. You must show the complete decomposition.</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 4: Separate variables in the DE</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The DE has the form \(\frac{dV}{dt} = f(t) \cdot V\). To separate variables, we get all \(V\) terms on one side and all \(t\) terms on the other. Then we replace the \(t\)-fraction with our partial fractions from Part (a).</div>
+            <p>Starting with \(\frac{dV}{dt} = \frac{3V}{(2t-1)(t+1)}\), separate variables:</p>
+            <p>$$\frac{1}{V}\,dV = \frac{3}{(2t-1)(t+1)}\,dt$$</p>
+            <p>Using Part (a), replace the right-hand side with partial fractions:</p>
+            <p>$$\frac{1}{V}\,dV = \left(\frac{2}{2t-1} - \frac{1}{t+1}\right)dt$$</p>
+            <div class="mark-award">B1 — Correct separation of variables</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 5: Integrate both sides</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Now we integrate each side. The left gives \(\ln|V|\). On the right, remember that \(\int \frac{1}{2t-1}\,dt = \frac{1}{2}\ln|2t-1|\) (the chain rule factor), so \(\int \frac{2}{2t-1}\,dt = \ln|2t-1|\). Don't forget the constant of integration.</div>
+            <div class="algebra-chain">
+                <p>$$\int \frac{1}{V}\,dV = \int \frac{2}{2t-1}\,dt - \int \frac{1}{t+1}\,dt$$</p>
+                <p class="reason">Left side: \(\ln|V|\)</p>
+                <p class="reason">Right side, first term: \(\int \frac{2}{2t-1}\,dt = 2 \cdot \frac{1}{2}\ln|2t-1| = \ln|2t-1|\)</p>
+                <p class="reason">Right side, second term: \(\int \frac{1}{t+1}\,dt = \ln|t+1|\)</p>
+                <p>$$\ln V = \ln(2t-1) - \ln(t+1) + c$$</p>
+            </div>
+            <div class="mark-award">M1 — Correct integration of the partial fractions to give ln terms</div>
+            <div class="mark-award">A1ft — Fully correct equation (following their A, B from Part a)</div>
+            <div class="examiner-note">A very common error was writing \(\int \frac{2}{2t-1}\,dt = 2\ln|2t-1|\) instead of the correct \(\ln|2t-1|\). Remember the chain rule: dividing by the coefficient of \(t\) inside the bracket.</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 6: Use the boundary condition and simplify</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We're told \(V = 3\) when \(t = 2\). Substituting this lets us find \(c\). Then we use log laws to combine terms and exponentiate to get the given result \(V = \frac{3(2t-1)}{t+1}\).</div>
+            <div class="algebra-chain">
+                <p class="reason">Substitute \(V = 3\), \(t = 2\):</p>
+                <p>$$\ln 3 = \ln(3) - \ln(3) + c$$</p>
+                <p>$$\ln 3 = 0 + c$$</p>
+                <p>$$c = \ln 3$$</p>
+                <p class="reason">Substitute back:</p>
+                <p>$$\ln V = \ln(2t-1) - \ln(t+1) + \ln 3$$</p>
+                <p class="reason">Use log laws: \(\ln a + \ln b = \ln(ab)\) and \(\ln a - \ln b = \ln\frac{a}{b}\):</p>
+                <p>$$\ln V = \ln\frac{3(2t-1)}{t+1}$$</p>
+                <p class="reason">Exponentiate both sides:</p>
+                <p>$$\boxed{V = \frac{3(2t-1)}{t+1}} \quad \square$$</p>
+            </div>
+            <div class="mark-award">dM1 — Using boundary condition to find c and attempting to reach V = ...</div>
+            <div class="mark-award">A1* — Reaching the given answer with clear working</div>
+        </div>
+    </div>
+
+    <!-- Part (c) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)</span> Step 7: Interpret the value of \(k\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The question states \(t > k\). Looking at our answer \(V = \frac{3(2t-1)}{t+1}\), we need \(V > 0\) (given in the DE). Since \(t+1 > 0\) for all \(t > 0\), we need \(2t-1 > 0\), giving \(t > \frac{1}{2}\). So \(k = \frac{1}{2}\). In context, this means there's a 30-minute delay before oxygen starts being produced.</div>
+            <p>For \(V > 0\), we need \(2t - 1 > 0\), so \(t > \frac{1}{2}\).</p>
+            <p>Therefore \(k = \frac{1}{2}\).</p>
+            <p><strong>In context:</strong> There is a delay of 30 minutes (half an hour) between mixing the chemicals and the first oxygen being produced.</p>
+            <div class="mark-award">B1 — \(k = \frac{1}{2}\)</div>
+            <div class="mark-award">B1 — Correct interpretation in context (time delay before oxygen is produced)</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p2-jun22-q14')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: P2 June 2018 Q11 — Improper Fraction ===================== -->
+<div class="example-panel" id="ex-p2-jun18-q11">
+    <div class="question-text">
+        <p><strong>Paper 2 — June 2018 — Question 11</strong> (7 marks)</p>
+        <p>$$\frac{1 + 11x - 6x^2}{(x-3)(1-2x)} \equiv A + \frac{B}{x-3} + \frac{C}{1-2x}$$</p>
+        <p><strong>(a)</strong> Find the values of the constants \(A\), \(B\) and \(C\). <em>[4 marks]</em></p>
+        <p><strong>(b)</strong> Hence, or otherwise, prove that \(f(x)\) is a decreasing function for \(x > 3\). <em>[3 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202018%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202018%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Recognise this is an improper fraction</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The numerator \(1 + 11x - 6x^2\) has degree 2. The denominator \((x-3)(1-2x) = -2x^2 + 7x - 3\) also has degree 2. When the degrees are equal, the fraction is improper and the decomposition must include a constant term \(A\) (the quotient from the division). This is why the form given is \(A + \frac{B}{x-3} + \frac{C}{1-2x}\) rather than just \(\frac{B}{x-3} + \frac{C}{1-2x}\).</div>
+            <p>The numerator has degree 2 and the denominator also has degree 2 (since \((x-3)(1-2x) = -2x^2 + 7x - 3\)).</p>
+            <p>Equal degrees means this is an improper fraction. The form is already given:</p>
+            <p>$$\frac{1 + 11x - 6x^2}{(x-3)(1-2x)} \equiv A + \frac{B}{x-3} + \frac{C}{1-2x}$$</p>
+            <p><strong>Key insight:</strong> The constant \(A\) represents the result of the long division. We can find \(A\) quickly by comparing the leading coefficients: the numerator's leading coefficient is \(-6\) and the denominator's is \(-2\), so \(A = \frac{-6}{-2} = 3\).</p>
+            <div class="mark-award">B1 — Stating or using \(A = 3\) (by any valid method)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 2: Multiply through and find B and C</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">With \(A = 3\) known, we multiply both sides by \((x-3)(1-2x)\) to create an identity. Then we substitute the "magic" values \(x = 3\) and \(x = \frac{1}{2}\) to find \(B\) and \(C\) individually.</div>
+            <p>Multiply both sides by \((x-3)(1-2x)\):</p>
+            <p>$$1 + 11x - 6x^2 = A(x-3)(1-2x) + B(1-2x) + C(x-3)$$</p>
+            <div class="algebra-chain">
+                <p class="reason">Substitute \(x = 3\) (makes \((x-3) = 0\)):</p>
+                <p>$$1 + 33 - 54 = B(1 - 6) + C(0)$$</p>
+                <p>$$-20 = -5B$$</p>
+                <p>$$B = 4$$</p>
+                <p class="reason">Substitute \(x = \frac{1}{2}\) (makes \((1-2x) = 0\)):</p>
+                <p>$$1 + \frac{11}{2} - \frac{6}{4} = A(0) + B(0) + C\left(\frac{1}{2} - 3\right)$$</p>
+                <p>$$1 + 5.5 - 1.5 = C\left(-\frac{5}{2}\right)$$</p>
+                <p>$$5 = -\frac{5}{2}C$$</p>
+                <p>$$C = -2$$</p>
+            </div>
+            <div class="mark-award">M1 — Correct method to find B and C (substitution or comparing coefficients)</div>
+            <div class="mark-award">A1 — \(B = 4\)</div>
+            <div class="mark-award">A1 — \(C = -2\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Summary: Write the complete decomposition</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <p>$$\frac{1 + 11x - 6x^2}{(x-3)(1-2x)} = 3 + \frac{4}{x-3} - \frac{2}{1-2x}$$</p>
+            <p>Equivalently: \(= 3 + \frac{4}{x-3} + \frac{2}{2x-1}\)</p>
+            <div class="examiner-note">Many candidates struggled because they forgot the constant term and tried to equate directly to \(\frac{B}{x-3} + \frac{C}{1-2x}\), which is impossible for an improper fraction. The presence of \(A\) in the given identity was a strong hint.</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 3: Differentiate using the partial fraction form</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">To prove a function is decreasing, we show \(f'(x) < 0\) for all \(x\) in the given domain. Differentiating the partial fraction form is much easier than differentiating the original — each term differentiates using the standard result \(\frac{d}{dx}(x-a)^{-1} = -(x-a)^{-2}\).</div>
+            <p>Rewrite using negative powers:</p>
+            <p>$$f(x) = 3 + 4(x-3)^{-1} - 2(1-2x)^{-1}$$</p>
+            <p>Differentiate:</p>
+            <div class="algebra-chain">
+                <p class="reason">\(\frac{d}{dx}[4(x-3)^{-1}] = -4(x-3)^{-2}\)</p>
+                <p class="reason">\(\frac{d}{dx}[-2(1-2x)^{-1}] = -2 \times (-1)(1-2x)^{-2} \times (-2) = -4(1-2x)^{-2}\)</p>
+            </div>
+            <p>$$f'(x) = \frac{-4}{(x-3)^2} + \frac{-4}{(1-2x)^2}$$</p>
+            <div class="mark-award">M1 — Differentiating the partial fraction form to get terms involving \((x-3)^{-2}\) and \((1-2x)^{-2}\)</div>
+            <div class="mark-award">A1 — Correct derivative</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 4: Prove \(f'(x) < 0\) for all \(x > 3\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We now have \(f'(x) = \frac{-4}{(x-3)^2} - \frac{4}{(1-2x)^2}\). Both denominators are squared, so they are always positive. Each fraction has a negative numerator. A negative divided by a positive is negative. So the sum of two negative terms is negative. This completes the proof.</div>
+            <p>$$f'(x) = \frac{-4}{(x-3)^2} - \frac{4}{(1-2x)^2}$$</p>
+            <p>For \(x > 3\):</p>
+            <ul style="margin: 0.5rem 0 0.75rem 1.5rem;">
+                <li>\((x-3)^2 > 0\) always (squared term), so \(\frac{-4}{(x-3)^2} < 0\)</li>
+                <li>\((1-2x)^2 > 0\) always (squared term), so \(\frac{-4}{(1-2x)^2} < 0\)</li>
+            </ul>
+            <p><strong>Since \(f'(x)\) is the sum of two negative quantities, \(f'(x) < 0\) for all \(x > 3\).</strong></p>
+            <p><strong>Therefore \(f(x)\) is a decreasing function for \(x > 3\). \(\square\)</strong></p>
+            <div class="mark-award">A1 — Clear explanation: both terms are negative because squares are positive, therefore f'(x) &lt; 0, therefore decreasing</div>
+            <div class="examiner-note">You must state WHY each term is negative (because the denominators are squared, hence positive). Simply saying "f'(x) is obviously negative" without justification loses this mark.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p2-jun18-q11')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: P2 June 2023 Q10 — Repeated Factor / Integration ===================== -->
+<div class="example-panel" id="ex-p2-jun23-q10">
+    <div class="question-text">
+        <p><strong>Paper 2 — June 2023 — Question 10</strong> (7 marks)</p>
+        <p>$$f(x) = \frac{3kx + 18}{(x+4)(x-2)}$$</p>
+        <p>where \(k\) is a positive constant.</p>
+        <p><strong>(a)</strong> Express \(f(x)\) in partial fractions in terms of \(k\). <em>[3 marks]</em></p>
+        <p><strong>(b)</strong> Hence find the exact value of \(k\) for which \(\displaystyle \int_{-3}^{1} f(x)\,dx = 21\) <em>[4 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202023%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202023%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Set up the decomposition</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Two distinct linear factors \((x+4)\) and \((x-2)\), numerator degree 1, denominator degree 2, so this is a proper fraction. The constants will be in terms of \(k\) since the numerator contains \(k\). The decomposition form is standard.</div>
+            <p>Since we have two distinct linear factors:</p>
+            <p>$$\frac{3kx + 18}{(x+4)(x-2)} = \frac{A}{x+4} + \frac{B}{x-2}$$</p>
+            <p>Multiply both sides by \((x+4)(x-2)\):</p>
+            <p>$$3kx + 18 = A(x-2) + B(x+4)$$</p>
+            <div class="mark-award">B1 — Correct form for the partial fractions and sets up the identity</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 2: Find A and B in terms of k</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Substitute the "magic" values: \(x = 2\) zeros out the \(A\) term, and \(x = -4\) zeros out the \(B\) term. Since the numerator contains \(k\), our answers for \(A\) and \(B\) will be expressions in \(k\).</div>
+            <div class="algebra-chain">
+                <p class="reason">Substitute \(x = 2\):</p>
+                <p>$$3k(2) + 18 = A(0) + B(6)$$</p>
+                <p>$$6k + 18 = 6B$$</p>
+                <p>$$B = k + 3$$</p>
+                <p class="reason">Substitute \(x = -4\):</p>
+                <p>$$3k(-4) + 18 = A(-6) + B(0)$$</p>
+                <p>$$-12k + 18 = -6A$$</p>
+                <p>$$A = 2k - 3$$</p>
+            </div>
+            <div class="mark-award">M1 — Substituting appropriate values to find A or B in terms of k</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 3: Write the complete answer</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <p>$$\frac{3kx + 18}{(x+4)(x-2)} = \frac{2k-3}{x+4} + \frac{k+3}{x-2}$$</p>
+            <div class="mark-award">A1 — Correct partial fractions (must be written as fractions, not just values)</div>
+            <div class="examiner-note">One correct fraction only (e.g. just \(\frac{k+3}{x-2}\) correct with the other wrong) scores B0 M1 A0. Both must be correct for the A1.</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 4: Integrate the partial fractions</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">"Hence" tells us to use Part (a). We integrate each partial fraction separately. Each has the form \(\frac{\text{constant}}{x + a}\), which integrates to \(\text{constant} \times \ln|x+a|\). The key skill is keeping the \(k\) parameters organised.</div>
+            <p>$$\int_{-3}^{1} f(x)\,dx = \int_{-3}^{1} \frac{2k-3}{x+4}\,dx + \int_{-3}^{1} \frac{k+3}{x-2}\,dx$$</p>
+            <div class="algebra-chain">
+                <p class="reason">Integrate each term:</p>
+                <p>$$= \Big[(2k-3)\ln|x+4| + (k+3)\ln|x-2|\Big]_{-3}^{1}$$</p>
+            </div>
+            <div class="mark-award">M1 — Integrating to get terms of the form \(\alpha\ln|x+4| + \beta\ln|x-2|\)</div>
+            <div class="mark-award">A1ft — Correct integration (following through their A and B in terms of k)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 5: Apply limits and solve for k</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Substitute the upper limit \(x = 1\) and lower limit \(x = -3\), subtract, set equal to 21, and solve for \(k\). Be careful with the signs inside the absolute values — check whether each quantity is positive or negative in the integration range.</div>
+            <div class="algebra-chain">
+                <p class="reason">At \(x = 1\): \(\quad (2k-3)\ln|5| + (k+3)\ln|-1| = (2k-3)\ln 5 + 0\)</p>
+                <p class="reason">At \(x = -3\): \(\quad (2k-3)\ln|1| + (k+3)\ln|-5| = 0 + (k+3)\ln 5\)</p>
+                <p class="reason">Note: \(\ln|{-1}| = \ln 1 = 0\) and \(\ln|1| = 0\)</p>
+                <p class="reason">Subtract (upper minus lower):</p>
+                <p>$$(2k-3)\ln 5 - (k+3)\ln 5 = 21$$</p>
+                <p class="reason">Factor out \(\ln 5\):</p>
+                <p>$$[(2k-3) - (k+3)]\ln 5 = 21$$</p>
+                <p>$$(k - 6)\ln 5 = 21$$</p>
+                <p class="reason">Divide by \(\ln 5\):</p>
+                <p>$$k = 6 + \frac{21}{\ln 5} = \frac{6\ln 5 + 21}{\ln 5}$$</p>
+            </div>
+            <p>$$\boxed{k = \frac{21}{\ln 5} + 6}$$</p>
+            <div class="mark-award">dM1 — Full attempt: integrating, applying limits, setting = 21, solving for k</div>
+            <div class="mark-award">A1 — Correct exact answer: \(k = 6 + \frac{21}{\ln 5}\) or equivalent</div>
+            <div class="examiner-note">The answer must be exact — a decimal approximation scores M1 A0. Accept any equivalent form such as \(\frac{21 + 6\ln 5}{\ln 5}\). The modulus signs in \(\ln|-5| = \ln 5\) and \(\ln|-1| = 0\) caught many candidates out.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p2-jun23-q10')">Show Full Solution</button>
+</div>
+
+<!-- PATTERN RECOGNITION -->
+<h2>How to Recognise This Question Type</h2>
+<div class="card">
+    <p>Look for these signals in the question:</p>
+    <ul style="margin-left: 1.5rem; line-height: 2;">
+        <li>An algebraic fraction with the denominator already <strong>factorised</strong> into linear factors</li>
+        <li>The instruction <strong>"express in partial fractions"</strong> or an identity with \(A\), \(B\), \(C\) given</li>
+        <li>Part (b) often says <strong>"Hence integrate"</strong> or involves a differential equation requiring separation of variables</li>
+        <li>Almost always appears on <strong>Paper 2</strong> (the methods paper)</li>
+        <li>If the fraction has \(\frac{\text{degree }n}{\text{degree }n}\) (equal degrees) or higher numerator degree, there will be a <strong>constant term</strong> in the decomposition</li>
+        <li>If there is a squared factor like \((x-1)^2\) in the denominator, expect a <strong>repeated factor</strong> decomposition</li>
+    </ul>
+</div>
+
+<h2>Three Types You Must Know</h2>
+<div class="card">
+    <ul style="margin-left: 1.5rem; line-height: 2.2;">
+        <li><strong>Distinct linear factors:</strong> \(\frac{px+q}{(ax+b)(cx+d)} = \frac{A}{ax+b} + \frac{B}{cx+d}\)</li>
+        <li><strong>Repeated linear factor:</strong> \(\frac{px+q}{(ax+b)^2(cx+d)} = \frac{A}{ax+b} + \frac{B}{(ax+b)^2} + \frac{C}{cx+d}\)</li>
+        <li><strong>Improper fraction:</strong> Divide first to get a polynomial, then decompose the remainder. Or, if the identity is given with \(A + \frac{B}{...} + \frac{C}{...}\), use that directly.</li>
+    </ul>
+</div>
+
+<script>
+    // Toggle individual step
+    function toggleStep(header) {
+        header.classList.toggle('open');
+        header.nextElementSibling.classList.toggle('open');
+    }
+
+    // Show all steps in a panel
+    function showAllSteps(panelId) {
+        const panel = document.getElementById(panelId);
+        panel.querySelectorAll('.step-reveal-header').forEach(h => h.classList.add('open'));
+        panel.querySelectorAll('.step-reveal-content').forEach(c => c.classList.add('open'));
+    }
+
+    // Select an example (tab switching)
+    function selectExample(panelId) {
+        // Deactivate all tabs and panels
+        document.querySelectorAll('.example-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.example-panel').forEach(p => p.classList.remove('active'));
+
+        // Activate the selected panel
+        document.getElementById(panelId).classList.add('active');
+
+        // Find and activate the matching tab
+        const tabs = document.querySelectorAll('.example-tab');
+        const tabMap = {
+            'ex-p2-jun22-q14': 0,
+            'ex-p2-jun18-q11': 1,
+            'ex-p2-jun23-q10': 2
+        };
+        if (tabMap[panelId] !== undefined) {
+            tabs[tabMap[panelId]].classList.add('active');
+        }
+
+        // Scroll to worked examples section
+        document.getElementById(panelId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Render KaTeX on load
+    document.addEventListener('DOMContentLoaded', function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ]
+        });
+    });
+</script>
+
+</body>
+</html>

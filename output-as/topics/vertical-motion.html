@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertical Motion under Gravity — Edexcel AS Mechanics</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #2b6cb0;
+            --success: #276749;
+            --warning: #c05621;
+            --danger: #c53030;
+            --bg: #f7fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #2d3748;
+            --muted: #718096;
+            --mark: #805ad5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        h1 { color: var(--primary); margin-bottom: 0.5rem; font-size: 2rem; }
+        h2 { color: var(--primary); margin: 2.5rem 0 1rem; font-size: 1.4rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        h3 { color: var(--accent); margin: 1.5rem 0 0.75rem; font-size: 1.15rem; }
+
+        .subtitle { color: var(--muted); margin-bottom: 2rem; font-size: 1.05rem; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-card .number { font-size: 1.5rem; font-weight: 700; color: var(--accent); }
+        .stat-card .label { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .motivation {
+            border-left: 4px solid var(--accent);
+            background: #ebf8ff;
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+
+        .examiner-tip {
+            border-left: 4px solid var(--warning);
+            background: #fffaf0;
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0;
+        }
+
+        .examiner-tip::before { content: "Examiner tip: "; font-weight: 700; color: var(--warning); }
+
+        .marks {
+            display: inline-block;
+            background: var(--mark);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+        }
+
+        .step {
+            border-left: 3px solid var(--border);
+            padding: 0.75rem 1rem;
+            margin: 0.75rem 0;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+
+        .step:hover { border-color: var(--accent); }
+
+        .step-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .step-content {
+            display: none;
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px dashed var(--border);
+        }
+
+        .step.open .step-content { display: block; }
+        .step.open { border-color: var(--success); }
+
+        .toggle-icon::after { content: "\25BC"; font-size: 0.7rem; color: var(--muted); }
+        .step.open .toggle-icon::after { content: "\25B2"; }
+
+        .reveal-all {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.5rem 1.25rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin: 0.5rem 0;
+        }
+
+        .reveal-all:hover { background: var(--primary); }
+
+        .formula-box {
+            background: #f0fff4;
+            border: 1px solid #c6f6d5;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .back-link:hover { text-decoration: underline; }
+
+        .paper-ref {
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin-top: 0.5rem;
+        }
+
+        .paper-ref a { color: var(--accent); text-decoration: none; }
+        .paper-ref a:hover { text-decoration: underline; }
+
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        th, td { padding: 0.5rem; border: 1px solid var(--border); text-align: left; font-size: 0.9rem; }
+        th { background: var(--bg); font-weight: 600; }
+    </style>
+</head>
+<body>
+    <a href="../index.html" class="back-link">← Back to AS Mechanics Topics</a>
+
+    <h1>Vertical Motion under Gravity</h1>
+    <p class="subtitle">Kinematics with constant acceleration due to gravity — suvat with \(a = \pm g\)</p>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="number">7/7</div>
+            <div class="label">Sittings</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">4–12</div>
+            <div class="label">Marks</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">Q1</div>
+            <div class="label">Typical Position</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">g = 9.8</div>
+            <div class="label">or 10 m/s²</div>
+        </div>
+    </div>
+
+    <div class="motivation">
+        <strong>Why this always comes up:</strong> Vertical motion under gravity is the simplest physical application of suvat equations. Examiners love it because it tests sign conventions, multi-stage reasoning, and model refinement — all in one question.
+    </div>
+
+    <h2>Key Concepts</h2>
+
+    <div class="formula-box">
+        <h3>The suvat equations (with gravity)</h3>
+        <p>For an object moving vertically under gravity alone:</p>
+        <ul style="margin: 0.75rem 0; padding-left: 1.5rem;">
+            <li>\(v = u + at\) where \(a = \pm g\)</li>
+            <li>\(s = ut + \frac{1}{2}at^2\)</li>
+            <li>\(v^2 = u^2 + 2as\)</li>
+            <li>\(s = \frac{1}{2}(u+v)t\)</li>
+        </ul>
+        <p><strong>Sign convention:</strong> Take upwards as positive → \(a = -g\). Or take downwards as positive → \(a = +g\). Be consistent throughout.</p>
+    </div>
+
+    <div class="card">
+        <h3>Critical facts for exam</h3>
+        <ul style="padding-left: 1.5rem;">
+            <li>At highest point: \(v = 0\)</li>
+            <li>Speed on return to same height = initial speed (symmetry)</li>
+            <li>"Show that \(U = ...\)" → use \(v^2 = u^2 + 2as\) with known endpoint speed</li>
+            <li>Multi-stage: split at direction changes or events (e.g. parachute opens)</li>
+            <li>Model refinements: air resistance, spin, wind, not a particle</li>
+        </ul>
+    </div>
+
+    <div class="examiner-tip">
+        Always state your sign convention clearly. Taking "up as positive" means \(g = -9.8\) in your equations. Mark schemes accept either convention as long as it is consistent.
+    </div>
+
+    <h2>Worked Examples</h2>
+
+    <!-- Example 1 -->
+    <div class="card">
+        <h3>Example 1: Ball thrown upwards — find time to highest point <span class="marks">3 marks</span></h3>
+        <p class="paper-ref">Style: June 2022 Q1 | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202022%20QP%20(Mech).pdf" target="_blank">View Paper</a></p>
+
+        <div class="card" style="background: #f7fafc;">
+            <p><strong>Question:</strong> A small stone is projected vertically upwards with speed \(U\) m s\(^{-1}\) from a point A that is 1.8 m above horizontal ground. The speed of the stone as it hits the ground is 10 m s\(^{-1}\). The acceleration due to gravity is 10 m s\(^{-2}\). Find the value of \(U\).</p>
+        </div>
+
+        <button class="reveal-all" onclick="toggleAll(this)">Reveal all steps</button>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 1: Set up known quantities</span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>Taking downwards as positive (stone ends going down):</p>
+                <p>\(s = 1.8\) m (net downward displacement from A to ground)</p>
+                <p>\(v = 10\) m s\(^{-1}\) (speed at ground)</p>
+                <p>\(u = -U\) m s\(^{-1}\) (initial velocity upwards, so negative in our convention)</p>
+                <p>\(a = 10\) m s\(^{-2}\) (g downwards)</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 2: Apply \(v^2 = u^2 + 2as\) <span class="marks">M1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>\(10^2 = U^2 + 2(10)(1.8)\)</p>
+                <p>Wait — taking upwards as positive is cleaner here:</p>
+                <p>\(u = U\), \(v = -10\) (moving down at ground), \(a = -10\), \(s = -1.8\)</p>
+                <p>\((-10)^2 = U^2 + 2(-10)(-1.8)\)</p>
+                <p>\(100 = U^2 + 36\)</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 3: Solve for \(U\) <span class="marks">A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>\(U^2 = 100 - 36 = 64\)</p>
+                <p>\(U = 8\) m s\(^{-1}\) <span class="marks">A1</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Example 2 -->
+    <div class="card">
+        <h3>Example 2: Projected up from height — "show that \(U = 5\)" <span class="marks">4 marks</span></h3>
+        <p class="paper-ref">Based on: June 2020 Q1 | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202020%20QP%20(Mech).pdf" target="_blank">View Paper</a></p>
+
+        <div class="card" style="background: #f7fafc;">
+            <p><strong>Question:</strong> At time \(t = 0\), a small ball is projected vertically upwards with speed \(U\) m s\(^{-1}\) from a point A that is 16.8 m above horizontal ground. The speed of the ball at the instant immediately before it hits the ground for the first time is 19 m s\(^{-1}\). The acceleration due to gravity is modelled as 10 m s\(^{-2}\). Show that \(U = 5\).</p>
+        </div>
+
+        <button class="reveal-all" onclick="toggleAll(this)">Reveal all steps</button>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 1: Identify the correct suvat equation</span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>We know \(u\), \(v\), \(s\) and \(a\) — don't need \(t\).</p>
+                <p>Use \(v^2 = u^2 + 2as\)</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 2: Substitute (taking down as positive) <span class="marks">M1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>Taking down as positive: \(u = -U\), \(v = 19\), \(a = 10\), \(s = 16.8\)</p>
+                <p>\(19^2 = (-U)^2 + 2(10)(16.8)\)</p>
+                <p>\(361 = U^2 + 336\) <span class="marks">A1</span></p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 3: Solve and conclude <span class="marks">A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>\(U^2 = 361 - 336 = 25\)</p>
+                <p>\(U = 5\) as required (since \(U > 0\)) <span class="marks">A1</span></p>
+            </div>
+        </div>
+
+        <div class="examiner-tip">
+            For "show that" questions, you must show every algebraic step. Never write the answer first and work backwards. The mark scheme requires seeing the equation before the final line.
+        </div>
+    </div>
+
+    <!-- Example 3 -->
+    <div class="card">
+        <h3>Example 3: Multi-stage motion — parachutist <span class="marks">10 marks</span></h3>
+        <p class="paper-ref">Based on: June 2019 Q1 | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202019%20QP%20(Mech).pdf" target="_blank">View Paper</a></p>
+
+        <div class="card" style="background: #f7fafc;">
+            <p><strong>Question:</strong> A parachutist falls from rest from a helicopter hovering at 550 m. She free-falls for 3 s (\(g = 10\) m s\(^{-2}\)), then decelerates at 12 m s\(^{-2}\) for 2 s, then travels at constant speed to the ground. Find the total time \(T\).</p>
+        </div>
+
+        <button class="reveal-all" onclick="toggleAll(this)">Reveal all steps</button>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 1: Stage 1 — free fall for 3 s <span class="marks">M1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>\(v = u + at = 0 + 10(3) = 30\) m s\(^{-1}\) (speed when parachute opens)</p>
+                <p>Distance: \(s_1 = \frac{1}{2}(10)(3^2) = 45\) m</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 2: Stage 2 — decelerating for 2 s <span class="marks">M1 A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>\(v = 30 - 12(2) = 30 - 24 = 6\) m s\(^{-1}\) (constant speed reached)</p>
+                <p>Distance: \(s_2 = 30(2) + \frac{1}{2}(-12)(4) = 60 - 24 = 36\) m</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 3: Stage 3 — constant speed to ground <span class="marks">M1 A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>Remaining distance: \(s_3 = 550 - 45 - 36 = 469\) m</p>
+                <p>At constant speed 6 m s\(^{-1}\): \(t_3 = \frac{469}{6} = 78.1\overline{6}\) s</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 4: Total time <span class="marks">A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>\(T = 3 + 2 + 78.1\overline{6} = 83.1\overline{6}...\)</p>
+                <p>\(T = 83\) (to nearest whole number) <span class="marks">A1</span></p>
+            </div>
+        </div>
+
+        <div class="examiner-tip">
+            Multi-stage problems: draw a speed-time graph sketch first. Label each phase clearly. The "end speed of one stage = start speed of next stage" is the key linking principle.
+        </div>
+    </div>
+
+    <!-- Example 4 -->
+    <div class="card">
+        <h3>Example 4: Model refinement — effect of air resistance <span class="marks">2 marks</span></h3>
+        <p class="paper-ref">Common across all sittings</p>
+
+        <div class="card" style="background: #f7fafc;">
+            <p><strong>Question:</strong> In a refinement of the model, air resistance is included. The initial speed \(U\) was found to be 5 m s\(^{-1}\) using the model without air resistance. How would the new value of \(U\) compare with 5?</p>
+        </div>
+
+        <button class="reveal-all" onclick="toggleAll(this)">Reveal all steps</button>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 1: Reasoning <span class="marks">M1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>Air resistance opposes motion. On the way down, air resistance slows the ball, so the final speed would be less than 19 m s\(^{-1}\) without a higher initial speed.</p>
+                <p>Alternatively: air resistance reduces the speed at which the ball hits the ground, so to still hit at 19 m s\(^{-1}\), the initial speed must be greater.</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 2: Conclusion <span class="marks">A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>The new value of \(U\) would be <strong>greater than</strong> 5 because air resistance reduces the actual speed gained during the fall, so a larger initial speed is needed to achieve the same final speed.</p>
+            </div>
+        </div>
+
+        <div class="examiner-tip">
+            Model refinement marks require a REASON, not just "higher" or "lower". State the physical effect (air resistance opposes motion / reduces speed) then give the consequence for the quantity asked about.
+        </div>
+    </div>
+
+    <h2>Common Pitfalls</h2>
+    <div class="card">
+        <ul style="padding-left: 1.5rem;">
+            <li><strong>Sign errors:</strong> Mixing up positive direction mid-question. Pick one convention and stick to it.</li>
+            <li><strong>Using \(g = 9.8\) when question says 10:</strong> Read the question — some use \(g = 10\), others \(g = 9.8\).</li>
+            <li><strong>Forgetting \(v = 0\) at highest point:</strong> This is the key to finding max height or time up.</li>
+            <li><strong>Speed vs velocity:</strong> Speed is always positive. If asked for speed and you get negative velocity, take the magnitude.</li>
+            <li><strong>"Show that" without working:</strong> Must show the substitution step before reaching the given answer.</li>
+        </ul>
+    </div>
+
+    <h2>Exam Appearances</h2>
+    <table>
+        <tr><th>Session</th><th>Question</th><th>Marks</th><th>Key Feature</th></tr>
+        <tr><td>June 2018</td><td>Section B, Q6</td><td>7</td><td>Ball projected up, find time & height</td></tr>
+        <tr><td>June 2019</td><td>Q1</td><td>10</td><td>Parachutist 3-stage motion, speed-time graph</td></tr>
+        <tr><td>June 2020</td><td>Q1</td><td>12</td><td>Show U=5, find T, time below A, v-t graph</td></tr>
+        <tr><td>Nov 2021</td><td>Q1</td><td>7</td><td>Vertical projection with model refinement</td></tr>
+        <tr><td>June 2022</td><td>Q1</td><td>7</td><td>Stone projected up from height, find U and T</td></tr>
+        <tr><td>June 2023</td><td>Q2</td><td>7</td><td>Stone from O, height above ground, speed threshold</td></tr>
+        <tr><td>June 2024</td><td>—</td><td>—</td><td>Embedded in v-t graph question</td></tr>
+    </table>
+
+    <h2>Links to Past Papers</h2>
+    <div class="card">
+        <ul style="padding-left: 1.5rem;">
+            <li><a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202018%20QP.pdf" target="_blank">June 2018 Paper</a> | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FMS%2FJune%202018%20MS.pdf" target="_blank">Mark Scheme</a></li>
+            <li><a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202019%20QP%20(Mech).pdf" target="_blank">June 2019 Paper</a> | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FMS%2FJune%202019%20MS%20(Mech).pdf" target="_blank">Mark Scheme</a></li>
+            <li><a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202020%20QP%20(Mech).pdf" target="_blank">June 2020 Paper</a> | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FMS%2FJune%202020%20MS%20(Mech).pdf" target="_blank">Mark Scheme</a></li>
+            <li><a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202022%20QP%20(Mech).pdf" target="_blank">June 2022 Paper</a> | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FMS%2FJune%202022%20MS%20(Mech).pdf" target="_blank">Mark Scheme</a></li>
+            <li><a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202023%20QP%20(Mech).pdf" target="_blank">June 2023 Paper</a> | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FMS%2FJune%202023%20MS%20(Mech).pdf" target="_blank">Mark Scheme</a></li>
+        </ul>
+    </div>
+
+    <script>
+        function toggleStep(el) {
+            el.classList.toggle('open');
+        }
+
+        function toggleAll(btn) {
+            const card = btn.closest('.card');
+            const steps = card.querySelectorAll('.step');
+            const allOpen = [...steps].every(s => s.classList.contains('open'));
+            steps.forEach(s => {
+                if (allOpen) s.classList.remove('open');
+                else s.classList.add('open');
+            });
+            btn.textContent = allOpen ? 'Reveal all steps' : 'Hide all steps';
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "\\(", right: "\\)", display: false},
+                    {left: "\\[", right: "\\]", display: true}
+                ]
+            });
+        });
+    </script>
+</body>
+</html>

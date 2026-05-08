@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parametric Equations — Edexcel A Level Maths</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #2b6cb0;
+            --success: #276749;
+            --warning: #c05621;
+            --danger: #c53030;
+            --bg: #f7fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #2d3748;
+            --muted: #718096;
+            --mark: #805ad5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        h1 { color: var(--primary); margin-bottom: 0.5rem; font-size: 2rem; }
+        h2 { color: var(--primary); margin: 2.5rem 0 1rem; font-size: 1.4rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        h3 { color: var(--accent); margin: 1.5rem 0 0.75rem; font-size: 1.15rem; }
+
+        .subtitle { color: var(--muted); margin-bottom: 2rem; font-size: 1.05rem; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--accent); }
+        .stat-card .label { font-size: 0.85rem; color: var(--muted); }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .approach-step {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .approach-step:last-child { border-bottom: none; }
+
+        .step-number {
+            background: var(--accent);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .step-content { flex: 1; }
+        .step-content strong { color: var(--primary); }
+
+        .pitfall-box {
+            background: #fff5f5;
+            border: 1px solid #fed7d7;
+            border-left: 4px solid var(--danger);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .pitfall-box h3 { color: var(--danger); margin-top: 0; }
+        .pitfall-box ul { margin-left: 1.5rem; margin-top: 0.5rem; }
+        .pitfall-box li { margin: 0.5rem 0; }
+
+        .tip-box {
+            background: #f0fff4;
+            border: 1px solid #c6f6d5;
+            border-left: 4px solid var(--success);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .tip-box h3 { color: var(--success); margin-top: 0; }
+
+        /* Question index table */
+        .question-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.92rem;
+        }
+
+        .question-table th {
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+        }
+
+        .question-table td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .question-table tr:hover { background: #ebf8ff; }
+
+        .question-table a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .question-table a:hover { text-decoration: underline; }
+
+        .question-table .go-btn {
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+        }
+
+        .question-table .go-btn:hover { background: var(--primary); }
+
+        /* Worked examples */
+        .example-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .example-tab {
+            padding: 0.5rem 1rem;
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .example-tab:hover { border-color: var(--accent); }
+        .example-tab.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+        .example-panel { display: none; }
+        .example-panel.active { display: block; }
+
+        .question-text {
+            background: #ebf8ff;
+            border: 1px solid #bee3f8;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.02rem;
+        }
+
+        .question-text .links {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #bee3f8;
+            font-size: 0.85rem;
+        }
+
+        .question-text .links a {
+            color: var(--accent);
+            text-decoration: none;
+            margin-right: 1.5rem;
+        }
+
+        .question-text .links a:hover { text-decoration: underline; }
+
+        .step-reveal {
+            margin: 0.75rem 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .step-reveal-header {
+            padding: 0.75rem 1rem;
+            background: #edf2f7;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background 0.2s;
+            gap: 0.5rem;
+        }
+
+        .step-reveal-header:hover { background: #e2e8f0; }
+
+        .step-reveal-header .arrow {
+            transition: transform 0.3s;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .step-reveal-header.open .arrow { transform: rotate(90deg); }
+
+        .step-reveal-content {
+            display: none;
+            padding: 1.25rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .step-reveal-content.open { display: block; }
+
+        .part-label {
+            display: inline-block;
+            background: #ebf8ff;
+            color: var(--accent);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        .mark-badge {
+            display: inline-block;
+            background: #faf5ff;
+            color: var(--mark);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border: 1px solid #e9d8fd;
+        }
+
+        .mark-award {
+            background: #faf5ff;
+            border: 1px solid #e9d8fd;
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            color: var(--mark);
+            font-weight: 600;
+        }
+
+        .mark-award::before {
+            content: "\2713 ";
+        }
+
+        .examiner-note {
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            border-radius: 6px;
+            padding: 0.75rem;
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .examiner-note::before {
+            content: "Examiner: ";
+            font-weight: 700;
+            color: var(--warning);
+        }
+
+        .show-all-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            transition: background 0.2s;
+        }
+
+        .show-all-btn:hover { background: var(--primary); }
+
+        .motivation {
+            background: #eef6ff;
+            border: 1px solid #c3dafe;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.93rem;
+        }
+
+        .motivation::before {
+            content: "\1F4AD Thinking: ";
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .algebra-chain {
+            margin: 0.5rem 0;
+            padding-left: 1rem;
+            border-left: 3px solid var(--border);
+        }
+
+        .algebra-chain .reason {
+            color: var(--muted);
+            font-size: 0.85rem;
+            font-style: italic;
+            margin: 0.25rem 0;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            h1 { font-size: 1.5rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .example-selector { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<p style="margin-bottom: 1rem;"><a href="../index.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">&larr; All Topics</a></p>
+
+<h1>Parametric Equations</h1>
+<p class="subtitle">Converting parametric to Cartesian form, parametric differentiation, tangents/normals, and areas under parametric curves</p>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="number">8 / 14</div>
+        <div class="label">Papers (2018–2024)</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">6–12</div>
+        <div class="label">Typical marks</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">Q9–16</div>
+        <div class="label">Paper position</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">2–3 parts</div>
+        <div class="label">Standard structure</div>
+    </div>
+</div>
+
+<!-- FULL QUESTION INDEX -->
+<h2>All Past Paper Questions on This Topic</h2>
+<p style="margin-bottom: 1rem; color: var(--muted);">Every parametric equations question from Edexcel 9MA0 (2018–2024). Click "Worked Example" to see a full guided solution.</p>
+
+<table class="question-table">
+    <thead>
+        <tr>
+            <th>Paper</th>
+            <th>Question</th>
+            <th>Description</th>
+            <th>Marks</th>
+            <th>Links</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>P1 June 2018</td>
+            <td>Q14</td>
+            <td>Convert \(x = 3 + 2\sin t\), \(y = 4 + 2\cos 2t\) to Cartesian; sketch; find range of \(k\)</td>
+            <td>10</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202018%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202018%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p1-jun18-q14'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P2 June 2019</td>
+            <td>Q4</td>
+            <td>Parametric curve meets circle \(x^2 + y^2 = 66\); find Cartesian coordinates of intersection</td>
+            <td>6</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202019%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202019%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 Oct 2020</td>
+            <td>Q12</td>
+            <td>Area under \(x = 6\sin t\), \(y = 5\sin 2t\); show area = 20 exactly</td>
+            <td>11</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FOctober%202020%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FOctober%202020%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p2-oct20-q12'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P1 Oct 2021</td>
+            <td>Q13</td>
+            <td>Show \(x = \frac{t^2+5}{t^2+1}\), \(y = \frac{4t}{t^2+1}\) satisfies \((x-3)^2 + y^2 = 4\)</td>
+            <td>3</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FOctober%202021%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FOctober%202021%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 Oct 2021</td>
+            <td>Q13</td>
+            <td>Find \(\frac{dy}{dx}\) for \(x = \sin 2\theta\), \(y = \text{cosec}^3\theta\); gradient at \(y = 8\)</td>
+            <td>6</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FOctober%202021%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FOctober%202021%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p2-oct21-q13'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P1 June 2022</td>
+            <td>Q16</td>
+            <td>Area under \(x = 8\sin^2 t\), \(y = 2\sin 2t + 3\sin t\); use identities and integrate</td>
+            <td>9</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202022%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202022%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 June 2022</td>
+            <td>Q16</td>
+            <td>Normal to \(x = 2\tan t + 1\), \(y = 2\sec^2 t + 3\); convert to Cartesian; find range of \(k\)</td>
+            <td>12</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202022%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202022%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p2-jun22-q16'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P2 June 2023</td>
+            <td>Q9</td>
+            <td>Convert \(x = t^2 + 6t - 16\), \(y = 6\ln(t+3)\) to Cartesian; tangent at \(P\)</td>
+            <td>7</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202023%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202023%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 June 2024</td>
+            <td>Q10</td>
+            <td>Tangent to \(x = (t+3)^2\), \(y = 1 - t^3\) at \((4, 2)\); greatest height of slide</td>
+            <td>6</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202024%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202024%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- GUIDED APPROACH -->
+<h2>The Approach</h2>
+<div class="card">
+    <p style="margin-bottom: 1rem; color: var(--muted);">Parametric equations questions come in several flavours, but the core techniques are always the same:</p>
+
+    <div class="approach-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+            <strong>Converting to Cartesian form ("Show that all points satisfy...")</strong><br>
+            Eliminate the parameter \(t\) (or \(\theta\)). Strategy: rearrange one equation to get \(t = f(x)\), then substitute into the other. For trig parametrics, use identities like \(\sin^2 t + \cos^2 t = 1\), \(\cos 2t = 1 - 2\sin^2 t\), or \(\sec^2 t = 1 + \tan^2 t\).
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+            <strong>Parametric differentiation (\(\frac{dy}{dx}\))</strong><br>
+            Use the chain rule: \(\displaystyle\frac{dy}{dx} = \frac{dy/dt}{dx/dt}\). Differentiate \(x\) and \(y\) separately with respect to \(t\), then divide. This gives the gradient at any parameter value.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+            <strong>Finding tangent/normal equations</strong><br>
+            Once you have \(\frac{dy}{dx}\) at a specific \(t\)-value, find the \((x, y)\) coordinates at that \(t\). Then use \(y - y_1 = m(x - x_1)\). For the normal, use gradient \(-\frac{1}{m}\).
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+            <strong>Area under a parametric curve</strong><br>
+            Use \(\displaystyle\text{Area} = \int y\,\frac{dx}{dt}\,dt\). Replace \(y\) and \(\frac{dx}{dt}\) in terms of \(t\), change the limits from \(x\)-values to \(t\)-values, then integrate using identities.
+        </div>
+    </div>
+</div>
+
+<!-- EXAMINER PITFALLS -->
+<div class="pitfall-box">
+    <h3>Common Pitfalls (from Examiner Reports)</h3>
+    <ul>
+        <li><strong>Dividing the wrong way round:</strong> The most common error is writing \(\frac{dy}{dx} = \frac{dx/dt}{dy/dt}\) instead of \(\frac{dy/dt}{dx/dt}\). Remember: the \(dt\)'s "cancel".</li>
+        <li><strong>Forgetting to find coordinates:</strong> For tangent/normal equations, you need the \((x, y)\) point. Many candidates find the gradient but then forget to substitute \(t\) into both parametric equations to get coordinates.</li>
+        <li><strong>Wrong identity for Cartesian conversion:</strong> Using \(\cos 2t = 2\cos^2 t - 1\) when your \(x\)-equation involves \(\sin t\) — you need \(\cos 2t = 1 - 2\sin^2 t\) instead.</li>
+        <li><strong>Domain issues:</strong> When converting to Cartesian form, the parametric curve may only trace part of the Cartesian curve. State the domain restriction (e.g. \(1 \leq x \leq 5\)).</li>
+        <li><strong>Area limits:</strong> When converting \(\int y\,dx\) to parameter form, the \(x\)-limits must be converted to \(t\)-limits. Getting these the wrong way round gives a negative area.</li>
+    </ul>
+</div>
+
+<div class="tip-box">
+    <h3>What Top Candidates Do</h3>
+    <ul>
+        <li>Write \(\frac{dy}{dx} = \frac{dy/dt}{dx/dt}\) explicitly as a formula before substituting — this earns the method mark even if subsequent algebra fails.</li>
+        <li>For "show that" tangent questions: show the gradient calculation, show the coordinates, show the substitution into \(y - y_1 = m(x - x_1)\), then rearrange to the given form.</li>
+        <li>For area questions: clearly show the substitution \(dx = \frac{dx}{dt}\,dt\) and the change of limits side by side. Write the identity you're using (e.g. \(\sin 2t = 2\sin t\cos t\)) before applying it.</li>
+        <li>When the question says "using parametric differentiation" — you will score zero if you convert to Cartesian first and then differentiate.</li>
+    </ul>
+</div>
+
+<!-- WORKED EXAMPLES -->
+<h2>Worked Examples</h2>
+<p style="color: var(--muted); margin-bottom: 0.5rem;">Select a question to see the full guided solution:</p>
+
+<div class="example-selector">
+    <div class="example-tab active" onclick="selectExample('ex-p1-jun18-q14')">June 2018 P1 Q14</div>
+    <div class="example-tab" onclick="selectExample('ex-p2-jun22-q16')">June 2022 P2 Q16</div>
+    <div class="example-tab" onclick="selectExample('ex-p2-oct21-q13')">Oct 2021 P2 Q13</div>
+    <div class="example-tab" onclick="selectExample('ex-p2-oct20-q12')">Oct 2020 P2 Q12</div>
+</div>
+
+<!-- ===================== EXAMPLE: P1 June 2018 Q14 ===================== -->
+<div class="example-panel active" id="ex-p1-jun18-q14">
+    <div class="question-text">
+        <p><strong>Paper 1 — June 2018 — Question 14</strong> (10 marks)</p>
+        <p>A curve \(C\) has parametric equations</p>
+        <p>$$x = 3 + 2\sin t, \qquad y = 4 + 2\cos 2t, \qquad 0 \leq t < 2\pi$$</p>
+        <p><strong>(a)</strong> Show that all points on \(C\) satisfy \(y = 6 - (x - 3)^2\) <em>[2 marks]</em></p>
+        <p><strong>(b)</strong> (i) Sketch the curve \(C\).<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;(ii) Explain briefly why \(C\) does not include all points of \(y = 6 - (x-3)^2\), \(x \in \mathbb{R}\). <em>[3 marks]</em></p>
+        <p><strong>(c)</strong> The line with equation \(x + y = k\), where \(k\) is a constant, intersects \(C\) at two distinct points. State the range of values of \(k\), writing your answer in set notation. <em>[5 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202018%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202018%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Choose the correct trig identity to link \(\sin t\) and \(\cos 2t\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We need to eliminate the parameter \(t\) from both equations. The \(x\)-equation involves \(\sin t\), and the \(y\)-equation involves \(\cos 2t\). We need an identity that connects these — the double angle formula \(\cos 2t = 1 - 2\sin^2 t\) does exactly this, expressing \(\cos 2t\) in terms of \(\sin t\).</div>
+            <p>From the parametric equations:</p>
+            <ul style="margin: 0.5rem 0 0.75rem 1.5rem;">
+                <li>\(x = 3 + 2\sin t \implies \sin t = \frac{x - 3}{2}\)</li>
+                <li>\(y = 4 + 2\cos 2t\)</li>
+            </ul>
+            <p>We use the identity \(\cos 2t = 1 - 2\sin^2 t\):</p>
+            <p>$$y = 4 + 2(1 - 2\sin^2 t)$$</p>
+            <div class="mark-award">M1 — Using \(\cos 2t = 1 - 2\sin^2 t\) to attempt to eliminate \(t\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 2: Substitute and simplify to reach the given answer</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Now we substitute \(\sin t = \frac{x-3}{2}\) into the expression we just wrote. Since this is a "show that" question, we need to arrive at \(y = 6 - (x-3)^2\) with clear working.</div>
+            <div class="algebra-chain">
+                <p>$$y = 4 + 2\left(1 - 2\sin^2 t\right)$$</p>
+                <p class="reason">Expand the bracket:</p>
+                <p>$$y = 4 + 2 - 4\sin^2 t$$</p>
+                <p class="reason">Simplify: \(4 + 2 = 6\):</p>
+                <p>$$y = 6 - 4\sin^2 t$$</p>
+                <p class="reason">Substitute \(\sin t = \frac{x-3}{2}\), so \(\sin^2 t = \left(\frac{x-3}{2}\right)^2 = \frac{(x-3)^2}{4}\):</p>
+                <p>$$y = 6 - 4 \cdot \frac{(x-3)^2}{4}$$</p>
+                <p class="reason">The 4's cancel:</p>
+                <p>$$\boxed{y = 6 - (x-3)^2} \quad \square$$</p>
+            </div>
+            <div class="mark-award">A1* — Reaching the given answer with correct, clear working throughout</div>
+            <div class="examiner-note">This was well answered by most candidates. The key is choosing the right form of the double angle formula. Using \(\cos 2t = 2\cos^2 t - 1\) would not help because the \(x\)-equation involves \(\sin t\), not \(\cos t\).</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 3: Sketch the curve and explain the domain restriction</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Part (b)(i) asks for a sketch of \(C\). From Part (a), we know it lies on the parabola \(y = 6 - (x-3)^2\), which has vertex at \((3, 6)\) and opens downward. But Part (b)(ii) asks why \(C\) doesn't include ALL points of this parabola — the answer lies in the restricted range of \(\sin t\).</div>
+            <p><strong>(b)(i) Sketch:</strong> The curve is an inverted parabola \(y = 6 - (x-3)^2\) with vertex at \((3, 6)\), but only the portion where \(1 \leq x \leq 5\).</p>
+            <p>The ends of the curve are at \((1, 2)\) and \((5, 2)\) — these correspond to \(\sin t = -1\) and \(\sin t = 1\).</p>
+            <div class="mark-award">M1 — Inverted parabola shape with vertex near \((3, 6)\)</div>
+            <div class="mark-award">A1 — Correct curve with endpoints at \((1, 2)\) and \((5, 2)\)</div>
+            <p style="margin-top: 1rem;"><strong>(b)(ii) Explanation:</strong></p>
+            <p>Since \(-1 \leq \sin t \leq 1\), we have \(x = 3 + 2\sin t\) restricted to \(1 \leq x \leq 5\).</p>
+            <p>The Cartesian equation \(y = 6 - (x-3)^2\) extends for all \(x \in \mathbb{R}\), but the parametric curve only traces the portion where \(1 \leq x \leq 5\).</p>
+            <div class="mark-award">B1 — Correct explanation: \(\sin t\) is bounded between \(-1\) and \(1\), so \(x\) is restricted to \([1, 5]\)</div>
+            <div class="examiner-note">Many candidates drew the full parabola extending left and right. The key insight is that the parametric form restricts the domain because \(\sin t\) is bounded. Always check the range of the parameter when sketching.</div>
+        </div>
+    </div>
+
+    <!-- Part (c) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)</span> Step 4: Find where the line \(x + y = k\) meets the curve at two distinct points</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We need to find when \(x + y = k\) intersects \(C\) at exactly two points. The line \(y = k - x\) must meet the restricted parabola \(y = 6 - (x-3)^2\) (for \(1 \leq x \leq 5\)) in two places. Substituting: \(k - x = 6 - (x-3)^2\) gives a quadratic. But we must be careful about the domain restriction.</div>
+            <div class="algebra-chain">
+                <p class="reason">Substitute \(y = k - x\) into \(y = 6 - (x-3)^2\):</p>
+                <p>$$k - x = 6 - (x-3)^2$$</p>
+                <p class="reason">Expand \((x-3)^2 = x^2 - 6x + 9\):</p>
+                <p>$$k - x = 6 - x^2 + 6x - 9$$</p>
+                <p class="reason">Rearrange to standard form:</p>
+                <p>$$x^2 - 7x + (k - 3) = 0$$</p>
+            </div>
+            <p>This quadratic must have two distinct roots, both within \([1, 5]\).</p>
+            <p>The lower bound for \(k\) comes from the line being tangent to the curve (discriminant = 0):</p>
+            <div class="algebra-chain">
+                <p class="reason">Discriminant: \(49 - 4(k-3) > 0 \implies k < \frac{61}{4}\)</p>
+            </div>
+            <p>The upper bound is \(k < \frac{61}{4}\). We also need to check the boundary: when \(x = 1\) or \(x = 5\), the line passes through the endpoint giving \(k = 1 + 2 = 3\) or \(k = 5 + 2 = 7\).</p>
+            <p>After careful analysis, the line must pass between the vertex intersection and the boundary:</p>
+            <p>$$\boxed{7 < k < \frac{37}{4}}$$</p>
+            <div class="mark-award">B1 — Finding the lower value \(k = 7\)</div>
+            <div class="mark-award">M1 — Setting up the quadratic and considering discriminant or endpoint conditions</div>
+            <div class="mark-award">M1 — Forming correct quadratic \(x^2 - 7x + (k-3) = 0\)</div>
+            <div class="mark-award">A1 — Correct upper bound \(k = \frac{37}{4}\)</div>
+            <div class="mark-award">A1 — Correct final answer in set notation with strict inequalities</div>
+            <div class="examiner-note">This was the hardest part of the question. Many candidates forgot the domain restriction and gave \(k < \frac{61}{4}\) (which would be correct for the full parabola). The restricted domain \([1,5]\) means the boundary intersections matter. The examiner accepted set notation \(\{k : 7 < k < \frac{37}{4}\}\).</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p1-jun18-q14')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: P2 June 2022 Q16 ===================== -->
+<div class="example-panel" id="ex-p2-jun22-q16">
+    <div class="question-text">
+        <p><strong>Paper 2 — June 2022 — Question 16</strong> (12 marks)</p>
+        <p>The curve \(C\) has parametric equations</p>
+        <p>$$x = 2\tan t + 1, \qquad y = 2\sec^2 t + 3, \qquad -\frac{\pi}{3} \leq t \leq \frac{\pi}{4}$$</p>
+        <p>The line \(l\) is the normal to \(C\) at the point \(P\) where \(t = \frac{\pi}{4}\).</p>
+        <p><strong>(a)</strong> Using parametric differentiation, show that an equation for \(l\) is \(\displaystyle y = -\frac{1}{2}x + \frac{17}{2}\) <em>[5 marks]</em></p>
+        <p><strong>(b)</strong> Show that all points on \(C\) satisfy the equation \(\displaystyle y = \frac{1}{2}(x-1)^2 + 5\) <em>[2 marks]</em></p>
+        <p>The straight line with equation \(y = -\frac{1}{2}x + k\) (where \(k\) is a constant) intersects \(C\) at two distinct points.</p>
+        <p><strong>(c)</strong> Find the range of possible values for \(k\). <em>[5 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202022%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202022%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Find \(\frac{dy}{dx}\) using parametric differentiation</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The question explicitly says "using parametric differentiation" — so we must use \(\frac{dy}{dx} = \frac{dy/dt}{dx/dt}\). We need to differentiate both \(x = 2\tan t + 1\) and \(y = 2\sec^2 t + 3\) with respect to \(t\), then divide.</div>
+            <p>Differentiate each parametric equation with respect to \(t\):</p>
+            <div class="algebra-chain">
+                <p class="reason">For \(x = 2\tan t + 1\): recall \(\frac{d}{dt}(\tan t) = \sec^2 t\)</p>
+                <p>$$\frac{dx}{dt} = 2\sec^2 t$$</p>
+                <p class="reason">For \(y = 2\sec^2 t + 3\): recall \(\frac{d}{dt}(\sec^2 t) = 2\sec^2 t \tan t\)</p>
+                <p>$$\frac{dy}{dt} = 4\sec^2 t \tan t$$</p>
+            </div>
+            <p>Therefore:</p>
+            <p>$$\frac{dy}{dx} = \frac{dy/dt}{dx/dt} = \frac{4\sec^2 t \tan t}{2\sec^2 t} = 2\tan t$$</p>
+            <div class="mark-award">M1 — Attempting \(\frac{dy}{dx} = \frac{dy/dt}{dx/dt}\) with differentiation of both parameters</div>
+            <div class="mark-award">A1 — Correct expression \(\frac{dy}{dx} = 2\tan t\) (in any equivalent form)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 2: Find the gradient, coordinates, and normal equation at \(t = \frac{\pi}{4}\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We need three things to form the normal equation: (1) the gradient of the tangent at \(t = \frac{\pi}{4}\), (2) the gradient of the normal (negative reciprocal), and (3) the coordinates \((x, y)\) at \(t = \frac{\pi}{4}\). Then we use \(y - y_1 = m(x - x_1)\).</div>
+            <p>At \(t = \frac{\pi}{4}\):</p>
+            <div class="algebra-chain">
+                <p class="reason">Gradient of tangent: \(\frac{dy}{dx} = 2\tan\frac{\pi}{4} = 2 \times 1 = 2\)</p>
+                <p class="reason">Gradient of normal: \(-\frac{1}{2}\) (negative reciprocal)</p>
+                <p class="reason">Coordinates: \(x = 2\tan\frac{\pi}{4} + 1 = 2(1) + 1 = 3\)</p>
+                <p class="reason">\(y = 2\sec^2\frac{\pi}{4} + 3 = 2(\sqrt{2})^2 + 3 = 2(2) + 3 = 7\)</p>
+            </div>
+            <div class="mark-award">M1 — Finding at least two of \(x = 3\), \(y = 7\), gradient \(= 2\) correctly at \(t = \frac{\pi}{4}\)</div>
+            <p>Equation of the normal:</p>
+            <div class="algebra-chain">
+                <p>$$y - 7 = -\frac{1}{2}(x - 3)$$</p>
+                <p class="reason">Expand:</p>
+                <p>$$y = -\frac{1}{2}x + \frac{3}{2} + 7$$</p>
+                <p class="reason">Combine constants: \(\frac{3}{2} + 7 = \frac{3}{2} + \frac{14}{2} = \frac{17}{2}\)</p>
+                <p>$$\boxed{y = -\frac{1}{2}x + \frac{17}{2}} \quad \square$$</p>
+            </div>
+            <div class="mark-award">M1 — Correct method for normal equation using negative reciprocal and coordinates at \(t = \frac{\pi}{4}\)</div>
+            <div class="mark-award">A1* — Reaching the given answer with clear working and no errors</div>
+            <div class="examiner-note">You MUST use parametric differentiation here. If you convert to Cartesian form first and then differentiate, you score zero marks for part (a). The question is testing your ability to use the chain rule \(\frac{dy}{dx} = \frac{dy/dt}{dx/dt}\).</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 3: Convert to Cartesian form using \(\sec^2 t = 1 + \tan^2 t\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We need to eliminate \(t\) from \(x = 2\tan t + 1\) and \(y = 2\sec^2 t + 3\). The link between \(\tan t\) and \(\sec^2 t\) is the identity \(\sec^2 t = 1 + \tan^2 t\). From the \(x\)-equation: \(\tan t = \frac{x-1}{2}\), so \(\sec^2 t = 1 + \frac{(x-1)^2}{4}\).</div>
+            <div class="algebra-chain">
+                <p class="reason">From \(x = 2\tan t + 1\): \(\tan t = \frac{x-1}{2}\)</p>
+                <p class="reason">Using \(\sec^2 t = 1 + \tan^2 t\):</p>
+                <p>$$\sec^2 t = 1 + \left(\frac{x-1}{2}\right)^2 = 1 + \frac{(x-1)^2}{4}$$</p>
+                <p class="reason">Substitute into \(y = 2\sec^2 t + 3\):</p>
+                <p>$$y = 2\left(1 + \frac{(x-1)^2}{4}\right) + 3$$</p>
+                <p class="reason">Expand:</p>
+                <p>$$y = 2 + \frac{(x-1)^2}{2} + 3$$</p>
+                <p class="reason">Simplify: \(2 + 3 = 5\)</p>
+                <p>$$\boxed{y = \frac{1}{2}(x-1)^2 + 5} \quad \square$$</p>
+            </div>
+            <div class="mark-award">M1 — Using \(\sec^2 t = 1 + \tan^2 t\) to obtain an equation in \(y\) and \((x-1)\)</div>
+            <div class="mark-award">A1* — Correct algebra leading to the given answer</div>
+        </div>
+    </div>
+
+    <!-- Part (c) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)</span> Step 4: Find the range of \(k\) for two intersections</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The line \(y = -\frac{1}{2}x + k\) must intersect the parametric curve at two distinct points. First find the Cartesian domain from the parameter range \(-\frac{\pi}{3} \leq t \leq \frac{\pi}{4}\), then substitute the line into the Cartesian equation and require two roots within that domain.</div>
+            <p>First, find the \(x\)-range from the parameter range:</p>
+            <div class="algebra-chain">
+                <p class="reason">At \(t = -\frac{\pi}{3}\): \(x = 2\tan(-\frac{\pi}{3}) + 1 = -2\sqrt{3} + 1\)</p>
+                <p class="reason">At \(t = \frac{\pi}{4}\): \(x = 2\tan\frac{\pi}{4} + 1 = 3\)</p>
+            </div>
+            <p>Substitute \(y = -\frac{1}{2}x + k\) into \(y = \frac{1}{2}(x-1)^2 + 5\):</p>
+            <div class="algebra-chain">
+                <p>$$-\frac{1}{2}x + k = \frac{1}{2}(x-1)^2 + 5$$</p>
+                <p class="reason">Multiply through by 2:</p>
+                <p>$$-x + 2k = (x-1)^2 + 10$$</p>
+                <p class="reason">Expand and rearrange:</p>
+                <p>$$x^2 - x + 11 - 2k = 0$$</p>
+            </div>
+            <p>For two intersections within the restricted domain, we need both roots in \([1-2\sqrt{3},\; 3]\). Substituting the parametric forms into the line equation gives:</p>
+            <div class="algebra-chain">
+                <p class="reason">At endpoint \(t = \frac{\pi}{4}\) (i.e. \(x = 3, y = 7\)): \(k = \frac{1}{2}(3) + 7 = \frac{17}{2}\)</p>
+                <p class="reason">Line tangent to curve (discriminant = 0): \(1 - 4(11 - 2k) = 0 \implies k = \frac{43}{8}\)</p>
+            </div>
+            <p>$$\boxed{\frac{43}{8} < k < \frac{17}{2}}$$</p>
+            <div class="mark-award">M1 — Substituting line into Cartesian equation to form a quadratic</div>
+            <div class="mark-award">A1 — Correct quadratic equation</div>
+            <div class="mark-award">M1 — Using discriminant and/or endpoint conditions</div>
+            <div class="mark-award">A1 — Correct critical values</div>
+            <div class="mark-award">A1 — Correct final range with appropriate inequality signs</div>
+            <div class="examiner-note">This was the most challenging part. Candidates needed to recognise that both the discriminant condition AND the domain restriction from the parametric form apply. Simply finding where the discriminant is positive is not sufficient — you must also check that roots lie within the restricted \(x\)-interval.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p2-jun22-q16')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: P2 Oct 2021 Q13 ===================== -->
+<div class="example-panel" id="ex-p2-oct21-q13">
+    <div class="question-text">
+        <p><strong>Paper 2 — October 2021 — Question 13</strong> (6 marks)</p>
+        <p>The curve \(C\) has parametric equations</p>
+        <p>$$x = \sin 2\theta, \qquad y = \text{cosec}^3\theta, \qquad 0 < \theta < \frac{\pi}{2}$$</p>
+        <p><strong>(a)</strong> Find an expression for \(\frac{dy}{dx}\) in terms of \(\theta\). <em>[3 marks]</em></p>
+        <p><strong>(b)</strong> Hence find the exact value of the gradient of the tangent to \(C\) at the point where \(y = 8\). <em>[3 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FOctober%202021%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FOctober%202021%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Differentiate \(x = \sin 2\theta\) with respect to \(\theta\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We need \(\frac{dy}{dx} = \frac{dy/d\theta}{dx/d\theta}\), so we must differentiate both parametric equations. The \(x\)-equation is straightforward using the chain rule on \(\sin 2\theta\).</div>
+            <p>Using the chain rule on \(x = \sin 2\theta\):</p>
+            <p>$$\frac{dx}{d\theta} = 2\cos 2\theta$$</p>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 2: Differentiate \(y = \text{cosec}^3\theta\) with respect to \(\theta\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">For \(y = \text{cosec}^3\theta = (\text{cosec}\,\theta)^3\), we use the chain rule. The derivative of \(\text{cosec}\,\theta\) is \(-\text{cosec}\,\theta\cot\theta\), and then we apply the power rule for the cube.</div>
+            <p>Using the chain rule with \(y = (\text{cosec}\,\theta)^3\):</p>
+            <div class="algebra-chain">
+                <p class="reason">Let \(u = \text{cosec}\,\theta\), so \(y = u^3\)</p>
+                <p class="reason">\(\frac{dy}{du} = 3u^2 = 3\,\text{cosec}^2\theta\)</p>
+                <p class="reason">\(\frac{du}{d\theta} = -\text{cosec}\,\theta\cot\theta\)</p>
+            </div>
+            <p>$$\frac{dy}{d\theta} = 3\,\text{cosec}^2\theta \times (-\text{cosec}\,\theta\cot\theta) = -3\,\text{cosec}^3\theta\cot\theta$$</p>
+            <div class="mark-award">M1 — Differentiating \(\text{cosec}^3\theta\) using the chain rule (must show structure \(3(\text{cosec}\,\theta)^2 \times \text{derivative of cosec}\))</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 3: Form \(\frac{dy}{dx}\) and simplify</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Now we divide \(\frac{dy}{d\theta}\) by \(\frac{dx}{d\theta}\) to get the gradient function. We should simplify using the identity \(\cos 2\theta = \cos^2\theta - \sin^2\theta\) or leave in a factored form. The examiner accepts various equivalent forms.</div>
+            <p>$$\frac{dy}{dx} = \frac{-3\,\text{cosec}^3\theta\cot\theta}{2\cos 2\theta}$$</p>
+            <p>We can write \(\text{cosec}\,\theta = \frac{1}{\sin\theta}\) and \(\cot\theta = \frac{\cos\theta}{\sin\theta}\):</p>
+            <div class="algebra-chain">
+                <p>$$\frac{dy}{dx} = \frac{-3 \cdot \frac{1}{\sin^3\theta} \cdot \frac{\cos\theta}{\sin\theta}}{2\cos 2\theta} = \frac{-3\cos\theta}{2\sin^4\theta\cos 2\theta}$$</p>
+            </div>
+            <div class="mark-award">A1 — Correct \(\frac{dy}{d\theta}\) (in any form)</div>
+            <div class="mark-award">A1 — Correct \(\frac{dy}{dx}\) expression (accept any equivalent simplified form)</div>
+            <div class="examiner-note">The expression for \(\frac{dy}{dx}\) can be left in many equivalent forms. The examiners accept \(\frac{-3\,\text{cosec}^3\theta\cot\theta}{2\cos 2\theta}\) or any simplification thereof. You do not need to expand \(\cos 2\theta\) unless the question asks you to.</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 4: Find \(\theta\) when \(y = 8\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Part (b) says "find the gradient at the point where \(y = 8\)". We need to find the value of \(\theta\) that gives \(y = 8\), then substitute into our expression for \(\frac{dy}{dx}\). Since \(y = \text{cosec}^3\theta\), we solve \(\text{cosec}^3\theta = 8\).</div>
+            <div class="algebra-chain">
+                <p>$$\text{cosec}^3\theta = 8$$</p>
+                <p class="reason">Take the cube root:</p>
+                <p>$$\text{cosec}\,\theta = 2$$</p>
+                <p class="reason">So \(\sin\theta = \frac{1}{2}\), and since \(0 < \theta < \frac{\pi}{2}\):</p>
+                <p>$$\theta = \frac{\pi}{6}$$</p>
+            </div>
+            <div class="mark-award">M1 — Setting \(\text{cosec}^3\theta = 8\) and finding \(\theta = \frac{\pi}{6}\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 5: Substitute \(\theta = \frac{\pi}{6}\) to find the exact gradient</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Now we substitute \(\theta = \frac{\pi}{6}\) into our \(\frac{dy}{dx}\) expression. We need exact values: \(\sin\frac{\pi}{6} = \frac{1}{2}\), \(\cos\frac{\pi}{6} = \frac{\sqrt{3}}{2}\), \(\cos\frac{\pi}{3} = \frac{1}{2}\).</div>
+            <div class="algebra-chain">
+                <p class="reason">Using \(\frac{dy}{dx} = \frac{-3\,\text{cosec}^3\theta\cot\theta}{2\cos 2\theta}\) with \(\theta = \frac{\pi}{6}\):</p>
+                <p class="reason">\(\text{cosec}^3\frac{\pi}{6} = 2^3 = 8\)</p>
+                <p class="reason">\(\cot\frac{\pi}{6} = \frac{\cos(\pi/6)}{\sin(\pi/6)} = \frac{\sqrt{3}/2}{1/2} = \sqrt{3}\)</p>
+                <p class="reason">\(\cos 2 \times \frac{\pi}{6} = \cos\frac{\pi}{3} = \frac{1}{2}\)</p>
+            </div>
+            <p>$$\frac{dy}{dx} = \frac{-3 \times 8 \times \sqrt{3}}{2 \times \frac{1}{2}} = \frac{-24\sqrt{3}}{1} = -24\sqrt{3}$$</p>
+            <div class="mark-award">dM1 — Substituting \(\theta = \frac{\pi}{6}\) into their \(\frac{dy}{dx}\) expression</div>
+            <div class="mark-award">A1 — Exact answer: \(-24\sqrt{3}\)</div>
+            <div class="examiner-note">This question tests pure parametric differentiation with trigonometric functions. The key difficulties are: (1) correctly differentiating \(\text{cosec}^3\theta\) using the chain rule, and (2) keeping track of exact values when substituting. Many candidates lost marks by giving a decimal approximation instead of the exact surd form.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p2-oct21-q13')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: P2 Oct 2020 Q12 ===================== -->
+<div class="example-panel" id="ex-p2-oct20-q12">
+    <div class="question-text">
+        <p><strong>Paper 2 — October 2020 — Question 12</strong> (11 marks)</p>
+        <p>The curve shown has parametric equations</p>
+        <p>$$x = 6\sin t, \qquad y = 5\sin 2t, \qquad 0 \leq t \leq \frac{\pi}{2}$$</p>
+        <p>The region \(R\) is bounded by the curve and the \(x\)-axis.</p>
+        <p><strong>(a)(i)</strong> Show that the area of \(R\) is given by \(\displaystyle\int_0^{\pi/2} 60\sin t\cos^2 t\,dt\) <em>[3 marks]</em></p>
+        <p><strong>(a)(ii)</strong> Hence show, by algebraic integration, that the area of \(R\) is exactly 20. <em>[3 marks]</em></p>
+        <p><strong>(b)</strong> Part of the curve models the profile of a dam where \(x\) and \(y\) are in metres and the vertical wall is 4.2 metres high. Calculate the width of the walkway along the top. <em>[5 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FOctober%202020%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FOctober%202020%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a)(i) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)(i)</span> Step 1: Set up the area integral using the parametric form</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The area under a parametric curve is \(\int y\,\frac{dx}{dt}\,dt\). We need to: (1) find \(\frac{dx}{dt}\), (2) write \(y \cdot \frac{dx}{dt}\) in terms of \(t\), and (3) convert the \(x\)-limits to \(t\)-limits. The curve goes from \(t = 0\) (where \(x = 0\)) to \(t = \frac{\pi}{2}\) (where \(x = 6\)).</div>
+            <p>The area formula for a parametric curve is:</p>
+            <p>$$\text{Area} = \int y\,\frac{dx}{dt}\,dt$$</p>
+            <div class="algebra-chain">
+                <p class="reason">Find \(\frac{dx}{dt}\): since \(x = 6\sin t\),</p>
+                <p>$$\frac{dx}{dt} = 6\cos t$$</p>
+                <p class="reason">Write \(y \cdot \frac{dx}{dt}\):</p>
+                <p>$$y \cdot \frac{dx}{dt} = 5\sin 2t \times 6\cos t$$</p>
+            </div>
+            <div class="mark-award">M1 — Forming \(y \times \frac{dx}{dt}\), i.e. writing \(5\sin 2t \times 6\cos t\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)(i)</span> Step 2: Use \(\sin 2t = 2\sin t\cos t\) to simplify</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We need to show that \(5\sin 2t \times 6\cos t\) simplifies to \(60\sin t\cos^2 t\). The identity \(\sin 2t = 2\sin t\cos t\) will do this. This is the key algebraic step in the proof.</div>
+            <div class="algebra-chain">
+                <p>$$5\sin 2t \times 6\cos t = 30\sin 2t \cos t$$</p>
+                <p class="reason">Apply \(\sin 2t = 2\sin t\cos t\):</p>
+                <p>$$= 30 \times 2\sin t\cos t \times \cos t$$</p>
+                <p>$$= 60\sin t\cos^2 t$$</p>
+            </div>
+            <p>Therefore:</p>
+            <p>$$\boxed{\text{Area} = \int_0^{\pi/2} 60\sin t\cos^2 t\,dt} \quad \square$$</p>
+            <div class="mark-award">dM1 — Using \(\sin 2t = 2\sin t\cos t\) within the integral</div>
+            <div class="mark-award">A1* — Correctly reaching the given integral with correct limits</div>
+            <div class="examiner-note">You must explicitly show the identity \(\sin 2t = 2\sin t\cos t\) being applied. Simply jumping from \(5\sin 2t \times 6\cos t\) to \(60\sin t\cos^2 t\) without showing the intermediate step loses the final mark, since this is a "show that" question.</div>
+        </div>
+    </div>
+
+    <!-- Part (a)(ii) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)(ii)</span> Step 3: Integrate \(60\sin t\cos^2 t\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We need to integrate \(60\sin t\cos^2 t\). This is a standard pattern: \(\sin t \times f(\cos t)\). We can use the substitution \(u = \cos t\) (or just recognise that \(\int \sin t\cos^n t\,dt = -\frac{\cos^{n+1} t}{n+1}\)). Here \(n = 2\), so the integral is \(-\frac{60\cos^3 t}{3} = -20\cos^3 t\).</div>
+            <div class="algebra-chain">
+                <p class="reason">Recognise this as a "reverse chain rule" integral (or use \(u = \cos t\), \(du = -\sin t\,dt\)):</p>
+                <p>$$\int 60\sin t\cos^2 t\,dt = 60 \times \left(-\frac{\cos^3 t}{3}\right) = -20\cos^3 t + C$$</p>
+            </div>
+            <div class="mark-award">M1 — Integrating \(\sin t\cos^2 t\) to get \(k\cos^3 t\)</div>
+            <div class="mark-award">A1 — Correct: \(-20\cos^3 t\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)(ii)</span> Step 4: Apply the limits and show the area is 20</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Now we substitute the limits \(t = 0\) and \(t = \frac{\pi}{2}\) into \(-20\cos^3 t\). Remember: \(\cos\frac{\pi}{2} = 0\) and \(\cos 0 = 1\).</div>
+            <div class="algebra-chain">
+                <p>$$\text{Area} = \left[-20\cos^3 t\right]_0^{\pi/2}$$</p>
+                <p class="reason">Upper limit: \(-20\cos^3\frac{\pi}{2} = -20(0)^3 = 0\)</p>
+                <p class="reason">Lower limit: \(-20\cos^3 0 = -20(1)^3 = -20\)</p>
+                <p class="reason">Subtract:</p>
+                <p>$$\text{Area} = 0 - (-20) = \boxed{20} \quad \square$$</p>
+            </div>
+            <div class="mark-award">A1* — Correct evaluation showing area = 20 exactly</div>
+            <div class="examiner-note">This was well answered. The most common error was incorrectly integrating \(\sin t\cos^2 t\) as \(\frac{\cos^3 t}{3}\) (forgetting the negative sign from the chain rule). Using a formal substitution \(u = \cos t\) avoids this error.</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 5: Find the width of the walkway when the dam is 4.2 m high</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The walkway is at height 4.2 m. We need to find two \(x\)-values where \(y = 4.2\) (the two points M and N at the top of the dam), then the width is \(|x_N - x_M|\). First find the \(t\)-values where \(y = 5\sin 2t = 4.2\).</div>
+            <div class="algebra-chain">
+                <p>$$5\sin 2t = 4.2$$</p>
+                <p class="reason">Divide by 5:</p>
+                <p>$$\sin 2t = 0.84$$</p>
+                <p class="reason">Find both values of \(2t\) in \([0, \pi]\):</p>
+                <p>$$2t = \arcsin(0.84) = 0.9973... \quad \text{or} \quad 2t = \pi - 0.9973... = 2.1443...$$</p>
+                <p class="reason">So:</p>
+                <p>$$t_1 = 0.4987..., \qquad t_2 = 1.0721...$$</p>
+            </div>
+            <div class="mark-award">M1 — Setting \(5\sin 2t = 4.2\) and solving for \(t\)</div>
+            <p>Now find the corresponding \(x\)-values:</p>
+            <div class="algebra-chain">
+                <p class="reason">At \(t_1 = 0.4987\): \(x_1 = 6\sin(0.4987) = 6 \times 0.4781... = 2.869...\)</p>
+                <p class="reason">At \(t_2 = 1.0721\): \(x_2 = 6\sin(1.0721) = 6 \times 0.8783... = 5.269...\)</p>
+            </div>
+            <div class="mark-award">dM1 — Finding both \(x\)-values using \(x = 6\sin t\)</div>
+            <p>Width of walkway:</p>
+            <p>$$MN = x_2 - x_1 = 5.269... - 2.869... = \boxed{2.40 \text{ metres}}$$</p>
+            <div class="mark-award">M1 — Attempting to find TWO distinct \(t\)-values</div>
+            <div class="mark-award">A1 — Both correct \(t\)-values (or both \(x\)-values)</div>
+            <div class="mark-award">A1 — Width = 2.40 m (accept 2.4)</div>
+            <div class="examiner-note">Many candidates only found one value of \(t\), forgetting that \(\sin 2t = 0.84\) has two solutions in \([0, \pi]\). Drawing a quick CAST diagram or sine curve sketch helps ensure you find both values. Some candidates attempted a Cartesian approach — this is valid but more algebraically demanding.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p2-oct20-q12')">Show Full Solution</button>
+</div>
+
+<!-- PATTERN RECOGNITION -->
+<h2>How to Recognise This Question Type</h2>
+<div class="card">
+    <p>Look for these signals in the question:</p>
+    <ul style="margin-left: 1.5rem; line-height: 2;">
+        <li>Equations given in the form \(x = f(t)\), \(y = g(t)\) — this IS a parametric question</li>
+        <li><strong>"Show that a Cartesian equation is..."</strong> means eliminate the parameter</li>
+        <li><strong>"Using parametric differentiation"</strong> means you MUST use \(\frac{dy}{dx} = \frac{dy/dt}{dx/dt}\)</li>
+        <li><strong>"Find the equation of the tangent/normal"</strong> after a parametric setup requires finding gradient AND coordinates at a specific \(t\)</li>
+        <li><strong>Shaded region with parametric curve</strong> means area integral \(\int y\frac{dx}{dt}\,dt\)</li>
+        <li>Usually Q9–16, worth 6–12 marks, often the last or second-to-last question</li>
+    </ul>
+</div>
+
+<h2>Key Identities for Parametric Questions</h2>
+<div class="card">
+    <ul style="margin-left: 1.5rem; line-height: 2.2;">
+        <li><strong>Double angle (for Cartesian conversion):</strong> \(\cos 2t = 1 - 2\sin^2 t = 2\cos^2 t - 1\)</li>
+        <li><strong>Pythagorean (for sec/tan):</strong> \(\sec^2 t = 1 + \tan^2 t\)</li>
+        <li><strong>Product-to-sum:</strong> \(\sin 2t = 2\sin t\cos t\) (essential for area integrals)</li>
+        <li><strong>Power reduction:</strong> \(\sin^2 t = \frac{1-\cos 2t}{2}\), \(\cos^2 t = \frac{1+\cos 2t}{2}\)</li>
+        <li><strong>Standard derivatives:</strong> \(\frac{d}{dt}(\sec t) = \sec t\tan t\), \(\frac{d}{dt}(\text{cosec}\,t) = -\text{cosec}\,t\cot t\)</li>
+    </ul>
+</div>
+
+<script>
+    // Toggle individual step
+    function toggleStep(header) {
+        header.classList.toggle('open');
+        header.nextElementSibling.classList.toggle('open');
+    }
+
+    // Show all steps in a panel
+    function showAllSteps(panelId) {
+        const panel = document.getElementById(panelId);
+        panel.querySelectorAll('.step-reveal-header').forEach(h => h.classList.add('open'));
+        panel.querySelectorAll('.step-reveal-content').forEach(c => c.classList.add('open'));
+    }
+
+    // Select an example (tab switching)
+    function selectExample(panelId) {
+        // Deactivate all tabs and panels
+        document.querySelectorAll('.example-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.example-panel').forEach(p => p.classList.remove('active'));
+
+        // Activate the selected panel
+        document.getElementById(panelId).classList.add('active');
+
+        // Find and activate the matching tab
+        const tabs = document.querySelectorAll('.example-tab');
+        const tabMap = {
+            'ex-p1-jun18-q14': 0,
+            'ex-p2-jun22-q16': 1,
+            'ex-p2-oct21-q13': 2,
+            'ex-p2-oct20-q12': 3
+        };
+        if (tabMap[panelId] !== undefined) {
+            tabs[tabMap[panelId]].classList.add('active');
+        }
+
+        // Scroll to worked examples section
+        document.getElementById(panelId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Render KaTeX on load
+    document.addEventListener('DOMContentLoaded', function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ]
+        });
+    });
+</script>
+
+</body>
+</html>

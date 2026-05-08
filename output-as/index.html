@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edexcel AS Level Maths — Topic Guide</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #2b6cb0;
+            --success: #276749;
+            --warning: #c05621;
+            --bg: #f7fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #2d3748;
+            --muted: #718096;
+            --stats-color: #6b46c1;
+            --mech-color: #c05621;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        h1 { color: var(--primary); margin-bottom: 0.25rem; font-size: 2.2rem; }
+        h2 { color: var(--primary); margin: 2.5rem 0 1rem; font-size: 1.4rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+
+        .subtitle { color: var(--muted); margin-bottom: 2rem; font-size: 1.05rem; }
+
+        .nav-link { display: inline-block; margin-bottom: 1.5rem; color: var(--accent); text-decoration: none; font-size: 0.95rem; }
+        .nav-link:hover { text-decoration: underline; }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0 2.5rem;
+        }
+
+        .overview-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.25rem;
+            text-align: center;
+        }
+
+        .overview-card .number { font-size: 2rem; font-weight: 700; color: var(--accent); }
+        .overview-card .label { font-size: 0.85rem; color: var(--muted); margin-top: 0.25rem; }
+
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .topic-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: all 0.2s;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .topic-card:hover { border-color: var(--accent); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+
+        .topic-card.ready { border-left: 4px solid var(--success); }
+
+        .topic-card h3 {
+            color: var(--primary);
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .topic-card .description {
+            color: var(--muted);
+            font-size: 0.88rem;
+            margin-bottom: 0.75rem;
+            flex: 1;
+        }
+
+        .topic-card .stats {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin-bottom: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .topic-card .stats span {
+            background: #edf2f7;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .topic-card .stats .freq-high { background: #c6f6d5; color: var(--success); font-weight: 600; }
+        .topic-card .stats .freq-med { background: #fefcbf; color: #744210; font-weight: 600; }
+
+        .topic-link {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .topic-link:hover { background: var(--primary); }
+
+        .badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 0.7rem;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .badge-ready { background: #c6f6d5; color: var(--success); }
+
+        .section-label {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-pure { background: var(--accent); color: white; }
+        .section-stats { background: var(--stats-color); color: white; }
+        .section-mech { background: var(--mech-color); color: white; }
+
+        .info-box {
+            background: #ebf8ff;
+            border: 1px solid #bee3f8;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+            font-size: 0.93rem;
+        }
+
+        .filter-bar {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-btn {
+            padding: 0.4rem 0.9rem;
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            background: var(--card);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .filter-btn:hover { border-color: var(--accent); }
+        .filter-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            h1 { font-size: 1.6rem; }
+            .topic-grid { grid-template-columns: 1fr; }
+            .overview-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<a href="../output/index.html" class="nav-link">&larr; Switch to A Level (9MA0)</a>
+
+<h1>Edexcel AS Level Maths</h1>
+<p class="subtitle">Interactive topic guides with worked examples from past papers (8MA0, 2018–2024)</p>
+
+<div class="overview-grid">
+    <div class="overview-card">
+        <div class="number">20</div>
+        <div class="label">Papers analysed</div>
+    </div>
+    <div class="overview-card">
+        <div class="number">~150</div>
+        <div class="label">Questions categorised</div>
+    </div>
+    <div class="overview-card">
+        <div class="number">23</div>
+        <div class="label">Topic areas</div>
+    </div>
+    <div class="overview-card">
+        <div class="number">7</div>
+        <div class="label">Exam sittings (2018–2024)</div>
+    </div>
+</div>
+
+<div class="info-box">
+    <strong>How this works:</strong> Each topic page contains a guided approach, examiner pitfalls, and fully worked past paper examples with step-by-step reveals, mark awards, and thinking prompts explaining <em>why</em> each step is taken. Topics are ordered by exam frequency — start from the top for maximum impact.
+</div>
+
+<!-- Filters -->
+<h2>Topics</h2>
+<div class="filter-bar">
+    <div class="filter-btn active" onclick="filterTopics('all')">All Topics</div>
+    <div class="filter-btn" onclick="filterTopics('pure')">Paper 1 (Pure)</div>
+    <div class="filter-btn" onclick="filterTopics('stats')">Paper 2 (Statistics)</div>
+    <div class="filter-btn" onclick="filterTopics('mech')">Paper 2 (Mechanics)</div>
+</div>
+
+<div class="topic-grid" id="topic-grid">
+
+    <!-- =============== PURE MATHEMATICS (PAPER 1) =============== -->
+
+    <div class="topic-card ready" data-tags="pure">
+        <span class="badge badge-ready">Live</span>
+        <h3>Differentiation</h3>
+        <p class="description">Power rule, tangents/normals, stationary points, optimisation, increasing/decreasing functions, from first principles.</p>
+        <div class="stats">
+            <span class="freq-high">7/7 papers</span>
+            <span>4–13 marks</span>
+            <span>Q3–Q14</span>
+        </div>
+        <a href="topics/differentiation.html" class="topic-link">Study this topic</a>
+    </div>
+
+    <div class="topic-card ready" data-tags="pure">
+        <span class="badge badge-ready">Live</span>
+        <h3>Integration</h3>
+        <p class="description">Indefinite integrals, definite integrals, areas under/between curves, finding equations of curves from gradient functions.</p>
+        <div class="stats">
+            <span class="freq-high">7/7 papers</span>
+            <span>4–12 marks</span>
+            <span>Q1–Q15</span>
+        </div>
+        <a href="topics/integration.html" class="topic-link">Study this topic</a>
+    </div>
+
+    <div class="topic-card ready" data-tags="pure">
+        <span class="badge badge-ready">Live</span>
+        <h3>Exponentials &amp; Logarithms</h3>
+        <p class="description">Laws of logarithms, solving exponential equations, exponential modelling (growth/decay), log-linear graphs, finding parameters.</p>
+        <div class="stats">
+            <span class="freq-high">7/7 papers</span>
+            <span>5–10 marks</span>
+            <span>Q4–Q14</span>
+        </div>
+        <a href="topics/exponentials-logarithms.html" class="topic-link">Study this topic</a>
+    </div>
+
+    <div class="topic-card ready" data-tags="pure">
+        <span class="badge badge-ready">Live</span>
+        <h3>Algebra</h3>
+        <p class="description">Indices, surds, quadratics, completing the square, discriminant, factor theorem, simultaneous equations, inequalities.</p>
+        <div class="stats">
+            <span class="freq-high">7/7 papers</span>
+            <span>3–8 marks</span>
+            <span>Q1–Q6</span>
+        </div>
+        <a href="topics/algebra.html" class="topic-link">Study this topic</a>
+    </div>
+
+    <div class="topic-card ready" data-tags="pure">
+        <span class="badge badge-ready">Live</span>
+        <h3>Coordinate Geometry — Circles</h3>
+        <p class="description">Equation of circle, centre/radius, tangent lines (perpendicular to radius), intersection with lines, discriminant tangency.</p>
+        <div class="stats">
+            <span class="freq-high">7/7 papers</span>
+            <span>6–10 marks</span>
+            <span>Q8–Q13</span>
+        </div>
+        <a href="topics/coordinate-geometry-circles.html" class="topic-link">Study this topic</a>
+    </div>
+
+    <div class="topic-card ready" data-tags="pure">
+        <span class="badge badge-ready">Live</span>
+        <h3>Trigonometry</h3>
+        <p class="description">Trigonometric identities (sin\u00b2+cos\u00b2=1, tan=sin/cos), solving equations in degrees/radians, graphs of sin/cos/tan.</p>
+        <div class="stats">
+            <span class="freq-high">7/7 papers</span>
+            <span>5–9 marks</span>
+            <span>Q5–Q13</span>
+        </div>
+        <a href="topics/trigonometry.html" class="topic-link">Study this topic</a>
+    </div>
+
+    <div class="topic-card ready" data-tags="pure">
+        <span class="badge badge-ready">Live</span>
+        <h3>Binomial Expansion</h3>
+        <p class="description">Expanding \((a+b)^n\) for positive integer \(n\), finding specific coefficients, using expansions to approximate values.</p>
+        <div class="stats">
+            <span class="freq-high">7/7 papers</span>
+            <span>4–6 marks</span>
+            <span>Q5–Q9</span>
+        </div>
+        <a href="topics/binomial-expansion.html" class="topic-link">Study this topic</a>
+    </div>
+
+    <div class="topic-card ready" data-tags="pure">
+        <span class="badge badge-ready">Live</span>
+        <h3>Sequences &amp; Series</h3>
+        <p class="description">Arithmetic sequences/series (nth term, sum), geometric sequences/series (sum to infinity, convergence), sigma notation.</p>
+        <div class="stats">
+            <span class="freq-high">7/7 papers</span>
+            <span>3–9 marks</span>
+            <span>Q2–Q13</span>
+        </div>
+        <a href="topics/sequences-series.html" class="topic-link">Study this topic</a>
+    </div>
+
+    <div class="topic-card ready" data-tags="pure">
+        <span class="badge badge-ready">Live</span>
+        <h3>Proof</h3>
+        <p class="description">Proof by deduction, exhaustion, disproof by counter-example. Algebraic proofs: divisibility, odd/even, inequalities.</p>
+        <div class="stats">
+            <span class="freq-high">7/7 papers</span>
+            <span>4–11 marks</span>
+            <span>Q13–Q17</span>
+        </div>
+        <a href="topics/proof.html" class="topic-link">Study this topic</a>
+    </div>
+
+    <div class="topic-card ready" data-tags="pure">
+        <span class="badge badge-ready">Live</span>
+        <h3>Coordinate Geometry — Straight Lines</h3>
+        <p class="description">Equations of lines, gradients, perpendicular/parallel lines, midpoints, intersections, areas of triangles.</p>
+        <div class="stats">
+            <span class="freq-high">6/7 papers</span>
+            <span>5–8 marks</span>
+            <span>Q2–Q10</span>
+        </div>
+        <a href="topics/straight-lines.html" class="topic-link">Study this topic</a>
+    </div>
+
+    <div class="topic-card ready" data-tags="pure">
+        <span class="badge badge-ready">Live</span>
+        <h3>Functions</h3>
+        <p class="description">Composite functions fg(x), inverse functions, domain and range, graph transformations f(x+a), af(x), sketching.</p>
+        <div class="stats">
+            <span class="freq-med">5/7 papers</span>
+            <span>6–10 marks</span>
+            <span>Q7–Q12</span>
+        </div>
+        <a href="topics/functions.html" class="topic-link">Study this topic</a>
+    </div>
+
+    <div class="topic-card ready" data-tags="pure">
+        <span class="badge badge-ready">Live</span>
+        <h3>Vectors</h3>
+        <p class="description">Position vectors, magnitude, direction, proving collinearity, perpendicularity via dot product, areas from vectors.</p>
+        <div class="stats">
+            <span class="freq-med">2/7 papers</span>
+            <span>7–8 marks</span>
+            <span>Q3–Q13</span>
+        </div>
+        <a href="topics/vectors.html" class="topic-link">Study this topic</a>
+    </div>
+
+    <!-- =============== STATISTICS (PAPER 2 SECTION A) =============== -->
+
+    <div class="topic-card ready" data-tags="stats">
+        <span class="badge badge-ready">Live</span>
+        <h3>Data Presentation &amp; Interpretation</h3>
+        <p class="description">Histograms, box plots, cumulative frequency, outliers (1.5xIQR rule), linear interpolation for median/quartiles, skewness.</p>
+        <div class="stats">
+            <span class="freq-high">7/7 sittings</span>
+            <span>4–9 marks</span>
+            <span>Q1–Q4</span>
+        </div>
+        <a href="topics/data-presentation.html" class="topic-link">Study this topic</a>
+    </div>
+
+    <div class="topic-card ready" data-tags="stats">
+        <span class="badge badge-ready">Live</span>
+        <h3>Binomial Distribution &amp; Hypothesis Testing</h3>
+        <p class="description">X~B(n,p), calculating P(X=r), hypothesis tests for proportion, significance levels, critical regions, p-values.</p>
+        <div class="stats">
+            <span class="freq-high">7/7 sittings</span>
+            <span>7–10 marks</span>
+            <span>Q3–Q5</span>
+        </div>
+        <a href="topics/hypothesis-testing.html" class="topic-link">Study this topic</a>
+    </div>
+
+    <div class="topic-card ready" data-tags="stats">
+        <span class="badge badge-ready">Live</span>
+        <h3>Probability</h3>
+        <p class="description">Venn diagrams, tree diagrams, conditional probability P(A|B), independence, mutually exclusive events.</p>
+        <div class="stats">
+            <span class="freq-high">6/7 sittings</span>
+            <span>4–6 marks</span>
+            <span>Q2–Q5</span>
+        </div>
+        <a href="topics/probability.html" class="topic-link">Study this topic</a>
+    </div>
+
+    <div class="topic-card ready" data-tags="stats">
+        <span class="badge badge-ready">Live</span>
+        <h3>Correlation &amp; Regression</h3>
+        <p class="description">Interpreting PMCC, regression lines y=a+bx, interpolation/extrapolation, limitations of models.</p>
+        <div class="stats">
+            <span class="freq-med">5/7 sittings</span>
+            <span>3–5 marks</span>
+            <span>Q1–Q2</span>
+        </div>
+        <a href="topics/correlation-regression.html" class="topic-link">Study this topic</a>
+    </div>
+
+    <div class="topic-card ready" data-tags="stats">
+        <span class="badge badge-ready">Live</span>
+        <h3>Sampling &amp; Large Data Set</h3>
+        <p class="description">Random, systematic, stratified sampling. Large Data Set knowledge: variables, locations, cleaning data, coding.</p>
+        <div class="stats">
+            <span class="freq-high">7/7 sittings</span>
+            <span>1–4 marks</span>
+            <span>Q1–Q4</span>
+        </div>
+        <a href="topics/sampling-lds.html" class="topic-link">Study this topic</a>
+    </div>
+
+    <div class="topic-card ready" data-tags="stats">
+        <span class="badge badge-ready">Live</span>
+        <h3>Discrete Random Variables</h3>
+        <p class="description">Probability distributions, E(X), Var(X), using tables, modelling with discrete distributions.</p>
+        <div class="stats">
+            <span class="freq-high">7/7 sittings</span>
+            <span>5–8 marks</span>
+            <span>Q3–Q5</span>
+        </div>
+        <a href="topics/discrete-random-variables.html" class="topic-link">Study this topic</a>
+    </div>
+
+    <!-- =============== MECHANICS (PAPER 2 SECTION B) =============== -->
+
+    <div class="topic-card ready" data-tags="mech">
+        <span class="badge badge-ready">Live</span>
+        <h3>Kinematics — Vertical Motion</h3>
+        <p class="description">Objects under gravity (g=9.8), suvat equations applied vertically, time to highest point, speed on landing.</p>
+        <div class="stats">
+            <span class="freq-high">7/7 sittings</span>
+            <span>4–12 marks</span>
+            <span>Q1–Q2 (Mech)</span>
+        </div>
+        <a href="topics/vertical-motion.html" class="topic-link">Study this topic</a>
+    </div>
+
+    <div class="topic-card ready" data-tags="mech">
+        <span class="badge badge-ready">Live</span>
+        <h3>Kinematics — Variable Acceleration</h3>
+        <p class="description">Using calculus: v=ds/dt, a=dv/dt, s=\(\int v\,dt\). Finding when at rest, total distance, direction changes.</p>
+        <div class="stats">
+            <span class="freq-high">7/7 sittings</span>
+            <span>7–10 marks</span>
+            <span>Q2–Q3 (Mech)</span>
+        </div>
+        <a href="topics/variable-acceleration.html" class="topic-link">Study this topic</a>
+    </div>
+
+    <div class="topic-card ready" data-tags="mech">
+        <span class="badge badge-ready">Live</span>
+        <h3>Kinematics — Constant Acceleration</h3>
+        <p class="description">Suvat equations, velocity-time graphs, area = distance, multi-stage motion (accelerate-constant-decelerate).</p>
+        <div class="stats">
+            <span class="freq-high">5/7 sittings</span>
+            <span>6–8 marks</span>
+            <span>Q1–Q2 (Mech)</span>
+        </div>
+        <a href="topics/constant-acceleration.html" class="topic-link">Study this topic</a>
+    </div>
+
+    <div class="topic-card ready" data-tags="mech">
+        <span class="badge badge-ready">Live</span>
+        <h3>Connected Particles &amp; Pulleys</h3>
+        <p class="description">Two particles on a pulley, equations of motion (F=ma for each), finding tension, acceleration, model limitations.</p>
+        <div class="stats">
+            <span class="freq-high">5/7 sittings</span>
+            <span>9–13 marks</span>
+            <span>Q2–Q4 (Mech)</span>
+        </div>
+        <a href="topics/connected-particles.html" class="topic-link">Study this topic</a>
+    </div>
+
+    <div class="topic-card ready" data-tags="mech">
+        <span class="badge badge-ready">Live</span>
+        <h3>Forces &amp; Newton's Laws</h3>
+        <p class="description">F=ma applied to lifts, towing problems (car + trailer), resolving forces, driving force, resistance, tension in tow bar.</p>
+        <div class="stats">
+            <span class="freq-med">3/7 sittings</span>
+            <span>5–12 marks</span>
+            <span>Q3–Q4 (Mech)</span>
+        </div>
+        <a href="topics/forces-newtons-laws.html" class="topic-link">Study this topic</a>
+    </div>
+
+</div>
+
+<!-- DATA COVERAGE -->
+<h2>Papers Covered</h2>
+<div class="info-box">
+    <p><strong>Paper 1 (Pure Mathematics):</strong> June 2018, June 2019, June 2020, November 2021, June 2022, June 2023, June 2024</p>
+    <p style="margin-top: 0.5rem;"><strong>Paper 2 — Statistics:</strong> June 2018, June 2019, June 2020, November 2021, June 2022, June 2023, June 2024</p>
+    <p style="margin-top: 0.5rem;"><strong>Paper 2 — Mechanics:</strong> June 2018, June 2019, June 2020, November 2021, June 2022, June 2023, June 2024</p>
+    <p style="margin-top: 0.75rem; color: var(--muted); font-size: 0.9rem;">Specification: Pearson Edexcel Level 3 Advanced Subsidiary GCE in Mathematics (8MA0). Paper 2 was combined in 2018 and split into separate Statistics/Mechanics booklets from 2019 onwards.</p>
+</div>
+
+<script>
+    function filterTopics(tag) {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        event.target.classList.add('active');
+
+        document.querySelectorAll('.topic-card').forEach(card => {
+            if (tag === 'all') {
+                card.style.display = '';
+            } else {
+                const tags = card.dataset.tags || '';
+                card.style.display = tags.includes(tag) ? '' : 'none';
+            }
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ]
+        });
+    });
+</script>
+
+</body>
+</html>

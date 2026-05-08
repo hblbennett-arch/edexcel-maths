@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Differential Equations — Edexcel A Level Maths</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #2b6cb0;
+            --success: #276749;
+            --warning: #c05621;
+            --danger: #c53030;
+            --bg: #f7fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #2d3748;
+            --muted: #718096;
+            --mark: #805ad5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        h1 { color: var(--primary); margin-bottom: 0.5rem; font-size: 2rem; }
+        h2 { color: var(--primary); margin: 2.5rem 0 1rem; font-size: 1.4rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        h3 { color: var(--accent); margin: 1.5rem 0 0.75rem; font-size: 1.15rem; }
+
+        .subtitle { color: var(--muted); margin-bottom: 2rem; font-size: 1.05rem; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--accent); }
+        .stat-card .label { font-size: 0.85rem; color: var(--muted); }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .approach-step {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .approach-step:last-child { border-bottom: none; }
+
+        .step-number {
+            background: var(--accent);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .step-content { flex: 1; }
+        .step-content strong { color: var(--primary); }
+
+        .pitfall-box {
+            background: #fff5f5;
+            border: 1px solid #fed7d7;
+            border-left: 4px solid var(--danger);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .pitfall-box h3 { color: var(--danger); margin-top: 0; }
+        .pitfall-box ul { margin-left: 1.5rem; margin-top: 0.5rem; }
+        .pitfall-box li { margin: 0.5rem 0; }
+
+        .tip-box {
+            background: #f0fff4;
+            border: 1px solid #c6f6d5;
+            border-left: 4px solid var(--success);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .tip-box h3 { color: var(--success); margin-top: 0; }
+
+        /* Question index table */
+        .question-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.92rem;
+        }
+
+        .question-table th {
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+        }
+
+        .question-table td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .question-table tr:hover { background: #ebf8ff; }
+
+        .question-table a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .question-table a:hover { text-decoration: underline; }
+
+        .question-table .go-btn {
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+        }
+
+        .question-table .go-btn:hover { background: var(--primary); }
+
+        /* Worked examples */
+        .example-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .example-tab {
+            padding: 0.5rem 1rem;
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .example-tab:hover { border-color: var(--accent); }
+        .example-tab.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+        .example-panel { display: none; }
+        .example-panel.active { display: block; }
+
+        .question-text {
+            background: #ebf8ff;
+            border: 1px solid #bee3f8;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.02rem;
+        }
+
+        .question-text .links {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #bee3f8;
+            font-size: 0.85rem;
+        }
+
+        .question-text .links a {
+            color: var(--accent);
+            text-decoration: none;
+            margin-right: 1.5rem;
+        }
+
+        .question-text .links a:hover { text-decoration: underline; }
+
+        .step-reveal {
+            margin: 0.75rem 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .step-reveal-header {
+            padding: 0.75rem 1rem;
+            background: #edf2f7;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background 0.2s;
+            gap: 0.5rem;
+        }
+
+        .step-reveal-header:hover { background: #e2e8f0; }
+
+        .step-reveal-header .arrow {
+            transition: transform 0.3s;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .step-reveal-header.open .arrow { transform: rotate(90deg); }
+
+        .step-reveal-content {
+            display: none;
+            padding: 1.25rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .step-reveal-content.open { display: block; }
+
+        .part-label {
+            display: inline-block;
+            background: #ebf8ff;
+            color: var(--accent);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        .mark-badge {
+            display: inline-block;
+            background: #faf5ff;
+            color: var(--mark);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border: 1px solid #e9d8fd;
+        }
+
+        .mark-award {
+            background: #faf5ff;
+            border: 1px solid #e9d8fd;
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            color: var(--mark);
+            font-weight: 600;
+        }
+
+        .mark-award::before {
+            content: "\2713 ";
+        }
+
+        .examiner-note {
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            border-radius: 6px;
+            padding: 0.75rem;
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .examiner-note::before {
+            content: "Examiner: ";
+            font-weight: 700;
+            color: var(--warning);
+        }
+
+        .show-all-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            transition: background 0.2s;
+        }
+
+        .show-all-btn:hover { background: var(--primary); }
+
+        .motivation {
+            background: #eef6ff;
+            border: 1px solid #c3dafe;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.93rem;
+        }
+
+        .motivation::before {
+            content: "\1F4AD Thinking: ";
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .algebra-chain {
+            margin: 0.5rem 0;
+            padding-left: 1rem;
+            border-left: 3px solid var(--border);
+        }
+
+        .algebra-chain .reason {
+            color: var(--muted);
+            font-size: 0.85rem;
+            font-style: italic;
+            margin: 0.25rem 0;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            h1 { font-size: 1.5rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .example-selector { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<p style="margin-bottom: 1rem;"><a href="../index.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">&larr; All Topics</a></p>
+
+<h1>Differential Equations</h1>
+<p class="subtitle">Separating variables, solving first-order ODEs, applying boundary conditions, and modelling with differential equations</p>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="number">10/14</div>
+        <div class="label">Papers with this topic</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">8&ndash;12</div>
+        <div class="label">Typical marks</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">Q10&ndash;14</div>
+        <div class="label">Paper position</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">3&ndash;4 parts</div>
+        <div class="label">Standard structure</div>
+    </div>
+</div>
+
+<!-- FULL QUESTION INDEX -->
+<h2>All Past Paper Questions on This Topic</h2>
+<p style="margin-bottom: 1rem; color: var(--muted);">Every differential equation question from Edexcel 9MA0 (2018&ndash;2024). Click "Worked Example" to see a full guided solution.</p>
+
+<table class="question-table">
+    <thead>
+        <tr>
+            <th>Paper</th>
+            <th>Question</th>
+            <th>Description</th>
+            <th>Marks</th>
+            <th>Links</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>P1 June 2018</td>
+            <td>Q10</td>
+            <td>Roller coaster height: \(\frac{dH}{dt} = \frac{H\cos(0.25t)}{40}\); show \(H = 5e^{0.1\sin(0.25t)}\)</td>
+            <td>8</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202018%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202018%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p1-jun18-q10'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P2 June 2019</td>
+            <td>Q14</td>
+            <td>Tree growth: \(\frac{dh}{dt} = \frac{t^{0.25}(4-h)}{20}\); partial fractions, boundary conditions</td>
+            <td>15</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202019%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202019%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 Oct 2020</td>
+            <td>Q14</td>
+            <td>Deflating balloon: \(\frac{dr}{dt} = -\frac{k}{r^2}\); find equation linking \(r\) and \(t\)</td>
+            <td>10</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FOctober%202020%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FOctober%202020%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p1-oct20-q14'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P2 June 2022</td>
+            <td>Q11</td>
+            <td>Oxygen production: \(\frac{dV}{dt} = \frac{3V}{(2t-1)(t+1)}\); partial fractions</td>
+            <td>10</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202022%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202022%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p2-jun22-q11'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P2 June 2023</td>
+            <td>Q11</td>
+            <td>Tank filling: \(\frac{dh}{dt} = \frac{\lambda}{\sqrt{h}}\); boundary conditions, find time to fill</td>
+            <td>10</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202023%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202023%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 June 2024</td>
+            <td>Q12</td>
+            <td>Leaking tank: \(\frac{dH}{dt} = -0.12e^{-0.2t}\); simple integration with boundary condition</td>
+            <td>5</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202024%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202024%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 June 2024</td>
+            <td>Q14</td>
+            <td>Balloon inflating: \(\frac{dr}{dt} = \frac{k}{\sqrt{r}}\); separating variables, show \(r^{3/2} = 5.4t + 10\)</td>
+            <td>9</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202024%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202024%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p1-jun24-q14'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P2 June 2024</td>
+            <td>Q12</td>
+            <td>Plant cell: \(\frac{dV}{dt} = \frac{1}{10}V(25-V)\); partial fractions, logistic growth</td>
+            <td>12</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202024%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202024%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- GUIDED APPROACH -->
+<h2>The Approach</h2>
+<div class="card">
+    <p style="margin-bottom: 1rem; color: var(--muted);">The standard structure for Edexcel differential equation questions:</p>
+
+    <div class="approach-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+            <strong>Set up or identify the differential equation</strong><br>
+            Read the modelling context carefully. If Part (a) asks you to "show that" a DE holds, translate the English ("rate of change is proportional to...") into symbols. If the DE is given, move straight to solving it.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+            <strong>Separate the variables</strong><br>
+            Get all terms involving the dependent variable (e.g. \(y\), \(H\), \(V\)) on one side with its differential, and all terms involving the independent variable (e.g. \(t\), \(x\)) on the other side with its differential. Write integral signs on both sides.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+            <strong>Integrate both sides</strong><br>
+            Perform the integration. This may require partial fractions, substitution, or standard results. Always include \(+ c\) (the constant of integration). If the LHS requires partial fractions, do that decomposition first.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+            <strong>Apply the boundary/initial condition to find \(c\)</strong><br>
+            Substitute the given values (e.g. "when \(t = 0\), \(H = 5\)") into your integrated equation and solve for the constant. Then write the particular solution. If it's a "show that", rearrange to match the target form.
+        </div>
+    </div>
+</div>
+
+<!-- EXAMINER PITFALLS -->
+<div class="pitfall-box">
+    <h3>Common Pitfalls (from Examiner Reports)</h3>
+    <ul>
+        <li><strong>Forgetting \(+\,c\):</strong> The most common error. Without the constant of integration, the boundary condition step is impossible and you lose multiple marks downstream. Write \(+\,c\) immediately after integrating.</li>
+        <li><strong>Not applying boundary conditions correctly:</strong> You must substitute both the \(t\)-value AND the \(y\)-value simultaneously. Many candidates forget one or substitute into the wrong equation.</li>
+        <li><strong>Partial fractions errors:</strong> When the DE requires partial fractions (e.g. \(\frac{1}{V(25-V)}\)), careless sign errors in the decomposition propagate through the entire solution. Check your fractions by recombining before proceeding.</li>
+        <li><strong>Incorrect separation:</strong> The dV and dt must be in the correct positions. Writing \(\int \frac{1}{V}\,dt = \int f(t)\,dV\) (swapped) is a fatal error that scores M0.</li>
+        <li><strong>Losing \(\ln\) brackets:</strong> Writing \(\ln V(25-V)\) when you mean \(\ln\bigl(V(25-V)\bigr)\) or \(\ln V + \ln(25-V)\) causes confusion and can lose marks. Use brackets or write separate ln terms.</li>
+    </ul>
+</div>
+
+<div class="tip-box">
+    <h3>What Top Candidates Do</h3>
+    <ul>
+        <li>Write the separated form with integral signs explicitly: \(\displaystyle\int \frac{1}{H}\,dH = \int \frac{\cos(0.25t)}{40}\,dt\) — this earns the first M1 even if subsequent work has errors.</li>
+        <li>For "show that" questions: work towards the target form systematically. Combine ln terms using log laws, and show clearly how \(e^{\ln(\ldots)} = \ldots\) when converting back.</li>
+        <li>State boundary conditions explicitly: write "When \(t = 0\), \(H = 5\):" before substituting — this makes your method crystal clear.</li>
+        <li>Check your answer makes physical sense: if the model says something is growing, your solution should increase with \(t\). If it should have a limiting value, check the formula gives it as \(t \to \infty\).</li>
+    </ul>
+</div>
+
+<!-- WORKED EXAMPLES -->
+<h2>Worked Examples</h2>
+<p style="color: var(--muted); margin-bottom: 0.5rem;">Select a question to see the full guided solution:</p>
+
+<div class="example-selector">
+    <div class="example-tab active" onclick="selectExample('ex-p1-jun18-q10')">June 2018 P1 Q10</div>
+    <div class="example-tab" onclick="selectExample('ex-p2-jun22-q11')">June 2022 P2 Q11</div>
+    <div class="example-tab" onclick="selectExample('ex-p1-oct20-q14')">Oct 2020 P1 Q14</div>
+    <div class="example-tab" onclick="selectExample('ex-p1-jun24-q14')">June 2024 P1 Q14</div>
+</div>
+
+<!-- ===================== EXAMPLE: P1 June 2018 Q10 ===================== -->
+<div class="example-panel active" id="ex-p1-jun18-q10">
+    <div class="question-text">
+        <p><strong>Paper 1 — June 2018 — Question 10</strong> (8 marks)</p>
+        <p>The height above ground, \(H\) metres, of a passenger on a roller coaster can be modelled by the differential equation</p>
+        <p>$$\frac{dH}{dt} = \frac{H\cos(0.25t)}{40}$$</p>
+        <p>where \(t\) is the time, in seconds, from the start of the ride. Given that the passenger is 5 m above the ground at the start of the ride,</p>
+        <p><strong>(a)</strong> show that \(H = 5e^{0.1\sin(0.25t)}\) <em>[5 marks]</em></p>
+        <p><strong>(b)</strong> State the maximum height of the passenger above the ground. <em>[1 mark]</em></p>
+        <p><strong>(c)</strong> Find the value of \(T\), where the passenger reaches the maximum height for the second time at \(T\) seconds. <em>[2 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202018%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202018%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) Step 1 -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Separate the variables</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The DE has \(H\) on the right-hand side mixed with \(t\). To solve it, we need all \(H\) terms on one side and all \(t\) terms on the other. Since \(H\) is multiplied on the RHS, we divide both sides by \(H\), then "multiply across" by \(dt\).</div>
+            <p>Starting with:</p>
+            <p>$$\frac{dH}{dt} = \frac{H\cos(0.25t)}{40}$$</p>
+            <div class="algebra-chain">
+                <p class="reason">Separate: divide both sides by \(H\) and multiply both sides by \(dt\):</p>
+                <p>$$\frac{1}{H}\,dH = \frac{\cos(0.25t)}{40}\,dt$$</p>
+                <p class="reason">Add integral signs to both sides:</p>
+                <p>$$\int \frac{1}{H}\,dH = \int \frac{\cos(0.25t)}{40}\,dt$$</p>
+            </div>
+            <div class="mark-award">M1 — Separates the variables correctly with integral signs present and dH, dt in correct positions</div>
+        </div>
+    </div>
+
+    <!-- Part (a) Step 2 -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 2: Integrate both sides</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The LHS is a standard integral: \(\int \frac{1}{H}\,dH = \ln|H|\). The RHS requires us to integrate \(\cos(0.25t)\) — recall that \(\int \cos(at)\,dt = \frac{1}{a}\sin(at)\). Here \(a = 0.25\), so we divide by \(0.25\) (i.e. multiply by 4).</div>
+            <div class="algebra-chain">
+                <p class="reason">LHS: \(\int \frac{1}{H}\,dH = \ln H\) (since \(H > 0\), the height is always positive)</p>
+                <p class="reason">RHS: \(\int \frac{\cos(0.25t)}{40}\,dt = \frac{1}{40} \times \frac{\sin(0.25t)}{0.25} = \frac{\sin(0.25t)}{10}\)</p>
+            </div>
+            <p>$$\ln H = \frac{\sin(0.25t)}{10} + c$$</p>
+            <p>Or equivalently: \(\ln H = \frac{1}{10}\sin(0.25t) + c\)</p>
+            <div class="mark-award">M1 — Integrates both sides: \(\ln H\) on the left, expression involving \(\sin(0.25t)\) on the right</div>
+            <div class="mark-award">A1 — Correct integration: \(\ln H = \frac{1}{10}\sin(0.25t) + c\)</div>
+        </div>
+    </div>
+
+    <!-- Part (a) Step 3 -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 3: Apply the boundary condition to find \(c\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We're told the passenger starts at 5 m, i.e. when \(t = 0\), \(H = 5\). Substituting these values into our integrated equation will give us the value of \(c\). Note that \(\sin(0) = 0\), which simplifies things nicely.</div>
+            <p>When \(t = 0\), \(H = 5\):</p>
+            <div class="algebra-chain">
+                <p>$$\ln 5 = \frac{1}{10}\sin(0) + c$$</p>
+                <p class="reason">Since \(\sin(0) = 0\):</p>
+                <p>$$\ln 5 = 0 + c$$</p>
+                <p>$$c = \ln 5$$</p>
+            </div>
+            <p>So our equation becomes:</p>
+            <p>$$\ln H = \frac{1}{10}\sin(0.25t) + \ln 5$$</p>
+            <div class="mark-award">dM1 — Substitutes \(t = 0\), \(H = 5\) into an integrated equation containing a constant of integration</div>
+        </div>
+    </div>
+
+    <!-- Part (a) Step 4 -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 4: Rearrange to reach the given answer</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The target answer is \(H = 5e^{0.1\sin(0.25t)}\). We currently have \(\ln H = \frac{1}{10}\sin(0.25t) + \ln 5\). To get \(H\) on its own, we exponentiate both sides. Using the log law \(e^{a+b} = e^a \cdot e^b\) and \(e^{\ln 5} = 5\), we can reach the given form.</div>
+            <div class="algebra-chain">
+                <p>Starting with: \(\ln H = \frac{1}{10}\sin(0.25t) + \ln 5\)</p>
+                <p class="reason">Exponentiate both sides (take \(e\) to the power of each side):</p>
+                <p>$$H = e^{\frac{1}{10}\sin(0.25t) + \ln 5}$$</p>
+                <p class="reason">Use the index law \(e^{a+b} = e^a \cdot e^b\):</p>
+                <p>$$H = e^{\frac{1}{10}\sin(0.25t)} \cdot e^{\ln 5}$$</p>
+                <p class="reason">Since \(e^{\ln 5} = 5\):</p>
+                <p>$$\boxed{H = 5e^{0.1\sin(0.25t)}} \quad \square$$</p>
+            </div>
+            <div class="mark-award">A1* — Reaches the given answer with clear, complete working and at least one correct intermediate line</div>
+            <div class="examiner-note">Many candidates lost this mark by jumping from \(\ln H = \frac{1}{10}\sin(0.25t) + \ln 5\) straight to the answer. You must show at least one intermediate step when exponentiating. The most common acceptable intermediate line is \(H = e^{\frac{1}{10}\sin(0.25t)} \cdot e^{\ln 5}\) or \(\ln H - \ln 5 = \frac{1}{10}\sin(0.25t)\) leading to \(\ln\frac{H}{5} = ...\)</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 5: State the maximum height</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">\(H = 5e^{0.1\sin(0.25t)}\). The height is maximised when the exponent \(0.1\sin(0.25t)\) is maximised. Since the maximum value of \(\sin(\text{anything})\) is 1, the maximum exponent is \(0.1 \times 1 = 0.1\), giving maximum height \(5e^{0.1}\).</div>
+            <p>Maximum of \(\sin(0.25t)\) is 1, so maximum height is:</p>
+            <p>$$H_{\max} = 5e^{0.1 \times 1} = 5e^{0.1} \approx 5.53 \text{ m}$$</p>
+            <div class="mark-award">B1 — States \(5e^{0.1}\) (or equivalent decimal)</div>
+        </div>
+    </div>
+
+    <!-- Part (c) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)</span> Step 6: Find when maximum height is reached for the second time</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Maximum height occurs when \(\sin(0.25t) = 1\), i.e. when \(0.25t = \frac{\pi}{2} + 2n\pi\) for integer \(n\). The first time is \(n=0\): \(t = \frac{\pi/2}{0.25} = 2\pi\). The second time is \(n=1\): \(t = \frac{\pi/2 + 2\pi}{0.25}\).</div>
+            <div class="algebra-chain">
+                <p>We need \(\sin(0.25t) = 1\):</p>
+                <p>$$0.25t = \frac{\pi}{2} + 2n\pi$$</p>
+                <p class="reason">For the second time, \(n = 1\):</p>
+                <p>$$0.25t = \frac{\pi}{2} + 2\pi = \frac{5\pi}{2}$$</p>
+                <p>$$t = \frac{5\pi/2}{0.25} = \frac{5\pi}{0.5} = 10\pi$$</p>
+            </div>
+            <p>$$\boxed{T = 10\pi \approx 31.4 \text{ seconds}}$$</p>
+            <div class="mark-award">M1 — Sets \(0.25t = \frac{5\pi}{2}\) (or equivalent method for second occurrence)</div>
+            <div class="mark-award">A1 — \(T = 10\pi\) or awrt 31.4</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p1-jun18-q10')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: P2 June 2022 Q11 ===================== -->
+<div class="example-panel" id="ex-p2-jun22-q11">
+    <div class="question-text">
+        <p><strong>Paper 2 — June 2022 — Question 11</strong> (10 marks)</p>
+        <p>When chemical A and chemical B are mixed, oxygen is produced. The total volume of oxygen produced, \(V\) m\(^3\), \(t\) hours after the chemicals were mixed, is modelled by the differential equation</p>
+        <p>$$\frac{dV}{dt} = \frac{3V}{(2t-1)(t+1)}, \quad V > 0, \quad t > k$$</p>
+        <p>where \(k\) is a constant.</p>
+        <p><strong>(a)</strong> Express \(\dfrac{3}{(2x-1)(x+1)}\) in partial fractions. <em>[3 marks]</em></p>
+        <p>Given that exactly 2 hours after the chemicals were mixed, a total volume of 3 m\(^3\) of oxygen had been produced,</p>
+        <p><strong>(b)</strong> solve the differential equation to show that \(\displaystyle V = \frac{3(2t-1)}{t+1}\) <em>[5 marks]</em></p>
+        <p><strong>(c)</strong> Deduce (i) the time delay between mixing and oxygen being produced, (ii) the limit on total volume. <em>[2 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202022%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202022%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Partial fraction decomposition</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Part (a) asks us to decompose \(\frac{3}{(2x-1)(x+1)}\) into partial fractions. This is preparation for Part (b) — when we separate variables in the DE, the RHS will have exactly this form. We set up the standard identity and find the constants using substitution or comparison.</div>
+            <p>Let:</p>
+            <p>$$\frac{3}{(2x-1)(x+1)} = \frac{A}{2x-1} + \frac{B}{x+1}$$</p>
+            <div class="algebra-chain">
+                <p class="reason">Multiply both sides by \((2x-1)(x+1)\):</p>
+                <p>$$3 = A(x+1) + B(2x-1)$$</p>
+                <p class="reason">Set \(x = -1\): \(3 = A(0) + B(-3)\), so \(B = -1\)</p>
+                <p class="reason">Set \(x = \frac{1}{2}\): \(3 = A(\frac{3}{2}) + B(0)\), so \(A = 2\)</p>
+            </div>
+            <p>$$\frac{3}{(2x-1)(x+1)} = \frac{2}{2x-1} - \frac{1}{x+1}$$</p>
+            <div class="mark-award">M1 — Sets up the correct partial fraction form and attempts to find constants</div>
+            <div class="mark-award">A1 — \(A = 2\)</div>
+            <div class="mark-award">A1 — \(B = -1\) and full correct expression stated</div>
+        </div>
+    </div>
+
+    <!-- Part (b) Step 1 -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 2: Separate the variables</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Now we solve the DE. The equation is \(\frac{dV}{dt} = \frac{3V}{(2t-1)(t+1)}\). Since \(V\) appears on the RHS, we need to separate variables: divide both sides by \(V\), multiply by \(dt\), and then use the partial fractions from Part (a) on the RHS.</div>
+            <div class="algebra-chain">
+                <p class="reason">Divide both sides by \(V\) and multiply by \(dt\):</p>
+                <p>$$\frac{1}{V}\,dV = \frac{3}{(2t-1)(t+1)}\,dt$$</p>
+                <p class="reason">Add integral signs and substitute the partial fractions from Part (a):</p>
+                <p>$$\int \frac{1}{V}\,dV = \int \left(\frac{2}{2t-1} - \frac{1}{t+1}\right)\,dt$$</p>
+            </div>
+            <div class="mark-award">B1 — Separates variables correctly with dV and dt in the correct positions</div>
+        </div>
+    </div>
+
+    <!-- Part (b) Step 2 -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 3: Integrate both sides</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The LHS integrates to \(\ln V\). For the RHS, recall that \(\int \frac{1}{ax+b}\,dx = \frac{1}{a}\ln|ax+b|\). So \(\int \frac{2}{2t-1}\,dt = \frac{2}{2}\ln|2t-1| = \ln|2t-1|\) and \(\int \frac{1}{t+1}\,dt = \ln|t+1|\).</div>
+            <div class="algebra-chain">
+                <p class="reason">LHS: \(\int \frac{1}{V}\,dV = \ln V\)</p>
+                <p class="reason">RHS: \(\int \frac{2}{2t-1}\,dt = \ln(2t-1)\) and \(\int \frac{1}{t+1}\,dt = \ln(t+1)\)</p>
+            </div>
+            <p>$$\ln V = \ln(2t-1) - \ln(t+1) + c$$</p>
+            <div class="mark-award">M1 — Correct attempt at integration: terms of the form \(\ldots\ln(2t-1) + \ldots\ln(t+1)\)</div>
+            <div class="mark-award">A1ft — Fully correct equation: \(\ln V = \ln(2t-1) - \ln(t+1) + c\)</div>
+            <div class="examiner-note">The coefficient from \(\int \frac{2}{2t-1}\,dt\) is a common source of error. Students often write \(2\ln(2t-1)\) instead of \(\ln(2t-1)\). Remember: \(\int \frac{2}{2t-1}\,dt = \frac{2}{2}\ln(2t-1) = \ln(2t-1)\) because the inner derivative is 2.</div>
+        </div>
+    </div>
+
+    <!-- Part (b) Step 3 -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 4: Apply boundary condition \(t = 2, V = 3\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We're told that when \(t = 2\), \(V = 3\). Substituting these values into our equation will determine the constant \(c\). Then we can write the particular solution and rearrange to match the target form.</div>
+            <div class="algebra-chain">
+                <p>Substitute \(t = 2\), \(V = 3\):</p>
+                <p>$$\ln 3 = \ln(2(2)-1) - \ln(2+1) + c$$</p>
+                <p>$$\ln 3 = \ln 3 - \ln 3 + c$$</p>
+                <p>$$\ln 3 = 0 + c$$</p>
+                <p>$$c = \ln 3$$</p>
+            </div>
+            <div class="mark-award">M1 — Substitutes \(t = 2\), \(V = 3\) and attempts to find the constant</div>
+        </div>
+    </div>
+
+    <!-- Part (b) Step 4 -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 5: Rearrange to reach the given answer</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We have \(\ln V = \ln(2t-1) - \ln(t+1) + \ln 3\). The target is \(V = \frac{3(2t-1)}{t+1}\). We combine the ln terms using log laws: \(\ln a + \ln b = \ln(ab)\) and \(\ln a - \ln b = \ln\frac{a}{b}\), then exponentiate.</div>
+            <div class="algebra-chain">
+                <p>$$\ln V = \ln(2t-1) - \ln(t+1) + \ln 3$$</p>
+                <p class="reason">Combine using log laws: \(\ln a - \ln b + \ln c = \ln\frac{ac}{b}\):</p>
+                <p>$$\ln V = \ln\left(\frac{3(2t-1)}{t+1}\right)$$</p>
+                <p class="reason">Since \(\ln V = \ln(\text{something})\), we have \(V = \text{that something}\):</p>
+                <p>$$\boxed{V = \frac{3(2t-1)}{t+1}} \quad \square$$</p>
+            </div>
+            <div class="mark-award">A1* — Correct processing leading to the given answer with clear log law manipulation shown</div>
+            <div class="examiner-note">You must show the log combination step explicitly. Jumping from \(\ln V = \ln(2t-1) - \ln(t+1) + \ln 3\) straight to the answer loses the A1* mark. The minimum acceptable intermediate step is \(\ln V = \ln\frac{3(2t-1)}{t+1}\).</div>
+        </div>
+    </div>
+
+    <!-- Part (c) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)</span> Step 6: Deduce time delay and volume limit</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">For (i): the time delay is when oxygen production starts, i.e. when \(V = 0\). Setting \(V = 0\): \(3(2t-1) = 0\) gives \(t = \frac{1}{2}\) hour = 30 minutes. For (ii): as \(t \to \infty\), \(\frac{3(2t-1)}{t+1} \to \frac{6t}{t} = 6\). So the limiting volume is 6 m\(^3\).</div>
+            <p><strong>(i)</strong> Time delay: Set \(V = 0\):</p>
+            <p>$$3(2t-1) = 0 \implies t = \frac{1}{2} \text{ hour} = \boxed{30 \text{ minutes}}$$</p>
+            <p><strong>(ii)</strong> Limiting volume: As \(t \to \infty\):</p>
+            <p>$$V = \frac{3(2t-1)}{t+1} = \frac{6t - 3}{t+1} \to \frac{6t}{t} = \boxed{6 \text{ m}^3}$$</p>
+            <div class="mark-award">B1 — Time delay: 30 minutes (or \(\frac{1}{2}\) hour)</div>
+            <div class="mark-award">B1 — Limiting volume: 6 m\(^3\)</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p2-jun22-q11')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: P1 Oct 2020 Q14 ===================== -->
+<div class="example-panel" id="ex-p1-oct20-q14">
+    <div class="question-text">
+        <p><strong>Paper 1 — October 2020 — Question 14</strong> (10 marks)</p>
+        <p>A large spherical balloon is deflating. At time \(t\) seconds the balloon has radius \(r\) cm and volume \(V\) cm\(^3\). The volume of the balloon is modelled as decreasing at a constant rate.</p>
+        <p><strong>(a)</strong> Using this model, show that \(\displaystyle\frac{dr}{dt} = -\frac{k}{r^2}\) where \(k\) is a positive constant. <em>[3 marks]</em></p>
+        <p>Given that the initial radius of the balloon is 40 cm, and after 5 seconds the radius is 20 cm,</p>
+        <p><strong>(b)</strong> solve the differential equation to find a complete equation linking \(r\) and \(t\). <em>[5 marks]</em></p>
+        <p><strong>(c)</strong> Find the limitation on the values of \(t\) for which the equation in part (b) is valid. <em>[2 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FOctober%202020%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FOctober%202020%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Translate the model into a DE using the chain rule</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">"Volume decreasing at a constant rate" means \(\frac{dV}{dt} = -c\) for some positive constant \(c\). We want to show \(\frac{dr}{dt} = -\frac{k}{r^2}\). The connection between \(V\) and \(r\) is the sphere formula \(V = \frac{4}{3}\pi r^3\), and the chain rule links \(\frac{dV}{dt}\) to \(\frac{dr}{dt}\).</div>
+            <p>Volume of a sphere: \(V = \frac{4}{3}\pi r^3\)</p>
+            <div class="algebra-chain">
+                <p class="reason">Differentiate with respect to \(t\) using the chain rule:</p>
+                <p>$$\frac{dV}{dt} = \frac{dV}{dr} \cdot \frac{dr}{dt} = 4\pi r^2 \cdot \frac{dr}{dt}$$</p>
+                <p class="reason">"Volume decreasing at a constant rate" means \(\frac{dV}{dt} = -c\) (negative because decreasing):</p>
+                <p>$$-c = 4\pi r^2 \cdot \frac{dr}{dt}$$</p>
+                <p class="reason">Divide both sides by \(4\pi r^2\):</p>
+                <p>$$\frac{dr}{dt} = \frac{-c}{4\pi r^2} = -\frac{k}{r^2}$$</p>
+            </div>
+            <p>where \(k = \frac{c}{4\pi}\) is a positive constant. \(\square\)</p>
+            <div class="mark-award">B1 — States or uses \(\frac{dV}{dt} = -c\) (or equivalent constant rate of decrease)</div>
+            <div class="mark-award">M1 — Uses \(V = \frac{4}{3}\pi r^3\) and chain rule to link \(\frac{dV}{dt}\) with \(\frac{dr}{dt}\)</div>
+            <div class="mark-award">A1 — Arrives at \(\frac{dr}{dt} = -\frac{k}{r^2}\) with \(k\) identified as positive</div>
+        </div>
+    </div>
+
+    <!-- Part (b) Step 1 -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 2: Separate variables and integrate</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We need to solve \(\frac{dr}{dt} = -\frac{k}{r^2}\). Separate variables: multiply both sides by \(r^2\) and by \(dt\). Then integrate both sides. The LHS gives a power of \(r\), the RHS gives a multiple of \(t\).</div>
+            <div class="algebra-chain">
+                <p class="reason">Multiply both sides by \(r^2\,dt\):</p>
+                <p>$$r^2\,dr = -k\,dt$$</p>
+                <p class="reason">Integrate both sides:</p>
+                <p>$$\int r^2\,dr = \int -k\,dt$$</p>
+                <p>$$\frac{r^3}{3} = -kt + c$$</p>
+            </div>
+            <div class="mark-award">M1 — Separates variables correctly</div>
+            <div class="mark-award">A1 — Correct integration: \(\frac{r^3}{3} = -kt + c\) (or equivalent form)</div>
+        </div>
+    </div>
+
+    <!-- Part (b) Step 2 -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 3: Apply first boundary condition (initial radius)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">When \(t = 0\), \(r = 40\). Substituting into \(\frac{r^3}{3} = -kt + c\) gives us \(c\) in terms of the (still unknown) constant \(k\). We'll then use the second condition to pin down \(k\).</div>
+            <p>When \(t = 0\), \(r = 40\):</p>
+            <div class="algebra-chain">
+                <p>$$\frac{40^3}{3} = -k(0) + c$$</p>
+                <p>$$c = \frac{64000}{3}$$</p>
+            </div>
+            <p>So: \(\frac{r^3}{3} = -kt + \frac{64000}{3}\)</p>
+            <p>Or equivalently: \(r^3 = -3kt + 64000\)</p>
+            <div class="mark-award">dM1 — Substitutes \(t = 0\), \(r = 40\) to find the constant</div>
+        </div>
+    </div>
+
+    <!-- Part (b) Step 3 -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 4: Apply second boundary condition to find \(k\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">When \(t = 5\), \(r = 20\). Substituting into our equation (which now contains only one unknown, \(k\)) lets us determine \(k\) and write the complete particular solution.</div>
+            <p>When \(t = 5\), \(r = 20\):</p>
+            <div class="algebra-chain">
+                <p>$$20^3 = -3k(5) + 64000$$</p>
+                <p>$$8000 = -15k + 64000$$</p>
+                <p class="reason">Rearrange:</p>
+                <p>$$15k = 64000 - 8000 = 56000$$</p>
+                <p>$$k = \frac{56000}{15} = \frac{11200}{3}$$</p>
+            </div>
+            <p>Substituting back:</p>
+            <p>$$r^3 = -3 \times \frac{11200}{3} \times t + 64000$$</p>
+            <p>$$\boxed{r^3 = 64000 - 11200t}$$</p>
+            <div class="mark-award">ddM1 — Substitutes second boundary condition (\(t=5\), \(r=20\)) into their equation to find \(k\)</div>
+            <div class="mark-award">A1 — Correct complete equation: \(r^3 = 64000 - 11200t\) or equivalent</div>
+            <div class="examiner-note">Both boundary conditions must be used. Some candidates only applied one condition and left \(k\) or \(c\) as unknowns — this does not constitute a "complete equation" and scores at most 3/5 marks.</div>
+        </div>
+    </div>
+
+    <!-- Part (c) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)</span> Step 5: Find the valid range of \(t\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The balloon deflates until it is empty (radius = 0). After that, the model no longer applies. We find when \(r = 0\) using our equation from Part (b). Additionally, \(t \geq 0\) since the model starts at \(t = 0\).</div>
+            <p>The balloon is empty when \(r = 0\):</p>
+            <div class="algebra-chain">
+                <p>$$0 = 64000 - 11200t$$</p>
+                <p>$$11200t = 64000$$</p>
+                <p>$$t = \frac{64000}{11200} = \frac{40}{7} \approx 5.71 \text{ seconds}$$</p>
+            </div>
+            <p><strong>The equation is valid for \(0 \leq t \leq \frac{40}{7}\) (the balloon exists from \(t=0\) until it is empty).</strong></p>
+            <div class="mark-award">M1 — Sets \(r = 0\) (or \(r^3 = 0\)) in their equation and solves for \(t\)</div>
+            <div class="mark-award">A1 — \(t \leq \frac{40}{7}\) or equivalent (e.g. \(0 \leq t \leq 5\frac{5}{7}\))</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p1-oct20-q14')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: P1 June 2024 Q14 ===================== -->
+<div class="example-panel" id="ex-p1-jun24-q14">
+    <div class="question-text">
+        <p><strong>Paper 1 — June 2024 — Question 14</strong> (9 marks)</p>
+        <p>A balloon is being inflated. In a model:</p>
+        <ul style="margin: 0.5rem 0 0.5rem 1.5rem;">
+            <li>the balloon is modelled as a sphere</li>
+            <li>the rate of increase of the radius is inversely proportional to the square root of the radius</li>
+        </ul>
+        <p>At time \(t\) seconds, the radius of the balloon is \(r\) cm.</p>
+        <p><strong>(a)</strong> Write down a differential equation to model this situation. <em>[1 mark]</em></p>
+        <p>At the instant when \(t = 10\), the radius is 16 cm and the radius is increasing at 0.9 cm s\(^{-1}\).</p>
+        <p><strong>(b)</strong> Solve the differential equation to show that \(r^{3/2} = 5.4t + 10\) <em>[5 marks]</em></p>
+        <p><strong>(c)</strong> Hence find the radius of the balloon when \(t = 20\), giving your answer to the nearest millimetre. <em>[2 marks]</em></p>
+        <p><strong>(d)</strong> Suggest a limitation of the model. <em>[1 mark]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202024%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202024%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Write down the differential equation</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">"Rate of increase of radius" = \(\frac{dr}{dt}\). "Inversely proportional to the square root of the radius" means \(\frac{dr}{dt} \propto \frac{1}{\sqrt{r}}\). We introduce a constant of proportionality \(k\).</div>
+            <p>Translating the English into symbols:</p>
+            <p>$$\frac{dr}{dt} = \frac{k}{\sqrt{r}} = kr^{-1/2}$$</p>
+            <p>where \(k\) is a positive constant.</p>
+            <div class="mark-award">B1 — Correct DE: \(\frac{dr}{dt} = \frac{k}{\sqrt{r}}\) or equivalent with any positive constant</div>
+            <div class="examiner-note">Candidates must include the constant of proportionality. Writing \(\frac{dr}{dt} = \frac{1}{\sqrt{r}}\) (without the constant) scores B0.</div>
+        </div>
+    </div>
+
+    <!-- Part (b) Step 1 -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 2: Find the value of \(k\) using the given information</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We're told that when \(t = 10\), \(r = 16\) and \(\frac{dr}{dt} = 0.9\). Substituting into our DE gives us the value of \(k\). This is a common pattern: using a rate condition to determine the proportionality constant before solving.</div>
+            <p>Substitute \(r = 16\), \(\frac{dr}{dt} = 0.9\) into \(\frac{dr}{dt} = \frac{k}{\sqrt{r}}\):</p>
+            <div class="algebra-chain">
+                <p>$$0.9 = \frac{k}{\sqrt{16}} = \frac{k}{4}$$</p>
+                <p>$$k = 3.6$$</p>
+            </div>
+            <p>So the DE becomes: \(\frac{dr}{dt} = \frac{3.6}{\sqrt{r}} = 3.6r^{-1/2}\)</p>
+            <div class="mark-award">M1 — Uses the given values (\(r=16\), \(\frac{dr}{dt}=0.9\)) to find \(k\)</div>
+        </div>
+    </div>
+
+    <!-- Part (b) Step 2 -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 3: Separate variables and integrate</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Now we solve \(\frac{dr}{dt} = 3.6r^{-1/2}\). Separate variables by multiplying both sides by \(r^{1/2}\,dt\), giving \(r^{1/2}\,dr = 3.6\,dt\). Integrate both sides using the power rule.</div>
+            <div class="algebra-chain">
+                <p class="reason">Multiply both sides by \(r^{1/2}\) and by \(dt\):</p>
+                <p>$$r^{1/2}\,dr = 3.6\,dt$$</p>
+                <p class="reason">Integrate both sides:</p>
+                <p>$$\int r^{1/2}\,dr = \int 3.6\,dt$$</p>
+                <p class="reason">LHS: \(\int r^{1/2}\,dr = \frac{r^{3/2}}{3/2} = \frac{2}{3}r^{3/2}\)</p>
+                <p class="reason">RHS: \(\int 3.6\,dt = 3.6t\)</p>
+                <p>$$\frac{2}{3}r^{3/2} = 3.6t + c$$</p>
+            </div>
+            <div class="mark-award">M1 — Separates variables and integrates: \(r^{n} \to r^{n+1}\) on LHS, \(kt\) on RHS</div>
+            <div class="mark-award">A1 — Correct integration: \(\frac{2}{3}r^{3/2} = 3.6t + c\)</div>
+        </div>
+    </div>
+
+    <!-- Part (b) Step 3 -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 4: Apply boundary condition and reach the given answer</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We use the condition: when \(t = 10\), \(r = 16\). Substituting these values determines \(c\). Then we rearrange to match the target form \(r^{3/2} = 5.4t + 10\). Note: multiplying \(\frac{2}{3}r^{3/2} = 3.6t + c\) through by \(\frac{3}{2}\) will give \(r^{3/2} = 5.4t + \frac{3c}{2}\).</div>
+            <p>When \(t = 10\), \(r = 16\) (so \(r^{3/2} = 16^{3/2} = (\sqrt{16})^3 = 64\)):</p>
+            <div class="algebra-chain">
+                <p>$$\frac{2}{3}(64) = 3.6(10) + c$$</p>
+                <p>$$\frac{128}{3} = 36 + c$$</p>
+                <p>$$c = \frac{128}{3} - 36 = \frac{128 - 108}{3} = \frac{20}{3}$$</p>
+            </div>
+            <p>Substituting back and multiplying everything by \(\frac{3}{2}\):</p>
+            <div class="algebra-chain">
+                <p>$$\frac{2}{3}r^{3/2} = 3.6t + \frac{20}{3}$$</p>
+                <p class="reason">Multiply both sides by \(\frac{3}{2}\):</p>
+                <p>$$r^{3/2} = \frac{3}{2} \times 3.6t + \frac{3}{2} \times \frac{20}{3}$$</p>
+                <p>$$r^{3/2} = 5.4t + 10$$</p>
+            </div>
+            <p>$$\boxed{r^{3/2} = 5.4t + 10} \quad \square$$</p>
+            <div class="mark-award">dM1 — Substitutes \(t = 10\), \(r = 16\) into their integrated equation to find the constant</div>
+            <div class="mark-award">A1* — Correct processing leading to the given answer</div>
+        </div>
+    </div>
+
+    <!-- Part (c) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)</span> Step 5: Find the radius when \(t = 20\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Substitute \(t = 20\) into \(r^{3/2} = 5.4t + 10\) and solve for \(r\). To solve \(r^{3/2} = k\), raise both sides to the power \(\frac{2}{3}\): \(r = k^{2/3}\).</div>
+            <div class="algebra-chain">
+                <p>$$r^{3/2} = 5.4(20) + 10 = 108 + 10 = 118$$</p>
+                <p class="reason">Raise both sides to the power \(\frac{2}{3}\):</p>
+                <p>$$r = 118^{2/3} = (\sqrt[3]{118})^2$$</p>
+                <p>$$r = (4.9066...)^2 = 24.07... \text{ cm}$$</p>
+            </div>
+            <p>To the nearest millimetre: \(\boxed{r = 24.1 \text{ cm}}\)</p>
+            <div class="mark-award">M1 — Substitutes \(t = 20\) and attempts to solve for \(r\)</div>
+            <div class="mark-award">A1 — \(r = 24.1\) cm (to nearest mm)</div>
+        </div>
+    </div>
+
+    <!-- Part (d) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (d)</span> Step 6: Suggest a limitation of the model</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Model limitation questions want you to identify something unrealistic. Here, the model predicts the radius increases forever (no upper limit), but in reality a balloon would burst at some point. Alternatively, the rate formula may not hold for very small or very large radii.</div>
+            <p>Any sensible limitation, for example:</p>
+            <ul style="margin-left: 1.5rem;">
+                <li>The model predicts the balloon grows without bound, but in reality the balloon would burst at some maximum radius.</li>
+                <li>The model predicts an infinite radius as \(t \to \infty\), which is physically impossible.</li>
+            </ul>
+            <div class="mark-award">B1 — Any valid limitation referring to the balloon having a maximum size / bursting / the rate formula breaking down</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p1-jun24-q14')">Show Full Solution</button>
+</div>
+
+<!-- PATTERN RECOGNITION -->
+<h2>How to Recognise This Question Type</h2>
+<div class="card">
+    <p>Look for these signals in the question:</p>
+    <ul style="margin-left: 1.5rem; line-height: 2;">
+        <li>The word <strong>"differential equation"</strong> appears explicitly</li>
+        <li>A <strong>rate of change</strong> is described: "rate of increase", "rate of decrease", "rate of change is proportional to..."</li>
+        <li>The question asks you to <strong>"show that"</strong> a formula involving \(e\), \(\ln\), or a power of the variable holds</li>
+        <li>A <strong>modelling context</strong>: population growth, cooling, filling/emptying tanks, balloon inflation/deflation</li>
+        <li>You see the instruction to <strong>"solve the differential equation"</strong></li>
+        <li>Part (a) often asks you to <strong>set up or derive the DE</strong>, Part (b) asks you to <strong>solve it</strong></li>
+        <li>Boundary/initial conditions are always given: "initially...", "when \(t = 0\)...", "at time \(t = 5\)..."</li>
+    </ul>
+</div>
+
+<h2>Types of Differential Equations in Edexcel</h2>
+<div class="card">
+    <ul style="margin-left: 1.5rem; line-height: 2.2;">
+        <li><strong>Simple separable (no fractions needed):</strong> \(\frac{dr}{dt} = \frac{k}{r^2}\) — just integrate powers. (Oct 2020 P1, June 2024 P1)</li>
+        <li><strong>Separable with \(\ln\):</strong> \(\frac{dH}{dt} = \frac{H \cdot f(t)}{c}\) — separates to \(\frac{1}{H}\,dH\), integrates to \(\ln H\). (June 2018 P1)</li>
+        <li><strong>Requiring partial fractions:</strong> \(\frac{dV}{dt} = \frac{V \cdot g(t)}{h(t)}\) where \(g(t)/h(t)\) needs decomposing. (June 2022 P2, June 2024 P2)</li>
+        <li><strong>Logistic-type:</strong> \(\frac{dV}{dt} = V(a-V)\) — partial fractions on \(\frac{1}{V(a-V)}\). (June 2024 P2)</li>
+        <li><strong>Modelling setup:</strong> Part (a) asks you to derive the DE from a verbal description using the chain rule. (Oct 2020 P1, June 2023 P2, June 2024 P1)</li>
+    </ul>
+</div>
+
+<script>
+    // Toggle individual step
+    function toggleStep(header) {
+        header.classList.toggle('open');
+        header.nextElementSibling.classList.toggle('open');
+    }
+
+    // Show all steps in a panel
+    function showAllSteps(panelId) {
+        const panel = document.getElementById(panelId);
+        panel.querySelectorAll('.step-reveal-header').forEach(h => h.classList.add('open'));
+        panel.querySelectorAll('.step-reveal-content').forEach(c => c.classList.add('open'));
+    }
+
+    // Select an example (tab switching)
+    function selectExample(panelId) {
+        // Deactivate all tabs and panels
+        document.querySelectorAll('.example-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.example-panel').forEach(p => p.classList.remove('active'));
+
+        // Activate the selected panel
+        document.getElementById(panelId).classList.add('active');
+
+        // Find and activate the matching tab
+        const tabs = document.querySelectorAll('.example-tab');
+        const tabMap = {
+            'ex-p1-jun18-q10': 0,
+            'ex-p2-jun22-q11': 1,
+            'ex-p1-oct20-q14': 2,
+            'ex-p1-jun24-q14': 3
+        };
+        if (tabMap[panelId] !== undefined) {
+            tabs[tabMap[panelId]].classList.add('active');
+        }
+
+        // Scroll to worked examples section
+        document.getElementById(panelId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Render KaTeX on load
+    document.addEventListener('DOMContentLoaded', function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ]
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connected Particles & Pulleys — Edexcel AS Mechanics</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #2b6cb0;
+            --success: #276749;
+            --warning: #c05621;
+            --danger: #c53030;
+            --bg: #f7fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #2d3748;
+            --muted: #718096;
+            --mark: #805ad5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        h1 { color: var(--primary); margin-bottom: 0.5rem; font-size: 2rem; }
+        h2 { color: var(--primary); margin: 2.5rem 0 1rem; font-size: 1.4rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        h3 { color: var(--accent); margin: 1.5rem 0 0.75rem; font-size: 1.15rem; }
+
+        .subtitle { color: var(--muted); margin-bottom: 2rem; font-size: 1.05rem; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-card .number { font-size: 1.5rem; font-weight: 700; color: var(--accent); }
+        .stat-card .label { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .motivation {
+            border-left: 4px solid var(--accent);
+            background: #ebf8ff;
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+
+        .examiner-tip {
+            border-left: 4px solid var(--warning);
+            background: #fffaf0;
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0;
+        }
+
+        .examiner-tip::before { content: "Examiner tip: "; font-weight: 700; color: var(--warning); }
+
+        .marks {
+            display: inline-block;
+            background: var(--mark);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+        }
+
+        .step {
+            border-left: 3px solid var(--border);
+            padding: 0.75rem 1rem;
+            margin: 0.75rem 0;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+
+        .step:hover { border-color: var(--accent); }
+
+        .step-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .step-content {
+            display: none;
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px dashed var(--border);
+        }
+
+        .step.open .step-content { display: block; }
+        .step.open { border-color: var(--success); }
+
+        .toggle-icon::after { content: "\25BC"; font-size: 0.7rem; color: var(--muted); }
+        .step.open .toggle-icon::after { content: "\25B2"; }
+
+        .reveal-all {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.5rem 1.25rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin: 0.5rem 0;
+        }
+
+        .reveal-all:hover { background: var(--primary); }
+
+        .formula-box {
+            background: #f0fff4;
+            border: 1px solid #c6f6d5;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .back-link:hover { text-decoration: underline; }
+
+        .paper-ref {
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin-top: 0.5rem;
+        }
+
+        .paper-ref a { color: var(--accent); text-decoration: none; }
+        .paper-ref a:hover { text-decoration: underline; }
+
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        th, td { padding: 0.5rem; border: 1px solid var(--border); text-align: left; font-size: 0.9rem; }
+        th { background: var(--bg); font-weight: 600; }
+    </style>
+</head>
+<body>
+    <a href="../index.html" class="back-link">← Back to AS Mechanics Topics</a>
+
+    <h1>Connected Particles & Pulleys</h1>
+    <p class="subtitle">Newton's second law applied to two-particle systems connected by inextensible strings over pulleys</p>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="number">5/7</div>
+            <div class="label">Sittings</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">9–13</div>
+            <div class="label">Marks</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">Q2</div>
+            <div class="label">Typical Position</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">High</div>
+            <div class="label">Difficulty</div>
+        </div>
+    </div>
+
+    <div class="motivation">
+        <strong>Why this is a big-mark question:</strong> Connected particle problems require you to draw TWO separate force diagrams, write TWO F=ma equations, and solve simultaneously. They then often add a "what happens after?" follow-up. This multi-step structure makes them worth 9-13 marks — the highest-value question on the paper.
+    </div>
+
+    <h2>Key Concepts</h2>
+
+    <div class="formula-box">
+        <h3>The method (ALWAYS the same)</h3>
+        <ol style="margin: 0.75rem 0; padding-left: 1.5rem;">
+            <li><strong>Draw force diagrams</strong> for each particle separately</li>
+            <li><strong>Label:</strong> weight (\(mg\) down), tension (\(T\) along string), normal reaction (if on surface)</li>
+            <li><strong>Write F = ma</strong> for each particle in the direction of motion</li>
+            <li><strong>Key principle:</strong> string inextensible → same acceleration magnitude for both</li>
+            <li><strong>Solve simultaneously</strong> — usually add equations to eliminate \(T\) first</li>
+        </ol>
+    </div>
+
+    <div class="card">
+        <h3>Standard setups at AS Level</h3>
+        <ul style="padding-left: 1.5rem;">
+            <li><strong>Atwood machine:</strong> Two masses hanging over a pulley — heavier one descends</li>
+            <li><strong>Table and pulley:</strong> One mass on smooth table, connected over edge pulley to hanging mass</li>
+            <li><strong>After one hits ground/pulley:</strong> String goes slack, remaining particle moves freely under gravity or continues with initial velocity</li>
+        </ul>
+    </div>
+
+    <div class="examiner-tip">
+        The instruction "show that the acceleration is..." means you must derive it from first principles. The most common approach: write F=ma for each particle, then either add the equations (eliminates T) or substitute. Always state which direction is positive.
+    </div>
+
+    <h2>Worked Examples</h2>
+
+    <!-- Example 1 -->
+    <div class="card">
+        <h3>Example 1: Table and pulley — show acceleration <span class="marks">5 marks</span></h3>
+        <p class="paper-ref">Based on: June 2019 Q2 | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202019%20QP%20(Mech).pdf" target="_blank">View Paper</a></p>
+
+        <div class="card" style="background: #f7fafc;">
+            <p><strong>Question:</strong> Ball P (0.8 kg) on a smooth horizontal table is attached via a string over a pulley to ball Q (0.6 kg) hanging freely. The system is released from rest. Show that the acceleration of Q is 4.2 m s\(^{-2}\).</p>
+        </div>
+
+        <button class="reveal-all" onclick="toggleAll(this)">Reveal all steps</button>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 1: Force diagram for Q (hanging, moving down) <span class="marks">M1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>Forces on Q: Weight \(0.6g\) downwards, Tension \(T\) upwards.</p>
+                <p>Taking down as positive (direction of motion of Q):</p>
+                <p>\(0.6g - T = 0.6a\) ... (1)</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 2: Force diagram for P (on table, moving horizontally) <span class="marks">M1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>Forces on P horizontally: Tension \(T\) towards pulley (only horizontal force — table is smooth).</p>
+                <p>Taking towards pulley as positive:</p>
+                <p>\(T = 0.8a\) ... (2)</p>
+                <p>(Weight and normal reaction cancel vertically.)</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 3: Add equations (1) and (2) <span class="marks">M1 A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>\(0.6g - T + T = 0.6a + 0.8a\)</p>
+                <p>\(0.6g = 1.4a\)</p>
+                <p>\(0.6(9.8) = 1.4a\)</p>
+                <p>\(5.88 = 1.4a\)</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 4: Solve for \(a\) <span class="marks">A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>\(a = \dfrac{5.88}{1.4} = 4.2\) m s\(^{-2}\) as required.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Example 2 -->
+    <div class="card">
+        <h3>Example 2: Atwood machine — find force on pulley <span class="marks">8 marks</span></h3>
+        <p class="paper-ref">Based on: June 2020 Q2 | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202020%20QP%20(Mech).pdf" target="_blank">View Paper</a></p>
+
+        <div class="card" style="background: #f7fafc;">
+            <p><strong>Question:</strong> Ball P (mass \(4m\)) and ball Q (mass \(3m\)) connected by a light inextensible string over a smooth pulley. P released from rest. Find, in terms of \(m\) and \(g\), the force exerted on the pulley by the string while P is falling.</p>
+        </div>
+
+        <button class="reveal-all" onclick="toggleAll(this)">Reveal all steps</button>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 1: F = ma for P (heavier, descending) <span class="marks">M1 A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>Taking down as positive for P:</p>
+                <p>\(4mg - T = 4ma\) ... (1)</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 2: F = ma for Q (lighter, ascending) <span class="marks">M1 A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>Taking up as positive for Q:</p>
+                <p>\(T - 3mg = 3ma\) ... (2)</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 3: Find acceleration (add equations) <span class="marks">M1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>Adding (1) and (2): \(4mg - 3mg = 7ma\)</p>
+                <p>\(mg = 7ma\)</p>
+                <p>\(a = \dfrac{g}{7}\)</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 4: Find tension <span class="marks">A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>Substituting into (2): \(T - 3mg = 3m \cdot \dfrac{g}{7}\)</p>
+                <p>\(T = 3mg + \dfrac{3mg}{7} = \dfrac{21mg + 3mg}{7} = \dfrac{24mg}{7}\)</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 5: Force on pulley <span class="marks">M1 A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>The pulley is smooth, so tension is the same on both sides of the string.</p>
+                <p>Force on pulley = \(2T\) (both sides of string pull down on pulley)</p>
+                <p>\(= 2 \times \dfrac{24mg}{7} = \dfrac{48mg}{7}\)</p>
+            </div>
+        </div>
+
+        <div class="examiner-tip">
+            Force on pulley = 2T (for a smooth pulley with string passing over it). This is because both sides of the string exert tension T on the pulley. A common error is to write the force as T or to use weights instead of tension.
+        </div>
+    </div>
+
+    <!-- Example 3 -->
+    <div class="card">
+        <h3>Example 3: After Q hits the floor <span class="marks">6 marks</span></h3>
+        <p class="paper-ref">Based on: June 2019 Q2(b) | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202019%20QP%20(Mech).pdf" target="_blank">View Paper</a></p>
+
+        <div class="card" style="background: #f7fafc;">
+            <p><strong>Question:</strong> With \(a = 4.2\) m s\(^{-2}\), P is 1.5 m from the pulley and Q is 0.4 m above the floor. Q hits the floor and does not rebound. Find the time from release until P hits the pulley.</p>
+        </div>
+
+        <button class="reveal-all" onclick="toggleAll(this)">Reveal all steps</button>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 1: Stage 1 — while Q is falling (0.4 m) <span class="marks">M1 A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>Q falls 0.4 m with \(a = 4.2\), \(u = 0\).</p>
+                <p>Find speed when Q hits floor: \(v^2 = 0 + 2(4.2)(0.4) = 3.36\)</p>
+                <p>\(v = \sqrt{3.36}\) m s\(^{-1}\)</p>
+                <p>Find time: \(v = u + at\) → \(\sqrt{3.36} = 4.2t_1\) → \(t_1 = \dfrac{\sqrt{3.36}}{4.2}\)</p>
+                <p>P has also moved 0.4 m towards pulley in this time.</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 2: Stage 2 — P continues on smooth table <span class="marks">M1 A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>After Q hits floor: string goes slack, P moves at constant velocity \(\sqrt{3.36}\) m s\(^{-1}\) (smooth table, no friction).</p>
+                <p>Remaining distance for P = \(1.5 - 0.4 = 1.1\) m</p>
+                <p>\(t_2 = \dfrac{1.1}{\sqrt{3.36}}\)</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 3: Total time <span class="marks">A1 A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>\(T = t_1 + t_2 = \dfrac{\sqrt{3.36}}{4.2} + \dfrac{1.1}{\sqrt{3.36}}\)</p>
+                <p>\(= \dfrac{1.833...}{4.2} + \dfrac{1.1}{1.833...}\)</p>
+                <p>\(= 0.4364... + 0.5999...\)</p>
+                <p>\(= 1.04\) s (3 s.f.) or \(= 1.0\) s (2 s.f.)</p>
+            </div>
+        </div>
+
+        <div class="examiner-tip">
+            The "what happens after Q hits the ground" part trips up many students. Key fact: once the string goes slack, the only forces on P are weight and normal reaction (which cancel). On a smooth table, P continues at constant speed. If P were hanging, it would continue upward, decelerate under gravity, and eventually fall back.
+        </div>
+    </div>
+
+    <!-- Example 4 -->
+    <div class="card">
+        <h3>Example 4: Model limitation <span class="marks">1 mark</span></h3>
+        <p class="paper-ref">Common across sittings</p>
+
+        <div class="card" style="background: #f7fafc;">
+            <p><strong>Question:</strong> State one limitation of the model that will affect the accuracy of the answer to the acceleration.</p>
+        </div>
+
+        <button class="reveal-all" onclick="toggleAll(this)">Reveal all steps</button>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Acceptable answers <span class="marks">B1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>Any ONE of:</p>
+                <ul style="padding-left: 1.5rem;">
+                    <li>The table may not be smooth (friction not accounted for)</li>
+                    <li>The string has mass (not truly "light")</li>
+                    <li>The pulley may not be smooth (friction at pulley)</li>
+                    <li>The string may be slightly elastic (not truly inextensible)</li>
+                    <li>Air resistance on the falling particle is ignored</li>
+                    <li>The particles are not truly point masses (they have size)</li>
+                </ul>
+                <p><strong>Note:</strong> Must relate to the model assumptions, not just say "air resistance" without context.</p>
+            </div>
+        </div>
+    </div>
+
+    <h2>Common Pitfalls</h2>
+    <div class="card">
+        <ul style="padding-left: 1.5rem;">
+            <li><strong>Wrong sign convention:</strong> If both equations use "positive = direction of motion for that particle", you ADD them. If both use the same global positive direction, you SUBTRACT.</li>
+            <li><strong>Forgetting tension acts on BOTH particles:</strong> T appears in both equations.</li>
+            <li><strong>Force on pulley ≠ weight of particles:</strong> It equals 2T, not \((m_1 + m_2)g\).</li>
+            <li><strong>After one hits ground:</strong> The other particle does NOT immediately stop — it continues with the speed it had at that instant.</li>
+            <li><strong>Table particle has no weight component in horizontal equation:</strong> Only T drives it horizontally.</li>
+        </ul>
+    </div>
+
+    <h2>Exam Appearances</h2>
+    <table>
+        <tr><th>Session</th><th>Question</th><th>Marks</th><th>Key Feature</th></tr>
+        <tr><td>June 2018</td><td>Section B, Q7</td><td>9</td><td>Pulley on table edge setup</td></tr>
+        <tr><td>June 2019</td><td>Q2</td><td>12</td><td>P on table, Q hanging 0.4m, find time P hits pulley</td></tr>
+        <tr><td>June 2020</td><td>Q2</td><td>9</td><td>Atwood (4m and 3m), force on pulley in terms of m and g</td></tr>
+        <tr><td>Nov 2021</td><td>Q2</td><td>11</td><td>Connected particles with subsequent motion</td></tr>
+        <tr><td>June 2023</td><td>—</td><td>—</td><td>Not examined (forces question instead)</td></tr>
+    </table>
+
+    <h2>Links to Past Papers</h2>
+    <div class="card">
+        <ul style="padding-left: 1.5rem;">
+            <li><a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202018%20QP.pdf" target="_blank">June 2018 Paper</a> | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FMS%2FJune%202018%20MS.pdf" target="_blank">Mark Scheme</a></li>
+            <li><a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202019%20QP%20(Mech).pdf" target="_blank">June 2019 Paper</a> | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FMS%2FJune%202019%20MS%20(Mech).pdf" target="_blank">Mark Scheme</a></li>
+            <li><a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202020%20QP%20(Mech).pdf" target="_blank">June 2020 Paper</a> | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FMS%2FJune%202020%20MS%20(Mech).pdf" target="_blank">Mark Scheme</a></li>
+            <li><a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FNov%202021%20QP%20(Mech).pdf" target="_blank">Nov 2021 Paper</a> | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FMS%2FNov%202021%20MS%20(Mech).pdf" target="_blank">Mark Scheme</a></li>
+        </ul>
+    </div>
+
+    <script>
+        function toggleStep(el) {
+            el.classList.toggle('open');
+        }
+
+        function toggleAll(btn) {
+            const card = btn.closest('.card');
+            const steps = card.querySelectorAll('.step');
+            const allOpen = [...steps].every(s => s.classList.contains('open'));
+            steps.forEach(s => {
+                if (allOpen) s.classList.remove('open');
+                else s.classList.add('open');
+            });
+            btn.textContent = allOpen ? 'Reveal all steps' : 'Hide all steps';
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "\\(", right: "\\)", display: false},
+                    {left: "\\[", right: "\\]", display: true}
+                ]
+            });
+        });
+    </script>
+</body>
+</html>

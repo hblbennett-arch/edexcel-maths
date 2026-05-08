@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algebra &amp; Factor Theorem — Edexcel A Level Maths</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #2b6cb0;
+            --success: #276749;
+            --warning: #c05621;
+            --danger: #c53030;
+            --bg: #f7fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #2d3748;
+            --muted: #718096;
+            --mark: #805ad5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        h1 { color: var(--primary); margin-bottom: 0.5rem; font-size: 2rem; }
+        h2 { color: var(--primary); margin: 2.5rem 0 1rem; font-size: 1.4rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        h3 { color: var(--accent); margin: 1.5rem 0 0.75rem; font-size: 1.15rem; }
+
+        .subtitle { color: var(--muted); margin-bottom: 2rem; font-size: 1.05rem; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--accent); }
+        .stat-card .label { font-size: 0.85rem; color: var(--muted); }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .approach-step {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .approach-step:last-child { border-bottom: none; }
+
+        .step-number {
+            background: var(--accent);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .step-content { flex: 1; }
+        .step-content strong { color: var(--primary); }
+
+        .pitfall-box {
+            background: #fff5f5;
+            border: 1px solid #fed7d7;
+            border-left: 4px solid var(--danger);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .pitfall-box h3 { color: var(--danger); margin-top: 0; }
+        .pitfall-box ul { margin-left: 1.5rem; margin-top: 0.5rem; }
+        .pitfall-box li { margin: 0.5rem 0; }
+
+        .tip-box {
+            background: #f0fff4;
+            border: 1px solid #c6f6d5;
+            border-left: 4px solid var(--success);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .tip-box h3 { color: var(--success); margin-top: 0; }
+
+        /* Question index table */
+        .question-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.92rem;
+        }
+
+        .question-table th {
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+        }
+
+        .question-table td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .question-table tr:hover { background: #ebf8ff; }
+
+        .question-table a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .question-table a:hover { text-decoration: underline; }
+
+        .question-table .go-btn {
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+        }
+
+        .question-table .go-btn:hover { background: var(--primary); }
+
+        /* Worked examples */
+        .example-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .example-tab {
+            padding: 0.5rem 1rem;
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .example-tab:hover { border-color: var(--accent); }
+        .example-tab.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+        .example-panel { display: none; }
+        .example-panel.active { display: block; }
+
+        .question-text {
+            background: #ebf8ff;
+            border: 1px solid #bee3f8;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.02rem;
+        }
+
+        .question-text .links {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #bee3f8;
+            font-size: 0.85rem;
+        }
+
+        .question-text .links a {
+            color: var(--accent);
+            text-decoration: none;
+            margin-right: 1.5rem;
+        }
+
+        .question-text .links a:hover { text-decoration: underline; }
+
+        .step-reveal {
+            margin: 0.75rem 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .step-reveal-header {
+            padding: 0.75rem 1rem;
+            background: #edf2f7;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background 0.2s;
+            gap: 0.5rem;
+        }
+
+        .step-reveal-header:hover { background: #e2e8f0; }
+
+        .step-reveal-header .arrow {
+            transition: transform 0.3s;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .step-reveal-header.open .arrow { transform: rotate(90deg); }
+
+        .step-reveal-content {
+            display: none;
+            padding: 1.25rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .step-reveal-content.open { display: block; }
+
+        .part-label {
+            display: inline-block;
+            background: #ebf8ff;
+            color: var(--accent);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        .mark-badge {
+            display: inline-block;
+            background: #faf5ff;
+            color: var(--mark);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border: 1px solid #e9d8fd;
+        }
+
+        .mark-award {
+            background: #faf5ff;
+            border: 1px solid #e9d8fd;
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            color: var(--mark);
+            font-weight: 600;
+        }
+
+        .mark-award::before {
+            content: "\2713 ";
+        }
+
+        .examiner-note {
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            border-radius: 6px;
+            padding: 0.75rem;
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .examiner-note::before {
+            content: "Examiner: ";
+            font-weight: 700;
+            color: var(--warning);
+        }
+
+        .show-all-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            transition: background 0.2s;
+        }
+
+        .show-all-btn:hover { background: var(--primary); }
+
+        .motivation {
+            background: #eef6ff;
+            border: 1px solid #c3dafe;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.93rem;
+        }
+
+        .motivation::before {
+            content: "\1F4AD Thinking: ";
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .algebra-chain {
+            margin: 0.5rem 0;
+            padding-left: 1rem;
+            border-left: 3px solid var(--border);
+        }
+
+        .algebra-chain .reason {
+            color: var(--muted);
+            font-size: 0.85rem;
+            font-style: italic;
+            margin: 0.25rem 0;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            h1 { font-size: 1.5rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .example-selector { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<p style="margin-bottom: 1rem;"><a href="../index.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">&larr; All Topics</a></p>
+
+<h1>Algebra &amp; Factor Theorem</h1>
+<p class="subtitle">Factor theorem, algebraic division, simultaneous equations, and quadratic inequalities</p>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="number">10/14</div>
+        <div class="label">Papers with this topic</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">3–6</div>
+        <div class="label">Typical marks</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">Q1–6</div>
+        <div class="label">Paper position</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">Both papers</div>
+        <div class="label">Appears in P1 and P2</div>
+    </div>
+</div>
+
+<!-- FULL QUESTION INDEX -->
+<h2>All Past Paper Questions on This Topic</h2>
+<p style="margin-bottom: 1rem; color: var(--muted);">Every factor theorem / algebraic division / simultaneous equations question from Edexcel 9MA0 (2018–2024). Click "Worked Example" to see a full guided solution.</p>
+
+<table class="question-table">
+    <thead>
+        <tr>
+            <th>Paper</th>
+            <th>Question</th>
+            <th>Description</th>
+            <th>Marks</th>
+            <th>Links</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>P1 June 2019</td>
+            <td>Q1</td>
+            <td>Factor theorem: \((x+3)\) is a factor of \(f(x) = 3x^3 + 2ax^2 - 4x + 5a\); find \(a\)</td>
+            <td>3</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202019%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202019%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p1-jun19-q1'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P1 Oct 2021</td>
+            <td>Q1</td>
+            <td>Factor theorem: \((x-1)\) is a factor of \(f(x) = ax^3 + 10x^2 - 3ax - 4\); find \(a\)</td>
+            <td>3</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FOctober%202021%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FOctober%202021%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 June 2022</td>
+            <td>Q2</td>
+            <td>Factor theorem: \((x+2)\) is a factor of \(f(x) = (x-4)(x^2-3x+k) - 42\); find \(k\)</td>
+            <td>3</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202022%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202022%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p1-jun22-q2'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P1 June 2023</td>
+            <td>Q2</td>
+            <td>Factor theorem: \((x-a)\) is a factor of \(4x^3+5x^2-10x+4a\); show \(a(4a^2+5a-6)=0\), solve</td>
+            <td>6</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202023%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202023%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p1-jun23-q2'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P1 June 2024</td>
+            <td>Q1</td>
+            <td>Factor theorem: \((x-3)\) is a factor of \(g(x) = 3x^3 - 20x^2 + (k+17)x - k\); find \(k\)</td>
+            <td>3</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202024%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202024%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 June 2018</td>
+            <td>Q6</td>
+            <td>Factor theorem + algebraic factorisation: \(f(x) = -3x^3+8x^2-9x+10\); factorise, prove two real solutions</td>
+            <td>5</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202018%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202018%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p2-jun18-q6'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P2 Oct 2020</td>
+            <td>Q8</td>
+            <td>Integration + factor theorem: given \(f'(x)\), y-intercept, and \((x+4)\) factor; find \(f(x)\)</td>
+            <td>6</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FOctober%202020%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FOctober%202020%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 June 2022</td>
+            <td>Q9</td>
+            <td>Curve with turning points; set of values for \(f'(x) < 0\); find equation in factorised form</td>
+            <td>6</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202022%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202022%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 June 2019</td>
+            <td>Q7</td>
+            <td>Simultaneous equations: linear cost model with two conditions; find equation, profit threshold</td>
+            <td>7</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202019%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202019%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 Oct 2021</td>
+            <td>Q9</td>
+            <td>Inequality involving modulus: find set of values for \(k - |2x-3k| > x - k\)</td>
+            <td>6</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FOctober%202021%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FOctober%202021%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- GUIDED APPROACH -->
+<h2>Guided Approach: Factor Theorem</h2>
+<div class="card">
+    <p style="margin-bottom: 1rem; color: var(--muted);">The factor theorem states: if \(f(a) = 0\), then \((x - a)\) is a factor of \(f(x)\). The standard approach:</p>
+
+    <div class="approach-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+            <strong>Use the factor theorem condition</strong><br>
+            If told that \((x - a)\) is a factor, then \(f(a) = 0\). Substitute \(x = a\) into \(f(x)\) and set the result equal to zero. This gives an equation you can solve for unknown constants.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+            <strong>Perform algebraic division (if needed)</strong><br>
+            Once you know the factor, divide \(f(x)\) by \((x - a)\) using polynomial long division or by comparing coefficients. This gives you the remaining quadratic factor.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+            <strong>Factorise the quadratic (if needed)</strong><br>
+            Factor or use the quadratic formula on the remaining quadratic to find all roots. Check: can the quadratic be factored, or does the discriminant tell you about real solutions?
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+            <strong>Solve any inequality or state conclusions</strong><br>
+            If asked for an inequality, factorise fully, sketch a sign diagram or number line, and state the solution set with correct inequality signs. If asked to prove something about solutions, use the discriminant \(b^2 - 4ac\).
+        </div>
+    </div>
+</div>
+
+<!-- EXAMINER PITFALLS -->
+<div class="pitfall-box">
+    <h3>Common Pitfalls (from Examiner Reports)</h3>
+    <ul>
+        <li><strong>Arithmetic errors in substitution:</strong> When substituting \(x = -3\) into \(3x^3 + 2ax^2 - 4x + 5a\), students frequently get \((-3)^3 = -27\) wrong or lose a negative sign. Write each term separately.</li>
+        <li><strong>Wrong value substituted:</strong> If \((x + 3)\) is a factor, substitute \(x = -3\), NOT \(x = 3\). The factor \((x - a)\) means substitute \(x = a\), so \((x + 3) = (x - (-3))\) means \(x = -3\).</li>
+        <li><strong>Division errors in algebraic long division:</strong> The most common mistake is subtracting incorrectly (forgetting to change signs). Write out each subtraction step fully rather than doing it mentally.</li>
+        <li><strong>Wrong direction for inequality:</strong> After finding critical values (e.g., \(x = -2\) and \(x = 5\)), students write \(x < -2\) or \(x > 5\) when it should be \(-2 < x < 5\) (or vice versa). Always test a value in each region.</li>
+        <li><strong>Forgetting to check factors systematically:</strong> When told "factorise completely", try \(x = \pm 1, \pm 2, \pm 3, ...\) systematically. Students waste time guessing randomly.</li>
+    </ul>
+</div>
+
+<div class="tip-box">
+    <h3>What Top Candidates Do</h3>
+    <ul>
+        <li>Write \(f(a) = 0\) explicitly as a clear first line — this earns the method mark even if arithmetic subsequently fails.</li>
+        <li>For algebraic division, use a clear column layout with every term written out (including \(0x\) placeholder terms when there are gaps in degree).</li>
+        <li>When solving quadratic inequalities, always sketch the parabola and mark the roots — this avoids the "wrong direction" error.</li>
+        <li>State the discriminant result and its meaning: "\(b^2 - 4ac = -7 < 0\), so no real roots, hence no further solutions."</li>
+    </ul>
+</div>
+
+<!-- WORKED EXAMPLES -->
+<h2>Worked Examples</h2>
+<p style="color: var(--muted); margin-bottom: 0.5rem;">Select a question to see the full guided solution:</p>
+
+<div class="example-selector">
+    <div class="example-tab active" onclick="selectExample('ex-p1-jun19-q1')">June 2019 P1 Q1</div>
+    <div class="example-tab" onclick="selectExample('ex-p1-jun22-q2')">June 2022 P1 Q2</div>
+    <div class="example-tab" onclick="selectExample('ex-p1-jun23-q2')">June 2023 P1 Q2</div>
+    <div class="example-tab" onclick="selectExample('ex-p2-jun18-q6')">June 2018 P2 Q6</div>
+</div>
+
+<!-- ===================== EXAMPLE: P1 June 2019 Q1 — Factor Theorem Basics ===================== -->
+<div class="example-panel active" id="ex-p1-jun19-q1">
+    <div class="question-text">
+        <p><strong>Paper 1 — June 2019 — Question 1</strong> (3 marks)</p>
+        <p>$$f(x) = 3x^3 + 2ax^2 - 4x + 5a$$</p>
+        <p>Given that \((x + 3)\) is a factor of \(f(x)\), find the value of the constant \(a\).</p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202019%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202019%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Full solution</span> Step 1: Apply the factor theorem</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The factor theorem says: if \((x + 3)\) is a factor of \(f(x)\), then \(f(-3) = 0\). Note carefully: \((x + 3) = (x - (-3))\), so we substitute \(x = -3\). This is the single most important step — state it clearly.</div>
+            <p>Since \((x + 3)\) is a factor of \(f(x)\), by the factor theorem:</p>
+            <p>$$f(-3) = 0$$</p>
+            <div class="mark-award">M1 — Stating or using f(-3) = 0 (factor theorem applied correctly)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Full solution</span> Step 2: Substitute \(x = -3\) and evaluate each term</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We substitute \(x = -3\) into every term of \(f(x) = 3x^3 + 2ax^2 - 4x + 5a\). The key is careful arithmetic with negatives and powers. Writing each term separately reduces errors dramatically.</div>
+            <div class="algebra-chain">
+                <p>$$f(-3) = 3(-3)^3 + 2a(-3)^2 - 4(-3) + 5a$$</p>
+                <p class="reason">Calculate each term separately:</p>
+                <p class="reason">\(3(-3)^3 = 3 \times (-27) = -81\)</p>
+                <p class="reason">\(2a(-3)^2 = 2a \times 9 = 18a\)</p>
+                <p class="reason">\(-4(-3) = 12\)</p>
+                <p class="reason">\(5a = 5a\)</p>
+                <p>$$f(-3) = -81 + 18a + 12 + 5a$$</p>
+                <p>$$f(-3) = 23a - 69$$</p>
+            </div>
+            <div class="mark-award">M1 — Correct substitution of x = -3 into f(x) leading to a linear equation in a</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Full solution</span> Step 3: Set equal to zero and solve for \(a\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We set our expression equal to zero (the factor theorem condition) and solve the resulting linear equation for \(a\).</div>
+            <div class="algebra-chain">
+                <p>$$23a - 69 = 0$$</p>
+                <p class="reason">Add 69 to both sides:</p>
+                <p>$$23a = 69$$</p>
+                <p class="reason">Divide both sides by 23:</p>
+                <p>$$\boxed{a = 3}$$</p>
+            </div>
+            <div class="mark-award">A1 — Correct value: \(a = 3\)</div>
+            <div class="examiner-note">This was well-answered overall, but a significant minority substituted \(x = 3\) instead of \(x = -3\). Remember: \((x + 3)\) as a factor means the root is at \(x = -3\).</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p1-jun19-q1')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: P1 June 2022 Q2 — Nested Factor Theorem ===================== -->
+<div class="example-panel" id="ex-p1-jun22-q2">
+    <div class="question-text">
+        <p><strong>Paper 1 — June 2022 — Question 2</strong> (3 marks)</p>
+        <p>$$f(x) = (x - 4)(x^2 - 3x + k) - 42$$</p>
+        <p>where \(k\) is a constant.</p>
+        <p>Given that \((x + 2)\) is a factor of \(f(x)\), find the value of \(k\).</p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202022%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202022%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Full solution</span> Step 1: Apply the factor theorem — identify what to substitute</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Since \((x + 2)\) is a factor of \(f(x)\), the factor theorem tells us \(f(-2) = 0\). This question is slightly different because \(f(x)\) is given in a partially factored form. We don't need to expand it first — we can just substitute \(x = -2\) directly into the given expression.</div>
+            <p>By the factor theorem: \((x + 2)\) is a factor \(\implies f(-2) = 0\)</p>
+            <div class="mark-award">M1 — Using f(-2) = 0</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Full solution</span> Step 2: Substitute \(x = -2\) into the given expression</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The beauty of this question is that we can substitute directly without expanding. We evaluate each bracket at \(x = -2\): \((x-4)\) becomes \((-6)\), and \((x^2-3x+k)\) becomes \((4+6+k) = (10+k)\).</div>
+            <div class="algebra-chain">
+                <p>$$f(-2) = (-2 - 4)((-2)^2 - 3(-2) + k) - 42$$</p>
+                <p class="reason">Evaluate each bracket:</p>
+                <p class="reason">\((-2 - 4) = -6\)</p>
+                <p class="reason">\((-2)^2 - 3(-2) + k = 4 + 6 + k = 10 + k\)</p>
+                <p>$$f(-2) = (-6)(10 + k) - 42$$</p>
+                <p>$$f(-2) = -60 - 6k - 42$$</p>
+                <p>$$f(-2) = -102 - 6k$$</p>
+            </div>
+            <div class="mark-award">A1 — Correct simplified expression in terms of k</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Full solution</span> Step 3: Set equal to zero and solve</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="algebra-chain">
+                <p>$$-102 - 6k = 0$$</p>
+                <p class="reason">Add 102 to both sides:</p>
+                <p>$$-6k = 102$$</p>
+                <p class="reason">Divide by -6:</p>
+                <p>$$\boxed{k = -17}$$</p>
+            </div>
+            <div class="mark-award">A1 — Correct value: \(k = -17\)</div>
+            <div class="examiner-note">A common error was expanding \((x-4)(x^2-3x+k)\) fully before substituting — this wastes time and introduces more opportunities for arithmetic errors. Substituting first is much cleaner.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p1-jun22-q2')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: P1 June 2023 Q2 — Factor Theorem + Quadratic ===================== -->
+<div class="example-panel" id="ex-p1-jun23-q2">
+    <div class="question-text">
+        <p><strong>Paper 1 — June 2023 — Question 2</strong> (6 marks)</p>
+        <p>In this question you must show all stages of your working.</p>
+        <p>$$f(x) = 4x^3 + 5x^2 - 10x + 4a, \quad x \in \mathbb{R}$$</p>
+        <p>where \(a\) is a positive constant.</p>
+        <p>Given \((x - a)\) is a factor of \(f(x)\),</p>
+        <p><strong>(a)</strong> show that \(a(4a^2 + 5a - 6) = 0\) <em>[2 marks]</em></p>
+        <p><strong>(b)</strong> Hence (i) find the value of \(a\) (ii) use algebra to find the exact solutions of \(f(x) = 3\) <em>[4 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202023%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202023%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Apply the factor theorem with \(x = a\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Since \((x - a)\) is a factor, by the factor theorem \(f(a) = 0\). Here the root IS the same letter as the unknown constant — this is what makes the question slightly harder. We substitute \(x = a\) into the cubic.</div>
+            <p>By the factor theorem, \((x - a)\) is a factor \(\implies f(a) = 0\):</p>
+            <div class="algebra-chain">
+                <p>$$f(a) = 4a^3 + 5a^2 - 10a + 4a = 0$$</p>
+                <p class="reason">Combine the \(a\) terms: \(-10a + 4a = -6a\):</p>
+                <p>$$4a^3 + 5a^2 - 6a = 0$$</p>
+                <p class="reason">Factor out \(a\):</p>
+                <p>$$\boxed{a(4a^2 + 5a - 6) = 0} \quad \square$$</p>
+            </div>
+            <div class="mark-award">M1 — Substituting \(x = a\) and setting f(a) = 0</div>
+            <div class="mark-award">A1 — Reaching the given expression with correct working shown</div>
+        </div>
+    </div>
+
+    <!-- Part (b)(i) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)(i)</span> Step 2: Find the value of \(a\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">From \(a(4a^2 + 5a - 6) = 0\), either \(a = 0\) or \(4a^2 + 5a - 6 = 0\). But we're told \(a\) is a positive constant, so \(a \neq 0\). We solve the quadratic \(4a^2 + 5a - 6 = 0\) and pick the positive root.</div>
+            <p>Since \(a\) is a positive constant, \(a \neq 0\). So we need:</p>
+            <p>$$4a^2 + 5a - 6 = 0$$</p>
+            <div class="algebra-chain">
+                <p class="reason">Factorise: look for factors of \(4 \times (-6) = -24\) that add to 5. These are 8 and \(-3\):</p>
+                <p>$$4a^2 + 8a - 3a - 6 = 0$$</p>
+                <p>$$4a(a + 2) - 3(a + 2) = 0$$</p>
+                <p>$$(4a - 3)(a + 2) = 0$$</p>
+                <p class="reason">So \(a = \frac{3}{4}\) or \(a = -2\)</p>
+            </div>
+            <p>Since \(a\) is positive: \(\boxed{a = \frac{3}{4}}\)</p>
+            <div class="mark-award">A1 — \(a = \frac{3}{4}\) (with valid reasoning for rejecting other solutions)</div>
+        </div>
+    </div>
+
+    <!-- Part (b)(ii) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)(ii)</span> Step 3: Write \(f(x)\) using the known factor and divide</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Now we know \(a = \frac{3}{4}\), so the factor is \((x - \frac{3}{4})\) and \(f(x) = 4x^3 + 5x^2 - 10x + 3\). To solve \(f(x) = 3\), we first write \(f(x) - 3 = 0\), then factorise using our known factor. We can also note that \((x - \frac{3}{4})\) being a factor of \(f(x)\) means \((4x - 3)\) is a factor of \(4f(x)\) — or equivalently, we divide \(f(x)\) by \((x - \frac{3}{4})\).</div>
+            <p>With \(a = \frac{3}{4}\): \(f(x) = 4x^3 + 5x^2 - 10x + 3\)</p>
+            <p>We need to solve \(f(x) = 3\):</p>
+            <p>$$4x^3 + 5x^2 - 10x + 3 = 3$$</p>
+            <p>$$4x^3 + 5x^2 - 10x = 0$$</p>
+            <div class="algebra-chain">
+                <p class="reason">Factor out \(x\):</p>
+                <p>$$x(4x^2 + 5x - 10) = 0$$</p>
+            </div>
+            <div class="mark-award">M1 — Setting f(x) = 3, simplifying, and factoring out x (or equivalent approach)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)(ii)</span> Step 4: Solve the remaining quadratic</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">One solution is \(x = 0\). For the other solutions, we solve \(4x^2 + 5x - 10 = 0\) using the quadratic formula (it doesn't factorise neatly). "Exact solutions" means we leave surds in our answer.</div>
+            <p>From \(x(4x^2 + 5x - 10) = 0\):</p>
+            <p>Either \(x = 0\), or \(4x^2 + 5x - 10 = 0\)</p>
+            <div class="algebra-chain">
+                <p class="reason">Apply the quadratic formula with \(a=4\), \(b=5\), \(c=-10\):</p>
+                <p>$$x = \frac{-5 \pm \sqrt{25 + 160}}{8} = \frac{-5 \pm \sqrt{185}}{8}$$</p>
+            </div>
+            <p>The three exact solutions are:</p>
+            <p>$$\boxed{x = 0, \quad x = \frac{-5 + \sqrt{185}}{8}, \quad x = \frac{-5 - \sqrt{185}}{8}}$$</p>
+            <div class="mark-award">M1 — Using the quadratic formula (or completing the square) on the remaining quadratic</div>
+            <div class="mark-award">A1 — All three correct exact solutions stated</div>
+            <div class="examiner-note">Many candidates lost marks by not giving all three solutions. The \(x = 0\) solution was frequently omitted. "Exact solutions" means surds are required — decimal approximations score 0.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p1-jun23-q2')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: P2 June 2018 Q6 — Factorise + Prove ===================== -->
+<div class="example-panel" id="ex-p2-jun18-q6">
+    <div class="question-text">
+        <p><strong>Paper 2 — June 2018 — Question 6</strong> (5 marks)</p>
+        <p>$$f(x) = -3x^3 + 8x^2 - 9x + 10, \quad x \in \mathbb{R}$$</p>
+        <p><strong>(a)</strong> (i) Calculate \(f(2)\)<br>
+        (ii) Write \(f(x)\) as a product of two algebraic factors. <em>[3 marks]</em></p>
+        <p>Using the answer to (a)(ii),</p>
+        <p><strong>(b)</strong> prove that there are exactly two real solutions to the equation \(-3y^6 + 8y^4 - 9y^2 + 10 = 0\) <em>[2 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202018%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202018%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a)(i) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)(i)</span> Step 1: Calculate \(f(2)\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">When part (i) asks you to calculate \(f(2)\) before part (ii) asks you to factorise, this is a strong hint. If \(f(2) = 0\), then \((x - 2)\) is a factor by the factor theorem. This is the examiner guiding you toward the factorisation.</div>
+            <div class="algebra-chain">
+                <p>$$f(2) = -3(2)^3 + 8(2)^2 - 9(2) + 10$$</p>
+                <p class="reason">\(= -3(8) + 8(4) - 18 + 10\)</p>
+                <p class="reason">\(= -24 + 32 - 18 + 10\)</p>
+                <p>$$f(2) = 0$$</p>
+            </div>
+            <div class="mark-award">B1 — \(f(2) = 0\) (shown with working)</div>
+        </div>
+    </div>
+
+    <!-- Part (a)(ii) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)(ii)</span> Step 2: Use algebraic division to factorise \(f(x)\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Since \(f(2) = 0\), we know \((x - 2)\) is a factor. Now we divide \(f(x)\) by \((x - 2)\) to find the other factor (a quadratic). We can use polynomial long division or compare coefficients. Let's use the comparing coefficients method since it's often quicker for cubics.</div>
+            <p>Since \(f(2) = 0\), \((x - 2)\) is a factor. Write \(f(x) = (x - 2)(ax^2 + bx + c)\):</p>
+            <div class="algebra-chain">
+                <p class="reason">Comparing the leading coefficient: \(-3x^3\) must come from \(x \cdot ax^2\), so \(a = -3\)</p>
+                <p class="reason">Comparing the constant term: \(+10\) must come from \((-2)(c)\), so \(c = -5\)</p>
+                <p class="reason">Comparing the \(x^2\) coefficient: \(8 = -3 \times (-2) + b \times 1 = 6 + b\), so \(b = 2\)</p>
+            </div>
+            <p>Check \(x\) coefficient: \(-9 = (-3)(-2) + (2)(1) \cdot ... \) — let's verify:</p>
+            <p>\((x-2)(-3x^2 + 2x - 5)\): the \(x\) coefficient is \(2 \times (-2) + (-5) \times 1 = -4 - 5 = -9\) &#10004;</p>
+            <p>$$\boxed{f(x) = (x - 2)(-3x^2 + 2x - 5)}$$</p>
+            <div class="mark-award">M1 — Dividing f(x) by (x - 2) using any valid method</div>
+            <div class="mark-award">A1 — Correct factorisation: \((x-2)(-3x^2+2x-5)\)</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 3: Connect to the equation in \(y\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The equation \(-3y^6 + 8y^4 - 9y^2 + 10 = 0\) looks like our cubic but with \(y^2\) in place of \(x\). If we let \(x = y^2\), then \(f(x) = 0\) becomes the given equation. From our factorisation, \(f(x) = 0\) when \(x = 2\) or when \(-3x^2+2x-5 = 0\). We need to determine which give real values of \(y\).</div>
+            <p>Let \(x = y^2\). Then the equation \(-3y^6 + 8y^4 - 9y^2 + 10 = 0\) becomes \(f(y^2) = 0\).</p>
+            <p>From Part (a): \(f(x) = 0\) when \((x - 2) = 0\) or \(-3x^2 + 2x - 5 = 0\)</p>
+            <p><strong>Case 1:</strong> \(x = 2\), i.e., \(y^2 = 2\), giving \(y = \pm\sqrt{2}\). This gives <strong>2 real solutions</strong>.</p>
+            <p><strong>Case 2:</strong> \(-3x^2 + 2x - 5 = 0\). Check the discriminant:</p>
+            <div class="algebra-chain">
+                <p>$$\Delta = b^2 - 4ac = (2)^2 - 4(-3)(-5) = 4 - 60 = -56$$</p>
+            </div>
+            <p>Since \(\Delta = -56 < 0\), this quadratic has <strong>no real roots</strong>.</p>
+            <p>So \(x = y^2\) has no real solutions from Case 2.</p>
+            <p><strong>Therefore there are exactly two real solutions: \(y = \sqrt{2}\) and \(y = -\sqrt{2}\). \(\square\)</strong></p>
+            <div class="mark-award">M1 — Recognising the substitution \(x = y^2\) and considering both factors</div>
+            <div class="mark-award">A1 — Complete proof: discriminant &lt; 0 for the quadratic, so only \(y^2 = 2\) gives solutions, hence exactly 2</div>
+            <div class="examiner-note">You must explicitly show that the quadratic factor has no real roots (by finding the discriminant) — you cannot just state it. Also, you must state that \(y^2 = 2\) gives exactly 2 values of \(y\) (the positive and negative square root).</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p2-jun18-q6')">Show Full Solution</button>
+</div>
+
+<!-- PATTERN RECOGNITION -->
+<h2>How to Recognise This Question Type</h2>
+<div class="card">
+    <p>Look for these signals in the question:</p>
+    <ul style="margin-left: 1.5rem; line-height: 2;">
+        <li>The phrase <strong>"given that \((x + a)\) is a factor"</strong> or <strong>"given that \(f(a) = 0\)"</strong></li>
+        <li>A <strong>cubic polynomial</strong> with an unknown constant — the factor theorem gives an equation to find it</li>
+        <li>Part (i) asks to <strong>"calculate \(f(p)\)"</strong> for a specific value — this is a hint that \((x-p)\) is a factor</li>
+        <li>The instruction <strong>"factorise completely"</strong> or "write as a product of factors"</li>
+        <li>A problem where you need to find <strong>intersection points</strong> of a line and curve (substitute and solve the resulting cubic/quadratic)</li>
+        <li>The phrase <strong>"prove that there are exactly \(n\) real solutions"</strong> — use the discriminant after factorising</li>
+        <li>Questions asking for <strong>"the set of values"</strong> or using inequality notation — quadratic inequality after factorising</li>
+    </ul>
+</div>
+
+<h2>Key Algebraic Skills</h2>
+<div class="card">
+    <ul style="margin-left: 1.5rem; line-height: 2.2;">
+        <li><strong>Factor theorem:</strong> \(f(a) = 0 \iff (x-a)\) is a factor of \(f(x)\)</li>
+        <li><strong>Remainder theorem:</strong> When \(f(x)\) is divided by \((x-a)\), the remainder is \(f(a)\)</li>
+        <li><strong>Polynomial long division:</strong> Divide \(f(x)\) by \((x-a)\) to find the quotient (the other factor)</li>
+        <li><strong>Discriminant:</strong> For \(ax^2+bx+c=0\): if \(b^2-4ac > 0\) then 2 real roots; if \(= 0\) then 1 repeated root; if \(< 0\) then no real roots</li>
+        <li><strong>Quadratic inequality:</strong> Factorise, find critical values, sketch the parabola, read off the solution region</li>
+        <li><strong>Simultaneous equations:</strong> Substitute the linear equation into the quadratic, solve the resulting quadratic</li>
+    </ul>
+</div>
+
+<script>
+    // Toggle individual step
+    function toggleStep(header) {
+        header.classList.toggle('open');
+        header.nextElementSibling.classList.toggle('open');
+    }
+
+    // Show all steps in a panel
+    function showAllSteps(panelId) {
+        const panel = document.getElementById(panelId);
+        panel.querySelectorAll('.step-reveal-header').forEach(h => h.classList.add('open'));
+        panel.querySelectorAll('.step-reveal-content').forEach(c => c.classList.add('open'));
+    }
+
+    // Select an example (tab switching)
+    function selectExample(panelId) {
+        // Deactivate all tabs and panels
+        document.querySelectorAll('.example-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.example-panel').forEach(p => p.classList.remove('active'));
+
+        // Activate the selected panel
+        document.getElementById(panelId).classList.add('active');
+
+        // Find and activate the matching tab
+        const tabs = document.querySelectorAll('.example-tab');
+        const tabMap = {
+            'ex-p1-jun19-q1': 0,
+            'ex-p1-jun22-q2': 1,
+            'ex-p1-jun23-q2': 2,
+            'ex-p2-jun18-q6': 3
+        };
+        if (tabMap[panelId] !== undefined) {
+            tabs[tabMap[panelId]].classList.add('active');
+        }
+
+        // Scroll to worked examples section
+        document.getElementById(panelId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Render KaTeX on load
+    document.addEventListener('DOMContentLoaded', function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ]
+        });
+    });
+</script>
+
+</body>
+</html>

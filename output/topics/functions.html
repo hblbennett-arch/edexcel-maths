@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions — Edexcel A Level Maths</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #2b6cb0;
+            --success: #276749;
+            --warning: #c05621;
+            --danger: #c53030;
+            --bg: #f7fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #2d3748;
+            --muted: #718096;
+            --mark: #805ad5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        h1 { color: var(--primary); margin-bottom: 0.5rem; font-size: 2rem; }
+        h2 { color: var(--primary); margin: 2.5rem 0 1rem; font-size: 1.4rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        h3 { color: var(--accent); margin: 1.5rem 0 0.75rem; font-size: 1.15rem; }
+
+        .subtitle { color: var(--muted); margin-bottom: 2rem; font-size: 1.05rem; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--accent); }
+        .stat-card .label { font-size: 0.85rem; color: var(--muted); }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .approach-step {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .approach-step:last-child { border-bottom: none; }
+
+        .step-number {
+            background: var(--accent);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .step-content { flex: 1; }
+        .step-content strong { color: var(--primary); }
+
+        .pitfall-box {
+            background: #fff5f5;
+            border: 1px solid #fed7d7;
+            border-left: 4px solid var(--danger);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .pitfall-box h3 { color: var(--danger); margin-top: 0; }
+        .pitfall-box ul { margin-left: 1.5rem; margin-top: 0.5rem; }
+        .pitfall-box li { margin: 0.5rem 0; }
+
+        .tip-box {
+            background: #f0fff4;
+            border: 1px solid #c6f6d5;
+            border-left: 4px solid var(--success);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .tip-box h3 { color: var(--success); margin-top: 0; }
+
+        /* Question index table */
+        .question-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.92rem;
+        }
+
+        .question-table th {
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+        }
+
+        .question-table td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .question-table tr:hover { background: #ebf8ff; }
+
+        .question-table a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .question-table a:hover { text-decoration: underline; }
+
+        .question-table .go-btn {
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+        }
+
+        .question-table .go-btn:hover { background: var(--primary); }
+
+        /* Worked examples */
+        .example-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .example-tab {
+            padding: 0.5rem 1rem;
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .example-tab:hover { border-color: var(--accent); }
+        .example-tab.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+        .example-panel { display: none; }
+        .example-panel.active { display: block; }
+
+        .question-text {
+            background: #ebf8ff;
+            border: 1px solid #bee3f8;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.02rem;
+        }
+
+        .question-text .links {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #bee3f8;
+            font-size: 0.85rem;
+        }
+
+        .question-text .links a {
+            color: var(--accent);
+            text-decoration: none;
+            margin-right: 1.5rem;
+        }
+
+        .question-text .links a:hover { text-decoration: underline; }
+
+        .step-reveal {
+            margin: 0.75rem 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .step-reveal-header {
+            padding: 0.75rem 1rem;
+            background: #edf2f7;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background 0.2s;
+            gap: 0.5rem;
+        }
+
+        .step-reveal-header:hover { background: #e2e8f0; }
+
+        .step-reveal-header .arrow {
+            transition: transform 0.3s;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .step-reveal-header.open .arrow { transform: rotate(90deg); }
+
+        .step-reveal-content {
+            display: none;
+            padding: 1.25rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .step-reveal-content.open { display: block; }
+
+        .part-label {
+            display: inline-block;
+            background: #ebf8ff;
+            color: var(--accent);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        .mark-badge {
+            display: inline-block;
+            background: #faf5ff;
+            color: var(--mark);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border: 1px solid #e9d8fd;
+        }
+
+        .mark-award {
+            background: #faf5ff;
+            border: 1px solid #e9d8fd;
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            color: var(--mark);
+            font-weight: 600;
+        }
+
+        .mark-award::before {
+            content: "\2713 ";
+        }
+
+        .examiner-note {
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            border-radius: 6px;
+            padding: 0.75rem;
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .examiner-note::before {
+            content: "Examiner: ";
+            font-weight: 700;
+            color: var(--warning);
+        }
+
+        .show-all-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            transition: background 0.2s;
+        }
+
+        .show-all-btn:hover { background: var(--primary); }
+
+        .motivation {
+            background: #eef6ff;
+            border: 1px solid #c3dafe;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.93rem;
+        }
+
+        .motivation::before {
+            content: "\1F4AD Thinking: ";
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .algebra-chain {
+            margin: 0.5rem 0;
+            padding-left: 1rem;
+            border-left: 3px solid var(--border);
+        }
+
+        .algebra-chain .reason {
+            color: var(--muted);
+            font-size: 0.85rem;
+            font-style: italic;
+            margin: 0.25rem 0;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            h1 { font-size: 1.5rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .example-selector { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<p style="margin-bottom: 1rem;"><a href="../index.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">&larr; All Topics</a></p>
+
+<h1>Functions</h1>
+<p class="subtitle">Composite functions, inverse functions, domain and range, transformations, and modulus</p>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="number">12/14</div>
+        <div class="label">Papers with function Qs</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">5–11</div>
+        <div class="label">Typical marks</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">Q1–10</div>
+        <div class="label">Paper position</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">3–4 parts</div>
+        <div class="label">Standard structure</div>
+    </div>
+</div>
+
+<!-- FULL QUESTION INDEX -->
+<h2>All Past Paper Questions on This Topic</h2>
+<p style="margin-bottom: 1rem; color: var(--muted);">Every functions question (composite, inverse, domain/range, transformations) from Edexcel 9MA0 (2018–2024). Click "Worked Example" to see a full guided solution.</p>
+
+<table class="question-table">
+    <thead>
+        <tr>
+            <th>Paper</th>
+            <th>Question</th>
+            <th>Description</th>
+            <th>Marks</th>
+            <th>Links</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>P2 June 2018</td>
+            <td>Q1</td>
+            <td>\(g(x) = \frac{2x+5}{x-3}\); find gg(5), state range, find \(g^{-1}(x)\) with domain</td>
+            <td>6</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202018%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202018%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p2-jun18-q1'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P1 June 2019</td>
+            <td>Q5</td>
+            <td>\(f(x) = 2x^2+4x+9\); complete square, sketch, transformation to g(x), range of h(x)</td>
+            <td>10</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202019%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202019%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p1-jun19-q5'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P2 June 2019</td>
+            <td>Q6</td>
+            <td>Piecewise g(x); find gg(0), solve g(x)=28, explain inverse existence, solve \(h^{-1}(x)=-\frac{1}{2}\)</td>
+            <td>10</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202019%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202019%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 Oct 2020</td>
+            <td>Q9(c)</td>
+            <td>\(g(x)=2f(x)\), \(h(x)=2f(x)-3\); find range of g and range of h</td>
+            <td>3</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FOctober%202020%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FOctober%202020%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 Oct 2021</td>
+            <td>Q2</td>
+            <td>\(f(x)=7-2x^2\), \(g(x)=\frac{3x}{5x-1}\); range of f, find gf(1.8), find \(g^{-1}(x)\)</td>
+            <td>5</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FOctober%202021%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FOctober%202021%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p2-oct21-q2'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P2 June 2022</td>
+            <td>Q10</td>
+            <td>\(f(x)=\frac{8x+5}{2x+3}\); find \(f^{-1}\), show partial fractions form, range of \(g^{-1}\), range of \(fg^{-1}\)</td>
+            <td>8</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202022%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202022%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 June 2023</td>
+            <td>Q7</td>
+            <td>\(f(x)=3+\sqrt{x-2}\); state range, find \(f^{-1}\), find gf(6) with \(g(x)=\frac{15}{x-3}\)</td>
+            <td>8</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202023%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202023%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 June 2024</td>
+            <td>Q8</td>
+            <td>\(f(x)=4-3x^2\), \(g(x)=\frac{5}{2x-9}\); find fg(2), find \(g^{-1}\), find gf(x) and its range</td>
+            <td>11</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202024%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202024%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p1-jun24-q8'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P2 June 2024</td>
+            <td>Q3</td>
+            <td>Transformations: P(3, -2) on y=f(x); find image under \(y=f(x-2)\), \(y=f(2x)\), \(y=3f(-x)+5\)</td>
+            <td>4</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202024%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202024%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- GUIDED APPROACH -->
+<h2>The Approach</h2>
+<div class="card">
+    <p style="margin-bottom: 1rem; color: var(--muted);">How to tackle any Edexcel functions question systematically:</p>
+
+    <div class="approach-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+            <strong>Identify the type</strong><br>
+            Is it asking for a composite (fg or gf), an inverse (\(f^{-1}\)), a domain/range, or a transformation? The notation tells you: \(fg(x)\) means "apply g first, then f"; \(f^{-1}\) means "undo f"; transformations involve \(f(x+a)\), \(af(x)\), etc.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+            <strong>For composites: work from the inside out</strong><br>
+            For \(fg(x)\): substitute the entire expression for \(g(x)\) wherever you see \(x\) in \(f\). For a numerical value like \(fg(2)\): find \(g(2)\) first, then substitute that result into \(f\). Never apply \(f\) first — the order matters.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+            <strong>For inverses: swap and solve</strong><br>
+            Write \(y = f(x)\), then rearrange to make \(x\) the subject. Finally replace \(x\) with \(f^{-1}(x)\) and \(y\) with \(x\). Always state the domain of \(f^{-1}\) — it equals the range of \(f\).
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+            <strong>For transformations: apply to coordinates</strong><br>
+            \(f(x-a)\): translate \(a\) units right. \(f(x)+a\): translate \(a\) units up. \(af(x)\): stretch vertically by factor \(a\). \(f(ax)\): stretch horizontally by factor \(\frac{1}{a}\). \(f(-x)\): reflect in y-axis. \(-f(x)\): reflect in x-axis. Apply to specific point coordinates.
+        </div>
+    </div>
+</div>
+
+<!-- EXAMINER PITFALLS -->
+<div class="pitfall-box">
+    <h3>Common Pitfalls (from Examiner Reports)</h3>
+    <ul>
+        <li><strong>Wrong order for composites:</strong> \(fg(x)\) means "g first, then f" — but many candidates compute \(f\) first. The function closest to the \(x\) is applied first. Think of it as \(f(g(x))\) — work from the innermost bracket outward.</li>
+        <li><strong>Forgetting to restrict the domain for the inverse:</strong> When finding \(f^{-1}(x)\), you must state its domain. The domain of \(f^{-1}\) = range of \(f\). Without this you lose the final mark every time.</li>
+        <li><strong>Incorrect transformation direction:</strong> \(f(x+2)\) is a translation 2 units LEFT (not right). \(f(2x)\) is a stretch of factor \(\frac{1}{2}\) horizontally (not 2). The "inside" changes are counterintuitive — they go in the opposite direction to what you might expect.</li>
+        <li><strong>Not simplifying composites:</strong> When asked for \(gf(x)\) as a "simplified fraction", you must combine terms fully. Leaving an unsimplified expression loses the A mark.</li>
+        <li><strong>Range vs Domain confusion:</strong> Range is the set of output values (on the y-axis). Domain is the set of allowed inputs (on the x-axis). Writing "range: \(x \geq 3\)" instead of "\(f(x) \geq 3\)" or "\(y \geq 3\)" loses the mark.</li>
+    </ul>
+</div>
+
+<div class="tip-box">
+    <h3>What Top Candidates Do</h3>
+    <ul>
+        <li>For composites with specific values (e.g. "find fg(2)"): evaluate the inner function at that value first, then substitute the numerical result into the outer function. Write both steps clearly.</li>
+        <li>For inverses of rational functions: cross-multiply first, then collect all terms containing the variable on one side and factorise.</li>
+        <li>Always use correct function notation: write \(g^{-1}(x) = \ldots\) not just \(y = \ldots\). State the domain using set notation or inequalities.</li>
+        <li>For transformations: state the type (translation/stretch/reflection) AND the specifics (direction and magnitude/vector). Both are needed for full marks.</li>
+    </ul>
+</div>
+
+<!-- WORKED EXAMPLES -->
+<h2>Worked Examples</h2>
+<p style="color: var(--muted); margin-bottom: 0.5rem;">Select a question to see the full guided solution:</p>
+
+<div class="example-selector">
+    <div class="example-tab active" onclick="selectExample('ex-p2-jun18-q1')">June 2018 P2 Q1</div>
+    <div class="example-tab" onclick="selectExample('ex-p2-oct21-q2')">Oct 2021 P2 Q2</div>
+    <div class="example-tab" onclick="selectExample('ex-p1-jun19-q5')">June 2019 P1 Q5</div>
+    <div class="example-tab" onclick="selectExample('ex-p1-jun24-q8')">June 2024 P1 Q8</div>
+</div>
+
+<!-- ===================== EXAMPLE: P2 June 2018 Q1 ===================== -->
+<div class="example-panel active" id="ex-p2-jun18-q1">
+    <div class="question-text">
+        <p><strong>Paper 2 — June 2018 — Question 1</strong> (6 marks)</p>
+        <p>$$g(x) = \frac{2x + 5}{x - 3}, \quad x \in \mathbb{R}, \quad x \geq 5$$</p>
+        <p><strong>(a)</strong> Find \(gg(5)\). <em>[2 marks]</em></p>
+        <p><strong>(b)</strong> State the range of \(g\). <em>[1 mark]</em></p>
+        <p><strong>(c)</strong> Find \(g^{-1}(x)\), stating its domain. <em>[3 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202018%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202018%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Find g(5)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">\(gg(5)\) means \(g(g(5))\) — apply g twice. We work from the inside out: first find \(g(5)\), then substitute that result back into \(g\). This is a composite function evaluation at a specific numerical value.</div>
+            <p>Substitute \(x = 5\) into \(g(x) = \frac{2x+5}{x-3}\):</p>
+            <div class="algebra-chain">
+                <p>$$g(5) = \frac{2(5) + 5}{5 - 3} = \frac{15}{2} = 7.5$$</p>
+            </div>
+            <div class="mark-award">M1 — Attempting g(5) and substituting the result into g</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 2: Find g(g(5)) = g(7.5)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Now we take the output from Step 1 (\(7.5\)) and feed it back into \(g\). This is the second application of the function, completing the composite \(gg(5) = g(g(5)) = g(7.5)\).</div>
+            <p>Substitute \(x = 7.5\) into \(g(x)\):</p>
+            <div class="algebra-chain">
+                <p>$$gg(5) = g(7.5) = \frac{2(7.5) + 5}{7.5 - 3} = \frac{20}{4.5} = \frac{40}{9}$$</p>
+            </div>
+            <p>$$\boxed{gg(5) = \frac{40}{9}}$$</p>
+            <div class="mark-award">A1 — Correct answer: \(\frac{40}{9}\) (accept \(4.\overline{4}\))</div>
+            <div class="examiner-note">An exact answer is required here. Give \(\frac{40}{9}\) or \(4\frac{4}{9}\). Writing "4.4" without the recurring dot or fraction loses the A1 mark.</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 3: State the range of g</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The range is the set of all possible output values. For a rational function like \(\frac{2x+5}{x-3}\), as \(x\) gets very large the function approaches a horizontal asymptote. We can find this by dividing: the leading coefficients give \(\frac{2}{1} = 2\). With domain \(x \geq 5\), we substitute the boundary: \(g(5) = 7.5\). As \(x \to \infty\), \(g(x) \to 2\) from above. So the range is \(2 < g(x) \leq 7.5\).</div>
+            <p>As \(x \to \infty\): \(g(x) = \frac{2x+5}{x-3} \to \frac{2x}{x} = 2\) (from above, never reaching 2).</p>
+            <p>At \(x = 5\): \(g(5) = \frac{15}{2} = 7.5\) (this is the maximum output).</p>
+            <p>$$\boxed{2 < g(x) \leq \frac{15}{2}}$$</p>
+            <div class="mark-award">B1 — Correct range: \(2 < y \leq \frac{15}{2}\)</div>
+            <div class="examiner-note">The range must use correct notation. Accept \(2 < g(x) \leq 7.5\) or set notation. Writing "\(2 \leq y \leq 7.5\)" loses the mark because \(g(x)\) never equals 2.</div>
+        </div>
+    </div>
+
+    <!-- Part (c) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)</span> Step 4: Find \(g^{-1}(x)\) — set up and cross-multiply</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">To find the inverse, we write \(y = g(x)\) and rearrange to make \(x\) the subject. For rational functions, the key technique is cross-multiplication followed by collecting \(x\)-terms on one side and factorising. At the end we swap \(x\) and \(y\) (or equivalently, write \(g^{-1}(x) = \ldots\)).</div>
+            <p>Let \(y = \frac{2x+5}{x-3}\). Cross-multiply:</p>
+            <div class="algebra-chain">
+                <p>$$y(x - 3) = 2x + 5$$</p>
+                <p class="reason">Expand the left side:</p>
+                <p>$$yx - 3y = 2x + 5$$</p>
+            </div>
+            <div class="mark-award">M1 — Cross-multiplication followed by attempt to collect terms in x</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)</span> Step 5: Collect \(x\)-terms, factorise, and solve</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We need \(x\) on its own. Since \(x\) appears in two terms (\(yx\) and \(2x\)), we move them to the same side and factor out \(x\). Then divide to isolate \(x\). This is the standard technique for inverting any rational function.</div>
+            <div class="algebra-chain">
+                <p class="reason">Collect all terms containing \(x\) on one side:</p>
+                <p>$$yx - 2x = 3y + 5$$</p>
+                <p class="reason">Factor out \(x\):</p>
+                <p>$$x(y - 2) = 3y + 5$$</p>
+                <p class="reason">Divide both sides by \((y - 2)\):</p>
+                <p>$$x = \frac{3y + 5}{y - 2}$$</p>
+            </div>
+            <p>Now swap \(x\) and \(y\) (or simply write using inverse notation):</p>
+            <p>$$\boxed{g^{-1}(x) = \frac{3x + 5}{x - 2}, \quad 2 < x \leq \frac{15}{2}}$$</p>
+            <div class="mark-award">M1 — Complete method to find inverse (factorise and divide)</div>
+            <div class="mark-award">A1ft — Correct inverse with domain stated correctly (domain of \(g^{-1}\) = range of \(g\))</div>
+            <div class="examiner-note">The domain of \(g^{-1}\) must be stated. It equals the range of \(g\) from part (b). Correct notation is required: "\(x \in \mathbb{R}, 2 < x \leq \frac{15}{2}\)" or equivalent. Simply writing the expression without domain loses the final mark.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p2-jun18-q1')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: P2 Oct 2021 Q2 ===================== -->
+<div class="example-panel" id="ex-p2-oct21-q2">
+    <div class="question-text">
+        <p><strong>Paper 2 — October 2021 — Question 2</strong> (5 marks)</p>
+        <p>The functions f and g are defined by:</p>
+        <p>$$f(x) = 7 - 2x^2, \quad x \in \mathbb{R}$$</p>
+        <p>$$g(x) = \frac{3x}{5x - 1}, \quad x \in \mathbb{R}, \quad x \neq \frac{1}{5}$$</p>
+        <p><strong>(a)</strong> State the range of \(f\). <em>[1 mark]</em></p>
+        <p><strong>(b)</strong> Find \(gf(1.8)\). <em>[2 marks]</em></p>
+        <p><strong>(c)</strong> Find \(g^{-1}(x)\). <em>[2 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FOctober%202021%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FOctober%202021%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: State the range of f</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">\(f(x) = 7 - 2x^2\) is a downward-opening parabola (negative coefficient of \(x^2\)). Its maximum value occurs at the vertex. Since the domain is all reals, \(x^2 \geq 0\), so \(-2x^2 \leq 0\), meaning \(f(x) = 7 - 2x^2 \leq 7\). The maximum is 7 (when \(x=0\)) and \(f(x)\) decreases without bound as \(|x| \to \infty\).</div>
+            <p>\(f(x) = 7 - 2x^2\). Since \(x^2 \geq 0\) for all real \(x\):</p>
+            <p>Maximum of \(f\) is at \(x = 0\): \(f(0) = 7\)</p>
+            <p>As \(|x| \to \infty\), \(f(x) \to -\infty\)</p>
+            <p>$$\boxed{f(x) \leq 7 \quad \text{(or equivalently, range of } f \text{ is } (-\infty, 7])}$$</p>
+            <div class="mark-award">B1 — Correct range: \(y \leq 7\) or \(f(x) \leq 7\)</div>
+            <div class="examiner-note">Accept any correct notation: \(f(x) \leq 7\), \(y \leq 7\), \(\{y \in \mathbb{R}: y \leq 7\}\), \((-\infty, 7]\). Do not accept \(x \leq 7\) — range must be about outputs.</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 2: Find gf(1.8) — evaluate f(1.8) first</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">\(gf(1.8)\) means \(g(f(1.8))\) — apply \(f\) first (it is closest to the \(x\)), then apply \(g\) to the result. This is the key: for numerical composites, always compute the inner function's value first, then feed that number into the outer function.</div>
+            <p>First, find \(f(1.8)\):</p>
+            <div class="algebra-chain">
+                <p>$$f(1.8) = 7 - 2(1.8)^2 = 7 - 2(3.24) = 7 - 6.48 = 0.52$$</p>
+            </div>
+            <div class="mark-award">M1 — Finding f(1.8) and substituting into g</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 3: Substitute into g to complete gf(1.8)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We now have \(f(1.8) = 0.52\). The composite \(gf(1.8) = g(0.52)\). We substitute 0.52 into the formula for \(g\).</div>
+            <p>Now find \(g(0.52)\):</p>
+            <div class="algebra-chain">
+                <p>$$gf(1.8) = g(0.52) = \frac{3(0.52)}{5(0.52) - 1} = \frac{1.56}{2.6 - 1} = \frac{1.56}{1.6}$$</p>
+                <p class="reason">Simplify:</p>
+                <p>$$= \frac{156}{160} = \frac{39}{40} = 0.975$$</p>
+            </div>
+            <p>$$\boxed{gf(1.8) = \frac{39}{40}}$$</p>
+            <div class="mark-award">A1 — Correct answer: \(\frac{39}{40}\) or 0.975</div>
+        </div>
+    </div>
+
+    <!-- Part (c) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)</span> Step 4: Find \(g^{-1}(x)\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">To find the inverse of \(g(x) = \frac{3x}{5x-1}\), we set \(y = \frac{3x}{5x-1}\) and rearrange to make \(x\) the subject. Since \(x\) appears in both numerator and denominator, cross-multiply first, then collect all \(x\)-terms together and factorise.</div>
+            <p>Let \(y = \frac{3x}{5x - 1}\). Cross-multiply:</p>
+            <div class="algebra-chain">
+                <p>$$y(5x - 1) = 3x$$</p>
+                <p class="reason">Expand:</p>
+                <p>$$5xy - y = 3x$$</p>
+                <p class="reason">Collect terms in \(x\) on one side:</p>
+                <p>$$5xy - 3x = y$$</p>
+                <p class="reason">Factor out \(x\):</p>
+                <p>$$x(5y - 3) = y$$</p>
+                <p class="reason">Divide by \((5y - 3)\):</p>
+                <p>$$x = \frac{y}{5y - 3}$$</p>
+            </div>
+            <p>Swap \(x\) and \(y\):</p>
+            <p>$$\boxed{g^{-1}(x) = \frac{x}{5x - 3}}$$</p>
+            <div class="mark-award">M1 — Cross-multiplying and attempting to factorise out x</div>
+            <div class="mark-award">A1 — Correct expression for the inverse</div>
+            <div class="examiner-note">Accept equivalent forms such as \(\frac{-x}{3-5x}\) or \(\frac{1}{5} + \frac{3}{25x-15}\). The domain is not explicitly required in this question, but if given it must be correct.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p2-oct21-q2')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: P1 June 2019 Q5 ===================== -->
+<div class="example-panel" id="ex-p1-jun19-q5">
+    <div class="question-text">
+        <p><strong>Paper 1 — June 2019 — Question 5</strong> (10 marks)</p>
+        <p>$$f(x) = 2x^2 + 4x + 9, \quad x \in \mathbb{R}$$</p>
+        <p><strong>(a)</strong> Write \(f(x)\) in the form \(a(x+b)^2 + c\), where \(a\), \(b\) and \(c\) are integers to be found. <em>[3 marks]</em></p>
+        <p><strong>(b)</strong> Sketch the curve with equation \(y = f(x)\) showing any points of intersection with the coordinate axes and the coordinates of any turning point. <em>[3 marks]</em></p>
+        <p><strong>(c)(i)</strong> Describe fully the transformation that maps the curve with equation \(y = f(x)\) onto the curve with equation \(y = g(x)\) where \(g(x) = 2(x-2)^2 + 4x - 3\). <em>[2 marks]</em></p>
+        <p><strong>(c)(ii)</strong> Find the range of the function \(h(x) = \frac{21}{2x^2 + 4x + 9}\), \(x \in \mathbb{R}\). <em>[2 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202019%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202019%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Complete the square on \(f(x) = 2x^2 + 4x + 9\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We need \(f(x)\) in vertex form \(a(x+b)^2 + c\). Since the leading coefficient is 2 (not 1), we factor it out from the \(x\)-terms first, then complete the square inside the bracket. This form directly gives us the minimum value \(c\) (at \(x = -b\)), which we will need for parts (b) and (c).</div>
+            <div class="algebra-chain">
+                <p>$$f(x) = 2x^2 + 4x + 9$$</p>
+                <p class="reason">Factor out the coefficient of \(x^2\) from the first two terms:</p>
+                <p>$$= 2(x^2 + 2x) + 9$$</p>
+                <p class="reason">Complete the square inside the bracket: \(x^2 + 2x = (x+1)^2 - 1\):</p>
+                <p>$$= 2\left[(x+1)^2 - 1\right] + 9$$</p>
+                <p class="reason">Expand the 2:</p>
+                <p>$$= 2(x+1)^2 - 2 + 9$$</p>
+                <p>$$= 2(x+1)^2 + 7$$</p>
+            </div>
+            <p>$$\boxed{a = 2, \quad b = 1, \quad c = 7}$$</p>
+            <div class="mark-award">B1 — States or implies \(a = 2\)</div>
+            <div class="mark-award">M1 — Correct method for completing the square with \(a \neq 1\)</div>
+            <div class="mark-award">A1 — \(2(x+1)^2 + 7\)</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 2: Sketch the curve</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">From the completed square form \(2(x+1)^2 + 7\), we can read off: the vertex (minimum point) is at \((-1, 7)\), the parabola opens upward (\(a = 2 > 0\)), and the minimum \(y\)-value is 7 (above the \(x\)-axis, so no \(x\)-intercepts). The \(y\)-intercept is \(f(0) = 9\).</div>
+            <p>Key features of the sketch:</p>
+            <ul style="margin: 0.5rem 0 0.75rem 1.5rem;">
+                <li>U-shaped parabola (since \(a = 2 > 0\))</li>
+                <li>Minimum (turning point) at \((-1, 7)\)</li>
+                <li>\(y\)-intercept at \((0, 9)\)</li>
+                <li>No \(x\)-intercepts (minimum is above the \(x\)-axis)</li>
+            </ul>
+            <div class="mark-award">B1 — U-shaped curve in a reasonable position, not through (0,0)</div>
+            <div class="mark-award">B1 — \(y\)-intercept at (0, 9)</div>
+            <div class="mark-award">B1ft — Minimum at \((-1, 7)\), shown in the correct quadrant</div>
+        </div>
+    </div>
+
+    <!-- Part (c)(i) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)(i)</span> Step 3: Identify the transformation from f(x) to g(x)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We need to compare \(f(x) = 2(x+1)^2 + 7\) with \(g(x) = 2(x-2)^2 + 4x - 3\). The trick is to write \(g(x)\) in the same completed square form. Expanding \(g(x) = 2(x-2)^2 + 4x - 3 = 2(x^2 - 4x + 4) + 4x - 3 = 2x^2 - 8x + 8 + 4x - 3 = 2x^2 - 4x + 5\). Then complete the square: \(2(x^2 - 2x) + 5 = 2[(x-1)^2 - 1] + 5 = 2(x-1)^2 + 3\). Comparing \(f(x) = 2(x+1)^2 + 7\) with \(g(x) = 2(x-1)^2 + 3\): the vertex has moved from \((-1, 7)\) to \((1, 3)\).</div>
+            <p>First, simplify \(g(x)\):</p>
+            <div class="algebra-chain">
+                <p>$$g(x) = 2(x-2)^2 + 4x - 3 = 2(x^2 - 4x + 4) + 4x - 3$$</p>
+                <p>$$= 2x^2 - 8x + 8 + 4x - 3 = 2x^2 - 4x + 5$$</p>
+                <p class="reason">Complete the square:</p>
+                <p>$$= 2(x^2 - 2x) + 5 = 2[(x-1)^2 - 1] + 5 = 2(x-1)^2 + 3$$</p>
+            </div>
+            <p>Compare: \(f(x) = 2(x+1)^2 + 7\) has vertex \((-1, 7)\)</p>
+            <p>Compare: \(g(x) = 2(x-1)^2 + 3\) has vertex \((1, 3)\)</p>
+            <p>The vertex moves from \((-1, 7)\) to \((1, 3)\): that is 2 right and 4 down.</p>
+            <p>$$\boxed{\text{Translation by the vector } \begin{pmatrix} 2 \\ -4 \end{pmatrix}}$$</p>
+            <div class="mark-award">M1 — Deduces a translation with one correct component</div>
+            <div class="mark-award">A1 — Correct: "Translation by \(\begin{pmatrix}2\\-4\end{pmatrix}\)"</div>
+            <div class="examiner-note">You must say "translation" (or "shift"/"move") AND give the vector \(\begin{pmatrix}2\\-4\end{pmatrix}\). Writing "2 right and 4 down" without the word "translation" or without the vector loses marks. Do NOT describe it as two separate transformations — it is one single translation.</div>
+        </div>
+    </div>
+
+    <!-- Part (c)(ii) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)(ii)</span> Step 4: Find the range of \(h(x) = \frac{21}{f(x)}\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We have \(h(x) = \frac{21}{2x^2 + 4x + 9} = \frac{21}{f(x)}\). From part (a), \(f(x) = 2(x+1)^2 + 7 \geq 7\) for all \(x\). Since \(f(x)\) is always at least 7, the fraction \(\frac{21}{f(x)}\) is at most \(\frac{21}{7} = 3\). And since \(f(x)\) is always positive and can grow without bound, \(h(x)\) is always positive but approaches 0 (never reaching it). So the range of \(h\) is \(0 < h(x) \leq 3\).</div>
+            <p>From part (a): \(f(x) = 2(x+1)^2 + 7 \geq 7\) for all \(x \in \mathbb{R}\).</p>
+            <p>Therefore the denominator of \(h\) is always at least 7:</p>
+            <div class="algebra-chain">
+                <p class="reason">Maximum value of \(h\): occurs when denominator is smallest (= 7):</p>
+                <p>$$h_{\max} = \frac{21}{7} = 3$$</p>
+                <p class="reason">As \(|x| \to \infty\), \(f(x) \to \infty\), so \(h(x) \to 0^+\) (approaches 0, never reaches it):</p>
+            </div>
+            <p>$$\boxed{0 < h(x) \leq 3}$$</p>
+            <div class="mark-award">M1 — Recognising that the maximum of \(h\) occurs at the minimum of \(f\), and calculating \(\frac{21}{7} = 3\)</div>
+            <div class="mark-award">A1ft — Correct range: \(0 < h(x) \leq 3\)</div>
+            <div class="examiner-note">The upper bound is \(\leq 3\) (achieved at \(x = -1\)). The lower bound is strictly \(> 0\) (never reached). Writing \(0 \leq h(x) \leq 3\) loses the mark because \(h(x)\) can never actually equal 0.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p1-jun19-q5')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: P1 June 2024 Q8 ===================== -->
+<div class="example-panel" id="ex-p1-jun24-q8">
+    <div class="question-text">
+        <p><strong>Paper 1 — June 2024 — Question 8</strong> (11 marks)</p>
+        <p>The functions f and g are defined by:</p>
+        <p>$$f(x) = 4 - 3x^2, \quad x \in \mathbb{R}$$</p>
+        <p>$$g(x) = \frac{5}{2x - 9}, \quad x \in \mathbb{R}, \quad x \neq \frac{9}{2}$$</p>
+        <p><strong>(a)</strong> Find \(fg(2)\). <em>[2 marks]</em></p>
+        <p><strong>(b)</strong> Find \(g^{-1}(x)\), stating its domain. <em>[3 marks]</em></p>
+        <p><strong>(c)(i)</strong> Find \(gf(x)\), giving your answer as a simplified fraction. <em>[2 marks]</em></p>
+        <p><strong>(c)(ii)</strong> Deduce the range of \(gf(x)\). <em>[1 mark]</em></p>
+        <p><strong>(d)</strong> Given \(h(x) = 2x^2 - 6x + k\), find the range of values of \(k\) for which \(f(x) = h(x)\) has no real solutions. <em>[3 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202024%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202024%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Find fg(2) — evaluate g(2) first</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">\(fg(2)\) means \(f(g(2))\) — apply \(g\) first (innermost), then \(f\). We find \(g(2)\) numerically, then substitute that value into \(f\).</div>
+            <p>Find \(g(2)\):</p>
+            <div class="algebra-chain">
+                <p>$$g(2) = \frac{5}{2(2) - 9} = \frac{5}{4 - 9} = \frac{5}{-5} = -1$$</p>
+            </div>
+            <p>Now find \(f(-1)\):</p>
+            <div class="algebra-chain">
+                <p>$$fg(2) = f(-1) = 4 - 3(-1)^2 = 4 - 3(1) = 4 - 3 = 1$$</p>
+            </div>
+            <p>$$\boxed{fg(2) = 1}$$</p>
+            <div class="mark-award">M1 — Correct method: finding g(2) and substituting into f</div>
+            <div class="mark-award">A1 — Correct answer: 1</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 2: Find \(g^{-1}(x)\) with domain</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">To invert \(g(x) = \frac{5}{2x-9}\), write \(y = \frac{5}{2x-9}\) and rearrange for \(x\). For this simpler form (constant numerator), we can multiply through and solve directly without needing to factorise.</div>
+            <p>Let \(y = \frac{5}{2x - 9}\). Rearrange for \(x\):</p>
+            <div class="algebra-chain">
+                <p class="reason">Multiply both sides by \((2x - 9)\):</p>
+                <p>$$y(2x - 9) = 5$$</p>
+                <p class="reason">Expand:</p>
+                <p>$$2xy - 9y = 5$$</p>
+                <p class="reason">Add \(9y\) to both sides:</p>
+                <p>$$2xy = 5 + 9y$$</p>
+                <p class="reason">Divide by \(2y\):</p>
+                <p>$$x = \frac{5 + 9y}{2y}$$</p>
+            </div>
+            <p>Write in inverse notation (swap \(x\) and \(y\)):</p>
+            <p>$$\boxed{g^{-1}(x) = \frac{5 + 9x}{2x}, \quad x \in \mathbb{R}, \quad x \neq 0}$$</p>
+            <div class="mark-award">M1 — Eliminates the fraction and isolates terms with x</div>
+            <div class="mark-award">A1 — Correct expression for the inverse</div>
+            <div class="mark-award">A1 — Correct notation including domain (\(x \neq 0\))</div>
+            <div class="examiner-note">The domain of \(g^{-1}\) is the range of \(g\). Since \(g(x) = \frac{5}{2x-9}\) can take any non-zero value, the domain of \(g^{-1}\) is \(x \neq 0\). You must state this for full marks.</div>
+        </div>
+    </div>
+
+    <!-- Part (c)(i) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)(i)</span> Step 3: Find gf(x) as a simplified fraction</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">\(gf(x) = g(f(x))\): substitute the entire expression for \(f(x)\) into \(g\) wherever \(x\) appears. Since \(g(x) = \frac{5}{2x-9}\), we replace the \(x\) in \(g\) with \(f(x) = 4-3x^2\).</div>
+            <p>Substitute \(f(x) = 4 - 3x^2\) into \(g\):</p>
+            <div class="algebra-chain">
+                <p>$$gf(x) = g(4 - 3x^2) = \frac{5}{2(4 - 3x^2) - 9}$$</p>
+                <p class="reason">Expand the denominator:</p>
+                <p>$$= \frac{5}{8 - 6x^2 - 9} = \frac{5}{-1 - 6x^2}$$</p>
+                <p class="reason">Multiply numerator and denominator by \(-1\) to tidy up:</p>
+                <p>$$= \frac{-5}{1 + 6x^2}$$</p>
+            </div>
+            <p>$$\boxed{gf(x) = \frac{-5}{1 + 6x^2}}$$</p>
+            <div class="mark-award">M1 — Correct substitution of f into g</div>
+            <div class="mark-award">A1 — Correct simplified fraction</div>
+        </div>
+    </div>
+
+    <!-- Part (c)(ii) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)(ii)</span> Step 4: Deduce the range of gf(x)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">From the expression \(gf(x) = \frac{-5}{1+6x^2}\), we can deduce the range by analysing the denominator. Since \(x^2 \geq 0\), we have \(1 + 6x^2 \geq 1\). The fraction \(\frac{-5}{\text{something} \geq 1}\) is always negative. Its value closest to zero is when the denominator is largest (as \(x \to \infty\)), and its most negative value is when the denominator is smallest (= 1, when \(x = 0\)), giving \(\frac{-5}{1} = -5\).</div>
+            <p>The denominator \(1 + 6x^2 \geq 1\) for all real \(x\).</p>
+            <ul style="margin: 0.5rem 0 0.75rem 1.5rem;">
+                <li>When \(x = 0\): \(gf(0) = \frac{-5}{1} = -5\) (most negative value)</li>
+                <li>As \(|x| \to \infty\): \(gf(x) \to 0^-\) (approaches 0 from below, never reaches it)</li>
+            </ul>
+            <p>$$\boxed{-5 \leq gf(x) < 0}$$</p>
+            <div class="mark-award">B1 — Correct range deduced: \(-5 \leq gf(x) < 0\)</div>
+            <div class="examiner-note">This can be scored even with an incorrect gf(x), provided the deduction is logically consistent. The key word "deduce" means you should not need new calculations — use what you already have from (c)(i).</div>
+        </div>
+    </div>
+
+    <!-- Part (d) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (d)</span> Step 5: Find values of k for which f(x) = h(x) has no real solutions</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">"No real solutions" is a signal for the discriminant. If we set \(f(x) = h(x)\) and rearrange to \(ax^2 + bx + c = 0\), the equation has no real solutions when the discriminant \(b^2 - 4ac < 0\). We form the quadratic, identify \(a\), \(b\), \(c\) (in terms of \(k\)), then solve the inequality.</div>
+            <p>Set \(f(x) = h(x)\):</p>
+            <div class="algebra-chain">
+                <p>$$4 - 3x^2 = 2x^2 - 6x + k$$</p>
+                <p class="reason">Rearrange to standard form (all terms on one side):</p>
+                <p>$$0 = 5x^2 - 6x + (k - 4)$$</p>
+            </div>
+            <p>For no real solutions, discriminant \(< 0\):</p>
+            <div class="algebra-chain">
+                <p>$$b^2 - 4ac < 0$$</p>
+                <p class="reason">Here \(a = 5\), \(b = -6\), \(c = k-4\):</p>
+                <p>$$(-6)^2 - 4(5)(k-4) < 0$$</p>
+                <p>$$36 - 20(k-4) < 0$$</p>
+                <p>$$36 - 20k + 80 < 0$$</p>
+                <p>$$116 - 20k < 0$$</p>
+                <p class="reason">Add \(20k\) to both sides:</p>
+                <p>$$116 < 20k$$</p>
+                <p class="reason">Divide by 20:</p>
+                <p>$$k > \frac{116}{20} = \frac{29}{5} = 5.8$$</p>
+            </div>
+            <p>$$\boxed{k > \frac{29}{5}}$$</p>
+            <div class="mark-award">M1 — Setting f(x) = h(x) and collecting to form a 3-term quadratic = 0</div>
+            <div class="mark-award">dM1 — Using \(b^2 - 4ac < 0\) on their quadratic to find a range for k</div>
+            <div class="mark-award">A1 — Correct answer: \(k > \frac{29}{5}\) (or \(k > 5.8\))</div>
+            <div class="examiner-note">The method mark for forming the quadratic is independent of the discriminant mark. However, the discriminant mark depends on the first M1 — you must have a correct quadratic (in terms of k) before applying the discriminant. Many candidates lost marks by making sign errors when rearranging.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p1-jun24-q8')">Show Full Solution</button>
+</div>
+
+<!-- PATTERN RECOGNITION -->
+<h2>How to Recognise This Question Type</h2>
+<div class="card">
+    <p>Look for these signals in the question:</p>
+    <ul style="margin-left: 1.5rem; line-height: 2;">
+        <li>Functions defined with their <strong>domains stated explicitly</strong> (e.g. "\(f(x) = \ldots, x \in \mathbb{R}, x > 0\)")</li>
+        <li>The notation \(fg(x)\), \(gf(x)\), or \(ff(x)\) — always a <strong>composite</strong></li>
+        <li>The notation \(f^{-1}(x)\) or \(g^{-1}\) — always an <strong>inverse</strong></li>
+        <li>Keywords: <strong>"state the range"</strong>, <strong>"state the domain"</strong></li>
+        <li>Asking you to <strong>"describe fully the transformation"</strong> — expects type + specifics</li>
+        <li>Functions involving fractions like \(\frac{ax+b}{cx+d}\) — rational functions, typically inverse and composite</li>
+        <li>Usually appears in <strong>Q1–Q10</strong>, worth 5–11 marks, often the first substantial question on Paper 2</li>
+    </ul>
+</div>
+
+<h2>Key Transformation Rules</h2>
+<div class="card">
+    <p>Given a point \(P(a, b)\) on \(y = f(x)\), here is where it maps to under each transformation:</p>
+    <ul style="margin-left: 1.5rem; line-height: 2.2;">
+        <li>\(y = f(x) + k\): translate \(k\) up \(\longrightarrow (a, \; b+k)\)</li>
+        <li>\(y = f(x + k)\): translate \(k\) left \(\longrightarrow (a-k, \; b)\)</li>
+        <li>\(y = kf(x)\): stretch vertically by factor \(k\) \(\longrightarrow (a, \; kb)\)</li>
+        <li>\(y = f(kx)\): stretch horizontally by factor \(\frac{1}{k}\) \(\longrightarrow (\frac{a}{k}, \; b)\)</li>
+        <li>\(y = -f(x)\): reflect in the \(x\)-axis \(\longrightarrow (a, \; -b)\)</li>
+        <li>\(y = f(-x)\): reflect in the \(y\)-axis \(\longrightarrow (-a, \; b)\)</li>
+        <li>\(y = |f(x)|\): reflect negative parts up \(\longrightarrow (a, \; |b|)\)</li>
+        <li>\(y = f(|x|)\): reflect right-half into left \(\longrightarrow\) y-axis symmetry</li>
+    </ul>
+    <p style="margin-top: 1rem; color: var(--muted); font-size: 0.9rem;"><strong>Memory trick:</strong> Changes "inside" the brackets (affecting \(x\)) go in the opposite direction and use reciprocal factors. Changes "outside" (affecting \(y\)) go in the expected direction.</p>
+</div>
+
+<script>
+    // Toggle individual step
+    function toggleStep(header) {
+        header.classList.toggle('open');
+        header.nextElementSibling.classList.toggle('open');
+    }
+
+    // Show all steps in a panel
+    function showAllSteps(panelId) {
+        const panel = document.getElementById(panelId);
+        panel.querySelectorAll('.step-reveal-header').forEach(h => h.classList.add('open'));
+        panel.querySelectorAll('.step-reveal-content').forEach(c => c.classList.add('open'));
+    }
+
+    // Select an example (tab switching)
+    function selectExample(panelId) {
+        // Deactivate all tabs and panels
+        document.querySelectorAll('.example-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.example-panel').forEach(p => p.classList.remove('active'));
+
+        // Activate the selected panel
+        document.getElementById(panelId).classList.add('active');
+
+        // Find and activate the matching tab
+        const tabs = document.querySelectorAll('.example-tab');
+        const tabMap = {
+            'ex-p2-jun18-q1': 0,
+            'ex-p2-oct21-q2': 1,
+            'ex-p1-jun19-q5': 2,
+            'ex-p1-jun24-q8': 3
+        };
+        if (tabMap[panelId] !== undefined) {
+            tabs[tabMap[panelId]].classList.add('active');
+        }
+
+        // Scroll to worked examples section
+        document.getElementById(panelId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Render KaTeX on load
+    document.addEventListener('DOMContentLoaded', function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ]
+        });
+    });
+</script>
+
+</body>
+</html>

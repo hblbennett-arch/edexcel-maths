@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculus Optimisation — Edexcel A Level Maths</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #2b6cb0;
+            --success: #276749;
+            --warning: #c05621;
+            --danger: #c53030;
+            --bg: #f7fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #2d3748;
+            --muted: #718096;
+            --mark: #805ad5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        h1 { color: var(--primary); margin-bottom: 0.5rem; font-size: 2rem; }
+        h2 { color: var(--primary); margin: 2.5rem 0 1rem; font-size: 1.4rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        h3 { color: var(--accent); margin: 1.5rem 0 0.75rem; font-size: 1.15rem; }
+
+        .subtitle { color: var(--muted); margin-bottom: 2rem; font-size: 1.05rem; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--accent); }
+        .stat-card .label { font-size: 0.85rem; color: var(--muted); }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .approach-step {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .approach-step:last-child { border-bottom: none; }
+
+        .step-number {
+            background: var(--accent);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .step-content { flex: 1; }
+        .step-content strong { color: var(--primary); }
+
+        .pitfall-box {
+            background: #fff5f5;
+            border: 1px solid #fed7d7;
+            border-left: 4px solid var(--danger);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .pitfall-box h3 { color: var(--danger); margin-top: 0; }
+        .pitfall-box ul { margin-left: 1.5rem; margin-top: 0.5rem; }
+        .pitfall-box li { margin: 0.5rem 0; }
+
+        .tip-box {
+            background: #f0fff4;
+            border: 1px solid #c6f6d5;
+            border-left: 4px solid var(--success);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .tip-box h3 { color: var(--success); margin-top: 0; }
+
+        /* Question index table */
+        .question-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.92rem;
+        }
+
+        .question-table th {
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+        }
+
+        .question-table td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .question-table tr:hover { background: #ebf8ff; }
+
+        .question-table a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .question-table a:hover { text-decoration: underline; }
+
+        .question-table .go-btn {
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+        }
+
+        .question-table .go-btn:hover { background: var(--primary); }
+
+        /* Worked examples */
+        .example-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .example-tab {
+            padding: 0.5rem 1rem;
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .example-tab:hover { border-color: var(--accent); }
+        .example-tab.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+        .example-panel { display: none; }
+        .example-panel.active { display: block; }
+
+        .question-text {
+            background: #ebf8ff;
+            border: 1px solid #bee3f8;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.02rem;
+        }
+
+        .question-text .links {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #bee3f8;
+            font-size: 0.85rem;
+        }
+
+        .question-text .links a {
+            color: var(--accent);
+            text-decoration: none;
+            margin-right: 1.5rem;
+        }
+
+        .question-text .links a:hover { text-decoration: underline; }
+
+        .step-reveal {
+            margin: 0.75rem 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .step-reveal-header {
+            padding: 0.75rem 1rem;
+            background: #edf2f7;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background 0.2s;
+            gap: 0.5rem;
+        }
+
+        .step-reveal-header:hover { background: #e2e8f0; }
+
+        .step-reveal-header .arrow {
+            transition: transform 0.3s;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .step-reveal-header.open .arrow { transform: rotate(90deg); }
+
+        .step-reveal-content {
+            display: none;
+            padding: 1.25rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .step-reveal-content.open { display: block; }
+
+        .part-label {
+            display: inline-block;
+            background: #ebf8ff;
+            color: var(--accent);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        .mark-badge {
+            display: inline-block;
+            background: #faf5ff;
+            color: var(--mark);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border: 1px solid #e9d8fd;
+        }
+
+        .mark-award {
+            background: #faf5ff;
+            border: 1px solid #e9d8fd;
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            color: var(--mark);
+            font-weight: 600;
+        }
+
+        .mark-award::before {
+            content: "✓ ";
+        }
+
+        .examiner-note {
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            border-radius: 6px;
+            padding: 0.75rem;
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .examiner-note::before {
+            content: "Examiner: ";
+            font-weight: 700;
+            color: var(--warning);
+        }
+
+        .show-all-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            transition: background 0.2s;
+        }
+
+        .show-all-btn:hover { background: var(--primary); }
+
+        .motivation {
+            background: #eef6ff;
+            border: 1px solid #c3dafe;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.93rem;
+        }
+
+        .motivation::before {
+            content: "💭 Thinking: ";
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .algebra-chain {
+            margin: 0.5rem 0;
+            padding-left: 1rem;
+            border-left: 3px solid var(--border);
+        }
+
+        .algebra-chain .reason {
+            color: var(--muted);
+            font-size: 0.85rem;
+            font-style: italic;
+            margin: 0.25rem 0;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            h1 { font-size: 1.5rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .example-selector { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<p style="margin-bottom: 1rem;"><a href="../index.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">&larr; All Topics</a></p>
+
+<h1>Calculus Optimisation</h1>
+<p class="subtitle">Finding minimum/maximum values using differentiation with geometric constraints</p>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="number">Every year</div>
+        <div class="label">Appears in every sitting</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">7–10</div>
+        <div class="label">Typical marks</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">Q8–15</div>
+        <div class="label">Paper position</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">3 parts</div>
+        <div class="label">Standard structure</div>
+    </div>
+</div>
+
+<!-- FULL QUESTION INDEX -->
+<h2>All Past Paper Questions on This Topic</h2>
+<p style="margin-bottom: 1rem; color: var(--muted);">Every optimisation/stationary point question from Edexcel 9MA0 (2018–2024). Click "Worked Example" to see a full guided solution.</p>
+
+<table class="question-table">
+    <thead>
+        <tr>
+            <th>Paper</th>
+            <th>Question</th>
+            <th>Description</th>
+            <th>Marks</th>
+            <th>Links</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>P1 June 2018</td>
+            <td>Q2</td>
+            <td>Stationary point of \(y = x^2 - 2x - 24\sqrt{x}\); verify &amp; determine nature</td>
+            <td>7</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202018%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202018%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p1-jun18-q2'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P2 June 2019</td>
+            <td>Q13</td>
+            <td>Cylinder + hemisphere tank; minimise surface area for volume 6 m³</td>
+            <td>10</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202019%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202019%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p2-jun19-q13'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P1 June 2022</td>
+            <td>Q8</td>
+            <td>Car speed \(v = (10-0.4t)\ln(t+1)\); show maximum speed occurs at given \(t\)</td>
+            <td>8</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202022%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202022%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p1-jun22-q8'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P1 June 2022</td>
+            <td>Q15</td>
+            <td>Sector prism toy; minimise surface area for volume 240 cm³</td>
+            <td>10</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202022%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202022%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p1-jun22-q15'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P2 June 2018</td>
+            <td>Q14</td>
+            <td>Mouse population; find when rate of growth \(\frac{dN}{dt}\) is maximum</td>
+            <td>10</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202018%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202018%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 Oct 2020</td>
+            <td>Q7</td>
+            <td>Exponential curve \(f(x) = (4+x-x^2)e^{-2x}\); find stationary points</td>
+            <td>7</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FOctober%202020%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FOctober%202020%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 Oct 2021</td>
+            <td>Q5</td>
+            <td>Verify stationary point at \(x=1\); show it is a point of inflection</td>
+            <td>6</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FOctober%202021%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FOctober%202021%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- GUIDED APPROACH -->
+<h2>Guided Approach</h2>
+<div class="card">
+    <p style="margin-bottom: 1rem; color: var(--muted);">The standard 3-part structure for Edexcel optimisation questions:</p>
+
+    <div class="approach-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+            <strong>Set up the expression (Part a — "Show that")</strong><br>
+            Identify the quantity to optimise (surface area, cost, length). Use the <em>constraint</em> (e.g. fixed volume) to eliminate one variable. Substitute into the target formula to get it in terms of one variable only.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+            <strong>Differentiate and solve (Part b — "Use calculus to find...")</strong><br>
+            Differentiate the expression from Part (a). Set \(\frac{dS}{dr} = 0\). Solve for the variable. This gives the critical value where the optimum occurs.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+            <strong>Verify the nature (Part c — "Prove it is a minimum/maximum")</strong><br>
+            Find \(\frac{d^2S}{dr^2}\). Substitute your critical value. If \(\frac{d^2S}{dr^2} > 0\) then minimum. If \(< 0\) then maximum. Write a clear conclusion statement.
+        </div>
+    </div>
+</div>
+
+<!-- EXAMINER PITFALLS -->
+<div class="pitfall-box">
+    <h3>Common Pitfalls (from Examiner Reports)</h3>
+    <ul>
+        <li><strong>Forgetting to verify nature:</strong> Many candidates find the stationary point but don't prove it's a minimum/maximum. The second derivative test is essential for full marks.</li>
+        <li><strong>Wrong formula for the constraint:</strong> Using \(V = \pi r^2 h\) for a shape that isn't a simple cylinder (e.g. hemisphere, cone, sector). Always check which volume formula applies.</li>
+        <li><strong>Not rearranging before substituting:</strong> You must isolate \(h\) (or the second variable) from the constraint equation <em>before</em> substituting into the surface area formula.</li>
+        <li><strong>Losing marks on "Show that":</strong> If Part (a) says "show that \(S = ...\)", you must show every algebraic step. Jumping from the substitution to the final answer loses marks.</li>
+        <li><strong>Ignoring units or context:</strong> Final answers should be in the correct units and, where asked, rounded appropriately. State whether it's a minimum or maximum explicitly.</li>
+    </ul>
+</div>
+
+<div class="tip-box">
+    <h3>What Top Candidates Do</h3>
+    <ul>
+        <li>Label each step clearly: "Volume constraint:", "Surface area:", "Substituting h = ..."</li>
+        <li>Write \(\frac{dS}{dr} = 0\) explicitly before solving — this earns a method mark even if algebra goes wrong.</li>
+        <li>For the second derivative test: state the value, state its sign, then write a conclusion: <em>"Since \(\frac{d^2S}{dr^2} > 0\), this gives a minimum surface area."</em></li>
+    </ul>
+</div>
+
+<!-- WORKED EXAMPLES -->
+<h2>Worked Examples</h2>
+<p style="color: var(--muted); margin-bottom: 0.5rem;">Select a question to see the full guided solution:</p>
+
+<div class="example-selector">
+    <div class="example-tab active" onclick="selectExample('ex-p2-jun19-q13')">June 2019 P2 Q13</div>
+    <div class="example-tab" onclick="selectExample('ex-p1-jun22-q15')">June 2022 P1 Q15</div>
+    <div class="example-tab" onclick="selectExample('ex-p1-jun18-q2')">June 2018 P1 Q2</div>
+    <div class="example-tab" onclick="selectExample('ex-p1-jun22-q8')">June 2022 P1 Q8</div>
+</div>
+
+<!-- ===================== EXAMPLE: P2 June 2019 Q13 ===================== -->
+<div class="example-panel active" id="ex-p2-jun19-q13">
+    <div class="question-text">
+        <p><strong>Paper 2 — June 2019 — Question 13</strong> (10 marks)</p>
+        <p>A manufacturer produces a storage tank modelled as a hollow circular cylinder closed at one end with a hemispherical shell at the other end. The cylinder has radius \(r\) metres and height \(h\) metres. The hemisphere has radius \(r\) metres. The volume of the tank is 6 m³.</p>
+        <p><strong>(a)</strong> Show that the surface area of the tank, in m², is given by \(\displaystyle S = \frac{12}{r} + \frac{5\pi r^2}{3}\) <em>[4 marks]</em></p>
+        <p><strong>(b)</strong> Use calculus to find the radius of the tank for which the surface area is a minimum. <em>[4 marks]</em></p>
+        <p><strong>(c)</strong> Calculate the minimum surface area of the tank, giving your answer to the nearest integer. <em>[2 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202019%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202019%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Write down the volume constraint</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Part (a) is a "show that" — we're given the target answer \(S = \frac{12}{r} + \frac{5\pi r^2}{3}\). This is in terms of \(r\) only, but our shape has two unknowns (\(r\) and \(h\)). Strategy: use the volume constraint (which links \(r\) and \(h\)) to eliminate \(h\), then write the surface area purely in terms of \(r\). We start by writing down the constraint.</div>
+            <p>The tank consists of a cylinder (volume \(\pi r^2 h\)) and a hemisphere (volume \(\frac{2}{3}\pi r^3\)).</p>
+            <p>We're told the total volume = 6, so:</p>
+            <p>$$\pi r^2 h + \frac{2}{3}\pi r^3 = 6$$</p>
+            <div class="mark-award">B1 — Writing down the correct volume expression</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 2: Rearrange the constraint to isolate \(h\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We have two variables in our volume equation (\(r\) and \(h\)), but the target formula for \(S\) is only in terms of \(r\). So we need to express \(h\) in terms of \(r\), then later substitute it into the surface area. Rearranging the constraint for \(h\) gives us the substitution we'll need.</div>
+            <p>We need to get \(h\) on its own so we can substitute it into the surface area formula later.</p>
+            <div class="algebra-chain">
+                <p>Starting with: \(\pi r^2 h + \frac{2}{3}\pi r^3 = 6\)</p>
+                <p class="reason">Subtract \(\frac{2}{3}\pi r^3\) from both sides:</p>
+                <p>$$\pi r^2 h = 6 - \frac{2}{3}\pi r^3$$</p>
+                <p class="reason">Divide both sides by \(\pi r^2\):</p>
+                <p>$$h = \frac{6 - \frac{2}{3}\pi r^3}{\pi r^2}$$</p>
+                <p class="reason">Split the fraction into two separate terms:</p>
+                <p>$$h = \frac{6}{\pi r^2} - \frac{\frac{2}{3}\pi r^3}{\pi r^2}$$</p>
+                <p class="reason">Simplify the second term (cancel \(\pi\) and \(r^2\)):</p>
+                <p>$$h = \frac{6}{\pi r^2} - \frac{2r}{3}$$</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 3: Write the surface area formula</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Now we need an expression for the thing we're optimising — the surface area. We need to account for every face of the solid. The tank is: a flat circular base + a curved cylinder wall + a curved hemisphere. Carefully listing each face avoids the common mistake of forgetting one.</div>
+            <p>Identify all the faces of the tank:</p>
+            <ul style="margin: 0.5rem 0 0.75rem 1.5rem;">
+                <li>Flat circular base (closed end): \(\pi r^2\)</li>
+                <li>Curved surface of the cylinder: \(2\pi r h\)</li>
+                <li>Curved surface of the hemisphere: \(2\pi r^2\)</li>
+            </ul>
+            <p>Total surface area:</p>
+            <p>$$S = \pi r^2 + 2\pi r h + 2\pi r^2 = 3\pi r^2 + 2\pi r h$$</p>
+            <div class="mark-award">M1 — Writing a surface area of the form \(A\pi r^2 + B\pi rh\) where \(A, B > 0\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 4: Substitute \(h\) into the surface area to get \(S\) in terms of \(r\) only</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We now have \(S\) in terms of \(r\) and \(h\), and \(h\) in terms of \(r\). Substituting eliminates \(h\) entirely, giving us \(S\) as a function of \(r\) alone — which is what the question asks us to show. Since it's a "show that", we must expand and simplify with every step visible.</div>
+            <div class="algebra-chain">
+                <p>Substitute \(h = \frac{6}{\pi r^2} - \frac{2r}{3}\) into \(S = 3\pi r^2 + 2\pi r h\):</p>
+                <p>$$S = 3\pi r^2 + 2\pi r \left(\frac{6}{\pi r^2} - \frac{2r}{3}\right)$$</p>
+                <p class="reason">Expand the bracket — multiply \(2\pi r\) by each term inside:</p>
+                <p>$$S = 3\pi r^2 + \frac{2\pi r \cdot 6}{\pi r^2} - \frac{2\pi r \cdot 2r}{3}$$</p>
+                <p class="reason">Simplify each term: cancel \(\pi\) and one \(r\) in the middle term:</p>
+                <p>$$S = 3\pi r^2 + \frac{12}{r} - \frac{4\pi r^2}{3}$$</p>
+                <p class="reason">Combine the \(\pi r^2\) terms (common denominator of 3):</p>
+                <p>$$S = \frac{9\pi r^2}{3} - \frac{4\pi r^2}{3} + \frac{12}{r}$$</p>
+                <p class="reason">Simplify: \(\frac{9\pi r^2 - 4\pi r^2}{3} = \frac{5\pi r^2}{3}\)</p>
+                <p>$$\boxed{S = \frac{12}{r} + \frac{5\pi r^2}{3}} \quad \square$$</p>
+            </div>
+            <div class="mark-award">A1 — Correctly simplified un-simplified expression</div>
+            <div class="mark-award">A1* — Reaching the given answer with rigorous, clear working</div>
+            <div class="examiner-note">Many candidates lost the final A1* by jumping steps. Since this is a "show that" question, you must show every line. The examiner needs to see you combine \(3\pi r^2 - \frac{4\pi r^2}{3}\) explicitly.</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 5: Differentiate \(S\) with respect to \(r\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Part (b) says "use calculus to find the radius for minimum surface area". The word "calculus" is a strong hint: differentiate, set equal to zero, solve. To find a minimum, we first need the derivative \(\frac{dS}{dr}\). We'll rewrite terms like \(\frac{12}{r}\) using negative powers so the power rule applies cleanly.</div>
+            <p>Rewrite \(S\) using index notation to make differentiating easier:</p>
+            <p>$$S = 12r^{-1} + \frac{5\pi}{3}r^2$$</p>
+            <div class="algebra-chain">
+                <p class="reason">Differentiate term by term using the power rule \(\frac{d}{dr}(r^n) = nr^{n-1}\):</p>
+                <p class="reason">First term: \(\frac{d}{dr}(12r^{-1}) = 12 \times (-1) \times r^{-2} = -12r^{-2}\)</p>
+                <p class="reason">Second term: \(\frac{d}{dr}\left(\frac{5\pi}{3}r^2\right) = \frac{5\pi}{3} \times 2 \times r^{1} = \frac{10\pi r}{3}\)</p>
+            </div>
+            <p>$$\frac{dS}{dr} = -12r^{-2} + \frac{10\pi r}{3} = -\frac{12}{r^2} + \frac{10\pi r}{3}$$</p>
+            <div class="mark-award">M1 — Differentiating to get expression of the form \(-Ar^{-2} + Br\)</div>
+            <div class="mark-award">A1 — Correct derivative: \(\frac{dS}{dr} = -\frac{12}{r^2} + \frac{10\pi r}{3}\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 6: Set \(\frac{dS}{dr} = 0\) and solve for \(r\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">At a minimum (or maximum), the gradient is zero — the curve is flat. So setting \(\frac{dS}{dr} = 0\) finds the critical point. We then solve the resulting equation for \(r\). The algebra involves getting \(r^3\) on one side, since the equation has \(r^{-2}\) and \(r^1\) terms — multiplying through by \(r^2\) clears the fraction.</div>
+            <div class="algebra-chain">
+                <p>$$-\frac{12}{r^2} + \frac{10\pi r}{3} = 0$$</p>
+                <p class="reason">Add \(\frac{12}{r^2}\) to both sides:</p>
+                <p>$$\frac{10\pi r}{3} = \frac{12}{r^2}$$</p>
+                <p class="reason">Multiply both sides by \(r^2\):</p>
+                <p>$$\frac{10\pi r^3}{3} = 12$$</p>
+                <p class="reason">Multiply both sides by 3:</p>
+                <p>$$10\pi r^3 = 36$$</p>
+                <p class="reason">Divide both sides by \(10\pi\):</p>
+                <p>$$r^3 = \frac{36}{10\pi} = \frac{18}{5\pi}$$</p>
+                <p class="reason">Take the cube root:</p>
+                <p>$$r = \sqrt[3]{\frac{18}{5\pi}} \approx 1.05 \text{ m (3 s.f.)}$$</p>
+            </div>
+            <div class="mark-award">M1 — Setting \(\frac{dS}{dr} = 0\) and rearranging to give \(r^3 = k\)</div>
+            <div class="mark-award">A1 — Correct exact answer \(r = \sqrt[3]{\frac{18}{5\pi}}\) or equivalent</div>
+            <div class="examiner-note">Candidates who wrote \(\frac{dS}{dr} = 0\) explicitly earned the method mark even when subsequent algebra was flawed. Always show this step. An answer of \(r \approx 1.05\) from no working earns M0 A0.</div>
+        </div>
+    </div>
+
+    <!-- Part (c) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)</span> Step 7: Calculate the minimum surface area</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Part (c) asks for the actual minimum surface area value. We've found the \(r\) that gives the minimum — now we just substitute it back into the formula from Part (a) to compute the surface area at that radius. Note: this part doesn't ask us to prove it's a minimum (that would need the second derivative), it just asks for the numerical value.</div>
+            <p>Substitute \(r = 1.0464...\) back into the surface area formula:</p>
+            <div class="algebra-chain">
+                <p>$$S = \frac{12}{r} + \frac{5\pi r^2}{3}$$</p>
+                <p>$$S = \frac{12}{1.0464...} + \frac{5\pi (1.0464...)^2}{3}$$</p>
+                <p>$$S = 11.466... + 5.733...$$</p>
+                <p>$$S = 17.2... \approx \boxed{17 \text{ m}^2}$$</p>
+            </div>
+            <div class="mark-award">M1 — Substituting their value of \(r\) into the surface area formula</div>
+            <div class="mark-award">A1 — Correct answer: 17 m² (to nearest integer)</div>
+            <div class="examiner-note">Note: the question asks "to the nearest integer", so you must write 17, not 17.2. Also note this part does not ask you to prove it's a minimum — that proof would normally be in a separate part.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p2-jun19-q13')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: P1 June 2022 Q15 ===================== -->
+<div class="example-panel" id="ex-p1-jun22-q15">
+    <div class="question-text">
+        <p><strong>Paper 1 — June 2022 — Question 15</strong> (10 marks)</p>
+        <p>A company makes a solid toy that looks like a piece of cheese. Face ABC is a sector of a circle with radius \(r\) cm and centre A, angle BAC = 0.8 radians. The prism has height \(h\) cm. The volume of the toy is 240 cm³.</p>
+        <p><strong>(a)</strong> Show that the surface area of the toy, \(S\) cm², is given by \(\displaystyle S = 0.8r^2 + \frac{1680}{r}\), making your method clear. <em>[4 marks]</em></p>
+        <p><strong>(b)</strong> Using algebraic differentiation, find the value of \(r\) for which \(S\) has a stationary point. <em>[4 marks]</em></p>
+        <p><strong>(c)</strong> Prove, by further differentiation, that this value of \(r\) gives the minimum surface area of the toy. <em>[2 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202022%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202022%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Volume constraint — find \(h\) in terms of \(r\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Same strategy as the tank question: the target formula \(S = 0.8r^2 + \frac{1680}{r}\) is in terms of \(r\) only, but the shape has two dimensions (\(r\) and \(h\)). We need to eliminate \(h\) using the volume constraint. Step 1: find the volume of this prism (which is cross-sectional area × height), set it equal to 240, and isolate \(h\).</div>
+            <p>The cross-section is a sector with angle 0.8 radians and radius \(r\).</p>
+            <p>Area of a sector = \(\frac{1}{2}r^2\theta\):</p>
+            <p>$$\text{Area of sector} = \frac{1}{2}r^2(0.8) = 0.4r^2$$</p>
+            <p>Volume of prism = area of cross-section × length:</p>
+            <p>$$V = 0.4r^2 \times h = 240$$</p>
+            <div class="algebra-chain">
+                <p class="reason">Divide both sides by \(0.4r^2\):</p>
+                <p>$$h = \frac{240}{0.4r^2} = \frac{600}{r^2}$$</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 2: Identify all faces of the toy and write the surface area</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Now we write the total surface area. The prism has 5 faces: 2 sector-shaped ends and 3 rectangular sides (two straight, one curved). The tricky part is the curved face — its width is the arc length \(r\theta\), not \(r\). Drawing a net helps you see all faces clearly and avoid missing any.</div>
+            <p>The toy has 5 faces. Carefully list each one:</p>
+            <ul style="margin: 0.5rem 0 0.75rem 1.5rem;">
+                <li><strong>2 sector faces</strong> (front ABC and back DEF): \(2 \times 0.4r^2 = 0.8r^2\)</li>
+                <li><strong>2 flat rectangular sides</strong> (along the straight edges AD and CF): \(2 \times r \times h = 2rh\)</li>
+                <li><strong>1 curved rectangular face</strong> (the arc BC extended to EF): arc length × height = \(r\theta \times h = 0.8rh\)</li>
+            </ul>
+            <p>$$S = 0.8r^2 + 2rh + 0.8rh = 0.8r^2 + 2.8rh$$</p>
+            <div class="mark-award">M1 — Writing a surface area expression that includes sector(s) and rectangles with substitution attempted</div>
+            <div class="examiner-note">A common error was forgetting the curved face (the arc side) or counting only one sector face. Drawing a net of the solid helps enormously here.</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 3: Substitute \(h = \frac{600}{r^2}\) to eliminate \(h\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We now have \(S\) in terms of both \(r\) and \(h\), and from Step 1 we have \(h = \frac{600}{r^2}\). Substituting removes \(h\), leaving \(S\) in terms of \(r\) only — which is what the question requires. Since it's "show that", we must simplify carefully and show every line.</div>
+            <div class="algebra-chain">
+                <p>$$S = 0.8r^2 + 2.8rh$$</p>
+                <p class="reason">Replace \(h\) with \(\frac{600}{r^2}\):</p>
+                <p>$$S = 0.8r^2 + 2.8r \times \frac{600}{r^2}$$</p>
+                <p class="reason">Simplify: \(r \times \frac{600}{r^2} = \frac{600}{r}\):</p>
+                <p>$$S = 0.8r^2 + \frac{2.8 \times 600}{r}$$</p>
+                <p class="reason">Calculate \(2.8 \times 600 = 1680\):</p>
+                <p>$$\boxed{S = 0.8r^2 + \frac{1680}{r}} \quad \square$$</p>
+            </div>
+            <div class="mark-award">A1 — Correct un-simplified expression after substitution</div>
+            <div class="mark-award">A1* — Reaching the given answer with clear, complete working</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 4: Differentiate \(S\) with respect to \(r\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Part (b) says "using algebraic differentiation, find the value of \(r\) for which \(S\) has a stationary point." The approach: differentiate, set to zero, solve. First we rewrite \(\frac{1680}{r}\) as \(1680r^{-1}\) so we can apply the power rule directly.</div>
+            <p>Rewrite using index notation:</p>
+            <p>$$S = 0.8r^2 + 1680r^{-1}$$</p>
+            <div class="algebra-chain">
+                <p class="reason">Differentiate term by term:</p>
+                <p class="reason">First term: \(\frac{d}{dr}(0.8r^2) = 0.8 \times 2 \times r^{1} = 1.6r\)</p>
+                <p class="reason">Second term: \(\frac{d}{dr}(1680r^{-1}) = 1680 \times (-1) \times r^{-2} = -1680r^{-2}\)</p>
+            </div>
+            <p>$$\frac{dS}{dr} = 1.6r - \frac{1680}{r^2}$$</p>
+            <div class="mark-award">M1 — Differentiating to get expression of the form \(Ar - Br^{-2}\)</div>
+            <div class="mark-award">A1 — Correct derivative</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 5: Set \(\frac{dS}{dr} = 0\) and solve for \(r\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Stationary points occur where the gradient is zero. Setting \(\frac{dS}{dr} = 0\) gives an equation with \(r\) and \(r^{-2}\) terms. Multiplying through by \(r^2\) clears the fraction and gives us \(r^3 = \text{number}\), which we solve by cube-rooting.</div>
+            <div class="algebra-chain">
+                <p>$$1.6r - \frac{1680}{r^2} = 0$$</p>
+                <p class="reason">Add \(\frac{1680}{r^2}\) to both sides:</p>
+                <p>$$1.6r = \frac{1680}{r^2}$$</p>
+                <p class="reason">Multiply both sides by \(r^2\):</p>
+                <p>$$1.6r^3 = 1680$$</p>
+                <p class="reason">Divide both sides by 1.6:</p>
+                <p>$$r^3 = \frac{1680}{1.6} = 1050$$</p>
+                <p class="reason">Take the cube root:</p>
+                <p>$$r = \sqrt[3]{1050} \approx 10.2 \text{ cm}$$</p>
+            </div>
+            <div class="mark-award">dM1 — Setting derivative = 0 and rearranging to \(r^3 = k\)</div>
+            <div class="mark-award">A1 — \(r \approx 10.2\) (or exact: \(r = \sqrt[3]{1050}\))</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)</span> Step 6: Second derivative test — prove it is a minimum</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Part (c) says "prove, by further differentiation, that this is a minimum." The phrase "further differentiation" tells us to use the second derivative test. If \(\frac{d^2S}{dr^2} > 0\) at the stationary point, the curve is concave up there, confirming a minimum. We need three things for full marks: (1) the numerical value, (2) state its sign, (3) state the conclusion "minimum".</div>
+            <p>Differentiate \(\frac{dS}{dr} = 1.6r - 1680r^{-2}\) again:</p>
+            <div class="algebra-chain">
+                <p class="reason">First term: \(\frac{d}{dr}(1.6r) = 1.6\)</p>
+                <p class="reason">Second term: \(\frac{d}{dr}(-1680r^{-2}) = -1680 \times (-2) \times r^{-3} = \frac{3360}{r^3}\)</p>
+            </div>
+            <p>$$\frac{d^2S}{dr^2} = 1.6 + \frac{3360}{r^3}$$</p>
+            <p>Substitute \(r = \sqrt[3]{1050} \approx 10.2\):</p>
+            <p>$$\frac{d^2S}{dr^2} = 1.6 + \frac{3360}{1050} = 1.6 + 3.2 = 4.8$$</p>
+            <p><strong>Since \(\frac{d^2S}{dr^2} = 4.8 > 0\), this confirms the stationary point is a minimum.</strong></p>
+            <p><strong>Therefore \(r = \sqrt[3]{1050}\) gives the minimum surface area of the toy. \(\square\)</strong></p>
+            <div class="mark-award">M1 — Finding \(\frac{d^2S}{dr^2}\) and substituting their value of \(r\)</div>
+            <div class="mark-award">A1 — Correct value, correct sign identified, and explicit conclusion stating "minimum"</div>
+            <div class="examiner-note">You must: (1) state the numerical value of the second derivative, (2) state it is positive, and (3) conclude "therefore minimum". Missing any of these three elements loses the A1 mark.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p1-jun22-q15')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: P1 June 2018 Q2 ===================== -->
+<div class="example-panel" id="ex-p1-jun18-q2">
+    <div class="question-text">
+        <p><strong>Paper 1 — June 2018 — Question 2</strong> (7 marks)</p>
+        <p>A curve \(C\) has equation \(y = x^2 - 2x - 24\sqrt{x}, \quad x > 0\)</p>
+        <p><strong>(a)</strong> Find (i) \(\frac{dy}{dx}\) &nbsp;&nbsp; (ii) \(\frac{d^2y}{dx^2}\) <em>[3 marks]</em></p>
+        <p><strong>(b)</strong> Verify that \(C\) has a stationary point when \(x = 4\) <em>[2 marks]</em></p>
+        <p><strong>(c)</strong> Determine the nature of this stationary point, giving a reason for your answer. <em>[2 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202018%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202018%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)(i)</span> Step 1: Find \(\frac{dy}{dx}\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Part (a) is pure differentiation — no constraints or geometry here. The \(\sqrt{x}\) term can't be differentiated directly in that form, so we rewrite it as \(x^{1/2}\) to use the power rule. This question gives us the tools (derivatives) that parts (b) and (c) will use.</div>
+            <p>First, rewrite \(\sqrt{x}\) as \(x^{\frac{1}{2}}\) so we can use the power rule:</p>
+            <p>$$y = x^2 - 2x - 24x^{\frac{1}{2}}$$</p>
+            <div class="algebra-chain">
+                <p class="reason">Differentiate each term using \(\frac{d}{dx}(x^n) = nx^{n-1}\):</p>
+                <p class="reason">First term: \(\frac{d}{dx}(x^2) = 2x\)</p>
+                <p class="reason">Second term: \(\frac{d}{dx}(-2x) = -2\)</p>
+                <p class="reason">Third term: \(\frac{d}{dx}(-24x^{\frac{1}{2}}) = -24 \times \frac{1}{2} \times x^{-\frac{1}{2}} = -12x^{-\frac{1}{2}}\)</p>
+            </div>
+            <p>$$\frac{dy}{dx} = 2x - 2 - 12x^{-\frac{1}{2}}$$</p>
+            <p>Or equivalently: \(\frac{dy}{dx} = 2x - 2 - \frac{12}{\sqrt{x}}\)</p>
+            <div class="mark-award">M1 — Differentiating to get \(Ax + B + Cx^{-\frac{1}{2}}\)</div>
+            <div class="mark-award">A1 — Correct: \(2x - 2 - 12x^{-\frac{1}{2}}\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)(ii)</span> Step 2: Find \(\frac{d^2y}{dx^2}\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The second derivative tells us about the nature (minimum/maximum) of stationary points — we'll need it in Part (c). Differentiating our answer from (a)(i) one more time is straightforward: apply the power rule again to each term.</div>
+            <p>Differentiate \(\frac{dy}{dx} = 2x - 2 - 12x^{-\frac{1}{2}}\) again:</p>
+            <div class="algebra-chain">
+                <p class="reason">First term: \(\frac{d}{dx}(2x) = 2\)</p>
+                <p class="reason">Second term: \(\frac{d}{dx}(-2) = 0\)</p>
+                <p class="reason">Third term: \(\frac{d}{dx}(-12x^{-\frac{1}{2}}) = -12 \times (-\frac{1}{2}) \times x^{-\frac{3}{2}} = 6x^{-\frac{3}{2}}\)</p>
+            </div>
+            <p>$$\frac{d^2y}{dx^2} = 2 + 6x^{-\frac{3}{2}}$$</p>
+            <div class="mark-award">B1ft — Correct second derivative (follow-through from their \(\frac{dy}{dx}\))</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 3: Verify stationary point at \(x = 4\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">"Verify" means the question is telling us the answer (\(x=4\)) and asking us to prove it's correct. At a stationary point, \(\frac{dy}{dx} = 0\). So we substitute \(x=4\) into our derivative and show the result is indeed zero. This is not "solve \(\frac{dy}{dx}=0\)" — we just need to confirm the given value works.</div>
+            <p>A stationary point occurs where \(\frac{dy}{dx} = 0\). Substitute \(x = 4\):</p>
+            <div class="algebra-chain">
+                <p>$$\frac{dy}{dx}\bigg|_{x=4} = 2(4) - 2 - 12(4)^{-\frac{1}{2}}$$</p>
+                <p class="reason">Calculate each term: \(2(4) = 8\), and \((4)^{-\frac{1}{2}} = \frac{1}{\sqrt{4}} = \frac{1}{2}\)</p>
+                <p>$$= 8 - 2 - 12 \times \frac{1}{2}$$</p>
+                <p>$$= 8 - 2 - 6 = 0 \checkmark$$</p>
+            </div>
+            <p><strong>Since \(\frac{dy}{dx} = 0\) when \(x = 4\), there is a stationary point at \(x = 4\).</strong></p>
+            <div class="mark-award">M1 — Substituting \(x = 4\) into \(\frac{dy}{dx}\) and evaluating</div>
+            <div class="mark-award">A1 — Showing it equals 0 AND stating conclusion "hence stationary point"</div>
+            <div class="examiner-note">You must explicitly state the conclusion — just showing the calculation equals 0 without writing "therefore stationary point" or equivalent loses the A1.</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)</span> Step 4: Determine the nature of the stationary point</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">"Determine the nature" means: is it a minimum or a maximum? We use the second derivative test — substitute \(x=4\) into \(\frac{d^2y}{dx^2}\) from Part (a)(ii). Positive means minimum (curve bends upward), negative means maximum (curve bends downward). We must state all three: the value, its sign, and the conclusion.</div>
+            <p>Substitute \(x = 4\) into the second derivative:</p>
+            <div class="algebra-chain">
+                <p>$$\frac{d^2y}{dx^2}\bigg|_{x=4} = 2 + 6(4)^{-\frac{3}{2}}$$</p>
+                <p class="reason">Calculate \((4)^{-\frac{3}{2}} = \frac{1}{4^{3/2}} = \frac{1}{(\sqrt{4})^3} = \frac{1}{8}\):</p>
+                <p>$$= 2 + 6 \times \frac{1}{8} = 2 + \frac{3}{4} = 2.75$$</p>
+            </div>
+            <p><strong>Since \(\frac{d^2y}{dx^2} = 2.75 > 0\), the stationary point is a minimum.</strong></p>
+            <div class="mark-award">M1 — Substituting \(x = 4\) into \(\frac{d^2y}{dx^2}\) and calculating its value</div>
+            <div class="mark-award">A1 — Correct value (2.75), correct sign (\(> 0\)), and correct conclusion ("minimum")</div>
+            <div class="examiner-note">All three elements are required: the numerical value, whether it's positive/negative, and the word "minimum" (or "maximum" if negative). References to "convex" are ignored by examiners.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p1-jun18-q2')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: P1 June 2022 Q8 ===================== -->
+<div class="example-panel" id="ex-p1-jun22-q8">
+    <div class="question-text">
+        <p><strong>Paper 1 — June 2022 — Question 8</strong> (8 marks)</p>
+        <p>A car stops at two sets of traffic lights. The speed of the car, \(v\) ms\(^{-1}\), as it travels between the lights is modelled by:</p>
+        <p>$$v = (10 - 0.4t)\ln(t + 1), \quad 0 \leq t \leq T$$</p>
+        <p>where \(t\) seconds is the time after the car leaves the first set of lights.</p>
+        <p><strong>(a)</strong> Find the value of \(T\). <em>[1 mark]</em></p>
+        <p><strong>(b)</strong> Show that the maximum speed of the car occurs when \(\displaystyle t = \frac{26}{1 + \ln(t+1)} - 1\) <em>[4 marks]</em></p>
+        <p><strong>(c)</strong> Using the iteration formula \(\displaystyle t_{n+1} = \frac{26}{1 + \ln(t_n+1)} - 1\) with \(t_1 = 7\), find the time taken for the car to reach maximum speed. <em>[3 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202022%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202022%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Find \(T\) (when the car stops at the second lights)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">\(T\) is when the car stops at the second set of lights, so \(v = 0\). The speed formula is a product: \((10-0.4t) \times \ln(t+1)\). A product equals zero when either factor is zero. Since \(\ln(t+1) = 0\) only when \(t=0\) (the starting point), the relevant factor is \(10-0.4t = 0\).</div>
+            <p>The car stops when \(v = 0\). Since \(\ln(t+1) \neq 0\) for \(t > 0\), we need:</p>
+            <p>$$10 - 0.4t = 0$$</p>
+            <div class="algebra-chain">
+                <p class="reason">Add \(0.4t\) to both sides:</p>
+                <p>$$10 = 0.4t$$</p>
+                <p class="reason">Divide by 0.4:</p>
+                <p>$$t = 25$$</p>
+            </div>
+            <p>$$\boxed{T = 25}$$</p>
+            <div class="mark-award">B1 — \(T = 25\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 2: Differentiate \(v\) using the product rule</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Part (b) is a "show that" for when maximum speed occurs. Maximum speed means \(\frac{dv}{dt} = 0\). Since \(v\) is a product of two functions (\((10-0.4t)\) and \(\ln(t+1)\)), we need the product rule to differentiate it. Then we'll set the result equal to zero and rearrange to match the given form.</div>
+            <p>\(v = (10 - 0.4t) \cdot \ln(t+1)\) is a product of two functions.</p>
+            <p>Let \(u = 10 - 0.4t\) and \(w = \ln(t+1)\):</p>
+            <div class="algebra-chain">
+                <p class="reason">\(\frac{du}{dt} = -0.4\)</p>
+                <p class="reason">\(\frac{dw}{dt} = \frac{1}{t+1}\)</p>
+            </div>
+            <p>Apply the product rule \(\frac{dv}{dt} = u\frac{dw}{dt} + w\frac{du}{dt}\):</p>
+            <p>$$\frac{dv}{dt} = (10 - 0.4t) \cdot \frac{1}{t+1} + \ln(t+1) \cdot (-0.4)$$</p>
+            <p>$$\frac{dv}{dt} = \frac{10 - 0.4t}{t+1} - 0.4\ln(t+1)$$</p>
+            <div class="mark-award">M1 — Applying product rule correctly</div>
+            <div class="mark-award">A1 — Correct derivative</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 3: Set \(\frac{dv}{dt} = 0\) and rearrange to the given form</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">This is the trickiest part — we need to rearrange \(\frac{dv}{dt} = 0\) into the form \(t = \frac{26}{1+\ln(t+1)} - 1\). The target has \(t\) on both sides, which tells us it can't be solved algebraically (hence Part (c) uses iteration). Our goal is just to manipulate the equation into the given form. Strategy: isolate terms, factor out \((t+1)\), then divide to get \(t+1 = ...\).</div>
+            <p>At maximum speed, \(\frac{dv}{dt} = 0\):</p>
+            <div class="algebra-chain">
+                <p>$$\frac{10 - 0.4t}{t+1} - 0.4\ln(t+1) = 0$$</p>
+                <p class="reason">Add \(0.4\ln(t+1)\) to both sides:</p>
+                <p>$$\frac{10 - 0.4t}{t+1} = 0.4\ln(t+1)$$</p>
+                <p class="reason">Multiply both sides by \((t+1)\):</p>
+                <p>$$10 - 0.4t = 0.4(t+1)\ln(t+1)$$</p>
+                <p class="reason">Divide both sides by 0.4:</p>
+                <p>$$25 - t = (t+1)\ln(t+1)$$</p>
+                <p class="reason">We want to isolate \(t\). Rewrite: \(25 - t = (t+1)\ln(t+1)\):</p>
+                <p class="reason">Add \((t+1)\) to both sides: \(26 = (t+1) + (t+1)\ln(t+1) = (t+1)(1 + \ln(t+1))\)</p>
+                <p>$$26 = (t+1)(1 + \ln(t+1))$$</p>
+                <p class="reason">Divide both sides by \((1 + \ln(t+1))\):</p>
+                <p>$$t + 1 = \frac{26}{1 + \ln(t+1)}$$</p>
+                <p class="reason">Subtract 1 from both sides:</p>
+                <p>$$\boxed{t = \frac{26}{1 + \ln(t+1)} - 1} \quad \square$$</p>
+            </div>
+            <div class="mark-award">M1 — Setting derivative = 0 and attempting rearrangement</div>
+            <div class="mark-award">A1* — Reaching the given result with clear, rigorous algebra</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)</span> Step 4: Use iteration to find the time of maximum speed</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The equation from Part (b) has \(t\) on both sides — it can't be solved by rearranging. Instead, we use the iteration formula as a numerical method: plug in the starting value \(t_1 = 7\), compute \(t_2\), then plug \(t_2\) in to get \(t_3\), and so on. The values converge to the solution. Keep iterating until values agree to the required accuracy.</div>
+            <p>Use \(t_{n+1} = \frac{26}{1 + \ln(t_n + 1)} - 1\) with \(t_1 = 7\):</p>
+            <div class="algebra-chain">
+                <p>$$t_2 = \frac{26}{1 + \ln(8)} - 1 = \frac{26}{1 + 2.0794...} - 1 = \frac{26}{3.0794...} - 1 = 7.443...$$</p>
+                <p>$$t_3 = \frac{26}{1 + \ln(8.443...)} - 1 = 7.387... \approx 7.387 \text{ (3 d.p.)}$$</p>
+                <p>$$t_4 = 7.396...$$</p>
+                <p>$$t_5 = 7.395...$$</p>
+            </div>
+            <p>The values converge to \(t \approx 7.4\) seconds (or more precisely 7.40 to 3 s.f.).</p>
+            <p><strong>The car reaches its maximum speed after approximately 7.4 seconds.</strong></p>
+            <div class="mark-award">M1 — Correct application of iteration formula</div>
+            <div class="mark-award">A1 — \(t_3 = 7.387\) (3 d.p.)</div>
+            <div class="mark-award">A1 — Final answer: time to reach max speed = 7.4 seconds (stated)</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p1-jun22-q8')">Show Full Solution</button>
+</div>
+
+<!-- PATTERN RECOGNITION -->
+<h2>How to Recognise This Question Type</h2>
+<div class="card">
+    <p>Look for these signals in the question:</p>
+    <ul style="margin-left: 1.5rem; line-height: 2;">
+        <li>A 3D shape with a <strong>fixed volume</strong> or fixed capacity</li>
+        <li>Asked to find a dimension that <strong>minimises surface area</strong> (or cost, material, perimeter)</li>
+        <li>Part (a) always says <strong>"Show that..."</strong> — gives you the target expression</li>
+        <li>The words <strong>"Use calculus"</strong> confirm they want differentiation</li>
+        <li>Often the last major question on the paper (Q13–15), worth 8–10 marks</li>
+        <li>Alternatively: a speed/rate/quantity modelled by a function, asked to find when it is maximum</li>
+    </ul>
+</div>
+
+<h2>Common Shapes in Edexcel Optimisation</h2>
+<div class="card">
+    <ul style="margin-left: 1.5rem; line-height: 2.2;">
+        <li><strong>Cylinder + hemisphere</strong> (June 2019 P2): \(V = \pi r^2 h + \frac{2}{3}\pi r^3\)</li>
+        <li><strong>Sector prism</strong> (June 2022 P1): \(V = \frac{1}{2}r^2\theta \cdot h\)</li>
+        <li><strong>Open-top box</strong> (common in practice): \(V = x^2 h\), \(S = x^2 + 4xh\)</li>
+        <li><strong>Simple cylinder</strong> (specimen): \(V = \pi r^2 h\), \(S = 2\pi r^2 + 2\pi rh\)</li>
+        <li><strong>Cone</strong>: \(V = \frac{1}{3}\pi r^2 h\)</li>
+    </ul>
+</div>
+
+<script>
+    // Toggle individual step
+    function toggleStep(header) {
+        header.classList.toggle('open');
+        header.nextElementSibling.classList.toggle('open');
+    }
+
+    // Show all steps in a panel
+    function showAllSteps(panelId) {
+        const panel = document.getElementById(panelId);
+        panel.querySelectorAll('.step-reveal-header').forEach(h => h.classList.add('open'));
+        panel.querySelectorAll('.step-reveal-content').forEach(c => c.classList.add('open'));
+    }
+
+    // Select an example (tab switching)
+    function selectExample(panelId) {
+        // Deactivate all tabs and panels
+        document.querySelectorAll('.example-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.example-panel').forEach(p => p.classList.remove('active'));
+
+        // Activate the selected panel
+        document.getElementById(panelId).classList.add('active');
+
+        // Find and activate the matching tab
+        const tabs = document.querySelectorAll('.example-tab');
+        const tabMap = {
+            'ex-p2-jun19-q13': 0,
+            'ex-p1-jun22-q15': 1,
+            'ex-p1-jun18-q2': 2,
+            'ex-p1-jun22-q8': 3
+        };
+        if (tabMap[panelId] !== undefined) {
+            tabs[tabMap[panelId]].classList.add('active');
+        }
+
+        // Scroll to worked examples section
+        document.getElementById(panelId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Render KaTeX on load
+    document.addEventListener('DOMContentLoaded', function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ]
+        });
+    });
+</script>
+
+</body>
+</html>

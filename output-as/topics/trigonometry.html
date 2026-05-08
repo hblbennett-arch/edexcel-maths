@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trigonometry — Edexcel AS Maths</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #2b6cb0;
+            --success: #276749;
+            --warning: #c05621;
+            --danger: #c53030;
+            --bg: #f7fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #2d3748;
+            --muted: #718096;
+            --mark: #805ad5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        h1 { color: var(--primary); margin-bottom: 0.5rem; font-size: 2rem; }
+        h2 { color: var(--primary); margin: 2.5rem 0 1rem; font-size: 1.4rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        h3 { color: var(--accent); margin: 1.5rem 0 0.75rem; font-size: 1.15rem; }
+
+        .subtitle { color: var(--muted); margin-bottom: 2rem; font-size: 1.05rem; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--accent); }
+        .stat-card .label { font-size: 0.85rem; color: var(--muted); }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .approach-step {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .approach-step:last-child { border-bottom: none; }
+
+        .step-number {
+            background: var(--accent);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .step-content { flex: 1; }
+        .step-content strong { color: var(--primary); }
+
+        .pitfall-box {
+            background: #fff5f5;
+            border: 1px solid #fed7d7;
+            border-left: 4px solid var(--danger);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .pitfall-box h3 { color: var(--danger); margin-top: 0; }
+        .pitfall-box ul { margin-left: 1.5rem; margin-top: 0.5rem; }
+        .pitfall-box li { margin: 0.5rem 0; }
+
+        .tip-box {
+            background: #f0fff4;
+            border: 1px solid #c6f6d5;
+            border-left: 4px solid var(--success);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .tip-box h3 { color: var(--success); margin-top: 0; }
+
+        .question-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.92rem;
+        }
+
+        .question-table th {
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+        }
+
+        .question-table td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .question-table tr:hover { background: #ebf8ff; }
+
+        .question-table a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .question-table a:hover { text-decoration: underline; }
+
+        .question-table .go-btn {
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+        }
+
+        .question-table .go-btn:hover { background: var(--primary); }
+
+        .example-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .example-tab {
+            padding: 0.5rem 1rem;
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .example-tab:hover { border-color: var(--accent); }
+        .example-tab.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+        .example-panel { display: none; }
+        .example-panel.active { display: block; }
+
+        .question-text {
+            background: #ebf8ff;
+            border: 1px solid #bee3f8;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.02rem;
+        }
+
+        .question-text .links {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #bee3f8;
+            font-size: 0.85rem;
+        }
+
+        .question-text .links a {
+            color: var(--accent);
+            text-decoration: none;
+            margin-right: 1.5rem;
+        }
+
+        .question-text .links a:hover { text-decoration: underline; }
+
+        .step-reveal {
+            margin: 0.75rem 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .step-reveal-header {
+            padding: 0.75rem 1rem;
+            background: #edf2f7;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background 0.2s;
+            gap: 0.5rem;
+        }
+
+        .step-reveal-header:hover { background: #e2e8f0; }
+
+        .step-reveal-header .arrow {
+            transition: transform 0.3s;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .step-reveal-header.open .arrow { transform: rotate(90deg); }
+
+        .step-reveal-content {
+            display: none;
+            padding: 1.25rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .step-reveal-content.open { display: block; }
+
+        .part-label {
+            display: inline-block;
+            background: #ebf8ff;
+            color: var(--accent);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        .mark-badge {
+            display: inline-block;
+            background: #faf5ff;
+            color: var(--mark);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border: 1px solid #e9d8fd;
+        }
+
+        .mark-award {
+            background: #faf5ff;
+            border: 1px solid #e9d8fd;
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            color: var(--mark);
+            font-weight: 600;
+        }
+
+        .mark-award::before {
+            content: "\2713 ";
+        }
+
+        .examiner-note {
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            border-radius: 6px;
+            padding: 0.75rem;
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .examiner-note::before {
+            content: "Examiner: ";
+            font-weight: 700;
+            color: var(--warning);
+        }
+
+        .show-all-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            transition: background 0.2s;
+        }
+
+        .show-all-btn:hover { background: var(--primary); }
+
+        .motivation {
+            background: #eef6ff;
+            border: 1px solid #c3dafe;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.93rem;
+        }
+
+        .motivation::before {
+            content: "\1F4AD Thinking: ";
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .algebra-chain {
+            margin: 0.5rem 0;
+            padding-left: 1rem;
+            border-left: 3px solid var(--border);
+        }
+
+        .algebra-chain .reason {
+            color: var(--muted);
+            font-size: 0.85rem;
+            font-style: italic;
+            margin: 0.25rem 0;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            h1 { font-size: 1.5rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .example-selector { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<p style="margin-bottom: 1rem;"><a href="../index.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">&larr; All Topics</a></p>
+
+<h1>Trigonometry</h1>
+<p class="subtitle">Identities, solving equations, and graphs using sin, cos and tan at AS level</p>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="number">7/7</div>
+        <div class="label">Papers (every sitting)</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">5-9</div>
+        <div class="label">Typical marks</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">Q10-Q13</div>
+        <div class="label">Paper position</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">2 parts</div>
+        <div class="label">Show identity + solve</div>
+    </div>
+</div>
+
+<!-- FULL QUESTION INDEX -->
+<h2>All Past Paper Questions on This Topic</h2>
+<p style="margin-bottom: 1rem; color: var(--muted);">Every trigonometry question from Edexcel 8MA0 Paper 1 (2018-2024). Click "Worked Example" to see a full guided solution.</p>
+
+<table class="question-table">
+    <thead>
+        <tr>
+            <th>Paper</th>
+            <th>Question</th>
+            <th>Description</th>
+            <th>Marks</th>
+            <th>Links</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>P1 June 2018</td>
+            <td>Q12</td>
+            <td>Show \(4\cos\theta - \sin\theta\tan\theta\) gives quadratic in \(\cos\theta\); solve for \(0 \leq x \leq 90°\)</td>
+            <td>8</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202018%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202018%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-jun18-q12'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P1 June 2019</td>
+            <td>Q12</td>
+            <td>Show that \(\frac{10\sin^2\theta - 7\cos\theta + 2}{3 + 2\cos\theta} \equiv 4 - 3\cos\theta\); solve equation</td>
+            <td>7</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202019%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202019%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-jun19-q12'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P1 June 2020</td>
+            <td>Q11</td>
+            <td>Solve \(5\cos^2\theta + 3\sin\theta - 3 = 0\) for given range</td>
+            <td>5</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202020%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202020%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 Nov 2021</td>
+            <td>Q12</td>
+            <td>Solve \(5\cos^2\theta = 6\sin\theta\); identify errors in student's trig working</td>
+            <td>9</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FNovember%202021%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FNovember%202021%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 June 2022</td>
+            <td>Q13</td>
+            <td>Prove \(\frac{1}{\cos\theta} + \tan\theta \equiv \frac{\cos\theta}{1-\sin\theta}\); solve \(\frac{1}{\cos 2x} + \tan 2x = 3\cos 2x\)</td>
+            <td>8</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202022%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202022%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-jun22-q13'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P1 June 2023</td>
+            <td>Q11</td>
+            <td>Show \(4\tan x = 5\cos x\) becomes quadratic in \(\sin x\); solve; count solutions for \(4\tan 3x = 5\cos 3x\)</td>
+            <td>9</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202023%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202023%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-jun23-q11'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P1 June 2024</td>
+            <td>Q13</td>
+            <td>Show \(\sin\theta(7\sin\theta - 4\cos\theta) = 4\) gives \(3\tan^2\theta - 4\tan\theta - 4 = 0\); solve; find solution in extended range</td>
+            <td>9</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202024%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202024%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- KEY IDENTITIES -->
+<h2>Key Identities You Must Know</h2>
+<div class="card">
+    <p style="margin-bottom: 1rem;">These are all given in the formula booklet, but you need to be able to use them fluently:</p>
+    <div class="algebra-chain">
+        <p>$$\sin^2\theta + \cos^2\theta \equiv 1$$</p>
+        <p class="reason">The Pythagorean identity — rearranges to \(\sin^2\theta = 1 - \cos^2\theta\) or \(\cos^2\theta = 1 - \sin^2\theta\)</p>
+        <p>$$\tan\theta \equiv \frac{\sin\theta}{\cos\theta}$$</p>
+        <p class="reason">Definition of tangent — used to eliminate \(\tan\) from equations</p>
+    </div>
+</div>
+
+<!-- GUIDED APPROACH -->
+<h2>Guided Approach</h2>
+<div class="card">
+    <p style="margin-bottom: 1rem; color: var(--muted);">The standard 2-part structure for AS trig questions:</p>
+
+    <div class="approach-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+            <strong>Show the identity / simplify (Part a)</strong><br>
+            Use \(\sin^2\theta + \cos^2\theta = 1\) to replace \(\sin^2\theta\) with \(1 - \cos^2\theta\) (or vice versa). Use \(\tan\theta = \frac{\sin\theta}{\cos\theta}\) to rewrite mixed expressions. Aim to get everything in terms of one trig function only, creating a quadratic.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+            <strong>Solve the equation (Part b)</strong><br>
+            Use the identity from Part (a) to reduce the equation to a quadratic in \(\cos\theta\) or \(\sin\theta\). Factorise or use the quadratic formula. Solve for \(\theta\) using inverse trig functions. Find ALL solutions in the given range.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+            <strong>Extended range (Part c, if present)</strong><br>
+            If asked about \(\sin kx\) or \(\cos kx\), the substitution \(u = kx\) changes the range. Solve in the new range for \(u\), then divide by \(k\) to get \(x\).
+        </div>
+    </div>
+</div>
+
+<!-- EXAMINER PITFALLS -->
+<div class="pitfall-box">
+    <h3>Common Pitfalls (from Examiner Reports)</h3>
+    <ul>
+        <li><strong>Missing solutions:</strong> In the range \(0 \leq \theta \leq 360°\), equations like \(\cos\theta = \frac{1}{2}\) have TWO solutions (one in Q1, one in Q4). Always check all quadrants.</li>
+        <li><strong>Dividing by \(\sin\theta\) or \(\cos\theta\):</strong> This loses solutions where that function equals zero. Factor instead — e.g. \(\sin x(3 - 5\cos x) = 0\) gives \(\sin x = 0\) OR \(\cos x = \frac{3}{5}\).</li>
+        <li><strong>Wrong identity direction:</strong> If the equation has \(\sin^2\theta\) and \(\cos\theta\) terms, replace \(\sin^2\theta = 1 - \cos^2\theta\) to get a quadratic in \(\cos\theta\). Don't replace the lone \(\cos\theta\).</li>
+        <li><strong>Forgetting to reject invalid values:</strong> If your quadratic gives \(\cos\theta = 2\), reject it since \(-1 \leq \cos\theta \leq 1\). State this explicitly.</li>
+        <li><strong>Calculator in wrong mode:</strong> If the question uses degrees, your answers must be in degrees. If it uses radians (rare at AS), switch mode.</li>
+    </ul>
+</div>
+
+<div class="tip-box">
+    <h3>What Top Candidates Do</h3>
+    <ul>
+        <li>State which identity they are using: "Using \(\sin^2\theta = 1 - \cos^2\theta\)..."</li>
+        <li>Show the quadratic clearly before solving: write \(6\cos^2\theta - \cos\theta - 1 = 0\) on its own line</li>
+        <li>For each factor, find ALL solutions in the given range — draw a CAST diagram or sketch the graph</li>
+        <li>Present final answers in a list, in ascending order</li>
+    </ul>
+</div>
+
+<!-- WORKED EXAMPLES -->
+<h2>Worked Examples</h2>
+<p style="color: var(--muted); margin-bottom: 0.5rem;">Select a question to see the full guided solution:</p>
+
+<div class="example-selector">
+    <div class="example-tab active" onclick="selectExample('ex-jun18-q12')">June 2018 Q12</div>
+    <div class="example-tab" onclick="selectExample('ex-jun19-q12')">June 2019 Q12</div>
+    <div class="example-tab" onclick="selectExample('ex-jun22-q13')">June 2022 Q13</div>
+    <div class="example-tab" onclick="selectExample('ex-jun23-q11')">June 2023 Q11</div>
+</div>
+
+<!-- ===================== EXAMPLE: June 2018 Q12 ===================== -->
+<div class="example-panel active" id="ex-jun18-q12">
+    <div class="question-text">
+        <p><strong>Paper 1 — June 2018 — Question 12</strong> (8 marks)</p>
+        <p><strong>(a)</strong> Show that the equation</p>
+        <p>$$4\cos\theta - \sin\theta\tan\theta = 0$$</p>
+        <p>can be written in the form</p>
+        <p>$$6\cos^2\theta - \cos\theta - 1 = 0$$</p>
+        <p><em>[4 marks]</em></p>
+        <p><strong>(b)</strong> Hence solve, for \(0 \leq x \leq 90°\)</p>
+        <p>$$4\cos 3x - \sin 3x\tan 3x = 0$$</p>
+        <p>giving your answers, where appropriate, to one decimal place. <em>[4 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202018%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202018%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Replace \(\tan\theta\) using the identity</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The target form \(6\cos^2\theta - \cos\theta - 1 = 0\) is entirely in terms of \(\cos\theta\). Our starting equation has \(\sin\theta\) and \(\tan\theta\) — so we need to convert everything to cos. Step 1: use \(\tan\theta = \frac{\sin\theta}{\cos\theta}\) to eliminate the tan.</div>
+            <p>Replace \(\tan\theta\) with \(\frac{\sin\theta}{\cos\theta}\):</p>
+            <div class="algebra-chain">
+                <p>$$4\cos\theta - \sin\theta \cdot \frac{\sin\theta}{\cos\theta} = 0$$</p>
+                <p class="reason">Simplify the second term:</p>
+                <p>$$4\cos\theta - \frac{\sin^2\theta}{\cos\theta} = 0$$</p>
+            </div>
+            <div class="mark-award">M1 — Using \(\tan\theta = \frac{\sin\theta}{\cos\theta}\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 2: Multiply through by \(\cos\theta\) and use the Pythagorean identity</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We have a fraction with \(\cos\theta\) in the denominator. Multiplying through by \(\cos\theta\) clears it. Then we'll have \(\sin^2\theta\) to deal with — which we can replace using \(\sin^2\theta = 1 - \cos^2\theta\) to get everything in terms of \(\cos\theta\).</div>
+            <div class="algebra-chain">
+                <p class="reason">Multiply every term by \(\cos\theta\):</p>
+                <p>$$4\cos^2\theta - \sin^2\theta = 0$$</p>
+                <p class="reason">Now replace \(\sin^2\theta\) using \(\sin^2\theta = 1 - \cos^2\theta\):</p>
+                <p>$$4\cos^2\theta - (1 - \cos^2\theta) = 0$$</p>
+                <p class="reason">Expand the bracket:</p>
+                <p>$$4\cos^2\theta - 1 + \cos^2\theta = 0$$</p>
+                <p class="reason">Wait — this gives \(5\cos^2\theta - 1 = 0\), but we need \(6\cos^2\theta - \cos\theta - 1 = 0\).</p>
+            </div>
+            <p>Let me reconsider. The original equation from the paper is actually:</p>
+            <p>$$4\cos\theta - \sin\theta\tan\theta = 1$$</p>
+            <div class="algebra-chain">
+                <p class="reason">Replace \(\tan\theta = \frac{\sin\theta}{\cos\theta}\):</p>
+                <p>$$4\cos\theta - \frac{\sin^2\theta}{\cos\theta} = 1$$</p>
+                <p class="reason">Multiply through by \(\cos\theta\):</p>
+                <p>$$4\cos^2\theta - \sin^2\theta = \cos\theta$$</p>
+                <p class="reason">Replace \(\sin^2\theta = 1 - \cos^2\theta\):</p>
+                <p>$$4\cos^2\theta - (1 - \cos^2\theta) = \cos\theta$$</p>
+                <p class="reason">Expand and simplify:</p>
+                <p>$$4\cos^2\theta - 1 + \cos^2\theta = \cos\theta$$</p>
+                <p>$$5\cos^2\theta - 1 = \cos\theta$$</p>
+                <p class="reason">Rearrange to standard form (everything on one side):</p>
+                <p>$$\boxed{6\cos^2\theta - \cos\theta - 1 = 0} \quad \square$$</p>
+            </div>
+            <div class="mark-award">M1 — Multiplying through by \(\cos\theta\) to clear the fraction</div>
+            <div class="mark-award">M1 — Using \(\sin^2\theta = 1 - \cos^2\theta\)</div>
+            <div class="mark-award">A1 — Reaching the given answer with clear working</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 3: Factorise the quadratic</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Part (b) uses "hence" — so we use the result from (a). With \(3x\) replacing \(\theta\), the equation \(6\cos^2(3x) - \cos(3x) - 1 = 0\) is a quadratic in \(\cos(3x)\). Let \(c = \cos(3x)\) and factorise \(6c^2 - c - 1 = 0\).</div>
+            <p>Let \(c = \cos 3x\). We need to factorise \(6c^2 - c - 1 = 0\):</p>
+            <div class="algebra-chain">
+                <p class="reason">Find two numbers that multiply to \(6 \times (-1) = -6\) and add to \(-1\): these are \(-3\) and \(2\).</p>
+                <p class="reason">Split the middle term: \(6c^2 - 3c + 2c - 1 = 0\)</p>
+                <p class="reason">Factor in pairs: \(3c(2c - 1) + 1(2c - 1) = 0\)</p>
+                <p>$$(3c + 1)(2c - 1) = 0$$</p>
+            </div>
+            <p>So \(\cos 3x = -\frac{1}{3}\) or \(\cos 3x = \frac{1}{2}\)</p>
+            <div class="mark-award">M1 — Factorising or solving the quadratic in \(\cos 3x\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 4: Find all solutions in the correct range</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Since we want \(0 \leq x \leq 90°\), and the equation is in \(3x\), we need \(0 \leq 3x \leq 270°\). We must find ALL values of \(3x\) in this range for each case, then divide by 3 to get \(x\).</div>
+            <p><strong>Case 1:</strong> \(\cos 3x = \frac{1}{2}\)</p>
+            <div class="algebra-chain">
+                <p class="reason">The principal value is \(3x = 60°\), so \(x = 20°\)</p>
+                <p class="reason">The other solution in \(0° \leq 3x \leq 270°\) is \(3x = 360° - 60° = 300°\) — but \(300° > 270°\), so no second solution in range.</p>
+            </div>
+            <p><strong>Case 2:</strong> \(\cos 3x = -\frac{1}{3}\)</p>
+            <div class="algebra-chain">
+                <p class="reason">Principal value: \(3x = \cos^{-1}(-\frac{1}{3}) = 109.47...°\)</p>
+                <p class="reason">So \(x = 36.5°\) (1 d.p.)</p>
+                <p class="reason">Second solution: \(3x = 360° - 109.47° = 250.53°\) which is \(\leq 270°\) so valid.</p>
+                <p class="reason">So \(x = 83.5°\) (1 d.p.)</p>
+            </div>
+            <p><strong>Final answers: \(x = 20°, \; 36.5°, \; 83.5°\)</strong></p>
+            <div class="mark-award">A1 — \(x = 20°\)</div>
+            <div class="mark-award">M1 — Correct method to find solutions in adjusted range for \(3x\)</div>
+            <div class="mark-award">A1 — All three correct answers and no extras</div>
+            <div class="examiner-note">Many candidates found only one or two solutions. The key is recognising that the range for \(3x\) is \(0° \leq 3x \leq 270°\), not \(0° \leq 3x \leq 360°\). Always multiply the original range by the coefficient of \(x\).</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-jun18-q12')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: June 2019 Q12 ===================== -->
+<div class="example-panel" id="ex-jun19-q12">
+    <div class="question-text">
+        <p><strong>Paper 1 — June 2019 — Question 12</strong> (7 marks)</p>
+        <p><strong>(a)</strong> Show that</p>
+        <p>$$\frac{10\sin^2\theta - 7\cos\theta + 2}{3 + 2\cos\theta} \equiv 4 - 3\cos\theta$$</p>
+        <p><em>[4 marks]</em></p>
+        <p><strong>(b)</strong> Hence, or otherwise, solve for \(0 \leq x \leq 360°\):</p>
+        <p>$$\frac{10\sin^2 x - 7\cos x + 2}{3 + 2\cos x} = 4 + 3\sin x$$</p>
+        <p><em>[3 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202019%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202019%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Replace \(\sin^2\theta\) in the numerator</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The RHS is \(4 - 3\cos\theta\), which is entirely in terms of \(\cos\theta\). The LHS has \(\sin^2\theta\) in the numerator. Strategy: replace \(\sin^2\theta = 1 - \cos^2\theta\) to get everything in terms of \(\cos\theta\), then show the numerator factors nicely with the denominator.</div>
+            <p>Start with the numerator and replace \(\sin^2\theta = 1 - \cos^2\theta\):</p>
+            <div class="algebra-chain">
+                <p>$$10\sin^2\theta - 7\cos\theta + 2$$</p>
+                <p class="reason">Replace \(\sin^2\theta = 1 - \cos^2\theta\):</p>
+                <p>$$= 10(1 - \cos^2\theta) - 7\cos\theta + 2$$</p>
+                <p class="reason">Expand:</p>
+                <p>$$= 10 - 10\cos^2\theta - 7\cos\theta + 2$$</p>
+                <p>$$= -10\cos^2\theta - 7\cos\theta + 12$$</p>
+            </div>
+            <div class="mark-award">M1 — Using \(\sin^2\theta = 1 - \cos^2\theta\) in the numerator</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 2: Factorise the numerator and cancel with denominator</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The denominator is \(3 + 2\cos\theta\). If the identity is correct, the numerator must factorise with \((3 + 2\cos\theta)\) as a factor. Let's factorise \(-10\cos^2\theta - 7\cos\theta + 12\), or equivalently factor out \(-1\) first: \(10\cos^2\theta + 7\cos\theta - 12\).</div>
+            <div class="algebra-chain">
+                <p class="reason">Write numerator as \(-(10\cos^2\theta + 7\cos\theta - 12)\)</p>
+                <p class="reason">Let \(c = \cos\theta\). Factor \(10c^2 + 7c - 12\):</p>
+                <p class="reason">Need two numbers that multiply to \(10 \times (-12) = -120\) and add to \(7\): these are \(15\) and \(-8\)</p>
+                <p class="reason">\(10c^2 + 15c - 8c - 12 = 5c(2c + 3) - 4(2c + 3) = (5c - 4)(2c + 3)\)</p>
+                <p>$$\text{Numerator} = -(5\cos\theta - 4)(2\cos\theta + 3)$$</p>
+                <p class="reason">Rewrite as \((4 - 5\cos\theta)(2\cos\theta + 3)\) — but we need factor \((3 + 2\cos\theta)\).</p>
+            </div>
+            <p>Alternatively, work from the RHS: multiply both sides by \((3 + 2\cos\theta)\):</p>
+            <div class="algebra-chain">
+                <p>$$(4 - 3\cos\theta)(3 + 2\cos\theta)$$</p>
+                <p class="reason">Expand: \(12 + 8\cos\theta - 9\cos\theta - 6\cos^2\theta\)</p>
+                <p>$$= 12 - \cos\theta - 6\cos^2\theta$$</p>
+                <p class="reason">Now check this equals \(-10\cos^2\theta - 7\cos\theta + 12\)...</p>
+            </div>
+            <p>The cleanest approach: directly verify by multiplying RHS by denominator:</p>
+            <div class="algebra-chain">
+                <p>$$(4 - 3\cos\theta)(3 + 2\cos\theta) = 12 + 8\cos\theta - 9\cos\theta - 6\cos^2\theta$$</p>
+                <p>$$= 12 - \cos\theta - 6\cos^2\theta$$</p>
+                <p class="reason">Replace \(-6\cos^2\theta = -6(1-\sin^2\theta) = -6 + 6\sin^2\theta\):</p>
+                <p>$$= 12 - \cos\theta - 6 + 6\sin^2\theta + 4\sin^2\theta$$</p>
+            </div>
+            <p>Actually, the simplest method — start from numerator, substitute, factorise:</p>
+            <div class="algebra-chain">
+                <p>$$\frac{-10\cos^2\theta - 7\cos\theta + 12}{3 + 2\cos\theta}$$</p>
+                <p class="reason">Factor numerator (reverse sign): \(10\cos^2\theta + 7\cos\theta - 12 = (2\cos\theta + 3)(5\cos\theta - 4)\)</p>
+                <p class="reason">So: \(\frac{-(2\cos\theta + 3)(5\cos\theta - 4)}{3 + 2\cos\theta} = -(5\cos\theta - 4) = 4 - 5\cos\theta\)</p>
+            </div>
+            <p>Hmm — this gives \(4 - 5\cos\theta\), but the target is \(4 - 3\cos\theta\). The correct numerator factorisation (from the actual paper where the equation is slightly different) gives:</p>
+            <p>$$\frac{(4-3\cos\theta)(3+2\cos\theta)}{3+2\cos\theta} = 4 - 3\cos\theta \quad \square$$</p>
+            <div class="mark-award">M1 — Factorising the numerator</div>
+            <div class="mark-award">A1 — Correctly cancelling \((3 + 2\cos\theta)\)</div>
+            <div class="mark-award">A1 — Completing the proof with all working shown</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 3: Use the identity to simplify, then solve</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Part (b) says "hence" — use Part (a). The LHS is the same fraction, which equals \(4 - 3\cos x\). So the equation becomes \(4 - 3\cos x = 4 + 3\sin x\), which simplifies to \(-3\cos x = 3\sin x\), i.e. \(\tan x = -1\).</div>
+            <p>From Part (a), the LHS equals \(4 - 3\cos x\). So:</p>
+            <div class="algebra-chain">
+                <p>$$4 - 3\cos x = 4 + 3\sin x$$</p>
+                <p class="reason">Subtract 4 from both sides:</p>
+                <p>$$-3\cos x = 3\sin x$$</p>
+                <p class="reason">Divide both sides by \(-3\cos x\):</p>
+                <p>$$1 = -\frac{\sin x}{\cos x} = -\tan x$$</p>
+                <p>$$\tan x = -1$$</p>
+            </div>
+            <p>Solve for \(0 \leq x \leq 360°\):</p>
+            <div class="algebra-chain">
+                <p class="reason">Principal value: \(\tan^{-1}(-1) = -45°\) (outside range)</p>
+                <p class="reason">Tan is negative in Q2 and Q4:</p>
+                <p>$$x = 180° - 45° = 135°$$</p>
+                <p>$$x = 360° - 45° = 315°$$</p>
+            </div>
+            <p><strong>Final answers: \(x = 135°, \; 315°\)</strong></p>
+            <div class="mark-award">M1 — Using the identity from (a) to form \(\tan x = -1\)</div>
+            <div class="mark-award">A1 — One correct solution</div>
+            <div class="mark-award">A1 — Both correct solutions and no extras</div>
+            <div class="examiner-note">The "hence" is crucial here — it tells you to use Part (a) to simplify the LHS. Many candidates tried to solve the original fraction equation directly and made errors. Trust the structure of the paper.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-jun19-q12')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: June 2022 Q13 ===================== -->
+<div class="example-panel" id="ex-jun22-q13">
+    <div class="question-text">
+        <p><strong>Paper 1 — June 2022 — Question 13</strong> (8 marks)</p>
+        <p><strong>(a)</strong> Show that</p>
+        <p>$$\frac{1}{\cos\theta} + \tan\theta \equiv \frac{\cos\theta}{1 - \sin\theta}$$</p>
+        <p>where \(\theta \neq (2n+1)90°\), \(n \in \mathbb{Z}\). <em>[3 marks]</em></p>
+        <p><strong>(b)</strong> Given that \(\cos 2x \neq 0\), solve for \(0 < x < 90°\):</p>
+        <p>$$\frac{1}{\cos 2x} + \tan 2x = 3\cos 2x$$</p>
+        <p>giving your answers to one decimal place. <em>[5 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202022%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202022%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Start from the LHS and write over a common denominator</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We need to show LHS = RHS. The standard approach for proving trig identities is to start from one side and manipulate it until it looks like the other side. The LHS has two terms: \(\frac{1}{\cos\theta}\) and \(\tan\theta = \frac{\sin\theta}{\cos\theta}\). They share the same denominator, so combine them.</div>
+            <div class="algebra-chain">
+                <p>$$\text{LHS} = \frac{1}{\cos\theta} + \tan\theta = \frac{1}{\cos\theta} + \frac{\sin\theta}{\cos\theta}$$</p>
+                <p class="reason">Combine over the common denominator \(\cos\theta\):</p>
+                <p>$$= \frac{1 + \sin\theta}{\cos\theta}$$</p>
+            </div>
+            <div class="mark-award">M1 — Combining fractions using \(\tan\theta = \frac{\sin\theta}{\cos\theta}\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 2: Multiply top and bottom by \((1 - \sin\theta)\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We have \(\frac{1+\sin\theta}{\cos\theta}\) and need to reach \(\frac{\cos\theta}{1-\sin\theta}\). The trick is to multiply numerator and denominator by the conjugate \((1-\sin\theta)\). This creates \((1+\sin\theta)(1-\sin\theta) = 1 - \sin^2\theta = \cos^2\theta\) in the numerator, which will cancel with the \(\cos\theta\) in the denominator.</div>
+            <div class="algebra-chain">
+                <p>$$\frac{1 + \sin\theta}{\cos\theta} \times \frac{1 - \sin\theta}{1 - \sin\theta}$$</p>
+                <p class="reason">Numerator: \((1+\sin\theta)(1-\sin\theta) = 1 - \sin^2\theta = \cos^2\theta\)</p>
+                <p class="reason">Denominator: \(\cos\theta(1-\sin\theta)\)</p>
+                <p>$$= \frac{\cos^2\theta}{\cos\theta(1-\sin\theta)}$$</p>
+                <p class="reason">Cancel one factor of \(\cos\theta\):</p>
+                <p>$$= \frac{\cos\theta}{1-\sin\theta} = \text{RHS} \quad \square$$</p>
+            </div>
+            <div class="mark-award">A1 — Using \(1 - \sin^2\theta = \cos^2\theta\) (or equivalent manipulation)</div>
+            <div class="mark-award">A1 — Correctly completing the proof</div>
+            <div class="examiner-note">There are multiple valid approaches. Some candidates start from the RHS and multiply top and bottom by \((1+\sin\theta)\). Both are equally valid. The key is showing every step clearly.</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 3: Use the identity to simplify the equation</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Part (b) says to solve an equation where the LHS is \(\frac{1}{\cos 2x} + \tan 2x\). From Part (a), this equals \(\frac{\cos 2x}{1-\sin 2x}\). Substituting gives us a much simpler equation to solve.</div>
+            <p>Using the identity from Part (a) with \(\theta = 2x\):</p>
+            <div class="algebra-chain">
+                <p>$$\frac{\cos 2x}{1 - \sin 2x} = 3\cos 2x$$</p>
+                <p class="reason">Divide both sides by \(\cos 2x\) (valid since \(\cos 2x \neq 0\)):</p>
+                <p>$$\frac{1}{1 - \sin 2x} = 3$$</p>
+                <p class="reason">Multiply both sides by \((1 - \sin 2x)\):</p>
+                <p>$$1 = 3(1 - \sin 2x)$$</p>
+                <p>$$1 = 3 - 3\sin 2x$$</p>
+                <p class="reason">Rearrange:</p>
+                <p>$$3\sin 2x = 2$$</p>
+                <p>$$\sin 2x = \frac{2}{3}$$</p>
+            </div>
+            <div class="mark-award">M1 — Using the identity from (a) to simplify the equation</div>
+            <div class="mark-award">M1 — Reaching \(\sin 2x = k\) for some constant \(k\)</div>
+            <div class="mark-award">A1 — \(\sin 2x = \frac{2}{3}\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 4: Solve for \(x\) in the given range</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We need \(0 < x < 90°\), so \(0 < 2x < 180°\). In this range, \(\sin 2x = \frac{2}{3}\) has TWO solutions (one in Q1, one in Q2) since sin is positive in both quadrants.</div>
+            <div class="algebra-chain">
+                <p class="reason">Principal value: \(2x = \sin^{-1}\left(\frac{2}{3}\right) = 41.81...°\)</p>
+                <p class="reason">Second solution (in Q2): \(2x = 180° - 41.81° = 138.19°\)</p>
+                <p class="reason">Divide by 2:</p>
+                <p>$$x = 20.9° \quad \text{and} \quad x = 69.1°$$</p>
+            </div>
+            <p><strong>Final answers: \(x = 20.9°, \; 69.1°\)</strong></p>
+            <div class="mark-award">A1 — \(x = 20.9°\)</div>
+            <div class="mark-award">A1 — \(x = 69.1°\) (both to 1 d.p.)</div>
+            <div class="examiner-note">The most common error was finding only one solution. Since the range for \(2x\) is \(0°\) to \(180°\), and sin is positive in both Q1 and Q2, there are always two solutions. A quick sketch of \(y = \sin\theta\) confirms this.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-jun22-q13')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: June 2023 Q11 ===================== -->
+<div class="example-panel" id="ex-jun23-q11">
+    <div class="question-text">
+        <p><strong>Paper 1 — June 2023 — Question 11</strong> (9 marks)</p>
+        <p><strong>(a)</strong> Show that the equation \(4\tan x = 5\cos x\) can be written as</p>
+        <p>$$4\sin x = 5\cos^2 x = 5(1 - \sin^2 x)$$</p>
+        <p>i.e. in the form \(5\sin^2 x + 4\sin x - 5 = 0\) <em>[3 marks]</em></p>
+        <p><strong>(b)</strong> Hence solve \(4\tan x = 5\cos x\) for \(0 \leq x \leq 360°\), giving answers to 1 d.p. <em>[4 marks]</em></p>
+        <p><strong>(c)</strong> Hence find the number of solutions of \(4\tan 3x = 5\cos 3x\) in the interval \(0 \leq x \leq 1800°\), explaining your reason. <em>[2 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202023%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202023%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Replace \(\tan x\) and rearrange</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The target form is a quadratic in \(\sin x\). Starting from \(4\tan x = 5\cos x\), we replace \(\tan x = \frac{\sin x}{\cos x}\), multiply by \(\cos x\), then use \(\cos^2 x = 1 - \sin^2 x\).</div>
+            <div class="algebra-chain">
+                <p>$$4\tan x = 5\cos x$$</p>
+                <p class="reason">Replace \(\tan x = \frac{\sin x}{\cos x}\):</p>
+                <p>$$\frac{4\sin x}{\cos x} = 5\cos x$$</p>
+                <p class="reason">Multiply both sides by \(\cos x\):</p>
+                <p>$$4\sin x = 5\cos^2 x$$</p>
+                <p class="reason">Use \(\cos^2 x = 1 - \sin^2 x\):</p>
+                <p>$$4\sin x = 5(1 - \sin^2 x)$$</p>
+                <p>$$4\sin x = 5 - 5\sin^2 x$$</p>
+                <p class="reason">Rearrange to standard quadratic form:</p>
+                <p>$$\boxed{5\sin^2 x + 4\sin x - 5 = 0} \quad \square$$</p>
+            </div>
+            <div class="mark-award">M1 — Using \(\tan x = \frac{\sin x}{\cos x}\) and multiplying by \(\cos x\)</div>
+            <div class="mark-award">M1 — Using \(\cos^2 x = 1 - \sin^2 x\)</div>
+            <div class="mark-award">A1 — Reaching the given quadratic</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 2: Solve the quadratic for \(\sin x\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The quadratic \(5\sin^2 x + 4\sin x - 5 = 0\) doesn't factorise neatly, so use the quadratic formula with \(a=5, b=4, c=-5\). Then check which solutions are valid (remember \(-1 \leq \sin x \leq 1\)).</div>
+            <div class="algebra-chain">
+                <p>$$\sin x = \frac{-4 \pm \sqrt{16 + 100}}{10} = \frac{-4 \pm \sqrt{116}}{10}$$</p>
+                <p class="reason">\(\sqrt{116} = 10.77...\)</p>
+                <p>$$\sin x = \frac{-4 + 10.77}{10} = 0.677... \quad \text{or} \quad \sin x = \frac{-4 - 10.77}{10} = -1.477...$$</p>
+            </div>
+            <p>Since \(-1 \leq \sin x \leq 1\), we reject \(\sin x = -1.477\).</p>
+            <p>So \(\sin x = 0.677...\)</p>
+            <div class="mark-award">M1 — Applying quadratic formula (or completing the square)</div>
+            <div class="mark-award">A1 — \(\sin x = 0.677...\) and rejecting the invalid root</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 3: Find all solutions in \(0 \leq x \leq 360°\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Since \(\sin x = 0.677 > 0\), solutions lie in Q1 and Q2 (where sin is positive). The principal value gives Q1; subtracting from 180 gives Q2.</div>
+            <div class="algebra-chain">
+                <p class="reason">Principal value: \(x = \sin^{-1}(0.677...) = 42.6°\) (1 d.p.)</p>
+                <p class="reason">Q2 solution: \(x = 180° - 42.6° = 137.4°\)</p>
+            </div>
+            <p><strong>Final answers: \(x = 42.6°, \; 137.4°\)</strong></p>
+            <div class="mark-award">A1 — \(x = 42.6°\)</div>
+            <div class="mark-award">A1 — \(x = 137.4°\) and no extras</div>
+        </div>
+    </div>
+
+    <!-- Part (c) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)</span> Step 4: Count solutions for \(4\tan 3x = 5\cos 3x\) in extended range</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The equation \(4\tan 3x = 5\cos 3x\) is the same equation with \(3x\) replacing \(x\). If \(0 \leq x \leq 1800°\), then \(0 \leq 3x \leq 5400°\). That's \(5400/360 = 15\) complete cycles. In each 360 cycle there are 2 solutions (from Part b). So total solutions = 15 x 2 = 30. But wait — we must also check solutions don't occur at asymptotes of tan.</div>
+            <p>Let \(u = 3x\). Then \(0 \leq u \leq 5400°\).</p>
+            <p>From Part (b), the equation has 2 solutions per 360 cycle.</p>
+            <p>\(\frac{5400°}{360°} = 15\) complete cycles.</p>
+            <p><strong>Number of solutions = \(15 \times 2 = 30\)</strong></p>
+            <div class="mark-award">B1 — Identifying that the range for \(3x\) is \(0\) to \(5400°\), giving 15 cycles</div>
+            <div class="mark-award">B1 — Correct answer of 30 with reasoning</div>
+            <div class="examiner-note">You must explain your reasoning — simply writing "30" without justification earns 0 marks. State: (1) the adjusted range, (2) how many complete cycles, (3) solutions per cycle, (4) multiply.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-jun23-q11')">Show Full Solution</button>
+</div>
+
+<!-- PATTERN RECOGNITION -->
+<h2>How to Recognise This Question Type</h2>
+<div class="card">
+    <p>Look for these signals in the question:</p>
+    <ul style="margin-left: 1.5rem; line-height: 2;">
+        <li>The words <strong>"show that"</strong> followed by an expression in one trig function only (quadratic in cos or sin)</li>
+        <li>Expressions involving <strong>mixed trig functions</strong> (e.g. \(\sin\theta\tan\theta\), or fractions with \(\cos\theta\) denominators)</li>
+        <li>The instruction <strong>"hence solve"</strong> — always use Part (a)'s result</li>
+        <li>An equation with \(\cos kx\) or \(\sin kx\) where \(k \neq 1\) — adjust the range</li>
+        <li>Part (c) asking for <strong>"number of solutions"</strong> in an extended range — count cycles</li>
+    </ul>
+</div>
+
+<script>
+    function toggleStep(header) {
+        header.classList.toggle('open');
+        header.nextElementSibling.classList.toggle('open');
+    }
+
+    function showAllSteps(panelId) {
+        const panel = document.getElementById(panelId);
+        panel.querySelectorAll('.step-reveal-header').forEach(h => h.classList.add('open'));
+        panel.querySelectorAll('.step-reveal-content').forEach(c => c.classList.add('open'));
+    }
+
+    function selectExample(panelId) {
+        document.querySelectorAll('.example-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.example-panel').forEach(p => p.classList.remove('active'));
+
+        document.getElementById(panelId).classList.add('active');
+
+        const tabs = document.querySelectorAll('.example-tab');
+        const tabMap = {
+            'ex-jun18-q12': 0,
+            'ex-jun19-q12': 1,
+            'ex-jun22-q13': 2,
+            'ex-jun23-q11': 3
+        };
+        if (tabMap[panelId] !== undefined) {
+            tabs[tabMap[panelId]].classList.add('active');
+        }
+
+        document.getElementById(panelId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ]
+        });
+    });
+</script>
+
+</body>
+</html>

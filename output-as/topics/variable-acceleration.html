@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variable Acceleration — Edexcel AS Mechanics</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #2b6cb0;
+            --success: #276749;
+            --warning: #c05621;
+            --danger: #c53030;
+            --bg: #f7fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #2d3748;
+            --muted: #718096;
+            --mark: #805ad5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        h1 { color: var(--primary); margin-bottom: 0.5rem; font-size: 2rem; }
+        h2 { color: var(--primary); margin: 2.5rem 0 1rem; font-size: 1.4rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        h3 { color: var(--accent); margin: 1.5rem 0 0.75rem; font-size: 1.15rem; }
+
+        .subtitle { color: var(--muted); margin-bottom: 2rem; font-size: 1.05rem; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-card .number { font-size: 1.5rem; font-weight: 700; color: var(--accent); }
+        .stat-card .label { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .motivation {
+            border-left: 4px solid var(--accent);
+            background: #ebf8ff;
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+
+        .examiner-tip {
+            border-left: 4px solid var(--warning);
+            background: #fffaf0;
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0;
+        }
+
+        .examiner-tip::before { content: "Examiner tip: "; font-weight: 700; color: var(--warning); }
+
+        .marks {
+            display: inline-block;
+            background: var(--mark);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+        }
+
+        .step {
+            border-left: 3px solid var(--border);
+            padding: 0.75rem 1rem;
+            margin: 0.75rem 0;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+
+        .step:hover { border-color: var(--accent); }
+
+        .step-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .step-content {
+            display: none;
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px dashed var(--border);
+        }
+
+        .step.open .step-content { display: block; }
+        .step.open { border-color: var(--success); }
+
+        .toggle-icon::after { content: "\25BC"; font-size: 0.7rem; color: var(--muted); }
+        .step.open .toggle-icon::after { content: "\25B2"; }
+
+        .reveal-all {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.5rem 1.25rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin: 0.5rem 0;
+        }
+
+        .reveal-all:hover { background: var(--primary); }
+
+        .formula-box {
+            background: #f0fff4;
+            border: 1px solid #c6f6d5;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .back-link:hover { text-decoration: underline; }
+
+        .paper-ref {
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin-top: 0.5rem;
+        }
+
+        .paper-ref a { color: var(--accent); text-decoration: none; }
+        .paper-ref a:hover { text-decoration: underline; }
+
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        th, td { padding: 0.5rem; border: 1px solid var(--border); text-align: left; font-size: 0.9rem; }
+        th { background: var(--bg); font-weight: 600; }
+    </style>
+</head>
+<body>
+    <a href="../index.html" class="back-link">← Back to AS Mechanics Topics</a>
+
+    <h1>Variable Acceleration</h1>
+    <p class="subtitle">Using calculus (differentiation and integration) for non-constant acceleration problems</p>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="number">7/7</div>
+            <div class="label">Sittings</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">7–10</div>
+            <div class="label">Marks</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">Q3</div>
+            <div class="label">Typical Position</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">Calculus</div>
+            <div class="label">Method</div>
+        </div>
+    </div>
+
+    <div class="motivation">
+        <strong>Why this always comes up:</strong> Variable acceleration is the bridge between pure maths (calculus) and mechanics. It appears in EVERY sitting because it tests differentiation, integration, and physical interpretation all in one question. It is usually the last mechanics question and worth 8-10 marks.
+    </div>
+
+    <h2>Key Concepts</h2>
+
+    <div class="formula-box">
+        <h3>The calculus relationships</h3>
+        <p>If displacement = \(s(t)\), velocity = \(v(t)\), acceleration = \(a(t)\):</p>
+        <ul style="margin: 0.75rem 0; padding-left: 1.5rem;">
+            <li>\(v = \dfrac{ds}{dt}\) — differentiate displacement to get velocity</li>
+            <li>\(a = \dfrac{dv}{dt} = \dfrac{d^2s}{dt^2}\) — differentiate velocity to get acceleration</li>
+            <li>\(s = \displaystyle\int v \, dt\) — integrate velocity to get displacement</li>
+            <li>\(v = \displaystyle\int a \, dt\) — integrate acceleration to get velocity</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h3>Key problem types at AS Level</h3>
+        <ul style="padding-left: 1.5rem;">
+            <li><strong>"At rest":</strong> Set \(v = 0\) and solve for \(t\)</li>
+            <li><strong>"Instantaneous rest":</strong> Same as above — particle momentarily stops</li>
+            <li><strong>"Stops accelerating":</strong> Set \(a = 0\) and solve for \(t\)</li>
+            <li><strong>"Find distance":</strong> Integrate \(v\) with limits, watch for direction changes</li>
+            <li><strong>"Total distance":</strong> Must split at \(v = 0\) points and add magnitudes</li>
+            <li><strong>"Changes direction":</strong> Happens when \(v\) changes sign (passes through zero)</li>
+        </ul>
+    </div>
+
+    <div class="examiner-tip">
+        "Solutions relying on calculator technology are not acceptable" means you MUST show the algebraic differentiation/integration steps. This instruction appears on almost every variable acceleration question.
+    </div>
+
+    <h2>Worked Examples</h2>
+
+    <!-- Example 1 -->
+    <div class="card">
+        <h3>Example 1: Find acceleration from \(v(t)\) <span class="marks">4 marks</span></h3>
+        <p class="paper-ref">Based on: June 2020 Q3 | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202020%20QP%20(Mech).pdf" target="_blank">View Paper</a></p>
+
+        <div class="card" style="background: #f7fafc;">
+            <p><strong>Question:</strong> A particle P moves along a straight line such that at time \(t\) seconds, \(t \geq 0\), after leaving O, the velocity of P is \(v = (7 - 2t)(t + 2)\) m s\(^{-1}\). Find the value of \(t\) at the instant when P stops accelerating.</p>
+        </div>
+
+        <button class="reveal-all" onclick="toggleAll(this)">Reveal all steps</button>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 1: Expand the velocity expression <span class="marks">M1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>\(v = (7 - 2t)(t + 2) = 7t + 14 - 2t^2 - 4t = -2t^2 + 3t + 14\)</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 2: Differentiate to find acceleration <span class="marks">M1 A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>\(a = \dfrac{dv}{dt} = -4t + 3\)</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 3: Set \(a = 0\) and solve <span class="marks">A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>"Stops accelerating" means \(a = 0\):</p>
+                <p>\(-4t + 3 = 0\)</p>
+                <p>\(t = \dfrac{3}{4}\) seconds</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Example 2 -->
+    <div class="card">
+        <h3>Example 2: Find distance from \(v(t)\) <span class="marks">5 marks</span></h3>
+        <p class="paper-ref">Based on: June 2020 Q3 | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202020%20QP%20(Mech).pdf" target="_blank">View Paper</a></p>
+
+        <div class="card" style="background: #f7fafc;">
+            <p><strong>Question:</strong> With \(v = (7 - 2t)(t + 2)\), find the distance of P from O at the instant when P changes its direction of motion.</p>
+        </div>
+
+        <button class="reveal-all" onclick="toggleAll(this)">Reveal all steps</button>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 1: Find when direction changes (\(v = 0\)) <span class="marks">M1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>\((7 - 2t)(t + 2) = 0\)</p>
+                <p>\(t = 3.5\) or \(t = -2\)</p>
+                <p>Since \(t \geq 0\), direction changes at \(t = 3.5\)</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 2: Integrate velocity to find displacement <span class="marks">M1 A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>\(s = \displaystyle\int_0^{3.5} (-2t^2 + 3t + 14) \, dt\)</p>
+                <p>\(= \left[-\dfrac{2t^3}{3} + \dfrac{3t^2}{2} + 14t\right]_0^{3.5}\)</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 3: Evaluate <span class="marks">A1 A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>\(= -\dfrac{2(3.5)^3}{3} + \dfrac{3(3.5)^2}{2} + 14(3.5)\)</p>
+                <p>\(= -\dfrac{2(42.875)}{3} + \dfrac{3(12.25)}{2} + 49\)</p>
+                <p>\(= -28.583... + 18.375 + 49\)</p>
+                <p>\(= 38.79...\) m</p>
+                <p>\(= \dfrac{1029}{27} = \dfrac{343}{9} = 38\frac{1}{9}\) m</p>
+            </div>
+        </div>
+
+        <div class="examiner-tip">
+            Keep fractions exact where possible. The mark scheme often gives the answer as both a fraction and a decimal. If the question says "3 s.f." then round at the end only.
+        </div>
+    </div>
+
+    <!-- Example 3 -->
+    <div class="card">
+        <h3>Example 3: Total distance with direction change <span class="marks">8 marks</span></h3>
+        <p class="paper-ref">Based on: June 2023 Q3 | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202023%20QP%20(Mech).pdf" target="_blank">View Paper</a></p>
+
+        <div class="card" style="background: #f7fafc;">
+            <p><strong>Question:</strong> A particle P moves along a straight line such that at time \(t\) seconds, \(t \geq 0\), after passing through O, the velocity of P is \(v = 15 - t^2 - 2t\) m s\(^{-1}\). Verify that P comes to rest when \(t = 3\). Find the total distance travelled by P in the interval \(0 \leq t \leq 4\).</p>
+        </div>
+
+        <button class="reveal-all" onclick="toggleAll(this)">Reveal all steps</button>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 1: Verify \(v = 0\) when \(t = 3\) <span class="marks">B1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>\(v(3) = 15 - 9 - 6 = 0\) ✓</p>
+                <p>P is at rest when \(t = 3\)</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 2: Recognise direction change at \(t = 3\) <span class="marks">M1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>For \(t < 3\): \(v > 0\) (moving in positive direction)</p>
+                <p>For \(t > 3\): \(v < 0\) (moving in negative direction)</p>
+                <p>So total distance = |displacement from 0 to 3| + |displacement from 3 to 4|</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 3: Integrate from 0 to 3 <span class="marks">M1 A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>\(\displaystyle\int_0^3 (15 - t^2 - 2t) \, dt = \left[15t - \frac{t^3}{3} - t^2\right]_0^3\)</p>
+                <p>\(= 45 - 9 - 9 = 27\) m</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 4: Integrate from 3 to 4 <span class="marks">M1 A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>\(\displaystyle\int_3^4 (15 - t^2 - 2t) \, dt = \left[15t - \frac{t^3}{3} - t^2\right]_3^4\)</p>
+                <p>\(= \left(60 - \frac{64}{3} - 16\right) - 27\)</p>
+                <p>\(= 44 - \frac{64}{3} - 27 = 17 - \frac{64}{3} = \frac{51 - 64}{3} = -\frac{13}{3}\)</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 5: Total distance = sum of magnitudes <span class="marks">A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>Total distance \(= 27 + \left|-\dfrac{13}{3}\right| = 27 + \dfrac{13}{3} = \dfrac{81 + 13}{3} = \dfrac{94}{3}\) m</p>
+                <p>\(= 31\frac{1}{3}\) m (or 31.3 m to 3 s.f.)</p>
+            </div>
+        </div>
+
+        <div class="examiner-tip">
+            The most common error: students integrate from 0 to 4 in one go and get 27 - 13/3 = 68/3. This gives NET displacement, not TOTAL DISTANCE. You must split at the point where v = 0 and take magnitudes.
+        </div>
+    </div>
+
+    <!-- Example 4 -->
+    <div class="card">
+        <h3>Example 4: Displacement given, find acceleration at rest <span class="marks">9 marks</span></h3>
+        <p class="paper-ref">Based on: June 2022 Q3 | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202022%20QP%20(Mech).pdf" target="_blank">View Paper</a></p>
+
+        <div class="card" style="background: #f7fafc;">
+            <p><strong>Question:</strong> A particle P moves along a straight line. At time \(t\) seconds, \(t \geq 0\), the distance of P from O is given by \(s = \frac{1}{3}t^3 - \frac{5}{2}t^2 + 6t\). Find the acceleration of P at each of the times when P is at instantaneous rest.</p>
+        </div>
+
+        <button class="reveal-all" onclick="toggleAll(this)">Reveal all steps</button>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 1: Differentiate \(s\) to find \(v\) <span class="marks">M1 A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>\(v = \dfrac{ds}{dt} = t^2 - 5t + 6\)</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 2: Find when at rest (\(v = 0\)) <span class="marks">M1 A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>\(t^2 - 5t + 6 = 0\)</p>
+                <p>\((t - 2)(t - 3) = 0\)</p>
+                <p>\(t = 2\) or \(t = 3\)</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 3: Differentiate \(v\) to find \(a\) <span class="marks">M1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>\(a = \dfrac{dv}{dt} = 2t - 5\)</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 4: Evaluate acceleration at each time <span class="marks">A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>When \(t = 2\): \(a = 2(2) - 5 = -1\) m s\(^{-2}\)</p>
+                <p>When \(t = 3\): \(a = 2(3) - 5 = 1\) m s\(^{-2}\)</p>
+            </div>
+        </div>
+    </div>
+
+    <h2>Common Pitfalls</h2>
+    <div class="card">
+        <ul style="padding-left: 1.5rem;">
+            <li><strong>Distance vs displacement:</strong> \(\int v \, dt\) gives displacement. For distance, split at \(v = 0\) points.</li>
+            <li><strong>Forgetting +C:</strong> If no limits given, include constant of integration and use initial conditions.</li>
+            <li><strong>Not expanding before differentiating:</strong> Expand products like \((7-2t)(t+2)\) before differentiating term by term.</li>
+            <li><strong>Sign of acceleration:</strong> Negative acceleration does NOT always mean decelerating — it means accelerating in the negative direction.</li>
+            <li><strong>"Magnitude of acceleration":</strong> Take the absolute value of \(a\) when asked for magnitude.</li>
+        </ul>
+    </div>
+
+    <h2>Exam Appearances</h2>
+    <table>
+        <tr><th>Session</th><th>Question</th><th>Marks</th><th>Key Feature</th></tr>
+        <tr><td>June 2018</td><td>Section B, Q9</td><td>8</td><td>v given as quadratic, find a and distance</td></tr>
+        <tr><td>June 2019</td><td>Q3</td><td>8</td><td>\(v = 12 + 4t - t^2\), magnitude of a at rest, distance in interval</td></tr>
+        <tr><td>June 2020</td><td>Q3</td><td>9</td><td>\(v = (7-2t)(t+2)\), stops accelerating, distance at direction change</td></tr>
+        <tr><td>Nov 2021</td><td>Q3</td><td>8</td><td>Displacement given, find when at rest</td></tr>
+        <tr><td>June 2022</td><td>Q3</td><td>9</td><td>\(s = \frac{1}{3}t^3 - \frac{5}{2}t^2 + 6t\), acceleration at rest, total distance</td></tr>
+        <tr><td>June 2023</td><td>Q3</td><td>8</td><td>\(v = 15 - t^2 - 2t\), verify rest, magnitude of a, total distance</td></tr>
+        <tr><td>June 2024</td><td>Q2</td><td>7</td><td>\(v = 2t\sqrt{7t-6}\), acceleration, show XY = ...</td></tr>
+    </table>
+
+    <h2>Links to Past Papers</h2>
+    <div class="card">
+        <ul style="padding-left: 1.5rem;">
+            <li><a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202018%20QP.pdf" target="_blank">June 2018 Paper</a> | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FMS%2FJune%202018%20MS.pdf" target="_blank">Mark Scheme</a></li>
+            <li><a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202019%20QP%20(Mech).pdf" target="_blank">June 2019 Paper</a> | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FMS%2FJune%202019%20MS%20(Mech).pdf" target="_blank">Mark Scheme</a></li>
+            <li><a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202020%20QP%20(Mech).pdf" target="_blank">June 2020 Paper</a> | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FMS%2FJune%202020%20MS%20(Mech).pdf" target="_blank">Mark Scheme</a></li>
+            <li><a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FNov%202021%20QP%20(Mech).pdf" target="_blank">Nov 2021 Paper</a> | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FMS%2FNov%202021%20MS%20(Mech).pdf" target="_blank">Mark Scheme</a></li>
+            <li><a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202022%20QP%20(Mech).pdf" target="_blank">June 2022 Paper</a> | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FMS%2FJune%202022%20MS%20(Mech).pdf" target="_blank">Mark Scheme</a></li>
+            <li><a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202023%20QP%20(Mech).pdf" target="_blank">June 2023 Paper</a> | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FMS%2FJune%202023%20MS%20(Mech).pdf" target="_blank">Mark Scheme</a></li>
+            <li><a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202024%20QP%20(Mech).pdf" target="_blank">June 2024 Paper</a> | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FMS%2FJune%202024%20MS%20(Mech).pdf" target="_blank">Mark Scheme</a></li>
+        </ul>
+    </div>
+
+    <script>
+        function toggleStep(el) {
+            el.classList.toggle('open');
+        }
+
+        function toggleAll(btn) {
+            const card = btn.closest('.card');
+            const steps = card.querySelectorAll('.step');
+            const allOpen = [...steps].every(s => s.classList.contains('open'));
+            steps.forEach(s => {
+                if (allOpen) s.classList.remove('open');
+                else s.classList.add('open');
+            });
+            btn.textContent = allOpen ? 'Reveal all steps' : 'Hide all steps';
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "\\(", right: "\\)", display: false},
+                    {left: "\\[", right: "\\]", display: true}
+                ]
+            });
+        });
+    </script>
+</body>
+</html>

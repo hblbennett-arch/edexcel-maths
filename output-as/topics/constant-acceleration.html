@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constant Acceleration & Velocity-Time Graphs — Edexcel AS Mechanics</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #2b6cb0;
+            --success: #276749;
+            --warning: #c05621;
+            --danger: #c53030;
+            --bg: #f7fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #2d3748;
+            --muted: #718096;
+            --mark: #805ad5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        h1 { color: var(--primary); margin-bottom: 0.5rem; font-size: 2rem; }
+        h2 { color: var(--primary); margin: 2.5rem 0 1rem; font-size: 1.4rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        h3 { color: var(--accent); margin: 1.5rem 0 0.75rem; font-size: 1.15rem; }
+
+        .subtitle { color: var(--muted); margin-bottom: 2rem; font-size: 1.05rem; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-card .number { font-size: 1.5rem; font-weight: 700; color: var(--accent); }
+        .stat-card .label { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .motivation {
+            border-left: 4px solid var(--accent);
+            background: #ebf8ff;
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+
+        .examiner-tip {
+            border-left: 4px solid var(--warning);
+            background: #fffaf0;
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0;
+        }
+
+        .examiner-tip::before { content: "Examiner tip: "; font-weight: 700; color: var(--warning); }
+
+        .marks {
+            display: inline-block;
+            background: var(--mark);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+        }
+
+        .step {
+            border-left: 3px solid var(--border);
+            padding: 0.75rem 1rem;
+            margin: 0.75rem 0;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+
+        .step:hover { border-color: var(--accent); }
+
+        .step-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .step-content {
+            display: none;
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px dashed var(--border);
+        }
+
+        .step.open .step-content { display: block; }
+        .step.open { border-color: var(--success); }
+
+        .toggle-icon::after { content: "\25BC"; font-size: 0.7rem; color: var(--muted); }
+        .step.open .toggle-icon::after { content: "\25B2"; }
+
+        .reveal-all {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.5rem 1.25rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin: 0.5rem 0;
+        }
+
+        .reveal-all:hover { background: var(--primary); }
+
+        .formula-box {
+            background: #f0fff4;
+            border: 1px solid #c6f6d5;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .back-link:hover { text-decoration: underline; }
+
+        .paper-ref {
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin-top: 0.5rem;
+        }
+
+        .paper-ref a { color: var(--accent); text-decoration: none; }
+        .paper-ref a:hover { text-decoration: underline; }
+
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        th, td { padding: 0.5rem; border: 1px solid var(--border); text-align: left; font-size: 0.9rem; }
+        th { background: var(--bg); font-weight: 600; }
+    </style>
+</head>
+<body>
+    <a href="../index.html" class="back-link">← Back to AS Mechanics Topics</a>
+
+    <h1>Constant Acceleration & Velocity-Time Graphs</h1>
+    <p class="subtitle">Suvat equations and interpreting v-t graphs for multi-stage motion problems</p>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="number">5/7</div>
+            <div class="label">Sittings</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">6–8</div>
+            <div class="label">Marks</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">Q1–Q2</div>
+            <div class="label">Typical Position</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">v-t graph</div>
+            <div class="label">Often Required</div>
+        </div>
+    </div>
+
+    <div class="motivation">
+        <strong>Why this comes up frequently:</strong> Velocity-time graph problems combine graphical reasoning with suvat calculations. They test whether students can interpret gradients as acceleration, areas as displacement, and link multiple stages of motion together — all essential for the mechanics toolkit.
+    </div>
+
+    <h2>Key Concepts</h2>
+
+    <div class="formula-box">
+        <h3>The suvat equations</h3>
+        <ul style="margin: 0.75rem 0; padding-left: 1.5rem;">
+            <li>\(v = u + at\)</li>
+            <li>\(s = ut + \frac{1}{2}at^2\)</li>
+            <li>\(v^2 = u^2 + 2as\)</li>
+            <li>\(s = \frac{1}{2}(u + v)t\)</li>
+            <li>\(s = vt - \frac{1}{2}at^2\)</li>
+        </ul>
+        <p><strong>Only valid when acceleration is constant.</strong></p>
+    </div>
+
+    <div class="formula-box">
+        <h3>Velocity-time graph interpretation</h3>
+        <ul style="margin: 0.75rem 0; padding-left: 1.5rem;">
+            <li><strong>Gradient</strong> = acceleration (steeper = greater acceleration)</li>
+            <li><strong>Area under graph</strong> = displacement (use trapezium/triangle areas)</li>
+            <li><strong>Horizontal line</strong> = constant velocity (zero acceleration)</li>
+            <li><strong>Line to axis</strong> = deceleration to rest</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h3>Multi-stage motion strategy</h3>
+        <ol style="padding-left: 1.5rem;">
+            <li>Draw/label the v-t graph with times and speeds at each transition</li>
+            <li>Use total area = total distance (for same direction) or set up equation</li>
+            <li>Calculate gradient for acceleration in each phase</li>
+            <li>Link phases: end speed of one = start speed of next</li>
+        </ol>
+    </div>
+
+    <div class="examiner-tip">
+        When a v-t graph has 3 phases (accelerate, constant, decelerate), the total distance is the area of the resulting trapezium: \(\frac{1}{2}(a + b) \times h\) where \(a\) and \(b\) are the parallel sides (time at top speed and total time) and \(h\) is the max speed.
+    </div>
+
+    <h2>Worked Examples</h2>
+
+    <!-- Example 1 -->
+    <div class="card">
+        <h3>Example 1: Train between stations <span class="marks">8 marks</span></h3>
+        <p class="paper-ref">Based on: June 2022 Q2 | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202022%20QP%20(Mech).pdf" target="_blank">View Paper</a></p>
+
+        <div class="card" style="background: #f7fafc;">
+            <p><strong>Question:</strong> A train travels from station P to Q. It starts from rest, accelerates to 25 m s\(^{-1}\), maintains this speed, then decelerates to rest. The deceleration time is four times the acceleration time. Total journey: 700 s. Distance: 15 km. Show the acceleration time is 40 s. Find the acceleration.</p>
+        </div>
+
+        <button class="reveal-all" onclick="toggleAll(this)">Reveal all steps</button>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 1: Set up variables from v-t graph <span class="marks">M1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>Let acceleration time = \(T\) seconds.</p>
+                <p>Deceleration time = \(4T\) seconds.</p>
+                <p>Constant speed time = \(700 - T - 4T = 700 - 5T\) seconds.</p>
+                <p>Max speed = 25 m s\(^{-1}\)</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 2: Total distance = area under v-t graph <span class="marks">M1 A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>The v-t graph is a trapezium with:</p>
+                <p>Area = \(\frac{1}{2}(a + b) \times h\) where parallel sides are time at constant speed and total time</p>
+                <p>Or calculate each section:</p>
+                <p>Phase 1: \(\frac{1}{2}(25)(T)\)</p>
+                <p>Phase 2: \(25(700 - 5T)\)</p>
+                <p>Phase 3: \(\frac{1}{2}(25)(4T)\)</p>
+                <p>Total: \(\frac{25T}{2} + 25(700 - 5T) + 50T = 15000\)</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 3: Solve for \(T\) <span class="marks">A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>\(12.5T + 17500 - 125T + 50T = 15000\)</p>
+                <p>\(-62.5T + 17500 = 15000\)</p>
+                <p>\(62.5T = 2500\)</p>
+                <p>\(T = 40\) s as required</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 4: Find acceleration <span class="marks">A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>Acceleration = gradient of first section = \(\dfrac{25 - 0}{40} = 0.625\) m s\(^{-2}\)</p>
+            </div>
+        </div>
+
+        <div class="examiner-tip">
+            For "show that" questions about time: set up the area equation using algebra, then solve. The key is recognising that total area under v-t graph = total distance.
+        </div>
+    </div>
+
+    <!-- Example 2 -->
+    <div class="card">
+        <h3>Example 2: Two children race — same finish time <span class="marks">8 marks</span></h3>
+        <p class="paper-ref">Based on: June 2023 Q1 | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202023%20QP%20(Mech).pdf" target="_blank">View Paper</a></p>
+
+        <div class="card" style="background: #f7fafc;">
+            <p><strong>Question:</strong> Pat accelerates from rest at constant rate for 5 s to 4 m s\(^{-1}\), then constant speed. Sam accelerates at 1 m s\(^{-2}\) from rest to \(X\) m s\(^{-1}\), then constant speed. Both take 27.5 s. Find: (a) why areas under graphs are equal, (b) Pat's acceleration, (c) race length, (d) value of \(X\).</p>
+        </div>
+
+        <button class="reveal-all" onclick="toggleAll(this)">Reveal all steps</button>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 1: Why areas are equal <span class="marks">B1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>Area under v-t graph = displacement (distance). Both children travel the same distance (same race), so areas are equal.</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 2: Pat's acceleration <span class="marks">B1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>Acceleration = \(\dfrac{\Delta v}{\Delta t} = \dfrac{4 - 0}{5} = 0.8\) m s\(^{-2}\)</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 3: Race length (from Pat's graph) <span class="marks">M1 A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>Pat's distance = area under Pat's v-t graph:</p>
+                <p>\(= \frac{1}{2}(5)(4) + 4(27.5 - 5)\)</p>
+                <p>\(= 10 + 4(22.5)\)</p>
+                <p>\(= 10 + 90 = 100\) m</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 4: Find \(X\) from Sam's graph <span class="marks">M1 A1 A1 A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>Sam accelerates at 1 m s\(^{-2}\) to reach \(X\) m s\(^{-1}\).</p>
+                <p>Time to accelerate: \(t = \dfrac{X}{1} = X\) seconds</p>
+                <p>Sam's distance = \(\frac{1}{2}(X)(X) + X(27.5 - X) = 100\)</p>
+                <p>\(\frac{X^2}{2} + 27.5X - X^2 = 100\)</p>
+                <p>\(-\frac{X^2}{2} + 27.5X = 100\)</p>
+                <p>\(X^2 - 55X + 200 = 0\)</p>
+                <p>Using the quadratic formula:</p>
+                <p>\(X = \dfrac{55 \pm \sqrt{3025 - 800}}{2} = \dfrac{55 \pm \sqrt{2225}}{2}\)</p>
+                <p>\(X = \dfrac{55 - \sqrt{2225}}{2} = 3.91\) (3 s.f.)</p>
+                <p>(Reject \(X = \dfrac{55 + \sqrt{2225}}{2} = 51.1\) since Sam must reach \(X\) before 27.5 s, and \(X > 27.5\) is impossible)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Example 3 -->
+    <div class="card">
+        <h3>Example 3: Speed-time graph to distance-time graph <span class="marks">6 marks</span></h3>
+        <p class="paper-ref">Based on: June 2024 Q1 | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202024%20QP%20(Mech).pdf" target="_blank">View Paper</a></p>
+
+        <div class="card" style="background: #f7fafc;">
+            <p><strong>Question:</strong> A car starts from rest, accelerates uniformly for 5 s to 5 m s\(^{-1}\), travels at constant speed for 15 s, then decelerates to rest over 10 s. Total time: 30 s. Find distance AB. Sketch the distance-time graph.</p>
+        </div>
+
+        <button class="reveal-all" onclick="toggleAll(this)">Reveal all steps</button>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 1: Distance = area under speed-time graph <span class="marks">M1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>Phase 1 (0 to 5 s): triangle = \(\frac{1}{2}(5)(5) = 12.5\) m</p>
+                <p>Phase 2 (5 to 20 s): rectangle = \(5 \times 15 = 75\) m</p>
+                <p>Phase 3 (20 to 30 s): triangle = \(\frac{1}{2}(5)(10) = 25\) m</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 2: Total distance <span class="marks">A1 A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>AB = \(12.5 + 75 + 25 = 112.5\) m</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 3: Sketch distance-time graph <span class="marks">B1 B1 B1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>Key features of the distance-time graph:</p>
+                <ul style="padding-left: 1.5rem;">
+                    <li>0 to 5 s: curve (concave up) — increasing gradient as speed increases</li>
+                    <li>5 to 20 s: straight line — constant gradient (constant speed)</li>
+                    <li>20 to 30 s: curve (concave down) — decreasing gradient as car slows</li>
+                    <li>Starts at (0, 0), ends at (30, 112.5)</li>
+                    <li>No sharp corners between sections — smooth transitions</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="examiner-tip">
+            Distance-time sketches: accelerating = curve getting steeper (concave up); constant speed = straight line; decelerating = curve getting flatter (concave down). The gradient of the distance-time graph IS the speed. Mark schemes require: correct shape in each phase, smooth joins, and correct end values.
+        </div>
+    </div>
+
+    <!-- Example 4 -->
+    <div class="card">
+        <h3>Example 4: Find speed at a given time during deceleration <span class="marks">2 marks</span></h3>
+        <p class="paper-ref">Based on: June 2022 Q2(d)</p>
+
+        <div class="card" style="background: #f7fafc;">
+            <p><strong>Question:</strong> A train accelerates for 40 s to reach 25 m s\(^{-1}\), maintains speed until \(t = 540\) s, then decelerates for 160 s. Find the speed at \(t = 572\) s.</p>
+        </div>
+
+        <button class="reveal-all" onclick="toggleAll(this)">Reveal all steps</button>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 1: Identify phase and find deceleration <span class="marks">M1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>Deceleration phase: from \(t = 540\) to \(t = 700\) (160 s to stop).</p>
+                <p>At \(t = 572\): this is 32 s into the deceleration phase.</p>
+                <p>Deceleration = \(\dfrac{25 - 0}{160} = \dfrac{25}{160}\) m s\(^{-2}\)</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 2: Apply \(v = u + at\) <span class="marks">A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>\(v = 25 - \dfrac{25}{160}(32) = 25 - 5 = 20\) m s\(^{-1}\)</p>
+            </div>
+        </div>
+    </div>
+
+    <h2>Common Pitfalls</h2>
+    <div class="card">
+        <ul style="padding-left: 1.5rem;">
+            <li><strong>Units confusion:</strong> Distance in km but speed in m/s — convert! (15 km = 15000 m)</li>
+            <li><strong>Area vs gradient:</strong> Area = displacement, gradient = acceleration. Students sometimes mix these up.</li>
+            <li><strong>Deceleration time ≠ acceleration time:</strong> Read carefully — they may differ.</li>
+            <li><strong>Quadratic with two solutions:</strong> Check both are physically valid. Reject if time > total time or speed > max speed.</li>
+            <li><strong>Model limitations:</strong> "Constant acceleration is unrealistic — in practice acceleration varies" gets the mark.</li>
+        </ul>
+    </div>
+
+    <h2>Exam Appearances</h2>
+    <table>
+        <tr><th>Session</th><th>Question</th><th>Marks</th><th>Key Feature</th></tr>
+        <tr><td>June 2018</td><td>Section B, Q5</td><td>6</td><td>v-t graph with three phases</td></tr>
+        <tr><td>June 2019</td><td>Q1 (part)</td><td>—</td><td>Speed-time graph within parachutist question</td></tr>
+        <tr><td>June 2022</td><td>Q2</td><td>8</td><td>Train P to Q, show time, find acceleration and speed</td></tr>
+        <tr><td>June 2023</td><td>Q1</td><td>8</td><td>Two children race, equal areas, find X</td></tr>
+        <tr><td>June 2024</td><td>Q1</td><td>6</td><td>Speed-time to distance-time graph sketch</td></tr>
+    </table>
+
+    <h2>Links to Past Papers</h2>
+    <div class="card">
+        <ul style="padding-left: 1.5rem;">
+            <li><a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202018%20QP.pdf" target="_blank">June 2018 Paper</a> | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FMS%2FJune%202018%20MS.pdf" target="_blank">Mark Scheme</a></li>
+            <li><a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202022%20QP%20(Mech).pdf" target="_blank">June 2022 Paper</a> | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FMS%2FJune%202022%20MS%20(Mech).pdf" target="_blank">Mark Scheme</a></li>
+            <li><a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202023%20QP%20(Mech).pdf" target="_blank">June 2023 Paper</a> | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FMS%2FJune%202023%20MS%20(Mech).pdf" target="_blank">Mark Scheme</a></li>
+            <li><a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202024%20QP%20(Mech).pdf" target="_blank">June 2024 Paper</a> | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FMS%2FJune%202024%20MS%20(Mech).pdf" target="_blank">Mark Scheme</a></li>
+        </ul>
+    </div>
+
+    <script>
+        function toggleStep(el) {
+            el.classList.toggle('open');
+        }
+
+        function toggleAll(btn) {
+            const card = btn.closest('.card');
+            const steps = card.querySelectorAll('.step');
+            const allOpen = [...steps].every(s => s.classList.contains('open'));
+            steps.forEach(s => {
+                if (allOpen) s.classList.remove('open');
+                else s.classList.add('open');
+            });
+            btn.textContent = allOpen ? 'Reveal all steps' : 'Hide all steps';
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "\\(", right: "\\)", display: false},
+                    {left: "\\[", right: "\\]", display: true}
+                ]
+            });
+        });
+    </script>
+</body>
+</html>

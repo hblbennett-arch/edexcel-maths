@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sequences &amp; Series — Edexcel A Level Maths</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #2b6cb0;
+            --success: #276749;
+            --warning: #c05621;
+            --danger: #c53030;
+            --bg: #f7fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #2d3748;
+            --muted: #718096;
+            --mark: #805ad5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        h1 { color: var(--primary); margin-bottom: 0.5rem; font-size: 2rem; }
+        h2 { color: var(--primary); margin: 2.5rem 0 1rem; font-size: 1.4rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        h3 { color: var(--accent); margin: 1.5rem 0 0.75rem; font-size: 1.15rem; }
+
+        .subtitle { color: var(--muted); margin-bottom: 2rem; font-size: 1.05rem; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--accent); }
+        .stat-card .label { font-size: 0.85rem; color: var(--muted); }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .approach-step {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .approach-step:last-child { border-bottom: none; }
+
+        .step-number {
+            background: var(--accent);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .step-content { flex: 1; }
+        .step-content strong { color: var(--primary); }
+
+        .pitfall-box {
+            background: #fff5f5;
+            border: 1px solid #fed7d7;
+            border-left: 4px solid var(--danger);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .pitfall-box h3 { color: var(--danger); margin-top: 0; }
+        .pitfall-box ul { margin-left: 1.5rem; margin-top: 0.5rem; }
+        .pitfall-box li { margin: 0.5rem 0; }
+
+        .tip-box {
+            background: #f0fff4;
+            border: 1px solid #c6f6d5;
+            border-left: 4px solid var(--success);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .tip-box h3 { color: var(--success); margin-top: 0; }
+
+        /* Question index table */
+        .question-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.92rem;
+        }
+
+        .question-table th {
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+        }
+
+        .question-table td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .question-table tr:hover { background: #ebf8ff; }
+
+        .question-table a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .question-table a:hover { text-decoration: underline; }
+
+        .question-table .go-btn {
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+        }
+
+        .question-table .go-btn:hover { background: var(--primary); }
+
+        /* Worked examples */
+        .example-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .example-tab {
+            padding: 0.5rem 1rem;
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .example-tab:hover { border-color: var(--accent); }
+        .example-tab.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+        .example-panel { display: none; }
+        .example-panel.active { display: block; }
+
+        .question-text {
+            background: #ebf8ff;
+            border: 1px solid #bee3f8;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.02rem;
+        }
+
+        .question-text .links {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #bee3f8;
+            font-size: 0.85rem;
+        }
+
+        .question-text .links a {
+            color: var(--accent);
+            text-decoration: none;
+            margin-right: 1.5rem;
+        }
+
+        .question-text .links a:hover { text-decoration: underline; }
+
+        .step-reveal {
+            margin: 0.75rem 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .step-reveal-header {
+            padding: 0.75rem 1rem;
+            background: #edf2f7;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background 0.2s;
+            gap: 0.5rem;
+        }
+
+        .step-reveal-header:hover { background: #e2e8f0; }
+
+        .step-reveal-header .arrow {
+            transition: transform 0.3s;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .step-reveal-header.open .arrow { transform: rotate(90deg); }
+
+        .step-reveal-content {
+            display: none;
+            padding: 1.25rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .step-reveal-content.open { display: block; }
+
+        .part-label {
+            display: inline-block;
+            background: #ebf8ff;
+            color: var(--accent);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        .mark-badge {
+            display: inline-block;
+            background: #faf5ff;
+            color: var(--mark);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border: 1px solid #e9d8fd;
+        }
+
+        .mark-award {
+            background: #faf5ff;
+            border: 1px solid #e9d8fd;
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            color: var(--mark);
+            font-weight: 600;
+        }
+
+        .mark-award::before {
+            content: "\2713 ";
+        }
+
+        .examiner-note {
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            border-radius: 6px;
+            padding: 0.75rem;
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .examiner-note::before {
+            content: "Examiner: ";
+            font-weight: 700;
+            color: var(--warning);
+        }
+
+        .show-all-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            transition: background 0.2s;
+        }
+
+        .show-all-btn:hover { background: var(--primary); }
+
+        .motivation {
+            background: #eef6ff;
+            border: 1px solid #c3dafe;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.93rem;
+        }
+
+        .motivation::before {
+            content: "\1F4AD Thinking: ";
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .algebra-chain {
+            margin: 0.5rem 0;
+            padding-left: 1rem;
+            border-left: 3px solid var(--border);
+        }
+
+        .algebra-chain .reason {
+            color: var(--muted);
+            font-size: 0.85rem;
+            font-style: italic;
+            margin: 0.25rem 0;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            h1 { font-size: 1.5rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .example-selector { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<p style="margin-bottom: 1rem;"><a href="../index.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">&larr; All Topics</a></p>
+
+<h1>Sequences &amp; Series</h1>
+<p class="subtitle">Arithmetic &amp; geometric sequences, sum formulae, convergence, recurrence relations and sigma notation</p>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="number">13/14</div>
+        <div class="label">Papers with this topic</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">4–10</div>
+        <div class="label">Typical marks</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">Q1–13</div>
+        <div class="label">Paper position</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">2–3 parts</div>
+        <div class="label">Standard structure</div>
+    </div>
+</div>
+
+<!-- FULL QUESTION INDEX -->
+<h2>All Past Paper Questions on This Topic</h2>
+<p style="margin-bottom: 1rem; color: var(--muted);">Every sequences &amp; series question from Edexcel 9MA0 (2018–2024). Click "Worked Example" to see a full guided solution.</p>
+
+<table class="question-table">
+    <thead>
+        <tr>
+            <th>Paper</th>
+            <th>Question</th>
+            <th>Description</th>
+            <th>Marks</th>
+            <th>Links</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>P2 June 2018</td>
+            <td>Q4</td>
+            <td>Sigma notation \(\sum(3+5r+2^r)\); recurrence relation \(u_{n+1}=\frac{1}{u_n}\)</td>
+            <td>7</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202018%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202018%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 June 2019</td>
+            <td>Q11</td>
+            <td>Geometric series: runner's times increase by 5% per km; find total race time</td>
+            <td>7</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202019%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202019%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 Oct 2020</td>
+            <td>Q4</td>
+            <td>Car gears: arithmetic model then geometric model for maximum speeds</td>
+            <td>6</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FOctober%202020%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FOctober%202020%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p1-oct20-q4'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P1 Oct 2020</td>
+            <td>Q13</td>
+            <td>Recurrence relation: periodic sequence of order 3; find \(\displaystyle\sum_{r=1}^{80} a_r\)</td>
+            <td>7</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FOctober%202020%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FOctober%202020%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 Oct 2020</td>
+            <td>Q15</td>
+            <td>Prove \(S_n = \frac{a(1-r^n)}{1-r}\); given \(S_{10} = 4S_5\), find exact \(r\)</td>
+            <td>8</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FOctober%202020%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FOctober%202020%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p2-oct20-q15'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P1 Oct 2021</td>
+            <td>Q3</td>
+            <td>Recurrence relation \(u_{n+1} = k - \frac{24}{u_n}\); find \(k\) and \(u_3\)</td>
+            <td>6</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FOctober%202021%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FOctober%202021%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 Oct 2021</td>
+            <td>Q5</td>
+            <td>Geometric sequence: company profit grows 8% yearly; find year profit exceeds &pound;65 000</td>
+            <td>6</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FOctober%202021%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FOctober%202021%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p1-oct21-q5'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P2 Oct 2021</td>
+            <td>Q1</td>
+            <td>Arithmetic series: first term 16, 21st term 24; find \(d\) and \(S_{500}\)</td>
+            <td>4</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FOctober%202021%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FOctober%202021%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 June 2022</td>
+            <td>Q13</td>
+            <td>Prove \(S_n\) formula for AP; arithmetic savings (weekly amounts to buy printer &pound;64)</td>
+            <td>7</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202022%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202022%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p1-jun22-q13'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P2 June 2022</td>
+            <td>Q3</td>
+            <td>Periodic recurrence relation \(a_{n+1} = 8 - a_n\); find \(\displaystyle\sum_{n=1}^{85} a_n\)</td>
+            <td>4</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202022%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202022%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 June 2022</td>
+            <td>Q14</td>
+            <td>Geometric series with trig terms (\(12\cos\theta,\ 5+2\sin\theta,\ 6\tan\theta\)); sum to infinity</td>
+            <td>10</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202022%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202022%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 June 2023</td>
+            <td>Q9</td>
+            <td>Geometric sequence with terms \((12-3k)\), \((k+16)\), \((3k+4)\); convergence and \(S_\infty\)</td>
+            <td>7</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202023%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202023%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 June 2023</td>
+            <td>Q2</td>
+            <td>Recurrence relation with trig; periodic sequence of order 4; find \(\displaystyle\sum_{r=1}^{25} u_r\)</td>
+            <td>6</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202023%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202023%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 June 2024</td>
+            <td>Q9</td>
+            <td>Geometric sequence: prove \(k = \frac{5}{2}\); find sum to infinity</td>
+            <td>6</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202024%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202024%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 June 2024</td>
+            <td>Q2</td>
+            <td>Arithmetic series: loan repayment (decreasing monthly payments); solve quadratic for \(N\)</td>
+            <td>5</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202024%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202024%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 June 2024</td>
+            <td>Q4</td>
+            <td>Recurrence relation: periodic sequence; sigma notation</td>
+            <td>6</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202024%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202024%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- GUIDED APPROACH -->
+<h2>The Approach</h2>
+<div class="card">
+    <p style="margin-bottom: 1rem; color: var(--muted);">Sequences &amp; series questions come in several forms. Here is the general strategy:</p>
+
+    <div class="approach-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+            <strong>Identify the type: arithmetic (AP) or geometric (GP)</strong><br>
+            Look for constant differences (AP) or constant ratios (GP). If given a recurrence relation like \(u_{n+1} = f(u_n)\), compute the first few terms to spot a pattern. If given terms with a parameter \(k\), use the defining property (\(u_2 - u_1 = u_3 - u_2\) for AP, or \(\frac{u_2}{u_1} = \frac{u_3}{u_2}\) for GP) to form an equation in \(k\).
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+            <strong>Extract \(a\), \(d\) (or \(r\)), and \(n\)</strong><br>
+            For AP: \(u_n = a + (n-1)d\) and \(S_n = \frac{n}{2}(2a + (n-1)d)\).<br>
+            For GP: \(u_n = ar^{n-1}\) and \(S_n = \frac{a(1-r^n)}{1-r}\).<br>
+            Write down what you know, what you need, and select the right formula.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+            <strong>Apply the sum formula (or convergence condition for \(S_\infty\))</strong><br>
+            For sum to infinity of GP: \(S_\infty = \frac{a}{1-r}\) only when \(|r| &lt; 1\). You <em>must</em> state this condition for the marks. For "show that" questions, substitute into the formula and simplify to the target expression.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+            <strong>Interpret the answer in context</strong><br>
+            If a real-world problem: \(n\) must be a positive integer, amounts must be positive (e.g. weekly savings can't be negative). State any constraints and choose the appropriate solution.
+        </div>
+    </div>
+</div>
+
+<!-- EXAMINER PITFALLS -->
+<div class="pitfall-box">
+    <h3>Common Pitfalls (from Examiner Reports)</h3>
+    <ul>
+        <li><strong>Forgetting the convergence condition:</strong> When using \(S_\infty = \frac{a}{1-r}\), you <em>must</em> state that \(|r| &lt; 1\). This is worth a mark on its own and is frequently omitted.</li>
+        <li><strong>Confusing \(S_n\) with \(u_n\):</strong> \(S_n\) is the sum of the first \(n\) terms. \(u_n\) is the \(n\)th term. Candidates who use the sum formula when asked for a specific term (or vice versa) lose all method marks.</li>
+        <li><strong>Sign errors in the nth term formula:</strong> The nth term of an AP is \(a + (n-1)d\), NOT \(a + nd\). Using \(a + nd\) gives the \((n+1)\)th term and loses the M1.</li>
+        <li><strong>Wrong substitution in GP formula:</strong> In \(u_n = ar^{n-1}\), note it is \(r^{n-1}\) not \(r^n\). Similarly \(S_n\) uses \(r^n\). These are different powers.</li>
+        <li><strong>Not interpreting context:</strong> If a question asks "in which year" or "how many weeks", the answer must be a positive integer. Candidates who leave \(n = 15.6\) without rounding up lose the final A mark.</li>
+    </ul>
+</div>
+
+<div class="tip-box">
+    <h3>What Top Candidates Do</h3>
+    <ul>
+        <li>State the formula before substituting: write \(S_n = \frac{n}{2}(2a + (n-1)d)\) then substitute values. This earns the method mark even if arithmetic goes wrong.</li>
+        <li>For "prove" questions on the GP sum formula: write out \(S_n = a + ar + ar^2 + \cdots + ar^{n-1}\), then \(rS_n = ar + ar^2 + \cdots + ar^n\), then subtract.</li>
+        <li>For convergence questions: explicitly write "\(|r| = |...\,| = ... &lt; 1\), so the series converges" as a standalone sentence.</li>
+        <li>For periodic sequences: identify the period, then use division/modular arithmetic to find \(\displaystyle\sum_{r=1}^{N} u_r\).</li>
+    </ul>
+</div>
+
+<!-- WORKED EXAMPLES -->
+<h2>Worked Examples</h2>
+<p style="color: var(--muted); margin-bottom: 0.5rem;">Select a question to see the full guided solution:</p>
+
+<div class="example-selector">
+    <div class="example-tab active" onclick="selectExample('ex-p1-jun22-q13')">June 2022 P1 Q13</div>
+    <div class="example-tab" onclick="selectExample('ex-p1-oct21-q5')">Oct 2021 P1 Q5</div>
+    <div class="example-tab" onclick="selectExample('ex-p2-oct20-q15')">Oct 2020 P2 Q15</div>
+    <div class="example-tab" onclick="selectExample('ex-p1-oct20-q4')">Oct 2020 P1 Q4</div>
+</div>
+
+<!-- ===================== EXAMPLE: P1 June 2022 Q13 (Arithmetic Series — Savings) ===================== -->
+<div class="example-panel active" id="ex-p1-jun22-q13">
+    <div class="question-text">
+        <p><strong>Paper 1 — June 2022 — Question 13</strong> (7 marks)</p>
+        <p><strong>(i)</strong> In an arithmetic series, the first term is \(a\) and the common difference is \(d\).</p>
+        <p>Show that \(\displaystyle S_n = \frac{n}{2}[2a + (n-1)d]\) <em>[3 marks]</em></p>
+        <p><strong>(ii)</strong> James saves money over a number of weeks to buy a printer that costs &pound;64. He saves &pound;10 in week 1, &pound;9.20 in week 2, &pound;8.40 in week 3 and so on, so that the weekly amounts form an arithmetic sequence.</p>
+        <p>Given that James takes \(n\) weeks to save exactly &pound;64:</p>
+        <p><strong>(a)</strong> Show that \(n^2 - 26n + 160 = 0\) <em>[2 marks]</em></p>
+        <p><strong>(b)</strong> Solve the equation \(n^2 - 26n + 160 = 0\) <em>[1 mark]</em></p>
+        <p><strong>(c)</strong> Hence state the number of weeks James takes to save enough money to buy the printer, giving a brief reason. <em>[1 mark]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202022%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202022%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (i): Prove the formula -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (i)</span> Step 1: Write \(S_n\) forwards and backwards</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">This is a "show that" proof. The standard method is to write the sum in two ways — forwards and reversed — then add them together. Each pair sums to the same value, making it easy to find the total. This is a classic proof that appears in the formula booklet, but you need to reproduce it from scratch.</div>
+            <p>Write the sum of the first \(n\) terms:</p>
+            <div class="algebra-chain">
+                <p>$$S_n = a + (a+d) + (a+2d) + \cdots + [a+(n-1)d]$$</p>
+                <p class="reason">Now write the same sum in reverse order:</p>
+                <p>$$S_n = [a+(n-1)d] + [a+(n-2)d] + \cdots + (a+d) + a$$</p>
+            </div>
+            <div class="mark-award">M1 — Writing the sum forwards and backwards (or equivalent pairing strategy)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (i)</span> Step 2: Add the two expressions</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Adding the forward and reverse sums gives \(2S_n\). Each column (pair of terms) adds up to the same value: the first term \(a\) plus the last term \(a + (n-1)d\). Since there are \(n\) such pairs, we get a simple expression for \(2S_n\).</div>
+            <p>Add term-by-term. Each pair gives:</p>
+            <div class="algebra-chain">
+                <p>$$\text{First pair: } a + [a+(n-1)d] = 2a + (n-1)d$$</p>
+                <p>$$\text{Second pair: } (a+d) + [a+(n-2)d] = 2a + (n-1)d$$</p>
+                <p class="reason">Every pair gives the same total \(2a + (n-1)d\), and there are \(n\) pairs:</p>
+                <p>$$2S_n = n[2a + (n-1)d]$$</p>
+            </div>
+            <div class="mark-award">A1 — Correctly obtaining \(2S_n = n[2a + (n-1)d]\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (i)</span> Step 3: Divide by 2 to complete the proof</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <p>Divide both sides by 2:</p>
+            <p>$$\boxed{S_n = \frac{n}{2}[2a + (n-1)d]} \quad \square$$</p>
+            <div class="mark-award">A1* — Complete proof with all steps shown clearly</div>
+            <div class="examiner-note">The proof must show the forward sum, the reverse sum, the addition giving \(2S_n\), and the final division. Simply stating the formula without the pairing argument scores 0.</div>
+        </div>
+    </div>
+
+    <!-- Part (ii)(a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (ii)(a)</span> Step 4: Identify \(a\) and \(d\), then set up \(S_n = 64\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">James saves decreasing amounts each week forming an AP. We need to identify the first term and common difference from the context, then use the sum formula (which we just proved!) and set it equal to 64. The target is a quadratic in \(n\), so we expect to rearrange into that form.</div>
+            <p>From the question:</p>
+            <ul style="margin: 0.5rem 0 0.75rem 1.5rem;">
+                <li>First term: \(a = 10\) (saves &pound;10 in week 1)</li>
+                <li>Common difference: \(d = 9.20 - 10 = -0.80\) (decreasing each week)</li>
+                <li>Total saved: \(S_n = 64\)</li>
+            </ul>
+            <p>Substitute into the formula:</p>
+            <div class="algebra-chain">
+                <p>$$S_n = \frac{n}{2}[2(10) + (n-1)(-0.80)] = 64$$</p>
+                <p class="reason">Expand inside the bracket:</p>
+                <p>$$\frac{n}{2}[20 - 0.80(n-1)] = 64$$</p>
+                <p>$$\frac{n}{2}[20 - 0.80n + 0.80] = 64$$</p>
+                <p>$$\frac{n}{2}[20.80 - 0.80n] = 64$$</p>
+                <p class="reason">Multiply both sides by 2:</p>
+                <p>$$n(20.80 - 0.80n) = 128$$</p>
+                <p class="reason">Expand:</p>
+                <p>$$20.80n - 0.80n^2 = 128$$</p>
+                <p class="reason">Rearrange (multiply through by \(-\frac{1}{0.80} = -1.25\), or equivalently divide by \(-0.80\)):</p>
+                <p>$$n^2 - 26n + 160 = 0$$</p>
+            </div>
+            <div class="mark-award">M1 — Substituting \(a = 10\), \(d = -0.80\), \(S_n = 64\) into the sum formula</div>
+            <div class="mark-award">A1* — Correctly reaching the given quadratic with clear working</div>
+        </div>
+    </div>
+
+    <!-- Part (ii)(b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (ii)(b)</span> Step 5: Solve the quadratic</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We need to solve \(n^2 - 26n + 160 = 0\). Try factorising: we need two numbers that multiply to 160 and add to \(-26\). These are \(-10\) and \(-16\).</div>
+            <div class="algebra-chain">
+                <p>$$n^2 - 26n + 160 = 0$$</p>
+                <p class="reason">Factorise: find two numbers that multiply to 160 and add to \(-26\):</p>
+                <p>$$(n - 10)(n - 16) = 0$$</p>
+                <p>$$n = 10 \quad \text{or} \quad n = 16$$</p>
+            </div>
+            <div class="mark-award">B1 — Both solutions \(n = 10\) and \(n = 16\)</div>
+        </div>
+    </div>
+
+    <!-- Part (ii)(c) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (ii)(c)</span> Step 6: Choose the correct value with reasoning</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Both \(n = 10\) and \(n = 16\) satisfy the equation, but we need a reason to choose one. The weekly savings decrease by &pound;0.80, so by week 13 the savings would be \(10 + 12(-0.80) = 0.40\), and by week 14 they would be negative. Since James can't save a negative amount, he must finish by week 13 at the latest. Therefore \(n = 10\).</div>
+            <p><strong>\(n = 10\) weeks.</strong></p>
+            <p>Reason: The weekly amount saved must be positive. By week \(n\), the amount saved is \(10 + (n-1)(-0.80)\). For \(n = 16\): amount = \(10 + 15(-0.80) = -2\), which is negative (impossible). For \(n = 10\): amount = \(10 + 9(-0.80) = 2.80 > 0\). So \(n = 10\).</p>
+            <div class="mark-award">B1 — \(n = 10\) with a valid reason (e.g. savings would become negative)</div>
+            <div class="examiner-note">The reason must reference the context (negative savings make no sense) or the maths (terms become negative after week 13). Simply stating "\(n = 10\) because it's smaller" is not sufficient.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p1-jun22-q13')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: P1 Oct 2021 Q5 (Geometric — Company Profit) ===================== -->
+<div class="example-panel" id="ex-p1-oct21-q5">
+    <div class="question-text">
+        <p><strong>Paper 1 — October 2021 — Question 5</strong> (6 marks)</p>
+        <p>A company made a profit of &pound;20 000 in its first year of trading, Year 1. A model for future trading predicts that the yearly profit will increase by 8% each year, so that the yearly profits form a geometric sequence.</p>
+        <p>According to the model,</p>
+        <p><strong>(a)</strong> show that the profit for Year 3 will be &pound;23 328 <em>[1 mark]</em></p>
+        <p><strong>(b)</strong> find the first year when the yearly profit will exceed &pound;65 000 <em>[3 marks]</em></p>
+        <p><strong>(c)</strong> find the total profit for the first 20 years of trading, giving your answer to the nearest &pound;1000 <em>[2 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FOctober%202021%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FOctober%202021%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Show the Year 3 profit is &pound;23 328</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Profit increases by 8% each year, so this is a geometric sequence with first term \(a = 20\,000\) and common ratio \(r = 1.08\). Year 3 is the 3rd term: \(u_3 = ar^2\). We just need to compute it and show it equals the given value.</div>
+            <p>Geometric sequence with \(a = 20\,000\) and \(r = 1.08\).</p>
+            <p>Year 3 profit = \(u_3 = ar^2 = 20\,000 \times 1.08^2\):</p>
+            <div class="algebra-chain">
+                <p>$$u_3 = 20\,000 \times 1.1664 = 23\,328$$</p>
+            </div>
+            <p>$$\boxed{\text{Profit for Year 3} = \pounds 23\,328} \quad \square$$</p>
+            <div class="mark-award">B1 — Correct calculation shown: \(20\,000 \times 1.08^2 = 23\,328\)</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 2: Set up the inequality for profit exceeding &pound;65 000</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We need to find the first year \(n\) where the profit exceeds &pound;65 000. The profit in year \(n\) is \(u_n = 20\,000 \times 1.08^{n-1}\). Setting this greater than 65 000 and solving for \(n\) requires logarithms, since \(n\) is in the exponent.</div>
+            <p>We need \(u_n > 65\,000\):</p>
+            <div class="algebra-chain">
+                <p>$$20\,000 \times 1.08^{n-1} > 65\,000$$</p>
+                <p class="reason">Divide both sides by 20 000:</p>
+                <p>$$1.08^{n-1} > 3.25$$</p>
+                <p class="reason">Take logarithms of both sides:</p>
+                <p>$$(n-1)\ln 1.08 > \ln 3.25$$</p>
+                <p class="reason">Divide by \(\ln 1.08\) (positive, so inequality preserved):</p>
+                <p>$$n - 1 > \frac{\ln 3.25}{\ln 1.08} = \frac{1.1786...}{0.07696...} = 15.31...$$</p>
+                <p>$$n > 16.31...$$</p>
+            </div>
+            <div class="mark-award">M1 — Setting up \(20\,000 \times 1.08^{n-1} > 65\,000\) or equivalent</div>
+            <div class="mark-award">M1 — Using logarithms correctly to solve for \(n\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 3: Interpret the answer</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Since \(n > 16.31\) and \(n\) must be a whole number (it represents a year), we round up to the next integer. The first year when profit exceeds &pound;65 000 is Year 17.</div>
+            <p>Since \(n\) must be a positive integer and \(n > 16.31\):</p>
+            <p>$$\boxed{n = 17 \text{ — the first year when profit exceeds } \pounds 65\,000}$$</p>
+            <p><em>Check: Year 16 profit = \(20\,000 \times 1.08^{15} = \pounds 63\,443\) (under). Year 17 = \(20\,000 \times 1.08^{16} = \pounds 68\,518\) (over).</em></p>
+            <div class="mark-award">A1 — Year 17 (must be stated as a year number, not just \(n = 17\))</div>
+            <div class="examiner-note">Candidates who get \(n = 16.31\) and round down to 16 lose this mark. The question asks for the first year when profit EXCEEDS &pound;65 000, so you must round up. Always check by substituting back.</div>
+        </div>
+    </div>
+
+    <!-- Part (c) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)</span> Step 4: Find the total profit for 20 years using \(S_n\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Total profit over 20 years is the sum \(S_{20}\) of the geometric series. We use \(S_n = \frac{a(r^n - 1)}{r - 1}\) (note: since \(r > 1\), this form avoids negatives). Then round to the nearest &pound;1000 as instructed.</div>
+            <p>Use the geometric sum formula with \(a = 20\,000\), \(r = 1.08\), \(n = 20\):</p>
+            <div class="algebra-chain">
+                <p>$$S_{20} = \frac{a(r^{20} - 1)}{r - 1} = \frac{20\,000(1.08^{20} - 1)}{1.08 - 1}$$</p>
+                <p class="reason">Calculate \(1.08^{20} = 4.6609...\):</p>
+                <p>$$S_{20} = \frac{20\,000 \times 3.6609...}{0.08} = \frac{73\,219...}{0.08} = 915\,239...$$</p>
+            </div>
+            <p>$$\boxed{S_{20} \approx \pounds 915\,000 \text{ (to the nearest } \pounds 1000\text{)}}$$</p>
+            <div class="mark-award">M1 — Correct use of GP sum formula with \(a = 20\,000\), \(r = 1.08\), \(n = 20\)</div>
+            <div class="mark-award">A1 — &pound;915 000 (to nearest &pound;1000)</div>
+            <div class="examiner-note">Common errors: using \(n = 19\) instead of \(n = 20\) (confusing "first 20 years" with "up to year 20"), or forgetting to round. The question says "to the nearest &pound;1000" — give exactly that.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p1-oct21-q5')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: P2 Oct 2020 Q15 (Prove GP Sum Formula) ===================== -->
+<div class="example-panel" id="ex-p2-oct20-q15">
+    <div class="question-text">
+        <p><strong>Paper 2 — October 2020 — Question 15</strong> (8 marks)</p>
+        <p>A geometric series has common ratio \(r\) and first term \(a\). Given \(r \neq 1\) and \(a \neq 0\),</p>
+        <p><strong>(a)</strong> prove that \(\displaystyle S_n = \frac{a(1-r^n)}{1-r}\) <em>[4 marks]</em></p>
+        <p>Given also that \(S_{10}\) is four times \(S_5\),</p>
+        <p><strong>(b)</strong> find the exact value of \(r\). <em>[4 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FOctober%202020%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FOctober%202020%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Write out \(S_n\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">To prove the GP sum formula, the standard technique is: write out \(S_n\), multiply by \(r\), then subtract. Most terms cancel (telescope), leaving only the first and last terms. This is a proof from first principles — you must show every step.</div>
+            <p>Write the sum of the first \(n\) terms of the geometric series:</p>
+            <p>$$S_n = a + ar + ar^2 + ar^3 + \cdots + ar^{n-1} \quad \text{...(1)}$$</p>
+            <div class="mark-award">M1 — Writing out the series correctly with at least 3 terms and the last term \(ar^{n-1}\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 2: Multiply through by \(r\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Multiplying the entire sum by \(r\) shifts every term up one power. This creates a second equation where almost all terms match those in the original — setting up the cancellation in the next step.</div>
+            <p>Multiply equation (1) by \(r\):</p>
+            <p>$$rS_n = ar + ar^2 + ar^3 + \cdots + ar^{n-1} + ar^n \quad \text{...(2)}$$</p>
+            <div class="mark-award">A1 — Correct expression for \(rS_n\) with last term \(ar^n\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 3: Subtract equation (2) from equation (1)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Subtracting (2) from (1) causes all intermediate terms to cancel. On the left we get \(S_n - rS_n = S_n(1-r)\). On the right, only the first term of (1) and the last term of (2) survive.</div>
+            <div class="algebra-chain">
+                <p>$$S_n - rS_n = (a + ar + ar^2 + \cdots + ar^{n-1}) - (ar + ar^2 + \cdots + ar^n)$$</p>
+                <p class="reason">All middle terms cancel:</p>
+                <p>$$S_n(1 - r) = a - ar^n$$</p>
+                <p class="reason">Factor out \(a\) on the right:</p>
+                <p>$$S_n(1 - r) = a(1 - r^n)$$</p>
+            </div>
+            <div class="mark-award">M1 — Subtracting the two equations and simplifying to \(S_n(1-r) = a(1-r^n)\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 4: Divide by \((1-r)\) to complete the proof</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <p>Since \(r \neq 1\), we have \((1-r) \neq 0\), so we can divide both sides:</p>
+            <p>$$\boxed{S_n = \frac{a(1-r^n)}{1-r}} \quad \square$$</p>
+            <div class="mark-award">A1* — Complete proof with clear justification that division by \((1-r)\) is valid since \(r \neq 1\)</div>
+            <div class="examiner-note">You must mention (or use) the given condition \(r \neq 1\) to justify dividing by \((1-r)\). Without this, the final A1* is withheld. Also, the subtraction must be clearly shown — just writing the final formula scores 0.</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 5: Set up the equation \(S_{10} = 4S_5\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We're told \(S_{10} = 4S_5\). Using the formula from part (a) for both, and noting that \(a \neq 0\) and \(r \neq 1\) allows cancellation, we should get an equation purely in terms of \(r\). The key insight is that \(r^{10} = (r^5)^2\), which means we can factorise using difference of two squares.</div>
+            <p>Using the formula \(S_n = \frac{a(1-r^n)}{1-r}\):</p>
+            <div class="algebra-chain">
+                <p>$$S_{10} = 4S_5$$</p>
+                <p>$$\frac{a(1-r^{10})}{1-r} = 4 \cdot \frac{a(1-r^5)}{1-r}$$</p>
+                <p class="reason">Since \(a \neq 0\) and \(r \neq 1\), cancel \(\frac{a}{1-r}\) from both sides:</p>
+                <p>$$1 - r^{10} = 4(1 - r^5)$$</p>
+            </div>
+            <div class="mark-award">M1 — Using the formula correctly for both \(S_{10}\) and \(S_5\) and setting up the equation</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 6: Factorise using difference of squares</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We have \(1 - r^{10} = 4(1 - r^5)\). Notice that \(1 - r^{10} = (1 - r^5)(1 + r^5)\) — this is a difference of squares factorisation where \(A = 1\) and \(B = r^5\). This allows us to cancel the \((1 - r^5)\) factor.</div>
+            <div class="algebra-chain">
+                <p class="reason">Use the factorisation \(1 - r^{10} = (1 - r^5)(1 + r^5)\):</p>
+                <p>$$(1 - r^5)(1 + r^5) = 4(1 - r^5)$$</p>
+                <p class="reason">Since \(r \neq 1\), we have \(r^5 \neq 1\), so \((1-r^5) \neq 0\). Divide both sides by \((1-r^5)\):</p>
+                <p>$$1 + r^5 = 4$$</p>
+                <p>$$r^5 = 3$$</p>
+            </div>
+            <div class="mark-award">M1 — Factorising \(1 - r^{10}\) as \((1-r^5)(1+r^5)\) and cancelling</div>
+            <div class="mark-award">A1 — Correctly reaching \(r^5 = 3\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 7: Solve for \(r\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <p>Take the 5th root of both sides:</p>
+            <p>$$\boxed{r = 3^{\frac{1}{5}} = \sqrt[5]{3}}$$</p>
+            <div class="mark-award">A1 — Exact answer \(r = 3^{1/5}\) or \(\sqrt[5]{3}\)</div>
+            <div class="examiner-note">The question says "exact value" so a decimal answer (1.246...) scores A0. The answer must be in surd/index form. Note that only the positive root is valid here since if \(r\) were negative, the series would alternate and \(S_{10} = 4S_5\) would not hold in the required way.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p2-oct20-q15')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: P1 Oct 2020 Q4 (AP & GP — Car Gears) ===================== -->
+<div class="example-panel" id="ex-p1-oct20-q4">
+    <div class="question-text">
+        <p><strong>Paper 1 — October 2020 — Question 4</strong> (6 marks)</p>
+        <p>The fastest speed of a car in 1st gear is 28 km h\(^{-1}\) and the fastest speed in 6th gear is 115 km h\(^{-1}\).</p>
+        <p>Given that the fastest speed of the car in successive gears is modelled by an <strong>arithmetic sequence</strong>,</p>
+        <p><strong>(a)</strong> find the fastest speed of the car in 3rd gear. <em>[3 marks]</em></p>
+        <p>Given that the fastest speed of the car in successive gears is modelled by a <strong>geometric sequence</strong>,</p>
+        <p><strong>(b)</strong> find the fastest speed of the car in 5th gear. <em>[3 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FOctober%202020%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FOctober%202020%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Find the common difference \(d\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">For the arithmetic model: gears 1 to 6 form an AP with 6 terms. We know the 1st term (\(a = 28\)) and the 6th term (\(u_6 = 115\)). Using \(u_n = a + (n-1)d\), we can find \(d\), then calculate any term we want.</div>
+            <p>Arithmetic sequence: \(a = 28\), \(u_6 = 115\).</p>
+            <div class="algebra-chain">
+                <p>$$u_6 = a + 5d$$</p>
+                <p>$$115 = 28 + 5d$$</p>
+                <p class="reason">Subtract 28 from both sides:</p>
+                <p>$$5d = 87$$</p>
+                <p>$$d = 17.4$$</p>
+            </div>
+            <div class="mark-award">M1 — Using \(u_6 = a + 5d\) with correct values</div>
+            <div class="mark-award">A1 — \(d = 17.4\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 2: Find the speed in 3rd gear</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <p>The 3rd term:</p>
+            <div class="algebra-chain">
+                <p>$$u_3 = a + 2d = 28 + 2(17.4) = 28 + 34.8 = 62.8$$</p>
+            </div>
+            <p>$$\boxed{\text{Fastest speed in 3rd gear} = 62.8 \text{ km h}^{-1}}$$</p>
+            <div class="mark-award">A1 — 62.8 km h\(^{-1}\)</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 3: Find the common ratio \(r\) for the geometric model</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Now we switch to a geometric model for the same speeds: \(a = 28\), \(u_6 = 115\). For a GP, \(u_6 = ar^5\). We solve for \(r\) by dividing and taking the 5th root.</div>
+            <p>Geometric sequence: \(a = 28\), \(u_6 = ar^5 = 115\).</p>
+            <div class="algebra-chain">
+                <p>$$28 \times r^5 = 115$$</p>
+                <p class="reason">Divide by 28:</p>
+                <p>$$r^5 = \frac{115}{28} = 4.107...$$</p>
+                <p class="reason">Take the 5th root:</p>
+                <p>$$r = \left(\frac{115}{28}\right)^{\frac{1}{5}} = 1.3264...$$</p>
+            </div>
+            <div class="mark-award">M1 — Setting up \(28r^5 = 115\) and solving for \(r\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 4: Find the speed in 5th gear</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Now we find \(u_5 = ar^4\). We can keep it exact using index laws: since \(r^5 = \frac{115}{28}\), we have \(r^4 = \frac{r^5}{r}\). But more cleanly, \(u_5 = ar^4 = 28 \times \left(\frac{115}{28}\right)^{4/5}\).</div>
+            <p>The 5th term:</p>
+            <div class="algebra-chain">
+                <p>$$u_5 = ar^4 = 28 \times r^4$$</p>
+                <p class="reason">Since \(r = \left(\frac{115}{28}\right)^{1/5}\), we have \(r^4 = \left(\frac{115}{28}\right)^{4/5}\):</p>
+                <p>$$u_5 = 28 \times \left(\frac{115}{28}\right)^{4/5}$$</p>
+                <p class="reason">Calculate: \(\left(\frac{115}{28}\right)^{4/5} = (4.1071...)^{0.8} = 3.0976...\)</p>
+                <p>$$u_5 = 28 \times 3.0976... = 86.7 \text{ (3 s.f.)}$$</p>
+            </div>
+            <p>$$\boxed{\text{Fastest speed in 5th gear} = 86.7 \text{ km h}^{-1}}$$</p>
+            <div class="mark-award">M1 — Using their \(r\) to find \(u_5 = ar^4\)</div>
+            <div class="mark-award">A1 — 86.7 km h\(^{-1}\) (accept 86.73... or equivalent)</div>
+            <div class="examiner-note">This question nicely tests both AP and GP in the same real-world context. Notice how the AP gives equal spacing between gear speeds (each gear adds 17.4 km/h) while the GP gives increasing gaps (each gear multiplies by 1.33). Both models use the same two data points but produce different intermediate values.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p1-oct20-q4')">Show Full Solution</button>
+</div>
+
+<!-- PATTERN RECOGNITION -->
+<h2>How to Recognise This Question Type</h2>
+<div class="card">
+    <p>Look for these signals in the question:</p>
+    <ul style="margin-left: 1.5rem; line-height: 2;">
+        <li>Terms given as a list with a clear pattern (e.g. "&pound;10, &pound;9.20, &pound;8.40, ...")</li>
+        <li>Words: <strong>"arithmetic"</strong>, <strong>"geometric"</strong>, <strong>"common difference"</strong>, <strong>"common ratio"</strong></li>
+        <li>A percentage increase/decrease each period (geometric: \(r = 1 \pm \frac{p}{100}\))</li>
+        <li>A recurrence relation like \(u_{n+1} = f(u_n)\) with an initial value</li>
+        <li>The word <strong>"periodic"</strong> — compute terms until they repeat, then use modular arithmetic for the sum</li>
+        <li>Sigma notation \(\displaystyle\sum_{r=1}^{n}\) — identify whether it's an AP sum, GP sum, or something else</li>
+        <li>"<strong>Sum to infinity</strong>" or \(S_\infty\) — immediately think GP with \(|r| &lt; 1\)</li>
+        <li><strong>"Prove that"</strong> for sum formulae — write the sum forwards and backwards (AP) or multiply by \(r\) and subtract (GP)</li>
+    </ul>
+</div>
+
+<h2>Key Formulae Summary</h2>
+<div class="card">
+    <ul style="margin-left: 1.5rem; line-height: 2.4;">
+        <li><strong>AP nth term:</strong> \(u_n = a + (n-1)d\)</li>
+        <li><strong>AP sum:</strong> \(\displaystyle S_n = \frac{n}{2}[2a + (n-1)d] = \frac{n}{2}(a + l)\) where \(l\) is the last term</li>
+        <li><strong>GP nth term:</strong> \(u_n = ar^{n-1}\)</li>
+        <li><strong>GP sum (finite):</strong> \(\displaystyle S_n = \frac{a(1-r^n)}{1-r}\) for \(r \neq 1\)</li>
+        <li><strong>GP sum to infinity:</strong> \(\displaystyle S_\infty = \frac{a}{1-r}\) only valid when \(|r| &lt; 1\)</li>
+        <li><strong>Convergence condition:</strong> A geometric series converges if and only if \(|r| &lt; 1\)</li>
+    </ul>
+</div>
+
+<script>
+    // Toggle individual step
+    function toggleStep(header) {
+        header.classList.toggle('open');
+        header.nextElementSibling.classList.toggle('open');
+    }
+
+    // Show all steps in a panel
+    function showAllSteps(panelId) {
+        const panel = document.getElementById(panelId);
+        panel.querySelectorAll('.step-reveal-header').forEach(h => h.classList.add('open'));
+        panel.querySelectorAll('.step-reveal-content').forEach(c => c.classList.add('open'));
+    }
+
+    // Select an example (tab switching)
+    function selectExample(panelId) {
+        // Deactivate all tabs and panels
+        document.querySelectorAll('.example-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.example-panel').forEach(p => p.classList.remove('active'));
+
+        // Activate the selected panel
+        document.getElementById(panelId).classList.add('active');
+
+        // Find and activate the matching tab
+        const tabs = document.querySelectorAll('.example-tab');
+        const tabMap = {
+            'ex-p1-jun22-q13': 0,
+            'ex-p1-oct21-q5': 1,
+            'ex-p2-oct20-q15': 2,
+            'ex-p1-oct20-q4': 3
+        };
+        if (tabMap[panelId] !== undefined) {
+            tabs[tabMap[panelId]].classList.add('active');
+        }
+
+        // Scroll to worked examples section
+        document.getElementById(panelId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Render KaTeX on load
+    document.addEventListener('DOMContentLoaded', function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ]
+        });
+    });
+</script>
+
+</body>
+</html>

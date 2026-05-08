@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Differentiation — Edexcel A Level Maths</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #2b6cb0;
+            --success: #276749;
+            --warning: #c05621;
+            --danger: #c53030;
+            --bg: #f7fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #2d3748;
+            --muted: #718096;
+            --mark: #805ad5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        h1 { color: var(--primary); margin-bottom: 0.5rem; font-size: 2rem; }
+        h2 { color: var(--primary); margin: 2.5rem 0 1rem; font-size: 1.4rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        h3 { color: var(--accent); margin: 1.5rem 0 0.75rem; font-size: 1.15rem; }
+
+        .subtitle { color: var(--muted); margin-bottom: 2rem; font-size: 1.05rem; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--accent); }
+        .stat-card .label { font-size: 0.85rem; color: var(--muted); }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .approach-step {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .approach-step:last-child { border-bottom: none; }
+
+        .step-number {
+            background: var(--accent);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .step-content { flex: 1; }
+        .step-content strong { color: var(--primary); }
+
+        .pitfall-box {
+            background: #fff5f5;
+            border: 1px solid #fed7d7;
+            border-left: 4px solid var(--danger);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .pitfall-box h3 { color: var(--danger); margin-top: 0; }
+        .pitfall-box ul { margin-left: 1.5rem; margin-top: 0.5rem; }
+        .pitfall-box li { margin: 0.5rem 0; }
+
+        .tip-box {
+            background: #f0fff4;
+            border: 1px solid #c6f6d5;
+            border-left: 4px solid var(--success);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .tip-box h3 { color: var(--success); margin-top: 0; }
+
+        /* Question index table */
+        .question-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.92rem;
+        }
+
+        .question-table th {
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+        }
+
+        .question-table td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .question-table tr:hover { background: #ebf8ff; }
+
+        .question-table a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .question-table a:hover { text-decoration: underline; }
+
+        .question-table .go-btn {
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+        }
+
+        .question-table .go-btn:hover { background: var(--primary); }
+
+        /* Worked examples */
+        .example-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .example-tab {
+            padding: 0.5rem 1rem;
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .example-tab:hover { border-color: var(--accent); }
+        .example-tab.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+        .example-panel { display: none; }
+        .example-panel.active { display: block; }
+
+        .question-text {
+            background: #ebf8ff;
+            border: 1px solid #bee3f8;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.02rem;
+        }
+
+        .question-text .links {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #bee3f8;
+            font-size: 0.85rem;
+        }
+
+        .question-text .links a {
+            color: var(--accent);
+            text-decoration: none;
+            margin-right: 1.5rem;
+        }
+
+        .question-text .links a:hover { text-decoration: underline; }
+
+        .step-reveal {
+            margin: 0.75rem 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .step-reveal-header {
+            padding: 0.75rem 1rem;
+            background: #edf2f7;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background 0.2s;
+            gap: 0.5rem;
+        }
+
+        .step-reveal-header:hover { background: #e2e8f0; }
+
+        .step-reveal-header .arrow {
+            transition: transform 0.3s;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .step-reveal-header.open .arrow { transform: rotate(90deg); }
+
+        .step-reveal-content {
+            display: none;
+            padding: 1.25rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .step-reveal-content.open { display: block; }
+
+        .part-label {
+            display: inline-block;
+            background: #ebf8ff;
+            color: var(--accent);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        .mark-badge {
+            display: inline-block;
+            background: #faf5ff;
+            color: var(--mark);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border: 1px solid #e9d8fd;
+        }
+
+        .mark-award {
+            background: #faf5ff;
+            border: 1px solid #e9d8fd;
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            color: var(--mark);
+            font-weight: 600;
+        }
+
+        .mark-award::before {
+            content: "\2713 ";
+        }
+
+        .examiner-note {
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            border-radius: 6px;
+            padding: 0.75rem;
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .examiner-note::before {
+            content: "Examiner: ";
+            font-weight: 700;
+            color: var(--warning);
+        }
+
+        .show-all-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            transition: background 0.2s;
+        }
+
+        .show-all-btn:hover { background: var(--primary); }
+
+        .motivation {
+            background: #eef6ff;
+            border: 1px solid #c3dafe;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.93rem;
+        }
+
+        .motivation::before {
+            content: "\1F4AD Thinking: ";
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .algebra-chain {
+            margin: 0.5rem 0;
+            padding-left: 1rem;
+            border-left: 3px solid var(--border);
+        }
+
+        .algebra-chain .reason {
+            color: var(--muted);
+            font-size: 0.85rem;
+            font-style: italic;
+            margin: 0.25rem 0;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            h1 { font-size: 1.5rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .example-selector { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<p style="margin-bottom: 1rem;"><a href="../index.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">&larr; All Topics</a></p>
+
+<h1>Differentiation</h1>
+<p class="subtitle">Power rule, chain rule, product rule, quotient rule, implicit differentiation, first principles, stationary points, tangents and normals — appears in all 14 papers examined</p>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="number">14/14</div>
+        <div class="label">Papers with differentiation</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">3–10</div>
+        <div class="label">Typical marks per question</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">Q2–Q15</div>
+        <div class="label">Paper position (varies)</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">6 types</div>
+        <div class="label">Power / Chain / Product / Quotient / Implicit / First Principles</div>
+    </div>
+</div>
+
+<!-- FULL QUESTION INDEX -->
+<h2>All Past Paper Questions on This Topic</h2>
+<p style="margin-bottom: 1rem; color: var(--muted);">Differentiation questions from Edexcel 9MA0 Papers 1 &amp; 2 (2018–2024). Click "Worked Example" to see a full guided solution.</p>
+
+<table class="question-table">
+    <thead>
+        <tr>
+            <th>Paper</th>
+            <th>Question</th>
+            <th>Description</th>
+            <th>Marks</th>
+            <th>Links</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>P1 June 2018</td>
+            <td>Q2</td>
+            <td>Differentiate \(y = x^2 - 2x - 24\sqrt{x}\); stationary point at \(x=4\); nature</td>
+            <td>7</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202018%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202018%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 June 2018</td>
+            <td>Q9</td>
+            <td>Prove from first principles that \(\frac{d}{d\theta}(\sin\theta) = \cos\theta\)</td>
+            <td>5</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202018%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202018%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 Oct 2020</td>
+            <td>Q9</td>
+            <td>Product rule: \(f(x) = 4(x^2-2)e^{-2x}\); show \(f'(x)\); find stationary points</td>
+            <td>9</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FOctober%202020%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FOctober%202020%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p1-oct20-q9'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P2 Oct 2021</td>
+            <td>Q5</td>
+            <td>Power rule: \(y = 5x^4 - 24x^3 + 42x^2 - 32x + 11\); stationary point; inflection</td>
+            <td>7</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FOctober%202021%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FOctober%202021%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p2-oct21-q5'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P2 June 2022</td>
+            <td>Q4</td>
+            <td>First principles: Given \(y = 2x^2\), show that \(\frac{dy}{dx} = 4x\)</td>
+            <td>3</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202022%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202022%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p2-jun22-q4'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P1 June 2022</td>
+            <td>Q8</td>
+            <td>Product rule: \(v = (10-0.4t)\ln(t+1)\); find maximum speed</td>
+            <td>8</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202022%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202022%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 June 2023</td>
+            <td>Q4</td>
+            <td>Find stationary point using small angle approx; equation of tangent at \(P(0,3)\)</td>
+            <td>5</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202023%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202023%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 June 2023</td>
+            <td>Q12</td>
+            <td>First principles: show \(\frac{d}{dx}(\sin x) = \cos x\) using compound angle</td>
+            <td>5</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202023%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202023%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 June 2023</td>
+            <td>Q6</td>
+            <td>Implicit differentiation: \(x^3 + 2xy + 3y^2 = 47\); normal at \(P(-2,5)\)</td>
+            <td>7</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202023%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202023%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p2-jun23-q6'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P1 June 2024</td>
+            <td>Q4</td>
+            <td>First principles: Given \(y = x^2\), show \(\frac{dy}{dx} = 2x\)</td>
+            <td>3</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202024%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202024%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 June 2024</td>
+            <td>Q10</td>
+            <td>Parametric differentiation: tangent to curve at point \(P\)</td>
+            <td>5</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202024%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202024%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 June 2024</td>
+            <td>Q14</td>
+            <td>Normal to curve; prove normal does not meet curve again</td>
+            <td>8</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202024%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202024%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- GUIDED APPROACH -->
+<h2>The Approach</h2>
+<div class="card">
+    <p style="margin-bottom: 1rem; color: var(--muted);">Differentiation questions come in many forms. Here is the general thought process:</p>
+
+    <div class="approach-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+            <strong>Identify the type of differentiation required</strong><br>
+            Is it power rule, product rule, quotient rule, chain rule, implicit, parametric, or from first principles? The question wording and the structure of the function tell you which rule to apply.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+            <strong>Rewrite into differentiable form if needed</strong><br>
+            Convert roots to fractional powers (\(\sqrt{x} = x^{1/2}\)), fractions to negative powers (\(\frac{1}{x} = x^{-1}\)), and expand brackets if that simplifies the expression. This preparation step prevents errors.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+            <strong>Apply the differentiation rule carefully</strong><br>
+            For power rule: \(\frac{d}{dx}(x^n) = nx^{n-1}\). For products: \(\frac{d}{dx}(uv) = u\frac{dv}{dx} + v\frac{du}{dx}\). For chain rule: \(\frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}\). Show each term clearly.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+            <strong>Use the derivative to answer the question</strong><br>
+            Stationary points: set \(\frac{dy}{dx} = 0\) and solve. Tangent: evaluate gradient at the point, use \(y - y_1 = m(x - x_1)\). Normal: gradient is \(-\frac{1}{m}\). Nature: check sign of \(\frac{d^2y}{dx^2}\).
+        </div>
+    </div>
+</div>
+
+<!-- EXAMINER PITFALLS -->
+<div class="pitfall-box">
+    <h3>Common Pitfalls (from Examiner Reports)</h3>
+    <ul>
+        <li><strong>Forgetting to rewrite before differentiating:</strong> You cannot differentiate \(\frac{3}{x^2}\) directly with the power rule. Rewrite as \(3x^{-2}\) first. Many candidates lose easy marks here.</li>
+        <li><strong>Sign errors with negative powers:</strong> Differentiating \(5x^{-1}\) gives \(-5x^{-2}\), not \(5x^{-2}\). The negative from the power multiplies the coefficient.</li>
+        <li><strong>Misapplying the product rule:</strong> A common error is writing \(\frac{d}{dx}(uv) = \frac{du}{dx} \cdot \frac{dv}{dx}\). The correct rule has two terms: \(u\frac{dv}{dx} + v\frac{du}{dx}\).</li>
+        <li><strong>Missing the product rule on implicit terms:</strong> When differentiating \(2xy\) implicitly, candidates often forget it requires the product rule: \(2x\frac{dy}{dx} + 2y\).</li>
+        <li><strong>First principles: skipping the limit:</strong> Writing \(h = 0\) instead of \(\lim_{h \to 0}\) loses the final mark. You must show a limiting argument, not just substitute zero.</li>
+        <li><strong>Not concluding after the second derivative test:</strong> You must state the value, its sign, AND write "therefore minimum/maximum". All three are required.</li>
+    </ul>
+</div>
+
+<div class="tip-box">
+    <h3>What Top Candidates Do</h3>
+    <ul>
+        <li>Always rewrite expressions using index notation before differentiating: \(\sqrt{x} \to x^{1/2}\), \(\frac{1}{x^3} \to x^{-3}\)</li>
+        <li>For "show that" derivative questions, show every step of the product/chain rule separately before combining</li>
+        <li>State \(\frac{dy}{dx} = 0\) explicitly before solving for stationary points — this earns a method mark even if algebra fails</li>
+        <li>For tangent/normal questions, clearly state the gradient value before writing the line equation</li>
+        <li>In first principles questions, clearly write the limit notation \(\lim_{h \to 0}\) and cancel \(h\) before applying the limit</li>
+    </ul>
+</div>
+
+<!-- WORKED EXAMPLES -->
+<h2>Worked Examples</h2>
+<p style="color: var(--muted); margin-bottom: 0.5rem;">Select a question to see the full guided solution:</p>
+
+<div class="example-selector">
+    <div class="example-tab active" onclick="selectExample('ex-p2-jun22-q4')">June 2022 P2 Q4 (First Principles)</div>
+    <div class="example-tab" onclick="selectExample('ex-p1-oct20-q9')">Oct 2020 P1 Q9 (Product Rule)</div>
+    <div class="example-tab" onclick="selectExample('ex-p2-oct21-q5')">Oct 2021 P2 Q5 (Stationary Points)</div>
+    <div class="example-tab" onclick="selectExample('ex-p2-jun23-q6')">June 2023 P2 Q6 (Implicit + Normal)</div>
+</div>
+
+<!-- ===================== EXAMPLE: P2 June 2022 Q4 — First Principles ===================== -->
+<div class="example-panel active" id="ex-p2-jun22-q4">
+    <div class="question-text">
+        <p><strong>Paper 2 — June 2022 — Question 4</strong> (3 marks)</p>
+        <p>Given that \(y = 2x^2\),</p>
+        <p>use differentiation from first principles to show that \(\displaystyle\frac{dy}{dx} = 4x\)</p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202022%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202022%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part</span> Step 1: Write the definition of the derivative from first principles</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Differentiation from first principles means using the formal limit definition of the derivative. We compute the gradient of a chord between \(x\) and \(x+h\), then let the chord shrink by taking \(h \to 0\). This is the definition — we cannot use the power rule here.</div>
+            <p>The derivative from first principles is defined as:</p>
+            <p>$$\frac{dy}{dx} = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}$$</p>
+            <p>With \(f(x) = 2x^2\), we need to find \(f(x+h)\):</p>
+            <p>$$f(x+h) = 2(x+h)^2$$</p>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part</span> Step 2: Expand and form the gradient of the chord</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We need to compute the fraction \(\frac{f(x+h) - f(x)}{h}\) and simplify it. The key step is expanding \((x+h)^2\) correctly as \(x^2 + 2xh + h^2\) (not \(x^2 + h^2\) — a common error). After expansion, the \(x^2\) terms will cancel, leaving terms with \(h\) that we can factor.</div>
+            <div class="algebra-chain">
+                <p class="reason">Expand \((x+h)^2 = x^2 + 2xh + h^2\):</p>
+                <p>$$f(x+h) = 2(x^2 + 2xh + h^2) = 2x^2 + 4xh + 2h^2$$</p>
+                <p class="reason">Subtract \(f(x) = 2x^2\):</p>
+                <p>$$f(x+h) - f(x) = 2x^2 + 4xh + 2h^2 - 2x^2 = 4xh + 2h^2$$</p>
+                <p class="reason">Divide by \(h\):</p>
+                <p>$$\frac{f(x+h) - f(x)}{h} = \frac{4xh + 2h^2}{h}$$</p>
+            </div>
+            <div class="mark-award">M1 — Writing the gradient of the chord and expanding the correct bracket \(2(x+h)^2\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part</span> Step 3: Simplify by cancelling \(h\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Every term in the numerator has a factor of \(h\), so we can cancel it with the \(h\) in the denominator. This is essential — we cannot take the limit while \(h\) is still in the denominator (that would give \(\frac{0}{0}\)). After cancelling, we get an expression where setting \(h \to 0\) gives a finite answer.</div>
+            <div class="algebra-chain">
+                <p class="reason">Factor \(h\) from the numerator:</p>
+                <p>$$\frac{4xh + 2h^2}{h} = \frac{h(4x + 2h)}{h} = 4x + 2h$$</p>
+            </div>
+            <div class="mark-award">A1 — Correct simplified fraction with the \(x^2\) terms cancelled: \(\frac{4xh + 2h^2}{h}\) or equivalent \(4x + 2h\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part</span> Step 4: Take the limit as \(h \to 0\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Now we apply the limit. As \(h \to 0\), the term \(2h\) vanishes, leaving only \(4x\). We must write the limit notation explicitly — simply writing "\(h = 0\)" without the limit symbol loses the final mark.</div>
+            <div class="algebra-chain">
+                <p>$$\frac{dy}{dx} = \lim_{h \to 0} (4x + 2h) = 4x$$</p>
+            </div>
+            <p>$$\boxed{\frac{dy}{dx} = 4x} \quad \square$$</p>
+            <div class="mark-award">A1* — Completes the proof by applying a limiting argument and deducing \(\frac{dy}{dx} = 4x\)</div>
+            <div class="examiner-note">You must reach the form \(4x + 2h\) at the end and then apply the limit. Writing "\(h = 0\)" is acceptable only if the limit notation \(h \to 0\) appears somewhere in the working. Simply substituting \(h = 0\) into the unsimplified fraction (without cancelling the \(h\)) is not acceptable and scores zero for this mark.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p2-jun22-q4')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: P1 Oct 2020 Q9 — Product Rule ===================== -->
+<div class="example-panel" id="ex-p1-oct20-q9">
+    <div class="question-text">
+        <p><strong>Paper 1 — October 2020 — Question 9</strong> (6 marks for parts a &amp; b)</p>
+        <p>Figure 2 shows a sketch of the curve \(C\) with equation \(y = f(x)\) where</p>
+        <p>$$f(x) = 4(x^2 - 2)e^{-2x}, \quad x \in \mathbb{R}$$</p>
+        <p><strong>(a)</strong> Show that \(f'(x) = 8(2 + x - x^2)e^{-2x}\) <em>[3 marks]</em></p>
+        <p><strong>(b)</strong> Hence find, in simplest form, the exact coordinates of the stationary points of \(C\). <em>[3 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FOctober%202020%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FOctober%202020%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Identify this as a product rule question</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">\(f(x) = 4(x^2-2)e^{-2x}\) is a product of two functions of \(x\): one polynomial part \(4(x^2-2)\) and one exponential part \(e^{-2x}\). We need the product rule. Let us define \(u\) and \(v\) and find their derivatives separately.</div>
+            <p>Let \(u = 4(x^2 - 2) = 4x^2 - 8\) and \(v = e^{-2x}\)</p>
+            <div class="algebra-chain">
+                <p class="reason">Differentiate \(u\):</p>
+                <p>$$\frac{du}{dx} = 8x$$</p>
+                <p class="reason">Differentiate \(v\) (using chain rule on \(e^{-2x}\)):</p>
+                <p>$$\frac{dv}{dx} = -2e^{-2x}$$</p>
+            </div>
+            <div class="mark-award">M1 — Applying the product rule with \(e^{-2x} \to ke^{-2x}\) where \(k \neq 0\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 2: Apply the product rule and simplify</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The product rule gives \(f'(x) = u\frac{dv}{dx} + v\frac{du}{dx}\). After applying it, we will have two terms both containing \(e^{-2x}\). We factor out \(e^{-2x}\) and simplify what remains inside the bracket to match the target form \(8(2 + x - x^2)e^{-2x}\).</div>
+            <p>Apply \(f'(x) = u\frac{dv}{dx} + v\frac{du}{dx}\):</p>
+            <div class="algebra-chain">
+                <p>$$f'(x) = 4(x^2-2) \cdot (-2e^{-2x}) + e^{-2x} \cdot 8x$$</p>
+                <p class="reason">Expand the first term:</p>
+                <p>$$f'(x) = -8(x^2-2)e^{-2x} + 8xe^{-2x}$$</p>
+                <p class="reason">Factor out \(e^{-2x}\):</p>
+                <p>$$f'(x) = e^{-2x}\left[-8(x^2-2) + 8x\right]$$</p>
+                <p class="reason">Expand inside the bracket: \(-8x^2 + 16 + 8x\):</p>
+                <p>$$f'(x) = e^{-2x}(-8x^2 + 8x + 16)$$</p>
+                <p class="reason">Factor out 8 (rearranging the bracket):</p>
+                <p>$$f'(x) = 8e^{-2x}(-x^2 + x + 2) = 8(2 + x - x^2)e^{-2x}$$</p>
+            </div>
+            <p>$$\boxed{f'(x) = 8(2 + x - x^2)e^{-2x}} \quad \square$$</p>
+            <div class="mark-award">A1 — Correct unsimplified derivative (e.g. \(-8(x^2-2)e^{-2x} + 8xe^{-2x}\))</div>
+            <div class="mark-award">A1* — Reaching the given answer with clear working showing all steps</div>
+            <div class="examiner-note">Since this is a "show that", you must show every step. Moving from the unsimplified product rule result to the factored form in one step is acceptable, but jumping from \(u\frac{dv}{dx} + v\frac{du}{dx}\) directly to the answer without expanding loses marks.</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 3: Set \(f'(x) = 0\) and solve</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Stationary points occur where \(f'(x) = 0\). Since \(f'(x) = 8(2+x-x^2)e^{-2x}\) and \(e^{-2x} > 0\) for all \(x\) (exponentials are never zero), we only need the quadratic factor to equal zero: \(2 + x - x^2 = 0\).</div>
+            <p>At stationary points, \(f'(x) = 0\):</p>
+            <p>$$8(2 + x - x^2)e^{-2x} = 0$$</p>
+            <p>Since \(e^{-2x} \neq 0\) for any real \(x\), and \(8 \neq 0\), we need:</p>
+            <div class="algebra-chain">
+                <p>$$2 + x - x^2 = 0$$</p>
+                <p class="reason">Multiply by \(-1\) and rearrange:</p>
+                <p>$$x^2 - x - 2 = 0$$</p>
+                <p class="reason">Factorise:</p>
+                <p>$$(x-2)(x+1) = 0$$</p>
+                <p>$$x = 2 \quad \text{or} \quad x = -1$$</p>
+            </div>
+            <div class="mark-award">B1 — States or implies \(x = -1\) and \(x = 2\) as the roots of \(f'(x) = 0\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 4: Find the \(y\)-coordinates</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We have the \(x\)-values of the stationary points. Now substitute each back into the original function \(f(x) = 4(x^2-2)e^{-2x}\) to find the corresponding \(y\)-coordinates. The question asks for exact form, so leave answers in terms of \(e\).</div>
+            <p>Substitute into \(f(x) = 4(x^2-2)e^{-2x}\):</p>
+            <div class="algebra-chain">
+                <p class="reason">When \(x = -1\):</p>
+                <p>$$f(-1) = 4((-1)^2 - 2)e^{-2(-1)} = 4(1-2)e^{2} = -4e^{2}$$</p>
+                <p class="reason">When \(x = 2\):</p>
+                <p>$$f(2) = 4((2)^2 - 2)e^{-2(2)} = 4(4-2)e^{-4} = 8e^{-4}$$</p>
+            </div>
+            <p><strong>Stationary points: \((-1,\; -4e^2)\) and \((2,\; 8e^{-4})\)</strong></p>
+            <div class="mark-award">M1 — Substituting one \(x\)-value into \(f(x)\) to find a \(y\)-value</div>
+            <div class="mark-award">A1 — Both coordinates correct in exact form: \((-1, -4e^2)\) and \((2, 8e^{-4})\)</div>
+            <div class="examiner-note">The question asks for "exact coordinates in simplest form" — so answers like \((-1, -4e^2)\) are required, not decimals. Extra solutions (e.g. claiming \(e^{-2x} = 0\) gives a solution) would be penalised on the A1 mark.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p1-oct20-q9')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: P2 Oct 2021 Q5 — Stationary Points & Inflection ===================== -->
+<div class="example-panel" id="ex-p2-oct21-q5">
+    <div class="question-text">
+        <p><strong>Paper 2 — October 2021 — Question 5</strong> (7 marks)</p>
+        <p>The curve \(C\) has equation</p>
+        <p>$$y = 5x^4 - 24x^3 + 42x^2 - 32x + 11, \quad x \in \mathbb{R}$$</p>
+        <p><strong>(a)</strong> Find (i) \(\frac{dy}{dx}\) &nbsp;&nbsp; (ii) \(\frac{d^2y}{dx^2}\) <em>[3 marks]</em></p>
+        <p><strong>(b)(i)</strong> Verify that \(C\) has a stationary point at \(x = 1\) <em>[2 marks]</em></p>
+        <p><strong>(b)(ii)</strong> Show that this stationary point is a point of inflection, giving reasons for your answer. <em>[2 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FOctober%202021%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FOctober%202021%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a)(i) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)(i)</span> Step 1: Differentiate to find \(\frac{dy}{dx}\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">This is straightforward power rule differentiation — bring down the power, reduce it by one for each term. No product or chain rule needed here since every term is of the form \(ax^n\).</div>
+            <p>Differentiate \(y = 5x^4 - 24x^3 + 42x^2 - 32x + 11\) term by term:</p>
+            <div class="algebra-chain">
+                <p class="reason">\(\frac{d}{dx}(5x^4) = 20x^3\)</p>
+                <p class="reason">\(\frac{d}{dx}(-24x^3) = -72x^2\)</p>
+                <p class="reason">\(\frac{d}{dx}(42x^2) = 84x\)</p>
+                <p class="reason">\(\frac{d}{dx}(-32x) = -32\)</p>
+                <p class="reason">\(\frac{d}{dx}(11) = 0\)</p>
+            </div>
+            <p>$$\frac{dy}{dx} = 20x^3 - 72x^2 + 84x - 32$$</p>
+            <div class="mark-award">M1 — Differentiating: \(x^n \to nx^{n-1}\) for at least one term</div>
+            <div class="mark-award">A1 — Fully correct: \(\frac{dy}{dx} = 20x^3 - 72x^2 + 84x - 32\)</div>
+        </div>
+    </div>
+
+    <!-- Part (a)(ii) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)(ii)</span> Step 2: Differentiate again to find \(\frac{d^2y}{dx^2}\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The second derivative \(\frac{d^2y}{dx^2}\) is the derivative of the first derivative. We will need this in Part (b)(ii) to investigate the nature of the stationary point. Apply the power rule again to each term of \(\frac{dy}{dx}\).</div>
+            <p>Differentiate \(\frac{dy}{dx} = 20x^3 - 72x^2 + 84x - 32\):</p>
+            <div class="algebra-chain">
+                <p class="reason">\(\frac{d}{dx}(20x^3) = 60x^2\)</p>
+                <p class="reason">\(\frac{d}{dx}(-72x^2) = -144x\)</p>
+                <p class="reason">\(\frac{d}{dx}(84x) = 84\)</p>
+                <p class="reason">\(\frac{d}{dx}(-32) = 0\)</p>
+            </div>
+            <p>$$\frac{d^2y}{dx^2} = 60x^2 - 144x + 84$$</p>
+            <div class="mark-award">A1ft — Correct second derivative (follow-through from their \(\frac{dy}{dx}\))</div>
+        </div>
+    </div>
+
+    <!-- Part (b)(i) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)(i)</span> Step 3: Verify stationary point at \(x = 1\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">"Verify" means we are told the answer and must confirm it is correct. A stationary point occurs where \(\frac{dy}{dx} = 0\). So we substitute \(x = 1\) into our derivative and check that the result is zero. We must also write a conclusion statement.</div>
+            <p>Substitute \(x = 1\) into \(\frac{dy}{dx} = 20x^3 - 72x^2 + 84x - 32\):</p>
+            <div class="algebra-chain">
+                <p>$$\frac{dy}{dx}\bigg|_{x=1} = 20(1)^3 - 72(1)^2 + 84(1) - 32$$</p>
+                <p>$$= 20 - 72 + 84 - 32 = 0 \checkmark$$</p>
+            </div>
+            <p><strong>Since \(\frac{dy}{dx} = 0\) when \(x = 1\), there is a stationary point at \(x = 1\).</strong></p>
+            <div class="mark-award">M1 — Substituting \(x = 1\) into \(\frac{dy}{dx}\) and evaluating</div>
+            <div class="mark-award">A1 — Showing the result equals 0 AND stating a conclusion (e.g. "therefore stationary point")</div>
+        </div>
+    </div>
+
+    <!-- Part (b)(ii) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)(ii)</span> Step 4: Show it is a point of inflection</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">A stationary point of inflection occurs when \(\frac{d^2y}{dx^2} = 0\) at the point AND the second derivative changes sign either side of it (or equivalently, \(\frac{d^3y}{dx^3} \neq 0\)). Simply having \(\frac{d^2y}{dx^2} = 0\) is NOT enough on its own — we must show a sign change. One approach: evaluate the second derivative either side of \(x = 1\).</div>
+            <p>First, check \(\frac{d^2y}{dx^2}\) at \(x = 1\):</p>
+            <div class="algebra-chain">
+                <p>$$\frac{d^2y}{dx^2}\bigg|_{x=1} = 60(1)^2 - 144(1) + 84 = 60 - 144 + 84 = 0$$</p>
+            </div>
+            <p>The second derivative test is inconclusive (gives 0). We check for a sign change in \(\frac{d^2y}{dx^2}\) either side of \(x = 1\):</p>
+            <div class="algebra-chain">
+                <p class="reason">Try \(x = 0.8\):</p>
+                <p>$$\frac{d^2y}{dx^2}\bigg|_{x=0.8} = 60(0.64) - 144(0.8) + 84 = 38.4 - 115.2 + 84 = 7.2 > 0$$</p>
+                <p class="reason">Try \(x = 1.2\):</p>
+                <p>$$\frac{d^2y}{dx^2}\bigg|_{x=1.2} = 60(1.44) - 144(1.2) + 84 = 86.4 - 172.8 + 84 = -2.4 < 0$$</p>
+            </div>
+            <p><strong>Since \(\frac{d^2y}{dx^2}\) changes sign (from positive to negative) either side of \(x = 1\), this confirms the stationary point is a point of inflection.</strong></p>
+            <div class="mark-award">M1 — Evaluating \(\frac{d^2y}{dx^2}\) at values either side of \(x = 1\) (or finding the third derivative)</div>
+            <div class="mark-award">A1 — Correct values showing a sign change, with a reasoned conclusion stating "point of inflection"</div>
+            <div class="examiner-note">Three valid methods exist: (1) Show the second derivative changes sign either side of \(x=1\). (2) Show \(\frac{d^2y}{dx^2} = 0\) at \(x=1\) and \(\frac{d^3y}{dx^3} \neq 0\) at \(x=1\) (here \(\frac{d^3y}{dx^3} = 120x - 144\), giving \(120(1)-144 = -24 \neq 0\)). (3) Show the first derivative has the same sign (both negative) either side of \(x=1\). All three are acceptable. You must give reasons — just stating "point of inflection" with no evidence scores M0 A0.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p2-oct21-q5')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: P2 June 2023 Q6 — Implicit Differentiation & Normal ===================== -->
+<div class="example-panel" id="ex-p2-jun23-q6">
+    <div class="question-text">
+        <p><strong>Paper 2 — June 2023 — Question 6</strong> (7 marks)</p>
+        <p>A curve has equation</p>
+        <p>$$x^3 + 2xy + 3y^2 = 47$$</p>
+        <p><strong>(a)</strong> Find \(\frac{dy}{dx}\) in terms of \(x\) and \(y\). <em>[4 marks]</em></p>
+        <p>The point \(P(-2, 5)\) lies on the curve.</p>
+        <p><strong>(b)</strong> Find the equation of the normal to the curve at \(P\), giving your answer in the form \(ax + by + c = 0\), where \(a\), \(b\) and \(c\) are integers to be found. <em>[3 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202023%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202023%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Differentiate each term implicitly</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The equation \(x^3 + 2xy + 3y^2 = 47\) has \(y\) mixed with \(x\) — we cannot rearrange to get \(y = f(x)\) easily. So we differentiate both sides with respect to \(x\), treating \(y\) as a function of \(x\). Every time we differentiate a term containing \(y\), we multiply by \(\frac{dy}{dx}\) (chain rule). The \(2xy\) term needs the product rule.</div>
+            <p>Differentiate \(x^3 + 2xy + 3y^2 = 47\) with respect to \(x\):</p>
+            <div class="algebra-chain">
+                <p class="reason">\(\frac{d}{dx}(x^3) = 3x^2\)</p>
+                <p class="reason">\(\frac{d}{dx}(2xy)\) — this is a product of \(2x\) and \(y\), so use the product rule:</p>
+                <p>$$\frac{d}{dx}(2xy) = 2x\frac{dy}{dx} + 2y$$</p>
+                <p class="reason">\(\frac{d}{dx}(3y^2) = 6y\frac{dy}{dx}\) (chain rule: bring down the 2, multiply by \(\frac{dy}{dx}\))</p>
+                <p class="reason">\(\frac{d}{dx}(47) = 0\)</p>
+            </div>
+            <p>Putting it all together:</p>
+            <p>$$3x^2 + 2x\frac{dy}{dx} + 2y + 6y\frac{dy}{dx} = 0$$</p>
+            <div class="mark-award">M1 — Differentiating \(x^3 \to kx^2\) and \(3y^2 \to ky\frac{dy}{dx}\) where \(k\) are constants</div>
+            <div class="mark-award">B1 — Correct product rule on \(2xy\): giving \(2x\frac{dy}{dx} + 2y\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 2: Rearrange to make \(\frac{dy}{dx}\) the subject</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We need \(\frac{dy}{dx}\) on its own. Strategy: collect all terms containing \(\frac{dy}{dx}\) on one side, everything else on the other side, then factor out \(\frac{dy}{dx}\) and divide.</div>
+            <div class="algebra-chain">
+                <p>$$3x^2 + 2x\frac{dy}{dx} + 2y + 6y\frac{dy}{dx} = 0$$</p>
+                <p class="reason">Move non-\(\frac{dy}{dx}\) terms to the right:</p>
+                <p>$$2x\frac{dy}{dx} + 6y\frac{dy}{dx} = -3x^2 - 2y$$</p>
+                <p class="reason">Factor out \(\frac{dy}{dx}\):</p>
+                <p>$$(2x + 6y)\frac{dy}{dx} = -3x^2 - 2y$$</p>
+                <p class="reason">Divide both sides by \((2x + 6y)\):</p>
+                <p>$$\frac{dy}{dx} = \frac{-(3x^2 + 2y)}{2x + 6y}$$</p>
+            </div>
+            <div class="mark-award">M1 — Valid attempt to make \(\frac{dy}{dx}\) the subject, with exactly two \(\frac{dy}{dx}\) terms collected</div>
+            <div class="mark-award">A1 — Correct: \(\frac{dy}{dx} = -\frac{2y + 3x^2}{2x + 6y}\) or equivalent</div>
+            <div class="examiner-note">The answer can be written in several equivalent ways, such as \(\frac{-(3x^2+2y)}{2x+6y}\) or \(\frac{-3x^2-2y}{2(x+3y)}\). All are acceptable. Be careful with sign placement — it is sometimes unclear from candidates' working whether the negative applies to the numerator or denominator.</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 3: Find the gradient of the tangent at \(P(-2, 5)\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">To find the normal, we first need the gradient of the tangent at the point. We substitute \(x = -2\) and \(y = 5\) into our expression for \(\frac{dy}{dx}\). Then the normal gradient is the negative reciprocal of the tangent gradient.</div>
+            <p>Substitute \(x = -2\), \(y = 5\) into \(\frac{dy}{dx} = \frac{-(3x^2 + 2y)}{2x + 6y}\):</p>
+            <div class="algebra-chain">
+                <p>$$\frac{dy}{dx}\bigg|_{P} = \frac{-(3(-2)^2 + 2(5))}{2(-2) + 6(5)}$$</p>
+                <p class="reason">Numerator: \(-(3(4) + 10) = -(12 + 10) = -22\)</p>
+                <p class="reason">Denominator: \(-4 + 30 = 26\)</p>
+                <p>$$\frac{dy}{dx}\bigg|_{P} = \frac{-22}{26} = -\frac{11}{13}$$</p>
+            </div>
+            <p>Gradient of tangent at \(P\): \(m_T = -\frac{11}{13}\)</p>
+            <p>Gradient of normal at \(P\): \(m_N = -\frac{1}{m_T} = -\frac{1}{(-11/13)} = \frac{13}{11}\)</p>
+            <div class="mark-award">M1 — Substituting \(x = -2\) and \(y = 5\) into \(\frac{dy}{dx}\) to find gradient</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 4: Find the equation of the normal</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We now have the gradient of the normal (\(\frac{13}{11}\)) and a point on it (\(P(-2, 5)\)). Use the point-gradient form \(y - y_1 = m(x - x_1)\) and rearrange into the required form \(ax + by + c = 0\).</div>
+            <div class="algebra-chain">
+                <p>$$y - 5 = \frac{13}{11}(x - (-2))$$</p>
+                <p>$$y - 5 = \frac{13}{11}(x + 2)$$</p>
+                <p class="reason">Multiply both sides by 11 to clear the fraction:</p>
+                <p>$$11(y - 5) = 13(x + 2)$$</p>
+                <p>$$11y - 55 = 13x + 26$$</p>
+                <p class="reason">Rearrange to \(ax + by + c = 0\):</p>
+                <p>$$13x - 11y + 26 + 55 = 0$$</p>
+                <p>$$13x - 11y + 81 = 0$$</p>
+            </div>
+            <p>$$\boxed{13x - 11y + 81 = 0}$$</p>
+            <div class="mark-award">dM1 — Attempting the equation of the normal using the negative reciprocal gradient and the point \((-2, 5)\)</div>
+            <div class="mark-award">A1 — Correct answer: \(13x - 11y + 81 = 0\) (or any integer multiple, including "= 0")</div>
+            <div class="examiner-note">The "d" in dM1 means this mark depends on the previous M1 being earned. You must use the negative reciprocal of the tangent gradient — using the tangent gradient itself (finding the tangent instead of normal) is a common error that loses both marks here. Also note: the answer must include "= 0" at the end, and must have integer coefficients.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p2-jun23-q6')">Show Full Solution</button>
+</div>
+
+<!-- PATTERN RECOGNITION -->
+<h2>How to Recognise the Differentiation Type</h2>
+<div class="card">
+    <p>Different question wordings signal different differentiation techniques:</p>
+    <ul style="margin-left: 1.5rem; line-height: 2;">
+        <li><strong>"from first principles"</strong> — Use the limit definition \(\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}\). Never use the power rule.</li>
+        <li><strong>Product of two functions</strong> (e.g. \(x^2 e^x\), \((3x+1)\sin x\)) — Product rule: \(uv' + vu'\)</li>
+        <li><strong>Function of a function</strong> (e.g. \(\sin(3x^2)\), \(e^{2x+1}\), \((4x-1)^5\)) — Chain rule: differentiate outer, multiply by derivative of inner</li>
+        <li><strong>Fraction of two functions</strong> (e.g. \(\frac{x^2}{\cos x}\)) — Quotient rule (or rewrite as product)</li>
+        <li><strong>Equation with \(x\) and \(y\) mixed</strong> (e.g. \(x^2 + y^2 = 25\)) — Implicit differentiation</li>
+        <li><strong>"\(x = f(t)\), \(y = g(t)\)"</strong> — Parametric: \(\frac{dy}{dx} = \frac{dy/dt}{dx/dt}\)</li>
+        <li><strong>"tangent" or "normal"</strong> — Find \(\frac{dy}{dx}\) at the point; tangent uses that gradient, normal uses \(-\frac{1}{m}\)</li>
+        <li><strong>"stationary point"</strong> — Set \(\frac{dy}{dx} = 0\) and solve</li>
+        <li><strong>"nature" or "minimum/maximum"</strong> — Use second derivative test</li>
+    </ul>
+</div>
+
+<h2>Key Formulae Reference</h2>
+<div class="card">
+    <ul style="margin-left: 1.5rem; line-height: 2.4;">
+        <li><strong>Power rule:</strong> \(\frac{d}{dx}(x^n) = nx^{n-1}\) (works for all real \(n\))</li>
+        <li><strong>Product rule:</strong> \(\frac{d}{dx}(uv) = u\frac{dv}{dx} + v\frac{du}{dx}\)</li>
+        <li><strong>Quotient rule:</strong> \(\frac{d}{dx}\left(\frac{u}{v}\right) = \frac{v\frac{du}{dx} - u\frac{dv}{dx}}{v^2}\)</li>
+        <li><strong>Chain rule:</strong> \(\frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}\)</li>
+        <li><strong>Exponential:</strong> \(\frac{d}{dx}(e^{kx}) = ke^{kx}\)</li>
+        <li><strong>Trigonometric:</strong> \(\frac{d}{dx}(\sin x) = \cos x\), \(\quad \frac{d}{dx}(\cos x) = -\sin x\), \(\quad \frac{d}{dx}(\tan x) = \sec^2 x\)</li>
+        <li><strong>Logarithmic:</strong> \(\frac{d}{dx}(\ln x) = \frac{1}{x}\)</li>
+        <li><strong>First principles:</strong> \(f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}\)</li>
+    </ul>
+</div>
+
+<script>
+    // Toggle individual step
+    function toggleStep(header) {
+        header.classList.toggle('open');
+        header.nextElementSibling.classList.toggle('open');
+    }
+
+    // Show all steps in a panel
+    function showAllSteps(panelId) {
+        const panel = document.getElementById(panelId);
+        panel.querySelectorAll('.step-reveal-header').forEach(h => h.classList.add('open'));
+        panel.querySelectorAll('.step-reveal-content').forEach(c => c.classList.add('open'));
+    }
+
+    // Select an example (tab switching)
+    function selectExample(panelId) {
+        // Deactivate all tabs and panels
+        document.querySelectorAll('.example-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.example-panel').forEach(p => p.classList.remove('active'));
+
+        // Activate the selected panel
+        document.getElementById(panelId).classList.add('active');
+
+        // Find and activate the matching tab
+        const tabs = document.querySelectorAll('.example-tab');
+        const tabMap = {
+            'ex-p2-jun22-q4': 0,
+            'ex-p1-oct20-q9': 1,
+            'ex-p2-oct21-q5': 2,
+            'ex-p2-jun23-q6': 3
+        };
+        if (tabMap[panelId] !== undefined) {
+            tabs[tabMap[panelId]].classList.add('active');
+        }
+
+        // Scroll to worked examples section
+        document.getElementById(panelId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Render KaTeX on load
+    document.addEventListener('DOMContentLoaded', function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ]
+        });
+    });
+</script>
+
+</body>
+</html>

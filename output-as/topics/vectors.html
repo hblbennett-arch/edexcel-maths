@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vectors — Edexcel AS Level Maths</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #2b6cb0;
+            --success: #276749;
+            --warning: #c05621;
+            --danger: #c53030;
+            --bg: #f7fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #2d3748;
+            --muted: #718096;
+            --mark: #805ad5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        h1 { color: var(--primary); margin-bottom: 0.5rem; font-size: 2rem; }
+        h2 { color: var(--primary); margin: 2.5rem 0 1rem; font-size: 1.4rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        h3 { color: var(--accent); margin: 1.5rem 0 0.75rem; font-size: 1.15rem; }
+
+        .subtitle { color: var(--muted); margin-bottom: 2rem; font-size: 1.05rem; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--accent); }
+        .stat-card .label { font-size: 0.85rem; color: var(--muted); }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .approach-step {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .approach-step:last-child { border-bottom: none; }
+
+        .step-number {
+            background: var(--accent);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .step-content { flex: 1; }
+        .step-content strong { color: var(--primary); }
+
+        .pitfall-box {
+            background: #fff5f5;
+            border: 1px solid #fed7d7;
+            border-left: 4px solid var(--danger);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .pitfall-box h3 { color: var(--danger); margin-top: 0; }
+        .pitfall-box ul { margin-left: 1.5rem; margin-top: 0.5rem; }
+        .pitfall-box li { margin: 0.5rem 0; }
+
+        .tip-box {
+            background: #f0fff4;
+            border: 1px solid #c6f6d5;
+            border-left: 4px solid var(--success);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .tip-box h3 { color: var(--success); margin-top: 0; }
+
+        .question-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.92rem;
+        }
+
+        .question-table th {
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+        }
+
+        .question-table td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .question-table tr:hover { background: #ebf8ff; }
+
+        .question-table a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .question-table a:hover { text-decoration: underline; }
+
+        .question-table .go-btn {
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+        }
+
+        .question-table .go-btn:hover { background: var(--primary); }
+
+        .example-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .example-tab {
+            padding: 0.5rem 1rem;
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .example-tab:hover { border-color: var(--accent); }
+        .example-tab.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+        .example-panel { display: none; }
+        .example-panel.active { display: block; }
+
+        .question-text {
+            background: #ebf8ff;
+            border: 1px solid #bee3f8;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.02rem;
+        }
+
+        .question-text .links {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #bee3f8;
+            font-size: 0.85rem;
+        }
+
+        .question-text .links a {
+            color: var(--accent);
+            text-decoration: none;
+            margin-right: 1.5rem;
+        }
+
+        .question-text .links a:hover { text-decoration: underline; }
+
+        .step-reveal {
+            margin: 0.75rem 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .step-reveal-header {
+            padding: 0.75rem 1rem;
+            background: #edf2f7;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background 0.2s;
+            gap: 0.5rem;
+        }
+
+        .step-reveal-header:hover { background: #e2e8f0; }
+
+        .step-reveal-header .arrow {
+            transition: transform 0.3s;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .step-reveal-header.open .arrow { transform: rotate(90deg); }
+
+        .step-reveal-content {
+            display: none;
+            padding: 1.25rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .step-reveal-content.open { display: block; }
+
+        .part-label {
+            display: inline-block;
+            background: #ebf8ff;
+            color: var(--accent);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        .mark-award {
+            background: #faf5ff;
+            border: 1px solid #e9d8fd;
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            color: var(--mark);
+            font-weight: 600;
+        }
+
+        .mark-award::before {
+            content: "\2713 ";
+        }
+
+        .examiner-note {
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            border-radius: 6px;
+            padding: 0.75rem;
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .examiner-note::before {
+            content: "Examiner: ";
+            font-weight: 700;
+            color: var(--warning);
+        }
+
+        .show-all-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            transition: background 0.2s;
+        }
+
+        .show-all-btn:hover { background: var(--primary); }
+
+        .motivation {
+            background: #eef6ff;
+            border: 1px solid #c3dafe;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.93rem;
+        }
+
+        .motivation::before {
+            content: "Thinking: ";
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .algebra-chain {
+            margin: 0.5rem 0;
+            padding-left: 1rem;
+            border-left: 3px solid var(--border);
+        }
+
+        .algebra-chain .reason {
+            color: var(--muted);
+            font-size: 0.85rem;
+            font-style: italic;
+            margin: 0.25rem 0;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            h1 { font-size: 1.5rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .example-selector { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<p style="margin-bottom: 1rem;"><a href="../index.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">&larr; All Topics</a></p>
+
+<h1>Vectors</h1>
+<p class="subtitle">Position vectors, \(\overrightarrow{AB} = \mathbf{b} - \mathbf{a}\), magnitude, parallel and collinear points</p>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="number">2/7</div>
+        <div class="label">Appears in some sittings</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">7-8</div>
+        <div class="label">Typical marks</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">Q10-14</div>
+        <div class="label">Paper position</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">3-4 parts</div>
+        <div class="label">Standard structure</div>
+    </div>
+</div>
+
+<!-- FULL QUESTION INDEX -->
+<h2>All Past Paper Questions on This Topic</h2>
+<p style="margin-bottom: 1rem; color: var(--muted);">Vectors questions from Edexcel 8MA0/01 (2018-2024). This topic appears less frequently but carries significant marks when it does.</p>
+
+<table class="question-table">
+    <thead>
+        <tr>
+            <th>Paper</th>
+            <th>Question</th>
+            <th>Description</th>
+            <th>Marks</th>
+            <th>Links</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>June 2019</td>
+            <td>Q13</td>
+            <td>Position vectors of A, B, C; show collinear; find point D such that ABCD forms parallelogram</td>
+            <td>7</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202019%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202019%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-jun19-q13'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>June 2022</td>
+            <td>Q11</td>
+            <td>Vectors in 2D: find magnitude, show perpendicular using dot product, find position of point</td>
+            <td>8</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202022%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202022%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-jun22-q11'); return false;">Worked Example</a></td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- GUIDED APPROACH -->
+<h2>Guided Approach</h2>
+<div class="card">
+    <p style="margin-bottom: 1rem; color: var(--muted);">Vector questions at AS level typically involve position vectors in 2D or 3D:</p>
+
+    <div class="approach-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+            <strong>Find displacement vectors using \(\overrightarrow{AB} = \mathbf{b} - \mathbf{a}\)</strong><br>
+            The vector FROM point A TO point B is found by subtracting: position vector of B minus position vector of A. This is the single most important formula for vector questions.
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+            <strong>Use parallel/collinear conditions</strong><br>
+            Two vectors are parallel if one is a scalar multiple of the other: \(\overrightarrow{AB} = k\overrightarrow{CD}\). Points A, B, C are collinear if \(\overrightarrow{AB} = k\overrightarrow{AC}\) (or any pair sharing a point).
+        </div>
+    </div>
+
+    <div class="approach-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+            <strong>Magnitude and perpendicularity</strong><br>
+            Magnitude: \(|\mathbf{v}| = \sqrt{x^2 + y^2 + z^2}\). Perpendicular: \(\mathbf{a} \cdot \mathbf{b} = 0\) (dot product equals zero). At AS level, the dot product \(\mathbf{a} \cdot \mathbf{b} = a_1b_1 + a_2b_2 + a_3b_3\).
+        </div>
+    </div>
+</div>
+
+<!-- EXAMINER PITFALLS -->
+<div class="pitfall-box">
+    <h3>Common Pitfalls (from Examiner Reports)</h3>
+    <ul>
+        <li><strong>Wrong direction:</strong> \(\overrightarrow{AB} = \mathbf{b} - \mathbf{a}\), NOT \(\mathbf{a} - \mathbf{b}\). Getting this backwards gives a sign error throughout.</li>
+        <li><strong>Collinear vs parallel:</strong> Parallel vectors have the same direction but need not share a point. Collinear means the points lie on the same straight line — you need to show parallel vectors AND a shared point.</li>
+        <li><strong>Dot product errors:</strong> \(\mathbf{a} \cdot \mathbf{b} = a_1b_1 + a_2b_2\) (multiply corresponding components and ADD). Not \(a_1b_2 + a_2b_1\).</li>
+        <li><strong>Forgetting to state conclusions:</strong> If asked "show these are perpendicular", you must compute the dot product AND explicitly state "= 0, therefore perpendicular".</li>
+    </ul>
+</div>
+
+<div class="tip-box">
+    <h3>What Top Candidates Do</h3>
+    <ul>
+        <li>Draw a quick diagram labelling all points with their position vectors.</li>
+        <li>Write \(\overrightarrow{AB} = \mathbf{b} - \mathbf{a}\) as a formula before substituting numbers.</li>
+        <li>For "show collinear": find two displacement vectors sharing a common point, show one is a scalar multiple of the other, then state "since they share point X and are parallel, A, B, C are collinear."</li>
+    </ul>
+</div>
+
+<!-- WORKED EXAMPLES -->
+<h2>Worked Examples</h2>
+<p style="color: var(--muted); margin-bottom: 0.5rem;">Select a question to see the full guided solution:</p>
+
+<div class="example-selector">
+    <div class="example-tab active" onclick="selectExample('ex-jun19-q13')">June 2019 Q13</div>
+    <div class="example-tab" onclick="selectExample('ex-jun22-q11')">June 2022 Q11</div>
+</div>
+
+<!-- ===================== EXAMPLE: June 2019 Q13 ===================== -->
+<div class="example-panel active" id="ex-jun19-q13">
+    <div class="question-text">
+        <p><strong>AS Paper 1 — June 2019 — Question 13</strong> (7 marks)</p>
+        <p>Relative to a fixed origin O, the position vectors of A, B, and C are:</p>
+        <p>\(\mathbf{a} = 2\mathbf{i} + 3\mathbf{j} - \mathbf{k}\), \(\mathbf{b} = 4\mathbf{i} + \mathbf{j} + 3\mathbf{k}\), \(\mathbf{c} = 7\mathbf{i} - 2\mathbf{j} + 9\mathbf{k}\)</p>
+        <p><strong>(a)</strong> Find \(\overrightarrow{AB}\) and \(\overrightarrow{AC}\). <em>[2 marks]</em></p>
+        <p><strong>(b)</strong> Hence show that A, B, and C are collinear and state the ratio AB:BC. <em>[3 marks]</em></p>
+        <p><strong>(c)</strong> Find the exact length of AC. <em>[2 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202019%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202019%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Find \(\overrightarrow{AB}\) and \(\overrightarrow{AC}\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Use the fundamental formula: the vector from A to B is \(\overrightarrow{AB} = \mathbf{b} - \mathbf{a}\). Subtract corresponding components.</div>
+            <div class="algebra-chain">
+                <p>$$\overrightarrow{AB} = \mathbf{b} - \mathbf{a} = (4-2)\mathbf{i} + (1-3)\mathbf{j} + (3-(-1))\mathbf{k}$$</p>
+                <p>$$= 2\mathbf{i} - 2\mathbf{j} + 4\mathbf{k}$$</p>
+                <p>$$\overrightarrow{AC} = \mathbf{c} - \mathbf{a} = (7-2)\mathbf{i} + (-2-3)\mathbf{j} + (9-(-1))\mathbf{k}$$</p>
+                <p>$$= 5\mathbf{i} - 5\mathbf{j} + 10\mathbf{k}$$</p>
+            </div>
+            <div class="mark-award">A1 — \(\overrightarrow{AB} = 2\mathbf{i} - 2\mathbf{j} + 4\mathbf{k}\)</div>
+            <div class="mark-award">A1 — \(\overrightarrow{AC} = 5\mathbf{i} - 5\mathbf{j} + 10\mathbf{k}\)</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 2: Show A, B, C are collinear</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">To prove collinearity, we need to show that \(\overrightarrow{AB}\) and \(\overrightarrow{AC}\) are parallel (one is a scalar multiple of the other). Since they share the point A, parallel implies collinear.</div>
+            <div class="algebra-chain">
+                <p>Compare \(\overrightarrow{AB} = 2\mathbf{i} - 2\mathbf{j} + 4\mathbf{k}\) with \(\overrightarrow{AC} = 5\mathbf{i} - 5\mathbf{j} + 10\mathbf{k}\):</p>
+                <p class="reason">Check each component ratio: \(\frac{5}{2} = \frac{-5}{-2} = \frac{10}{4} = 2.5\)</p>
+                <p>$$\overrightarrow{AC} = \frac{5}{2}\overrightarrow{AB}$$</p>
+            </div>
+            <p>Since \(\overrightarrow{AC} = \frac{5}{2}\overrightarrow{AB}\) and both vectors start from A, the points A, B, and C lie on the same straight line (are collinear).</p>
+            <div class="mark-award">M1 — Identifying the scalar relationship between the vectors</div>
+            <div class="mark-award">A1 — Correctly showing \(\overrightarrow{AC} = \frac{5}{2}\overrightarrow{AB}\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 3: Find the ratio AB:BC</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Since \(\overrightarrow{AC} = \frac{5}{2}\overrightarrow{AB}\), point B lies between A and C, and the distance AC is \(\frac{5}{2}\) times the distance AB. So \(AB = \frac{2}{5}\) of AC, meaning \(BC = AC - AB = \frac{3}{5}\) of AC. The ratio AB:BC = 2:3.</div>
+            <div class="algebra-chain">
+                <p>\(\overrightarrow{AC} = \frac{5}{2}\overrightarrow{AB}\)</p>
+                <p class="reason">This means AC = \(\frac{5}{2}\) AB, so AB = \(\frac{2}{5}\) AC</p>
+                <p class="reason">Therefore BC = AC - AB = \(\frac{5}{2}\)AB - AB = \(\frac{3}{2}\)AB</p>
+                <p>$$\text{AB:BC} = 1:\frac{3}{2} = 2:3$$</p>
+            </div>
+            <div class="mark-award">A1 — AB:BC = 2:3</div>
+            <div class="examiner-note">Many candidates found AB:AC = 2:5 instead of AB:BC = 2:3. Read the question carefully: it asks for the ratio of the two PARTS (AB and BC), not AB to the whole (AC).</div>
+        </div>
+    </div>
+
+    <!-- Part (c) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)</span> Step 4: Find the exact length of AC</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The length (magnitude) of a vector \(\mathbf{v} = a\mathbf{i} + b\mathbf{j} + c\mathbf{k}\) is \(|\mathbf{v}| = \sqrt{a^2 + b^2 + c^2}\). Apply this to \(\overrightarrow{AC}\).</div>
+            <div class="algebra-chain">
+                <p>$$|\overrightarrow{AC}| = |5\mathbf{i} - 5\mathbf{j} + 10\mathbf{k}|$$</p>
+                <p>$$= \sqrt{5^2 + (-5)^2 + 10^2}$$</p>
+                <p>$$= \sqrt{25 + 25 + 100}$$</p>
+                <p>$$= \sqrt{150} = \sqrt{25 \times 6} = 5\sqrt{6}$$</p>
+            </div>
+            <div class="mark-award">M1 — Using the magnitude formula with their \(\overrightarrow{AC}\)</div>
+            <div class="mark-award">A1 — \(5\sqrt{6}\) (exact form required)</div>
+            <div class="examiner-note">The question says "exact length" so you must leave the answer in surd form: \(5\sqrt{6}\), not the decimal 12.2. Always simplify the surd: \(\sqrt{150} = 5\sqrt{6}\).</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-jun19-q13')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE: June 2022 Q11 ===================== -->
+<div class="example-panel" id="ex-jun22-q11">
+    <div class="question-text">
+        <p><strong>AS Paper 1 — June 2022 — Question 11</strong> (8 marks)</p>
+        <p>The points A, B, and C have position vectors relative to a fixed origin O:</p>
+        <p>\(\mathbf{a} = \begin{pmatrix} 1 \\ 3 \end{pmatrix}\), \(\mathbf{b} = \begin{pmatrix} 5 \\ 1 \end{pmatrix}\), \(\mathbf{c} = \begin{pmatrix} 7 \\ 5 \end{pmatrix}\)</p>
+        <p><strong>(a)</strong> Find \(\overrightarrow{AB}\) and show that \(|\overrightarrow{AB}| = 2\sqrt{5}\). <em>[2 marks]</em></p>
+        <p><strong>(b)</strong> Show that \(\overrightarrow{AB}\) is perpendicular to \(\overrightarrow{BC}\). <em>[3 marks]</em></p>
+        <p><strong>(c)</strong> Find the position vector of the point M, the midpoint of AC. <em>[1 mark]</em></p>
+        <p><strong>(d)</strong> Hence find the position vector of the point D such that ABCD is a rectangle. <em>[2 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FQP%2FJune%202022%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-1%2FMS%2FJune%202022%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <!-- Part (a) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Find \(\overrightarrow{AB}\) and its magnitude</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Same formula as before: \(\overrightarrow{AB} = \mathbf{b} - \mathbf{a}\). Then find the magnitude using Pythagoras in 2D.</div>
+            <div class="algebra-chain">
+                <p>$$\overrightarrow{AB} = \mathbf{b} - \mathbf{a} = \begin{pmatrix} 5-1 \\ 1-3 \end{pmatrix} = \begin{pmatrix} 4 \\ -2 \end{pmatrix}$$</p>
+                <p>$$|\overrightarrow{AB}| = \sqrt{4^2 + (-2)^2} = \sqrt{16 + 4} = \sqrt{20} = 2\sqrt{5} \quad \square$$</p>
+            </div>
+            <div class="mark-award">M1 — Finding \(\overrightarrow{AB}\) correctly</div>
+            <div class="mark-award">A1 — Showing \(|\overrightarrow{AB}| = 2\sqrt{5}\)</div>
+        </div>
+    </div>
+
+    <!-- Part (b) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 2: Show \(\overrightarrow{AB}\) is perpendicular to \(\overrightarrow{BC}\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Two vectors are perpendicular if and only if their dot product equals zero. First find \(\overrightarrow{BC}\), then compute the dot product \(\overrightarrow{AB} \cdot \overrightarrow{BC}\).</div>
+            <div class="algebra-chain">
+                <p>First find \(\overrightarrow{BC}\):</p>
+                <p>$$\overrightarrow{BC} = \mathbf{c} - \mathbf{b} = \begin{pmatrix} 7-5 \\ 5-1 \end{pmatrix} = \begin{pmatrix} 2 \\ 4 \end{pmatrix}$$</p>
+                <p class="reason">Now compute the dot product:</p>
+                <p>$$\overrightarrow{AB} \cdot \overrightarrow{BC} = \begin{pmatrix} 4 \\ -2 \end{pmatrix} \cdot \begin{pmatrix} 2 \\ 4 \end{pmatrix} = (4)(2) + (-2)(4) = 8 - 8 = 0$$</p>
+            </div>
+            <p>Since \(\overrightarrow{AB} \cdot \overrightarrow{BC} = 0\), the vectors are perpendicular. \(\square\)</p>
+            <div class="mark-award">M1 — Finding \(\overrightarrow{BC}\)</div>
+            <div class="mark-award">M1 — Computing the dot product</div>
+            <div class="mark-award">A1 — Showing = 0 and stating "therefore perpendicular"</div>
+            <div class="examiner-note">You must explicitly state "= 0, therefore perpendicular" (or equivalent). Simply writing "8 - 8 = 0" without a conclusion statement does not earn the final mark.</div>
+        </div>
+    </div>
+
+    <!-- Part (c) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)</span> Step 3: Find the midpoint M of AC</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The midpoint of two points is the average of their position vectors: \(\mathbf{m} = \frac{\mathbf{a} + \mathbf{c}}{2}\).</div>
+            <div class="algebra-chain">
+                <p>$$\mathbf{m} = \frac{\mathbf{a} + \mathbf{c}}{2} = \frac{1}{2}\begin{pmatrix} 1+7 \\ 3+5 \end{pmatrix} = \frac{1}{2}\begin{pmatrix} 8 \\ 8 \end{pmatrix} = \begin{pmatrix} 4 \\ 4 \end{pmatrix}$$</p>
+            </div>
+            <div class="mark-award">B1 — \(\mathbf{m} = \begin{pmatrix} 4 \\ 4 \end{pmatrix}\)</div>
+        </div>
+    </div>
+
+    <!-- Part (d) -->
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (d)</span> Step 4: Find position vector of D for rectangle ABCD</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">In a rectangle (or any parallelogram), the diagonals bisect each other. So the midpoint of AC must equal the midpoint of BD. Since M is the midpoint of AC, it's also the midpoint of BD. Using \(\mathbf{m} = \frac{\mathbf{b} + \mathbf{d}}{2}\), we can solve for \(\mathbf{d}\).</div>
+            <div class="algebra-chain">
+                <p class="reason">Midpoint of BD = M:</p>
+                <p>$$\frac{\mathbf{b} + \mathbf{d}}{2} = \begin{pmatrix} 4 \\ 4 \end{pmatrix}$$</p>
+                <p>$$\mathbf{d} = 2\begin{pmatrix} 4 \\ 4 \end{pmatrix} - \mathbf{b} = \begin{pmatrix} 8 \\ 8 \end{pmatrix} - \begin{pmatrix} 5 \\ 1 \end{pmatrix} = \begin{pmatrix} 3 \\ 7 \end{pmatrix}$$</p>
+            </div>
+            <p>$$\mathbf{d} = \begin{pmatrix} 3 \\ 7 \end{pmatrix} \quad \text{i.e. } D = (3, 7)$$</p>
+            <div class="mark-award">M1 — Using the property that diagonals bisect (or equivalent method)</div>
+            <div class="mark-award">A1 — \(\mathbf{d} = 3\mathbf{i} + 7\mathbf{j}\)</div>
+            <div class="examiner-note">Alternative method: since ABCD is a rectangle, \(\overrightarrow{AD} = \overrightarrow{BC}\). So \(\mathbf{d} - \mathbf{a} = \overrightarrow{BC} = \begin{pmatrix} 2 \\ 4 \end{pmatrix}\), giving \(\mathbf{d} = \begin{pmatrix} 1 \\ 3 \end{pmatrix} + \begin{pmatrix} 2 \\ 4 \end{pmatrix} = \begin{pmatrix} 3 \\ 7 \end{pmatrix}\). Both methods are equally valid.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-jun22-q11')">Show Full Solution</button>
+</div>
+
+<!-- KEY FORMULAE -->
+<h2>Key Formulae</h2>
+<div class="card">
+    <h3>Essential Vector Operations</h3>
+    <p><strong>Displacement vector:</strong> \(\overrightarrow{AB} = \mathbf{b} - \mathbf{a}\)</p>
+    <p><strong>Magnitude:</strong> \(|\mathbf{v}| = \sqrt{v_1^2 + v_2^2 + v_3^2}\)</p>
+    <p><strong>Midpoint:</strong> \(\mathbf{m} = \frac{\mathbf{a} + \mathbf{b}}{2}\)</p>
+    <p><strong>Dot product:</strong> \(\mathbf{a} \cdot \mathbf{b} = a_1b_1 + a_2b_2 + a_3b_3\)</p>
+
+    <h3 style="margin-top: 1.5rem;">Key Conditions</h3>
+    <p><strong>Parallel:</strong> \(\mathbf{a} = k\mathbf{b}\) for some scalar \(k\)</p>
+    <p><strong>Perpendicular:</strong> \(\mathbf{a} \cdot \mathbf{b} = 0\)</p>
+    <p><strong>Collinear (A, B, C):</strong> \(\overrightarrow{AB} = k\overrightarrow{AC}\) (parallel AND share a point)</p>
+    <p><strong>Unit vector:</strong> \(\hat{\mathbf{v}} = \frac{\mathbf{v}}{|\mathbf{v}|}\)</p>
+
+    <h3 style="margin-top: 1.5rem;">Parallelogram/Rectangle Properties</h3>
+    <p>In parallelogram ABCD: \(\overrightarrow{AB} = \overrightarrow{DC}\) and \(\overrightarrow{AD} = \overrightarrow{BC}\)</p>
+    <p>Diagonals bisect each other: midpoint of AC = midpoint of BD</p>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\(", right: "\\)", display: false}
+        ]
+    });
+});
+
+function toggleStep(header) {
+    header.classList.toggle('open');
+    const content = header.nextElementSibling;
+    content.classList.toggle('open');
+}
+
+function selectExample(id) {
+    document.querySelectorAll('.example-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.example-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+}
+
+function showAllSteps(panelId) {
+    const panel = document.getElementById(panelId);
+    panel.querySelectorAll('.step-reveal-header').forEach(h => h.classList.add('open'));
+    panel.querySelectorAll('.step-reveal-content').forEach(c => c.classList.add('open'));
+}
+</script>
+</body>
+</html>

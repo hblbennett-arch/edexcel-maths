@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forces & Newton's Laws — Edexcel AS Mechanics</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #2b6cb0;
+            --success: #276749;
+            --warning: #c05621;
+            --danger: #c53030;
+            --bg: #f7fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #2d3748;
+            --muted: #718096;
+            --mark: #805ad5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        h1 { color: var(--primary); margin-bottom: 0.5rem; font-size: 2rem; }
+        h2 { color: var(--primary); margin: 2.5rem 0 1rem; font-size: 1.4rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        h3 { color: var(--accent); margin: 1.5rem 0 0.75rem; font-size: 1.15rem; }
+
+        .subtitle { color: var(--muted); margin-bottom: 2rem; font-size: 1.05rem; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-card .number { font-size: 1.5rem; font-weight: 700; color: var(--accent); }
+        .stat-card .label { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .motivation {
+            border-left: 4px solid var(--accent);
+            background: #ebf8ff;
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+
+        .examiner-tip {
+            border-left: 4px solid var(--warning);
+            background: #fffaf0;
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0;
+        }
+
+        .examiner-tip::before { content: "Examiner tip: "; font-weight: 700; color: var(--warning); }
+
+        .marks {
+            display: inline-block;
+            background: var(--mark);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+        }
+
+        .step {
+            border-left: 3px solid var(--border);
+            padding: 0.75rem 1rem;
+            margin: 0.75rem 0;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+
+        .step:hover { border-color: var(--accent); }
+
+        .step-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .step-content {
+            display: none;
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px dashed var(--border);
+        }
+
+        .step.open .step-content { display: block; }
+        .step.open { border-color: var(--success); }
+
+        .toggle-icon::after { content: "\25BC"; font-size: 0.7rem; color: var(--muted); }
+        .step.open .toggle-icon::after { content: "\25B2"; }
+
+        .reveal-all {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.5rem 1.25rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin: 0.5rem 0;
+        }
+
+        .reveal-all:hover { background: var(--primary); }
+
+        .formula-box {
+            background: #f0fff4;
+            border: 1px solid #c6f6d5;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .back-link:hover { text-decoration: underline; }
+
+        .paper-ref {
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin-top: 0.5rem;
+        }
+
+        .paper-ref a { color: var(--accent); text-decoration: none; }
+        .paper-ref a:hover { text-decoration: underline; }
+
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        th, td { padding: 0.5rem; border: 1px solid var(--border); text-align: left; font-size: 0.9rem; }
+        th { background: var(--bg); font-weight: 600; }
+    </style>
+</head>
+<body>
+    <a href="../index.html" class="back-link">← Back to AS Mechanics Topics</a>
+
+    <h1>Forces & Newton's Laws</h1>
+    <p class="subtitle">F = ma applied to towing problems, lifts, and driving force minus resistance</p>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="number">3/7</div>
+            <div class="label">Sittings</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">5–12</div>
+            <div class="label">Marks</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">Q4</div>
+            <div class="label">Typical Position</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">F = ma</div>
+            <div class="label">Core Equation</div>
+        </div>
+    </div>
+
+    <div class="motivation">
+        <strong>Why this matters:</strong> Forces questions test the fundamental principle of mechanics — Newton's second law. At AS, these appear as towing problems (car + trailer) or lift problems (apparent weight). They require careful identification of all forces on each object and correct application of F = ma. When the towbar breaks or conditions change, a follow-up tests your ability to adapt.
+    </div>
+
+    <h2>Key Concepts</h2>
+
+    <div class="formula-box">
+        <h3>Newton's Laws at AS Level</h3>
+        <ul style="margin: 0.75rem 0; padding-left: 1.5rem;">
+            <li><strong>N1:</strong> If net force = 0, object stays at rest or moves at constant velocity</li>
+            <li><strong>N2:</strong> \(F_{\text{net}} = ma\) (resultant force = mass × acceleration)</li>
+            <li><strong>N3:</strong> Action and reaction are equal and opposite (used for tension in towbar)</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h3>Towing problems — the method</h3>
+        <ol style="padding-left: 1.5rem;">
+            <li><strong>Whole system:</strong> Apply F = ma to entire system to find acceleration or resistance
+                <br>\(\text{Driving force} - \text{Total resistance} = (m_{\text{car}} + m_{\text{trailer}}) \times a\)</li>
+            <li><strong>Individual object:</strong> Apply F = ma to trailer alone (or car alone) to find tension \(T\)
+                <br>Trailer: \(T - R_{\text{trailer}} = m_{\text{trailer}} \times a\)</li>
+            <li><strong>After towbar breaks:</strong> Apply F = ma to each separately with T = 0</li>
+        </ol>
+    </div>
+
+    <div class="card">
+        <h3>Lift problems — the method</h3>
+        <ul style="padding-left: 1.5rem;">
+            <li><strong>Accelerating up:</strong> Normal reaction > Weight → \(R - mg = ma\) → \(R = m(g + a)\)</li>
+            <li><strong>Accelerating down:</strong> Weight > Normal reaction → \(mg - R = ma\) → \(R = m(g - a)\)</li>
+            <li><strong>Constant speed or stationary:</strong> \(R = mg\)</li>
+            <li>The "apparent weight" felt by a person = the normal reaction force</li>
+        </ul>
+    </div>
+
+    <div class="examiner-tip">
+        In towing problems, you can always check your answer: the tension must be less than the driving force (otherwise the car itself would decelerate). If your tension comes out negative, check your sign convention.
+    </div>
+
+    <h2>Worked Examples</h2>
+
+    <!-- Example 1 -->
+    <div class="card">
+        <h3>Example 1: Lift with block — find tension in rope and force on block <span class="marks">6 marks</span></h3>
+        <p class="paper-ref">Based on: June 2022 Q4 | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202022%20QP%20(Mech).pdf" target="_blank">View Paper</a></p>
+
+        <div class="card" style="background: #f7fafc;">
+            <p><strong>Question:</strong> A lift cage (mass 40 kg) carries a block (mass 10 kg). The lift is raised by a vertical rope with constant acceleration 0.2 m s\(^{-2}\). Find (a) the tension in the rope PQ, (b) the magnitude of the force exerted on the block by the lift cage.</p>
+        </div>
+
+        <button class="reveal-all" onclick="toggleAll(this)">Reveal all steps</button>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 1: F = ma for the whole system (lift + block) <span class="marks">M1 A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>Total mass = 40 + 10 = 50 kg</p>
+                <p>Taking up as positive:</p>
+                <p>\(T - 50g = 50 \times 0.2\)</p>
+                <p>\(T = 50(9.8) + 10 = 490 + 10 = 500\) N</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 2: Verify — tension in rope PQ <span class="marks">A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>Tension in rope = 500 N</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 3: F = ma for the block alone <span class="marks">M1 A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>Forces on block: Normal reaction \(R\) upward (from cage floor), weight \(10g\) downward.</p>
+                <p>Taking up as positive:</p>
+                <p>\(R - 10g = 10 \times 0.2\)</p>
+                <p>\(R = 10(9.8) + 2 = 98 + 2 = 100\) N</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 4: State answer <span class="marks">A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>Force on block by lift cage = 100 N (upwards)</p>
+                <p><strong>Check:</strong> This is greater than the block's weight (98 N) — makes sense because the lift is accelerating upwards.</p>
+            </div>
+        </div>
+
+        <div class="examiner-tip">
+            For lift problems: if accelerating up, every object inside "feels heavier" (R > mg). If accelerating down, everything "feels lighter" (R < mg). At constant speed, R = mg exactly. This is why you feel heavy when a lift starts going up.
+        </div>
+    </div>
+
+    <!-- Example 2 -->
+    <div class="card">
+        <h3>Example 2: Car towing trailer — find acceleration and tension <span class="marks">7 marks</span></h3>
+        <p class="paper-ref">Based on: June 2023 Q4 | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202023%20QP%20(Mech).pdf" target="_blank">View Paper</a></p>
+
+        <div class="card" style="background: #f7fafc;">
+            <p><strong>Question:</strong> A car (1200 kg) tows a trailer (400 kg) on a horizontal road. Car resistance = \(2R\) N, trailer resistance = \(R\) N. Driving force = 7400 N, tension = 2400 N. Find the value of \(a\) (acceleration).</p>
+        </div>
+
+        <button class="reveal-all" onclick="toggleAll(this)">Reveal all steps</button>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 1: F = ma for the trailer <span class="marks">M1 A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>Forces on trailer (horizontal): Tension \(T = 2400\) N forward, resistance \(R\) backward.</p>
+                <p>\(2400 - R = 400a\) ... (1)</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 2: F = ma for the whole system <span class="marks">M1 A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>Whole system (car + trailer), total mass = 1600 kg:</p>
+                <p>\(7400 - 2R - R = 1600a\)</p>
+                <p>\(7400 - 3R = 1600a\) ... (2)</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 3: Solve simultaneously <span class="marks">M1 A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>From (1): \(R = 2400 - 400a\)</p>
+                <p>Substitute into (2): \(7400 - 3(2400 - 400a) = 1600a\)</p>
+                <p>\(7400 - 7200 + 1200a = 1600a\)</p>
+                <p>\(200 = 400a\)</p>
+                <p>\(a = 0.5\) m s\(^{-2}\) <span class="marks">A1</span></p>
+                <p>(And \(R = 2400 - 200 = 2200\) N)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Example 3 -->
+    <div class="card">
+        <h3>Example 3: Towbar breaks — trailer decelerates <span class="marks">12 marks total</span></h3>
+        <p class="paper-ref">Based on: June 2024 Q4 | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202024%20QP%20(Mech).pdf" target="_blank">View Paper</a></p>
+
+        <div class="card" style="background: #f7fafc;">
+            <p><strong>Question:</strong> A car (800 kg) tows a trailer (600 kg). Car resistance = 400 N, trailer resistance = \(R\) N. Driving force = 1740 N, acceleration = 0.6 m s\(^{-2}\). (a) Show \(R = 500\). (b) Find tension \(T\). The towbar breaks at 12.5 m s\(^{-1}\). (c) Show deceleration = \(\frac{5}{6}\) m s\(^{-2}\). (d) Find distance \(d\) before trailer stops.</p>
+        </div>
+
+        <button class="reveal-all" onclick="toggleAll(this)">Reveal all steps</button>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 1: Whole system F = ma to find R <span class="marks">M1 A1 A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>Total mass = 800 + 600 = 1400 kg</p>
+                <p>\(1740 - 400 - R = 1400 \times 0.6\)</p>
+                <p>\(1340 - R = 840\)</p>
+                <p>\(R = 500\) N as required</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 2: Trailer alone to find T <span class="marks">M1 A1 A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>For trailer: \(T - R = 600 \times 0.6\)</p>
+                <p>\(T - 500 = 360\)</p>
+                <p>\(T = 860\) N</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 3: After towbar breaks — deceleration of trailer <span class="marks">B1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>Towbar breaks → T = 0. Only force on trailer = resistance = 500 N (backward).</p>
+                <p>\(F = ma\): \(-500 = 600 \times a\)</p>
+                <p>\(a = -\dfrac{500}{600} = -\dfrac{5}{6}\) m s\(^{-2}\)</p>
+                <p>Deceleration = \(\dfrac{5}{6}\) m s\(^{-2}\) as required.</p>
+            </div>
+        </div>
+
+        <div class="step" onclick="toggleStep(this)">
+            <div class="step-header">
+                <span>Step 4: Distance before trailer stops <span class="marks">M1 A1 A1</span></span>
+                <span class="toggle-icon"></span>
+            </div>
+            <div class="step-content">
+                <p>For trailer after break: \(u = 12.5\), \(v = 0\), \(a = -\frac{5}{6}\)</p>
+                <p>Using \(v^2 = u^2 + 2as\):</p>
+                <p>\(0 = 12.5^2 + 2\left(-\dfrac{5}{6}\right)d\)</p>
+                <p>\(\dfrac{10d}{6} = 156.25\)</p>
+                <p>\(d = \dfrac{156.25 \times 6}{10} = \dfrac{937.5}{10} = 93.75\) m</p>
+                <p>Or: \(d = 93.8\) m (3 s.f.)</p>
+            </div>
+        </div>
+
+        <div class="examiner-tip">
+            The "towbar breaks" scenario is the most common follow-up in towing questions. Remember: after the break, each object moves independently. The car may accelerate (driving force still acts but now only moves the car), while the trailer decelerates (only resistance acts). Use the speed at the moment of breaking as the initial speed for both.
+        </div>
+    </div>
+
+    <h2>Common Pitfalls</h2>
+    <div class="card">
+        <ul style="padding-left: 1.5rem;">
+            <li><strong>Confusing tension and driving force:</strong> The driving force acts on the CAR only, not on the trailer. The tension in the towbar is what pulls the trailer.</li>
+            <li><strong>Applying F = ma to wrong object:</strong> Clearly state "For the trailer:" or "For the whole system:" before each equation.</li>
+            <li><strong>Missing resistance on the car:</strong> The car has BOTH a driving force forward AND resistance backward, PLUS the tension pulling backward (via Newton's third law, the trailer pulls back on the car).</li>
+            <li><strong>Lift problems — wrong direction for a:</strong> Deceleration going up is equivalent to acceleration going down. Think about which direction the NET force points.</li>
+            <li><strong>After towbar breaks — using wrong mass:</strong> Now each object has its own mass in F = ma.</li>
+        </ul>
+    </div>
+
+    <h2>Exam Appearances</h2>
+    <table>
+        <tr><th>Session</th><th>Question</th><th>Marks</th><th>Key Feature</th></tr>
+        <tr><td>June 2022</td><td>Q4</td><td>6</td><td>Lift cage with block, find tension and normal reaction</td></tr>
+        <tr><td>June 2023</td><td>Q4</td><td>7</td><td>Car towing trailer, resistance as 2R and R, find a</td></tr>
+        <tr><td>June 2024</td><td>Q4</td><td>12</td><td>Car + trailer, show R, find T, towbar breaks, find distance</td></tr>
+    </table>
+
+    <h2>Links to Past Papers</h2>
+    <div class="card">
+        <ul style="padding-left: 1.5rem;">
+            <li><a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202022%20QP%20(Mech).pdf" target="_blank">June 2022 Paper</a> | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FMS%2FJune%202022%20MS%20(Mech).pdf" target="_blank">Mark Scheme</a></li>
+            <li><a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202023%20QP%20(Mech).pdf" target="_blank">June 2023 Paper</a> | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FMS%2FJune%202023%20MS%20(Mech).pdf" target="_blank">Mark Scheme</a></li>
+            <li><a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202024%20QP%20(Mech).pdf" target="_blank">June 2024 Paper</a> | <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FMS%2FJune%202024%20MS%20(Mech).pdf" target="_blank">Mark Scheme</a></li>
+        </ul>
+    </div>
+
+    <script>
+        function toggleStep(el) {
+            el.classList.toggle('open');
+        }
+
+        function toggleAll(btn) {
+            const card = btn.closest('.card');
+            const steps = card.querySelectorAll('.step');
+            const allOpen = [...steps].every(s => s.classList.contains('open'));
+            steps.forEach(s => {
+                if (allOpen) s.classList.remove('open');
+                else s.classList.add('open');
+            });
+            btn.textContent = allOpen ? 'Reveal all steps' : 'Hide all steps';
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "\\(", right: "\\)", display: false},
+                    {left: "\\[", right: "\\]", display: true}
+                ]
+            });
+        });
+    </script>
+</body>
+</html>

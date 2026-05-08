@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numerical Methods — Edexcel A Level Maths</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #2b6cb0;
+            --success: #276749;
+            --warning: #c05621;
+            --danger: #c53030;
+            --bg: #f7fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #2d3748;
+            --muted: #718096;
+            --mark: #805ad5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        h1 { color: var(--primary); margin-bottom: 0.5rem; font-size: 2rem; }
+        h2 { color: var(--primary); margin: 2.5rem 0 1rem; font-size: 1.4rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        h3 { color: var(--accent); margin: 1.5rem 0 0.75rem; font-size: 1.15rem; }
+
+        .subtitle { color: var(--muted); margin-bottom: 2rem; font-size: 1.05rem; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-card .number { font-size: 1.8rem; font-weight: 700; color: var(--accent); }
+        .stat-card .label { font-size: 0.85rem; color: var(--muted); }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .approach-step {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .approach-step:last-child { border-bottom: none; }
+
+        .step-number {
+            background: var(--accent);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .step-content { flex: 1; }
+        .step-content strong { color: var(--primary); }
+
+        .pitfall-box {
+            background: #fff5f5;
+            border: 1px solid #fed7d7;
+            border-left: 4px solid var(--danger);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .pitfall-box h3 { color: var(--danger); margin-top: 0; }
+        .pitfall-box ul { margin-left: 1.5rem; margin-top: 0.5rem; }
+        .pitfall-box li { margin: 0.5rem 0; }
+
+        .tip-box {
+            background: #f0fff4;
+            border: 1px solid #c6f6d5;
+            border-left: 4px solid var(--success);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .tip-box h3 { color: var(--success); margin-top: 0; }
+
+        .question-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.92rem;
+        }
+
+        .question-table th {
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+        }
+
+        .question-table td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .question-table tr:hover { background: #ebf8ff; }
+
+        .question-table a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .question-table a:hover { text-decoration: underline; }
+
+        .question-table .go-btn {
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+        }
+
+        .question-table .go-btn:hover { background: var(--primary); }
+
+        .example-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .example-tab {
+            padding: 0.5rem 1rem;
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .example-tab:hover { border-color: var(--accent); }
+        .example-tab.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+        .example-panel { display: none; }
+        .example-panel.active { display: block; }
+
+        .question-text {
+            background: #ebf8ff;
+            border: 1px solid #bee3f8;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.02rem;
+        }
+
+        .question-text .links {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #bee3f8;
+            font-size: 0.85rem;
+        }
+
+        .question-text .links a {
+            color: var(--accent);
+            text-decoration: none;
+            margin-right: 1.5rem;
+        }
+
+        .question-text .links a:hover { text-decoration: underline; }
+
+        .step-reveal {
+            margin: 0.75rem 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .step-reveal-header {
+            padding: 0.75rem 1rem;
+            background: #edf2f7;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background 0.2s;
+            gap: 0.5rem;
+        }
+
+        .step-reveal-header:hover { background: #e2e8f0; }
+
+        .step-reveal-header .arrow {
+            transition: transform 0.3s;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .step-reveal-header.open .arrow { transform: rotate(90deg); }
+
+        .step-reveal-content {
+            display: none;
+            padding: 1.25rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .step-reveal-content.open { display: block; }
+
+        .part-label {
+            display: inline-block;
+            background: #ebf8ff;
+            color: var(--accent);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        .mark-badge {
+            display: inline-block;
+            background: #faf5ff;
+            color: var(--mark);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border: 1px solid #e9d8fd;
+        }
+
+        .mark-award {
+            background: #faf5ff;
+            border: 1px solid #e9d8fd;
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+            color: var(--mark);
+            font-weight: 600;
+        }
+
+        .mark-award::before {
+            content: "\2713 ";
+        }
+
+        .examiner-note {
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            border-radius: 6px;
+            padding: 0.75rem;
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .examiner-note::before {
+            content: "Examiner: ";
+            font-weight: 700;
+            color: var(--warning);
+        }
+
+        .show-all-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            transition: background 0.2s;
+        }
+
+        .show-all-btn:hover { background: var(--primary); }
+
+        .motivation {
+            background: #eef6ff;
+            border: 1px solid #c3dafe;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.93rem;
+        }
+
+        .motivation::before {
+            content: "\1F4AD Thinking: ";
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .algebra-chain {
+            margin: 0.5rem 0;
+            padding-left: 1rem;
+            border-left: 3px solid var(--border);
+        }
+
+        .algebra-chain .reason {
+            color: var(--muted);
+            font-size: 0.85rem;
+            font-style: italic;
+            margin: 0.25rem 0;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            h1 { font-size: 1.5rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .example-selector { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<p style="margin-bottom: 1rem;"><a href="../index.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">&larr; All Topics</a></p>
+
+<h1>Numerical Methods</h1>
+<p class="subtitle">Iteration formulas, Newton-Raphson, trapezium rule, sign change arguments for locating roots</p>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="number">12/14</div>
+        <div class="label">Papers with this topic</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">5-10</div>
+        <div class="label">Typical marks</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">Q3-Q8</div>
+        <div class="label">Paper position</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">4 types</div>
+        <div class="label">Sign change, iteration, N-R, trapezium</div>
+    </div>
+</div>
+
+<!-- FULL QUESTION INDEX -->
+<h2>All Past Paper Questions on This Topic</h2>
+<p style="margin-bottom: 1rem; color: var(--muted);">Every numerical methods question from Edexcel 9MA0 (2018-2024). Click "Worked Example" to see a full guided solution.</p>
+
+<table class="question-table">
+    <thead>
+        <tr>
+            <th>Paper</th>
+            <th>Question</th>
+            <th>Description</th>
+            <th>Marks</th>
+            <th>Links</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>P1 June 2018</td>
+            <td>Q4</td>
+            <td>Sign change for \(y = 2\ln(8-x)\) meets \(y=x\); iteration convergence</td>
+            <td>4</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202018%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202018%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p1-jun18-q4'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P2 June 2018</td>
+            <td>Q5</td>
+            <td>Newton-Raphson for \(2x^3 + x^2 - 1 = 0\); explain why \(x_1=0\) fails</td>
+            <td>6</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202018%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202018%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p2-jun18-q5'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P2 June 2019</td>
+            <td>Q11</td>
+            <td>Show \(1.5 &lt; \alpha &lt; 1.6\); iteration formula; long-term behaviour</td>
+            <td>11</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202019%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202019%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 Oct 2020</td>
+            <td>Q2</td>
+            <td>Trapezium rule for \(\int_{0.5}^{2.5}\frac{\sqrt{x}}{\sqrt{1+x}}\,dx\); deduce related integral</td>
+            <td>5</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FOctober%202020%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FOctober%202020%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p2-oct20-q2'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P2 Oct 2020</td>
+            <td>Q7</td>
+            <td>Iteration formula for minimum of curve with \(\ln x\) terms</td>
+            <td>10</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FOctober%202020%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FOctober%202020%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 Oct 2021</td>
+            <td>Q4</td>
+            <td>Iteration for turning point of \(x^2 + \ln(2x^2-4x+5)\); sign change verification</td>
+            <td>9</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FOctober%202021%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FOctober%202021%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 Oct 2021</td>
+            <td>Q11</td>
+            <td>Trapezium rule estimate then exact integration for comparison</td>
+            <td>8</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FOctober%202021%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FOctober%202021%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 June 2022</td>
+            <td>Q8(c)</td>
+            <td>Iteration formula from product rule; find time of max speed</td>
+            <td>3</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202022%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202022%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 June 2022</td>
+            <td>Q5</td>
+            <td>Trapezium rule for \(\int_3^9 \log_3(2x)\,dx\); deduce related integrals</td>
+            <td>6</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202022%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202022%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 June 2022</td>
+            <td>Q6</td>
+            <td>Sign change; Newton-Raphson with \(f(x) = 8\sin(\frac{x}{2}) - 3x + 9\)</td>
+            <td>7</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202022%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202022%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><a class="go-btn" href="#" onclick="selectExample('ex-p2-jun22-q6'); return false;">Worked Example</a></td>
+        </tr>
+        <tr>
+            <td>P1 June 2023</td>
+            <td>Q5</td>
+            <td>Trapezium rule with unknown values; simultaneous equations from area</td>
+            <td>6</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202023%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202023%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 June 2023</td>
+            <td>Q15</td>
+            <td>Iteration with exponentials; staircase diagram; sign change proof</td>
+            <td>13</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202023%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202023%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P1 June 2024</td>
+            <td>Q3</td>
+            <td>Sign change for \(f(x) = x\tan(\frac{x}{2})\); Newton-Raphson once</td>
+            <td>6</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202024%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202024%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+        <tr>
+            <td>P2 June 2024</td>
+            <td>Q6</td>
+            <td>Iteration \(x_{n+1} = \frac{\sqrt{1+2\ln x_n}}{4}\); find \(\alpha\) to 4 d.p.</td>
+            <td>7</td>
+            <td>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202024%20QP.pdf" target="_blank">QP</a>
+                <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202024%20MS.pdf" target="_blank">MS</a>
+            </td>
+            <td><span style="color: var(--muted); font-size: 0.8rem;">Coming soon</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- GUIDED APPROACH -->
+<h2>The Approach</h2>
+
+<h3>A. Sign Change Argument (Locating a Root)</h3>
+<div class="card">
+    <p style="margin-bottom: 1rem; color: var(--muted);">Used to show a root lies in an interval \([a, b]\):</p>
+    <div class="approach-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+            <strong>Evaluate \(f(a)\) and \(f(b)\)</strong><br>
+            Substitute the endpoints into the function. Show your calculations clearly.
+        </div>
+    </div>
+    <div class="approach-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+            <strong>Identify the sign change</strong><br>
+            State that \(f(a) &lt; 0\) and \(f(b) &gt; 0\) (or vice versa). Be explicit about the signs.
+        </div>
+    </div>
+    <div class="approach-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+            <strong>State continuity and conclude</strong><br>
+            Write: "Since there is a change of sign and \(f\) is continuous, there is a root in \([a, b]\)." Both "sign change" and "continuous" are required for full marks.
+        </div>
+    </div>
+</div>
+
+<h3>B. Iteration Formula (Fixed Point Iteration)</h3>
+<div class="card">
+    <p style="margin-bottom: 1rem; color: var(--muted);">Used to find approximate solutions by repeated substitution:</p>
+    <div class="approach-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+            <strong>Apply the formula with \(x_1\)</strong><br>
+            Substitute the given starting value into \(x_{n+1} = g(x_n)\) to find \(x_2\).
+        </div>
+    </div>
+    <div class="approach-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+            <strong>Iterate repeatedly</strong><br>
+            Keep substituting: \(x_2 \to x_3 \to x_4 \to \ldots\) Show at least the values asked for to the required decimal places.
+        </div>
+    </div>
+    <div class="approach-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+            <strong>State the converged value</strong><br>
+            When successive values agree to the required accuracy, state the root. Show enough iterations to demonstrate convergence.
+        </div>
+    </div>
+</div>
+
+<h3>C. Newton-Raphson Method</h3>
+<div class="card">
+    <p style="margin-bottom: 1rem; color: var(--muted);">More powerful iteration using the tangent line: \(\displaystyle x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}\)</p>
+    <div class="approach-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+            <strong>Find \(f'(x)\) if not given</strong><br>
+            Differentiate the function. This is often a preceding part of the question.
+        </div>
+    </div>
+    <div class="approach-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+            <strong>Evaluate \(f(x_0)\) and \(f'(x_0)\)</strong><br>
+            Substitute the given starting value into both \(f\) and \(f'\). Show these calculations.
+        </div>
+    </div>
+    <div class="approach-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+            <strong>Apply the formula</strong><br>
+            Compute \(x_1 = x_0 - \frac{f(x_0)}{f'(x_0)}\). Give the answer to the required decimal places.
+        </div>
+    </div>
+</div>
+
+<h3>D. Trapezium Rule</h3>
+<div class="card">
+    <p style="margin-bottom: 1rem; color: var(--muted);">Approximating \(\int_a^b f(x)\,dx\) using trapezoid strips:</p>
+    <p style="margin-bottom: 1rem;">$$\int_a^b y\,dx \approx \frac{h}{2}\left[y_0 + y_n + 2(y_1 + y_2 + \cdots + y_{n-1})\right]$$</p>
+    <p style="margin-bottom: 0.5rem;">where \(h = \frac{b-a}{n}\) is the strip width.</p>
+    <div class="approach-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+            <strong>Identify \(h\)</strong><br>
+            Calculate the strip width from the table: \(h = x_1 - x_0\). State this value explicitly (earns B1).
+        </div>
+    </div>
+    <div class="approach-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+            <strong>Apply the formula</strong><br>
+            First + Last \(y\) values, plus 2 times the sum of all middle \(y\) values, all multiplied by \(\frac{h}{2}\).
+        </div>
+    </div>
+    <div class="approach-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+            <strong>Calculate carefully</strong><br>
+            Show the bracket contents before multiplying by \(\frac{h}{2}\). Give answer to required accuracy.
+        </div>
+    </div>
+</div>
+
+<!-- EXAMINER PITFALLS -->
+<div class="pitfall-box">
+    <h3>Common Pitfalls (from Examiner Reports)</h3>
+    <ul>
+        <li><strong>Not stating continuity in sign change:</strong> Writing "change of sign therefore root" without mentioning "f is continuous" loses the A1 mark every time. Both elements are required.</li>
+        <li><strong>Insufficient iterations shown:</strong> When asked to find a root by iteration, you must show enough steps. Writing only the final answer with no intermediate values scores M0.</li>
+        <li><strong>Wrong trapezium rule formula:</strong> Forgetting the factor of 2 on the middle terms, or confusing \(h\) with the number of strips. Also, missing the outer brackets around the formula.</li>
+        <li><strong>Newton-Raphson with no evidence:</strong> Simply writing the answer without showing \(x_1 = x_0 - \frac{f(x_0)}{f'(x_0)}\) with substituted values earns M0.</li>
+        <li><strong>Rounding too early in iteration:</strong> Use full calculator precision for intermediate values. Only round the final answer to the requested accuracy.</li>
+        <li><strong>No conclusion in sign change:</strong> After calculating values and noting signs, you must write a conclusion such as "therefore root lies in [3.6, 3.7]".</li>
+    </ul>
+</div>
+
+<div class="tip-box">
+    <h3>What Top Candidates Do</h3>
+    <ul>
+        <li>For sign change: write a template sentence: "f(a) = ..., f(b) = .... Change of sign, f continuous, therefore root in [a, b]." This guarantees all marking points.</li>
+        <li>For iteration: show at least one more iteration than asked, to demonstrate convergence. Write values to at least one more decimal place than required.</li>
+        <li>For Newton-Raphson: explicitly write \(x_1 = x_0 - \frac{f(x_0)}{f'(x_0)}\) with numerical substitution shown, even if only one application is asked for.</li>
+        <li>For trapezium rule: state \(h = ...\) separately before substituting. This earns the B1 mark even if arithmetic goes wrong later.</li>
+    </ul>
+</div>
+
+<!-- WORKED EXAMPLES -->
+<h2>Worked Examples</h2>
+<p style="color: var(--muted); margin-bottom: 0.5rem;">Select a question to see the full guided solution:</p>
+
+<div class="example-selector">
+    <div class="example-tab active" onclick="selectExample('ex-p1-jun18-q4')">June 2018 P1 Q4</div>
+    <div class="example-tab" onclick="selectExample('ex-p2-jun18-q5')">June 2018 P2 Q5</div>
+    <div class="example-tab" onclick="selectExample('ex-p2-oct20-q2')">Oct 2020 P2 Q2</div>
+    <div class="example-tab" onclick="selectExample('ex-p2-jun22-q6')">June 2022 P2 Q6</div>
+</div>
+
+<!-- ===================== EXAMPLE 1: P1 June 2018 Q4 - SIGN CHANGE + ITERATION ===================== -->
+<div class="example-panel active" id="ex-p1-jun18-q4">
+    <div class="question-text">
+        <p><strong>Paper 1 - June 2018 - Question 4</strong> (4 marks)</p>
+        <p>The curve with equation \(y = 2\ln(8 - x)\) meets the line \(y = x\) at a single point, \(x = \alpha\).</p>
+        <p><strong>(a)</strong> Show that \(3 &lt; \alpha &lt; 4\) <em>[2 marks]</em></p>
+        <p><strong>(b)</strong> A student uses the iteration formula \(x_{n+1} = 2\ln(8 - x_n)\) with \(x_1 = 4\). Using the graph, determine whether or not this iteration formula can be used to find an approximation for \(\alpha\), justifying your answer. <em>[2 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FQP%2FJune%202018%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-1%2FMS%2FJune%202018%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Set up the function and evaluate at endpoints</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The curves \(y = 2\ln(8-x)\) and \(y = x\) meet where \(2\ln(8-x) = x\), i.e. where \(2\ln(8-x) - x = 0\). Define \(f(x) = 2\ln(8-x) - x\). If \(f\) changes sign between 3 and 4, there must be a root in that interval.</div>
+            <p>At the intersection, \(2\ln(8-x) = x\). Let \(f(x) = 2\ln(8-x) - x\):</p>
+            <div class="algebra-chain">
+                <p>$$f(3) = 2\ln(8-3) - 3 = 2\ln 5 - 3 = 2(1.6094...) - 3 = 0.219... &gt; 0$$</p>
+                <p>$$f(4) = 2\ln(8-4) - 4 = 2\ln 4 - 4 = 2(1.3863...) - 4 = -1.227... &lt; 0$$</p>
+            </div>
+            <p><strong>Since \(f(3) &gt; 0\) and \(f(4) &lt; 0\), there is a change of sign. As \(f\) is continuous on \([3, 4]\), there is a root \(\alpha\) in this interval. Hence \(3 &lt; \alpha &lt; 4\).</strong></p>
+            <div class="mark-award">M1 - Attempts \(f(3)\) and \(f(4)\) and considers signs</div>
+            <div class="mark-award">A1* - Both values correct to 1 s.f., sign change stated, continuity referenced, conclusion given</div>
+            <div class="examiner-note">You must mention "continuous" (or equivalent) AND give a conclusion. Just writing "sign change" without "continuous" or without "therefore root" loses the A1. Minimum acceptable: "change of sign, continuous, root in [3, 4]".</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 2: Determine convergence using a cobweb diagram</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The iteration \(x_{n+1} = 2\ln(8-x_n)\) means \(x_{n+1} = g(x_n)\) where \(g(x) = 2\ln(8-x)\). Starting at \(x_1 = 4\), we draw a cobweb on the given graph of \(y = g(x)\) and \(y = x\). If the cobweb spirals inwards, the iteration converges to the root.</div>
+            <p>Starting at \(x_1 = 4\) on the line \(y = x\):</p>
+            <ul style="margin: 0.5rem 0 0.75rem 1.5rem;">
+                <li>Go vertically to curve \(y = 2\ln(8-x)\): gives \(y_1 = 2\ln 4 \approx 2.77\)</li>
+                <li>Go horizontally to line \(y = x\): gives \(x_2 \approx 2.77\)</li>
+                <li>Go vertically to curve: gives \(y_2 = 2\ln(5.23) \approx 3.31\)</li>
+                <li>Go horizontally to line: gives \(x_3 \approx 3.31\)</li>
+            </ul>
+            <p>The cobweb diagram spirals inward toward the intersection point \(\alpha\).</p>
+            <p><strong>The iteration formula can be used to find an approximation for \(\alpha\) because the cobweb spirals inwards (the iterations converge to the root).</strong></p>
+            <div class="mark-award">M1 - Drawing/describing a cobweb diagram starting at \(x_1 = 4\) with at least two spirals</div>
+            <div class="mark-award">A1 - Correct cobweb spiralling inwards AND statement that the iteration can be used with reason</div>
+            <div class="examiner-note">You must use the graph (draw the cobweb). A purely numerical approach was not the intended method. Suitable reasons for convergence: "it spirals inwards", "it gets closer to the root", "it converges".</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p1-jun18-q4')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE 2: P2 June 2018 Q5 - NEWTON-RAPHSON ===================== -->
+<div class="example-panel" id="ex-p2-jun18-q5">
+    <div class="question-text">
+        <p><strong>Paper 2 - June 2018 - Question 5</strong> (6 marks)</p>
+        <p>The equation \(2x^3 + x^2 - 1 = 0\) has exactly one real root.</p>
+        <p><strong>(a)</strong> Show that, for this equation, the Newton-Raphson formula can be written as $$x_{n+1} = \frac{4x_n^3 + x_n^2 + 1}{6x_n^2 + 2x_n}$$ <em>[3 marks]</em></p>
+        <p><strong>(b)</strong> Using the formula in part (a) with \(x_1 = 1\), find the values of \(x_2\) and \(x_3\). <em>[2 marks]</em></p>
+        <p><strong>(c)</strong> Explain why, for this question, the Newton-Raphson method cannot be used with \(x_1 = 0\). <em>[1 mark]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202018%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202018%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Write down \(f(x)\) and \(f'(x)\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The Newton-Raphson formula is \(x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}\). To derive the given form, we need both \(f(x)\) and \(f'(x)\), then combine into a single fraction.</div>
+            <p>From the equation \(2x^3 + x^2 - 1 = 0\):</p>
+            <div class="algebra-chain">
+                <p>$$f(x) = 2x^3 + x^2 - 1$$</p>
+                <p class="reason">Differentiate term by term:</p>
+                <p>$$f'(x) = 6x^2 + 2x$$</p>
+            </div>
+            <div class="mark-award">B1 - States \(f'(x) = 6x^2 + 2x\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 2: Substitute into Newton-Raphson and simplify</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">We combine \(x_n - \frac{f(x_n)}{f'(x_n)}\) into a single fraction by writing \(x_n\) over the common denominator, then simplify the numerator.</div>
+            <div class="algebra-chain">
+                <p>$$x_{n+1} = x_n - \frac{2x_n^3 + x_n^2 - 1}{6x_n^2 + 2x_n}$$</p>
+                <p class="reason">Write as a single fraction:</p>
+                <p>$$= \frac{x_n(6x_n^2 + 2x_n) - (2x_n^3 + x_n^2 - 1)}{6x_n^2 + 2x_n}$$</p>
+                <p class="reason">Expand numerator: \(6x_n^3 + 2x_n^2 - 2x_n^3 - x_n^2 + 1\)</p>
+                <p>$$= \frac{4x_n^3 + x_n^2 + 1}{6x_n^2 + 2x_n}$$</p>
+            </div>
+            <p>$$\boxed{x_{n+1} = \frac{4x_n^3 + x_n^2 + 1}{6x_n^2 + 2x_n}} \quad \square$$</p>
+            <div class="mark-award">M1 - Substitutes \(f(x_n)\) and their \(f'(x_n)\) into the Newton-Raphson formula</div>
+            <div class="mark-award">A1* - Reaches the given answer with clear algebraic working</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 3: Calculate \(x_2\) and \(x_3\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Straightforward substitution. Put \(x_1 = 1\) into the formula to get \(x_2\), then \(x_2\) in to get \(x_3\).</div>
+            <div class="algebra-chain">
+                <p class="reason">With \(x_1 = 1\):</p>
+                <p>$$x_2 = \frac{4(1)^3 + (1)^2 + 1}{6(1)^2 + 2(1)} = \frac{4 + 1 + 1}{6 + 2} = \frac{6}{8} = \frac{3}{4}$$</p>
+                <p class="reason">With \(x_2 = \frac{3}{4}\):</p>
+                <p>$$x_3 = \frac{4\left(\frac{3}{4}\right)^3 + \left(\frac{3}{4}\right)^2 + 1}{6\left(\frac{3}{4}\right)^2 + 2\left(\frac{3}{4}\right)} = \frac{\frac{27}{16} + \frac{9}{16} + \frac{16}{16}}{\frac{54}{16} + \frac{24}{16}} = \frac{\frac{52}{16}}{\frac{78}{16}} = \frac{52}{78} = \frac{2}{3}$$</p>
+            </div>
+            <p>$$x_2 = \frac{3}{4}, \quad x_3 = \frac{2}{3}$$</p>
+            <div class="mark-award">M1 - Correct substitution of \(x_1 = 1\) into the formula</div>
+            <div class="mark-award">A1 - Both \(x_2 = \frac{3}{4}\) and \(x_3 = \frac{2}{3}\) correct</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)</span> Step 4: Explain why \(x_1 = 0\) cannot be used</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Newton-Raphson uses the tangent line at each point. If \(f'(x_0) = 0\), the tangent is horizontal and never crosses the x-axis, making the formula undefined (division by zero).</div>
+            <p>When \(x_1 = 0\):</p>
+            <p>$$f'(0) = 6(0)^2 + 2(0) = 0$$</p>
+            <p>The denominator of the Newton-Raphson formula is zero, so the formula is undefined.</p>
+            <p><strong>There is a stationary point at \(x = 0\), so the tangent to the curve is horizontal and would never cross the x-axis. The method cannot produce a next approximation.</strong></p>
+            <div class="mark-award">B1 - Valid explanation referring to the stationary point or horizontal tangent at \(x = 0\)</div>
+            <div class="examiner-note">Acceptable: "stationary point at x = 0", "tangent is horizontal", "f'(0) = 0 so division by zero", "tangent would not meet the x-axis". All score B1.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p2-jun18-q5')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE 3: P2 Oct 2020 Q2 - TRAPEZIUM RULE ===================== -->
+<div class="example-panel" id="ex-p2-oct20-q2">
+    <div class="question-text">
+        <p><strong>Paper 2 - October 2020 - Question 2</strong> (5 marks)</p>
+        <p>A table of values is given:</p>
+        <table style="margin: 0.75rem 0; border-collapse: collapse; width: 100%;">
+            <tr style="background: #edf2f7;">
+                <td style="padding: 0.4rem 0.8rem; border: 1px solid var(--border); font-weight: 600;">\(x\)</td>
+                <td style="padding: 0.4rem 0.8rem; border: 1px solid var(--border);">0.5</td>
+                <td style="padding: 0.4rem 0.8rem; border: 1px solid var(--border);">1</td>
+                <td style="padding: 0.4rem 0.8rem; border: 1px solid var(--border);">1.5</td>
+                <td style="padding: 0.4rem 0.8rem; border: 1px solid var(--border);">2</td>
+                <td style="padding: 0.4rem 0.8rem; border: 1px solid var(--border);">2.5</td>
+            </tr>
+            <tr>
+                <td style="padding: 0.4rem 0.8rem; border: 1px solid var(--border); font-weight: 600;">\(y\)</td>
+                <td style="padding: 0.4rem 0.8rem; border: 1px solid var(--border);">0.5774</td>
+                <td style="padding: 0.4rem 0.8rem; border: 1px solid var(--border);">0.7071</td>
+                <td style="padding: 0.4rem 0.8rem; border: 1px solid var(--border);">0.7746</td>
+                <td style="padding: 0.4rem 0.8rem; border: 1px solid var(--border);">0.8165</td>
+                <td style="padding: 0.4rem 0.8rem; border: 1px solid var(--border);">0.8452</td>
+            </tr>
+        </table>
+        <p><strong>(a)</strong> Use the trapezium rule, with all the values of \(y\) in the table, to find an estimate for \(\displaystyle\int_{0.5}^{2.5} \frac{\sqrt{x}}{\sqrt{1+x}}\,dx\), giving your answer to 3 significant figures. <em>[3 marks]</em></p>
+        <p><strong>(b)</strong> Using your answer to part (a), deduce an estimate for \(\displaystyle\int_{0.5}^{2.5} \frac{9\sqrt{x}}{\sqrt{1+x}}\,dx\) <em>[1 mark]</em></p>
+        <p><strong>(c)</strong> Given that \(\displaystyle\int_{0.5}^{2.5} \frac{9\sqrt{x}}{\sqrt{1+x}}\,dx = 4.535\) (4 s.f.), comment on the accuracy of your estimate. <em>[1 mark]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FOctober%202020%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FOctober%202020%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Identify the strip width \(h\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The trapezium rule needs \(h\), the width of each strip. Read from the table: x-values are 0.5, 1, 1.5, 2, 2.5 with gaps of 0.5. Stating \(h\) explicitly earns a B1 mark.</div>
+            <p>From the table, the \(x\) values are equally spaced:</p>
+            <p>$$h = 1 - 0.5 = 0.5$$</p>
+            <p>There are 5 ordinates giving 4 strips.</p>
+            <div class="mark-award">B1 - States or uses \(h = 0.5\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 2: Apply the trapezium rule formula</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The formula is \(\frac{h}{2}[y_0 + y_n + 2(y_1 + y_2 + \cdots + y_{n-1})]\). Identify "first and last" (\(y_0 = 0.5774\), \(y_4 = 0.8452\)) and "middle ones that get doubled" (\(y_1 = 0.7071\), \(y_2 = 0.7746\), \(y_3 = 0.8165\)).</div>
+            <div class="algebra-chain">
+                <p>$$\int_{0.5}^{2.5} y\,dx \approx \frac{h}{2}\left[y_0 + y_4 + 2(y_1 + y_2 + y_3)\right]$$</p>
+                <p class="reason">Substitute values:</p>
+                <p>$$= \frac{0.5}{2}\left[0.5774 + 0.8452 + 2(0.7071 + 0.7746 + 0.8165)\right]$$</p>
+                <p class="reason">First + Last = 1.4226; Middle sum = 2.2982; Doubled = 4.5964</p>
+                <p>$$= 0.25 \times [1.4226 + 4.5964]$$</p>
+                <p>$$= 0.25 \times 6.0190 = 1.50475...$$</p>
+            </div>
+            <p>$$\boxed{\approx 1.50 \text{ (3 s.f.)}}$$</p>
+            <div class="mark-award">M1 - Correct structure of trapezium rule with all y values used, no repeats</div>
+            <div class="mark-award">A1 - Answer of awrt 1.50</div>
+            <div class="examiner-note">Writing \(\frac{h}{2} \times\) first + last + 2(middle) without enclosing outer brackets scores M0 unless the correct answer is obtained (implying the brackets). Always write the full formula clearly.</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 3: Deduce the related integral</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The new integrand \(\frac{9\sqrt{x}}{\sqrt{1+x}}\) is simply 9 times the original. Since \(\int 9f(x)\,dx = 9\int f(x)\,dx\), multiply your answer by 9. Do NOT apply the trapezium rule again.</div>
+            <p>Since \(\frac{9\sqrt{x}}{\sqrt{1+x}} = 9 \times \frac{\sqrt{x}}{\sqrt{1+x}}\):</p>
+            <p>$$\int_{0.5}^{2.5} \frac{9\sqrt{x}}{\sqrt{1+x}}\,dx \approx 9 \times 1.50 = 4.51 \text{ (3 s.f.)}$$</p>
+            <div class="mark-award">B1ft - Correctly deduces \(9 \times\) their answer to part (a)</div>
+            <div class="examiner-note">Attempting the trapezium rule again here scores M0. The question says "using your answer to part (a)" - it requires you to recognise the factor of 9 relationship.</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)</span> Step 4: Comment on accuracy</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Compare our estimate (4.51) to the exact value (4.535). The difference tells us whether the trapezium rule overestimates or underestimates, and by how much.</div>
+            <p>Our estimate: \(\approx 4.51\)</p>
+            <p>Exact value: 4.535</p>
+            <p>$$\text{Percentage error} = \frac{|4.535 - 4.51|}{4.535} \times 100\% \approx 0.55\%$$</p>
+            <p><strong>The trapezium rule gives an underestimate. This is because the curve \(y = \frac{\sqrt{x}}{\sqrt{1+x}}\) is concave in this region, so the straight-line tops of the trapezia lie below the curve.</strong></p>
+            <div class="mark-award">B1 - States it is an underestimate with valid reason, or gives a sensible percentage error</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p2-oct20-q2')">Show Full Solution</button>
+</div>
+
+<!-- ===================== EXAMPLE 4: P2 June 2022 Q6 - SIGN CHANGE + NEWTON-RAPHSON ===================== -->
+<div class="example-panel" id="ex-p2-jun22-q6">
+    <div class="question-text">
+        <p><strong>Paper 2 - June 2022 - Question 6</strong> (7 marks)</p>
+        <p>The curve has equation \(y = f(x)\) where</p>
+        <p>$$f(x) = 8\sin\left(\frac{x}{2}\right) - 3x + 9, \quad x &gt; 0$$</p>
+        <p>(\(x\) in radians). The point P is a local maximum on the curve.</p>
+        <p><strong>(a)</strong> Using calculus, find the \(x\) coordinate of P, giving your answer to 3 significant figures. <em>[4 marks]</em></p>
+        <p>The curve crosses the \(x\)-axis at \(x = \alpha\). Given that \(f(4) = 4.274\) and \(f(5) = -1.212\) (to 3 d.p.):</p>
+        <p><strong>(b)</strong> Explain why \(\alpha\) must lie in the interval \([4, 5]\). <em>[1 mark]</em></p>
+        <p><strong>(c)</strong> Taking \(x_0 = 5\) as a first approximation to \(\alpha\), apply the Newton-Raphson method once to obtain a second approximation. Give your answer to 3 significant figures. <em>[2 marks]</em></p>
+        <div class="links">
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FQP%2FJune%202022%20QP.pdf" target="_blank">View Question Paper</a>
+            <a href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FPaper-2%2FMS%2FJune%202022%20MS.pdf" target="_blank">View Mark Scheme</a>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 1: Differentiate \(f(x)\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">At a local maximum, \(f'(x) = 0\). First differentiate \(f(x) = 8\sin(\frac{x}{2}) - 3x + 9\). The chain rule on \(\sin(\frac{x}{2})\) gives a factor of \(\frac{1}{2}\).</div>
+            <p>Differentiate \(f(x) = 8\sin\left(\frac{x}{2}\right) - 3x + 9\):</p>
+            <div class="algebra-chain">
+                <p class="reason">Chain rule on \(8\sin(\frac{x}{2})\): \(8 \times \cos(\frac{x}{2}) \times \frac{1}{2} = 4\cos(\frac{x}{2})\)</p>
+                <p class="reason">Derivative of \(-3x\) is \(-3\); derivative of constant 9 is 0.</p>
+            </div>
+            <p>$$f'(x) = 4\cos\left(\frac{x}{2}\right) - 3$$</p>
+            <div class="mark-award">M1 - Differentiating to get expression of form \(k\cos(\frac{x}{2}) + c\)</div>
+            <div class="mark-award">A1 - Correct derivative: \(4\cos(\frac{x}{2}) - 3\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (a)</span> Step 2: Solve \(f'(x) = 0\) and select the correct maximum</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Set the derivative to zero and solve. Since cosine is periodic, there are multiple solutions. We use the sketch to select the one corresponding to P.</div>
+            <div class="algebra-chain">
+                <p>$$4\cos\left(\frac{x}{2}\right) - 3 = 0$$</p>
+                <p class="reason">Rearrange:</p>
+                <p>$$\cos\left(\frac{x}{2}\right) = \frac{3}{4}$$</p>
+                <p class="reason">Principal value:</p>
+                <p>$$\frac{x}{2} = \cos^{-1}\left(\frac{3}{4}\right) = 0.7227...$$</p>
+                <p class="reason">Multiply by 2:</p>
+                <p>$$x = 2 \times 0.7227... = 1.445... \approx 1.45$$</p>
+            </div>
+            <p>Verify this is a maximum: \(f(1.45) = 8\sin(0.72) - 3(1.45) + 9 \approx 5.29 - 4.35 + 9 = 9.94 &gt; 0\). The curve has a local maximum here, consistent with the sketch showing P above the x-axis before the root \(\alpha\).</p>
+            <p>$$\boxed{x = 1.45 \text{ (3 s.f.)}}$$</p>
+            <div class="mark-award">dM1 - Sets derivative = 0 and proceeds to find a value for \(x\)</div>
+            <div class="mark-award">A1 - Selects the correct turning point matching the sketch (3 s.f.)</div>
+            <div class="examiner-note">There are multiple solutions to \(\cos(\frac{x}{2}) = \frac{3}{4}\). You must select the one matching the maximum P shown in the figure. A correct answer with no working scores 0 marks.</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 3: Explain why \(\alpha\) lies in \([4, 5]\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Standard sign change argument. We are given \(f(4) = 4.274 &gt; 0\) and \(f(5) = -1.212 &lt; 0\). A sign change with continuity guarantees a root.</div>
+            <p>We are given:</p>
+            <div class="algebra-chain">
+                <p>$$f(4) = 4.274 &gt; 0$$</p>
+                <p>$$f(5) = -1.212 &lt; 0$$</p>
+            </div>
+            <p><strong>There is a change of sign. Since \(f\) is continuous on \([4, 5]\), there must be a root \(\alpha\) in this interval.</strong></p>
+            <div class="mark-award">B1 - Change of sign stated, continuity referenced, conclusion given</div>
+            <div class="examiner-note">All three elements required: sign change, continuity, conclusion. Minimum: "change of sign and continuous, so root in [4, 5]". Statements like "x is continuous" or "the interval is continuous" do not earn the mark.</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (c)</span> Step 4: Apply Newton-Raphson with \(x_0 = 5\)</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Newton-Raphson formula: \(x_1 = x_0 - \frac{f(x_0)}{f'(x_0)}\). We know \(f(5) = -1.212\). Calculate \(f'(5)\) using our derivative from part (a). Then substitute.</div>
+            <p>We need \(f(5)\) and \(f'(5)\):</p>
+            <div class="algebra-chain">
+                <p>$$f(5) = -1.212 \quad \text{(given)}$$</p>
+                <p class="reason">Calculate \(f'(5)\):</p>
+                <p>$$f'(5) = 4\cos\left(\frac{5}{2}\right) - 3 = 4\cos(2.5) - 3 = 4(-0.8011) - 3 = -6.204...$$</p>
+            </div>
+            <p>Apply Newton-Raphson:</p>
+            <div class="algebra-chain">
+                <p>$$x_1 = 5 - \frac{f(5)}{f'(5)} = 5 - \frac{-1.212}{-6.204}$$</p>
+                <p class="reason">Compute the fraction: \(\frac{-1.212}{-6.204} = 0.1954...\)</p>
+                <p>$$x_1 = 5 - 0.1954... = 4.8046...$$</p>
+            </div>
+            <p>$$\boxed{\alpha \approx 4.80 \text{ (3 s.f.)}}$$</p>
+            <div class="mark-award">M1 - Attempts \(x_1 = 5 - \frac{f(5)}{f'(5)}\) with evidence of the formula being used</div>
+            <div class="mark-award">A1 - \(x_1 =\) awrt 4.80 (must be 4.80, not just 4.8)</div>
+            <div class="examiner-note">You must show evidence that the Newton-Raphson formula is being applied. Simply writing "4.80" with no working earns M0 A0. The accuracy of your answer (e.g. 4.805) may imply the method if consistent with the N-R calculation.</div>
+        </div>
+    </div>
+
+    <button class="show-all-btn" onclick="showAllSteps('ex-p2-jun22-q6')">Show Full Solution</button>
+</div>
+
+<!-- PATTERN RECOGNITION -->
+<h2>How to Recognise This Question Type</h2>
+<div class="card">
+    <p>Look for these signals in the question:</p>
+    <ul style="margin-left: 1.5rem; line-height: 2;">
+        <li><strong>"Show that \(\alpha\) lies in the interval..."</strong> - sign change argument</li>
+        <li><strong>"Use the iteration formula \(x_{n+1} = ...\)"</strong> - fixed point iteration</li>
+        <li><strong>"Apply the Newton-Raphson method"</strong> - need \(f(x)\) and \(f'(x)\)</li>
+        <li><strong>"Use the trapezium rule with all values..."</strong> - direct application of formula</li>
+        <li><strong>"Using your answer to part (a), deduce..."</strong> - scale/transform the trapezium result (do NOT re-apply)</li>
+        <li><strong>A table of \(x\) and \(y\) values with equal spacing</strong> - trapezium rule</li>
+        <li><strong>"Find \(x_2\), \(x_3\), ..."</strong> or <strong>"find \(\alpha\) to \(n\) decimal places"</strong> - iteration</li>
+        <li><strong>"Explain why Newton-Raphson cannot be used with..."</strong> - stationary point / horizontal tangent</li>
+    </ul>
+</div>
+
+<h2>Key Formulas</h2>
+<div class="card">
+    <ul style="margin-left: 1.5rem; line-height: 2.5;">
+        <li><strong>Trapezium Rule:</strong> \(\displaystyle\int_a^b y\,dx \approx \frac{h}{2}\left[y_0 + y_n + 2(y_1 + y_2 + \cdots + y_{n-1})\right]\) where \(h = \frac{b-a}{n}\)</li>
+        <li><strong>Newton-Raphson:</strong> \(\displaystyle x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}\)</li>
+        <li><strong>Iteration converges if:</strong> \(|g'(\alpha)| &lt; 1\) near the root</li>
+        <li><strong>Sign change test:</strong> If \(f(a)\) and \(f(b)\) have opposite signs and \(f\) is continuous on \([a,b]\), then \(f\) has at least one root in \((a,b)\)</li>
+    </ul>
+</div>
+
+<script>
+    // Toggle individual step
+    function toggleStep(header) {
+        header.classList.toggle('open');
+        header.nextElementSibling.classList.toggle('open');
+    }
+
+    // Show all steps in a panel
+    function showAllSteps(panelId) {
+        const panel = document.getElementById(panelId);
+        panel.querySelectorAll('.step-reveal-header').forEach(h => h.classList.add('open'));
+        panel.querySelectorAll('.step-reveal-content').forEach(c => c.classList.add('open'));
+    }
+
+    // Select an example (tab switching)
+    function selectExample(panelId) {
+        // Deactivate all tabs and panels
+        document.querySelectorAll('.example-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.example-panel').forEach(p => p.classList.remove('active'));
+
+        // Activate the selected panel
+        document.getElementById(panelId).classList.add('active');
+
+        // Find and activate the matching tab
+        const tabs = document.querySelectorAll('.example-tab');
+        const tabMap = {
+            'ex-p1-jun18-q4': 0,
+            'ex-p2-jun18-q5': 1,
+            'ex-p2-oct20-q2': 2,
+            'ex-p2-jun22-q6': 3
+        };
+        if (tabMap[panelId] !== undefined) {
+            tabs[tabMap[panelId]].classList.add('active');
+        }
+
+        // Scroll to worked examples section
+        document.getElementById(panelId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Render KaTeX on load
+    document.addEventListener('DOMContentLoaded', function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ]
+        });
+    });
+</script>
+
+</body>
+</html>

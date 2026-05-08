@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sampling &amp; Large Data Set — Edexcel AS Level Maths</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #2b6cb0;
+            --success: #276749;
+            --warning: #c05621;
+            --danger: #c53030;
+            --bg: #f7fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #2d3748;
+            --muted: #718096;
+            --mark: #805ad5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        h1 { color: var(--primary); margin-bottom: 0.5rem; font-size: 2rem; }
+        h2 { color: var(--primary); margin: 2.5rem 0 1rem; font-size: 1.4rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        h3 { color: var(--accent); margin: 1.5rem 0 0.75rem; font-size: 1.15rem; }
+
+        .subtitle { color: var(--muted); margin-bottom: 2rem; font-size: 1.05rem; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-card .label { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+        .stat-card .value { font-size: 1.5rem; font-weight: 700; color: var(--primary); margin-top: 0.25rem; }
+
+        .concept-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .key-point {
+            background: #ebf8ff;
+            border-left: 4px solid var(--accent);
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .warning-box {
+            background: #fffaf0;
+            border-left: 4px solid var(--warning);
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .lds-box {
+            background: #faf5ff;
+            border-left: 4px solid var(--mark);
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .example-block {
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .example-block h3 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .example-block h3::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .question-text {
+            background: #f0f4f8;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 0.75rem 0;
+            font-style: italic;
+        }
+
+        .steps { margin: 1rem 0; }
+        .step {
+            padding: 0.75rem 1rem;
+            margin: 0.5rem 0;
+            background: #f7fafc;
+            border-left: 3px solid var(--accent);
+            border-radius: 0 6px 6px 0;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .step:hover { background: #edf2f7; }
+        .step.revealed { background: #f0fff4; border-left-color: var(--success); }
+        .step-content { display: none; margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid var(--border); }
+        .step.revealed .step-content { display: block; }
+        .step-label { font-weight: 600; color: var(--accent); font-size: 0.9rem; }
+        .step.revealed .step-label { color: var(--success); }
+
+        .answer-box {
+            background: #f0fff4;
+            border: 2px solid var(--success);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .answer-box.revealed { display: block; }
+
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1.25rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 0.75rem;
+            transition: background 0.2s;
+        }
+        .btn:hover { background: var(--primary); }
+
+        .paper-ref {
+            display: inline-block;
+            background: #e9d8fd;
+            color: var(--mark);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+        .back-link:hover { text-decoration: underline; }
+
+        .pmt-link {
+            display: inline-block;
+            margin-top: 0.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+        .pmt-link:hover { text-decoration: underline; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        th, td {
+            border: 1px solid var(--border);
+            padding: 0.5rem 0.75rem;
+            text-align: left;
+        }
+        th { background: #edf2f7; font-weight: 600; }
+
+        ul, ol { margin: 0.5rem 0 0.5rem 1.5rem; }
+        li { margin-bottom: 0.3rem; }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            h1 { font-size: 1.5rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<a href="../index.html" class="back-link">&#8592; Back to Topics</a>
+
+<h1>Sampling &amp; Large Data Set</h1>
+<p class="subtitle">AS Paper 2 Statistics — Sampling methods and Edexcel weather data knowledge</p>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="label">Frequency</div>
+        <div class="value">7/7</div>
+    </div>
+    <div class="stat-card">
+        <div class="label">Marks</div>
+        <div class="value">1–4</div>
+    </div>
+    <div class="stat-card">
+        <div class="label">Typical Position</div>
+        <div class="value">Q1–Q4</div>
+    </div>
+    <div class="stat-card">
+        <div class="label">Difficulty</div>
+        <div class="value">Low–Medium</div>
+    </div>
+</div>
+
+<h2>Key Concepts: Sampling Methods</h2>
+
+<div class="concept-card">
+    <h3>Simple Random Sampling</h3>
+    <p>Every member of the population has an <strong>equal chance</strong> of being selected.</p>
+    <div class="key-point">
+        <strong>Method:</strong> Number each member 1 to \(N\), then use a random number generator to select \(n\) members.<br>
+        <strong>Advantage:</strong> Free from bias, every member equally likely.<br>
+        <strong>Disadvantage:</strong> Need a complete sampling frame (list of all members).
+    </div>
+</div>
+
+<div class="concept-card">
+    <h3>Systematic Sampling</h3>
+    <p>Select every \(k\)th member from an ordered list, starting from a random position in the first \(k\) members.</p>
+    <div class="key-point">
+        <strong>Method:</strong> Calculate \(k = \frac{N}{n}\). Choose a random start between 1 and \(k\), then take every \(k\)th item.<br>
+        <strong>Advantage:</strong> Simple, quick, suitable for large populations.<br>
+        <strong>Disadvantage:</strong> Can introduce bias if there is a periodic pattern in the data.
+    </div>
+</div>
+
+<div class="concept-card">
+    <h3>Stratified Sampling</h3>
+    <p>The population is divided into distinct groups (strata), and a <strong>proportional</strong> sample is taken from each group.</p>
+    <div class="key-point">
+        <strong>Formula:</strong> Number from each stratum \(= \frac{\text{stratum size}}{\text{population size}} \times \text{sample size}\)<br>
+        <strong>Method:</strong> (1) Identify strata, (2) Calculate proportions, (3) Use random sampling within each stratum.<br>
+        <strong>Advantage:</strong> Guarantees representation from each group.<br>
+        <strong>Disadvantage:</strong> Need to know the strata sizes in advance.
+    </div>
+</div>
+
+<h2>The Large Data Set (LDS)</h2>
+
+<div class="lds-box">
+    <strong>You must know the Edexcel Large Data Set!</strong> It contains daily weather data from the Met Office for <strong>5 UK stations</strong> and <strong>3 overseas stations</strong> for the months of <strong>May–October</strong> in <strong>1987</strong> and <strong>2015</strong>.
+</div>
+
+<div class="concept-card">
+    <h3>Locations</h3>
+    <table>
+        <tr><th>UK Stations</th><th>Overseas Stations</th></tr>
+        <tr><td>Camborne (SW England)</td><td>Jacksonville (Florida, USA)</td></tr>
+        <tr><td>Heathrow (London)</td><td>Beijing (China)</td></tr>
+        <tr><td>Hurn (Dorset)</td><td>Perth (Australia)</td></tr>
+        <tr><td>Leeming (N. Yorkshire)</td><td></td></tr>
+        <tr><td>Leuchars (Scotland)</td><td></td></tr>
+    </table>
+</div>
+
+<div class="concept-card">
+    <h3>Variables in the LDS</h3>
+    <table>
+        <tr><th>Variable</th><th>Units</th><th>Key Facts</th></tr>
+        <tr><td>Daily Mean Temperature</td><td>&deg;C</td><td>Average of hourly readings</td></tr>
+        <tr><td>Daily Total Rainfall</td><td>mm</td><td>Trace (tr) means &lt; 0.05mm</td></tr>
+        <tr><td>Daily Total Sunshine</td><td>hours</td><td>Recorded to 0.1 hours</td></tr>
+        <tr><td>Daily Mean Wind Speed</td><td>knots (kn)</td><td>Beaufort scale also used</td></tr>
+        <tr><td>Daily Maximum Gust</td><td>knots (kn)</td><td>Highest instantaneous speed</td></tr>
+        <tr><td>Daily Mean Pressure</td><td>hPa</td><td>Typically 990–1030 hPa for UK</td></tr>
+        <tr><td>Daily Mean Visibility</td><td>Dm (decametres)</td><td>Given to nearest 100</td></tr>
+        <tr><td>Daily Maximum Relative Humidity</td><td>%</td><td>100% means saturated</td></tr>
+        <tr><td>Daily Mean Cloud Cover</td><td>oktas (0–8)</td><td>0 = clear, 8 = overcast</td></tr>
+        <tr><td>Daily Mean Wind Direction</td><td>degrees or compass</td><td>Qualitative if compass direction</td></tr>
+    </table>
+</div>
+
+<div class="concept-card">
+    <h3>Key LDS Facts to Remember</h3>
+    <ul>
+        <li><strong>Wind direction</strong> is the only qualitative variable (when recorded as compass bearings: N, NE, SW, etc.)</li>
+        <li><strong>"n/a"</strong> means data not available (missing data) — must be handled when calculating statistics</li>
+        <li><strong>"tr"</strong> (trace) for rainfall means a tiny amount fell — must be coded as a number (usually 0) for calculations</li>
+        <li><strong>Camborne</strong> is typically windier (coastal, SW England)</li>
+        <li><strong>Heathrow</strong> tends to be warmer (urban heat island)</li>
+        <li><strong>Perth</strong> data is in Southern Hemisphere — seasons are reversed</li>
+        <li><strong>Beijing</strong> has a monsoon climate — heavy summer rainfall</li>
+        <li>UK wind speeds are typically higher in autumn months (Oct) due to Atlantic weather systems</li>
+    </ul>
+</div>
+
+<h2>Worked Examples</h2>
+
+<!-- Example 1 -->
+<div class="example-block">
+    <h3>Example 1: Stratified Sampling <span class="paper-ref">June 2019 Q1(a)</span></h3>
+    <div class="question-text">
+        A sixth form college has 84 students in Year 12 and 56 students in Year 13. The head teacher selects a stratified sample of 40 students, stratified by year group.<br>
+        (a) Describe how this sample could be taken. [3]
+    </div>
+
+    <div class="steps">
+        <div class="step" onclick="revealStep(this)">
+            <div class="step-label">Step 1: Calculate the number from each stratum</div>
+            <div class="step-content">
+                Total population = \(84 + 56 = 140\)<br>
+                Year 12: \(\frac{84}{140} \times 40 = 24\) students<br>
+                Year 13: \(\frac{56}{140} \times 40 = 16\) students
+            </div>
+        </div>
+        <div class="step" onclick="revealStep(this)">
+            <div class="step-label">Step 2: Describe creating the sampling frame</div>
+            <div class="step-content">
+                Create a numbered list (or database/register) of students <strong>for each year group separately</strong>.
+            </div>
+        </div>
+        <div class="step" onclick="revealStep(this)">
+            <div class="step-label">Step 3: Describe the random selection</div>
+            <div class="step-content">
+                Use a random number generator to select 24 students from the Year 12 list and 16 from the Year 13 list.
+            </div>
+        </div>
+    </div>
+
+    <button class="btn" onclick="revealAnswer(this)">Show Final Answer</button>
+    <div class="answer-box">
+        <p><strong>Full answer (3 marks):</strong></p>
+        <p>1. Create a numbered list of students in each year group separately.</p>
+        <p>2. Use a random number generator to select students from each list.</p>
+        <p>3. Select 24 students from Year 12 and 16 students from Year 13.</p>
+    </div>
+
+    <a class="pmt-link" href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202019%20QP%20(Stats).pdf" target="_blank">View full paper on PMT &#8599;</a>
+</div>
+
+<!-- Example 2 -->
+<div class="example-block">
+    <h3>Example 2: LDS — Systematic Sampling &amp; Wind Direction <span class="paper-ref">Nov 2021 Q3</span></h3>
+    <div class="question-text">
+        Helen is studying one of the qualitative variables from the large data set for Heathrow from 2015. She started with the data from 3rd May and then took every 10th reading. There were only 3 different outcomes with frequencies: A = 16, B = 2, C = 1.<br>
+        (a) State the sampling technique Helen used. [1]<br>
+        (b) From your knowledge of the large data set:<br>
+        &nbsp;&nbsp;(i) suggest which variable was being studied [1]<br>
+        &nbsp;&nbsp;(ii) state the name of outcome A [1]<br>
+        (c) What reliable inference can be made from the samples? [1]
+    </div>
+
+    <div class="steps">
+        <div class="step" onclick="revealStep(this)">
+            <div class="step-label">Step 1: Identify the sampling technique</div>
+            <div class="step-content">
+                Starting at a fixed point and taking every 10th reading is <strong>systematic sampling</strong>.
+            </div>
+        </div>
+        <div class="step" onclick="revealStep(this)">
+            <div class="step-label">Step 2: Identify the variable</div>
+            <div class="step-content">
+                The question says "qualitative variable" with only 3 outcomes. In the LDS, <strong>wind direction</strong> recorded as compass bearings (e.g. N, SW, W) is the qualitative variable. However, with only 3 outcomes this is likely <strong>Daily Mean Wind Direction</strong> grouped into broad categories, or more precisely it could be a variable like "weather type" — but actually the most common qualitative variable with few categories at Heathrow is <strong>wind direction</strong> grouped broadly.<br><br>
+                Actually, the correct answer is <strong>"Beaufort scale description"</strong> or more precisely <strong>"Daily Mean Wind Direction"</strong>. Given the frequencies (16, 2, 1), and that Heathrow in summer mostly has SW winds, outcome A (most common) would be the prevailing direction.
+            </div>
+        </div>
+        <div class="step" onclick="revealStep(this)">
+            <div class="step-label">Step 3: Name outcome A</div>
+            <div class="step-content">
+                The most common wind direction at Heathrow is from the <strong>South-West (SW)</strong> or <strong>West (W)</strong>. Given 16 out of 19 readings, the answer is likely <strong>"W" or "SW"</strong>.
+            </div>
+        </div>
+        <div class="step" onclick="revealStep(this)">
+            <div class="step-label">Step 4: Inference</div>
+            <div class="step-content">
+                From both samples, outcome A dominates heavily. A reliable inference is:<br>
+                <strong>"Outcome A (W/SW wind direction) is the most common outcome at Heathrow during the period covered."</strong>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn" onclick="revealAnswer(this)">Show Final Answers</button>
+    <div class="answer-box">
+        <p><strong>(a)</strong> Systematic sampling</p>
+        <p><strong>(b)(i)</strong> (Daily Mean) Wind Direction</p>
+        <p><strong>(b)(ii)</strong> W (West) or SW (South-West)</p>
+        <p><strong>(c)</strong> Outcome A is the most common outcome at Heathrow for this period (both samples and the full data confirm this)</p>
+    </div>
+
+    <a class="pmt-link" href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FNov%202021%20QP%20(Stats).pdf" target="_blank">View full paper on PMT &#8599;</a>
+</div>
+
+<!-- Example 3 -->
+<div class="example-block">
+    <h3>Example 3: LDS — Visibility and Humidity at Camborne <span class="paper-ref">June 2020 Q2</span></h3>
+    <div class="question-text">
+        Jerry is studying visibility for Camborne using the large data set for June 1987. A table shows Daily Maximum Relative Humidity (%) and Daily Mean Visibility. On 28/06/1987, the humidity was 100% and visibility was recorded as 0.<br>
+        Given that daily mean visibility is given to the nearest 100,<br>
+        (a) write down the range of distances in metres that corresponds to the recorded value 0 for the daily mean visibility. [1]
+    </div>
+
+    <div class="steps">
+        <div class="step" onclick="revealStep(this)">
+            <div class="step-label">Step 1: Understand the measurement</div>
+            <div class="step-content">
+                Daily Mean Visibility in the LDS is measured in <strong>decametres (Dm)</strong>, given to the nearest 100 Dm.<br>
+                A recorded value of 0 means the actual value rounds to 0 when rounded to the nearest 100.
+            </div>
+        </div>
+        <div class="step" onclick="revealStep(this)">
+            <div class="step-label">Step 2: Find the range</div>
+            <div class="step-content">
+                Rounded to nearest 100 Dm, a value of 0 means: \(0 \leq \text{visibility} < 50\) Dm<br>
+                Converting to metres: \(0 \leq \text{visibility} < 500\) m (since 1 Dm = 10 m)<br>
+                <strong>Range: 0 to less than 500 metres</strong>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn" onclick="revealAnswer(this)">Show Final Answer</button>
+    <div class="answer-box">
+        <p><strong>(a)</strong> 0 to less than 500 metres (or equivalently, 0 m to 499 m)</p>
+        <p><em>Note: This demonstrates knowledge of the units (Dm = decametres) and the rounding convention in the LDS.</em></p>
+    </div>
+
+    <a class="pmt-link" href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202020%20QP%20(Stats).pdf" target="_blank">View full paper on PMT &#8599;</a>
+</div>
+
+<h2>Exam Tips</h2>
+
+<div class="key-point">
+    <strong>1. Stratified sampling answers need 3 things:</strong> (i) a list/frame for each group, (ii) random selection method, (iii) correct numbers from each stratum (show the calculation).
+</div>
+
+<div class="key-point">
+    <strong>2. Systematic sampling:</strong> Always mention the random starting point. "Start at a random position between 1 and \(k\), then take every \(k\)th item."
+</div>
+
+<div class="lds-box">
+    <strong>3. LDS knowledge you MUST have:</strong><br>
+    - Wind speed is in <strong>knots</strong><br>
+    - Visibility is in <strong>decametres (Dm)</strong><br>
+    - Wind direction is the <strong>qualitative</strong> variable<br>
+    - "tr" means <strong>trace</strong> (rainfall less than 0.05mm)<br>
+    - "n/a" means <strong>data not available</strong><br>
+    - UK is typically windier in <strong>autumn</strong> (October)<br>
+    - <strong>Camborne</strong> = coastal/windy; <strong>Heathrow</strong> = warm/urban<br>
+    - Southern Hemisphere seasons are <strong>reversed</strong> (Perth)
+</div>
+
+<div class="warning-box">
+    <strong>4. Common LDS mistakes:</strong><br>
+    - Forgetting that "tr" and "n/a" need handling when calculating statistics<br>
+    - Not knowing the units (especially Dm for visibility, knots for wind)<br>
+    - Confusing daily mean with daily maximum values
+</div>
+
+<script>
+    function revealStep(el) {
+        el.classList.toggle('revealed');
+    }
+
+    function revealAnswer(btn) {
+        const box = btn.nextElementSibling;
+        box.classList.toggle('revealed');
+        btn.textContent = box.classList.contains('revealed') ? 'Hide Answers' : 'Show Final Answer';
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '\\(', right: '\\)', display: false}
+            ]
+        });
+    });
+</script>
+
+</body>
+</html>

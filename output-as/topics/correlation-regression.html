@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Correlation &amp; Regression — Edexcel AS Level Maths</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #2b6cb0;
+            --success: #276749;
+            --warning: #c05621;
+            --danger: #c53030;
+            --bg: #f7fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #2d3748;
+            --muted: #718096;
+            --mark: #805ad5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        h1 { color: var(--primary); margin-bottom: 0.5rem; font-size: 2rem; }
+        h2 { color: var(--primary); margin: 2.5rem 0 1rem; font-size: 1.4rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        h3 { color: var(--accent); margin: 1.5rem 0 0.75rem; font-size: 1.15rem; }
+
+        .subtitle { color: var(--muted); margin-bottom: 2rem; font-size: 1.05rem; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-card .label { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+        .stat-card .value { font-size: 1.5rem; font-weight: 700; color: var(--primary); margin-top: 0.25rem; }
+
+        .concept-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .key-point {
+            background: #ebf8ff;
+            border-left: 4px solid var(--accent);
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .warning-box {
+            background: #fffaf0;
+            border-left: 4px solid var(--warning);
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .example-block {
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .example-block h3 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .example-block h3::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .question-text {
+            background: #f0f4f8;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 0.75rem 0;
+            font-style: italic;
+        }
+
+        .steps { margin: 1rem 0; }
+        .step {
+            padding: 0.75rem 1rem;
+            margin: 0.5rem 0;
+            background: #f7fafc;
+            border-left: 3px solid var(--accent);
+            border-radius: 0 6px 6px 0;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .step:hover { background: #edf2f7; }
+        .step.revealed { background: #f0fff4; border-left-color: var(--success); }
+        .step-content { display: none; margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid var(--border); }
+        .step.revealed .step-content { display: block; }
+        .step-label { font-weight: 600; color: var(--accent); font-size: 0.9rem; }
+        .step.revealed .step-label { color: var(--success); }
+
+        .answer-box {
+            background: #f0fff4;
+            border: 2px solid var(--success);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .answer-box.revealed { display: block; }
+
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1.25rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 0.75rem;
+            transition: background 0.2s;
+        }
+        .btn:hover { background: var(--primary); }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+        .btn-outline:hover { background: var(--accent); color: white; }
+
+        .paper-ref {
+            display: inline-block;
+            background: #e9d8fd;
+            color: var(--mark);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+        .back-link:hover { text-decoration: underline; }
+
+        .pmt-link {
+            display: inline-block;
+            margin-top: 0.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+        .pmt-link:hover { text-decoration: underline; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        th, td {
+            border: 1px solid var(--border);
+            padding: 0.5rem 0.75rem;
+            text-align: center;
+        }
+        th { background: #edf2f7; font-weight: 600; }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            h1 { font-size: 1.5rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<a href="../index.html" class="back-link">&#8592; Back to Topics</a>
+
+<h1>Correlation &amp; Regression</h1>
+<p class="subtitle">AS Paper 2 Statistics — PMCC interpretation, regression lines, interpolation &amp; extrapolation</p>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="label">Frequency</div>
+        <div class="value">5/7</div>
+    </div>
+    <div class="stat-card">
+        <div class="label">Marks</div>
+        <div class="value">3–5</div>
+    </div>
+    <div class="stat-card">
+        <div class="label">Typical Position</div>
+        <div class="value">Q1</div>
+    </div>
+    <div class="stat-card">
+        <div class="label">Difficulty</div>
+        <div class="value">Low</div>
+    </div>
+</div>
+
+<h2>Key Concepts</h2>
+
+<div class="concept-card">
+    <h3>Product Moment Correlation Coefficient (PMCC)</h3>
+    <p>The PMCC, denoted \(r\), measures the strength and direction of the <strong>linear</strong> relationship between two variables.</p>
+    <table>
+        <tr><th>Value of \(r\)</th><th>Interpretation</th></tr>
+        <tr><td>\(r = 1\)</td><td>Perfect positive linear correlation</td></tr>
+        <tr><td>\(0.7 \leq r < 1\)</td><td>Strong positive correlation</td></tr>
+        <tr><td>\(0.3 \leq r < 0.7\)</td><td>Moderate positive correlation</td></tr>
+        <tr><td>\(0 < r < 0.3\)</td><td>Weak positive correlation</td></tr>
+        <tr><td>\(r = 0\)</td><td>No linear correlation</td></tr>
+        <tr><td>\(-1 < r < 0\)</td><td>Negative correlation (same strength labels)</td></tr>
+        <tr><td>\(r = -1\)</td><td>Perfect negative linear correlation</td></tr>
+    </table>
+</div>
+
+<div class="concept-card">
+    <h3>Regression Line \(y = a + bx\)</h3>
+    <p>The regression line of \(y\) on \(x\) is used to predict values of \(y\) (the <strong>dependent</strong> variable) from values of \(x\) (the <strong>independent</strong> variable).</p>
+    <div class="key-point">
+        <strong>Gradient \(b\):</strong> For every 1 unit increase in \(x\), \(y\) changes by \(b\) units (on average).<br>
+        <strong>Intercept \(a\):</strong> The predicted value of \(y\) when \(x = 0\) (may not always be meaningful in context).
+    </div>
+</div>
+
+<div class="concept-card">
+    <h3>Interpolation vs Extrapolation</h3>
+    <div class="key-point">
+        <strong>Interpolation:</strong> Predicting within the range of observed data — <strong>reliable</strong>.<br>
+        <strong>Extrapolation:</strong> Predicting outside the range of observed data — <strong>unreliable</strong>, because we cannot assume the linear trend continues.
+    </div>
+    <div class="warning-box">
+        <strong>Common exam mistake:</strong> When asked about limitations, always refer to the <em>range</em> of the original data or state that the model may not hold for extreme values.
+    </div>
+</div>
+
+<div class="concept-card">
+    <h3>Describing Correlation from a Regression Equation</h3>
+    <p>If the gradient \(b > 0\), the correlation is <strong>positive</strong>. If \(b < 0\), the correlation is <strong>negative</strong>.</p>
+    <p>You can describe direction from the sign of \(b\), but you cannot determine strength from the equation alone (you need \(r\) for that).</p>
+</div>
+
+<h2>Worked Examples</h2>
+
+<!-- Example 1 -->
+<div class="example-block">
+    <h3>Example 1: Interpreting a Regression Line <span class="paper-ref">June 2018 Q1</span></h3>
+    <div class="question-text">
+        A company is introducing a job evaluation scheme. Points (\(x\)) are awarded to each job based on qualifications and skills needed. Pay (\(\pounds y\)) is allocated according to the number of points. A random sample of 8 employees gave the regression equation:
+        $$y = 4.5x - 47$$
+        (a) Describe the correlation between points and pay. [1]<br>
+        (b) Give an interpretation of the gradient of this regression line. [1]<br>
+        (c) Explain why this model might not be appropriate for all jobs. [1]
+    </div>
+
+    <div class="steps">
+        <div class="step" onclick="revealStep(this)">
+            <div class="step-label">Step 1: Identify correlation direction</div>
+            <div class="step-content">
+                The gradient is \(+4.5\) (positive), so the correlation is <strong>positive</strong>.<br>
+                "As the number of points increases, pay increases."
+            </div>
+        </div>
+        <div class="step" onclick="revealStep(this)">
+            <div class="step-label">Step 2: Interpret the gradient</div>
+            <div class="step-content">
+                The gradient is 4.5, so: <strong>"For every extra point awarded, pay increases by &pound;4.50."</strong><br>
+                <em>Key: you must convey the idea of a rate (per point) and include the value.</em>
+            </div>
+        </div>
+        <div class="step" onclick="revealStep(this)">
+            <div class="step-label">Step 3: Limitations of the model</div>
+            <div class="step-content">
+                When \(x < \frac{47}{4.5} \approx 10.4\), the model predicts negative pay, which is impossible.<br>
+                <strong>"For jobs with fewer than about 11 points, the model predicts negative pay, which is not realistic."</strong><br>
+                <em>Alternatively: "The sample of 8 may not be representative of all jobs" or "We don't know the range of points used."</em>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn" onclick="revealAnswer(this)">Show Final Answers</button>
+    <div class="answer-box">
+        <p><strong>(a)</strong> Positive correlation</p>
+        <p><strong>(b)</strong> For every additional point, pay increases by &pound;4.50 (on average)</p>
+        <p><strong>(c)</strong> For jobs with low points (below about 11), the model predicts negative pay, which is not realistic</p>
+    </div>
+
+    <a class="pmt-link" href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202018%20QP.pdf" target="_blank">View full paper on PMT &#8599;</a>
+</div>
+
+<!-- Example 2 -->
+<div class="example-block">
+    <h3>Example 2: Stratified Sampling &amp; Regression <span class="paper-ref">June 2019 Q1</span></h3>
+    <div class="question-text">
+        A head teacher investigates the relationship between sleep (\(s\) hours) and aptitude test performance (\(p\) marks) for a sample of 40 students. The regression line of \(p\) on \(s\) is:
+        $$p = 26.1 + 5.60s$$
+        (b) Describe the effect that an extra 0.5 hours of sleep may have, on average, on performance. [1]<br>
+        (c) Describe one limitation of this regression model. [1]
+    </div>
+
+    <div class="steps">
+        <div class="step" onclick="revealStep(this)">
+            <div class="step-label">Step 1: Effect of extra 0.5 hours</div>
+            <div class="step-content">
+                Gradient = 5.60, so each extra hour of sleep predicts 5.60 extra marks.<br>
+                For 0.5 hours: \(5.60 \times 0.5 = 2.80\) extra marks.<br>
+                <strong>"An extra 0.5 hours of sleep increases performance by 2.8 marks on average."</strong>
+            </div>
+        </div>
+        <div class="step" onclick="revealStep(this)">
+            <div class="step-label">Step 2: Limitation</div>
+            <div class="step-content">
+                Possible answers:<br>
+                - "The model suggests the longer you sleep the better you perform, which is unrealistic for very high values of \(s\)."<br>
+                - "If \(s = 0\), the model predicts 26.1 marks regardless of other factors."<br>
+                - "Only valid within the range of sleep hours observed in the data."<br>
+                - "The model only considers sleep; other factors affect performance."
+            </div>
+        </div>
+    </div>
+
+    <button class="btn" onclick="revealAnswer(this)">Show Final Answers</button>
+    <div class="answer-box">
+        <p><strong>(b)</strong> An extra 0.5 hours of sleep is associated with an increase of 2.8 marks on average</p>
+        <p><strong>(c)</strong> The model implies that the more you sleep, the better you perform indefinitely, which is unrealistic (e.g. sleeping 24 hours would predict a very high score)</p>
+    </div>
+
+    <a class="pmt-link" href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202019%20QP%20(Stats).pdf" target="_blank">View full paper on PMT &#8599;</a>
+</div>
+
+<!-- Example 3 -->
+<div class="example-block">
+    <h3>Example 3: Negative Correlation &amp; Extrapolation <span class="paper-ref">June 2022 Q1</span></h3>
+    <div class="question-text">
+        The relationship between variables \(p\) and \(t\) is modelled by:
+        $$p = 22 - 1.1t$$
+        The model is based on observations of \(t\) between 1 and 10. Where \(p\) is in cm and \(t\) is in days.<br>
+        (a) Describe the correlation between \(p\) and \(t\). [1]<br>
+        (b) State the units of the gradient. [1]<br>
+        (c) Calculate the change in \(p\) over a 3-day period. [2]<br>
+        (d) Comment on the reliability of estimating \(p\) when \(t = 19\). [1]
+    </div>
+
+    <div class="steps">
+        <div class="step" onclick="revealStep(this)">
+            <div class="step-label">Step 1: Describe correlation</div>
+            <div class="step-content">
+                The gradient is \(-1.1\) (negative).<br>
+                <strong>"Negative correlation"</strong> — as \(t\) increases, \(p\) decreases.
+            </div>
+        </div>
+        <div class="step" onclick="revealStep(this)">
+            <div class="step-label">Step 2: Units of gradient</div>
+            <div class="step-content">
+                Gradient = \(\frac{\Delta p}{\Delta t} = \frac{\text{cm}}{\text{days}}\)<br>
+                <strong>Units: cm per day (cm/day)</strong>
+            </div>
+        </div>
+        <div class="step" onclick="revealStep(this)">
+            <div class="step-label">Step 3: Change over 3 days</div>
+            <div class="step-content">
+                Change in \(p\) = gradient \(\times\) change in \(t\)<br>
+                \(= -1.1 \times 3 = -3.3\) cm<br>
+                <strong>\(p\) decreases by 3.3 cm over a 3-day period.</strong>
+            </div>
+        </div>
+        <div class="step" onclick="revealStep(this)">
+            <div class="step-label">Step 4: Reliability at t = 19</div>
+            <div class="step-content">
+                The model is based on data where \(1 \leq t \leq 10\).<br>
+                \(t = 19\) is <strong>outside this range</strong> (extrapolation).<br>
+                <strong>"This is extrapolation, so the estimate is unreliable because the linear relationship may not hold outside the observed range of data."</strong>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn" onclick="revealAnswer(this)">Show Final Answers</button>
+    <div class="answer-box">
+        <p><strong>(a)</strong> Negative correlation</p>
+        <p><strong>(b)</strong> cm per day (cm/day)</p>
+        <p><strong>(c)</strong> Decrease of 3.3 cm</p>
+        <p><strong>(d)</strong> Unreliable because \(t = 19\) is outside the range of the data (extrapolation); the linear model may not apply beyond \(t = 10\)</p>
+    </div>
+
+    <a class="pmt-link" href="https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2FAS-Paper-2%2FQP%2FJune%202022%20QP%20(Stats).pdf" target="_blank">View full paper on PMT &#8599;</a>
+</div>
+
+<h2>Exam Tips</h2>
+
+<div class="key-point">
+    <strong>1. Describing correlation:</strong> State direction (positive/negative) and if given \(r\), state strength (strong/weak/moderate). Always say "linear" if appropriate.
+</div>
+
+<div class="key-point">
+    <strong>2. Interpreting the gradient:</strong> Always include context, units, and the idea of a rate. "For every 1 [unit of x], [y] increases/decreases by [b] [units of y]."
+</div>
+
+<div class="key-point">
+    <strong>3. Interpreting the intercept:</strong> "When \(x = 0\), the predicted value of \(y\) is \(a\)." Then comment on whether this is meaningful in context.
+</div>
+
+<div class="warning-box">
+    <strong>4. Extrapolation answers must include:</strong><br>
+    - That the value is outside the range of data<br>
+    - Therefore the estimate is unreliable/may not be valid<br>
+    - The relationship may not hold beyond the observed range
+</div>
+
+<script>
+    function revealStep(el) {
+        el.classList.toggle('revealed');
+    }
+
+    function revealAnswer(btn) {
+        const box = btn.nextElementSibling;
+        box.classList.toggle('revealed');
+        btn.textContent = box.classList.contains('revealed') ? 'Hide Answers' : 'Show Final Answers';
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '\\(', right: '\\)', display: false}
+            ]
+        });
+    });
+</script>
+
+</body>
+</html>
