@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph@1.8.0/distrib/jsxgraph.css">
+    <script src="https://cdn.jsdelivr.net/npm/jsxgraph@1.8.0/distrib/jsxgraphcore.js"></script>
     <style>
         :root {
             --primary: #1a365d;
@@ -309,6 +311,18 @@
 
         .show-all-btn:hover { background: var(--primary); }
 
+        .diagram-container {
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+        .diagram-container svg {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: #fff;
+        }
+
         .motivation {
             background: #eef6ff;
             border: 1px solid #c3dafe;
@@ -377,8 +391,13 @@
     <div class="algebra-chain">
         <p>$$(x - a)^2 + (y - b)^2 = r^2$$</p>
         <p class="reason">Circle with centre \((a, b)\) and radius \(r\)</p>
-        <p>$$x^2 + y^2 + 2gx + 2fy + c = 0$$</p>
-        <p class="reason">Expanded form: centre \((-g, -f)\), radius \(\sqrt{g^2 + f^2 - c}\)</p>
+    </div>
+    <p style="margin: 1rem 0 0.5rem; color: var(--muted); font-size: 0.9rem;">When given in expanded form, complete the square to get back to the standard form above. For example:</p>
+    <div class="algebra-chain">
+        <p>$$x^2 + y^2 - 10x - 8y + 32 = 0$$</p>
+        <p>$$(x - 5)^2 - 25 + (y - 4)^2 - 16 + 32 = 0$$</p>
+        <p>$$(x - 5)^2 + (y - 4)^2 = 9$$</p>
+        <p class="reason">So centre is \((5, 4)\) and radius is \(\sqrt{9} = 3\)</p>
     </div>
     <p style="margin-top: 1rem;"><strong>Key geometric facts:</strong></p>
     <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
@@ -532,7 +551,7 @@
         <li>Write the completed square form clearly: \((x-5)^2 + (y-4)^2 = 9\), then state "centre (5, 4), radius 3"</li>
         <li>When finding tangent conditions, always state "tangent means discriminant = 0" before computing</li>
         <li>Draw a quick sketch showing the circle, its centre, and the relevant line — this catches sign errors</li>
-        <li>For shortest distance problems: distance from centre to line minus the radius</li>
+        <li>For shortest distance problems: find the perpendicular from the centre to the line, solve simultaneously, use Pythagoras, then subtract the radius</li>
     </ul>
 </div>
 
@@ -755,43 +774,174 @@
         </div>
     </div>
 
-    <!-- Part (b) -->
+    <!-- Part (b) — Interactive Diagram -->
+    <div class="diagram-container">
+        <div id="circles-q11-diagram" style="width:100%; max-width:520px; height:450px; margin:0 auto;"></div>
+    </div>
+    <script>
+    // JSXGraph board init — called after tab is shown (see selectExample hook below)
+    var circlesQ11Init = false;
+    function initCirclesQ11Board() {
+        var board = JXG.JSXGraph.initBoard('circles-q11-diagram', {
+            boundingbox: [-2, 8, 10, -5],
+            axis: true,
+            grid: true,
+            showCopyright: false,
+            showNavigation: false,
+            defaultAxes: {
+                x: { ticks: { minorTicks: 0 } },
+                y: { ticks: { minorTicks: 0 } }
+            }
+        });
+
+        // Circle: centre (5,4), radius 3
+        var centre = board.create('point', [5, 4], {
+            name: '(5, 4)',
+            size: 3,
+            fixed: true,
+            color: '#2563eb',
+            label: { offset: [10, 5], color: '#2563eb', fontSize: 13 }
+        });
+        board.create('circle', [centre, 3], {
+            strokeColor: '#2563eb',
+            strokeWidth: 2,
+            fillColor: 'rgba(37,99,235,0.05)',
+            fixed: true
+        });
+
+        // Line l: 2y + x + 6 = 0  =>  y = -x/2 - 3
+        // JSXGraph line [c, a, b] for ax + by + c = 0
+        var lineL = board.create('line', [6, 1, 2], {
+            strokeColor: '#e11d48',
+            strokeWidth: 2,
+            fixed: true
+        });
+        board.create('text', [6.5, -4.3, 'l: 2y + x + 6 = 0'], {
+            color: '#e11d48', fontSize: 12, anchorX: 'right'
+        });
+
+        // Perpendicular from centre to line (dashed)
+        var perpLine = board.create('perpendicular', [lineL, centre], {
+            strokeColor: '#666',
+            strokeWidth: 1.5,
+            dash: 3,
+            point: { visible: false }
+        });
+
+        // Intersection point N (foot of perpendicular) = (6/5, -18/5)
+        var footN = board.create('intersection', [lineL, perpLine, 0], {
+            name: 'N (6/5, −18/5)',
+            size: 3,
+            fixed: true,
+            color: '#16a34a',
+            label: { offset: [10, -15], color: '#16a34a', fontSize: 12 }
+        });
+
+        // Right angle marker at N
+        board.create('angle', [centre, footN,
+            board.create('point', [footN.X() + 0.4, footN.Y() - 0.2], {visible: false, fixed: true})
+        ], {
+            type: 'square',
+            orthoType: 'square',
+            radius: 0.4,
+            strokeColor: '#666',
+            fillColor: 'transparent'
+        });
+
+        // Radius line from centre downward
+        var radiusPt = board.create('point', [5, 1], {visible: false, fixed: true});
+        board.create('segment', [centre, radiusPt], {
+            strokeColor: '#2563eb', strokeWidth: 1.5, dash: 2
+        });
+        board.create('text', [5.2, 2.5, 'r = 3'], { color: '#2563eb', fontSize: 12, anchorX: 'left' });
+    }
+    </script>
+
+    <!-- Part (b) Step 2 -->
     <div class="step-reveal">
         <div class="step-reveal-header" onclick="toggleStep(this)">
-            <span><span class="part-label">Part (b)</span> Step 2: Find distance from centre to the line</span>
+            <span><span class="part-label">Part (b)</span> Step 2: Find the gradient of line \(l\) and the perpendicular gradient</span>
             <span class="arrow">&#9654;</span>
         </div>
         <div class="step-reveal-content">
-            <div class="motivation">The shortest distance from the circle to a line equals the distance from the centre to the line, minus the radius. We use the point-to-line distance formula: for line \(ax + by + c = 0\) and point \((x_1, y_1)\), distance = \(\frac{|ax_1 + by_1 + c|}{\sqrt{a^2 + b^2}}\).</div>
-            <p>The line is \(x + 2y + 6 = 0\) (rearranging \(2y + x + 6 = 0\)).</p>
-            <p>Here \(a = 1\), \(b = 2\), \(c = 6\), and the centre is \((5, 4)\).</p>
+            <div class="motivation">The shortest distance from the circle to the line is along the perpendicular from the centre to the line, minus the radius. So first we need to find the line through the centre that is perpendicular to \(l\).</div>
+            <p>Rearrange \(l\) into gradient form \(y = mx + c\):</p>
             <div class="algebra-chain">
-                <p>$$d = \frac{|1(5) + 2(4) + 6|}{\sqrt{1^2 + 2^2}}$$</p>
-                <p>$$= \frac{|5 + 8 + 6|}{\sqrt{5}}$$</p>
-                <p>$$= \frac{19}{\sqrt{5}}$$</p>
-                <p class="reason">Rationalise: \(\frac{19}{\sqrt{5}} = \frac{19\sqrt{5}}{5}\)</p>
+                <p>$$2y + x + 6 = 0$$</p>
+                <p>$$2y = -x - 6$$</p>
+                <p>$$y = -\tfrac{1}{2}x - 3$$</p>
             </div>
-            <div class="mark-award">M1 — Using the correct distance formula</div>
-            <div class="mark-award">A1 — Distance from centre to line \(= \frac{19}{\sqrt{5}}\)</div>
+            <p>Gradient of \(l\) is \(-\frac{1}{2}\).</p>
+            <p>The perpendicular gradient is the negative reciprocal:</p>
+            <div class="algebra-chain">
+                <p>$$m_\perp = -\frac{1}{(-\frac{1}{2})} = 2$$</p>
+            </div>
+            <div class="mark-award">B1 — Deduces gradient of perpendicular to \(l\) is 2</div>
         </div>
     </div>
 
     <div class="step-reveal">
         <div class="step-reveal-header" onclick="toggleStep(this)">
-            <span><span class="part-label">Part (b)</span> Step 3: Subtract the radius to get shortest distance to circle</span>
+            <span><span class="part-label">Part (b)</span> Step 3: Find the equation of the perpendicular through the centre</span>
             <span class="arrow">&#9654;</span>
         </div>
         <div class="step-reveal-content">
-            <div class="motivation">The distance from the centre to the line is the distance from the centre to the nearest point on the line. But we want the distance from the CIRCLE to the line — so we subtract the radius (since the edge of the circle is one radius closer to the line than the centre is).</div>
+            <div class="motivation">We know the gradient (\(m = 2\)) and a point the line passes through (the centre \((5, 4)\)). When we know a gradient and a point, we can find the equation of the line using \(\frac{y - y_1}{x - x_1} = m\), which rearranges to \(y - y_1 = m(x - x_1)\).</div>
+            <p>Using \(y - y_1 = m(x - x_1)\) with \(m = 2\) and \((x_1, y_1) = (5, 4)\):</p>
             <div class="algebra-chain">
-                <p>$$\text{Shortest distance} = \frac{19}{\sqrt{5}} - 3$$</p>
-                <p class="reason">Simplify: \(\frac{19}{\sqrt{5}} - 3 = \frac{19 - 3\sqrt{5}}{\sqrt{5}} = \frac{19\sqrt{5} - 15}{5}\)</p>
+                <p>$$y - 4 = 2(x - 5)$$</p>
+                <p>$$y - 4 = 2x - 10$$</p>
+                <p>$$y = 2x - 6$$</p>
             </div>
-            <p><strong>Shortest distance \(= \frac{19\sqrt{5} - 15}{5}\)</strong> (or equivalently \(\frac{19}{\sqrt{5}} - 3 \approx 5.50\))</p>
-            <div class="mark-award">M1 — Subtracting the radius from the centre-to-line distance</div>
-            <div class="mark-award">A1 — Correct exact answer in simplified surd form</div>
-            <div class="mark-award">A1 — Fully simplified</div>
-            <div class="examiner-note">Some candidates found the distance from centre to line but forgot to subtract the radius. The question asks for the shortest distance between the circle and the line — not between the centre and the line. Always check what the question is actually asking for.</div>
+            <p>This perpendicular line will meet \(l\) at the closest point on \(l\) to the centre.</p>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 4: Solve simultaneously to find the intersection point</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">The point where the perpendicular meets \(l\) is the closest point on \(l\) to the centre. Substitute \(y = 2x - 6\) into the equation of \(l\).</div>
+            <p>Substitute into \(2y + x + 6 = 0\):</p>
+            <div class="algebra-chain">
+                <p>$$2(2x - 6) + x + 6 = 0$$</p>
+                <p>$$4x - 12 + x + 6 = 0$$</p>
+                <p>$$5x - 6 = 0$$</p>
+                <p>$$x = \frac{6}{5}$$</p>
+            </div>
+            <p>Find \(y\): \(y = 2\left(\frac{6}{5}\right) - 6 = \frac{12}{5} - 6 = -\frac{18}{5}\)</p>
+            <p><strong>Intersection point: \(\left(\frac{6}{5},\; -\frac{18}{5}\right)\)</strong></p>
+            <div class="mark-award">M1 — Correct strategy: solving perpendicular simultaneously with \(l\)</div>
+            <div class="mark-award">A1 — Intersection point \(\left(\frac{6}{5}, -\frac{18}{5}\right)\)</div>
+        </div>
+    </div>
+
+    <div class="step-reveal">
+        <div class="step-reveal-header" onclick="toggleStep(this)">
+            <span><span class="part-label">Part (b)</span> Step 5: Use Pythagoras to find the distance, then subtract the radius</span>
+            <span class="arrow">&#9654;</span>
+        </div>
+        <div class="step-reveal-content">
+            <div class="motivation">Now we have the centre \((5, 4)\) and the nearest point on \(l\) which is \(\left(\frac{6}{5}, -\frac{18}{5}\right)\). The distance between them (using Pythagoras / the distance formula) gives the distance from the centre to the line. Then we subtract the radius to get the shortest distance from the circle to the line.</div>
+            <p>Distance from centre \((5, 4)\) to intersection \(\left(\frac{6}{5}, -\frac{18}{5}\right)\):</p>
+            <div class="algebra-chain">
+                <p>$$d = \sqrt{\left(5 - \frac{6}{5}\right)^2 + \left(4 - \left(-\frac{18}{5}\right)\right)^2}$$</p>
+                <p>$$= \sqrt{\left(\frac{19}{5}\right)^2 + \left(\frac{38}{5}\right)^2}$$</p>
+                <p>$$= \sqrt{\frac{361}{25} + \frac{1444}{25}}$$</p>
+                <p>$$= \sqrt{\frac{1805}{25}} = \frac{\sqrt{1805}}{5}$$</p>
+                <p class="reason">\(1805 = 361 \times 5\), so \(\sqrt{1805} = 19\sqrt{5}\)</p>
+                <p>$$= \frac{19\sqrt{5}}{5}$$</p>
+            </div>
+            <p>Now subtract the radius:</p>
+            <div class="algebra-chain">
+                <p>$$\text{Shortest distance} = \frac{19\sqrt{5}}{5} - 3 = \frac{19\sqrt{5} - 15}{5}$$</p>
+            </div>
+            <p><strong>Shortest distance \(= \dfrac{19\sqrt{5} - 15}{5}\)</strong> (approximately 5.50)</p>
+            <div class="mark-award">dM1 — Correct use of Pythagoras to find distance from centre to intersection, then subtracting the radius</div>
+            <div class="mark-award">A1 — Correct exact answer \(\frac{19\sqrt{5} - 15}{5}\)</div>
+            <div class="examiner-note">Common errors: (1) Forgetting to subtract the radius — the question asks for the shortest distance to the circle, not to the centre. (2) Using the y-intercept of \(l\) (which is \((0, -3)\)) instead of finding the actual closest point via the perpendicular — this gives the wrong answer. (3) Arithmetic slips with the fractions — keep fractions over 5 throughout to avoid errors.</div>
         </div>
     </div>
 
@@ -909,7 +1059,7 @@
         <li>An equation with \(x^2 + y^2\) plus linear terms — always a circle</li>
         <li>The word <strong>"tangent"</strong> — use perpendicularity or discriminant = 0</li>
         <li>"Find the range of values of \(k\)" — always discriminant-based</li>
-        <li>Questions about <strong>shortest distance</strong> — use point-to-line formula, then subtract radius</li>
+        <li>Questions about <strong>shortest distance</strong> — find the perpendicular from the centre to the line, solve simultaneously for the closest point, use Pythagoras for the distance, then subtract the radius</li>
         <li>Given a tangent gradient — use the perpendicular gradient relationship for the radius</li>
     </ul>
 </div>
@@ -944,6 +1094,12 @@
         }
 
         document.getElementById(panelId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        // Lazy-init JSXGraph diagram (needs visible container to measure)
+        if (panelId === 'ex-jun22-q11' && !circlesQ11Init) {
+            circlesQ11Init = true;
+            setTimeout(initCirclesQ11Board, 50);
+        }
     }
 
     document.addEventListener('DOMContentLoaded', function() {
