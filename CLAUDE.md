@@ -30,6 +30,7 @@ edexcel-maths/
 
 ## Tech Stack
 - **KaTeX CDN v0.16.9** — maths rendering (inline `\( \)` and display `\[ \]`)
+- **JSXGraph CDN v1.8.0** — interactive mathematical diagrams (see `docs/skill-jsxgraph-diagrams.md`)
 - **Vanilla JS** — step reveals, tab switching, no framework
 - **Single self-contained HTML per topic** — no build step, all CSS inline
 - **pdftotext (poppler)** — PDF → text extraction (install: `brew install poppler`)
@@ -54,11 +55,36 @@ See `docs/topic-page-builder.md` for the full workflow. In short:
 4. Use parallel agents (max 5 at a time) for bulk page creation
 5. Update index.html cards from "coming" to "ready"
 
+### Formula Booklet Tags
+All Key Formulae sections use colour-coded tags to distinguish what's given vs what must be memorised:
+- `<span class="formula-tag booklet">In formula booklet</span>` — green badge
+- `<span class="formula-tag learn">Learn this</span>` — amber badge
+
+**IMPORTANT: Always verify classifications against the actual formula booklet PDF before publishing.**
+LLM training knowledge of booklet contents can be wrong. Download the official booklet from Pearson (for 9MA0/8MA0) or the relevant exam board, and check each formula group manually.
+
+CSS for the tags lives inline in each page's `<style>` block (search for `.formula-tag`).
+
+### JSXGraph Diagrams
+See `docs/skill-jsxgraph-diagrams.md` for the full pattern. Key rule: **never initialise a JSXGraph board while its container is hidden** (`display:none`). Use lazy initialisation — hook into the tab-switching function and init the board on first reveal with a `setTimeout(..., 50)`.
+
 ### PMT Paper Links
 Papers are linked via PMT viewer URL format:
 ```
 https://www.physicsandmathstutor.com/pdf-pages/?pdf=https%3A%2F%2Fpmt.physicsandmathstutor.com%2Fdownload%2FMaths%2FA-level%2FPapers%2FEdexcel%2F{path}
 ```
+
+## Skill Files (Reusable for New Projects)
+These docs cover patterns that transfer directly to any similar revision site (e.g. AQA Physics):
+
+| File | Contents |
+|------|----------|
+| `docs/skill-jsxgraph-diagrams.md` | JSXGraph lazy-init, colour scheme, common element types |
+| `docs/skill-formula-audit.md` | Level-appropriate formula checking, mark scheme verification |
+| `docs/skill-local-preview.md` | Start/stop local preview server commands |
+| `docs/skill-worked-example-style.md` | Worked example style guide (motivation blocks, algebra chains, etc.) |
+| `docs/topic-page-builder.md` | End-to-end pipeline: PMT download → PDF extract → topic pages |
+| `docs/pmt-url-patterns.md` | PMT download URL formats (Edexcel Maths — use as pattern for other subjects) |
 
 ## DO NOTs
 - Do NOT commit files from `data/` (PDFs are large, text extracts are working files)
