@@ -1,0 +1,9 @@
+{
+  "id": "trig-substitution-for-sqrt-x-a-minus-x",
+  "title": "Use the substitution x = a sin^2(\u03b8) to integrate expressions of the form sqrt(x(a-x))",
+  "content": "When you need to integrate sqrt(x(a-x)) (equivalently x^(1/2)(a-x)^(1/2)) between limits 0 and a, where a is a positive constant, substitute x = a sin^2(\u03b8). This works because a - x = a(1 - sin^2\u03b8) = a cos^2\u03b8, so sqrt(x(a-x)) = sqrt(a sin^2\u03b8 \u00b7 a cos^2\u03b8) = a sin\u03b8 cos\u03b8, which pairs neatly with dx = 2a sin\u03b8 cos\u03b8 d\u03b8 to give an integrand proportional to sin^2\u03b8 cos^2\u03b8 (i.e. proportional to sin^2(2\u03b8) once you use sin(2\u03b8) = 2sin\u03b8 cos\u03b8). Convert the limits too: x = 0 gives \u03b8 = 0, and x = a gives \u03b8 = \u03c0/2 (since sin^2\u03b8 = 1 there). Once you have an integral in sin^2(2\u03b8), use the double angle identity sin^2(2\u03b8) = (1 - cos4\u03b8)/2 to make it directly integrable, then substitute the \u03b8-limits. This is the standard trick whenever you meet the square root of a quadratic that factorises as x(a-x) - i.e. an 'upside-down' quadratic with roots at 0 and a.",
+  "contrast_with": "",
+  "question_ids": [
+    "P1_June2024_Q13"
+  ]
+}
