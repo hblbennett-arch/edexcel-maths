@@ -1,0 +1,238 @@
+{
+  "_paper_id": "IAL2018_WST03_Oct2021",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.29076799999999997,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 5,
+      "parts": [
+        {
+          "label": null,
+          "marks": 5,
+          "technique": "Hypothesis test for mean of Normal distribution with known variance",
+          "reason": "S5.3 explicitly covers conducting a hypothesis test for the mean of a Normal distribution with known/given/assumed variance, stated in terms of population mean, using z-test statistic. This matches exactly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S5.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": null,
+          "marks": 8,
+          "technique": "Chi-squared goodness-of-fit test",
+          "reason": "This part requires a chi-squared goodness-of-fit test with expected frequencies and degrees of freedom. No statement in the specification mentions chi-squared tests or goodness-of-fit testing at all; only binomial-based and Normal-mean hypothesis tests (S5.2, S5.3) are covered. Named concept absent => OUT.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Spearman's rank correlation coefficient",
+          "reason": "Calculating Spearman's rank correlation coefficient is not mentioned by any statement; S5.1 discusses correlation coefficients only in the context of PMCC (and excludes calculating it via formula), not Spearman's rank. Named concept absent => OUT.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Hypothesis test using Spearman's rank correlation critical value",
+          "reason": "This test uses the Spearman's rank coefficient from part (a), which is out of spec; also no statement covers Spearman's rank hypothesis testing (S5.1 only refers to PMCC/correlation coefficient ρ). Depends on an out-of-spec part.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Calculation of PMCC from summary statistics (Sxx, Syy, Sxy)",
+          "reason": "S5.1 and S2.2 explicitly exclude calculation of correlation coefficients using the formula ('use of the formula is not required', 'calculations involving regression lines are excluded' and 'calculation of correlation coefficients is excluded'). This part requires computing r from given summary statistics via the formula, which is explicitly excluded.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Hypothesis test for PMCC using calculated r",
+          "reason": "This relies on the out-of-spec calculated PMCC from part (c); also S5.1 states use of the formula for r is not required (calculator use only), meaning the specific method tested here (using a formula-derived r value) is excluded. Part uses previous out-of-spec answer.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 1,
+          "technique": "Comparing Spearman's vs PMCC test appropriateness",
+          "reason": "This part requires judgement about tests in (b) and (d), both of which are out of spec (Spearman's rank not covered; PMCC calculation excluded). Depends entirely on out-of-spec material.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Stratified sampling method",
+          "reason": "S1.1 explicitly lists stratified sampling among sampling techniques students must be familiar with, and this part just requires explaining how to select a stratified sample, matching that statement directly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S1.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Expected frequencies for chi-squared test",
+          "reason": "This is a step within a chi-squared test of association, a named concept not covered by any statement (see Q2 reasoning). Out of spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 6,
+          "technique": "Chi-squared test for association",
+          "reason": "Chi-squared test of association with degrees of freedom and critical value is not mentioned anywhere in the specification statements; only binomial/Normal-mean hypothesis tests are covered (S5.2, S5.3). Out of spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Confidence interval for the mean of a Normal distribution",
+          "reason": "No statement mentions confidence intervals; S5.3 covers only hypothesis testing for the mean with known variance, not construction of confidence intervals. Named concept 'confidence interval' absent => OUT.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Interpretation of confidence interval",
+          "reason": "This relies directly on the confidence interval calculated in part (a), which is out of spec (concept not covered).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Finding sample size from a confidence interval condition",
+          "reason": "Requires manipulating a confidence interval formula for the mean, a concept (confidence intervals) not present in any specification statement. Out of spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Calculating mean and variance from summary statistics (Σh, Σh²)",
+          "reason": "S2.3 explicitly covers calculation of standard deviation/variance from summary statistics using Sxx formulae, which matches this part's requirement to find sample mean and unbiased variance estimate from Σh and Σh².",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Two-sample z-test comparing two population means using estimated variances",
+          "reason": "S5.3 covers only a hypothesis test for the mean of a single Normal distribution with known, given or assumed variance, stated in terms of one population mean μ using X~N(μ,σ²/n); it does not describe a two-sample test comparing two independent sample means with estimated (sample) variances. This two-sample comparison method is a distinct, unstated technique, so it is OUT.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Central Limit Theorem explanation",
+          "reason": "S5.3 explicitly excludes this: 'Knowledge of the Central Limit Theorem or other large sample approximations is not required.' Direct exclusion applies.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Assumptions for two-sample test (equal/independent variances)",
+          "reason": "This part depends on the two-sample hypothesis test in (b), which is out of spec, and concerns assumptions (independence, variance equality) not addressed by any statement in this context.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 17,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Distribution of the difference of two independent Normal random variables",
+          "reason": "Finding the distribution (mean and variance) of B1−B2 for independent Normal variables and using it in a probability calculation is not mentioned by any statement; S4.2 covers the Normal distribution as a model for a single variable only, not linear combinations of independent Normal variables. Named concept absent => OUT.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Sampling distribution of the sample mean of a Normal distribution, finding minimum n",
+          "reason": "S5.3 explicitly states the model X~N(μ,σ²/n) for the sample mean of a Normal distribution (used there for hypothesis testing); this part applies exactly that same stated result to a probability/minimum-n calculation, so the required method is directly given by a statement.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S5.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 7,
+          "technique": "Linear combination of independent Normal random variables (4T−3M)",
+          "reason": "This requires finding the mean and variance of a linear combination of several independent Normal random variables (bricks, pallet weight, cement container weight) and computing a probability from it. No statement covers combining/summing independent Normal random variables in this way; S4.2 only covers a single Normal distribution as a model. Named concept/method absent => OUT.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        }
+      ]
+    }
+  ]
+}

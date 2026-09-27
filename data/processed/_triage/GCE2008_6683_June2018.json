@@ -1,0 +1,348 @@
+{
+  "_paper_id": "GCE2008_6683_June2018",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.267378,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 4,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Discrete probability distribution / cumulative distribution function",
+          "reason": "Finding a, b, c from probabilities and cdf values is basic discrete distribution work covered by S4.1 (general discrete probability distributions), and does not require calculating mean/variance which is the excluded part of S4.1.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Cumulative distribution function",
+          "reason": "Simply reading off F(7) from cdf values, part of discrete distribution work under S4.1, not excluded.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Histograms - frequency density",
+          "reason": "Directly covered by S2.1 (histograms, area represents frequency).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Linear interpolation for median",
+          "reason": "S2.3 explicitly requires linear interpolation for percentiles/median from grouped data.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Mean from grouped frequency data",
+          "reason": "Covered by S2.3 measures of central tendency, mean from grouped data.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Standard deviation from grouped data",
+          "reason": "Covered explicitly by S2.3, including use of Sxx formula.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 1,
+          "technique": "Coefficient of skewness",
+          "reason": "No statement mentions skewness or this coefficient formula; S2.3/S2.4 cover central tendency, variation and outliers but not skewness measures, so this named concept is absent from the specification statements.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "f",
+          "marks": 2,
+          "technique": "Interpretation of skewness comparison",
+          "reason": "Depends on the skewness coefficient concept from (e), which is not covered by any statement; also builds on an out-of-spec computed value.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 5,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Normal distribution symmetry probability",
+          "reason": "Uses symmetry of Normal distribution about mean, covered by S4.2 (knowledge of shape and symmetry).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Normal distribution probability calculation with standardising",
+          "reason": "Standard normal probability calculation using calculator, covered by S4.2; no pdf or derivation required.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Probability without replacement / conditional probability",
+          "reason": "Combining probabilities for selection without replacement, covered by S3.1/S3.2 (tree diagrams, conditional/independent events).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Probability equation setup (both red)",
+          "reason": "Setting up equation from probability of two dependent events, covered by S3.2 conditional probability without replacement.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Solving quadratic equation",
+          "reason": "Solving quadratic equation for r is standard algebra P2.3, not excluded.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.3"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "technique": "Conditional probability P(A|B)",
+          "reason": "Direct application of conditional probability formula, covered by S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Expectation E(X) of discrete random variable",
+          "reason": "S4.1 explicitly excludes calculation of mean of discrete random variables; explaining E(X)=2 relies on the excluded mean concept.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Sum of probabilities equation",
+          "reason": "The mark scheme allows the equation 3a+2b=1 to come from 'sum of probabilities = 1', an in-spec basic probability property, giving full marks without using E(X); alternative in-spec method available.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S3.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Variance of discrete random variable",
+          "reason": "S4.1 explicitly excludes calculation of variance of discrete random variables; this part requires forming an equation using Var(X)=7.1.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Solving simultaneous equations dependent on excluded variance equation",
+          "reason": "Depends on the equation from part (c), which is out of spec (variance calculation); part only makes sense after the out-of-spec part.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 3,
+          "technique": "E(Y) and Var(Y) of linear transformation of discrete random variable",
+          "reason": "S4.1 excludes calculation of mean and variance of discrete random variables; this explicitly requires E(Y) and Var(Y).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "f",
+          "marks": 3,
+          "technique": "Probability calculation dependent on excluded parts",
+          "reason": "Requires the values of a and b obtained from the excluded variance-based equations in (c)/(d), so this part only makes sense after out-of-spec parts.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Calculating Sxy and Sxx summary statistics",
+          "reason": "These are the building blocks explicitly used for regression and correlation coefficient calculations, both of which are explicitly excluded (S2.2, S5.1); this preparatory calculation is inseparable from the excluded regression/correlation context.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Interpreting product moment correlation coefficient value",
+          "reason": "S5.1 explicitly excludes calculation of correlation coefficients using the formula, and this whole context is built around a computed PMCC value in a regression-line question; S2.2 also excludes regression line calculations.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 7,
+          "technique": "Finding regression line equation",
+          "reason": "S2.2 explicitly states 'calculations involving regression lines are excluded'.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 1,
+          "technique": "Interpreting regression line intercept",
+          "reason": "Depends entirely on the regression line found in the excluded part (c).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Using regression line to estimate change",
+          "reason": "Requires use of the regression equation from (c), explicitly excluded by S2.2.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Normal distribution probability calculation",
+          "reason": "Standard standardising and probability calculation, covered by S4.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Conditional probability with normal distribution quartile",
+          "reason": "Combines conditional probability (S3.2) with normal distribution probabilities (S4.2), both covered.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2",
+            "S4.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 5,
+          "technique": "Finding quartile of normal distribution using conditional probability",
+          "reason": "Uses conditional probability formula and inverse normal calculation, both covered by S3.2 and S4.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2",
+            "S4.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Probability of independent events combination",
+          "reason": "Combining independent probabilities with arrangements, covered by S3.1 independent events.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1"
+          ]
+        }
+      ]
+    }
+  ]
+}

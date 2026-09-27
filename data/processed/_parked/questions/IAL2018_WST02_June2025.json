@@ -1,0 +1,102 @@
+{
+  "_paper_id": "IAL2018_WST02_June2025",
+  "_paper": "WST02",
+  "_sitting": "June2025",
+  "qualification": "IAL-2018",
+  "unit": "WST02",
+  "component": "stats",
+  "status": "legacy",
+  "paper_total": 75,
+  "source_qp_file": "pearson/IAL-2018/June2025/IAL2018_WST02_June2025_QP.txt",
+  "source_ms_file": "pearson/IAL-2018/June2025/IAL2018_WST02_June2025_MS.txt",
+  "extraction_method": "single-call-v1",
+  "extraction_model": "claude-sonnet-5",
+  "pearson_errors": [],
+  "questions": [
+    {
+      "paper_id": "IAL2018_WST02_June2025",
+      "spec": "IAL-2018",
+      "qualification": "IAL-2018",
+      "unit": "WST02",
+      "status": "legacy",
+      "paper": "WST02",
+      "sitting": "June2025",
+      "id": "IAL2018_WST02_June2025_Q7",
+      "q_num": "7",
+      "total_marks": 14,
+      "component": "stats",
+      "uses_large_data_set": false,
+      "stem": "When purchasing a pair of glasses from an optician, customers are offered insurance to cover accidental damage.\nPast records from the optician show that 30% of customers buy insurance when they purchase a pair of glasses.\nIn a random sample of 40 customers who have purchased a pair of glasses, $X$ represents the number who buy insurance.",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "text": "(a) State a suitable model for the distribution of $X$\n(1)",
+          "mark_scheme": "(a) B1: $X \\sim \\mathrm{B}(40, 0.3)$ Allow Binomial $n=40$, $p=0.3$",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "text": "(b) State a necessary assumption for the model in part (a) to be valid.\n(1)",
+          "mark_scheme": "(b) B1: for a suitable assumption in context. Must include 'insurance'. E.g. Constant probability of buying insurance or Customers buy insurance independently. If multiple reasons given ignore any irrelevant or incorrect reasons provided, they are non-contradictory",
+          "spec_refs": [
+            "S4.3",
+            "S3.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "text": "The probability that fewer than $r$ customers who have purchased a pair of glasses buy insurance is less than 0.05\n(c) Find the largest possible value of $r$\n(2)",
+          "mark_scheme": "(c) M1: for either probability $[\\mathrm{P}(X\\leqslant 7)=\\mathrm{P}(X<8)=]0.0553$ $[\\mathrm{P}(X\\leqslant 6)=\\mathrm{P}(X<7)=]0.0238$. May be implied by $r=7$\nA1: $r=7$ cao",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 5,
+          "text": "A second random sample of 200 customers who have purchased a pair of glasses is taken.\nUsing a normal approximation, the probability that at least $t$ of these 200 customers buy insurance is 0.9474, correct to 4 decimal places.\n(d) Find the value of $t$\nYou must show your working.\n(5)",
+          "mark_scheme": "(d) M1: $\\mathrm{B}(200,0.3)$ implies $\\mathrm{N}(60,42)$ for writing or using $\\mathrm{N}(60,42)$. May be seen in a standardisation. If $\\mathrm{N}(60,\\sqrt{42})$ written but 60 and $\\sqrt{42}$ used in a standardisation then award M1\nM1: for standardising using $t$ or $t-0.5$ or $t+0.5$ with their mean and their standard deviation: $\\frac{t-0.5-\"60\"}{\\sqrt{\"42\"}}=-1.62$ or $\\frac{\"60\"-t+0.5}{\\sqrt{\"42\"}}=1.62$\nM1: for a fully correct standardisation with their mean and their standard deviation\nB1: for $\\pm 1.62$ or better (calc: 1.620150314) seen or used. Must be compatible with their standardisation\nA1: $[t=50.001\\ldots \\text{ so}]\\ t=50$ cao. Do not allow $t=50$ from incorrect working",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 5,
+          "text": "The optician decided to introduce a special offer in which customers who purchase a pair of glasses get the first three months of insurance free if they buy insurance.\nFollowing this, a random sample of 25 customers who purchase a pair of glasses is taken and 11 of them buy insurance.\n(e) Test, at the 10% level of significance, whether or not there is evidence that the proportion of customers who buy insurance when purchasing a pair of glasses has increased. State your hypotheses clearly.\n(5)",
+          "mark_scheme": "(e) B1: $\\mathrm{H_0}: p=0.3$, $\\mathrm{H_1}: p>0.3$ for both hypotheses in terms of $p$ or $\\pi$\nM1: $[\\mathrm{P}(X\\geqslant 11)=]1-\\mathrm{P}(X\\leqslant 10)$ for writing or using $1-\\mathrm{P}(X\\leqslant 10)$. May be implied by a correct CR\nA1: $=0.0978$ or correct CR ($CR \\geqslant 11$)\nM1: Reject $\\mathrm{H_0}$/Significant/In CR for a correct non contextual conclusion. ft their probability/CR provided a binomial distribution is used. Do not allow contradictory statements. May be implied by a correct contextual statement on its own.\nA1ft: Evidence to suggest that percentage/proportion/probability/number/amount of customers who buy insurance has increased oe. A correct contextual statement with words in bold (allow equivalent statements) ft their probability/CR provided a binomial distribution is used\nSC: If a two tailed test is used, then it is possible to score B0M1A1M1A1: $\\mathrm{H_0}: p=0.3$, $\\mathrm{H_1}: p\\neq 0.3$ B0; $[\\mathrm{P}(X\\geqslant 11)=]1-\\mathrm{P}(X\\leqslant 10)$ or $[\\mathrm{P}(X\\geqslant 12)=]1-\\mathrm{P}(X\\leqslant 11)$ M1; $=0.0978$ or $CR\\geqslant 12$ A1; Do not reject $\\mathrm{H_0}$/Not significant/Not in CR M1; Proportion who buy insurance has not increased oe A1",
+          "spec_refs": [
+            "S5.1",
+            "S5.2"
+          ]
+        }
+      ],
+      "qp_pages": [
+        23,
+        28
+      ],
+      "low_confidence": false,
+      "notes": "",
+      "source_qp_file": "pearson/IAL-2018/June2025/IAL2018_WST02_June2025_QP.txt",
+      "source_ms_file": "pearson/IAL-2018/June2025/IAL2018_WST02_June2025_MS.txt",
+      "notation": "latex",
+      "extraction_method": "single-call-v1",
+      "question_text": "When purchasing a pair of glasses from an optician, customers are offered insurance to cover accidental damage.\nPast records from the optician show that 30% of customers buy insurance when they purchase a pair of glasses.\nIn a random sample of 40 customers who have purchased a pair of glasses, $X$ represents the number who buy insurance.\n(a) State a suitable model for the distribution of $X$\n(1)\n(b) State a necessary assumption for the model in part (a) to be valid.\n(1)\nThe probability that fewer than $r$ customers who have purchased a pair of glasses buy insurance is less than 0.05\n(c) Find the largest possible value of $r$\n(2)\nA second random sample of 200 customers who have purchased a pair of glasses is taken.\nUsing a normal approximation, the probability that at least $t$ of these 200 customers buy insurance is 0.9474, correct to 4 decimal places.\n(d) Find the value of $t$\nYou must show your working.\n(5)\nThe optician decided to introduce a special offer in which customers who purchase a pair of glasses get the first three months of insurance free if they buy insurance.\nFollowing this, a random sample of 25 customers who purchase a pair of glasses is taken and 11 of them buy insurance.\n(e) Test, at the 10% level of significance, whether or not there is evidence that the proportion of customers who buy insurance when purchasing a pair of glasses has increased. State your hypotheses clearly.\n(5)",
+      "mark_scheme_text": "(a) B1: $X \\sim \\mathrm{B}(40, 0.3)$ Allow Binomial $n=40$, $p=0.3$\n(b) B1: for a suitable assumption in context. Must include 'insurance'. E.g. Constant probability of buying insurance or Customers buy insurance independently. If multiple reasons given ignore any irrelevant or incorrect reasons provided, they are non-contradictory\n(c) M1: for either probability $[\\mathrm{P}(X\\leqslant 7)=\\mathrm{P}(X<8)=]0.0553$ $[\\mathrm{P}(X\\leqslant 6)=\\mathrm{P}(X<7)=]0.0238$. May be implied by $r=7$\nA1: $r=7$ cao\n(d) M1: $\\mathrm{B}(200,0.3)$ implies $\\mathrm{N}(60,42)$ for writing or using $\\mathrm{N}(60,42)$. May be seen in a standardisation. If $\\mathrm{N}(60,\\sqrt{42})$ written but 60 and $\\sqrt{42}$ used in a standardisation then award M1\nM1: for standardising using $t$ or $t-0.5$ or $t+0.5$ with their mean and their standard deviation: $\\frac{t-0.5-\"60\"}{\\sqrt{\"42\"}}=-1.62$ or $\\frac{\"60\"-t+0.5}{\\sqrt{\"42\"}}=1.62$\nM1: for a fully correct standardisation with their mean and their standard deviation\nB1: for $\\pm 1.62$ or better (calc: 1.620150314) seen or used. Must be compatible with their standardisation\nA1: $[t=50.001\\ldots \\text{ so}]\\ t=50$ cao. Do not allow $t=50$ from incorrect working\n(e) B1: $\\mathrm{H_0}: p=0.3$, $\\mathrm{H_1}: p>0.3$ for both hypotheses in terms of $p$ or $\\pi$\nM1: $[\\mathrm{P}(X\\geqslant 11)=]1-\\mathrm{P}(X\\leqslant 10)$ for writing or using $1-\\mathrm{P}(X\\leqslant 10)$. May be implied by a correct CR\nA1: $=0.0978$ or correct CR ($CR \\geqslant 11$)\nM1: Reject $\\mathrm{H_0}$/Significant/In CR for a correct non contextual conclusion. ft their probability/CR provided a binomial distribution is used. Do not allow contradictory statements. May be implied by a correct contextual statement on its own.\nA1ft: Evidence to suggest that percentage/proportion/probability/number/amount of customers who buy insurance has increased oe. A correct contextual statement with words in bold (allow equivalent statements) ft their probability/CR provided a binomial distribution is used\nSC: If a two tailed test is used, then it is possible to score B0M1A1M1A1: $\\mathrm{H_0}: p=0.3$, $\\mathrm{H_1}: p\\neq 0.3$ B0; $[\\mathrm{P}(X\\geqslant 11)=]1-\\mathrm{P}(X\\leqslant 10)$ or $[\\mathrm{P}(X\\geqslant 12)=]1-\\mathrm{P}(X\\leqslant 11)$ M1; $=0.0978$ or $CR\\geqslant 12$ A1; Do not reject $\\mathrm{H_0}$/Not significant/Not in CR M1; Proportion who buy insurance has not increased oe A1",
+      "has_figure": false,
+      "figure_pages": []
+    }
+  ],
+  "extraction_retries": 1,
+  "pages_input": "png",
+  "autofixes": 3,
+  "triage_method": "triage-v1",
+  "ms_complete_method": "single-call-v2",
+  "ms_complete_added": 0,
+  "ms_complete_unverified": false
+}

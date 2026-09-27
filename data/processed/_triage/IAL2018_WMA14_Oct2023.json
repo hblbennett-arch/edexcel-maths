@@ -1,0 +1,324 @@
+{
+  "_paper_id": "IAL2018_WMA14_Oct2023",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.19807650000000002,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 5,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Binomial expansion for rational/negative index",
+          "reason": "P4.1 explicitly covers binomial expansion extended to any rational n including negative n, used for approximation of (2-5x)^-2; validity not required for proof.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Range of validity of binomial expansion",
+          "reason": "P4.1 states awareness that expansion is valid for |bx/a|<1, matching finding the range of x.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Connected rates of change via chain rule",
+          "reason": "P7.4 guidance explicitly mentions connected rates of change e.g. dV/dt = dV/dr x dr/dt; here dS/dt used to find dx/dt via chain rule.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Connected rates of change via chain rule",
+          "reason": "Same connected-rate-of-change technique (dV/dt via dV/dx and dx/dt) explicitly covered by P7.4 guidance.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "i",
+          "marks": 5,
+          "technique": "Integration by parts",
+          "reason": "P8.5 explicitly covers integration by parts including more than one application, matching the definite integral of x^2 e^{2x}.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.5"
+          ]
+        },
+        {
+          "label": "ii",
+          "marks": 7,
+          "technique": "Integration by substitution",
+          "reason": "P8.5 explicitly covers integration by substitution, matching the given integral requiring substitution u=2x-1 (or similar).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 5,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Proof by contradiction",
+          "reason": "P1.1 explicitly lists proof by contradiction as a required method, with guidance noting application to unfamiliar proofs; this algebraic inequality proof fits directly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P1.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Disproof by counter-example",
+          "reason": "P1.1 explicitly lists disproof by counter example as a required method; showing the result fails for negative k is a counter-example.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P1.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Implicit differentiation",
+          "reason": "P7.5 explicitly covers differentiation of relations defined implicitly, matching finding dy/dx from y^3 - x^2 + 4x^2y = k.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Normal to implicitly defined curve, solving equations",
+          "reason": "P7.5 guidance explicitly states finding equations of tangents/normals to curves given implicitly is required; using this with algebraic solving is standard in-spec technique.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Finding intersection point of two lines in vector form",
+          "reason": "P10.1/P10.3 cover vectors in 3D and algebraic operations; finding intersection point of two 3D vector lines is a standard application under P10.5.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P10.1",
+            "P10.5"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Angle between two vectors using scalar product",
+          "reason": "Although not itemised verbatim, P10.5 covers using vectors to solve problems in pure mathematics; scalar product for angle between lines is standard vector work within P10.1-P10.4 scope (direction vectors, magnitude).",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P10.1",
+            "P10.2",
+            "P10.5"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Area of isosceles triangle using vectors (1/2 ab sinC)",
+          "reason": "Combines P5.1 area of triangle formula with vector distance calculations (P10.4) - both are in-spec techniques applied together in a vector context per P10.5.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P10.5",
+            "P5.1"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Finding coordinates of point on a line given a distance (using position vectors)",
+          "reason": "P10.4 covers position vectors and distance between points; finding R on l2 with a given distance from P uses these techniques directly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P10.4",
+            "P10.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Substitution into a function to find a constant, algebraic modelling",
+          "reason": "P2.11 covers use of functions in modelling with substitution to verify a constant; straightforward algebraic substitution.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.11"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Long-term behaviour of a rational function model (limit as t→∞)",
+          "reason": "P2.11/P6.7 guidance discusses exploring behaviour for large t in modelling contexts; finding limiting value of rational function fits this.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P2.11",
+            "P6.7"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Partial fractions decomposition",
+          "reason": "P2.10 explicitly covers decomposing rational functions into partial fractions with denominators of the given form (linear factor times another linear factor).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.10"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 5,
+          "technique": "Separable first order differential equation with partial fractions and particular solution",
+          "reason": "P8.7 explicitly covers analytical solution of first order separable differential equations including particular solutions, with guidance noting factorisation involving partial fractions.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.7",
+            "P8.6"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 1,
+          "technique": "Long-term behaviour/limit of solution of differential equation",
+          "reason": "P8.8 explicitly covers interpreting the solution of a differential equation including behaviour for large values of t.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.8"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "8",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Evaluating parametric equations at a boundary (x-axis intercept)",
+          "reason": "P3.3 covers parametric equations of curves and their domain; reading off value of k where y=0 at boundary of parameter range is standard parametric work.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P3.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Parametric differentiation using trig identities",
+          "reason": "P7.5 explicitly covers differentiating functions defined parametrically (first derivative), combined with trig identities from P5.5; matches finding dy/dx = λcosec t.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5",
+            "P5.5"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Equation of tangent to a parametrically defined curve, finding intercept",
+          "reason": "P7.5 guidance explicitly states finding equations of tangents to curves given parametrically is required; this is a direct application.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5"
+          ]
+        },
+        {
+          "label": "d(i)",
+          "marks": 3,
+          "technique": "Volume of revolution using parametric integration",
+          "reason": "No statement in the specification list mentions volume of revolution or volume of a solid of revolution; P8.3 only covers areas (under a curve, between curves), not volumes. Since this named concept is absent from all statements, it is excluded.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "d(ii)",
+          "marks": 3,
+          "technique": "Algebraic integration to evaluate a volume of revolution",
+          "reason": "This part depends on and only makes sense as continuation of part (d)(i)'s volume of revolution setup, which is out of spec (no statement covers volumes of revolution); per the rule that parts relying on an out-of-spec part are OUT.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        }
+      ]
+    }
+  ]
+}

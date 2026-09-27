@@ -1,0 +1,388 @@
+{
+  "_paper_id": "GCE2008_6683R_June2014",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.141694,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Discrete probability distribution - sum to 1",
+          "reason": "Basic requirement that probabilities sum to 1 for a discrete random variable is standard S3/S4.1 content; no excluded technique used.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "E(X) of discrete random variable",
+          "reason": "S4.1 explicit exclusion: 'calculation of mean and variance of discrete random variables is excluded'.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Cumulative probability F(0) from discrete distribution",
+          "reason": "Simply requires summing P(X<=0) from the given table; this is a basic probability calculation not covered by the mean/variance exclusion.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Probability of transformed discrete rv inequality",
+          "reason": "Requires manipulating inequality then reading probabilities from table - basic probability, not excluded.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Var(aX+b) of discrete random variable",
+          "reason": "Requires Var(X) given/used - variance of discrete random variable is explicitly excluded by S4.1.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 5,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Identify discrete uniform distribution",
+          "reason": "S4.1 guidance explicitly states students should know and identify the discrete uniform distribution.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Probabilities from discrete uniform distribution",
+          "reason": "Simple probability values from discrete uniform distribution, direct application of S4.1.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Probabilities from Normal distribution",
+          "reason": "P(Y=10)=0 and P(Y<10)=0.5 uses symmetry of Normal distribution; no pdf knowledge or derivation required, consistent with S4.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 16,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Calculate Sxx, Sxy for regression/PMCC",
+          "reason": "These sums are computed solely to feed into PMCC and regression line calculations, both of which are explicitly excluded (S2.2, S5.1).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Calculate PMCC using formula",
+          "reason": "S5.1 explicit exclusion: 'use of the formula is not required' and S2.2 excludes regression-line calculations; here PMCC calculated via formula from Sxx/Sxy is out.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Find regression line coefficients a and b",
+          "reason": "S2.2 explicit exclusion: 'calculations involving regression lines are excluded'.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Estimate using regression line",
+          "reason": "Uses the regression equation from excluded part (c); regression line calculations excluded.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 1,
+          "technique": "Interpret regression gradient",
+          "reason": "Depends on regression line calculation which is excluded.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "f",
+          "marks": 2,
+          "technique": "New PMCC and regression gradient after scaling",
+          "reason": "Both PMCC calculation and regression line gradient are explicitly excluded.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Conditional probability P(A∩B) from P(A|B)",
+          "reason": "Direct application of conditional probability formula, covered by S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Venn diagram of probabilities",
+          "reason": "Drawing Venn diagrams with probabilities is explicitly covered in S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Find P(A) from Venn diagram",
+          "reason": "Basic probability rule P(A)=P(A∩B)+P(A∩B'), covered by S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Conditional probability P(B|A)",
+          "reason": "Direct application of conditional probability formula, S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 1,
+          "technique": "Probability P(A'∩B)",
+          "reason": "Basic set probability from Venn diagram, S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Upper class boundary",
+          "reason": "Basic grouped data concept, part of S2.1 histogram work.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Histogram frequency density/height calculation",
+          "reason": "S2.1 covers histograms and area representing frequency, requiring frequency density calculations.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Estimate frequency using histogram/frequency density",
+          "reason": "Uses frequency density proportions within class intervals, standard S2.1 histogram interpretation.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.1"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "technique": "Linear interpolation for median and quartiles",
+          "reason": "S2.3 guidance explicitly states 'Use of linear interpolation to calculate percentiles from grouped data is expected.'",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Describe skewness using quartiles/mean-median-mode comparison",
+          "reason": "S2.3/S2.4 cover measures of central tendency/variation and drawing simple inferences from them; comparing quartile spacing or mean/median/mode to describe skewness is a standard extension of this, though 'skewness' is not named explicitly.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.3",
+            "S2.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Sketch Normal curve with given probabilities",
+          "reason": "Standard depiction of Normal distribution shape/symmetry, covered by S4.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Percentage between two values on Normal curve",
+          "reason": "Basic probability subtraction using Normal distribution, S4.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 7,
+          "technique": "Standardise Normal variable, form and solve simultaneous equations for μ and σ",
+          "reason": "S4.2 guidance explicitly states 'Questions may involve the solution of simultaneous equations.' Standardisation and solving for μ, σ is core content.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Find probability using derived Normal distribution parameters",
+          "reason": "Uses standard Normal probability calculation with calculator, consistent with S4.2 (uses answer from in-spec part (c)).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Tree diagram construction",
+          "reason": "Tree diagrams for conditional/independent probabilities explicitly covered in S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Probability of exclusive-or event from tree diagram",
+          "reason": "Combination of basic probability rules (addition, complement) covered by S3.1/S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Conditional probability using Bayes'-type calculation",
+          "reason": "S3.2 covers conditional probability formula P(A|B)=P(A∩B)/P(B), including via tree diagrams.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Probability exactly one of two independent selections has property",
+          "reason": "Uses binomial-type reasoning with independent events, covered by S3.1 (independent events) and basic probability combination.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S3.1"
+          ]
+        }
+      ]
+    }
+  ]
+}

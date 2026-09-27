@@ -1,0 +1,277 @@
+{
+  "_paper_id": "IAL2018_WST02_Oct2020",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.2690005,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Continuous random variable pdf, algebraic integration to show a result",
+          "reason": "Requires knowledge of a probability density function for a continuous random variable. S4.2 explicitly excludes knowledge of the probability density function, so this is out.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Mode of a continuous distribution via differentiation of pdf",
+          "reason": "Depends on the pdf defined in part (a), which is out of spec (S4.2 excludes pdf knowledge); also finding the mode of a continuous random variable is not a listed statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Specify pdf from a cdf sketch (continuous uniform distribution)",
+          "reason": "Requires deriving/specifying a probability density function, explicitly excluded by S4.2 ('Knowledge of the probability density function is not required').",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "E(X) of a continuous random variable",
+          "reason": "E(X) of a general random variable (here continuous, via a pdf) is not covered; S4.1's exclusion concerns discrete E(X)/Var(X) and no statement covers continuous E(X) either.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Solve for α using continuous distribution probability (integration of pdf)",
+          "reason": "Requires using the pdf/cdf of a continuous random variable, not covered by any statement (S4.2 excludes pdf knowledge).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Probability from continuous distribution (pdf)",
+          "reason": "Uses the pdf of the continuous random variable W to compute a probability; no statement covers continuous pdf-based probability calculations (S4.2 exclusion).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Conditional probability from continuous distribution",
+          "reason": "Although conditional probability itself (S3.2) is in spec, the calculation here requires probabilities derived from the continuous pdf in part (d), which is out of spec, and depends on that out-of-spec answer.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "f",
+          "marks": 3,
+          "technique": "Binomial probability P(Y≥10) using normal/direct binomial calculation, with probability derived from continuous pdf part (d)",
+          "reason": "Binomial calculations themselves are in spec (S4.1), but this part only makes sense using the probability value 0.15 obtained from the out-of-spec pdf-based part (d); since the part cannot be attempted without that out-of-spec antecedent result, per the rule that a part relying on an out-of-spec part is OUT, this part is OUT.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 15,
+      "parts": [
+        {
+          "label": "a(i)",
+          "marks": 2,
+          "technique": "Binomial probability calculation",
+          "reason": "Direct binomial probability calculation using calculator, covered by S4.1 guidance on using a calculator for binomial probabilities.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "a(ii)",
+          "marks": 2,
+          "technique": "Binomial probability calculation (complement)",
+          "reason": "Standard binomial probability calculation, covered by S4.1.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 7,
+          "technique": "Normal approximation to binomial with continuity correction, finding c and d from tail probabilities",
+          "reason": "Covered by S4.2's statement that B(n,p) can be approximated by Normal when n large, p close to 0.5, with continuity correction expected.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Hypothesis test for binomial proportion",
+          "reason": "Matches S5.2, conducting a statistical hypothesis test for the proportion in the binomial distribution, hypotheses expressed in terms of population parameter p.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S5.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 16,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Assumption for Poisson distribution",
+          "reason": "Poisson distribution is not mentioned in any statement; explicit exclusion note states named concepts not mentioned (e.g. Poisson) make the part OUT.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b(i)",
+          "marks": 2,
+          "technique": "Poisson probability calculation",
+          "reason": "Poisson distribution not covered by any statement, so out of spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b(ii)",
+          "marks": 2,
+          "technique": "Poisson probability calculation",
+          "reason": "Poisson distribution not covered by any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 5,
+          "technique": "Hypothesis test for Poisson mean",
+          "reason": "Hypothesis testing is covered for binomial proportion (S5.2) and normal mean (S5.3) only; Poisson mean testing is not covered by any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Normal approximation to Poisson",
+          "reason": "Relies on the Poisson distribution which is not covered by any statement (S4.2 only covers normal approximation to binomial).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 3,
+          "technique": "Poisson approximation to binomial for rare events",
+          "reason": "Poisson distribution is not covered by any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Var(T) via algebraic integration for continuous random variable using pdf",
+          "reason": "Requires knowledge and integration of a probability density function; explicitly excluded by S4.2.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Cumulative distribution function derivation from pdf",
+          "reason": "S4.2 explicitly excludes derivation of the cumulative distribution function, and pdf knowledge in general is excluded.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Probability calculation using cdf/pdf of continuous distribution",
+          "reason": "Depends on the pdf/cdf established in earlier out-of-spec parts; pdf knowledge is excluded by S4.2.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Probability calculation using cdf, using E(T) from out-of-spec earlier work",
+          "reason": "Relies on the cdf F(t) derived in part (b), which is out of spec, and pdf knowledge generally is excluded by S4.2.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Explain sampling distribution of a statistic",
+          "reason": "'Sampling distribution' is a named concept not mentioned in any statement, making this part OUT per the exclusion rule for unlisted named concepts.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 7,
+          "technique": "Derive sampling distribution of the range of a sample statistic",
+          "reason": "Sampling distributions are not covered by any statement (S1.1 covers sampling techniques, not sampling distributions of statistics), so this is out.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Binomial probability / inequality solving using probability from sampling distribution",
+          "reason": "Although solving an inequality with logs could be an in-spec technique (P4.5-style), it requires the probability value 0.09 derived from the out-of-spec sampling distribution in part (b), so this part is OUT as it depends on an out-of-spec antecedent.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    }
+  ]
+}

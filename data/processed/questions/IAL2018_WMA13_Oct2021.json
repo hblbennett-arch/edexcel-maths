@@ -1,0 +1,602 @@
+{
+  "_paper_id": "IAL2018_WMA13_Oct2021",
+  "_paper": "WMA13",
+  "_sitting": "Oct2021",
+  "qualification": "IAL-2018",
+  "unit": "WMA13",
+  "component": "pure",
+  "status": "legacy",
+  "paper_total": 75,
+  "source_qp_file": "pearson/IAL-2018/Oct2021/IAL2018_WMA13_Oct2021_QP.txt",
+  "source_ms_file": "pearson/IAL-2018/Oct2021/IAL2018_WMA13_Oct2021_MS.txt",
+  "extraction_method": "single-call-v1",
+  "extraction_model": "claude-sonnet-5",
+  "pearson_errors": [],
+  "questions": [
+    {
+      "paper_id": "IAL2018_WMA13_Oct2021",
+      "spec": "IAL-2018",
+      "qualification": "IAL-2018",
+      "unit": "WMA13",
+      "status": "legacy",
+      "paper": "WMA13",
+      "sitting": "Oct2021",
+      "id": "IAL2018_WMA13_Oct2021_Q1",
+      "q_num": "1",
+      "total_marks": 9,
+      "component": "pure",
+      "uses_large_data_set": false,
+      "stem": "The function f is defined by\n$\\mathrm{f}(x) = \\dfrac{5x}{x^2+7x+12} + \\dfrac{5x}{x+4} \\qquad x>0$",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "text": "(a) Show that $\\mathrm{f}(x) = \\dfrac{5x}{x+3}$\n(3)",
+          "mark_scheme": "M1: Attempts to combine the two fractions using a common denominator. Allow errors on the numerator but at least one of the terms must have been adapted. Usual rules apply for factorising the quadratic denominator. Condone invisible brackets and slips on the numerator when combining the two fractions. Allow the two fractions to be written separately with the same denominator.\nA1: For a correct un-simplified fraction with a quadratic numerator and denominator (which may be implied): $\\dfrac{5x}{x^2+7x+12}+\\dfrac{5x}{x+4} = \\dfrac{5x(x+4)+5x(x^2+7x+12)}{\\cdots} = \\dfrac{5x^3+40x^2+80x}{(x^2+7x+12)(x+4)} = \\dfrac{x(5x+20)(x+4)}{(x^2+7x+12)(x+4)} = \\dfrac{x(5x+20)}{(x^2+7x+12)}$\nA1*: Correctly achieves the given answer of $\\dfrac{5x}{x+3}$ showing intermediate steps (cso). Expect to see the two fractions combined and then both the numerator and denominator factorised before cancelling terms to achieve full marks. In the case of forming a cubic numerator and denominator you must see the terms collected before factorising. Bracket errors at some point in their working is A0*.\nAlt methods in (a): Taking out common factors M1A1: $\\dfrac{5x}{x^2+7x+12}+\\dfrac{5x}{x+4}=5x\\left\\{\\dfrac{1+(x+3)}{(x+3)(x+4)}\\right\\}$ or $=\\dfrac{5x}{(x+4)}\\left\\{\\dfrac{1+(x+3)}{(x+3)}\\right\\}$. Methods where candidates 'split up' fractions: M1: Attempts $\\dfrac{5x}{x^2+7x+12}$ OR $\\dfrac{5}{x^2+7x+12}$ by partial fractions. A1: $\\dfrac{5x}{x+3}-\\dfrac{5x}{x+4}+\\dfrac{5x}{x+4}$. A1*: $\\dfrac{5x}{x+3}$ You would expect to see $\\dfrac{5x}{x+3}-\\dfrac{5x}{x+4}+\\dfrac{5x}{x+4}$ before proceeding to the given answer.\nOfficial notes (completeness pass):\n- $\\dfrac{5x}{x^2+7x+12}+\\dfrac{5x}{x+4}=\\dfrac{5x+5x(x+3)}{(x+3)(x+4)}$ M1 A1; $=\\dfrac{5x^2+20x}{(x+3)(x+4)}=\\dfrac{5x(x+4)}{(x+3)(x+4)}=\\dfrac{5x}{x+3}$ * A1*",
+          "spec_refs": [
+            "P2.6"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "text": "(b) Find $\\mathrm{f}^{-1}$\n(3)",
+          "mark_scheme": "M1: Attempts to change the subject on $y=\\dfrac{5x}{x+3}$ (or $x=\\dfrac{5y}{y+3}$). Look for cross multiplication with an attempt to collect terms. Do not follow through on their answer to part (a).\nA1: $\\mathrm{f}^{-1}(x)=\\dfrac{3x}{5-x}$ or $\\mathrm{f}^{-1}(x)=\\dfrac{-3x}{x-5}$ Must be in terms of $x$. Condone $\\mathrm{f}^{-1}=\\ldots$ (or $\\mathrm{f}^{-1}: y=\\ldots$) but do not allow just $y=\\ldots$ or $\\mathrm{f}^{-1}: y=\\ldots$\nA1: Correct domain $0<x<5$.\nAlt method in (b): M1: Writes $y=\\dfrac{5x}{x+3}$ as $y=5\\pm\\dfrac{k}{x+3}$ and then attempts to make $x$ the subject. A1: $\\mathrm{f}^{-1}(x)=\\dfrac{15}{5-x}-3$ or equivalent. A1: $0<x<5$\nOfficial notes (completeness pass):\n- $y=\\dfrac{5x}{(x+3)}\\Rightarrow xy+3y=5x\\Rightarrow 5x-xy=3y$ M1; $\\Rightarrow x=\\dfrac{3y}{5-y}$ So $\\mathrm{f}^{-1}(x)=\\dfrac{3x}{5-x}$ A1; Domain $0<x<5$ A1",
+          "spec_refs": [
+            "P2.8"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "text": "(c) (i) Find, in simplest form, $\\mathrm{f}'(x)$.\n(ii) Hence, state whether f is an increasing or a decreasing function, giving a reason for your answer.\n(3)",
+          "mark_scheme": "Mark (i) and (ii) together.\nM1: Attempts to use the quotient rule or product rule. Look for an expression of the form $\\dfrac{A(x+3)-5x}{(x+3)^2}$ or $5x(x+3)^{-1}\\to B(x+3)^{-1}\\pm 5x(x+3)^{-2}$ where $A$ and $B$ are non-zero constants.\nA1: $\\left(\\mathrm{f}'(x)=\\right)\\dfrac{15}{(x+3)^2}$ or $15(x+3)^{-2}$ or $\\dfrac{15}{x^2+6x+9}$. Do not allow $\\dfrac{5}{x+3}-\\dfrac{5x}{(x+3)^2}$ for this mark.\nA1: They achieve $\\left(\\mathrm{f}'(x)=\\right)\\dfrac{15}{(x+3)^2}$ and states (that f is an) increasing function since $(x+3)^2$ is positive.\nAlt method in (c): M1: Writes $y=\\dfrac{5x}{x+3}$ as $y=5\\pm\\dfrac{k}{x+3}$ and attempts the chain rule to get $\\pm\\dfrac{C}{(x+3)^2}$. A1: $\\left(\\mathrm{f}'(x)=\\right)\\dfrac{15}{(x+3)^2}$ or exact equivalent. A1: States that since $(x+3)^2$ is positive so f is increasing function.\nOfficial notes (completeness pass):\n- $\\mathrm{f}(x)=\\dfrac{5x}{(x+3)}\\Rightarrow(\\mathrm{f}'(x)=)\\dfrac{5(x+3)-5x}{(x+3)^2}=\\dfrac{15}{(x+3)^2}$ M1 A1; (ii) States (f is an) increasing function with a suitable reason E.g. Since $(x+3)^2$ is positive A1",
+          "spec_refs": [
+            "P7.4",
+            "P2.6"
+          ]
+        }
+      ],
+      "qp_pages": [
+        2,
+        5
+      ],
+      "low_confidence": false,
+      "notes": "",
+      "source_qp_file": "pearson/IAL-2018/Oct2021/IAL2018_WMA13_Oct2021_QP.txt",
+      "source_ms_file": "pearson/IAL-2018/Oct2021/IAL2018_WMA13_Oct2021_MS.txt",
+      "notation": "latex",
+      "extraction_method": "single-call-v1",
+      "question_text": "The function f is defined by\n$\\mathrm{f}(x) = \\dfrac{5x}{x^2+7x+12} + \\dfrac{5x}{x+4} \\qquad x>0$\n(a) Show that $\\mathrm{f}(x) = \\dfrac{5x}{x+3}$\n(3)\n(b) Find $\\mathrm{f}^{-1}$\n(3)\n(c) (i) Find, in simplest form, $\\mathrm{f}'(x)$.\n(ii) Hence, state whether f is an increasing or a decreasing function, giving a reason for your answer.\n(3)",
+      "mark_scheme_text": "M1: Attempts to combine the two fractions using a common denominator. Allow errors on the numerator but at least one of the terms must have been adapted. Usual rules apply for factorising the quadratic denominator. Condone invisible brackets and slips on the numerator when combining the two fractions. Allow the two fractions to be written separately with the same denominator.\nA1: For a correct un-simplified fraction with a quadratic numerator and denominator (which may be implied): $\\dfrac{5x}{x^2+7x+12}+\\dfrac{5x}{x+4} = \\dfrac{5x(x+4)+5x(x^2+7x+12)}{\\cdots} = \\dfrac{5x^3+40x^2+80x}{(x^2+7x+12)(x+4)} = \\dfrac{x(5x+20)(x+4)}{(x^2+7x+12)(x+4)} = \\dfrac{x(5x+20)}{(x^2+7x+12)}$\nA1*: Correctly achieves the given answer of $\\dfrac{5x}{x+3}$ showing intermediate steps (cso). Expect to see the two fractions combined and then both the numerator and denominator factorised before cancelling terms to achieve full marks. In the case of forming a cubic numerator and denominator you must see the terms collected before factorising. Bracket errors at some point in their working is A0*.\nAlt methods in (a): Taking out common factors M1A1: $\\dfrac{5x}{x^2+7x+12}+\\dfrac{5x}{x+4}=5x\\left\\{\\dfrac{1+(x+3)}{(x+3)(x+4)}\\right\\}$ or $=\\dfrac{5x}{(x+4)}\\left\\{\\dfrac{1+(x+3)}{(x+3)}\\right\\}$. Methods where candidates 'split up' fractions: M1: Attempts $\\dfrac{5x}{x^2+7x+12}$ OR $\\dfrac{5}{x^2+7x+12}$ by partial fractions. A1: $\\dfrac{5x}{x+3}-\\dfrac{5x}{x+4}+\\dfrac{5x}{x+4}$. A1*: $\\dfrac{5x}{x+3}$ You would expect to see $\\dfrac{5x}{x+3}-\\dfrac{5x}{x+4}+\\dfrac{5x}{x+4}$ before proceeding to the given answer.\nOfficial notes (completeness pass):\n- $\\dfrac{5x}{x^2+7x+12}+\\dfrac{5x}{x+4}=\\dfrac{5x+5x(x+3)}{(x+3)(x+4)}$ M1 A1; $=\\dfrac{5x^2+20x}{(x+3)(x+4)}=\\dfrac{5x(x+4)}{(x+3)(x+4)}=\\dfrac{5x}{x+3}$ * A1*\nM1: Attempts to change the subject on $y=\\dfrac{5x}{x+3}$ (or $x=\\dfrac{5y}{y+3}$). Look for cross multiplication with an attempt to collect terms. Do not follow through on their answer to part (a).\nA1: $\\mathrm{f}^{-1}(x)=\\dfrac{3x}{5-x}$ or $\\mathrm{f}^{-1}(x)=\\dfrac{-3x}{x-5}$ Must be in terms of $x$. Condone $\\mathrm{f}^{-1}=\\ldots$ (or $\\mathrm{f}^{-1}: y=\\ldots$) but do not allow just $y=\\ldots$ or $\\mathrm{f}^{-1}: y=\\ldots$\nA1: Correct domain $0<x<5$.\nAlt method in (b): M1: Writes $y=\\dfrac{5x}{x+3}$ as $y=5\\pm\\dfrac{k}{x+3}$ and then attempts to make $x$ the subject. A1: $\\mathrm{f}^{-1}(x)=\\dfrac{15}{5-x}-3$ or equivalent. A1: $0<x<5$\nOfficial notes (completeness pass):\n- $y=\\dfrac{5x}{(x+3)}\\Rightarrow xy+3y=5x\\Rightarrow 5x-xy=3y$ M1; $\\Rightarrow x=\\dfrac{3y}{5-y}$ So $\\mathrm{f}^{-1}(x)=\\dfrac{3x}{5-x}$ A1; Domain $0<x<5$ A1\nMark (i) and (ii) together.\nM1: Attempts to use the quotient rule or product rule. Look for an expression of the form $\\dfrac{A(x+3)-5x}{(x+3)^2}$ or $5x(x+3)^{-1}\\to B(x+3)^{-1}\\pm 5x(x+3)^{-2}$ where $A$ and $B$ are non-zero constants.\nA1: $\\left(\\mathrm{f}'(x)=\\right)\\dfrac{15}{(x+3)^2}$ or $15(x+3)^{-2}$ or $\\dfrac{15}{x^2+6x+9}$. Do not allow $\\dfrac{5}{x+3}-\\dfrac{5x}{(x+3)^2}$ for this mark.\nA1: They achieve $\\left(\\mathrm{f}'(x)=\\right)\\dfrac{15}{(x+3)^2}$ and states (that f is an) increasing function since $(x+3)^2$ is positive.\nAlt method in (c): M1: Writes $y=\\dfrac{5x}{x+3}$ as $y=5\\pm\\dfrac{k}{x+3}$ and attempts the chain rule to get $\\pm\\dfrac{C}{(x+3)^2}$. A1: $\\left(\\mathrm{f}'(x)=\\right)\\dfrac{15}{(x+3)^2}$ or exact equivalent. A1: States that since $(x+3)^2$ is positive so f is increasing function.\nOfficial notes (completeness pass):\n- $\\mathrm{f}(x)=\\dfrac{5x}{(x+3)}\\Rightarrow(\\mathrm{f}'(x)=)\\dfrac{5(x+3)-5x}{(x+3)^2}=\\dfrac{15}{(x+3)^2}$ M1 A1; (ii) States (f is an) increasing function with a suitable reason E.g. Since $(x+3)^2$ is positive A1",
+      "has_figure": false,
+      "figure_pages": []
+    },
+    {
+      "paper_id": "IAL2018_WMA13_Oct2021",
+      "spec": "IAL-2018",
+      "qualification": "IAL-2018",
+      "unit": "WMA13",
+      "status": "legacy",
+      "paper": "WMA13",
+      "sitting": "Oct2021",
+      "id": "IAL2018_WMA13_Oct2021_Q2",
+      "q_num": "2",
+      "total_marks": 10,
+      "component": "pure",
+      "uses_large_data_set": false,
+      "stem": "Figure 1 shows a sketch of part of the graph with equation $y=\\mathrm{f}(x)$, where\n$\\mathrm{f}(x)=|3x-13|+5 \\qquad x\\in\\mathbb{R}$\nThe vertex of the graph is at point $P$, as shown in Figure 1.",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "text": "(a) State the coordinates of $P$.\n(2)",
+          "mark_scheme": "B1: One correct coordinate. Allow as $x=\\dfrac{13}{3}, y=5$ or exact equivalent and condone missing brackets.\nB1: Both coordinates correct. Allow as $x=\\dfrac{13}{3}, y=5$ or exact equivalent and condone missing brackets. Answer: $\\left(\\dfrac{13}{3},5\\right)$",
+          "spec_refs": [
+            "P2.7"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "text": "(b) (i) State the range of f.\n(ii) Find the value of $\\mathrm{ff}(4)$\n(2)",
+          "mark_scheme": "(b)(i) B1ft: $\\mathrm{f}(x)\\geqslant 5$. Allow equivalent correct answers. E.g. $y\\geqslant 5$, $y\\in[5,\\infty)$, $\\mathrm{f}\\geqslant 5$ or using set notation. Follow through on their $y$ coordinate in (a). Do not allow 'range $\\geqslant 5$'.\n(b)(ii) B1: $10$",
+          "spec_refs": [
+            "P2.7",
+            "P2.8"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "text": "(c) Solve, using algebra and showing your working,\n$16-2x > |3x-13|+5$\n(4)",
+          "mark_scheme": "M1: Attempts to solve either $16-2x\\ldots 3x-13+5\\Rightarrow$ a value or inequality in $x$, OR $16-2x\\ldots -3x+13+5\\Rightarrow$ a value or inequality in $x$. Look for the equation or inequality (ignore the direction) after the modulus signs have been removed allowing slips in their rearrangement.\nA1: Both correct critical values $2,\\dfrac{24}{5}$ or exact equivalent which may be part of an incorrect inequality.\ndM1: Selects inside region for their critical values or both correct inequalities seen for their values. Allow this to be written separately and allow the critical values to be included within their region.\nA1: $2<x<\\dfrac{24}{5}$. Allow other exact equivalent forms such as $2<x<\\dfrac{48}{10}$ or $x\\in\\left(2,\\dfrac{24}{5}\\right)$ or $\\dfrac{24}{5}>x>2$. The inequalities must be presented together on one line for this mark. Accept two separate statements such as \"$x>2$ AND $x<\\dfrac{24}{5}$\" but not \"$x>2$ or $x<\\dfrac{24}{5}$\" or \"$x>2, x<\\dfrac{24}{5}$\".\nAlt(c): $(11-2x)^2\\ldots(3x-13)^2\\Rightarrow 121-44x+4x^2\\ldots 9x^2-78x+169$; M1: $5x^2-34x+48\\ldots 0\\Rightarrow$ a value or inequality in $x$; A1: $2,\\dfrac{24}{5}$; dM1: Selects inside region for their critical values; A1: $2<x<\\dfrac{24}{5}$",
+          "spec_refs": [
+            "P2.5",
+            "P2.7"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "text": "The graph with equation $y=\\mathrm{f}(x)$ is transformed onto the graph with equation $y=a\\mathrm{f}(x+b)$\nThe vertex of the graph with equation $y=a\\mathrm{f}(x+b)$ is $(4,20)$\nGiven that $a$ and $b$ are constants,\n(d) find the value of $a$ and the value of $b$.\n(2)",
+          "mark_scheme": "B1ft: One correct value. Either $a=4$ or $b=\\dfrac{1}{3}$ but ft on their part (a) so accept $a=\\dfrac{20}{\\text{\"5\"}}$ or $b=\\text{\"}\\dfrac{13}{3}\\text{\"}-4$.\nB1: $a=4, b=\\dfrac{1}{3}$ which may be embedded within $y=a\\mathrm{f}(x+b)$",
+          "spec_refs": [
+            "P2.9"
+          ]
+        }
+      ],
+      "qp_pages": [
+        6,
+        9
+      ],
+      "low_confidence": false,
+      "notes": "",
+      "source_qp_file": "pearson/IAL-2018/Oct2021/IAL2018_WMA13_Oct2021_QP.txt",
+      "source_ms_file": "pearson/IAL-2018/Oct2021/IAL2018_WMA13_Oct2021_MS.txt",
+      "notation": "latex",
+      "extraction_method": "single-call-v1",
+      "question_text": "Figure 1 shows a sketch of part of the graph with equation $y=\\mathrm{f}(x)$, where\n$\\mathrm{f}(x)=|3x-13|+5 \\qquad x\\in\\mathbb{R}$\nThe vertex of the graph is at point $P$, as shown in Figure 1.\n(a) State the coordinates of $P$.\n(2)\n(b) (i) State the range of f.\n(ii) Find the value of $\\mathrm{ff}(4)$\n(2)\n(c) Solve, using algebra and showing your working,\n$16-2x > |3x-13|+5$\n(4)\nThe graph with equation $y=\\mathrm{f}(x)$ is transformed onto the graph with equation $y=a\\mathrm{f}(x+b)$\nThe vertex of the graph with equation $y=a\\mathrm{f}(x+b)$ is $(4,20)$\nGiven that $a$ and $b$ are constants,\n(d) find the value of $a$ and the value of $b$.\n(2)",
+      "mark_scheme_text": "B1: One correct coordinate. Allow as $x=\\dfrac{13}{3}, y=5$ or exact equivalent and condone missing brackets.\nB1: Both coordinates correct. Allow as $x=\\dfrac{13}{3}, y=5$ or exact equivalent and condone missing brackets. Answer: $\\left(\\dfrac{13}{3},5\\right)$\n(b)(i) B1ft: $\\mathrm{f}(x)\\geqslant 5$. Allow equivalent correct answers. E.g. $y\\geqslant 5$, $y\\in[5,\\infty)$, $\\mathrm{f}\\geqslant 5$ or using set notation. Follow through on their $y$ coordinate in (a). Do not allow 'range $\\geqslant 5$'.\n(b)(ii) B1: $10$\nM1: Attempts to solve either $16-2x\\ldots 3x-13+5\\Rightarrow$ a value or inequality in $x$, OR $16-2x\\ldots -3x+13+5\\Rightarrow$ a value or inequality in $x$. Look for the equation or inequality (ignore the direction) after the modulus signs have been removed allowing slips in their rearrangement.\nA1: Both correct critical values $2,\\dfrac{24}{5}$ or exact equivalent which may be part of an incorrect inequality.\ndM1: Selects inside region for their critical values or both correct inequalities seen for their values. Allow this to be written separately and allow the critical values to be included within their region.\nA1: $2<x<\\dfrac{24}{5}$. Allow other exact equivalent forms such as $2<x<\\dfrac{48}{10}$ or $x\\in\\left(2,\\dfrac{24}{5}\\right)$ or $\\dfrac{24}{5}>x>2$. The inequalities must be presented together on one line for this mark. Accept two separate statements such as \"$x>2$ AND $x<\\dfrac{24}{5}$\" but not \"$x>2$ or $x<\\dfrac{24}{5}$\" or \"$x>2, x<\\dfrac{24}{5}$\".\nAlt(c): $(11-2x)^2\\ldots(3x-13)^2\\Rightarrow 121-44x+4x^2\\ldots 9x^2-78x+169$; M1: $5x^2-34x+48\\ldots 0\\Rightarrow$ a value or inequality in $x$; A1: $2,\\dfrac{24}{5}$; dM1: Selects inside region for their critical values; A1: $2<x<\\dfrac{24}{5}$\nB1ft: One correct value. Either $a=4$ or $b=\\dfrac{1}{3}$ but ft on their part (a) so accept $a=\\dfrac{20}{\\text{\"5\"}}$ or $b=\\text{\"}\\dfrac{13}{3}\\text{\"}-4$.\nB1: $a=4, b=\\dfrac{1}{3}$ which may be embedded within $y=a\\mathrm{f}(x+b)$",
+      "has_figure": true,
+      "figure_pages": [
+        6
+      ]
+    },
+    {
+      "paper_id": "IAL2018_WMA13_Oct2021",
+      "spec": "IAL-2018",
+      "qualification": "IAL-2018",
+      "unit": "WMA13",
+      "status": "legacy",
+      "paper": "WMA13",
+      "sitting": "Oct2021",
+      "id": "IAL2018_WMA13_Oct2021_Q3",
+      "q_num": "3",
+      "total_marks": 6,
+      "component": "pure",
+      "uses_large_data_set": false,
+      "stem": "Figure 2 shows a sketch of $G$ against $t$.\nThe total mass of gold, $G$ tonnes, extracted from a mine is modelled by the equation\n$G=40-30\\mathrm{e}^{1-0.05t} \\qquad t\\geqslant k \\qquad G\\geqslant 0$\nwhere $t$ is the number of years after 1st January 1800.\nUse the equation of the model to answer parts (a), (b) and (c).",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "text": "(a) (i) Find the value of $k$.\n(ii) Hence find the year and month in which gold started being extracted from the mine.\n(3)",
+          "mark_scheme": "Mark (a)(i) and (ii) together.\n(a)(i) M1: Sets $G=0$ and proceeds to a linear equation in $t$ or $k$ using a correct method by taking logs of both sides, but condone slips in the rest of their rearrangement.\nA1: $(k=)$ awrt $14.2$ or $14.25$ but allow the exact value $20\\left(1-\\ln\\dfrac{4}{3}\\right)$ or other equivalent exact expressions such as $\\dfrac{\\ln\\frac{4}{3}-1}{-0.05}$ or $20\\left(1-\\ln\\dfrac{4}{3}\\right)$ or $20\\ln\\left(\\dfrac{3}{4}\\mathrm{e}\\right)$. Isw after a correct answer.\n(a)(ii) A1: March 1814 but allow April 1814 following \"correct\" $k$. Condone \"the third month of 1814\" or \"the fourth month of 1814\" following \"correct\" $k$. Withhold this mark if they have two answers of which one is incorrect.\nOfficial notes (completeness pass):\n- $0=40-30\\mathrm{e}^{1-0.05t}\\Rightarrow 1-0.05t=\\ln\\dfrac{40}{30}$ M1; $\\Rightarrow(k=)$ awrt $14.2$ A1; March 1814 A1",
+          "spec_refs": [
+            "P6.7",
+            "P2.11"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "text": "(b) Find the total mass of gold extracted from the mine up to 1st January 1870.\n(2)",
+          "mark_scheme": "M1: Attempts to find $G$ with $t=70$ (condone $t=69$) which may be implied by awrt $37.5$. The numbers embedded in the equation is sufficient e.g. $G=40-30\\mathrm{e}^{1-0.05\\times 70}$\nA1: awrt $37.5$ tonnes (requires units)\nOfficial notes (completeness pass):\n- Attempts $G=40-30\\mathrm{e}^{1-0.05\\times70}=37.5$ tonnes M1 A1",
+          "spec_refs": [
+            "P6.7",
+            "P2.11"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "text": "There is a limit to the mass of gold that can be extracted from the mine.\n(c) State the value of this limit.\n(1)",
+          "mark_scheme": "B1: $40$ (tonnes). Condone $G<40$ or $G\\leqslant 40$. Do not allow $G>40$",
+          "spec_refs": [
+            "P6.7",
+            "P2.11"
+          ]
+        }
+      ],
+      "qp_pages": [
+        10,
+        11
+      ],
+      "low_confidence": false,
+      "notes": "",
+      "source_qp_file": "pearson/IAL-2018/Oct2021/IAL2018_WMA13_Oct2021_QP.txt",
+      "source_ms_file": "pearson/IAL-2018/Oct2021/IAL2018_WMA13_Oct2021_MS.txt",
+      "notation": "latex",
+      "extraction_method": "single-call-v1",
+      "question_text": "Figure 2 shows a sketch of $G$ against $t$.\nThe total mass of gold, $G$ tonnes, extracted from a mine is modelled by the equation\n$G=40-30\\mathrm{e}^{1-0.05t} \\qquad t\\geqslant k \\qquad G\\geqslant 0$\nwhere $t$ is the number of years after 1st January 1800.\nUse the equation of the model to answer parts (a), (b) and (c).\n(a) (i) Find the value of $k$.\n(ii) Hence find the year and month in which gold started being extracted from the mine.\n(3)\n(b) Find the total mass of gold extracted from the mine up to 1st January 1870.\n(2)\nThere is a limit to the mass of gold that can be extracted from the mine.\n(c) State the value of this limit.\n(1)",
+      "mark_scheme_text": "Mark (a)(i) and (ii) together.\n(a)(i) M1: Sets $G=0$ and proceeds to a linear equation in $t$ or $k$ using a correct method by taking logs of both sides, but condone slips in the rest of their rearrangement.\nA1: $(k=)$ awrt $14.2$ or $14.25$ but allow the exact value $20\\left(1-\\ln\\dfrac{4}{3}\\right)$ or other equivalent exact expressions such as $\\dfrac{\\ln\\frac{4}{3}-1}{-0.05}$ or $20\\left(1-\\ln\\dfrac{4}{3}\\right)$ or $20\\ln\\left(\\dfrac{3}{4}\\mathrm{e}\\right)$. Isw after a correct answer.\n(a)(ii) A1: March 1814 but allow April 1814 following \"correct\" $k$. Condone \"the third month of 1814\" or \"the fourth month of 1814\" following \"correct\" $k$. Withhold this mark if they have two answers of which one is incorrect.\nOfficial notes (completeness pass):\n- $0=40-30\\mathrm{e}^{1-0.05t}\\Rightarrow 1-0.05t=\\ln\\dfrac{40}{30}$ M1; $\\Rightarrow(k=)$ awrt $14.2$ A1; March 1814 A1\nM1: Attempts to find $G$ with $t=70$ (condone $t=69$) which may be implied by awrt $37.5$. The numbers embedded in the equation is sufficient e.g. $G=40-30\\mathrm{e}^{1-0.05\\times 70}$\nA1: awrt $37.5$ tonnes (requires units)\nOfficial notes (completeness pass):\n- Attempts $G=40-30\\mathrm{e}^{1-0.05\\times70}=37.5$ tonnes M1 A1\nB1: $40$ (tonnes). Condone $G<40$ or $G\\leqslant 40$. Do not allow $G>40$",
+      "has_figure": true,
+      "figure_pages": [
+        10
+      ]
+    },
+    {
+      "paper_id": "IAL2018_WMA13_Oct2021",
+      "spec": "IAL-2018",
+      "qualification": "IAL-2018",
+      "unit": "WMA13",
+      "status": "legacy",
+      "paper": "WMA13",
+      "sitting": "Oct2021",
+      "id": "IAL2018_WMA13_Oct2021_Q4",
+      "q_num": "4",
+      "total_marks": 7,
+      "component": "pure",
+      "uses_large_data_set": false,
+      "stem": "In this question you should show detailed reasoning.\nSolutions relying entirely on calculator technology are not acceptable.",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "text": "(a) Show that the equation\n$2\\sin(\\theta-30°)=5\\cos\\theta$\ncan be written in the form\n$\\tan\\theta=2\\sqrt{3}$\n(4)",
+          "mark_scheme": "M1: Attempts to use $\\sin(\\theta-30°)=\\sin\\theta\\cos(\\pm 30°)\\pm\\cos\\theta\\sin(\\pm 30°)$ within the given equation. Condone the omission of a 2 on the second term and a slip on the 5 of $5\\cos\\theta$.\ndM1: Divides by $\\cos\\theta$ to set up an equation in just $\\tan\\theta$. They may collect terms in $\\sin\\theta$ and $\\cos\\theta$ before dividing by $\\cos\\theta$ to set up an equation in just $\\tan\\theta$. An equation with $\\cos30°$ and $\\sin30°$ still not processed is acceptable.\nA1: Fully correct equation in $\\tan\\theta$ with the $\\cos30°$ and $\\sin30°$ processed ($\\sqrt{3}\\sin\\theta=6\\cos\\theta\\Rightarrow\\tan\\theta=2\\sqrt{3}$ is acceptable for both A marks). (Note: If they proceed directly to the final answer from $\\tan\\theta=\\dfrac{5+2\\sin30°}{2\\cos30°}\\Rightarrow\\tan\\theta=2\\sqrt{3}$ then maximum M1dM1A0A0 unless $\\tan\\theta=\\dfrac{5+1}{\\sqrt{3}}$ or equivalent is seen before the final given answer.)\nA1*: Correctly proceeds to given answer.\nOfficial notes (completeness pass):\n- $2\\sin(\\theta-30°)=5\\cos\\theta\\Rightarrow 2\\sin\\theta\\cos30°-2\\cos\\theta\\sin30°=5\\cos\\theta$ M1; $\\div\\cos\\theta\\Rightarrow 2\\tan\\theta\\cos30°-2\\sin30°=5$ dM1; $\\Rightarrow 2\\tan\\theta\\times\\dfrac{\\sqrt3}{2}-2\\times\\dfrac12=5$ A1; $\\Rightarrow\\sqrt3\\tan\\theta=6\\Rightarrow\\tan\\theta=2\\sqrt3$ * A1*",
+          "spec_refs": [
+            "P5.6"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "text": "(b) Hence, or otherwise, solve for $0\\leqslant x\\leqslant 360°$\n$2\\sin(x-10°)=5\\cos(x+20°)$\ngiving your answers to one decimal place.\n(3)",
+          "mark_scheme": "Answers with no working score 0 marks.\nM1: Attempts to find a value for $x$. Allow $\\arctan2\\sqrt{3}\\ldots$ followed by adding or subtracting $20°$. Which may be implied by $\\tan(x+20)=2\\sqrt{3}\\Rightarrow x=\\arctan(2\\sqrt{3})\\pm 20=\\ldots$ Alternatively, attempts to use $\\sin(x-10°)=\\sin x\\cos10°\\pm\\cos x\\sin10°$ within the given equation, divides by $\\cos x$ to set up an equation in just $\\tan x$ and proceeds to find an angle for $x$ $\\tan x=\\dfrac{5\\cos20+2\\sin10}{2\\cos10+5\\sin20}\\Rightarrow x=\\ldots$\nA1: One value provided M1 has been scored. Allow either awrt $54°$ or $234°$ (or in radians awrt $0.94$ or $4.08$)\nA1: $x=$ awrt $53.9°, 233.9°$ and no others inside the range provided M1 has been scored. Ignore any angles outside the range. Must be in degrees\nOfficial notes (completeness pass):\n- Attempts $\\arctan2\\sqrt3$ ..and then subtracts $20°$ M1; $\\Rightarrow x=$ awrt $53.9°, 233.9°$ A1, A1",
+          "spec_refs": [
+            "P5.6",
+            "P5.7"
+          ]
+        }
+      ],
+      "qp_pages": [
+        12,
+        15
+      ],
+      "low_confidence": false,
+      "notes": "",
+      "source_qp_file": "pearson/IAL-2018/Oct2021/IAL2018_WMA13_Oct2021_QP.txt",
+      "source_ms_file": "pearson/IAL-2018/Oct2021/IAL2018_WMA13_Oct2021_MS.txt",
+      "notation": "latex",
+      "extraction_method": "single-call-v1",
+      "question_text": "In this question you should show detailed reasoning.\nSolutions relying entirely on calculator technology are not acceptable.\n(a) Show that the equation\n$2\\sin(\\theta-30°)=5\\cos\\theta$\ncan be written in the form\n$\\tan\\theta=2\\sqrt{3}$\n(4)\n(b) Hence, or otherwise, solve for $0\\leqslant x\\leqslant 360°$\n$2\\sin(x-10°)=5\\cos(x+20°)$\ngiving your answers to one decimal place.\n(3)",
+      "mark_scheme_text": "M1: Attempts to use $\\sin(\\theta-30°)=\\sin\\theta\\cos(\\pm 30°)\\pm\\cos\\theta\\sin(\\pm 30°)$ within the given equation. Condone the omission of a 2 on the second term and a slip on the 5 of $5\\cos\\theta$.\ndM1: Divides by $\\cos\\theta$ to set up an equation in just $\\tan\\theta$. They may collect terms in $\\sin\\theta$ and $\\cos\\theta$ before dividing by $\\cos\\theta$ to set up an equation in just $\\tan\\theta$. An equation with $\\cos30°$ and $\\sin30°$ still not processed is acceptable.\nA1: Fully correct equation in $\\tan\\theta$ with the $\\cos30°$ and $\\sin30°$ processed ($\\sqrt{3}\\sin\\theta=6\\cos\\theta\\Rightarrow\\tan\\theta=2\\sqrt{3}$ is acceptable for both A marks). (Note: If they proceed directly to the final answer from $\\tan\\theta=\\dfrac{5+2\\sin30°}{2\\cos30°}\\Rightarrow\\tan\\theta=2\\sqrt{3}$ then maximum M1dM1A0A0 unless $\\tan\\theta=\\dfrac{5+1}{\\sqrt{3}}$ or equivalent is seen before the final given answer.)\nA1*: Correctly proceeds to given answer.\nOfficial notes (completeness pass):\n- $2\\sin(\\theta-30°)=5\\cos\\theta\\Rightarrow 2\\sin\\theta\\cos30°-2\\cos\\theta\\sin30°=5\\cos\\theta$ M1; $\\div\\cos\\theta\\Rightarrow 2\\tan\\theta\\cos30°-2\\sin30°=5$ dM1; $\\Rightarrow 2\\tan\\theta\\times\\dfrac{\\sqrt3}{2}-2\\times\\dfrac12=5$ A1; $\\Rightarrow\\sqrt3\\tan\\theta=6\\Rightarrow\\tan\\theta=2\\sqrt3$ * A1*\nAnswers with no working score 0 marks.\nM1: Attempts to find a value for $x$. Allow $\\arctan2\\sqrt{3}\\ldots$ followed by adding or subtracting $20°$. Which may be implied by $\\tan(x+20)=2\\sqrt{3}\\Rightarrow x=\\arctan(2\\sqrt{3})\\pm 20=\\ldots$ Alternatively, attempts to use $\\sin(x-10°)=\\sin x\\cos10°\\pm\\cos x\\sin10°$ within the given equation, divides by $\\cos x$ to set up an equation in just $\\tan x$ and proceeds to find an angle for $x$ $\\tan x=\\dfrac{5\\cos20+2\\sin10}{2\\cos10+5\\sin20}\\Rightarrow x=\\ldots$\nA1: One value provided M1 has been scored. Allow either awrt $54°$ or $234°$ (or in radians awrt $0.94$ or $4.08$)\nA1: $x=$ awrt $53.9°, 233.9°$ and no others inside the range provided M1 has been scored. Ignore any angles outside the range. Must be in degrees\nOfficial notes (completeness pass):\n- Attempts $\\arctan2\\sqrt3$ ..and then subtracts $20°$ M1; $\\Rightarrow x=$ awrt $53.9°, 233.9°$ A1, A1",
+      "has_figure": false,
+      "figure_pages": []
+    },
+    {
+      "paper_id": "IAL2018_WMA13_Oct2021",
+      "spec": "IAL-2018",
+      "qualification": "IAL-2018",
+      "unit": "WMA13",
+      "status": "legacy",
+      "paper": "WMA13",
+      "sitting": "Oct2021",
+      "id": "IAL2018_WMA13_Oct2021_Q5",
+      "q_num": "5",
+      "total_marks": 6,
+      "component": "pure",
+      "uses_large_data_set": false,
+      "stem": "",
+      "parts": [
+        {
+          "label": "i",
+          "marks": 4,
+          "text": "(i) Find, by algebraic integration, the exact value of\n$\\displaystyle\\int_{2}^{4}\\dfrac{8}{(2x-3)^3}\\,\\mathrm{d}x$\n(4)",
+          "mark_scheme": "M1: Achieves $\\dfrac{A}{(2x-3)^2}$ or equivalent or in the alternative method $\\dfrac{A}{u^2}$\nA1: Achieves $\\dfrac{-2}{(2x-3)^2}$ or in the alternative method $-\\dfrac{2}{u^2}$ (which may be unsimplified but the indices must be processed). There is no requirement for the $+c$\ndM1: Substitutes $2$ and $4$ into $\\dfrac{A}{(2x-3)^2}$ or equivalent or $1$ and $5$ into $\\dfrac{A}{u^2}$ and subtracts either way round. May be implied but M1 must have been scored.\nA1: $\\dfrac{48}{25}$ or $1.92$ isw after a correct answer.\nAlt(i): Let $u=2x-3$. $\\int\\dfrac{8}{u^3}\\times\\dfrac{1}{2}\\,\\mathrm{d}u=-\\dfrac{2}{u^2}(+c)$ M1A1; $\\int_2^4\\dfrac{8}{(2x-3)^3}\\,\\mathrm{d}x=\\left[-\\dfrac{2}{u^2}\\right]_1^5=-\\dfrac{2}{25}+2=\\dfrac{48}{25}$ dM1A1\nOfficial notes (completeness pass):\n- $\\int\\dfrac{8}{(2x-3)^3}\\,\\mathrm{d}x=\\dfrac{-2}{(2x-3)^2}(+c)$ M1 A1; $\\int_2^4\\dfrac{8}{(2x-3)^3}\\,\\mathrm{d}x=\\left[\\dfrac{-2}{(2x-3)^2}\\right]_2^4=-\\dfrac{2}{25}+2=\\dfrac{48}{25}$ dM1 A1",
+          "spec_refs": [
+            "P8.2",
+            "P8.5"
+          ]
+        },
+        {
+          "label": "ii",
+          "marks": 2,
+          "text": "(ii) Find, in simplest form,\n$\\displaystyle\\int x(x^2+3)^7\\,\\mathrm{d}x$\n(2)",
+          "mark_scheme": "M1: Achieves $k(x^2+3)^8$ or equivalent or in the alternative method $ku^8$. Alternatively multiplies out the expression and integrates achieving an expression of the form $\\pm\\ldots x^{16}\\pm\\ldots x^{14}\\pm\\ldots x^{12}\\pm\\ldots x^{10}\\pm\\ldots x^8\\pm\\ldots x^6\\pm\\ldots x^4\\pm\\ldots x^2$\nA1: $\\dfrac{1}{16}(x^2+3)^8+c$ Must be in terms of $x$ and the $+c$ must be present. Allow $\\dfrac{x^{16}}{16}+\\dfrac{3x^{14}}{2}+\\dfrac{63x^{12}}{4}+\\dfrac{189x^{10}}{2}+\\dfrac{2835x^8}{8}+\\dfrac{1701x^6}{2}+\\dfrac{5103x^4}{4}+\\dfrac{2187x^2}{2}+c$ or simplified equivalent.\nAlt(ii): Let $u=x^2+3$. $\\int x(x^2+3)^7\\,\\mathrm{d}x=\\int\\dfrac{u^7}{2}\\,\\mathrm{d}u=\\dfrac{u^8}{16}+c=\\dfrac{1}{16}(x^2+3)^8+c$ M1A1\nOfficial notes (completeness pass):\n- $\\int x(x^2+3)^7\\,\\mathrm{d}x=\\dfrac{1}{16}(x^2+3)^8+c$ M1 A1",
+          "spec_refs": [
+            "P8.2",
+            "P8.5"
+          ]
+        }
+      ],
+      "qp_pages": [
+        16,
+        17
+      ],
+      "low_confidence": false,
+      "notes": "",
+      "source_qp_file": "pearson/IAL-2018/Oct2021/IAL2018_WMA13_Oct2021_QP.txt",
+      "source_ms_file": "pearson/IAL-2018/Oct2021/IAL2018_WMA13_Oct2021_MS.txt",
+      "notation": "latex",
+      "extraction_method": "single-call-v1",
+      "question_text": "(i) Find, by algebraic integration, the exact value of\n$\\displaystyle\\int_{2}^{4}\\dfrac{8}{(2x-3)^3}\\,\\mathrm{d}x$\n(4)\n(ii) Find, in simplest form,\n$\\displaystyle\\int x(x^2+3)^7\\,\\mathrm{d}x$\n(2)",
+      "mark_scheme_text": "M1: Achieves $\\dfrac{A}{(2x-3)^2}$ or equivalent or in the alternative method $\\dfrac{A}{u^2}$\nA1: Achieves $\\dfrac{-2}{(2x-3)^2}$ or in the alternative method $-\\dfrac{2}{u^2}$ (which may be unsimplified but the indices must be processed). There is no requirement for the $+c$\ndM1: Substitutes $2$ and $4$ into $\\dfrac{A}{(2x-3)^2}$ or equivalent or $1$ and $5$ into $\\dfrac{A}{u^2}$ and subtracts either way round. May be implied but M1 must have been scored.\nA1: $\\dfrac{48}{25}$ or $1.92$ isw after a correct answer.\nAlt(i): Let $u=2x-3$. $\\int\\dfrac{8}{u^3}\\times\\dfrac{1}{2}\\,\\mathrm{d}u=-\\dfrac{2}{u^2}(+c)$ M1A1; $\\int_2^4\\dfrac{8}{(2x-3)^3}\\,\\mathrm{d}x=\\left[-\\dfrac{2}{u^2}\\right]_1^5=-\\dfrac{2}{25}+2=\\dfrac{48}{25}$ dM1A1\nOfficial notes (completeness pass):\n- $\\int\\dfrac{8}{(2x-3)^3}\\,\\mathrm{d}x=\\dfrac{-2}{(2x-3)^2}(+c)$ M1 A1; $\\int_2^4\\dfrac{8}{(2x-3)^3}\\,\\mathrm{d}x=\\left[\\dfrac{-2}{(2x-3)^2}\\right]_2^4=-\\dfrac{2}{25}+2=\\dfrac{48}{25}$ dM1 A1\nM1: Achieves $k(x^2+3)^8$ or equivalent or in the alternative method $ku^8$. Alternatively multiplies out the expression and integrates achieving an expression of the form $\\pm\\ldots x^{16}\\pm\\ldots x^{14}\\pm\\ldots x^{12}\\pm\\ldots x^{10}\\pm\\ldots x^8\\pm\\ldots x^6\\pm\\ldots x^4\\pm\\ldots x^2$\nA1: $\\dfrac{1}{16}(x^2+3)^8+c$ Must be in terms of $x$ and the $+c$ must be present. Allow $\\dfrac{x^{16}}{16}+\\dfrac{3x^{14}}{2}+\\dfrac{63x^{12}}{4}+\\dfrac{189x^{10}}{2}+\\dfrac{2835x^8}{8}+\\dfrac{1701x^6}{2}+\\dfrac{5103x^4}{4}+\\dfrac{2187x^2}{2}+c$ or simplified equivalent.\nAlt(ii): Let $u=x^2+3$. $\\int x(x^2+3)^7\\,\\mathrm{d}x=\\int\\dfrac{u^7}{2}\\,\\mathrm{d}u=\\dfrac{u^8}{16}+c=\\dfrac{1}{16}(x^2+3)^8+c$ M1A1\nOfficial notes (completeness pass):\n- $\\int x(x^2+3)^7\\,\\mathrm{d}x=\\dfrac{1}{16}(x^2+3)^8+c$ M1 A1",
+      "has_figure": false,
+      "figure_pages": []
+    },
+    {
+      "paper_id": "IAL2018_WMA13_Oct2021",
+      "spec": "IAL-2018",
+      "qualification": "IAL-2018",
+      "unit": "WMA13",
+      "status": "legacy",
+      "paper": "WMA13",
+      "sitting": "Oct2021",
+      "id": "IAL2018_WMA13_Oct2021_Q6",
+      "q_num": "6",
+      "total_marks": 8,
+      "component": "pure",
+      "uses_large_data_set": false,
+      "stem": "",
+      "parts": [
+        {
+          "label": "i",
+          "marks": 4,
+          "text": "(i) The curve $C_1$ has equation\n$y=3\\ln(x^2-5)-4x^2+15 \\qquad x>\\sqrt{5}$\nShow that $C_1$ has a stationary point at $x=\\dfrac{\\sqrt{p}}{2}$ where $p$ is a constant to be found.\n(4)",
+          "mark_scheme": "M1: For differentiating $3\\ln(x^2-5)\\to\\dfrac{Ax}{x^2-5}$ or $\\dfrac{A}{x^2-5}$\nA1: $\\left(\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\right)\\dfrac{6x}{x^2-5}-8x$ seen or implied by eg $\\dfrac{6x}{x^2-5}=8x$\ndM1: For proceeding from $\\left(\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\right)\\dfrac{Ax}{x^2-5}-Bx=0$ to a quadratic or cubic equation. Eg $6x-8x^3+40x=0$ oe. Do not be too concerned with the mechanics of their rearrangement.\nA1: For $(x=)\\dfrac{\\sqrt{23}}{2}$ only provided dM1 has been scored. Solving the quadratic or cubic with a calculator is acceptable. Condone recovery of slips provided the method is correct. $x=0$ and $x=-\\dfrac{\\sqrt{23}}{2}$ must be rejected if found or condone some minimal conclusion eg stating $p=23$\nOfficial notes (completeness pass):\n- $\\left(\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\right)\\dfrac{6x}{x^2-5}-8x$ M1 A1; Stationary point when $\\dfrac{6x}{x^2-5}-8x=0\\Rightarrow x^2=\\dfrac{23}{4}\\Rightarrow x=\\dfrac{\\sqrt{23}}{2}$ only dM1 A1",
+          "spec_refs": [
+            "P7.2",
+            "P7.3"
+          ]
+        },
+        {
+          "label": "ii",
+          "marks": 4,
+          "text": "(ii) A different curve $C_2$ has equation\n$y=4x-12\\sin^2x$\n(a) Show that, for this curve,\n$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=A+B\\sin2x$\nwhere $A$ and $B$ are constants to be found.\n(b) Hence, state the maximum gradient of this curve.\n(4)",
+          "mark_scheme": "Mark (ii)(a) and (b) together.\nWay One: M1: For differentiating using the chain rule with $\\sin^2x\\to\\ldots\\sin x\\cos x$\ndM1: …and then using $\\sin2x=2\\sin x\\cos x$ to proceed to $\\left(\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\right)A+B\\sin2x$. Condone the slip writing $A+B\\sin x$ provided their coefficient of $\\sin x\\cos x$ has been halved or writing $2\\sin\\cos$.\nA1: $\\left(\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\right)4-12\\sin2x$ or $4+(-12)\\sin2x$ or $4-12\\times\\sin2x$ (or states $A$ and $B$ following a correct method) Condone recovery of slips provided the method is correct.\nA1: Maximum gradient $=16$ (the previous A1 must have been scored)\nWay Two: M1: Attempts to use $\\cos2x=\\pm1\\pm2\\sin^2x$ in an attempt to write $y=4x-12\\sin^2x$ in terms of $\\cos2x$\ndM1: …and then differentiates $\\cos2x\\to k\\sin2x$ to proceed to $\\left(\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\right)A+B\\sin2x$\nA1: $\\left(\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\right)4-12\\sin2x$ or $4+(-12)\\sin2x$ or $4-12\\times\\sin2x$ (or states $A$ and $B$ following a correct method) Condone recovery of slips provided the method is correct.\nA1: Maximum gradient $=16$ (the previous A1 must have been scored)\n(Note some candidates may find the second derivative and set equal to $0$ and then substitute in their angle to find the maximum gradient.)\nOfficial notes (completeness pass):\n- (a) $\\left(\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\right)4-24\\sin x\\cos x$ M1; $\\left(\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\right)4-12\\sin2x$ dM1 A1; (b) Maximum gradient = 16 A1",
+          "spec_refs": [
+            "P7.2",
+            "P5.6"
+          ]
+        }
+      ],
+      "qp_pages": [
+        18,
+        19
+      ],
+      "low_confidence": false,
+      "notes": "",
+      "source_qp_file": "pearson/IAL-2018/Oct2021/IAL2018_WMA13_Oct2021_QP.txt",
+      "source_ms_file": "pearson/IAL-2018/Oct2021/IAL2018_WMA13_Oct2021_MS.txt",
+      "notation": "latex",
+      "extraction_method": "single-call-v1",
+      "question_text": "(i) The curve $C_1$ has equation\n$y=3\\ln(x^2-5)-4x^2+15 \\qquad x>\\sqrt{5}$\nShow that $C_1$ has a stationary point at $x=\\dfrac{\\sqrt{p}}{2}$ where $p$ is a constant to be found.\n(4)\n(ii) A different curve $C_2$ has equation\n$y=4x-12\\sin^2x$\n(a) Show that, for this curve,\n$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=A+B\\sin2x$\nwhere $A$ and $B$ are constants to be found.\n(b) Hence, state the maximum gradient of this curve.\n(4)",
+      "mark_scheme_text": "M1: For differentiating $3\\ln(x^2-5)\\to\\dfrac{Ax}{x^2-5}$ or $\\dfrac{A}{x^2-5}$\nA1: $\\left(\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\right)\\dfrac{6x}{x^2-5}-8x$ seen or implied by eg $\\dfrac{6x}{x^2-5}=8x$\ndM1: For proceeding from $\\left(\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\right)\\dfrac{Ax}{x^2-5}-Bx=0$ to a quadratic or cubic equation. Eg $6x-8x^3+40x=0$ oe. Do not be too concerned with the mechanics of their rearrangement.\nA1: For $(x=)\\dfrac{\\sqrt{23}}{2}$ only provided dM1 has been scored. Solving the quadratic or cubic with a calculator is acceptable. Condone recovery of slips provided the method is correct. $x=0$ and $x=-\\dfrac{\\sqrt{23}}{2}$ must be rejected if found or condone some minimal conclusion eg stating $p=23$\nOfficial notes (completeness pass):\n- $\\left(\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\right)\\dfrac{6x}{x^2-5}-8x$ M1 A1; Stationary point when $\\dfrac{6x}{x^2-5}-8x=0\\Rightarrow x^2=\\dfrac{23}{4}\\Rightarrow x=\\dfrac{\\sqrt{23}}{2}$ only dM1 A1\nMark (ii)(a) and (b) together.\nWay One: M1: For differentiating using the chain rule with $\\sin^2x\\to\\ldots\\sin x\\cos x$\ndM1: …and then using $\\sin2x=2\\sin x\\cos x$ to proceed to $\\left(\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\right)A+B\\sin2x$. Condone the slip writing $A+B\\sin x$ provided their coefficient of $\\sin x\\cos x$ has been halved or writing $2\\sin\\cos$.\nA1: $\\left(\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\right)4-12\\sin2x$ or $4+(-12)\\sin2x$ or $4-12\\times\\sin2x$ (or states $A$ and $B$ following a correct method) Condone recovery of slips provided the method is correct.\nA1: Maximum gradient $=16$ (the previous A1 must have been scored)\nWay Two: M1: Attempts to use $\\cos2x=\\pm1\\pm2\\sin^2x$ in an attempt to write $y=4x-12\\sin^2x$ in terms of $\\cos2x$\ndM1: …and then differentiates $\\cos2x\\to k\\sin2x$ to proceed to $\\left(\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\right)A+B\\sin2x$\nA1: $\\left(\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\right)4-12\\sin2x$ or $4+(-12)\\sin2x$ or $4-12\\times\\sin2x$ (or states $A$ and $B$ following a correct method) Condone recovery of slips provided the method is correct.\nA1: Maximum gradient $=16$ (the previous A1 must have been scored)\n(Note some candidates may find the second derivative and set equal to $0$ and then substitute in their angle to find the maximum gradient.)\nOfficial notes (completeness pass):\n- (a) $\\left(\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\right)4-24\\sin x\\cos x$ M1; $\\left(\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\right)4-12\\sin2x$ dM1 A1; (b) Maximum gradient = 16 A1",
+      "has_figure": false,
+      "figure_pages": []
+    },
+    {
+      "paper_id": "IAL2018_WMA13_Oct2021",
+      "spec": "IAL-2018",
+      "qualification": "IAL-2018",
+      "unit": "WMA13",
+      "status": "legacy",
+      "paper": "WMA13",
+      "sitting": "Oct2021",
+      "id": "IAL2018_WMA13_Oct2021_Q7",
+      "q_num": "7",
+      "total_marks": 6,
+      "component": "pure",
+      "uses_large_data_set": false,
+      "stem": "The mass, $M$ kg, of a species of tree can be modelled by the equation\n$\\log_{10}M=1.93\\log_{10}r+0.684$\nwhere $r$ cm is the base radius of the tree.\nThe base radius of a particular tree of this species is $45$ cm.\nAccording to the model,",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "text": "(a) find the mass of this tree, giving your answer to 2 significant figures.\n(2)",
+          "mark_scheme": "M1: Substitutes $r=45$ in $\\log_{10}M=1.93\\log_{10}r+0.684$ and proceeds to $\\log_{10}M=\\ldots$ (which must be a numerical value) (Condone the use of $r=0.45$). Implied by awrt $7500$ for $r=45$ or awrt $1.0$ for $r=0.45$\nA1: $(M=)$ awrt $7500$ (kg). Condone $7.5\\times10^3$\nAlt (a): M1: Substitutes $r=45$ in their $M=pr^q$ and finds $M$. A1: $(M=)$ awrt $7500$ (kg)\nOfficial notes (completeness pass):\n- $\\log_{10}M=1.93\\log_{10}45+0.684\\Rightarrow\\log_{10}M=3.8747$ M1; $(M=)$ awrt 7500 (kg) A1",
+          "spec_refs": [
+            "P6.4",
+            "P2.11"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "text": "(b) Show that the equation of the model can be written in the form\n$M=pr^q$\ngiving the values of the constants $p$ and $q$ to 3 significant figures.\n(3)",
+          "mark_scheme": "Mark (b) and (c) together.\nB1: A correct proof showing that $\\log_{10}M=1.93\\log_{10}r+0.684\\Leftrightarrow M=pr^q$. Condone log or lg for $\\log_{10}$ but use of natural logs ln is B0. Most are starting with $\\log_{10}M=1.93\\log_{10}r+0.684$. Expect to see the addition (or subtraction) law of logs explicitly used or index law being applied before proceeding to the final answer. Eg $\\log_{10}M=\\log_{10}4.83+\\log_{10}r^{1.93}=\\log_{10}(4.83\\times r^{1.93})\\Rightarrow M=4.83r^{1.93}$ is B1; $\\log_{10}M=\\log_{10}r^{1.93}+0.684\\Rightarrow M=10^{1.93\\log_{10}r+0.684}=10^{1.93\\log_{10}r}\\times10^{0.684}=4.83r^{1.93}$ is B1; $\\log_{10}M=\\log_{10}4.83+\\log_{10}r^{1.93}\\Rightarrow M=4.83r^{1.93}$ (addition law of logs not seen) is B0. No incorrect working should be seen such as $10^{\\log_{10}r^{1.93}+0.684}=10^{\\log_{10}r^{1.93}}+10^{0.684}=10^{\\log_{10}r^{1.93}}\\times10^{0.684}$ but condone the omission of the brackets around $\\log_{10}4.83\\times r^{1.93}$ if seen in their working.\nM1: Either $p=10^{0.684}$ or $q=1.93$ This may be implied by $M=pr^q$ with a \"correct\" $p$ or $q$\nA1: Both $p=$ awrt $4.83$ and $q=1.93$ (B0M1A1 can be scored) This may be implied by $M=4.83r^{1.93}$\nOfficial notes (completeness pass):\n- $\\log_{10}M=1.93\\log_{10}r+0.684$, $\\log_{10}M=\\log_{10}r^{1.93}+0.684$, $M=10^{\\log_{10}r^{1.93}+0.684}$, $M=10^{0.684}\\times r^{1.93}$ OR $M=pr^q$, $\\log_{10}M=\\log_{10}pr^q$, $\\log_{10}M=\\log_{10}p+\\log_{10}r^q$, $\\log_{10}M=\\log_{10}p+q\\log_{10}r$ B1; Either $p=10^{0.684}$ or $q=1.93$ M1; Both $p=$ awrt $4.83$ and $q=1.93$ A1\n- $\\log_{10}M=\\log_{10}r^{1.93}+0.684\\Rightarrow M=10^{1.93\\log_{10}r+0.684}\\Rightarrow M=r^{1.93}\\times10^{0.684}=4.83r^{1.93}$ is B1\n- $\\log_{10}M=\\log_{10}r^{1.93}+0.684\\Rightarrow M=10^{1.93\\log_{10}r}\\times10^{0.684}=4.83r^{1.93}$ is B1",
+          "spec_refs": [
+            "P6.4",
+            "P6.6"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "text": "(c) With reference to the model, interpret the value of the constant $p$.\n(1)",
+          "mark_scheme": "B1: \"$p$\" is the mass (in kg) of a tree with radius $1$ cm",
+          "spec_refs": [
+            "P6.6",
+            "P2.11"
+          ]
+        }
+      ],
+      "qp_pages": [
+        20,
+        21
+      ],
+      "low_confidence": false,
+      "notes": "",
+      "source_qp_file": "pearson/IAL-2018/Oct2021/IAL2018_WMA13_Oct2021_QP.txt",
+      "source_ms_file": "pearson/IAL-2018/Oct2021/IAL2018_WMA13_Oct2021_MS.txt",
+      "notation": "latex",
+      "extraction_method": "single-call-v1",
+      "question_text": "The mass, $M$ kg, of a species of tree can be modelled by the equation\n$\\log_{10}M=1.93\\log_{10}r+0.684$\nwhere $r$ cm is the base radius of the tree.\nThe base radius of a particular tree of this species is $45$ cm.\nAccording to the model,\n(a) find the mass of this tree, giving your answer to 2 significant figures.\n(2)\n(b) Show that the equation of the model can be written in the form\n$M=pr^q$\ngiving the values of the constants $p$ and $q$ to 3 significant figures.\n(3)\n(c) With reference to the model, interpret the value of the constant $p$.\n(1)",
+      "mark_scheme_text": "M1: Substitutes $r=45$ in $\\log_{10}M=1.93\\log_{10}r+0.684$ and proceeds to $\\log_{10}M=\\ldots$ (which must be a numerical value) (Condone the use of $r=0.45$). Implied by awrt $7500$ for $r=45$ or awrt $1.0$ for $r=0.45$\nA1: $(M=)$ awrt $7500$ (kg). Condone $7.5\\times10^3$\nAlt (a): M1: Substitutes $r=45$ in their $M=pr^q$ and finds $M$. A1: $(M=)$ awrt $7500$ (kg)\nOfficial notes (completeness pass):\n- $\\log_{10}M=1.93\\log_{10}45+0.684\\Rightarrow\\log_{10}M=3.8747$ M1; $(M=)$ awrt 7500 (kg) A1\nMark (b) and (c) together.\nB1: A correct proof showing that $\\log_{10}M=1.93\\log_{10}r+0.684\\Leftrightarrow M=pr^q$. Condone log or lg for $\\log_{10}$ but use of natural logs ln is B0. Most are starting with $\\log_{10}M=1.93\\log_{10}r+0.684$. Expect to see the addition (or subtraction) law of logs explicitly used or index law being applied before proceeding to the final answer. Eg $\\log_{10}M=\\log_{10}4.83+\\log_{10}r^{1.93}=\\log_{10}(4.83\\times r^{1.93})\\Rightarrow M=4.83r^{1.93}$ is B1; $\\log_{10}M=\\log_{10}r^{1.93}+0.684\\Rightarrow M=10^{1.93\\log_{10}r+0.684}=10^{1.93\\log_{10}r}\\times10^{0.684}=4.83r^{1.93}$ is B1; $\\log_{10}M=\\log_{10}4.83+\\log_{10}r^{1.93}\\Rightarrow M=4.83r^{1.93}$ (addition law of logs not seen) is B0. No incorrect working should be seen such as $10^{\\log_{10}r^{1.93}+0.684}=10^{\\log_{10}r^{1.93}}+10^{0.684}=10^{\\log_{10}r^{1.93}}\\times10^{0.684}$ but condone the omission of the brackets around $\\log_{10}4.83\\times r^{1.93}$ if seen in their working.\nM1: Either $p=10^{0.684}$ or $q=1.93$ This may be implied by $M=pr^q$ with a \"correct\" $p$ or $q$\nA1: Both $p=$ awrt $4.83$ and $q=1.93$ (B0M1A1 can be scored) This may be implied by $M=4.83r^{1.93}$\nOfficial notes (completeness pass):\n- $\\log_{10}M=1.93\\log_{10}r+0.684$, $\\log_{10}M=\\log_{10}r^{1.93}+0.684$, $M=10^{\\log_{10}r^{1.93}+0.684}$, $M=10^{0.684}\\times r^{1.93}$ OR $M=pr^q$, $\\log_{10}M=\\log_{10}pr^q$, $\\log_{10}M=\\log_{10}p+\\log_{10}r^q$, $\\log_{10}M=\\log_{10}p+q\\log_{10}r$ B1; Either $p=10^{0.684}$ or $q=1.93$ M1; Both $p=$ awrt $4.83$ and $q=1.93$ A1\n- $\\log_{10}M=\\log_{10}r^{1.93}+0.684\\Rightarrow M=10^{1.93\\log_{10}r+0.684}\\Rightarrow M=r^{1.93}\\times10^{0.684}=4.83r^{1.93}$ is B1\n- $\\log_{10}M=\\log_{10}r^{1.93}+0.684\\Rightarrow M=10^{1.93\\log_{10}r}\\times10^{0.684}=4.83r^{1.93}$ is B1\nB1: \"$p$\" is the mass (in kg) of a tree with radius $1$ cm",
+      "has_figure": false,
+      "figure_pages": []
+    },
+    {
+      "paper_id": "IAL2018_WMA13_Oct2021",
+      "spec": "IAL-2018",
+      "qualification": "IAL-2018",
+      "unit": "WMA13",
+      "status": "legacy",
+      "paper": "WMA13",
+      "sitting": "Oct2021",
+      "id": "IAL2018_WMA13_Oct2021_Q8",
+      "q_num": "8",
+      "total_marks": 7,
+      "component": "pure",
+      "uses_large_data_set": false,
+      "stem": "A curve $C$ has equation $y=\\mathrm{f}(x)$, where\n$\\mathrm{f}(x)=\\arcsin\\left(\\dfrac{1}{2}x\\right) \\qquad -2\\leqslant x\\leqslant 2 \\qquad -\\dfrac{\\pi}{2}\\leqslant y\\leqslant\\dfrac{\\pi}{2}$",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "text": "(a) Sketch $C$.\n(1)",
+          "mark_scheme": "B1: Correct shape and position: Look for a curve in quadrants 1 and 3 with non zero gradient at the origin and gradient $\\to\\infty$ at both ends. Ignore values labelled on the axes. If there is more than one attempt, mark the one which appears in the main body of the work as their fullest attempt. If there is more than one sketch on the same graph, then it must be clearly labelled which is the one to be marked.",
+          "spec_refs": [
+            "P5.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "text": "(b) Given $x=2\\sin y$, show that\n$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\dfrac{1}{\\sqrt{A-x^2}}$\nwhere $A$ is a constant to be found.\n(3)",
+          "mark_scheme": "Note on EPEN it is M1M1A1 which is now marked as M1A1A1.\nM1: $x=2\\sin y\\Rightarrow\\dfrac{\\mathrm{d}x}{\\mathrm{d}y}=\\pm k\\cos y$ where $k$ is non zero and attempts to use both $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=1\\div\\dfrac{\\mathrm{d}x}{\\mathrm{d}y}$ and $\\sin^2y+\\cos^2y=1$ in order to obtain $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$ in terms of $x$. Allow slips with dealing with their \"2\". Allow working leading to $\\dfrac{\\ldots}{\\ldots\\sqrt{1-\\ldots x^2}}$ to score M1.\nA1: A correct expression for $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$ as a function of $x$ which may be unsimplified. eg $\\left(\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\right)\\dfrac{1}{2\\sqrt{1-\\frac{x^2}{4}}}$ or $\\dfrac{1}{\\sqrt{4-\\frac{x^2}{4}}}$ or $\\dfrac{1}{2\\sqrt{\\frac{4-x^2}{4}}}$\nA1cso: $\\left(\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\right)\\dfrac{1}{\\sqrt{4-x^2}}$\nAlt(b): M1: $y=\\arcsin\\left(\\dfrac{x}{2}\\right)\\Rightarrow\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=k\\times\\dfrac{1}{\\sqrt{1-\\left(\\frac{x}{2}\\right)^2}}$ (where $k$ can equal $1$) then A1A1 as above.\nSC: $y=\\arcsin\\left(\\dfrac{x}{2}\\right)\\Rightarrow\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\dfrac{1}{\\sqrt{4-x^2}}$ with no correct intermediate working score as 100.\nOfficial notes (completeness pass):\n- $x=2\\sin y\\Rightarrow\\left(\\dfrac{\\mathrm{d}x}{\\mathrm{d}y}=\\right)2\\cos y$ and attempts to use both $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=1\\div\\dfrac{\\mathrm{d}x}{\\mathrm{d}y}$ and $\\cos y=\\sqrt{1-\\sin^2y}=\\sqrt{1-\\ldots x^2}$ M1; $\\left(\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\right)\\dfrac{1}{2\\sqrt{1-\\frac{x^2}{4}}}$ A1; $\\left(\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\right)\\dfrac{1}{\\sqrt{4-x^2}}$ A1cso\n- Alt(b): $y=\\arcsin\\left(\\dfrac{x}{2}\\right)\\Rightarrow\\left(\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\right)\\dfrac12\\times\\dfrac{1}{\\sqrt{1-\\left(\\frac{x}{2}\\right)^2}}$ M1A1; $\\left(\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\right)\\dfrac{1}{\\sqrt{4-x^2}}$ A1",
+          "spec_refs": [
+            "P5.4",
+            "P7.5"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "text": "The point $P$ lies on $C$ and has $y$ coordinate $\\dfrac{\\pi}{4}$\n(c) Find the equation of the tangent to $C$ at $P$. Write your answer in the form $y=mx+c$, where $m$ and $c$ are constants to be found.\n(3)",
+          "mark_scheme": "M1: Attempts to find the value of $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$ or $\\dfrac{\\mathrm{d}x}{\\mathrm{d}y}$ at $P$. See scheme but allow sub of $y=\\dfrac{\\pi}{4}$ into their $\\dfrac{\\mathrm{d}x}{\\mathrm{d}y}=\\pm k\\cos y$\ndM1: Full method to find the equation of the tangent at $P$. Their $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$ may not be exact. If they use $y=mx+c$ they must proceed as far as $c=\\ldots$\nA1: Correct equation and in the correct form. The coefficient of $x$ and the constant must be exact. Isw. $y=\\dfrac{\\sqrt{2}}{2}x-1+\\dfrac{\\pi}{4}$; substitutes $x=\\sqrt{2}$ into their $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\dfrac{1}{\\sqrt{4-x^2}}\\left(=\\dfrac{\\sqrt{2}}{2}\\right)$ then finds the equation of the tangent at $P$: $y-\\dfrac{\\pi}{4}=\\text{\"}\\dfrac{\\sqrt{2}}{2}\\text{\"}\\left(x-\\text{\"}\\sqrt{2}\\text{\"}\\right)$",
+          "spec_refs": [
+            "P7.4",
+            "P3.1"
+          ]
+        }
+      ],
+      "qp_pages": [
+        22,
+        25
+      ],
+      "low_confidence": false,
+      "notes": "",
+      "source_qp_file": "pearson/IAL-2018/Oct2021/IAL2018_WMA13_Oct2021_QP.txt",
+      "source_ms_file": "pearson/IAL-2018/Oct2021/IAL2018_WMA13_Oct2021_MS.txt",
+      "notation": "latex",
+      "extraction_method": "single-call-v1",
+      "question_text": "A curve $C$ has equation $y=\\mathrm{f}(x)$, where\n$\\mathrm{f}(x)=\\arcsin\\left(\\dfrac{1}{2}x\\right) \\qquad -2\\leqslant x\\leqslant 2 \\qquad -\\dfrac{\\pi}{2}\\leqslant y\\leqslant\\dfrac{\\pi}{2}$\n(a) Sketch $C$.\n(1)\n(b) Given $x=2\\sin y$, show that\n$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\dfrac{1}{\\sqrt{A-x^2}}$\nwhere $A$ is a constant to be found.\n(3)\nThe point $P$ lies on $C$ and has $y$ coordinate $\\dfrac{\\pi}{4}$\n(c) Find the equation of the tangent to $C$ at $P$. Write your answer in the form $y=mx+c$, where $m$ and $c$ are constants to be found.\n(3)",
+      "mark_scheme_text": "B1: Correct shape and position: Look for a curve in quadrants 1 and 3 with non zero gradient at the origin and gradient $\\to\\infty$ at both ends. Ignore values labelled on the axes. If there is more than one attempt, mark the one which appears in the main body of the work as their fullest attempt. If there is more than one sketch on the same graph, then it must be clearly labelled which is the one to be marked.\nNote on EPEN it is M1M1A1 which is now marked as M1A1A1.\nM1: $x=2\\sin y\\Rightarrow\\dfrac{\\mathrm{d}x}{\\mathrm{d}y}=\\pm k\\cos y$ where $k$ is non zero and attempts to use both $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=1\\div\\dfrac{\\mathrm{d}x}{\\mathrm{d}y}$ and $\\sin^2y+\\cos^2y=1$ in order to obtain $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$ in terms of $x$. Allow slips with dealing with their \"2\". Allow working leading to $\\dfrac{\\ldots}{\\ldots\\sqrt{1-\\ldots x^2}}$ to score M1.\nA1: A correct expression for $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$ as a function of $x$ which may be unsimplified. eg $\\left(\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\right)\\dfrac{1}{2\\sqrt{1-\\frac{x^2}{4}}}$ or $\\dfrac{1}{\\sqrt{4-\\frac{x^2}{4}}}$ or $\\dfrac{1}{2\\sqrt{\\frac{4-x^2}{4}}}$\nA1cso: $\\left(\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\right)\\dfrac{1}{\\sqrt{4-x^2}}$\nAlt(b): M1: $y=\\arcsin\\left(\\dfrac{x}{2}\\right)\\Rightarrow\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=k\\times\\dfrac{1}{\\sqrt{1-\\left(\\frac{x}{2}\\right)^2}}$ (where $k$ can equal $1$) then A1A1 as above.\nSC: $y=\\arcsin\\left(\\dfrac{x}{2}\\right)\\Rightarrow\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\dfrac{1}{\\sqrt{4-x^2}}$ with no correct intermediate working score as 100.\nOfficial notes (completeness pass):\n- $x=2\\sin y\\Rightarrow\\left(\\dfrac{\\mathrm{d}x}{\\mathrm{d}y}=\\right)2\\cos y$ and attempts to use both $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=1\\div\\dfrac{\\mathrm{d}x}{\\mathrm{d}y}$ and $\\cos y=\\sqrt{1-\\sin^2y}=\\sqrt{1-\\ldots x^2}$ M1; $\\left(\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\right)\\dfrac{1}{2\\sqrt{1-\\frac{x^2}{4}}}$ A1; $\\left(\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\right)\\dfrac{1}{\\sqrt{4-x^2}}$ A1cso\n- Alt(b): $y=\\arcsin\\left(\\dfrac{x}{2}\\right)\\Rightarrow\\left(\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\right)\\dfrac12\\times\\dfrac{1}{\\sqrt{1-\\left(\\frac{x}{2}\\right)^2}}$ M1A1; $\\left(\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\right)\\dfrac{1}{\\sqrt{4-x^2}}$ A1\nM1: Attempts to find the value of $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$ or $\\dfrac{\\mathrm{d}x}{\\mathrm{d}y}$ at $P$. See scheme but allow sub of $y=\\dfrac{\\pi}{4}$ into their $\\dfrac{\\mathrm{d}x}{\\mathrm{d}y}=\\pm k\\cos y$\ndM1: Full method to find the equation of the tangent at $P$. Their $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$ may not be exact. If they use $y=mx+c$ they must proceed as far as $c=\\ldots$\nA1: Correct equation and in the correct form. The coefficient of $x$ and the constant must be exact. Isw. $y=\\dfrac{\\sqrt{2}}{2}x-1+\\dfrac{\\pi}{4}$; substitutes $x=\\sqrt{2}$ into their $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\dfrac{1}{\\sqrt{4-x^2}}\\left(=\\dfrac{\\sqrt{2}}{2}\\right)$ then finds the equation of the tangent at $P$: $y-\\dfrac{\\pi}{4}=\\text{\"}\\dfrac{\\sqrt{2}}{2}\\text{\"}\\left(x-\\text{\"}\\sqrt{2}\\text{\"}\\right)$",
+      "has_figure": false,
+      "figure_pages": []
+    },
+    {
+      "paper_id": "IAL2018_WMA13_Oct2021",
+      "spec": "IAL-2018",
+      "qualification": "IAL-2018",
+      "unit": "WMA13",
+      "status": "legacy",
+      "paper": "WMA13",
+      "sitting": "Oct2021",
+      "id": "IAL2018_WMA13_Oct2021_Q9",
+      "q_num": "9",
+      "total_marks": 9,
+      "component": "pure",
+      "uses_large_data_set": false,
+      "stem": "Figure 3 shows a sketch of part of the curve with equation $y=\\mathrm{f}(x)$, where\n$\\mathrm{f}(x)=x(x^2-4)\\mathrm{e}^{-\\frac{1}{2}x}$",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "text": "(a) Find $\\mathrm{f}'(x)$.\n(2)",
+          "mark_scheme": "M1: Uses a valid method to differentiate. This could be: (i) using the product rule on $\\mathrm{f}(x)=(x^3-4x)\\mathrm{e}^{-\\frac{1}{2}x}$ so score for an expression of the form $\\left(\\mathrm{f}'(x)=\\right)\\pm A(x^3-4x)\\mathrm{e}^{-\\frac{1}{2}x}\\pm\\left(Bx^2\\pm C\\right)\\mathrm{e}^{-\\frac{1}{2}x}$ $(A,B,C\\neq0)$ Condone the squared missing on the $Bx^2$ term (ii) using the quotient rule on $\\mathrm{f}(x)=\\dfrac{x^3-4x}{\\mathrm{e}^{\\frac{1}{2}x}}$ so score for an expression of the form $\\left(\\mathrm{f}'(x)=\\right)\\dfrac{\\pm\\mathrm{e}^{\\frac{1}{2}x}\\left(Bx^2\\pm C\\right)-A\\mathrm{e}^{\\frac{1}{2}x}(x^3-4x)}{\\left(\\mathrm{e}^{\\frac{1}{2}x}\\right)^2}$ $(A,B,C\\neq0)$ Condone the squared missing on the $Bx^2$ term or an attempt at (iii) $\\mathrm{f}'(x)=uvw'+uv'w+u'vw$ which could look like: $(x^2-4)\\mathrm{e}^{-\\frac{1}{2}x}+x\\dfrac{\\mathrm{d}\\left((x^2-4)\\mathrm{e}^{-\\frac{1}{2}x}\\right)}{\\mathrm{d}x}=\\pm\\ldots(x^2-4)\\mathrm{e}^{-\\frac{1}{2}x}\\pm x(\\ldots x)\\mathrm{e}^{-\\frac{1}{2}x}\\pm\\ldots x(x^2-4)\\mathrm{e}^{-\\frac{1}{2}x}$\nA1: Correct $\\mathrm{f}'(x)$ but may be unsimplified. Isw after a correct unsimplified expression $\\left(3x^2-4\\right)\\mathrm{e}^{-\\frac{1}{2}x}-\\dfrac{1}{2}(x^3-4x)\\mathrm{e}^{-\\frac{1}{2}x}$ or $(x^2-4)\\mathrm{e}^{-\\frac{1}{2}x}+x\\dfrac{\\mathrm{d}\\left((x^2-4)\\mathrm{e}^{-\\frac{1}{2}x}\\right)}{\\mathrm{d}x}=(x^2-4)\\mathrm{e}^{-\\frac{1}{2}x}+x(2x)\\mathrm{e}^{-\\frac{1}{2}x}-\\dfrac{1}{2}x(x^2-4)\\mathrm{e}^{-\\frac{1}{2}x}$",
+          "spec_refs": [
+            "P7.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "text": "The line $l$ is the normal to the curve at $O$ and meets the curve again at the point $P$.\nThe point $P$ lies in the 3rd quadrant, as shown in Figure 3.\n(b) Show that the $x$ coordinate of $P$ is a solution of the equation\n$x=-\\dfrac{1}{2}\\sqrt{16+\\mathrm{e}^{\\frac{1}{2}x}}$\n(4)",
+          "mark_scheme": "Note on EPEN it is M1A1M1A1 but we are marking this M1B1M1A1.\nM1: Full method to find the equation of the normal through $O$. Look for an attempt at $\\mathrm{f}'(0)$ followed by the equation $y=-\\dfrac{1}{\\mathrm{f}'(0)}x$\nB1: Equation of normal is $y=\\dfrac{1}{4}x$ (seen or implied) (which may follow an incorrect $\\mathrm{f}'(x)$ from part (a))\nM1: Equates their $y=\\dfrac{1}{4}x$ (which must be a straight line through the origin) with $\\mathrm{f}(x)=x(x^2-4)\\mathrm{e}^{-\\frac{1}{2}x}$, divides through or factorises out the $x$ term and attempts to make $x^2$ (or allow $4x^2$) the subject\nA1*: Full proof showing all steps. There is no requirement to justify the $-$ sign. Note that A1* cannot be scored if A0 in part (a), unless they restart in (b).\nOfficial notes (completeness pass):\n- $\\mathrm{f}'(0)=-4$ so equation of normal is $y=-\\dfrac{1}{-4}x$ M1; $y=\\dfrac14x$ B1; Sets $\\dfrac14x=x(x^2-4)\\mathrm{e}^{-\\frac12x}\\Rightarrow x^2-4=\\dfrac14\\mathrm{e}^{\\frac12x}$ M1; $\\Rightarrow x^2=\\dfrac{16+\\mathrm{e}^{\\frac12x}}{4}\\Rightarrow x=-\\dfrac12\\sqrt{16+\\mathrm{e}^{\\frac12x}}$ * A1*",
+          "spec_refs": [
+            "P7.4",
+            "P3.1",
+            "P2.8"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "text": "(c) Using the iterative formula\n$x_{n+1}=-\\dfrac{1}{2}\\sqrt{16+\\mathrm{e}^{\\frac{1}{2}x_n}} \\qquad$ with $x_1=-2$\nfind, to 4 decimal places,\n(i) the value of $x_2$\n(ii) the $x$ coordinate of $P$.\n(3)",
+          "mark_scheme": "(c)(i) M1: Substitutes $x=-2$ into the iteration formula and finds $x_2$. May also be implied by $-2.0228$ or $-2.0229$\nA1: awrt $-2.0229$\n(ii) A1: $(x=)-2.0226$ correct to 4 dp\nOfficial notes (completeness pass):\n- (i) $x_2=-\\dfrac12\\sqrt{16+\\mathrm{e}^{\\frac12\\times-2}}=-2.0229$ M1 A1; (ii) $(x=)-2.0226$ A1",
+          "spec_refs": [
+            "P9.2"
+          ]
+        }
+      ],
+      "qp_pages": [
+        26,
+        29
+      ],
+      "low_confidence": false,
+      "notes": "",
+      "source_qp_file": "pearson/IAL-2018/Oct2021/IAL2018_WMA13_Oct2021_QP.txt",
+      "source_ms_file": "pearson/IAL-2018/Oct2021/IAL2018_WMA13_Oct2021_MS.txt",
+      "notation": "latex",
+      "extraction_method": "single-call-v1",
+      "question_text": "Figure 3 shows a sketch of part of the curve with equation $y=\\mathrm{f}(x)$, where\n$\\mathrm{f}(x)=x(x^2-4)\\mathrm{e}^{-\\frac{1}{2}x}$\n(a) Find $\\mathrm{f}'(x)$.\n(2)\nThe line $l$ is the normal to the curve at $O$ and meets the curve again at the point $P$.\nThe point $P$ lies in the 3rd quadrant, as shown in Figure 3.\n(b) Show that the $x$ coordinate of $P$ is a solution of the equation\n$x=-\\dfrac{1}{2}\\sqrt{16+\\mathrm{e}^{\\frac{1}{2}x}}$\n(4)\n(c) Using the iterative formula\n$x_{n+1}=-\\dfrac{1}{2}\\sqrt{16+\\mathrm{e}^{\\frac{1}{2}x_n}} \\qquad$ with $x_1=-2$\nfind, to 4 decimal places,\n(i) the value of $x_2$\n(ii) the $x$ coordinate of $P$.\n(3)",
+      "mark_scheme_text": "M1: Uses a valid method to differentiate. This could be: (i) using the product rule on $\\mathrm{f}(x)=(x^3-4x)\\mathrm{e}^{-\\frac{1}{2}x}$ so score for an expression of the form $\\left(\\mathrm{f}'(x)=\\right)\\pm A(x^3-4x)\\mathrm{e}^{-\\frac{1}{2}x}\\pm\\left(Bx^2\\pm C\\right)\\mathrm{e}^{-\\frac{1}{2}x}$ $(A,B,C\\neq0)$ Condone the squared missing on the $Bx^2$ term (ii) using the quotient rule on $\\mathrm{f}(x)=\\dfrac{x^3-4x}{\\mathrm{e}^{\\frac{1}{2}x}}$ so score for an expression of the form $\\left(\\mathrm{f}'(x)=\\right)\\dfrac{\\pm\\mathrm{e}^{\\frac{1}{2}x}\\left(Bx^2\\pm C\\right)-A\\mathrm{e}^{\\frac{1}{2}x}(x^3-4x)}{\\left(\\mathrm{e}^{\\frac{1}{2}x}\\right)^2}$ $(A,B,C\\neq0)$ Condone the squared missing on the $Bx^2$ term or an attempt at (iii) $\\mathrm{f}'(x)=uvw'+uv'w+u'vw$ which could look like: $(x^2-4)\\mathrm{e}^{-\\frac{1}{2}x}+x\\dfrac{\\mathrm{d}\\left((x^2-4)\\mathrm{e}^{-\\frac{1}{2}x}\\right)}{\\mathrm{d}x}=\\pm\\ldots(x^2-4)\\mathrm{e}^{-\\frac{1}{2}x}\\pm x(\\ldots x)\\mathrm{e}^{-\\frac{1}{2}x}\\pm\\ldots x(x^2-4)\\mathrm{e}^{-\\frac{1}{2}x}$\nA1: Correct $\\mathrm{f}'(x)$ but may be unsimplified. Isw after a correct unsimplified expression $\\left(3x^2-4\\right)\\mathrm{e}^{-\\frac{1}{2}x}-\\dfrac{1}{2}(x^3-4x)\\mathrm{e}^{-\\frac{1}{2}x}$ or $(x^2-4)\\mathrm{e}^{-\\frac{1}{2}x}+x\\dfrac{\\mathrm{d}\\left((x^2-4)\\mathrm{e}^{-\\frac{1}{2}x}\\right)}{\\mathrm{d}x}=(x^2-4)\\mathrm{e}^{-\\frac{1}{2}x}+x(2x)\\mathrm{e}^{-\\frac{1}{2}x}-\\dfrac{1}{2}x(x^2-4)\\mathrm{e}^{-\\frac{1}{2}x}$\nNote on EPEN it is M1A1M1A1 but we are marking this M1B1M1A1.\nM1: Full method to find the equation of the normal through $O$. Look for an attempt at $\\mathrm{f}'(0)$ followed by the equation $y=-\\dfrac{1}{\\mathrm{f}'(0)}x$\nB1: Equation of normal is $y=\\dfrac{1}{4}x$ (seen or implied) (which may follow an incorrect $\\mathrm{f}'(x)$ from part (a))\nM1: Equates their $y=\\dfrac{1}{4}x$ (which must be a straight line through the origin) with $\\mathrm{f}(x)=x(x^2-4)\\mathrm{e}^{-\\frac{1}{2}x}$, divides through or factorises out the $x$ term and attempts to make $x^2$ (or allow $4x^2$) the subject\nA1*: Full proof showing all steps. There is no requirement to justify the $-$ sign. Note that A1* cannot be scored if A0 in part (a), unless they restart in (b).\nOfficial notes (completeness pass):\n- $\\mathrm{f}'(0)=-4$ so equation of normal is $y=-\\dfrac{1}{-4}x$ M1; $y=\\dfrac14x$ B1; Sets $\\dfrac14x=x(x^2-4)\\mathrm{e}^{-\\frac12x}\\Rightarrow x^2-4=\\dfrac14\\mathrm{e}^{\\frac12x}$ M1; $\\Rightarrow x^2=\\dfrac{16+\\mathrm{e}^{\\frac12x}}{4}\\Rightarrow x=-\\dfrac12\\sqrt{16+\\mathrm{e}^{\\frac12x}}$ * A1*\n(c)(i) M1: Substitutes $x=-2$ into the iteration formula and finds $x_2$. May also be implied by $-2.0228$ or $-2.0229$\nA1: awrt $-2.0229$\n(ii) A1: $(x=)-2.0226$ correct to 4 dp\nOfficial notes (completeness pass):\n- (i) $x_2=-\\dfrac12\\sqrt{16+\\mathrm{e}^{\\frac12\\times-2}}=-2.0229$ M1 A1; (ii) $(x=)-2.0226$ A1",
+      "has_figure": true,
+      "figure_pages": [
+        26
+      ]
+    },
+    {
+      "paper_id": "IAL2018_WMA13_Oct2021",
+      "spec": "IAL-2018",
+      "qualification": "IAL-2018",
+      "unit": "WMA13",
+      "status": "legacy",
+      "paper": "WMA13",
+      "sitting": "Oct2021",
+      "id": "IAL2018_WMA13_Oct2021_Q10",
+      "q_num": "10",
+      "total_marks": 7,
+      "component": "pure",
+      "uses_large_data_set": false,
+      "stem": "Figure 4 shows a sketch of part of the curve with equation\n$y=(1+2\\cos2x)^2$",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "text": "(a) Show that\n$(1+2\\cos2x)^2\\equiv p+q\\cos2x+r\\cos4x$\nwhere $p$, $q$ and $r$ are constants to be found.\n(2)",
+          "mark_scheme": "M1: Attempts to multiply out $(1+2\\cos2x)^2=1+\\ldots\\cos2x+\\ldots\\cos^22x$ and use $\\cos4x=2\\cos^22x-1$ to obtain $(1+2\\cos2x)^2$ in the form $p+q\\cos2x+r\\cos4x$. Condone slips in the rearrangement of $\\cos4x=2\\cos^22x-1$ but it must be clear that the identity was correct originally otherwise M0. Beware of candidates who write $(1+2\\cos2x)^2=1+4\\cos2x+4\\cos^24x$ which is M0A0.\nA1: $3+4\\cos2x+2\\cos4x$\nOfficial notes (completeness pass):\n- $(1+2\\cos2x)^2=1+4\\cos2x+4\\cos^22x$; Uses $\\cos4x=2\\cos^22x-1\\Rightarrow(1+2\\cos2x)^2=1+4\\cos2x+2\\cos4x+2$ M1; $=3+4\\cos2x+2\\cos4x$ A1",
+          "spec_refs": [
+            "P5.6"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "text": "The curve touches the positive $x$-axis for the second time when $x=a$, as shown in Figure 4.\nThe regions bounded by the curve, the $y$-axis and the $x$-axis up to $x=a$ are shown shaded in Figure 4.\n(b) Find, using algebraic integration and making your method clear, the exact total area of the shaded regions. Write your answer in simplest form.\n(5)",
+          "mark_scheme": "B1: Deduces that $a=\\dfrac{2\\pi}{3}$ (allow $120°$ for this mark). If more than one angle is found, then look for which one is substituted into their integrated expression.\nM1: Integrates $q\\cos2x+r\\cos4x\\to\\pm\\ldots\\sin2x\\pm\\ldots\\sin4x$\nA1ft: Integrates $p+q\\cos2x+r\\cos4x\\to px+\\dfrac{q}{2}\\sin2x+\\dfrac{r}{4}\\sin4x$ unsimplified where $p$, $q$ and $r\\neq0$\ndM1: Substitutes $0$ and $a=\\dfrac{2\\pi}{3}$ (or awrt $2.09$) (or equivalent) into a valid function (M1 must have been scored) and subtracts either way around. Note $q,r\\neq0$ but they do not need a $px$ term. Also allow $a=\\dfrac{\\pi}{3}$ (or awrt $1.05$) or $a=\\dfrac{4\\pi}{3}$ (or awrt $4.19$) $a$ must be in radians to evaluate correctly. This mark cannot be scored without a value for $a$. You do not have to explicitly see $0$ substituted in and their answer may imply a correct substitution into their integrated expression.\nA1: $2\\pi-\\dfrac{3}{4}\\sqrt{3}$ or simplified equivalent\nOfficial notes (completeness pass):\n- $a=\\dfrac{2\\pi}{3}$ B1; $\\int3+4\\cos2x+2\\cos4x\\,\\mathrm{d}x=3x+2\\sin2x+\\dfrac12\\sin4x$ M1 A1 ft; Area $=\\left[3x+2\\sin2x+\\dfrac12\\sin4x\\right]_0^{\\frac{2\\pi}{3}}=2\\pi-\\dfrac34\\sqrt3$ dM1 A1",
+          "spec_refs": [
+            "P8.2",
+            "P5.6"
+          ]
+        }
+      ],
+      "qp_pages": [
+        30,
+        32
+      ],
+      "low_confidence": false,
+      "notes": "",
+      "source_qp_file": "pearson/IAL-2018/Oct2021/IAL2018_WMA13_Oct2021_QP.txt",
+      "source_ms_file": "pearson/IAL-2018/Oct2021/IAL2018_WMA13_Oct2021_MS.txt",
+      "notation": "latex",
+      "extraction_method": "single-call-v1",
+      "question_text": "Figure 4 shows a sketch of part of the curve with equation\n$y=(1+2\\cos2x)^2$\n(a) Show that\n$(1+2\\cos2x)^2\\equiv p+q\\cos2x+r\\cos4x$\nwhere $p$, $q$ and $r$ are constants to be found.\n(2)\nThe curve touches the positive $x$-axis for the second time when $x=a$, as shown in Figure 4.\nThe regions bounded by the curve, the $y$-axis and the $x$-axis up to $x=a$ are shown shaded in Figure 4.\n(b) Find, using algebraic integration and making your method clear, the exact total area of the shaded regions. Write your answer in simplest form.\n(5)",
+      "mark_scheme_text": "M1: Attempts to multiply out $(1+2\\cos2x)^2=1+\\ldots\\cos2x+\\ldots\\cos^22x$ and use $\\cos4x=2\\cos^22x-1$ to obtain $(1+2\\cos2x)^2$ in the form $p+q\\cos2x+r\\cos4x$. Condone slips in the rearrangement of $\\cos4x=2\\cos^22x-1$ but it must be clear that the identity was correct originally otherwise M0. Beware of candidates who write $(1+2\\cos2x)^2=1+4\\cos2x+4\\cos^24x$ which is M0A0.\nA1: $3+4\\cos2x+2\\cos4x$\nOfficial notes (completeness pass):\n- $(1+2\\cos2x)^2=1+4\\cos2x+4\\cos^22x$; Uses $\\cos4x=2\\cos^22x-1\\Rightarrow(1+2\\cos2x)^2=1+4\\cos2x+2\\cos4x+2$ M1; $=3+4\\cos2x+2\\cos4x$ A1\nB1: Deduces that $a=\\dfrac{2\\pi}{3}$ (allow $120°$ for this mark). If more than one angle is found, then look for which one is substituted into their integrated expression.\nM1: Integrates $q\\cos2x+r\\cos4x\\to\\pm\\ldots\\sin2x\\pm\\ldots\\sin4x$\nA1ft: Integrates $p+q\\cos2x+r\\cos4x\\to px+\\dfrac{q}{2}\\sin2x+\\dfrac{r}{4}\\sin4x$ unsimplified where $p$, $q$ and $r\\neq0$\ndM1: Substitutes $0$ and $a=\\dfrac{2\\pi}{3}$ (or awrt $2.09$) (or equivalent) into a valid function (M1 must have been scored) and subtracts either way around. Note $q,r\\neq0$ but they do not need a $px$ term. Also allow $a=\\dfrac{\\pi}{3}$ (or awrt $1.05$) or $a=\\dfrac{4\\pi}{3}$ (or awrt $4.19$) $a$ must be in radians to evaluate correctly. This mark cannot be scored without a value for $a$. You do not have to explicitly see $0$ substituted in and their answer may imply a correct substitution into their integrated expression.\nA1: $2\\pi-\\dfrac{3}{4}\\sqrt{3}$ or simplified equivalent\nOfficial notes (completeness pass):\n- $a=\\dfrac{2\\pi}{3}$ B1; $\\int3+4\\cos2x+2\\cos4x\\,\\mathrm{d}x=3x+2\\sin2x+\\dfrac12\\sin4x$ M1 A1 ft; Area $=\\left[3x+2\\sin2x+\\dfrac12\\sin4x\\right]_0^{\\frac{2\\pi}{3}}=2\\pi-\\dfrac34\\sqrt3$ dM1 A1",
+      "has_figure": true,
+      "figure_pages": [
+        30
+      ]
+    }
+  ],
+  "autofixes": 0,
+  "triage_method": "triage-v1",
+  "ms_complete_method": "single-call-v2",
+  "ms_complete_added": 21,
+  "ms_complete_unverified": false
+}

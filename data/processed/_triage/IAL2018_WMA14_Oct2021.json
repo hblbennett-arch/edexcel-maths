@@ -1,0 +1,297 @@
+{
+  "_paper_id": "IAL2018_WMA14_Oct2021",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.4301819,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": null,
+          "marks": 7,
+          "technique": "Implicit differentiation to find normal to curve",
+          "reason": "P7.5 explicitly covers finding equations of tangents and normals to curves given implicitly; standard implicit differentiation with product/chain rule.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": null,
+          "marks": 6,
+          "technique": "Separable first order differential equation with initial condition",
+          "reason": "P8.7 covers analytical solution of separable first order differential equations including finding particular solutions.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.7"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Partial fractions decomposition (improper algebraic fraction)",
+          "reason": "P2.10 covers decomposing rational functions into partial fractions with denominators like (ax+b)(cx+d), numerators constant or linear; here also linear quotient term, consistent with P2.6/P2.10.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.10",
+            "P2.6"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Differentiating a function expressed via partial fractions",
+          "reason": "P7.2 covers differentiating x^n including negative powers arising from partial fraction terms; straightforward differentiation of the result of (a).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Algebraic inequality argument using derivative from (b)",
+          "reason": "This is a straightforward algebraic/inequality argument (comparing 2/x^2 vs 2/(x+3)^2, covered by P2.5-style inequality reasoning) built directly on the in-spec derivative found in part (b); no excluded content is invoked, so it remains in spec despite depending on the previous part.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P2.5",
+            "P7.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Binomial expansion for rational index (fractional power)",
+          "reason": "P4.1 explicitly extends the binomial expansion to any rational n, including use for approximation and validity |bx/a|<1 (proof of validity not required, which is an explicit exclusion but does not remove the topic itself from spec); this expansion of (1-4x^2)^(1/2)-type function is exactly the covered depth.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Using a binomial expansion to approximate a surd value",
+          "reason": "P4.1 guidance states the expansion may be used for approximation; substituting a value of x to approximate a cube root is a direct application of this guidance.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Parametric differentiation to find gradient",
+          "reason": "P3.3 covers parametric equations of curves and P7.5 covers differentiation of parametrically defined functions for the first derivative; dy/dx via dy/dt ÷ dx/dt is standard covered technique.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P3.3",
+            "P7.5"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Using trig identity (sec^2=1+tan^2) to eliminate parameter and find Cartesian quadratic form",
+          "reason": "P5.5 covers sec^2θ=1+tan^2θ identity used to eliminate the parameter, combined with P3.3 conversion between parametric and Cartesian forms.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P5.5",
+            "P3.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Finding range of a quadratic function from completed square form",
+          "reason": "P2.3 covers completing the square and quadratic functions/graphs, from which the range (minimum value and above) is directly determined.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": null,
+          "marks": 7,
+          "technique": "Integration by substitution involving trigonometric function to find area under curve",
+          "reason": "P8.5 covers integration by substitution including finding a suitable substitution; P8.3 covers evaluating definite integrals for area under a curve; combined use is standard covered depth (recognising f'(x)/f(x) form giving ln f(x) is explicitly mentioned in P8.5 guidance).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.5",
+            "P8.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a(i)",
+          "marks": 4,
+          "technique": "Finding foot of perpendicular from a point to a line using vectors",
+          "reason": "P10.5 covers using vectors to solve problems in pure mathematics, and this is a standard application of vector line equations and scalar product (P10.3/P10.4) to find the point on a line nearest to a given point.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P10.5",
+            "P10.4"
+          ]
+        },
+        {
+          "label": "a(ii)",
+          "marks": 3,
+          "technique": "Shortest distance from point to line using vectors (magnitude)",
+          "reason": "P10.2 covers calculating magnitude of a vector; this follows directly from finding vector AX and its magnitude, a standard covered technique.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P10.2",
+            "P10.5"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Finding position vector of reflection of a point in a line using vectors",
+          "reason": "P10.5 explicitly covers using vectors to solve problems in pure mathematics; finding the reflection of a point in a line via B = 2X - A (using the foot of perpendicular X found in part (a)) is a standard vector application involving position vectors, addition and scalar multiplication (P10.3/P10.4), and is not subject to any exclusion; the fact that it depends on the answer to part (a) does not take it out of spec since part (a) itself is in spec.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P10.5",
+            "P10.3",
+            "P10.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "8",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Integration by parts of x^2 ln x",
+          "reason": "P8.5 explicitly covers integration by parts, including recognising ∫ln x dx and repeated/extended applications; standard covered technique.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.5"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Volume of revolution (solid formed by rotating a region about the x-axis)",
+          "reason": "No statement in the specification list mentions volume of revolution or rotating a region about an axis to form a solid; P8.3 only covers area under a curve/between curves, not volumes. This is a named concept/technique that no statement covers, so per the rules it is out of spec even though the underlying integration by parts (used to evaluate the integral) is itself in spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "9",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Setting up a differential equation from rates of change in context (related rates, dV/dt via chain rule)",
+          "reason": "P7.6 covers constructing simple differential equations in context, and P7.4 covers connected rates of change (dV/dt = dV/dh × dh/dt); this is exactly the covered application.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.6",
+            "P7.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Solving separable differential equation with initial condition, finding time to reach given value",
+          "reason": "P8.7 covers analytical solution of first order differential equations with separable variables including finding particular solutions; P8.8 covers interpreting the solution in context.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.7",
+            "P8.8"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "10",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Completing a proof by contradiction step (algebraic expansion showing expression is even)",
+          "reason": "P1.1 covers proof by contradiction and proof by deduction; this algebraic step is part of a standard covered proof structure.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P1.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Proof by contradiction that cube root of 2 is irrational",
+          "reason": "P1.1 explicitly lists proof by contradiction including proof of the irrationality of √2 as an example, and states application to unfamiliar proofs; proving irrationality of the cube root of 2 is a direct extension of this named technique to an analogous case.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P1.1"
+          ]
+        }
+      ]
+    }
+  ]
+}

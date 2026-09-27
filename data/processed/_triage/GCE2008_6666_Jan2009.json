@@ -1,0 +1,253 @@
+{
+  "_paper_id": "GCE2008_6666_Jan2009",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.13264900000000002,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Implicit differentiation",
+          "reason": "Standard implicit differentiation of a Cartesian equation, matches P7.5 (differentiate implicitly).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Evaluating gradient from implicit differentiation result",
+          "reason": "Simple substitution into result from (a), same topic as P7.5.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Integration to find area under curve",
+          "reason": "Standard integration of (1+4x)^(-1/2) and evaluating area under curve, matches P8.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.2",
+            "P8.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Volume of revolution",
+          "reason": "Volume of revolution about the x-axis is explicitly listed as a concept no 9MA0 statement covers.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Partial fractions with repeated linear factor",
+          "reason": "Matches P2.10, denominator (3x+2)^2(1-x) with repeated linear factor allowed by guidance.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.10"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Binomial series expansion via partial fractions",
+          "reason": "P4.1 guidance explicitly allows binomial expansion used with rational functions decomposed into partial fractions, up to x^2 term.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Percentage error from series approximation",
+          "reason": "Pure arithmetic comparison using the in-spec series expansion result from (b); no excluded concept introduced.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P4.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Perpendicular vector lines (dot product of direction vectors)",
+          "reason": "Uses dot product of direction vectors, an explicitly excluded concept (scalar/dot product) and vector equation of a line, also excluded.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Intersection of two vector lines",
+          "reason": "Intersection of lines given in vector form r=a+λb is an explicitly excluded concept.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Coordinates of intersection point of vector lines",
+          "reason": "Depends directly on the out-of-spec intersection-of-lines result from (b).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Position vector using intersection point",
+          "reason": "Relies on the intersection point found in (b)/(c), which is out of spec; also stems from vector-line intersection context.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Similar triangles to derive volume formula",
+          "reason": "Uses similar triangles/ratios and substitution into cone volume formula, this is geometric modelling not excluded (no volume-of-revolution calculus needed, just algebraic substitution).",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P7.6"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Connected rates of change",
+          "reason": "Matches P7.4 guidance which explicitly covers connected rates of change dV/dt = dV/dr × dr/dt type problems.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Integrate tan^2 x using trig identity",
+          "reason": "Uses sec^2 x = 1+tan^2 x identity to integrate, matches P8.2/P5.5.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.2",
+            "P5.5"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Integration by parts",
+          "reason": "Standard integration by parts with x^-3 ln x, matches P8.5.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.5"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 7,
+          "technique": "Integration by substitution",
+          "reason": "Substitution u=1+e^x to integrate a rational/exponential expression, matches P8.5 (finding a suitable substitution).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Coordinates from parametric equations",
+          "reason": "Substituting parameter value into parametric equations, matches P3.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P3.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Tangent to parametrically defined curve",
+          "reason": "Finding tangent equation using dy/dx from parametric differentiation, matches P7.5 (tangents to curves given parametrically) and P3.1.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5",
+            "P3.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 6,
+          "technique": "Solving cubic from substituting parametric curve into Cartesian line",
+          "reason": "Substitutes parametric x,y into the (in-spec) tangent line equation and factorises a cubic; purely algebraic, not vector-line intersection nor an excluded concept.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P3.3",
+            "P2.6"
+          ]
+        }
+      ]
+    }
+  ]
+}

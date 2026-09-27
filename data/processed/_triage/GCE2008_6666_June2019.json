@@ -1,0 +1,299 @@
+{
+  "_paper_id": "GCE2008_6666_June2019",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.27101210000000003,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Binomial expansion of (1+ax)^n for rational n",
+          "reason": "P4.1 covers binomial expansion for rational n including approximation; finding a from matching coefficient is standard application.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Binomial expansion coefficient",
+          "reason": "Same as (a), continuation of binomial expansion of (1+ax)^n, P4.1 covers this.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Product of binomial expansion with linear factor",
+          "reason": "Uses binomial expansion result from (b); P4.1 explicitly notes expansion 'may be used with expansion of rational functions by decomposition into partial fractions' and general algebraic manipulation of series, in spec.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Trapezium rule",
+          "reason": "P9.4 explicitly covers numerical integration using trapezium rule.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P9.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Integration using trig identities/double angle to find exact area",
+          "reason": "P8.3 covers area under curve via definite integral; integration of sin2x sinx uses double angle/product-to-sum identities covered by P5.6/P8.2 (trig identities integration).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.3",
+            "P5.6",
+            "P8.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Implicit differentiation",
+          "reason": "P7.5 explicitly covers differentiating functions defined implicitly, including finding tangents/normals to implicit curves.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Equation of tangent line using implicit derivative",
+          "reason": "P7.5 guidance explicitly states finding equations of tangents and normals to curves given implicitly is required.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 5,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Volume of revolution about x-axis",
+          "reason": "Volume of revolution is explicitly listed among concepts no 9MA0 statement covers, so this is out regardless of the integration technique used.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Finding constant in differential equation given rate of change",
+          "reason": "P7.6 covers constructing/using differential equations, substituting given rate to find constant - basic application.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.6"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Separation of variables, definite integral to find time",
+          "reason": "P8.7 covers analytical solution of first order separable differential equations including finding particular solutions/definite time values.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.7"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Connected rates of change to find volume",
+          "reason": "Uses dV/dt = dV/dh · dh/dt style connected rates of change and integration, covered by P7.4 guidance and P8.1/8.2 integration.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.4",
+            "P8.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "i",
+          "marks": 2,
+          "technique": "Integration of e^{kx} type function",
+          "reason": "P8.2 covers integrating e^{kx} and related constant multiples.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.2"
+          ]
+        },
+        {
+          "label": "ii(a)",
+          "marks": 4,
+          "technique": "Partial fractions decomposition",
+          "reason": "P2.10 covers decomposing rational functions into partial fractions with denominators as products of linear terms, matches this case.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.10"
+          ]
+        },
+        {
+          "label": "ii(b)",
+          "marks": 3,
+          "technique": "Integration using partial fractions",
+          "reason": "P8.6 explicitly covers integrating using partial fractions that are linear in the denominator.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.6"
+          ]
+        },
+        {
+          "label": "iii",
+          "marks": 5,
+          "technique": "Integration by parts including ln x integral",
+          "reason": "P8.5 explicitly covers integration by parts and states the integral of ln x is required; this problem uses integration by parts with ln(2x).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Parametric differentiation dy/dx",
+          "reason": "P3.3 covers parametric equations of curves and P7.5 covers differentiating parametrically defined relations for first derivative; standard combination.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P3.3",
+            "P7.5"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Finding normal to parametric curve using trig identities",
+          "reason": "Uses parametric differentiation (P7.5), exact trig values (P5.3) and equation of a straight line (P3.1); all covered.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5",
+            "P5.3",
+            "P3.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 6,
+          "technique": "Solving simultaneous equations (parametric curve and line) using trig identities/quadratic",
+          "reason": "Requires substituting parametric equations into line equation and solving quadratic in sin θ using double angle identity (P5.6) and quadratic solving (P2.3); this is curve/line intersection in Cartesian-parametric context, not a vector-line intersection, so it's in spec.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P5.6",
+            "P2.3",
+            "P3.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "8",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Distance between two points using position vectors",
+          "reason": "P10.4 covers position vectors and distance between two points represented by position vectors; finding P's coordinates uses substitution into a vector line but the required technique (distance calculation) itself is in spec.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P10.4",
+            "P10.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Vector equation of a line through a point parallel to another line",
+          "reason": "Vector equation of a line (r = a + λb) is explicitly listed among concepts no 9MA0 statement covers, so writing down such an equation is out of spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Angle between two vectors using scalar (dot) product",
+          "reason": "Scalar (dot) product including angle between vectors/lines is explicitly listed among concepts no 9MA0 statement covers; excluded.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 5,
+          "technique": "Finding point on a line using vector methods (dot product/distance equality)",
+          "reason": "Depends on line l2 (out of spec, part b) and uses dot product/vector line algebra (scalar product excluded); out of spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    }
+  ]
+}

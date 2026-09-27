@@ -1,0 +1,194 @@
+{
+  "_paper_id": "IAL2018_WME03_Jan2023",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.302018,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Volume of a solid of revolution formed by rotating a region about the x-axis",
+          "reason": "The spec's integration statements (P8.1-P8.8) cover area under a curve and area between curves, but no statement mentions volumes of revolution; this is a mechanics/further-pure topic not listed anywhere in the 9MA0 statements.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Centre of mass of a solid of revolution via integration",
+          "reason": "'Centre of mass' is explicitly given as an example of a concept that, if not mentioned in the statements, makes a part OUT; no statement covers centre of mass, so this is out of spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "main",
+          "marks": 6,
+          "technique": "Equilibrium of a particle attached to an elastic string, using Hooke's Law",
+          "reason": "This part requires equilibrium of forces on a particle (M8.1/M8.4 cover this) but critically depends on Hooke's Law and the modulus/extension of elastic strings, which is not mentioned in any 9MA0 statement (only equilibrium of forces M8.4/M8.1 is covered, but elastic string modulus/extension concept is absent).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 8,
+          "technique": "Centre of mass of composite laminas and shells",
+          "reason": "'Centre of mass' is explicitly listed as a concept not mentioned by any statement, making this out of spec regardless of the moments/geometry skills involved.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Toppling of a body on an inclined plane, using centre of mass found in part (a)",
+          "reason": "This part uses the centre-of-mass answer from part (a), which is out of spec; per the rule that a part relying on an out-of-spec answer is itself OUT, and 'toppling' is not a concept covered by M9.1 (which only covers moments in simple static contexts, not toppling criteria).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Finding acceleration via a = v dv/dx and solving for x",
+          "reason": "M7.4 explicitly lists only v=dr/dt, a=dv/dt=d²r/dt², r=∫v dt, v=∫a dt as the calculus forms required in kinematics; the technique a = v dv/dx used here to relate acceleration to displacement is not among these listed forms, so the required method is not covered by any statement.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Setting up and solving a separable differential equation (v in terms of x, then t) in a kinematics context",
+          "reason": "Although separation of variables itself is in spec (P8.7), the mark scheme's required method here starts from v = dx/dt derived from the earlier out-of-spec relation and applies it within a kinematics context; this mechanics/kinematics framing (v=dx/dt used with a non-listed acceleration relation) isn't covered by any listed mechanics statement, and it depends on the out-of-spec part (a).",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Geometry of a conical pendulum system (angles from trigonometry)",
+          "reason": "This is set within a circular motion / conical pendulum context, which is not mentioned by any 9MA0 statement; no statement covers motion in a horizontal circle or conical pendulums.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 8,
+          "technique": "Newton's second law in circular motion (horizontal circle, tension resolution)",
+          "reason": "Circular motion (angular speed, radius, centripetal acceleration) is not mentioned in any 9MA0 statement; M8.2/M8.5 cover only straight-line and plane resultant force problems, not circular motion.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Inequalities on angular speed from tension conditions in circular motion",
+          "reason": "This depends on the circular motion setup and tension expressions from parts (a)/(b), which are out of spec; circular motion is not covered by any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 7,
+          "technique": "Energy methods with elastic potential energy (EPE) and circular wire motion",
+          "reason": "This requires elastic potential energy (Hooke's Law) and motion of a particle on a circular wire, neither of which is mentioned by any 9MA0 statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 7,
+          "technique": "Newton's second law in circular motion (normal force on a wire) using Hooke's Law tension",
+          "reason": "Depends on circular motion and elastic string tension, both absent from the spec statements; not covered by M8.2/M8.4/M8.5 which are restricted to straight-line or resultant-force plane problems, not circular motion.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 6,
+          "technique": "Deriving simple harmonic motion (SHM) equation from two elastic springs (Hooke's Law) and Newton's second law",
+          "reason": "SHM ('simple harmonic motion') is not mentioned anywhere in the 9MA0 statements, nor is Hooke's Law/elastic springs; this whole topic is absent from the spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Finding speed in SHM using v² = ω²(a²−x²)",
+          "reason": "Relies on the SHM model and formulae, which are not part of any 9MA0 statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Maximum acceleration in SHM (ω²a)",
+          "reason": "SHM formulae are not covered by any 9MA0 statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 5,
+          "technique": "Finding time in SHM using x = a cos(ωt) and solving for t",
+          "reason": "This requires the SHM model (x = a cos ωt, v = -aω sin ωt) which is not mentioned in any 9MA0 statement; even though the trig equation solving (P5.7) itself is in spec, the underlying SHM context and formulae are not, and it depends on the out-of-spec part (a).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    }
+  ]
+}

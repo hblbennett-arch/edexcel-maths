@@ -1,0 +1,350 @@
+{
+  "_paper_id": "IAL2018_WST02_June2023",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.169259,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a(i)",
+          "marks": 2,
+          "technique": "Binomial probability P(X=x)",
+          "reason": "X~B(50,0.4), calculating an individual binomial probability is covered by S4.1 (calculate probabilities using the binomial distribution).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "a(ii)",
+          "marks": 2,
+          "technique": "Cumulative binomial probability",
+          "reason": "P(X<=26) using cumulative binomial probabilities, covered by S4.1 guidance on use of calculator for cumulative binomial probabilities.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "a(iii)",
+          "marks": 1,
+          "technique": "Finding smallest k from cumulative binomial",
+          "reason": "Uses same binomial distribution tables/calculator, within S4.1 scope.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "b(i)",
+          "marks": 5,
+          "technique": "Normal approximation to binomial with continuity correction",
+          "reason": "S4.2 explicitly states B(n,p) can be approximated by N(np, np(1-p)) with continuity correction when n large and p close to 0.5 - exactly this method.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b(ii)",
+          "marks": 1,
+          "technique": "Justifying normal approximation conditions",
+          "reason": "S4.2/S4.3 require knowing under what conditions the normal approximation to binomial is suitable (n large, p close to 0.5).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2",
+            "S4.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 4,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Census vs sample - population characteristics",
+          "reason": "S1.1 explicitly requires comment on advantages/disadvantages of census and sample.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S1.1"
+          ]
+        },
+        {
+          "label": "(b)(i)+(ii)",
+          "marks": 2,
+          "technique": "Sampling frame and sampling unit",
+          "reason": "S1.1 covers sampling techniques generally but does not explicitly name 'sampling frame' or 'sampling unit'; these are standard supporting concepts implicit in simple random sampling technique understanding, so borderline whether the specific terminology is required at this depth.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S1.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Identifying a statistic vs parameter",
+          "reason": "The term 'statistic' as distinct from population parameter is not mentioned anywhere in the statements (S1.1 mentions only population/sample, not the statistic/parameter distinction), so this concept is not evidenced as in spec.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Continuous random variable pdf, finding constant",
+          "reason": "S4.2 explicit exclusion: 'Knowledge of the probability density function is not required.' This question is entirely built on a given pdf.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Probability from pdf via integration",
+          "reason": "Same explicit exclusion of pdf knowledge (S4.2).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Quartile from pdf",
+          "reason": "Depends on pdf, excluded per S4.2.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 1,
+          "technique": "Mode via differentiation of pdf",
+          "reason": "Depends on pdf, excluded per S4.2.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Finding mode from pdf",
+          "reason": "Depends on pdf, excluded per S4.2.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Poisson approximation condition",
+          "reason": "Poisson distribution is not mentioned anywhere in the statements, so this is out of spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Poisson approximation to binomial, cumulative Poisson probability",
+          "reason": "Requires Poisson distribution, which is not part of any statement listed.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c(i)",
+          "marks": 5,
+          "technique": "Hypothesis test for binomial proportion",
+          "reason": "S5.2 explicitly covers conducting a hypothesis test for the proportion in the binomial distribution, expressed in terms of population parameter p, matching this part.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S5.2"
+          ]
+        },
+        {
+          "label": "c(ii)",
+          "marks": 1,
+          "technique": "Explaining inappropriateness of hypothesis test (no critical region possible)",
+          "reason": "Directly continues the same binomial proportion test from S5.2, discussing significance/critical region concepts within that section.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S5.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Effect of changing sample size on binomial hypothesis test",
+          "reason": "Still within the binomial proportion hypothesis test topic of S5.2.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S5.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Finding constants in a cumulative distribution function",
+          "reason": "Continuous random variable given via cdf/pdf; S4.2 explicitly excludes knowledge of the probability density function, and this entire question relies on pdf/cdf manipulation not covered by any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Finding constant in cdf using continuity",
+          "reason": "Same pdf/cdf exclusion under S4.2 applies.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Probability from cdf",
+          "reason": "Same pdf/cdf exclusion under S4.2 applies.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 1,
+          "technique": "Deriving pdf from cdf by differentiation",
+          "reason": "Same pdf exclusion under S4.2 applies.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 4,
+          "technique": "Expectation via integration of pdf",
+          "reason": "Requires pdf and E(X) of continuous random variable, both excluded/absent from statements (S4.2 exclusion, and no statement covers E(X) integration for continuous variables).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Continuous uniform distribution probability",
+          "reason": "The continuous uniform distribution is not mentioned in any statement; S4.2 only covers Normal and Binomial distributions, so uniform distribution work is out of spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b(i)",
+          "marks": 4,
+          "technique": "Uniform distribution variance formula, solving for parameters",
+          "reason": "Continuous uniform distribution not covered by any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b(ii)",
+          "marks": 2,
+          "technique": "Uniform distribution probability equation",
+          "reason": "Continuous uniform distribution not covered by any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Uniform distribution probability",
+          "reason": "Continuous uniform distribution not covered by any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "E(W^2) via Var and E(W)",
+          "reason": "Continuous uniform distribution not covered; also general E(X)/Var(X) of continuous r.v. not addressed by any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Poisson distribution probability",
+          "reason": "Poisson distribution is not mentioned in any statement listed, making this topic out of spec entirely.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Poisson then binomial combination",
+          "reason": "Relies on Poisson distribution which is not covered by any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Conditional probability with Poisson splitting",
+          "reason": "Relies on Poisson distribution, not covered by any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    }
+  ]
+}

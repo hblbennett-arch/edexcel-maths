@@ -1,0 +1,274 @@
+{
+  "_paper_id": "GCE2008_6666_June2008",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.1359865,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 4,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Evaluating exponential function values for trapezium rule table",
+          "reason": "Uses exponential function e^(0.5x^2) values as part of numerical integration setup; covered by P9.4 (trapezium rule) and P6.1 (exponential function).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P9.4",
+            "P6.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Trapezium rule",
+          "reason": "Direct application of trapezium rule to estimate area under curve, explicitly covered by P9.4.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P9.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Integration by parts",
+          "reason": "Direct application of integration by parts on x e^x, explicitly covered by P8.5.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.5"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Integration by parts (repeated)",
+          "reason": "Uses integration by parts more than once, explicitly allowed per P8.5 guidance ('includes more than one application of the method').",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Connected rates of change",
+          "reason": "Rate of change of area/radius using dA/dt and dx/dt, matches P7.4 guidance on connected rates of change (dV/dt = dV/dr × dr/dt example).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Connected rates of change (volume)",
+          "reason": "Extension of connected rates of change to volume, same P7.4 coverage.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 6,
+          "technique": "Implicit differentiation",
+          "reason": "Implicit differentiation of an equation involving x and y with product rule term, explicitly covered by P7.5.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Solving simultaneous equations from implicit differentiation result",
+          "reason": "Uses result from part (a) (in-spec) then substitutes into original equation, algebraic solving covered by P2.4 and follows from an in-spec part.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.4",
+            "P7.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Binomial expansion for rational index (negative power)",
+          "reason": "Expansion of (4-3x)^(-1/2), explicitly covered by P4.1 extension to any rational n including validity range.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Binomial expansion applied to a quotient",
+          "reason": "Uses part (a) expansion multiplied out, same binomial expansion technique, P4.1.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 6,
+          "technique": "Vector equation of line, intersection of two lines",
+          "reason": "Requires vector equation of line r=a+λb and finding intersection of two lines, both explicitly listed as concepts no 9MA0 statement covers.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Dot (scalar) product to show perpendicularity",
+          "reason": "Uses dot product of direction vectors, explicitly listed as a concept no 9MA0 statement covers.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Substitution into vector line equation",
+          "reason": "Relies on vector equation of a line (r=a+λb), which is an excluded concept.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Reflection of a point in a line using vectors, dot product-based intersection point",
+          "reason": "Depends on the out-of-spec intersection point from part (a) and reflection technique involving vector line equations, an excluded concept.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Partial fractions (linear factors)",
+          "reason": "Decomposing 2/(4-y^2) into partial fractions with linear factors, covered by P2.10.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.10"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 8,
+          "technique": "Separation of variables differential equation with partial fractions and log integration, using trig identity (cot x, sec x)",
+          "reason": "Covered by P8.6 (integration using partial fractions), P8.7 (separable first order DE), and integration of cot x/trig functions per P8.2/P8.5 guidance (∫f'(x)/f(x) dx = ln f(x)); all methods in spec.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.6",
+            "P8.7",
+            "P8.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "8",
+      "total_marks": 16,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Finding parameter value from parametric equations",
+          "reason": "Basic substitution into parametric equations, covered by P3.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P3.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Parametric differentiation to find normal line equation",
+          "reason": "Differentiating parametric equations dx/dt, dy/dt to find dy/dx and equation of normal, covered by P7.5 (parametric differentiation, tangents and normals).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Setting up area integral for parametric curve using trig identity substitution",
+          "reason": "Area under parametric curve using ∫y dx/dt dt and double angle identity sin2t=2sintcost, covered by P8.3 (parametric area) and P5.6 (double angle formulae).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.3",
+            "P5.6"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "technique": "Evaluating integral via substitution (trig power integration)",
+          "reason": "Integration of sin^2 t cos t via substitution, standard integration technique covered by P8.2/P8.5 (substitution).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.5",
+            "P8.3"
+          ]
+        }
+      ]
+    }
+  ]
+}

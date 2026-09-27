@@ -1,0 +1,258 @@
+{
+  "_paper_id": "IAL2018_WMA14_Oct2020",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.166624,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 4,
+      "parts": [
+        {
+          "label": null,
+          "marks": 4,
+          "technique": "Proof by contradiction (cubes/parity)",
+          "reason": "P1.1 explicitly lists proof by contradiction as a required method of proof, and this question is a standard application (proving n even if n^3 even).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P1.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Binomial expansion for negative/rational index",
+          "reason": "P4.1 extends binomial expansion to any rational n including negative, with validity condition |bx/a|<1, matching (4-5x)^(-1/2).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Comparing coefficients in combined binomial/partial-fraction-type expansion",
+          "reason": "Continuation of P4.1 binomial expansion technique, comparing coefficients to find constant k; same topic as part (a).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Comparing coefficients in binomial expansion",
+          "reason": "Same as (b), further coefficient comparison under P4.1.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": null,
+          "marks": 6,
+          "technique": "Volume of revolution by integration",
+          "reason": "No statement in the list mentions volumes of revolution/solids of revolution; P8.3 only covers area under a curve and area between curves, not rotation about an axis. This topic is absent from the given statements, so it is out despite being pure integration technique.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Parametric equations - finding points where curve meets axis",
+          "reason": "P3.3 covers parametric equations of curves, finding specific points by substitution is standard use of this topic.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P3.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Differentiating parametrically to find tangent",
+          "reason": "P7.5 explicitly covers differentiating functions/relations defined parametrically for the first derivative and finding tangents to curves given parametrically.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5",
+            "P3.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Solving simultaneous parametric/cubic equations algebraically",
+          "reason": "Uses parametric equations (P3.3) combined with algebraic solution of a cubic (P2.6 factorisation methods); this is a natural extension of parts (a)/(b) but does not depend on an out-of-spec result, so remains in spec.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P3.3",
+            "P2.6"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Integration by parts (ln x / x^2)",
+          "reason": "P8.5 explicitly covers integration by parts including the integral of ln x, and rational/log integrands of this type are within its scope.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.5"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Area under a curve using previous integral result",
+          "reason": "P8.3 covers evaluating definite integrals to find area under a curve; this builds on the in-spec part (a) result.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.3",
+            "P8.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Logarithmic differentiation of y = x^(sin x)",
+          "reason": "No statement mentions logarithmic differentiation (differentiating by first taking natural logs of both sides) as a method; P7.4 covers product/chain/quotient rule and P7.5 covers implicit/parametric differentiation, but not this specific technique for functions of form f(x)^g(x). This method is not covered by the listed statements.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Deriving stationary point equation from logarithmic differentiation result",
+          "reason": "This part relies entirely on the result of part (a), which uses the out-of-spec logarithmic differentiation method; a part that only makes sense after an out-of-spec part is itself out.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "i",
+          "marks": 6,
+          "technique": "Integration by substitution",
+          "reason": "P8.5 explicitly covers integration by substitution, including finding a suitable substitution, matching this definite integral task.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.5"
+          ]
+        },
+        {
+          "label": "ii",
+          "marks": 6,
+          "technique": "Integration using partial fractions",
+          "reason": "P8.6 explicitly covers integrating using partial fractions with linear denominators, matching the rational function given.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.6",
+            "P2.10"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "8",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Finding intersection point of two 3D vector lines",
+          "reason": "P10.1-P10.4 cover vectors in 3D, position vectors and solving problems with them; finding intersection of two lines by equating components and solving simultaneous equations is standard vector line work.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P10.1",
+            "P10.4",
+            "P10.5"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Scalar (dot) product to find perpendicular vectors",
+          "reason": "No statement in the list explicitly mentions the scalar/dot product of vectors; P10.1-P10.5 cover magnitude/direction, addition, position vectors and distance, but perpendicularity via the scalar product formula is not stated. This specific required method is absent from the given statements.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "9",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 7,
+          "technique": "Separation of variables for first order differential equation",
+          "reason": "P8.7 explicitly covers evaluating analytical solutions of first order differential equations with separable variables, including finding particular solutions, matching this task exactly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.7"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Interpreting long-term behaviour (limit) of a differential equation solution",
+          "reason": "P8.8 explicitly covers interpreting the solution of a differential equation in context including exploring behaviour for large t/limitations, matching this limit-finding task.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.8"
+          ]
+        }
+      ]
+    }
+  ]
+}

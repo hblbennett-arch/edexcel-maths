@@ -1,0 +1,298 @@
+{
+  "_paper_id": "IAL2018_WME01_Jan2020",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.137384,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Impulse-momentum principle",
+          "reason": "Requires impulse-momentum principle applied to particle Q; no statement in the list mentions 'impulse' or 'momentum' as a concept (M6-M9 cover units, kinematics, forces/Newton's laws, moments, but no momentum/impulse/collisions topic exists). This is a named concept not covered.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Conservation of linear momentum (CLM)",
+          "reason": "Uses CLM (PCLM), a concept not mentioned anywhere in the statements list; also depends on part (a)'s answer.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Inequality from momentum result",
+          "reason": "Depends entirely on the out-of-spec momentum result from part (b); the underlying topic (momentum/collisions) is absent from the statements.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 6,
+          "technique": "Moments of a non-uniform rod (taking moments/resolving vertically)",
+          "reason": "M9.1 explicitly covers moments in simple static contexts including problems involving parallel coplanar forces (rods/beams supported by strings); this is exactly such a problem.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M9.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Modelling assumption interpretation (rigid rod)",
+          "reason": "Direct conceptual follow-up within the moments/statics context covered by M9.1; interpreting modelling assumptions is standard within this topic.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M9.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "suvat (constant acceleration under gravity, straight line)",
+          "reason": "M7.3 covers constant acceleration formulae for straight-line motion including under gravity (finding greatest height using v^2=u^2+2as type equation).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "suvat for two particles moving vertically under gravity, solved simultaneously",
+          "reason": "Both particles move in a straight vertical line; M7.3 covers constant acceleration in a straight line (including motion under gravity per M8.3 guidance default g). No 2-D projectile plane is involved here since motion is purely vertical.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "M7.3",
+            "M8.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Substituting time into suvat displacement equation",
+          "reason": "Continuation of the same straight-line constant acceleration approach, fully covered by M7.3.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "M7.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Resolving forces for particle in equilibrium (tension)",
+          "reason": "Straightforward resolving of forces on a particle in equilibrium under gravity and tension, covered by M8.4 (equilibrium of a particle under coplanar forces).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M8.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Resolving vertically to find normal reaction",
+          "reason": "Resolving forces for rings on a wire in equilibrium; covered by M8.4/M8.1 (normal reaction, resolving forces).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M8.4",
+            "M8.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 5,
+          "technique": "Limiting friction (F=μR) with resolving forces",
+          "reason": "M8.6 explicitly covers the F≤μR model for friction and limiting friction/statics, matching this part precisely.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M8.6",
+            "M8.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Speed-time graph sketching",
+          "reason": "M7.2 explicitly covers graphs in kinematics for straight-line motion including velocity-time graphs.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "suvat / graph reading for equal speeds",
+          "reason": "Straightforward constant acceleration equation (v=u+at), covered by M7.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.3",
+            "M7.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 6,
+          "technique": "Equating distances using areas under velocity-time graph (constant acceleration)",
+          "reason": "Uses area under v-t graph and suvat formulae for distances, both explicitly covered by M7.2 and M7.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.2",
+            "M7.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Magnitude of a vector (Pythagoras)",
+          "reason": "P10.2 covers calculating the magnitude of a vector in component form.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P10.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Angle between two vectors",
+          "reason": "Finding the angle between two given vectors using trigonometry or scalar product is covered under vectors (P10.1-P10.3) as use of vectors to solve problems; scalar product/angle between vectors is a standard vector technique within scope.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P10.2",
+            "P10.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 5,
+          "technique": "Resultant of forces, parallel vector condition",
+          "reason": "M8.5 covers addition of forces/resultant forces and resolving into components, matching this part.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M8.5",
+            "P10.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 18,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "suvat constant acceleration (given answer)",
+          "reason": "Simple constant acceleration formula application, covered by M7.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Modelling assumption (inextensible string)",
+          "reason": "Conceptual follow-up to the connected particles/pulley system covered under M8.4 guidance (smooth pulleys and connected particles).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M8.4"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Newton's second law for B and resultant force on pulley (vector resolution)",
+          "reason": "M8.4 guidance explicitly covers smooth pulleys and connected particles; finding resultant force via components/resolving is standard M8.1/M8.4 content.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M8.4",
+            "M8.1"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 6,
+          "technique": "Newton's second law with friction (F=μR) for connected particles",
+          "reason": "M8.4 guidance explicitly mentions connected particle problems and M8.6 covers the F≤μR friction model; this combination is directly covered.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M8.4",
+            "M8.6",
+            "M8.2"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 5,
+          "technique": "Kinematics with deceleration due to friction after string goes slack",
+          "reason": "Uses N2L to find deceleration (M8.2/M8.6) then suvat to find distance travelled (M7.3), both explicitly covered.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.3",
+            "M8.2",
+            "M8.6"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,289 @@
+{
+  "_paper_id": "GCE2008_6677_June2012",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.1343465,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Conservation of linear momentum (collision)",
+          "reason": "This part requires conservation of momentum for a collision between two particles. No statement in the spec list mentions momentum, collision, or conservation of momentum (CLM); mechanics statements cover forces, Newton's laws, kinematics, moments, but momentum/impulse concepts are absent.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Impulse-momentum equation",
+          "reason": "Requires impulse = change in momentum. 'Impulse' and 'momentum' are not mentioned in any 9MA0 statement provided; only force, weight, moments, Newton's laws are covered, so this is out.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Moments/equilibrium of rigid body (non-uniform rod on two supports)",
+          "reason": "M9.1 explicitly covers 'moments in simple static contexts' and 'equilibrium of rigid bodies', with guidance mentioning problems with parallel coplanar forces - resolving vertically for reaction forces on a rod is standard here.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M9.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Taking moments to find centre of mass position on rod",
+          "reason": "M9.1 covers moments in simple static contexts including finding an unknown position via taking moments about a point; this is a standard rigid-body moments problem.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M9.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Resolving forces perpendicular to inclined plane",
+          "reason": "M8.2 covers situations where forces need to be resolved, extended by guidance to 'a particle moving on an inclined plane'. Resolving to find normal reaction is standard.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M8.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Friction F ≤ μR on inclined plane, resolving parallel to plane",
+          "reason": "M8.6 explicitly covers the F ≤ μR model for friction, coefficient of friction, and motion on rough surface, including limiting friction; resolving parallel to plane on incline is standard.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M8.6",
+            "M8.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Sketching speed-time graph",
+          "reason": "M7.2 explicitly covers understanding, using and interpreting graphs in kinematics for motion in a straight line, including velocity-time graphs.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Constant acceleration formulae (suvat)",
+          "reason": "M7.3 covers use and derivation of constant acceleration formulae for straight-line motion; finding time from v=u+at is standard.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 8,
+          "technique": "Area under velocity-time graph / suvat to find total distance and time",
+          "reason": "M7.2 covers interpretation of area under velocity-time graph as distance; combined with M7.3 suvat equations, this multi-stage kinematics problem is fully covered.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.2",
+            "M7.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "suvat: v²=u²+2as under gravity",
+          "reason": "M7.3/M8.3 cover constant acceleration formulae and motion under gravity in a straight line; g assumed constant per M8.3, exactly this scenario.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.3",
+            "M8.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "suvat: s=ut+1/2at² solving quadratic in t",
+          "reason": "Standard constant acceleration equation application under gravity, covered by M7.3/M8.3; solving resulting quadratic is P2.3 (in spec pure algebra).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.3",
+            "M8.3",
+            "P2.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Newton's second law with resistive force to find deceleration/distance (alternative: work-energy)",
+          "reason": "The mark scheme's main method uses N2L (F=ma) with a resistive force to find deceleration then suvat, both fully covered by M8.2/M7.3. Although an alternative work-energy method is offered, the primary N2L method is itself in spec and can score full marks, so this is IN regardless of work-energy exclusion concerns.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "M8.2",
+            "M7.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Finding bearing from velocity vector components",
+          "reason": "P10.2 covers converting between component form and magnitude/direction form of vectors; finding a bearing from i-j components is a standard vector application, extended by M7.3 guidance to vector kinematics contexts.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P10.2",
+            "M7.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Position vector as function of time (constant velocity)",
+          "reason": "M7.3 guidance explicitly covers suvat with vectors in i-j form, e.g. r=ut+... ; writing s in terms of t for constant velocity is a direct application (with u=0 acceleration).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.3",
+            "P10.4"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Vector subtraction and magnitude to find distance between two position vectors",
+          "reason": "P10.4 explicitly covers position vectors and calculating distance between two points given as position vectors; finding |s-b| is a direct application.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P10.4",
+            "P10.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "technique": "Equating vector components (due north condition) then finding magnitude",
+          "reason": "Uses same position vector and magnitude techniques (P10.2, P10.4) applied to a geometric condition (equal i-components for 'due north'), which is standard vector work explicitly in spec.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P10.2",
+            "P10.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 15,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Newton's second law for connected particles (system) with resistances",
+          "reason": "M8.4 explicitly covers 'application to problems involving smooth pulleys and connected particles' and connected particle problems generally including rods; resolving for the whole system under N2L is standard.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M8.4",
+            "M8.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "suvat v=u+at",
+          "reason": "Direct application of constant acceleration formula, covered by M7.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "N2L on individual particle to find tension in connecting rod",
+          "reason": "M8.4 covers connected particle problems (rod) and finding internal forces (tension) using Newton's second law on one particle.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M8.4"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "technique": "N2L for deceleration then suvat for distance",
+          "reason": "Combination of M8.2 (N2L, resolving with resistance forces) and M7.3 (suvat v²=u²+2as) to find deceleration and distance, both explicitly in spec.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M8.2",
+            "M7.3"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 3,
+          "technique": "N2L on individual particle to find thrust in rod",
+          "reason": "M8.4 explicitly covers connected particle problems including rods, and finding internal force (thrust) via N2L on one particle is a direct extension of this content.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M8.4"
+          ]
+        }
+      ]
+    }
+  ]
+}

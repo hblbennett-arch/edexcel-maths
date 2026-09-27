@@ -1,0 +1,374 @@
+{
+  "_paper_id": "GCE2008_6683_Jan2005",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.1046965,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Tree diagram for independent/conditional events",
+          "reason": "S3.1/S3.2 cover tree diagrams for probability calculations.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Probability calculation using tree diagram",
+          "reason": "Standard use of tree diagram paths, covered by S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Finding quartiles from stem-and-leaf diagram",
+          "reason": "S2.1 covers data presentation and interpretation including such diagrams and derived measures.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1",
+            "S2.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Drawing box plots",
+          "reason": "S2.1 explicitly mentions box and whisker plots.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Comparing box plots",
+          "reason": "S2.1/S2.4 cover interpretation and comparison of statistical diagrams.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1",
+            "S2.4"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Interpreting quartiles in context",
+          "reason": "S2.3/S2.4 require drawing inferences and interpretations from measures of variation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3",
+            "S2.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 15,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Scatter diagram",
+          "reason": "S2.2 explicitly covers scatter diagrams for bivariate data.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Informal interpretation of correlation sign",
+          "reason": "S2.2 covers informal interpretation of correlation, no calculation required here.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Calculating Sxy for regression line",
+          "reason": "This is a calculation directly feeding into the regression line equation; S2.2 explicitly excludes 'calculations involving regression lines'.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Finding gradient b of regression line",
+          "reason": "Explicit exclusion: 'calculations involving regression lines are excluded' (S2.2).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 3,
+          "technique": "Mean and standard deviation from summary statistics",
+          "reason": "S2.3 explicitly covers calculating standard deviation including from summary statistics.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "f",
+          "marks": 2,
+          "technique": "Calculating y ± 1.96s range",
+          "reason": "No statement covers this specific 1.96-standard-deviation normal-range technique; it is not simply standard deviation calculation but an implicit normal approximation check not mentioned in any statement.",
+          "in_spec": false,
+          "confidence": "low",
+          "spec_refs": []
+        },
+        {
+          "label": "g",
+          "marks": 1,
+          "technique": "Commenting on suitability of Normal model using computed range",
+          "reason": "This part only makes sense using the answer from part (f), which is judged out of spec, so this part is also OUT by the dependency rule, despite S4.3 covering model suitability in general.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Finding constant k in discrete probability distribution",
+          "reason": "S4.1 covers simple discrete probability distributions; finding k uses normalisation (sum of probabilities=1), not mean/variance, so not caught by the exclusion.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Calculating P(X<4) for discrete distribution",
+          "reason": "Simple summation of probabilities, covered by S4.1, not excluded.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Calculating E(X) of discrete random variable",
+          "reason": "Explicit exclusion: 'calculation of mean and variance of discrete random variables is excluded' (S4.1).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Calculating E(3X-4)",
+          "reason": "Depends on E(X), which is excluded under S4.1; also itself a mean calculation for a discrete random variable, explicitly excluded.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 6,
+          "technique": "Venn diagram construction",
+          "reason": "S3.2 covers Venn diagrams for conditional/combined probability contexts.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Probability from Venn diagram",
+          "reason": "Basic probability calculation from Venn diagram, covered by S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Probability using Venn diagram (union/complement)",
+          "reason": "Covered by S3.2 formulae for P(A∪B) etc.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Conditional probability",
+          "reason": "S3.2 explicitly covers conditional probability formula and its use with Venn diagrams.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Probability of two independent-like selections without replacement",
+          "reason": "Basic combined probability calculation, covered by S3.1/S3.2 probability rules.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Identifying the discrete uniform distribution",
+          "reason": "S4.1 guidance explicitly states students should know and identify the discrete uniform distribution.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Example of discrete uniform distribution",
+          "reason": "Directly follows from S4.1 guidance on discrete uniform distribution.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Critiquing modelling assumption",
+          "reason": "S3.3 covers modelling with probability including critiquing assumptions.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.3"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Suggesting model refinement",
+          "reason": "S3.3/S4.3 cover critiquing and refining probability models.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.3",
+            "S4.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Normal distribution probability calculation",
+          "reason": "S4.2 explicitly covers finding probabilities using the Normal distribution.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Normal distribution probability between two values",
+          "reason": "Standard Normal probability calculation, S4.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Normal distribution area relationships",
+          "reason": "Uses Normal distribution symmetry/probability properties, covered by S4.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "technique": "Finding value from Normal distribution given probability",
+          "reason": "Standard inverse Normal calculation, covered by S4.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        }
+      ]
+    }
+  ]
+}

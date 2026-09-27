@@ -1,0 +1,14 @@
+model: BAAI/bge-small-en-v1.5
+
+references      16/16
+hybrid   pasted top-1   93% {'whole': '14/14', 'truncated': '10/10', 'one-part': '4/6'}   generic recall@5 100% MRR 0.90
+semantic pasted top-1   93% {'whole': '14/14', 'truncated': '10/10', 'one-part': '4/6'}   generic recall@5 100% MRR 0.94
+bm25     pasted top-1  100% {'whole': '14/14', 'truncated': '10/10', 'one-part': '6/6'}   generic recall@5  85% MRR 0.85
+rank_skills with part votes (not used by default): recall@5 100% MRR 0.92
+
+identify() end to end: {'pasted: confident & right': '27/30', 'pasted: asks to confirm, right': 3, 'pasted: wrong question': 0, 'new: correctly treated as new': '3/6', 'new: bot asks to confirm': 3, 'new: FALSE confident match': []}
+recommendations: {'parts': 478, 'problems': [], 'n_problems': 0, 'parts_with_ladder': '478/478', 'questions_without_same_type': []}
+
+hybrid pasted misses:
+  ('one-part', 'P1_June2019_Q13', 'P2_June2018_Q13', 'figure 4 shows a sketch of part of the curve c . the region r , shown ')
+  ('one-part', 'P1_June2019_Q4', 'P1_June2018_Q11', '(ii) state, giving a reason, which of the three values of x would lead')

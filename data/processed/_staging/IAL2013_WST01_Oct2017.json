@@ -1,0 +1,414 @@
+{
+  "_paper_id": "IAL2013_WST01_Oct2017",
+  "_paper": "WST01",
+  "_sitting": "Oct2017",
+  "qualification": "IAL-2013",
+  "unit": "WST01",
+  "component": "stats",
+  "status": "legacy",
+  "paper_total": 75,
+  "source_qp_file": "pearson/IAL-2013/Oct2017/IAL2013_WST01_Oct2017_QP.txt",
+  "source_ms_file": "pearson/IAL-2013/Oct2017/IAL2013_WST01_Oct2017_MS.txt",
+  "extraction_method": "single-call-v1",
+  "extraction_model": "claude-sonnet-5",
+  "pearson_errors": [],
+  "questions": [
+    {
+      "paper_id": "IAL2013_WST01_Oct2017",
+      "spec": "IAL-2013",
+      "qualification": "IAL-2013",
+      "unit": "WST01",
+      "status": "legacy",
+      "paper": "WST01",
+      "sitting": "Oct2017",
+      "id": "IAL2013_WST01_Oct2017_Q1",
+      "q_num": "1",
+      "total_marks": 14,
+      "component": "stats",
+      "uses_large_data_set": false,
+      "stem": "At the start of a course, an instructor asked a group of 80 apprentices to estimate the length of a piece of pipe. The error (true length – estimated length) was recorded in centimetres. The results are summarised in the box plot below.\n\n[box plot shown, scale from $-40$ to $30$]",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "text": "(a) Find the range for these data.\n(1)",
+          "mark_scheme": "(a) [Range =] 63\nB1",
+          "spec_refs": [
+            "S2.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "text": "(b) Find the interquartile range for these data.\n(1)",
+          "mark_scheme": "(b) [IQR =] 18\nB1",
+          "spec_refs": [
+            "S2.1",
+            "S2.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "text": "One month later, the instructor asked the 80 apprentices to estimate the length of a different piece of pipe and recorded their errors. The results are summarised in the table below.\n\n$\\begin{array}{|c|c|}\\hline \\text{Error } (e \\text{ cm}) & \\text{Number of apprentices} \\\\ \\hline -40 < e \\leqslant -16 & 2 \\\\ \\hline -16 < e \\leqslant -8 & 18 \\\\ \\hline -8 < e \\leqslant 0 & 33 \\\\ \\hline 0 < e \\leqslant 8 & 14 \\\\ \\hline 8 < e \\leqslant 16 & 10 \\\\ \\hline 16 < e \\leqslant 40 & 3 \\\\ \\hline\\end{array}$\n\n(c) Use linear interpolation to estimate the median error for these data.\n(2)",
+          "mark_scheme": "(c) $[Q_2 =] (-8)+\\frac{20}{33}\\times 8$ or $(0)-\\frac{13}{33}\\times 8$ [NB $(n+1)$ will have 20.5 or 12.5]\nM1\n$= -3.1515\\ldots$ awrt $-3.15$\nA1\n\nNotes: M1 for a correct fraction and $\\times 8$ (ignore end point). A1 for awrt $-3.15$ (allow use of $n+1$ leading to $-3.03$). Accept $-\\frac{104}{33}$ if box plot is OK or 3sf value is quoted in (f)",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 1,
+          "text": "(d) Show that the upper quartile for these data, to the nearest centimetre, is 4.\n(1)",
+          "mark_scheme": "(d) $[Q_3 =]$ mid-point of [0, 8] group so therefore = 4\nB1cso\n\nNote: B1cso for a clear argument with no incorrect working seen. Allow 4.14\\ldots from 7.25 for $(n+1)$ case",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 6,
+          "text": "For these data, the lower quartile is $-8$ and the five worst errors were $-25, -21, 18, 23, 28$\n\nAn outlier is a value that falls either\nmore than $1.5\\times$ (interquartile range) above the upper quartile or\nmore than $1.5\\times$ (interquartile range) below the lower quartile.\n\n(e) (i) Show that there are only 2 outliers for these data.\n\n(ii) Draw a box plot for these data on the grid on page 3.\n(6)",
+          "mark_scheme": "(e)(i) IQR $= 4--8 = 12$ so upper limit is $4+1.5\\times12 = \\underline{22}$\nM1\nlower limit is $-8-1.5\\times12 = \\underline{-26}$\nA1\nSo the outliers are 23 and 28\nA1\n\nNotes: M1 for at least one correct calculation e.g. $4+1.5(8--4)$ (implied by one correct limit). 1st A1 for one correct limit. 2nd A1 for both correct limits and the two correct outliers identified.\n\n(ii) [Box plot drawn with box from $-8$ to $4$, median line, whiskers to $-25$ and $18$, outliers marked at 23 and 28]\nM1: for a box with 2 whiskers (one at each end)\n1st A1: for $-8$ and $4$ and ft $Q_2$ between them and lower whisker ending at $-25$ no outliers\n2nd A1: for upper whisker ending at 18 or 22 and 2 outliers marked at 23 and 28\n\nSC: Two incorrect outliers in (e)(i), ft both A1s in (ii) using their outliers provided in $[-25, 28]$",
+          "spec_refs": [
+            "S2.4",
+            "S2.1"
+          ]
+        },
+        {
+          "label": "f",
+          "marks": 3,
+          "text": "(f) State, giving reasons, whether or not the apprentices' ability to estimate the length of a piece of pipe has improved over the first month of the course.\n(3)",
+          "mark_scheme": "(f) Interquartile range is smaller (12 compared to 18) or range is smaller (53 v 63)\nB1\nMedian is closer to zero ($-3.15$ is closer than 5)\nB1\nSo they have improved\ndB1\n\nNotes: 1st B1 for a statement about range or IQR saying that 2nd estimates are better. Allow range or IQR \"has decreased\" or \"is smaller\" o.e. 2nd B1 for a statement about medians saying that 2nd one is closer to zero. Don't allow \"decreased\" or \"smaller\" unless clearly using |median| or say e.g. $3.15<5$. 3rd dB1 dep on at least one other B1 for concluding that they have improved based on change in median or range/IQR. Must clearly state \"improved\" not just \"yes\"",
+          "spec_refs": [
+            "S2.3",
+            "S2.4"
+          ]
+        }
+      ],
+      "qp_pages": [
+        1,
+        5
+      ],
+      "low_confidence": false,
+      "notes": "",
+      "source_qp_file": "pearson/IAL-2013/Oct2017/IAL2013_WST01_Oct2017_QP.txt",
+      "source_ms_file": "pearson/IAL-2013/Oct2017/IAL2013_WST01_Oct2017_MS.txt",
+      "notation": "latex",
+      "extraction_method": "single-call-v1",
+      "question_text": "At the start of a course, an instructor asked a group of 80 apprentices to estimate the length of a piece of pipe. The error (true length – estimated length) was recorded in centimetres. The results are summarised in the box plot below.\n\n[box plot shown, scale from $-40$ to $30$]\n(a) Find the range for these data.\n(1)\n(b) Find the interquartile range for these data.\n(1)\nOne month later, the instructor asked the 80 apprentices to estimate the length of a different piece of pipe and recorded their errors. The results are summarised in the table below.\n\n$\\begin{array}{|c|c|}\\hline \\text{Error } (e \\text{ cm}) & \\text{Number of apprentices} \\\\ \\hline -40 < e \\leqslant -16 & 2 \\\\ \\hline -16 < e \\leqslant -8 & 18 \\\\ \\hline -8 < e \\leqslant 0 & 33 \\\\ \\hline 0 < e \\leqslant 8 & 14 \\\\ \\hline 8 < e \\leqslant 16 & 10 \\\\ \\hline 16 < e \\leqslant 40 & 3 \\\\ \\hline\\end{array}$\n\n(c) Use linear interpolation to estimate the median error for these data.\n(2)\n(d) Show that the upper quartile for these data, to the nearest centimetre, is 4.\n(1)\nFor these data, the lower quartile is $-8$ and the five worst errors were $-25, -21, 18, 23, 28$\n\nAn outlier is a value that falls either\nmore than $1.5\\times$ (interquartile range) above the upper quartile or\nmore than $1.5\\times$ (interquartile range) below the lower quartile.\n\n(e) (i) Show that there are only 2 outliers for these data.\n\n(ii) Draw a box plot for these data on the grid on page 3.\n(6)\n(f) State, giving reasons, whether or not the apprentices' ability to estimate the length of a piece of pipe has improved over the first month of the course.\n(3)",
+      "mark_scheme_text": "(a) [Range =] 63\nB1\n(b) [IQR =] 18\nB1\n(c) $[Q_2 =] (-8)+\\frac{20}{33}\\times 8$ or $(0)-\\frac{13}{33}\\times 8$ [NB $(n+1)$ will have 20.5 or 12.5]\nM1\n$= -3.1515\\ldots$ awrt $-3.15$\nA1\n\nNotes: M1 for a correct fraction and $\\times 8$ (ignore end point). A1 for awrt $-3.15$ (allow use of $n+1$ leading to $-3.03$). Accept $-\\frac{104}{33}$ if box plot is OK or 3sf value is quoted in (f)\n(d) $[Q_3 =]$ mid-point of [0, 8] group so therefore = 4\nB1cso\n\nNote: B1cso for a clear argument with no incorrect working seen. Allow 4.14\\ldots from 7.25 for $(n+1)$ case\n(e)(i) IQR $= 4--8 = 12$ so upper limit is $4+1.5\\times12 = \\underline{22}$\nM1\nlower limit is $-8-1.5\\times12 = \\underline{-26}$\nA1\nSo the outliers are 23 and 28\nA1\n\nNotes: M1 for at least one correct calculation e.g. $4+1.5(8--4)$ (implied by one correct limit). 1st A1 for one correct limit. 2nd A1 for both correct limits and the two correct outliers identified.\n\n(ii) [Box plot drawn with box from $-8$ to $4$, median line, whiskers to $-25$ and $18$, outliers marked at 23 and 28]\nM1: for a box with 2 whiskers (one at each end)\n1st A1: for $-8$ and $4$ and ft $Q_2$ between them and lower whisker ending at $-25$ no outliers\n2nd A1: for upper whisker ending at 18 or 22 and 2 outliers marked at 23 and 28\n\nSC: Two incorrect outliers in (e)(i), ft both A1s in (ii) using their outliers provided in $[-25, 28]$\n(f) Interquartile range is smaller (12 compared to 18) or range is smaller (53 v 63)\nB1\nMedian is closer to zero ($-3.15$ is closer than 5)\nB1\nSo they have improved\ndB1\n\nNotes: 1st B1 for a statement about range or IQR saying that 2nd estimates are better. Allow range or IQR \"has decreased\" or \"is smaller\" o.e. 2nd B1 for a statement about medians saying that 2nd one is closer to zero. Don't allow \"decreased\" or \"smaller\" unless clearly using |median| or say e.g. $3.15<5$. 3rd dB1 dep on at least one other B1 for concluding that they have improved based on change in median or range/IQR. Must clearly state \"improved\" not just \"yes\""
+    },
+    {
+      "paper_id": "IAL2013_WST01_Oct2017",
+      "spec": "IAL-2013",
+      "qualification": "IAL-2013",
+      "unit": "WST01",
+      "status": "legacy",
+      "paper": "WST01",
+      "sitting": "Oct2017",
+      "id": "IAL2013_WST01_Oct2017_Q2",
+      "q_num": "2",
+      "total_marks": 11,
+      "component": "stats",
+      "uses_large_data_set": false,
+      "stem": "The Venn diagram, where $w, x, y$ and $z$ are probabilities, shows the probabilities of a group of students buying each of 3 magazines.\n\n$A$ represents the event that a student buys magazine $A$ and $\\mathrm{P}(A) = 0.60$\n\n$B$ represents the event that a student buys magazine $B$ and $\\mathrm{P}(B) = 0.15$\n\n$C$ represents the event that a student buys magazine $C$ and $\\mathrm{P}(C) = 0.35$\n\n[Venn diagram showing circles $A$, $B$, $C$ with $B$ entirely inside $A$, region $0.15$ inside $B$, $w$ in overlap of $A$ and $C$, $x$ in $C$ only, $y$ in $A$ only outside $B$, $z$ outside all circles]",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "text": "(a) State which two of the three events $A$, $B$ and $C$ are mutually exclusive.\n(1)",
+          "mark_scheme": "(a) $B$ and $C$ (only)\nB1\n\nNote: B1 for just $B$ and $C$ [NB Just writing $\\mathrm{P}(B\\cap C)=0$ is B0]",
+          "spec_refs": [
+            "S3.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "text": "The events $A$ and $C$ are independent.\n\n(b) Show that $w = 0.21$\n(1)",
+          "mark_scheme": "(b) $\\mathrm{P}(A\\cap C) = 0.6\\times 0.35$ so $[w=] \\underline{0.21}$\nB1cso\n\nNote: B1cso for 0.21 clearly from $\\mathrm{P}(A)\\times\\mathrm{P}(C)$ or $0.6\\times 0.35$ and no incorrect statements seen",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "text": "(c) Find the value of $x$, the value of $y$ and the value of $z$.\n(4)",
+          "mark_scheme": "(c) $x = \\mathrm{P}(C)-w = \\underline{0.14}$\nB1\n$y = \\mathrm{P}(A)-w-\\mathrm{P}(B), = \\underline{0.24}$\nM1, A1\n$z = 1-\\mathrm{P}(A\\cup C) = \\underline{0.26}$\nB1ft\n\nNotes: 1st B1 for $x=0.14$. M1 for a correct expression for $y$. A1 for $y=0.24$. 2nd B1ft for $z=0.26$ or correct ft of their values to make sum = 1 (provided all probs). These values may be seen in correct regions in the Venn diagram",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 1,
+          "text": "(d) Find the probability that a student selected at random buys only one of these magazines.\n(1)",
+          "mark_scheme": "(d) $[x+y=]$ $\\underline{0.38}$\nB1ft\n\nNote: B1ft for their $x+y$ or 0.38",
+          "spec_refs": [
+            "S3.1"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 1,
+          "text": "(e) Find the probability that a student selected at random buys magazine $B$ or magazine $C$.\n(1)",
+          "mark_scheme": "(e) $[\\mathrm{P}(B\\cup C) = 0.15+0.35] = \\underline{0.5}$\nB1cao\n\nNote: B1 for 0.5 or exact equivalent",
+          "spec_refs": [
+            "S3.1"
+          ]
+        },
+        {
+          "label": "f",
+          "marks": 3,
+          "text": "(f) Find $\\mathrm{P}(A\\,|\\,[B\\cup C])$\n(3)",
+          "mark_scheme": "(f) $[\\mathrm{P}(A|[B\\cup C])] = \\frac{\\mathrm{P}(A\\cap[B\\cup C])}{\\mathrm{P}(B\\cup C)} = \\frac{0.15+0.21}{\"0.5\"}$\nM1A1ft\n$= \\underline{0.72}$\nA1\n\nNotes: M1 for a correct ratio of probabilities formula num of: $\\mathrm{P}(B\\cup C\\cap A)$ or $\\mathrm{P}(A\\cap[B\\cup C])$ with brackets and some correct probability, ft their (e). May be implied by correct ratio. 1st A1ft for a numerator of $0.15+0.21$ and a denominator of their (e). Can award M1A1ft for $\\frac{0.15+0.21}{\"\\text{their } 0.5\"}$ even if their formula is incorrect. 2nd A1 for 0.72 or exact equivalent e.g. $\\frac{18}{25}$",
+          "spec_refs": [
+            "S3.2"
+          ]
+        }
+      ],
+      "qp_pages": [
+        6,
+        9
+      ],
+      "low_confidence": false,
+      "notes": "",
+      "source_qp_file": "pearson/IAL-2013/Oct2017/IAL2013_WST01_Oct2017_QP.txt",
+      "source_ms_file": "pearson/IAL-2013/Oct2017/IAL2013_WST01_Oct2017_MS.txt",
+      "notation": "latex",
+      "extraction_method": "single-call-v1",
+      "question_text": "The Venn diagram, where $w, x, y$ and $z$ are probabilities, shows the probabilities of a group of students buying each of 3 magazines.\n\n$A$ represents the event that a student buys magazine $A$ and $\\mathrm{P}(A) = 0.60$\n\n$B$ represents the event that a student buys magazine $B$ and $\\mathrm{P}(B) = 0.15$\n\n$C$ represents the event that a student buys magazine $C$ and $\\mathrm{P}(C) = 0.35$\n\n[Venn diagram showing circles $A$, $B$, $C$ with $B$ entirely inside $A$, region $0.15$ inside $B$, $w$ in overlap of $A$ and $C$, $x$ in $C$ only, $y$ in $A$ only outside $B$, $z$ outside all circles]\n(a) State which two of the three events $A$, $B$ and $C$ are mutually exclusive.\n(1)\nThe events $A$ and $C$ are independent.\n\n(b) Show that $w = 0.21$\n(1)\n(c) Find the value of $x$, the value of $y$ and the value of $z$.\n(4)\n(d) Find the probability that a student selected at random buys only one of these magazines.\n(1)\n(e) Find the probability that a student selected at random buys magazine $B$ or magazine $C$.\n(1)\n(f) Find $\\mathrm{P}(A\\,|\\,[B\\cup C])$\n(3)",
+      "mark_scheme_text": "(a) $B$ and $C$ (only)\nB1\n\nNote: B1 for just $B$ and $C$ [NB Just writing $\\mathrm{P}(B\\cap C)=0$ is B0]\n(b) $\\mathrm{P}(A\\cap C) = 0.6\\times 0.35$ so $[w=] \\underline{0.21}$\nB1cso\n\nNote: B1cso for 0.21 clearly from $\\mathrm{P}(A)\\times\\mathrm{P}(C)$ or $0.6\\times 0.35$ and no incorrect statements seen\n(c) $x = \\mathrm{P}(C)-w = \\underline{0.14}$\nB1\n$y = \\mathrm{P}(A)-w-\\mathrm{P}(B), = \\underline{0.24}$\nM1, A1\n$z = 1-\\mathrm{P}(A\\cup C) = \\underline{0.26}$\nB1ft\n\nNotes: 1st B1 for $x=0.14$. M1 for a correct expression for $y$. A1 for $y=0.24$. 2nd B1ft for $z=0.26$ or correct ft of their values to make sum = 1 (provided all probs). These values may be seen in correct regions in the Venn diagram\n(d) $[x+y=]$ $\\underline{0.38}$\nB1ft\n\nNote: B1ft for their $x+y$ or 0.38\n(e) $[\\mathrm{P}(B\\cup C) = 0.15+0.35] = \\underline{0.5}$\nB1cao\n\nNote: B1 for 0.5 or exact equivalent\n(f) $[\\mathrm{P}(A|[B\\cup C])] = \\frac{\\mathrm{P}(A\\cap[B\\cup C])}{\\mathrm{P}(B\\cup C)} = \\frac{0.15+0.21}{\"0.5\"}$\nM1A1ft\n$= \\underline{0.72}$\nA1\n\nNotes: M1 for a correct ratio of probabilities formula num of: $\\mathrm{P}(B\\cup C\\cap A)$ or $\\mathrm{P}(A\\cap[B\\cup C])$ with brackets and some correct probability, ft their (e). May be implied by correct ratio. 1st A1ft for a numerator of $0.15+0.21$ and a denominator of their (e). Can award M1A1ft for $\\frac{0.15+0.21}{\"\\text{their } 0.5\"}$ even if their formula is incorrect. 2nd A1 for 0.72 or exact equivalent e.g. $\\frac{18}{25}$"
+    },
+    {
+      "paper_id": "IAL2013_WST01_Oct2017",
+      "spec": "IAL-2013",
+      "qualification": "IAL-2013",
+      "unit": "WST01",
+      "status": "legacy",
+      "paper": "WST01",
+      "sitting": "Oct2017",
+      "id": "IAL2013_WST01_Oct2017_Q3",
+      "q_num": "3",
+      "total_marks": 12,
+      "component": "stats",
+      "uses_large_data_set": false,
+      "stem": "Hei and Tang are designing some pieces of art. They collected a large number of sticks. The random variable $L$ represents the length of a stick in centimetres and has a normal distribution with mean $\\mu$ and standard deviation $\\sigma$.\n\nThey sorted the sticks into lengths and painted them.\n\nThey found that 60% of the sticks were longer than 45 cm and these were painted red, whilst 15% of the sticks were shorter than 35 cm and these were painted blue. The remaining sticks were painted yellow.",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "text": "(a) Show that $\\mu$ and $\\sigma$ satisfy\n$$45+0.2533\\sigma=\\mu$$\n(2)",
+          "mark_scheme": "(a) $\\{\\mathrm{P}(L<45)=0.4\\}\\Rightarrow \\frac{45-\\mu}{\\sigma}=-0.2533$ or $\\Rightarrow 45-\\mu=-0.2533\\sigma$ (o.e.)\nM1\n$45+0.2533\\sigma=\\mu$ (*)\nA1cso\n\nMark parts (a), (b) and (c) as one part but must see the \"show that\" for (a) somewhere. M1 for attempting to standardise with 45, $\\mu$ and $\\sigma$. Allow $\\pm$ and allow $z=$ awrt 0.25. A1cso for sight of $\\mathrm{P}(L<45)=0.4$ (o.e.) and 0.2533 leading to given ans. [0.2533471\\ldots from calc]",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "text": "(b) Find a second equation in $\\mu$ and $\\sigma$.\n(2)",
+          "mark_scheme": "(b) $\\mathrm{P}(L<35)=0.15\\Rightarrow \\frac{35-\\mu}{\\sigma}=-1.0364$\nM1\ne.g. $35+1.0364\\sigma=\\mu$\nA1\n\nM1 for standardising with 35, $\\mu$ and $\\sigma$ and setting equal to a $z$ value with $1<|z|<1.05$. A1 for any correct equation, $z=1.04$ or better and correct signs",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "text": "(c) Hence find the value of $\\mu$ and the value of $\\sigma$.\n(3)",
+          "mark_scheme": "(c) Solving: $10-0.7831\\sigma=0$\nM1\n$\\sigma=12.7697\\ldots$ awrt $\\underline{12.8}$\nA1\n$\\mu=$ awrt $\\underline{48.2}$\nA1\n\nM1 for solving their 2 linear equations in $\\mu$ and $\\sigma$ – reducing to an equation in 1 variable. 1st A1 for $\\sigma=$ awrt 12.8 (NB use of 1.04 gives 12.7113\\ldots so we penalise that here). 2nd A1 for $\\mu=$ awrt 48.2 [allow 48.3 if 12.8 used in a correct eqn e.g. $35+1.04\\times12.8$ or better]",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "text": "(d) Find\n(i) $\\mathrm{P}(L>35\\,|\\,L<45)$\n(ii) $\\mathrm{P}(L<45\\,|\\,L>35)$\n(3)",
+          "mark_scheme": "(d)(i) $\\mathrm{P}(L>35|L<45)=\\frac{\\mathrm{P}(35<L<45)}{\\mathrm{P}(L<45)}=\\frac{0.25}{0.15+0.25}=\\frac{5}{\\underline{8}}$ (o.e.)\nA1\n\nM1 (shared with (ii)) for a correct expression [num $=\\mathrm{P}(35<L<45)$] with some correct values substituted. This M1 may be implied by one of the correct probabilities for (i) or (ii). 1st A1 for $\\frac{5}{8}$ or an exact equivalent e.g. 0.625\n\n(ii) $\\mathrm{P}(L<45|L>35)=\\frac{\\mathrm{P}(35<L<45)}{\\mathrm{P}(L>35)}=\\frac{0.25}{0.60+0.25}=\\frac{5}{\\underline{17}}$ or awrt 0.294\nM1, A1\n\nM1 for a correct expression with some correct values substituted (may be implied by (i)). A1 for $\\frac{5}{17}$ or awrt 0.294",
+          "spec_refs": [
+            "S4.2",
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "text": "Hei created her piece of art using a random selection of blue and yellow sticks.\n\nTang created his piece of art using a random selection of red and yellow sticks.\n\nHei and Tang each used the same number of sticks to create their piece of art.\n\nGeorge is viewing Hei's and Tang's pieces of art. He finds a yellow stick on the floor that has fallen from one of these pieces.\n\n(e) With reference to your answers to part (d), state, giving a reason, whether the stick is more likely to have fallen from Hei's or Tang's piece of art.\n(2)",
+          "mark_scheme": "(e) Prob. of a yellow stick from Hei is $\\frac{5}{8}$ which is $>$ prob. of $\\frac{5}{17}$ for Tang\nB1ft\nSo more likely to be Hei\ndB1ft\n\n1st B1ft for a correct comparison of their probabilities from (d) \"probs\" $\\notin[0,1]$ is B0. 2nd dB1ft for choosing Hei (dependent on a suitable reason that it is more likely to be hers). Allow e.g. \"Hei, because her prob is greater\" to score B1B1 provided (d)(i)>(d)(ii). Allow \"Tang\" if their (d)(i)<(d)(ii) and a correct comparison stated.",
+          "spec_refs": [
+            "S3.1",
+            "S3.2",
+            "S3.3"
+          ]
+        }
+      ],
+      "qp_pages": [
+        10,
+        13
+      ],
+      "low_confidence": false,
+      "notes": "",
+      "source_qp_file": "pearson/IAL-2013/Oct2017/IAL2013_WST01_Oct2017_QP.txt",
+      "source_ms_file": "pearson/IAL-2013/Oct2017/IAL2013_WST01_Oct2017_MS.txt",
+      "notation": "latex",
+      "extraction_method": "single-call-v1",
+      "question_text": "Hei and Tang are designing some pieces of art. They collected a large number of sticks. The random variable $L$ represents the length of a stick in centimetres and has a normal distribution with mean $\\mu$ and standard deviation $\\sigma$.\n\nThey sorted the sticks into lengths and painted them.\n\nThey found that 60% of the sticks were longer than 45 cm and these were painted red, whilst 15% of the sticks were shorter than 35 cm and these were painted blue. The remaining sticks were painted yellow.\n(a) Show that $\\mu$ and $\\sigma$ satisfy\n$$45+0.2533\\sigma=\\mu$$\n(2)\n(b) Find a second equation in $\\mu$ and $\\sigma$.\n(2)\n(c) Hence find the value of $\\mu$ and the value of $\\sigma$.\n(3)\n(d) Find\n(i) $\\mathrm{P}(L>35\\,|\\,L<45)$\n(ii) $\\mathrm{P}(L<45\\,|\\,L>35)$\n(3)\nHei created her piece of art using a random selection of blue and yellow sticks.\n\nTang created his piece of art using a random selection of red and yellow sticks.\n\nHei and Tang each used the same number of sticks to create their piece of art.\n\nGeorge is viewing Hei's and Tang's pieces of art. He finds a yellow stick on the floor that has fallen from one of these pieces.\n\n(e) With reference to your answers to part (d), state, giving a reason, whether the stick is more likely to have fallen from Hei's or Tang's piece of art.\n(2)",
+      "mark_scheme_text": "(a) $\\{\\mathrm{P}(L<45)=0.4\\}\\Rightarrow \\frac{45-\\mu}{\\sigma}=-0.2533$ or $\\Rightarrow 45-\\mu=-0.2533\\sigma$ (o.e.)\nM1\n$45+0.2533\\sigma=\\mu$ (*)\nA1cso\n\nMark parts (a), (b) and (c) as one part but must see the \"show that\" for (a) somewhere. M1 for attempting to standardise with 45, $\\mu$ and $\\sigma$. Allow $\\pm$ and allow $z=$ awrt 0.25. A1cso for sight of $\\mathrm{P}(L<45)=0.4$ (o.e.) and 0.2533 leading to given ans. [0.2533471\\ldots from calc]\n(b) $\\mathrm{P}(L<35)=0.15\\Rightarrow \\frac{35-\\mu}{\\sigma}=-1.0364$\nM1\ne.g. $35+1.0364\\sigma=\\mu$\nA1\n\nM1 for standardising with 35, $\\mu$ and $\\sigma$ and setting equal to a $z$ value with $1<|z|<1.05$. A1 for any correct equation, $z=1.04$ or better and correct signs\n(c) Solving: $10-0.7831\\sigma=0$\nM1\n$\\sigma=12.7697\\ldots$ awrt $\\underline{12.8}$\nA1\n$\\mu=$ awrt $\\underline{48.2}$\nA1\n\nM1 for solving their 2 linear equations in $\\mu$ and $\\sigma$ – reducing to an equation in 1 variable. 1st A1 for $\\sigma=$ awrt 12.8 (NB use of 1.04 gives 12.7113\\ldots so we penalise that here). 2nd A1 for $\\mu=$ awrt 48.2 [allow 48.3 if 12.8 used in a correct eqn e.g. $35+1.04\\times12.8$ or better]\n(d)(i) $\\mathrm{P}(L>35|L<45)=\\frac{\\mathrm{P}(35<L<45)}{\\mathrm{P}(L<45)}=\\frac{0.25}{0.15+0.25}=\\frac{5}{\\underline{8}}$ (o.e.)\nA1\n\nM1 (shared with (ii)) for a correct expression [num $=\\mathrm{P}(35<L<45)$] with some correct values substituted. This M1 may be implied by one of the correct probabilities for (i) or (ii). 1st A1 for $\\frac{5}{8}$ or an exact equivalent e.g. 0.625\n\n(ii) $\\mathrm{P}(L<45|L>35)=\\frac{\\mathrm{P}(35<L<45)}{\\mathrm{P}(L>35)}=\\frac{0.25}{0.60+0.25}=\\frac{5}{\\underline{17}}$ or awrt 0.294\nM1, A1\n\nM1 for a correct expression with some correct values substituted (may be implied by (i)). A1 for $\\frac{5}{17}$ or awrt 0.294\n(e) Prob. of a yellow stick from Hei is $\\frac{5}{8}$ which is $>$ prob. of $\\frac{5}{17}$ for Tang\nB1ft\nSo more likely to be Hei\ndB1ft\n\n1st B1ft for a correct comparison of their probabilities from (d) \"probs\" $\\notin[0,1]$ is B0. 2nd dB1ft for choosing Hei (dependent on a suitable reason that it is more likely to be hers). Allow e.g. \"Hei, because her prob is greater\" to score B1B1 provided (d)(i)>(d)(ii). Allow \"Tang\" if their (d)(i)<(d)(ii) and a correct comparison stated."
+    },
+    {
+      "paper_id": "IAL2013_WST01_Oct2017",
+      "spec": "IAL-2013",
+      "qualification": "IAL-2013",
+      "unit": "WST01",
+      "status": "legacy",
+      "paper": "WST01",
+      "sitting": "Oct2017",
+      "id": "IAL2013_WST01_Oct2017_Q4",
+      "q_num": "4",
+      "total_marks": 8,
+      "component": "stats",
+      "uses_large_data_set": false,
+      "stem": "The following incomplete tree diagram shows the relationships between the event $A$ and the event $B$.\n\n[Tree diagram: from start, branch to $A$ (probability unlabelled) and $A'$ (probability unlabelled); from $A$, branch to $B$ with probability $\\frac{2}{5}$ and $B'$ (unlabelled); from $A'$, branch to $B$ with probability $\\frac{7}{10}$ and $B'$ (unlabelled)]\n\nGiven that $\\mathrm{P}(B)=\\frac{9}{20}$",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 6,
+          "text": "(a) find $\\mathrm{P}(A)$ and complete the tree diagram,\n(6)",
+          "mark_scheme": "(a) [Let $\\mathrm{P}(A)=p$]\n$0.4p+0.7(1-p)=0.45$\nM1A1\n$0.25=0.3p$\nM1\n$p=\\frac{5}{6}$\nA1\n[Tree diagram completed with branches $\\frac{5}{6}$ for $A$, $\\frac{1}{6}$ for $A'$, $\\frac{3}{5}$ for $B'$ (from $A$), $\\frac{3}{10}$ for $B'$ (from $A'$)]\nB1ft, B1\n\nNotes: 1st M1 for $0.4p$ or $0.7(1-p)$ seen in an equation for $p$. 1st A1 for a fully correct equation for $p$. ALT: 1st M1 for attempt at 2 sim' eq'ns in $p$ and $q$ Allow one error. $0.4p+0.7q=\\frac{9}{20}$ and $0.6p+0.3q=\\frac{11}{20}$. 1st A1 for any correct equation in $p$ or $q$. 2nd M1 for simplifying their linear equation with at least 2 terms in $p$ or $q$ to $a=bp$ or $bq$. 2nd A1 for $\\mathrm{P}(A)=\\frac{5}{6}$ or exact equiv e.g. $0.8\\dot{3}$ (may be seen on their tree diagram). 1st B1ft for 1st 2 branches i.e. $\\frac{5}{6}$ and $\\frac{1}{6}$ (follow through their $\\mathrm{P}(A)$). 2nd B1 for 2nd 4 branches i.e. $\\frac{3}{5}$ and $\\frac{3}{10}$",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "text": "(b) find $\\mathrm{P}(A'\\,|\\,B')$.\n(2)",
+          "mark_scheme": "(b) $[\\mathrm{P}(A'|B')]=\\frac{\\frac{1}{6}\\times 0.3}{0.55}$\nM1\n$=\\frac{1}{11}$\nA1\n\nM1 for a ratio of probabilities ft their numerator from their tree diagram but denom = 0.55. A1 for $\\frac{1}{11}$ or exact equivalent e.g. $0.0\\dot{9}$. SC: [$\\mathrm{P}(A)\\neq\\frac{5}{6}$] award M1A0 for $\\frac{\\mathrm{P}(A')\\times\\frac{3}{10}}{\\mathrm{P}(A)\\times\\frac{3}{5}+\\mathrm{P}(A')\\times\\frac{3}{10}}$ ft their $\\mathrm{P}(A)$ and $\\mathrm{P}(A')=1-\\mathrm{P}(A)$",
+          "spec_refs": [
+            "S3.2"
+          ]
+        }
+      ],
+      "qp_pages": [
+        14,
+        15
+      ],
+      "low_confidence": false,
+      "notes": "",
+      "source_qp_file": "pearson/IAL-2013/Oct2017/IAL2013_WST01_Oct2017_QP.txt",
+      "source_ms_file": "pearson/IAL-2013/Oct2017/IAL2013_WST01_Oct2017_MS.txt",
+      "notation": "latex",
+      "extraction_method": "single-call-v1",
+      "question_text": "The following incomplete tree diagram shows the relationships between the event $A$ and the event $B$.\n\n[Tree diagram: from start, branch to $A$ (probability unlabelled) and $A'$ (probability unlabelled); from $A$, branch to $B$ with probability $\\frac{2}{5}$ and $B'$ (unlabelled); from $A'$, branch to $B$ with probability $\\frac{7}{10}$ and $B'$ (unlabelled)]\n\nGiven that $\\mathrm{P}(B)=\\frac{9}{20}$\n(a) find $\\mathrm{P}(A)$ and complete the tree diagram,\n(6)\n(b) find $\\mathrm{P}(A'\\,|\\,B')$.\n(2)",
+      "mark_scheme_text": "(a) [Let $\\mathrm{P}(A)=p$]\n$0.4p+0.7(1-p)=0.45$\nM1A1\n$0.25=0.3p$\nM1\n$p=\\frac{5}{6}$\nA1\n[Tree diagram completed with branches $\\frac{5}{6}$ for $A$, $\\frac{1}{6}$ for $A'$, $\\frac{3}{5}$ for $B'$ (from $A$), $\\frac{3}{10}$ for $B'$ (from $A'$)]\nB1ft, B1\n\nNotes: 1st M1 for $0.4p$ or $0.7(1-p)$ seen in an equation for $p$. 1st A1 for a fully correct equation for $p$. ALT: 1st M1 for attempt at 2 sim' eq'ns in $p$ and $q$ Allow one error. $0.4p+0.7q=\\frac{9}{20}$ and $0.6p+0.3q=\\frac{11}{20}$. 1st A1 for any correct equation in $p$ or $q$. 2nd M1 for simplifying their linear equation with at least 2 terms in $p$ or $q$ to $a=bp$ or $bq$. 2nd A1 for $\\mathrm{P}(A)=\\frac{5}{6}$ or exact equiv e.g. $0.8\\dot{3}$ (may be seen on their tree diagram). 1st B1ft for 1st 2 branches i.e. $\\frac{5}{6}$ and $\\frac{1}{6}$ (follow through their $\\mathrm{P}(A)$). 2nd B1 for 2nd 4 branches i.e. $\\frac{3}{5}$ and $\\frac{3}{10}$\n(b) $[\\mathrm{P}(A'|B')]=\\frac{\\frac{1}{6}\\times 0.3}{0.55}$\nM1\n$=\\frac{1}{11}$\nA1\n\nM1 for a ratio of probabilities ft their numerator from their tree diagram but denom = 0.55. A1 for $\\frac{1}{11}$ or exact equivalent e.g. $0.0\\dot{9}$. SC: [$\\mathrm{P}(A)\\neq\\frac{5}{6}$] award M1A0 for $\\frac{\\mathrm{P}(A')\\times\\frac{3}{10}}{\\mathrm{P}(A)\\times\\frac{3}{5}+\\mathrm{P}(A')\\times\\frac{3}{10}}$ ft their $\\mathrm{P}(A)$ and $\\mathrm{P}(A')=1-\\mathrm{P}(A)$"
+    }
+  ],
+  "excluded_questions": [
+    {
+      "q_num": "5",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "in spec",
+          "reason": "question dropped: other parts out of spec"
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "in spec",
+          "reason": "question dropped: other parts out of spec"
+        },
+        {
+          "label": "c",
+          "marks": 5,
+          "technique": "Calculating PMCC using regression line gradient and Sxx, Sxy formula",
+          "reason": "Explicit exclusion: 'calculations involving regression lines are excluded' (S2.2) and PMCC formula use excluded (S5.1: 'use of the formula is not required'). Mark scheme requires computing Sxy from the regression slope and then r via formula, which is explicitly excluded; no alternative in-spec method exists here (must use given regression equation)."
+        },
+        {
+          "label": "d",
+          "marks": 1,
+          "technique": "Interpreting PMCC value to justify regression model",
+          "reason": "This part relies on the value of r found in the excluded part (c); also links directly to using a regression line, which is excluded."
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Prediction using regression line equation",
+          "reason": "Explicit exclusion: S2.2 'calculations involving regression lines are excluded'."
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 17,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "in spec",
+          "reason": "question dropped: other parts out of spec"
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "in spec",
+          "reason": "question dropped: other parts out of spec"
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "in spec",
+          "reason": "question dropped: other parts out of spec"
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "E(X) of a discrete random variable",
+          "reason": "Explicit exclusion S4.1: 'calculation of mean and variance of discrete random variables is excluded'."
+        },
+        {
+          "label": "e",
+          "marks": 3,
+          "technique": "Var(X) of a discrete random variable",
+          "reason": "Explicit exclusion S4.1: 'calculation of mean and variance of discrete random variables is excluded'."
+        },
+        {
+          "label": "f",
+          "marks": 2,
+          "technique": "in spec",
+          "reason": "question dropped: other parts out of spec"
+        },
+        {
+          "label": "g",
+          "marks": 3,
+          "technique": "Showing E(Y)=E(X) using E(R) and linear transformation of expectation",
+          "reason": "Requires calculating E(R) and E(X), both means of discrete random variables, explicitly excluded by S4.1."
+        },
+        {
+          "label": "h",
+          "marks": 3,
+          "technique": "in spec",
+          "reason": "question dropped: other parts out of spec"
+        }
+      ]
+    }
+  ],
+  "extraction_retries": 1,
+  "pages_input": "png",
+  "autofixes": 0,
+  "triage_method": "triage-v1",
+  "ms_complete_method": "single-call-v2",
+  "ms_complete_added": 0,
+  "ms_complete_unverified": false,
+  "ms_verify_method": "visual-v1",
+  "ms_verify_fixed": 0
+}

@@ -1,0 +1,279 @@
+{
+  "_paper_id": "IAL2018_WST02_Oct2023",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.31280549999999996,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a(i)",
+          "marks": 2,
+          "technique": "Binomial probability calculation",
+          "reason": "S4.1 explicitly covers calculating probabilities using the binomial distribution.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "a(ii)",
+          "marks": 2,
+          "technique": "Binomial probability (cumulative)",
+          "reason": "S4.1 covers binomial probability calculations including cumulative use of calculator.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "b(i)",
+          "marks": 2,
+          "technique": "Expected value of binomial (np)",
+          "reason": "S4.1 excludes calculation of mean/variance of a general discrete r.v., but S5.1's guidance explicitly allows an informal appreciation that E(X)=np for a binomial distribution, so this specific use is permitted.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.1",
+            "S5.1"
+          ]
+        },
+        {
+          "label": "b(ii)",
+          "marks": 4,
+          "technique": "Binomial probability inequality, solve using logs",
+          "reason": "S4.1 covers binomial probabilities; solving inequality with logs is standard algebra (P6.5-type log manipulation), consistent with binomial modelling in S4.1.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Mode of continuous r.v. with pdf",
+          "reason": "S4.2 explicitly states 'Knowledge of the probability density function is not required'; this question is entirely built on a pdf, so it is out.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Integration of pdf to find median",
+          "reason": "Explicit exclusion S4.2 rules out pdf work entirely; algebraic integration of a pdf is not in spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Finding constant from pdf using area=1",
+          "reason": "Same pdf exclusion (S4.2) applies; continuous r.v. pdf work is excluded.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Solving simultaneous equations from pdf continuity",
+          "reason": "Depends entirely on the pdf setup excluded by S4.2.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "(a)(i)-(ii)",
+          "marks": 2,
+          "technique": "Continuous uniform distribution parameters",
+          "reason": "No statement in the specification mentions the continuous uniform distribution; only binomial (S4.1) and Normal (S4.2) distributions are covered, so this topic itself is out regardless of the elementary arithmetic used to find alpha/beta.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "State pdf of continuous uniform distribution",
+          "reason": "Continuous uniform distribution and its pdf are not covered by any statement, and S4.2's pdf exclusion reinforces that pdf-based work outside binomial/Normal is out.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "E(T), Var(T) of continuous uniform distribution",
+          "reason": "Continuous uniform distribution not mentioned in any statement; S4.1 also excludes mean/variance of discrete r.v. and no statement covers continuous r.v. mean/variance generally.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Probability calculation for continuous uniform distribution",
+          "reason": "Depends on the continuous uniform distribution model, which is not in the specification.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Mean of a discrete probability distribution",
+          "reason": "S4.1 explicitly excludes 'calculation of mean and variance of discrete random variables'.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Listing sample combinations",
+          "reason": "This is preparatory work for finding a sampling distribution, a concept not mentioned in any statement; S1.1 covers sampling techniques but not sampling distributions of a statistic.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 6,
+          "technique": "Sampling distribution of the median",
+          "reason": "'Sampling distribution' is not mentioned anywhere in the statements, and per the rules a named concept absent from the statements makes the part OUT.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 16,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Poisson distribution assumption",
+          "reason": "Poisson distribution is not mentioned in any statement (explicit exclusion note lists it as an example of an out-of-spec named concept).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "(b)(i)-(ii)",
+          "marks": 3,
+          "technique": "Poisson probability calculations",
+          "reason": "Poisson distribution not covered by any statement (only binomial S4.1 and Normal S4.2 are listed).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 5,
+          "technique": "Hypothesis test for Poisson mean",
+          "reason": "S5.2/S5.3 cover hypothesis tests for binomial proportion and Normal mean only; no statement covers a Poisson mean test.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 7,
+          "technique": "Normal approximation to Poisson, hypothesis test",
+          "reason": "Relies on Poisson distribution which is not in spec; S4.2's Normal approximation guidance is specifically for the binomial, not Poisson.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Conditional probability from cdf of continuous r.v.",
+          "reason": "S4.2 explicitly excludes knowledge of the probability density function and its derivation; a piecewise cdf of a continuous random variable is the same excluded topic area.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Finding constant from cdf continuity/differentiability",
+          "reason": "Based on cdf/pdf of a general continuous distribution, excluded per S4.2.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 6,
+          "technique": "E(Y) via algebraic calculus on pdf",
+          "reason": "Requires differentiating cdf to get pdf and integrating y·f(y); S4.2 excludes pdf knowledge and derivation of the mean.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 7,
+          "technique": "Normal approximation to binomial, standardising, solving for sigma",
+          "reason": "S4.2 explicitly covers approximating B(n,p) by a Normal distribution and finding probabilities/parameters via standardisation; solving simultaneous equations from standardised values is stated as expected.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Finding n and p from mean and variance of binomial approximation",
+          "reason": "Uses np and np(1-p) from the Normal approximation to binomial explicitly covered in S4.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,260 @@
+{
+  "_paper_id": "IAL2013_WME01_June2019",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.176664,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 5,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Conservation of linear momentum in a collision",
+          "reason": "This requires the principle of conservation of linear momentum (CLM) for a collision between two particles. No statement in the specification list covers momentum, collisions, or CLM, and 'impulse' is explicitly listed among concepts no statement covers, indicating this whole topic area (momentum/collisions) is absent from the current spec statements.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Impulse-momentum equation",
+          "reason": "Requires calculating impulse via change in momentum. 'Impulse' is explicitly listed as a concept no statement covers, so this is out of spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 6,
+          "technique": "Resolving forces, friction (F ≤ μR / F = μR) on a particle in equilibrium/constant velocity",
+          "reason": "Matches M8.6 (friction model, F=μR when moving) and M8.1/M8.4 (resolving forces, equilibrium/constant velocity motion). This is a standard resolving-forces-with-friction problem covered directly by the statements.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M8.6",
+            "M8.1",
+            "M8.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 6,
+          "technique": "Moments of forces on a rigid rod (beam problem)",
+          "reason": "Matches M9.1 'moments in simple static contexts' with guidance mentioning problems involving parallel coplanar forces (analogous beam/ladder-type problem). Standard moments and equilibrium calculation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M9.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Modelling assumption for a rod (rigidity)",
+          "reason": "Directly related to the rod modelling assumption used in the M9.1 moments context; asking to state modelling assumption is part of the standard treatment of such problems.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M9.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 6,
+          "technique": "Moments with equal tensions, solving for unknown position",
+          "reason": "Again requires moments equilibrium equations (M9.1), solving simultaneous equations from resolving and moments - fully covered.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M9.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "i",
+          "marks": 4,
+          "technique": "Newton's second law for connected particles on an inclined plane (system equation)",
+          "reason": "Matches M8.2/M8.4 guidance which explicitly extends connected particle problems to inclined planes with resolving of forces.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M8.2",
+            "M8.4"
+          ]
+        },
+        {
+          "label": "ii",
+          "marks": 4,
+          "technique": "Newton's second law for one connected particle (coupling force) on inclined plane",
+          "reason": "Same connected-particles-on-inclined-plane scenario covered by M8.4 guidance (light rod coupling, resolving forces).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M8.4",
+            "M8.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Finding angle a resultant vector makes with an axis using trigonometry",
+          "reason": "This uses trigonometry on vector components (tan ratio) to find angle relative to j, not the dot-product 'angle between two vectors' method that is excluded; it aligns with M8.5 vector addition/resultant guidance on resolving vectors given magnitude-direction form. Borderline since it involves vector angles, but no dot product needed.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "M8.5"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Addition of forces as vectors (resultant), forming and manipulating vector component equations",
+          "reason": "Matches M8.5 'understand and use addition of forces; resultant forces' - equating resultant vector components to a given direction ratio, a standard algebraic vector force problem.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M8.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "suvat equations for vertical motion under gravity (projectile)",
+          "reason": "Matches M7.3 (constant acceleration formulae) and M8.3 (motion under gravity, g constant).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.3",
+            "M8.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "suvat equations for motion under gravity after rebound",
+          "reason": "Same as above, standard constant acceleration kinematics under gravity.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.3",
+            "M8.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Sketching a velocity-time graph for motion in a straight line",
+          "reason": "Matches M7.2 'graphs in kinematics for motion in a straight line... velocity against time'.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Position vectors and relative position vector using constant velocity vectors",
+          "reason": "Matches M7.3 (constant acceleration/velocity formulae extended to 2D using vectors, r=r0+vt) and P10.4 (position vectors, distance). This is a standard relative-position vector derivation, no dot product required.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.3",
+            "P10.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 7,
+          "technique": "Using magnitude of relative position vector (Pythagoras) to find time interval within a given distance",
+          "reason": "Uses magnitude of a vector (P10.2/P10.4) and quadratic solving; standard M1 relative motion/closest approach type problem, fully covered by vector magnitude and kinematics statements, no dot product or vector equation of a line intersection needed.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.3",
+            "P10.2",
+            "P10.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "8",
+      "total_marks": 16,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 7,
+          "technique": "Newton's second law for connected particles over a smooth pulley",
+          "reason": "Matches M8.4 'application to problems involving smooth pulleys and connected particles' directly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M8.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Modelling assumption: inextensible string implies equal accelerations",
+          "reason": "Directly related to the pulley/connected particles context of M8.4; stating the consequence of an inextensible string is standard content for such problems.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M8.4"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 8,
+          "technique": "suvat kinematics combined with Newton's second law after separation of connected particles",
+          "reason": "Combines M8.4 connected particle dynamics (new equation of motion after R separates) with M7.3 constant acceleration kinematics to find distance - fully covered by these statements.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M8.4",
+            "M7.3"
+          ]
+        }
+      ]
+    }
+  ]
+}

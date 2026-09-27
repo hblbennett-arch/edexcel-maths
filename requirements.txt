@@ -1,0 +1,11 @@
+# Python packages for the RAG knowledge-base tooling (scripts/, notebooks/).
+# Install into the project venv:  python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
+jupyter==1.1.1   # notebooks/explore_kb.ipynb
+pandas==3.0.5    # table display in the notebook
+numpy==2.5.2      # vector maths for semantic search
+fastembed==0.8.1  # local embedding model (ONNX; no torch, no API key)
+rank_bm25==0.2.2  # keyword search
+truststore        # use the macOS trust store for HTTPS (model downloads behind a TLS-inspecting proxy)
+anthropic==1.8.0  # tutor model calls (Phase 5)
+sympy==1.14.0     # checks final answers against the mark scheme
+antlr4-python3-runtime==4.11  # lets sympy read LaTeX mark-scheme values

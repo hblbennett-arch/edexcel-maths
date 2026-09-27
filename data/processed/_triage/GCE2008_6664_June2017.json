@@ -1,0 +1,337 @@
+{
+  "_paper_id": "GCE2008_6664_June2017",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.168279,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 4,
+      "parts": [
+        {
+          "label": null,
+          "marks": 4,
+          "technique": "Binomial expansion of (a+bx)^n for positive integer n",
+          "reason": "P4.1 covers binomial expansion for positive integer n, matching the (3-x/3)^5 expansion required here.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 4,
+      "parts": [
+        {
+          "label": null,
+          "marks": 4,
+          "technique": "Sine rule, ambiguous case",
+          "reason": "P5.1 explicitly covers the sine rule including the ambiguous case, exactly the method needed.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P5.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Evaluate function value for table",
+          "reason": "Simple substitution into given function y=5^x+log2(x+1), basic algebra/logs, in spec.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P6.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Trapezium rule numerical integration",
+          "reason": "P9.4 explicitly covers trapezium rule to estimate area under curve.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P9.4"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Use previous trapezium rule answer with modified integrand",
+          "reason": "Simple arithmetic addition using an in-spec trapezium-rule result from part (b); no new out-of-spec method required.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P9.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Arc length s=r*theta",
+          "reason": "P5.1 explicitly gives formula s=r*theta for arc length.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P5.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Area of sector A=1/2 r^2 theta",
+          "reason": "P5.1 explicitly gives formula for sector area.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P5.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Area of triangle 1/2 ab sinC combined with sector area",
+          "reason": "P5.1 covers area of triangle in form 1/2 ab sinC and sector areas, sufficient to compute total cross-sectional area.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P5.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Completing the square to find centre of circle",
+          "reason": "P3.2 explicitly covers completing the square to find centre and radius of a circle.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P3.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Find radius of circle",
+          "reason": "P3.2 covers finding radius from circle equation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P3.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Solve for intersection of line x=4 with circle, simplify surds",
+          "reason": "P3.2 (circle equation) combined with P2.2 (surd manipulation) covers finding intersection y-values as surds.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P3.2",
+            "P2.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Factor theorem",
+          "reason": "P2.6 explicitly covers use of the factor theorem to show (x+3) is a factor.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.6"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Algebraic division/factorising cubic completely",
+          "reason": "P2.6 explicitly allows factorising cubic expressions using division by linear factors, matching this fully.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.6"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Substitution to solve exponential equation using cubic factorisation and logs",
+          "reason": "Uses the in-spec factorisation from (b) with substitution 2^y, then solves a^x=b type equation using logs, covered by P6.5.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P6.5",
+            "P2.6"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "i",
+          "marks": 3,
+          "technique": "Laws of logarithms to solve equation for x",
+          "reason": "P6.4 covers laws of logarithms including power rule, sufficient for this manipulation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P6.4"
+          ]
+        },
+        {
+          "label": "ii",
+          "marks": 4,
+          "technique": "Laws of logarithms (subtraction rule) to solve for y",
+          "reason": "P6.4 covers the quotient/difference law of logarithms and P6.3 the definition of log_a x, sufficient for this problem.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P6.4",
+            "P6.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "8",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Trig identity manipulation using sin^2+cos^2=1",
+          "reason": "P5.5 covers use of sin^2θ+cos^2θ=1 to prove further identities, matching this derivation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P5.5"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Solve quadratic trig equation for sin x in given interval",
+          "reason": "P5.7 explicitly covers solving quadratic equations in sin over a given interval.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P5.7"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "9",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Geometric sequence common ratio, forming quadratic",
+          "reason": "P4.5 covers geometric sequences including nth term relations; forming and manipulating the ratio equation to derive a quadratic is standard algebra within this topic.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.5"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Solve quadratic equation for k",
+          "reason": "P2.3 covers solving quadratic equations, used here to find k.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.3"
+          ]
+        },
+        {
+          "label": "c(i)",
+          "marks": 2,
+          "technique": "Find nth term of geometric sequence",
+          "reason": "P4.5 covers geometric sequences including formula for nth term.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.5"
+          ]
+        },
+        {
+          "label": "c(ii)",
+          "marks": 4,
+          "technique": "Sum of finite geometric series formula",
+          "reason": "P4.5 explicitly covers the sum of a finite geometric series formula.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "10",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Differentiation to find turning point",
+          "reason": "P7.1/P7.3 cover differentiation and use of it to find stationary points, exactly matching this requirement.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.1",
+            "P7.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 7,
+          "technique": "Integration to find area under curve/between curve and line",
+          "reason": "P8.2 and P8.3 cover integrating polynomial functions and using definite integrals to find area under a curve and bounded by lines, matching this multi-step area calculation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.2",
+            "P8.3"
+          ]
+        }
+      ]
+    }
+  ]
+}

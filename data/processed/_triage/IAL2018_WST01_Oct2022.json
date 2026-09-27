@@ -1,0 +1,330 @@
+{
+  "_paper_id": "IAL2018_WST01_Oct2022",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.15806399999999998,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Histogram area/frequency density",
+          "reason": "S2.1 covers histograms and area representing frequency; straightforward proportional area calculation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Histogram frequency density/height",
+          "reason": "S2.1 covers interpreting histogram bars via frequency density, consistent with this calculation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Linear interpolation for quartiles",
+          "reason": "S2.3 explicitly requires use of linear interpolation to calculate percentiles/quartiles from grouped data.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Skewness measure from quartiles",
+          "reason": "S2.3/S2.4 cover measures of central tendency/variation and drawing inferences/interpretations from them; skewness coefficient using quartiles is a natural extension though not explicitly named.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.3",
+            "S2.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Compute Stt, Sct (summary statistics for regression/correlation)",
+          "reason": "This is the calculation underpinning regression and correlation coefficient formulas; S2.2 excludes calculations involving regression lines and S5.1 excludes use of the correlation coefficient formula.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "PMCC calculated via formula from Scc, Stt, Sct",
+          "reason": "S5.1 explicitly states use of the PMCC formula is not required/excluded; here r is computed using the formula from summary statistics, not a calculator.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Interpret correlation coefficient",
+          "reason": "Depends on the answer to part (b) which used the excluded formula method; a part that only makes sense after an out-of-spec part is out.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Derive regression line equation",
+          "reason": "S2.2 explicitly excludes calculations involving regression lines.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Use regression line to predict value",
+          "reason": "Depends on regression line from (d), excluded per S2.2.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "f",
+          "marks": 2,
+          "technique": "Use regression line to solve inequality",
+          "reason": "Uses the regression line equation, explicitly excluded per S2.2.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Mean of coded data",
+          "reason": "S2.3 explicitly covers understanding and use of coding for calculating summary statistics such as the mean.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Standard deviation of coded data",
+          "reason": "S2.3 explicitly covers calculating standard deviation including via coding and using Sxx formula.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "c(i)",
+          "marks": 2,
+          "technique": "Find data value from coding given new sum",
+          "reason": "Direct application of coding relationship, covered by S2.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "c(ii)",
+          "marks": 2,
+          "technique": "Standard deviation of coded variable for extended sample",
+          "reason": "Same coding/standard deviation technique as S2.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 4,
+      "parts": [
+        {
+          "label": null,
+          "marks": 4,
+          "technique": "E(W) for discrete random variable from cdf",
+          "reason": "S4.1 explicitly excludes calculation of mean of discrete random variables; this whole question requires computing E(W) from a cdf, which is directly excluded.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Normal distribution probability",
+          "reason": "S4.2 covers finding probabilities using the Normal distribution via standardisation, no pdf knowledge required.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Find unknown boundary using Normal distribution given probability",
+          "reason": "S4.2 covers use of Normal distribution to solve for unknown values given probabilities, consistent with simultaneous equation solving mentioned in guidance.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 5,
+          "technique": "Conditional-type Normal probability calculation for a subgroup",
+          "reason": "S4.2 covers finding probabilities/values using the Normal distribution; this extends standardisation to a truncated/conditional subset but uses the same underlying method.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "(a)(i)-(iii)",
+          "marks": 3,
+          "technique": "Reading probabilities from Venn diagram",
+          "reason": "S3.1/S3.2 cover use of Venn diagrams and understanding probability notation, directly applicable.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Solve simultaneous probability equations using conditional probability and complement rules",
+          "reason": "S3.2 covers conditional probability formula and use of P(A'), P(A∪B) etc, matching the method required here.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Solve for probability using union formula from Venn diagram",
+          "reason": "S3.2 covers P(A∪B) = P(A)+P(B)-P(A∩B) type relationships from Venn diagrams.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Conditional probability from discrete distribution",
+          "reason": "S3.2 covers conditional probability which underlies this simple conditional calculation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Show E(X^2)=75 for discrete random variable",
+          "reason": "S4.1 explicitly excludes calculation of mean and variance of discrete random variables; E(X^2) is a component of variance calculation and thus excluded.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Var(X) for discrete random variable",
+          "reason": "S4.1 explicitly excludes calculation of variance of discrete random variables.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Var(4-3X) using linear transformation of variance",
+          "reason": "Depends on excluded Var(X) from part (c) and itself is variance calculation of a discrete RV, excluded by S4.1.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 3,
+          "technique": "Probability comparison using independent events",
+          "reason": "S3.1/S3.2 cover mutually exclusive/independent events and calculating probabilities of combined outcomes, matching this method.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "f",
+          "marks": 4,
+          "technique": "Determine probability distribution of product of two independent discrete random variables",
+          "reason": "S4.1 covers understanding and use of simple discrete probability distributions (only mean/variance calculation is excluded); building the distribution table is in spec.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.1"
+          ]
+        }
+      ]
+    }
+  ]
+}

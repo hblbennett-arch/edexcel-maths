@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Level Maths Tutor</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<style>
+  :root {
+    --primary: #1a365d; --accent: #2b6cb0; --success: #276749; --warning: #c05621; --danger: #c53030;
+    --bg: #f7fafc; --card: #ffffff; --border: #e2e8f0; --text: #2d3748; --muted: #718096; --mark: #805ad5;
+    --hint-bg: #f0fff4; --warn-bg: #fffaf0; --user-bg: #ebf4ff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --primary: #90cdf4; --accent: #63b3ed; --success: #68d391; --warning: #f6ad55; --danger: #fc8181;
+      --bg: #171923; --card: #1f2330; --border: #2d3748; --text: #e2e8f0; --muted: #a0aec0; --mark: #b794f4;
+      --hint-bg: #1c2e25; --warn-bg: #2e2518; --user-bg: #1e2a3d;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  header { position: sticky; top: 0; z-index: 2; background: var(--primary); color: #fff; padding: 12px 20px;
+           display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) header { background: #102a43; } }
+  header h1 { margin: 0; font-size: 18px; font-weight: 600; }
+  #badge { font-size: 13px; opacity: .9; }
+  main { max-width: 860px; margin: 0 auto; padding: 16px 16px 150px; }
+  .msg { margin: 12px 0; }
+  .user { display: flex; justify-content: flex-end; }
+  .user .bubble { background: var(--user-bg); border: 1px solid var(--border); border-radius: 14px 14px 2px 14px;
+                  padding: 8px 14px; max-width: 80%; white-space: pre-wrap; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+  .card h3 { margin: 0 0 8px; font-size: 16px; color: var(--primary); }
+  .card p:first-child { margin-top: 0; } .card p:last-child { margin-bottom: 0; }
+  .question { border-left: 4px solid var(--accent); }
+  .question .parts p { margin: 8px 0; }
+  .question a { color: var(--accent); font-size: 14px; }
+  .question img { max-width: min(100%, 560px); display: block; border: 1px solid var(--border); border-radius: 6px; margin-top: 10px; background: #fff; }
+  details summary { cursor: pointer; color: var(--accent); font-size: 14px; margin-top: 8px; }
+  .hint { background: var(--hint-bg); border-left: 4px solid var(--success); border-radius: 8px; padding: 10px 14px; margin: 8px 0; }
+  .hint b { color: var(--success); }
+  .insight { background: var(--warn-bg); border-left: 4px solid var(--warning); border-radius: 8px; padding: 10px 14px; margin: 8px 0; }
+  .insight blockquote { margin: 0 0 6px; font-style: italic; }
+  .insight .who { font-size: 13px; color: var(--warning); font-weight: 600; margin-bottom: 4px; }
+  .step { border-left: 4px solid var(--mark); }
+  .step .n { font-size: 13px; color: var(--muted); margin-bottom: 4px; }
+  .chip { display: inline-block; background: var(--mark); color: #fff; border-radius: 12px; font-size: 12.5px;
+          padding: 2px 10px; margin: 6px 6px 0 0; }
+  .answer { margin-top: 8px; font-weight: 600; color: var(--success); }
+  .warning { background: var(--warn-bg); border: 1px solid var(--warning); border-radius: 8px; padding: 10px 14px; }
+  .list .item { display: block; width: 100%; text-align: left; background: none; border: 1px solid var(--border);
+                border-radius: 8px; padding: 8px 12px; margin: 6px 0; color: var(--text); font: inherit; cursor: pointer; }
+  .list .item:hover { border-color: var(--accent); }
+  .list .why { color: var(--muted); font-size: 13px; }
+  .buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+  button.act { background: var(--card); border: 1px solid var(--accent); color: var(--accent); border-radius: 18px;
+               padding: 6px 14px; font: inherit; font-size: 14px; cursor: pointer; }
+  button.act:hover { background: var(--accent); color: #fff; }
+  .working { color: var(--muted); font-style: italic; display: flex; align-items: center; gap: 10px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: pulse 1s infinite alternate; }
+  @keyframes pulse { from { opacity: .2 } to { opacity: 1 } }
+  footer { position: fixed; bottom: 0; left: 0; right: 0; background: var(--bg); border-top: 1px solid var(--border); padding: 12px 16px; }
+  form { max-width: 860px; margin: 0 auto; display: flex; gap: 8px; }
+  textarea { flex: 1; resize: none; height: 52px; border: 1px solid var(--border); border-radius: 10px; padding: 12px;
+             font: inherit; background: var(--card); color: var(--text); }
+  form button { background: var(--accent); color: #fff; border: 0; border-radius: 10px; padding: 0 20px; font: inherit; cursor: pointer; }
+  form button:disabled { opacity: .5; cursor: default; }
+  .katex-display { overflow-x: auto; overflow-y: hidden; }
+  @media (max-width: 600px) { .user .bubble { max-width: 92%; } main { padding: 12px 12px 150px; } }
+</style>
+</head>
+<body>
+<header><h1>A Level Maths Tutor <span style="font-weight:400;opacity:.8">· Edexcel 9MA0 Pure</span></h1><span id="badge"></span></header>
+<main id="chat"></main>
+<footer>
+  <form id="form">
+    <textarea id="input" placeholder="e.g. 2022 paper 1 question 15 · give me a question on integration by parts · how do I find a normal?" autofocus></textarea>
+    <button id="send" type="submit">Send</button>
+  </form>
+</footer>
+<script>
+let session = null, busy = false;
+const chat = document.getElementById("chat"), input = document.getElementById("input"), sendBtn = document.getElementById("send");
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+
+// Markdown with maths protected from the Markdown parser, then KaTeX renders the maths.
+function md(text) {
+  const maths = [];
+  let src = String(text ?? "").replace(/\$\$[\s\S]+?\$\$|\$[^$\n]+?\$/g, m => { maths.push(m); return `@@M${maths.length - 1}@@`; });
+  let html = window.marked ? marked.parse(src, {breaks: true}) : esc(src).replace(/\n/g, "<br>");
+  return html.replace(/@@M(\d+)@@/g, (_, i) => esc(maths[+i]));
+}
+// Inline version for short fragments (hints, quotes, mark chips): no wrapping <p>.
+const mdInline = text => md(text).trim().replace(/^<p>([\s\S]*)<\/p>$/, "$1");
+function typeset(el) {
+  if (window.renderMathInElement) renderMathInElement(el, {
+    delimiters: [{left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false}],
+    throwOnError: false,
+  });
+}
+function add(html, cls = "msg") {
+  const div = document.createElement("div");
+  div.className = cls; div.innerHTML = html;
+  chat.appendChild(div); typeset(div);
+  div.scrollIntoView({behavior: "smooth", block: "end"});
+  return div;
+}
+
+function render(m) {
+  switch (m.type) {
+    case "text": return add(`<div class="card">${md(m.md)}</div>`);
+    case "warning": return add(`<div class="warning">⚠️ ${md(m.md)}</div>`);
+    case "confirm": {
+      const d = add(`<div class="card">${md(m.md)}<div class="buttons" style="margin-top:10px"></div></div>`);
+      const b = d.querySelector(".buttons");
+      for (const [label, val] of [["Yes", "y"], ["No", "n"]]) b.appendChild(actBtn(label, val));
+      return d;
+    }
+    case "question": {
+      const figs = (m.figures || []).map(p => `<img alt="Figure page ${p}" src="/api/figure?qid=${encodeURIComponent(m.question_id)}&page=${p}" loading="lazy">`).join("");
+      return add(`<div class="card question"><h3>${esc(m.title)}</h3>
+        ${m.stem ? md(m.stem) : ""}<div class="parts">${(m.parts || []).map(p => md(p)).join("")}</div>
+        ${figs ? `<details open><summary>Figure</summary>${figs}</details>` : ""}
+        <a href="${esc(m.link)}" target="_blank" rel="noopener">Open the question paper ↗</a></div>`);
+    }
+    case "part_intro": {
+      const name = m.label === "-" ? "The question" : `Part (${esc(m.label)})`;
+      const ins = (m.insights || []).map(i => `<div class="insight"><div class="who">Examiners said${i.other ? ` (on a similar question, ${esc(i.other)})` : ""}:</div>
+          <blockquote>“${mdInline(i.quote)}”</blockquote>${mdInline("→ " + i.comment)}</div>`).join("");
+      return add(`<div class="card"><h3>${name} · ${m.marks} mark${m.marks === 1 ? "" : "s"}</h3>
+        <div class="hint"><b>💡 How to start:</b> ${mdInline(m.how_to_start)}</div>${ins}</div>`);
+    }
+    case "step": {
+      const chips = (m.marks || []).map(k => `<span class="chip">${mdInline(k)}</span>`).join("");
+      return add(`<div class="card step"><div class="n">${m.label === "-" ? "" : `Part (${esc(m.label)}) · `}Step ${m.n} of ${m.of}</div>
+        ${md(m.text)}${chips ? `<div>${chips}</div>` : ""}${m.final_answer ? `<div class="answer">✅ Answer: ${mdInline(m.final_answer)}</div>` : ""}</div>`);
+    }
+    case "list": {
+      const d = add(`<div class="card list"><h3>${esc(m.title)}</h3></div>`);
+      const box = d.querySelector(".list");
+      for (const it of m.items) {
+        const b = document.createElement("button");
+        b.className = "item";
+        b.innerHTML = `<b>${it.n}.</b> ${esc(it.summary)}${it.part ? ` — <b>part (${esc(it.part)})</b>` : ""}${it.why ? `<div class="why">${esc(it.why)}</div>` : ""}`;
+        b.onclick = () => send(String(it.n), `${it.n}`);
+        box.appendChild(b); typeset(b);
+      }
+      return d;
+    }
+    case "actions": {
+      const d = add(`<div class="buttons"></div>`);
+      const labels = {"next": "Next step ▸", "show all": "Show all", "new": "New question", "hardest": "Which part was hardest?"};
+      for (const o of m.options) d.querySelector(".buttons").appendChild(actBtn(labels[o] || o.replace(/^hardest /, "Hardest: part "), o));
+      return d;
+    }
+  }
+}
+function actBtn(label, value) {
+  const b = document.createElement("button");
+  b.className = "act"; b.type = "button"; b.textContent = label;
+  b.onclick = () => send(value, label);
+  return b;
+}
+
+async function send(text, shown) {
+  if (busy) return;
+  busy = true; sendBtn.disabled = true;
+  if (shown !== "") add(`<div class="bubble">${esc(shown ?? text)}</div>`, "msg user");
+  const w = add(`<div class="working"><span class="dot"></span>Working… (a new explanation takes about a minute)</div>`);
+  try {
+    const r = await fetch("/api/message", {method: "POST", headers: {"Content-Type": "application/json"},
+                                           body: JSON.stringify({session, text})});
+    const data = await r.json();
+    session = data.session; w.remove();
+    for (const m of data.messages) render(m);
+  } catch (e) {
+    w.remove(); add(`<div class="warning">⚠️ Couldn't reach the tutor server (${esc(e)}). Is it still running?</div>`);
+  } finally { busy = false; sendBtn.disabled = false; input.focus(); }
+}
+
+document.getElementById("form").onsubmit = e => {
+  e.preventDefault();
+  const t = input.value.trim(); input.value = "";
+  send(t, t || "(next)");
+};
+input.addEventListener("keydown", e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); document.getElementById("form").requestSubmit(); } });
+
+window.addEventListener("load", async () => {
+  const info = await (await fetch("/api/info")).json();
+  document.getElementById("badge").textContent = `${info.mode} mode · ${info.model} · ${info.backend}`;
+  render({type: "text", md: "Hi! Ask about an Edexcel A Level Maths (Pure) past-paper question, paste one you're stuck on, " +
+    "or ask for practice — e.g. *2022 paper 1 question 15* or *give me a question on sector areas*." +
+    (info.available ? "" : "\n\n**The tutor model isn't available** — restart with `--offline` to browse mark schemes.")});
+  // Testing shortcut: /?try=first message|second message|... types the messages in order.
+  const tries = new URLSearchParams(location.search).get("try");
+  if (tries) for (const t of tries.split("|")) { await send(t, t || "(next)"); }
+});
+</script>
+</body>
+</html>

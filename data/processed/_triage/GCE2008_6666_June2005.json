@@ -1,0 +1,253 @@
+{
+  "_paper_id": "GCE2008_6666_June2005",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.09056149999999999,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 5,
+      "parts": [
+        {
+          "label": null,
+          "marks": 5,
+          "technique": "Binomial expansion for rational index",
+          "reason": "Matches P4.1 extension to any rational n, including approximation with |bx/a|<1; proof not required exclusion doesn't affect this computational question.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": null,
+          "marks": 7,
+          "technique": "Implicit differentiation to find stationary points",
+          "reason": "Directly matches P7.5 (implicit differentiation, first derivative) and P7.3 (stationary points).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5",
+            "P7.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Partial fractions with linear denominators",
+          "reason": "Matches P2.10, denominator (2x-3)(x-2), two linear factors, numerator linear - within scope.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.10"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Integration using partial fractions",
+          "reason": "Matches P8.6 integration using partial fractions that are linear in denominator, giving log answer.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.6"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": null,
+          "marks": 7,
+          "technique": "Integration by substitution (trig substitution)",
+          "reason": "Matches P8.5 integration by substitution, using x=sinθ, evaluates definite integral with trig identities - standard technique in spec.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.5",
+            "P5.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Integration by parts (definite integral, area)",
+          "reason": "Matches P8.5 integration by parts and P8.3 evaluating definite integral for area under curve.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.5",
+            "P8.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Evaluate function values for table",
+          "reason": "Simple substitution of x values into y=xe^{2x}, basic function evaluation, no excluded topic involved.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P6.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Trapezium rule numerical integration",
+          "reason": "Directly matches P9.4 use of trapezium rule to estimate area under curve.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P9.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Parametric differentiation",
+          "reason": "Matches P7.5 differentiation of functions defined parametrically, using chain rule dy/dx = (dy/dt)/(dx/dt).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5",
+            "P3.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Tangent to parametric curve",
+          "reason": "Uses parametric differentiation result (in spec) to find tangent equation, matches P7.3/P7.5.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5",
+            "P7.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Convert parametric to cartesian equation",
+          "reason": "Directly matches P3.3 conversion between Cartesian and parametric forms, using trig identity to eliminate parameter.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P3.3",
+            "P5.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Intersection of two lines given in vector form",
+          "reason": "Vector equation of a line and intersection of lines are explicitly listed as concepts no 9MA0 statement covers, so this is out.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Angle between two lines using dot product",
+          "reason": "Scalar (dot) product and angle between lines are explicitly excluded concepts not covered by any 9MA0 statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Show AB = BC using vector magnitudes",
+          "reason": "Although magnitude/distance of vectors is ordinary in-spec vector work (P10.2/P10.4), this part requires the point B found in part (a) via line intersection, which is out-of-spec; the part only makes sense after using that out-of-spec answer.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Find position vector of fourth vertex of parallelogram",
+          "reason": "Requires point B (from out-of-spec intersection in part a) to compute D via parallelogram relation, so depends on an out-of-spec result.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "8",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Setting up a differential equation in context",
+          "reason": "Matches P7.6 constructing differential equations in context (rate in minus rate proportional to amount present).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.6"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Solving separable first order differential equation",
+          "reason": "Matches P8.7 analytical solution of separable first order differential equations, including finding particular solution using initial condition.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.7"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 5,
+          "technique": "Interpreting solution of differential equation to find value",
+          "reason": "Uses solution from part (b) (in spec) plus differentiation of exponential (P7.2) to find k and evaluate V, matches P8.8 interpreting solution in context.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.8",
+            "P7.2"
+          ]
+        }
+      ]
+    }
+  ]
+}

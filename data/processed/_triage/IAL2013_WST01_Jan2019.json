@@ -1,0 +1,361 @@
+{
+  "_paper_id": "IAL2013_WST01_Jan2019",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.152769,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Mutually exclusive events",
+          "reason": "S3.1 covers mutually exclusive events explicitly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Independence formula P(A∩B)=P(A)P(B)",
+          "reason": "S3.1 explicitly covers independent events probability calculation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Venn diagram probability calculation using addition/complement rules",
+          "reason": "S3.2 covers P(A')=1-P(A), P(A∪B) formula, consistent with Venn diagram work.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Conditional probability from Venn diagram",
+          "reason": "S3.2 explicitly covers conditional probability with Venn diagrams.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "E(X) of discrete random variable",
+          "reason": "S4.1 explicit exclusion: 'calculation of mean and variance of discrete random variables is excluded'.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "E(X^2), solving for probabilities using mean/variance relations",
+          "reason": "Requires E(X^2) which is part of variance calculation for discrete r.v., excluded by S4.1.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Var(Y) for linear transformation of discrete random variable",
+          "reason": "Depends on Var(X) of a discrete random variable, explicitly excluded by S4.1.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Normal distribution probability calculation",
+          "reason": "S4.2 covers finding probabilities using the Normal distribution.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Conditional probability with Normal distribution",
+          "reason": "Combines S3.2 conditional probability formula with S4.2 Normal probabilities; no exclusion applies.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2",
+            "S4.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Inverse Normal calculation to find unknown boundary",
+          "reason": "S4.2 covers use of Normal distribution and calculator to find probabilities/values, consistent with this inverse problem.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Histogram width/height from frequency density",
+          "reason": "S2.1 explicitly covers histograms where area represents frequency.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Linear interpolation for median from grouped data",
+          "reason": "S2.3 explicitly mentions use of linear interpolation to calculate percentiles from grouped data.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Estimate of mean from grouped/coded data",
+          "reason": "S2.3 covers calculation of mean including from grouped data.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Estimate of standard deviation from grouped data using Sxx",
+          "reason": "S2.3 explicitly gives the Sxx formula and standard deviation calculation for grouped data.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 1,
+          "technique": "Describing skewness with reason (mean vs median)",
+          "reason": "S2.3/S2.4 cover interpretation of measures of central tendency and variation, including skewness reasoning.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3",
+            "S2.4"
+          ]
+        },
+        {
+          "label": "f",
+          "marks": 3,
+          "technique": "Effect of data cleaning/change on median, mean, standard deviation",
+          "reason": "S2.4 covers cleaning data and drawing inferences about measures of central tendency and variation when data changes.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 15,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Mean of discrete data set (sample mean)",
+          "reason": "This is a sample mean from raw frequency data, covered by S2.3 measures of central tendency, not a distribution's E(X).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Binomial probability calculation",
+          "reason": "S4.1 explicitly covers calculating probabilities using the binomial distribution.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Complete binomial probability distribution table (sum to 1)",
+          "reason": "S4.1 covers binomial probability distributions; this only uses sum-to-one, no excluded mean/variance calc.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 5,
+          "technique": "Probability of independent events with varying trial probabilities (non-binomial model)",
+          "reason": "Uses multiplication rule for independent events (S3.1) to build a probability model; does not require binomial formula or any excluded concept.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S3.1"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 3,
+          "technique": "Complete probability distribution table for non-standard discrete distribution",
+          "reason": "S4.1 covers simple discrete probability distributions generally (excluding mean/variance calc, which is not required here); this is just completing the table.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "f",
+          "marks": 3,
+          "technique": "Comparing/critiquing appropriateness of probability models against data",
+          "reason": "S4.3 explicitly covers selecting an appropriate probability distribution with reasoning.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 18,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Comparing summary statistics (mean, standard deviation) between two data sets",
+          "reason": "S2.3 covers interpretation of measures of central tendency and variation such as mean and standard deviation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "(b)(i)-(ii)",
+          "marks": 2,
+          "technique": "Identifying and explaining an outlier on a scatter diagram",
+          "reason": "S2.4 explicitly covers recognising and interpreting possible outliers in statistical diagrams including scatter diagrams (S2.2 guidance).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.4",
+            "S2.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Recalculating mean after removing a data point",
+          "reason": "S2.3 covers calculation of mean from summary statistics, no exclusion applies to simple mean recalculation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "(d)(i)-(ii)",
+          "marks": 3,
+          "technique": "Calculating Sxy for use in PMCC/regression formulae",
+          "reason": "This computes the summary statistic Sxy purely as a step toward the PMCC and regression line formulae, both of which are explicitly excluded (S2.2 regression lines excluded; PMCC formula from summary statistics excluded).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Calculating PMCC from summary statistics using the formula",
+          "reason": "Explicit exclusion: 'using the PMCC formula from summary statistics... are OUT'; also S5.1 states use of the formula is not required.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "f",
+          "marks": 4,
+          "technique": "Calculating the regression line equation from summary statistics",
+          "reason": "S2.2 explicit exclusion: 'calculations involving regression lines are excluded'.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "g",
+          "marks": 1,
+          "technique": "Interpreting increase in PMCC value to justify data decision",
+          "reason": "Depends on the PMCC value calculated in part (e), which is out-of-spec (formula-based calculation); rule states a part relying on an out-of-spec answer is OUT.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "h",
+          "marks": 1,
+          "technique": "Using regression line equation to estimate a value",
+          "reason": "Depends directly on the regression line equation found in out-of-spec part (f); calculations involving regression lines are explicitly excluded.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    }
+  ]
+}

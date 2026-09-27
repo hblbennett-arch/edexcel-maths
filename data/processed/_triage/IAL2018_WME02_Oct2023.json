@@ -1,0 +1,243 @@
+{
+  "_paper_id": "IAL2018_WME02_Oct2023",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.3350205,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Differentiation of vector position function; finding velocity component condition",
+          "reason": "M7.4 covers differentiation of a vector with respect to time for kinematics in 2D, including finding r and r-dot at a given time; setting a component to zero to find when motion is parallel to j is a direct application.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Differentiation of vector velocity function to find acceleration",
+          "reason": "M7.4 explicitly covers differentiating a vector r=... with respect to time twice to get acceleration; this is a standard application.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Centre of mass of composite laminas using moments",
+          "reason": "The topic of locating a centre of mass of laminas is a named concept explicitly listed among the exclusion examples ('centre of mass') that no statement covers - moments (M9.1) only covers simple static equilibrium contexts like ladder problems, not centre of mass calculations for laminas. The part is OUT per the rules even though moments (M9.1) is in spec; the topic itself (locating centre of mass of laminas) is not mentioned anywhere in the statements.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Equilibrium of a pivoted lamina using centre of mass distance found in (a)",
+          "reason": "This part relies directly on the centre-of-mass distance d found in part (a), which is out of spec. Per the rule that a part only making sense after an out-of-spec part is OUT, this part is OUT, regardless of moments/equilibrium (M9.1/M8.1) being otherwise in-spec techniques.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Equilibrium of pivoted lamina held by horizontal force, using geometry from centre of mass/part (b)",
+          "reason": "This part depends on the geometry (distance 3a) established via the centre-of-mass work in parts (a)/(b), which are out of spec. It only makes sense after those out-of-spec parts, so it is OUT.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "main",
+          "marks": 6,
+          "technique": "Impulse-momentum vector equation to find magnitude of impulse",
+          "reason": "The topic 'impulse' is explicitly listed among the named concepts not mentioned by any statement (impulse and momentum are not covered by any M-section statement), making this OUT regardless of the vector algebra involved.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "suvat to find time to maximum height of a projectile",
+          "reason": "M7.5 covers projectile motion under gravity in a vertical plane using vectors, and M7.3 covers suvat formulae including in 2D vector form; finding time to highest point (vertical velocity component =0) is a standard application.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.5",
+            "M7.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "suvat to find vertical displacement of two projectiles at a given time",
+          "reason": "Uses M7.3/M7.5 suvat formulae for vertical displacement components of two particles under gravity; standard projectile motion technique.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.3",
+            "M7.5"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "suvat to find velocity components and angle of motion at a given time",
+          "reason": "Uses suvat (M7.3) to find vertical/horizontal velocity components and trigonometry to find the angle below horizontal - standard projectile technique covered by M7.5/M7.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.3",
+            "M7.5"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "suvat and perpendicular vectors to find time when direction of motion is perpendicular to initial direction",
+          "reason": "Uses suvat components (M7.3) and vector perpendicularity (dot product =0), consistent with vector kinematics of projectiles (M7.5).",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "M7.3",
+            "M7.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Power = Force x velocity, Newton's second law with resistance",
+          "reason": "The relationship P=Fv (power) is a named work-energy-power concept that is explicitly listed as an excluded example topic not mentioned by any statement; M8.2 covers N2L but not power. OUT.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Work-energy principle including gain in KE, GPE, and work done against resistance",
+          "reason": "Work-energy calculations (KE, GPE, work done) are explicitly listed as an excluded named concept ('work–energy') not covered by any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Power on an inclined plane at constant speed using work-energy/N2L with resistance and gravity component",
+          "reason": "Involves power (P=Fv), an explicitly excluded work-energy/power concept not mentioned in any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Moments about a hinge to find tension in a string (rod in equilibrium)",
+          "reason": "M9.1 explicitly covers moments in simple static contexts including problems with parallel and non-parallel coplanar forces (e.g. ladder-type problems); this rod/string/hinge problem is a direct application of moments.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M9.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Resolving forces horizontally and vertically and using Pythagoras to find resultant hinge reaction",
+          "reason": "M8.1/M8.4 cover equilibrium of a particle/rigid body under coplanar forces and resolving forces in 2D; combined with M9.1 moments this is a standard statics technique fully covered.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M8.1",
+            "M8.4",
+            "M9.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 6,
+          "technique": "Conservation of linear momentum and kinetic energy equations for direct collision",
+          "reason": "Momentum and kinetic energy of particles in collisions (CLM, KE conservation/loss) are not mentioned by any statement; these are named mechanics concepts (collisions/momentum) absent from the M-section list, making this OUT.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Newton's experimental law (coefficient of restitution) for direct collision",
+          "reason": "Coefficient of restitution / Newton's law of impact is a named concept not mentioned by any statement, and this part also depends on the out-of-spec result from (a).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Restitution with a wall and inequality condition to avoid second collision",
+          "reason": "Coefficient of restitution and collision analysis is not covered by any statement and depends on out-of-spec earlier parts.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Impulse received by a particle from a wall collision",
+          "reason": "Impulse is explicitly listed among named concepts not mentioned by any statement, making this OUT; it also depends on out-of-spec earlier results.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,367 @@
+{
+  "_paper_id": "IAL2018_WST01_June2024",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.333253,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Stem-and-leaf diagram / median identification",
+          "reason": "Finding a missing value from a stem-and-leaf diagram using given median is data presentation/interpretation, covered by S2.1/S2.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1",
+            "S2.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Quartiles from raw/grouped data",
+          "reason": "Finding quartiles from stem-and-leaf data is measures of variation, covered by S2.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Outlier identification using 1.5×IQR rule",
+          "reason": "S2.4 explicitly covers identifying outliers using a specified rule such as Q3+1.5×IQR.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.4"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "technique": "Box plot construction",
+          "reason": "Drawing a box plot including outliers is covered by S2.1 (box and whisker plots including outliers).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 1,
+          "technique": "Comparing distributions using statistics",
+          "reason": "Comparing location/spread with supporting statistic values is explicitly expected per S2.3/S2.4 guidance on drawing inferences.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3",
+            "S2.4"
+          ]
+        },
+        {
+          "label": "f",
+          "marks": 3,
+          "technique": "Box plot/outlier constraints with algebraic inequality",
+          "reason": "This uses the same box-plot quartile/outlier logic as (c)/(d) (S2.4, S2.1) combined with solving linear inequalities (P2.5), both in spec; it does not rely on any excluded content, so it is in spec.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.4",
+            "S2.1",
+            "P2.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Discrete probability distribution calculation",
+          "reason": "Using the given probability table to find P(2X-3>5) is a direct probability calculation from a discrete distribution, covered by S4.1/S3.1 and not excluded (only mean/variance calc is excluded).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1",
+            "S3.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Variance of a discrete random variable",
+          "reason": "S4.1 explicitly excludes 'calculation of mean and variance of discrete random variables'; this part requires computing Var(X) directly.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Linear transformation of E(X), Var(X)",
+          "reason": "This requires using Var(X)=4.14 found in the excluded part (b); depends on an out-of-spec calculation, so it is out per the rule that a part relying on an excluded prior result is out.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "technique": "Probability calculation comparing two independent discrete random variables",
+          "reason": "This part only uses the given probability distribution and independence between X1 and X2 (S3.1) to compute P(Sam wins); it does not require mean or variance of X, so the S4.1 exclusion does not apply and it does not depend on the excluded parts (b)/(c) for its method.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S3.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Histogram bar width/height (frequency density)",
+          "reason": "Interpreting/constructing histogram bars where area represents frequency is explicitly covered by S2.1.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Linear interpolation for median from grouped data",
+          "reason": "S2.3 explicitly requires use of linear interpolation to calculate percentiles/median from grouped data.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Coding to find mean",
+          "reason": "S2.3 explicitly mentions understanding and use of coding for calculating summary statistics such as the mean.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "technique": "Standard deviation from coded summary statistics",
+          "reason": "S2.3 explicitly allows calculation of standard deviation including from summary statistics and using coding.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 3,
+          "technique": "Effect of adding a data point on mean/SD",
+          "reason": "This is an inference about measures of central tendency and variation, covered by S2.3/S2.4 guidance on drawing inferences.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3",
+            "S2.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Calculating Sdg and Sgg (covariance/sum of squares for two variables)",
+          "reason": "Computing Sdg (covariance) is preparatory calculation feeding directly into PMCC and regression line, both of which are explicitly excluded (S2.2, S5.1); this bivariate summary calculation is not covered by S2.3 (which only covers single-variable Sxx).",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Product moment correlation coefficient calculation using formula",
+          "reason": "S5.1 explicitly excludes calculation of correlation coefficients using the formula; here it must be computed from Sdg/Sgg via formula.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Regression line equation derivation",
+          "reason": "S2.2 explicitly excludes 'calculations involving regression lines'.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 1,
+          "technique": "Interpretation of regression line gradient",
+          "reason": "Depends directly on the regression line found in the excluded part (c); regression line calculations are explicitly excluded (S2.2).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Using regression line for prediction and reliability (extrapolation)",
+          "reason": "Requires substituting into the regression equation from excluded part (c); calculations involving regression lines are explicitly excluded (S2.2).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "f",
+          "marks": 2,
+          "technique": "Using regression line gradient to solve for x",
+          "reason": "Directly uses the regression line equation from excluded part (c); explicitly excluded per S2.2.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Standardising a Normal distribution to find probability",
+          "reason": "Directly covered by S4.2, using calculator/tables for Normal probabilities.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Inverse Normal calculation for percentile",
+          "reason": "Finding a value corresponding to a given proportion using standardisation is covered by S4.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 5,
+          "technique": "Conditional probability with Normal distribution",
+          "reason": "This combines Normal distribution probability calculations (S4.2) with conditional probability (S3.2); no Central Limit Theorem or sampling distribution is required, so the S5.3 exclusion of CLT does not apply.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.2",
+            "S3.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Venn diagram probability",
+          "reason": "Directly covered by S3.2 (Venn diagrams for probability).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Independence condition to find unknown probability",
+          "reason": "Uses P(A∩B)=P(A)P(B) for independent events, explicitly covered by S3.1/S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Total probability = 1 to find unknown",
+          "reason": "Uses basic probability axiom (sum of probabilities =1) with Venn diagram, covered by S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "d(i)",
+          "marks": 1,
+          "technique": "Venn diagram set probability",
+          "reason": "Direct reading/combination from Venn diagram, covered by S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "d(ii)",
+          "marks": 2,
+          "technique": "Conditional probability formula",
+          "reason": "Directly covered by S3.2's conditional probability formula P(A|B)=P(A∩B)/P(B).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 3,
+          "technique": "Using probabilities to estimate population counts",
+          "reason": "Scaling probabilities to estimate frequencies in a population is a standard application of probability (S3.2/S3.3), not excluded content.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S3.2",
+            "S3.3"
+          ]
+        }
+      ]
+    }
+  ]
+}

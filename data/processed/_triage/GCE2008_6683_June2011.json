@@ -1,0 +1,400 @@
+{
+  "_paper_id": "GCE2008_6683_June2011",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.279328,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "S2.3 summary statistics Syy calculation",
+          "reason": "Basic summary statistic calculation from given sums, covered by S2.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "PMCC calculation from formula",
+          "reason": "S5.1 explicitly excludes calculation of correlation coefficients using the formula; here Sxy/sqrt(SxxSyy) formula is required, which is out.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Interpretation of correlation coefficient",
+          "reason": "Depends on the out-of-spec calculated PMCC value from (b); interpreting r is discussed in S2.2/S5.1 but the specific calculation is excluded, and this part uses that answer.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 1,
+          "technique": "Effect of scaling on Sxx",
+          "reason": "Uses coding/scaling of summary statistics, covered under S2.3 coding guidance.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 1,
+          "technique": "Effect of scaling on correlation coefficient",
+          "reason": "Depends on the excluded PMCC calculation of part (b) as the base value; also correlation coefficient calculation formula is excluded under S5.1.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 5,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Normal distribution, finding mean from probability",
+          "reason": "Standard normal distribution problem, finding parameter via standardisation - covered by S4.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Normal distribution symmetry property",
+          "reason": "Uses symmetry of normal distribution about the mean, covered by S4.2 knowledge of shape/symmetry.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Discrete probability distribution and cumulative distribution function",
+          "reason": "Simple discrete probability distribution work, covered by S4.1 (cdf concept is standard probability, not mean/variance calculation).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Probability from discrete distribution using inequality transformation",
+          "reason": "Uses the distribution from (a) to find P(3Y+2>8); pure probability calc, not mean/variance, so in spec.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Normal distribution probability calculation",
+          "reason": "Standard normal probability calculation, covered by S4.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Inverse normal distribution calculation",
+          "reason": "Finding a value corresponding to a given percentile using normal distribution, covered by S4.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Midpoint of grouped data class",
+          "reason": "Basic grouped data statistic, covered by S2.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Linear interpolation for median",
+          "reason": "Explicitly covered by S2.3 guidance on linear interpolation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 5,
+          "technique": "Mean and standard deviation from grouped frequency data",
+          "reason": "Covered by S2.3, calculation of mean and standard deviation including from summary statistics.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 1,
+          "technique": "Justifying normal distribution model using mean/median",
+          "reason": "Covered by S4.3 selecting appropriate distribution with reasoning.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.3"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Skewness from quartiles",
+          "reason": "Interpreting measures of variation/skewness from quartiles, covered by S2.3/S2.4 interpretation of central tendency and variation.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.3",
+            "S2.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Probability of union of events",
+          "reason": "Standard use of P(A∪B), covered by S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Probability calculation using set relations",
+          "reason": "Standard probability manipulation, covered by S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Conditional probability formula",
+          "reason": "Directly covered by S3.2 conditional probability formula P(A|B).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Testing statistical independence of two events",
+          "reason": "Covered by S3.1 use of independence condition P(A∩B)=P(A)P(B).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 1,
+          "technique": "Interpretation of independence result in context",
+          "reason": "Follows directly from (d)'s in-spec conclusion, contextual comment covered generally by S3.1/S3.3 modelling discussion.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S3.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Calculating Sfh summary statistic",
+          "reason": "Basic summary statistic calculation, covered by S2.3-style calculations, though used for regression it's just a sum calculation not the regression line itself.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Calculating regression line equation",
+          "reason": "S2.2 explicitly excludes calculations involving regression lines; finding the line of regression a and b values is precisely such a calculation.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Using regression equation to estimate value",
+          "reason": "Uses the regression line equation calculated in (b), which is out of spec (S2.2 exclusion), and depends on excluded prior part.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Reliability of regression estimate (interpolation/extrapolation)",
+          "reason": "Although interpolation/extrapolation reliability is discussed generally in S2.2 guidance, this part directly depends on the excluded regression calculation in (b)/(c).",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 1,
+          "technique": "Reasoning about applicability of regression model to different population",
+          "reason": "Depends on the excluded regression equation context; part only makes sense after out-of-spec regression calculation.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "8",
+      "total_marks": 17,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Finding probability from sum=1 in discrete distribution",
+          "reason": "Basic discrete probability distribution work, covered by S4.1 (not mean/variance).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "E(S) calculation for discrete random variable",
+          "reason": "S4.1 explicitly excludes calculation of mean of discrete random variables.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "E(S^2) calculation for discrete random variable",
+          "reason": "S4.1 exclusion covers mean/variance calculation of discrete random variables; E(S^2) is part of variance calculation, so excluded.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Var(S) calculation for discrete random variable",
+          "reason": "S4.1 explicitly excludes calculation of variance of discrete random variables.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Probability of specific independent event sequences",
+          "reason": "This calculates P(5 and 5) using independence of successive spins (S3.1), a pure probability calculation not mean/variance; it does not depend on the excluded E(S)/Var(S) parts (b)-(d), since it only uses the individual probability P(S=5)=0.2 given in the table.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S3.1"
+          ]
+        },
+        {
+          "label": "f",
+          "marks": 4,
+          "technique": "Probability of game outcome after several spins using independence",
+          "reason": "Uses independence and combinations of individual spin probabilities (S3.1), does not require the excluded mean/variance results from (b)-(d).",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S3.1"
+          ]
+        },
+        {
+          "label": "g",
+          "marks": 3,
+          "technique": "Probability of game outcome after several spins using independence",
+          "reason": "Same as (f): pure probability calculation using independent event probabilities, covered by S3.1, independent of excluded mean/variance parts.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S3.1"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+You are extracting one Edexcel maths exam paper into JSON for a revision-tutor chatbot, in the repo /Users/i1003721/edexcel-maths.
+
+Read and follow EXACTLY: /Users/i1003721/edexcel-maths/docs/question-extraction-spec.md — the whole file, including the "v3 additions" section at the end (Stats/Mech/IAL/legacy fields, spec_refs, out_of_spec). Also read docs/notation-spec.md ("The convention" section) for LaTeX style.
+
+Paper: {PID}
+- paper fields: _paper_id "{PID}", _paper "{PAPER}", _sitting "{SITTING}", qualification "{QUAL}", unit "{UNIT}", component "{COMP}", status "{STATUS}"  (Pearson title: "{TITLE}")
+- Question paper: data/raw/pearson/{QUAL}/{SITTING}/{PID}_QP.pdf (+ .txt)
+- Mark scheme:    data/raw/pearson/{QUAL}/{SITTING}/{PID}_MS.pdf (+ .txt)
+- source_qp_file / source_ms_file values: "pearson/{QUAL}/{SITTING}/{PID}_QP.txt" / "..._MS.txt"
+- 9MA0 content list for spec_refs and spec judgements: data/processed/spec_9ma0.json (read ALL statements with their guidance before judging anything; never judge from memory)
+- Output (the ONLY file you write in the repo): data/processed/_staging/{PID}.json
+
+Hard rules:
+- READ THE PDFs page by page with the Read tool (`pages` param, ≤20 pages per call) — the .txt drops symbols, powers, roots, fraction bars, table structure. Use the .txt only to copy prose.
+- Question wording verbatim; mark scheme official content and order (codes, criteria, alternatives, special cases, notes that change marks). No commentary, no asides.
+- Recompute each final answer from your transcription as a check; if it doesn't match the MS, re-read the PDF.
+- {SPEC_RULE}
+- Scratch files only in {SCRATCH}/extract_{PID}/ (building the JSON with a small Python script there is recommended). Do not edit any other repo file; do NOT run scripts/build_db.py.
+- Validate: `cd /Users/i1003721/edexcel-maths && .venv/bin/python scripts/check_questions.py {PID}` and fix until it prints OK.
+
+Final reply (concise, under 250 words): questions/parts/marks count; for each out_of_spec part: question, technique, the spec statement(s) you checked; low_confidence items; any errors you noticed in Pearson's own documents; anything in the extraction spec that was unclear or didn't fit this paper (this is a pilot — the spec will be revised from your feedback).

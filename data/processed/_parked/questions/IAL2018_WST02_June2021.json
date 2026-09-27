@@ -1,0 +1,135 @@
+{
+  "_paper_id": "IAL2018_WST02_June2021",
+  "_paper": "WST02",
+  "_sitting": "June2021",
+  "qualification": "IAL-2018",
+  "unit": "WST02",
+  "component": "stats",
+  "status": "legacy",
+  "paper_total": 75,
+  "source_qp_file": "pearson/IAL-2018/June2021/IAL2018_WST02_June2021_QP.txt",
+  "source_ms_file": "pearson/IAL-2018/June2021/IAL2018_WST02_June2021_MS.txt",
+  "extraction_method": "single-call-v1",
+  "extraction_model": "claude-sonnet-5",
+  "pearson_errors": [],
+  "questions": [
+    {
+      "paper_id": "IAL2018_WST02_June2021",
+      "spec": "IAL-2018",
+      "qualification": "IAL-2018",
+      "unit": "WST02",
+      "status": "legacy",
+      "paper": "WST02",
+      "sitting": "June2021",
+      "id": "IAL2018_WST02_June2021_Q1",
+      "q_num": "1",
+      "total_marks": 14,
+      "component": "stats",
+      "uses_large_data_set": false,
+      "stem": "$Spany$ sells seeds and claims that 5% of its pansy seeds do not germinate. A packet of pansy seeds contains 20 seeds. Each seed germinates independently of the other seeds.",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "text": "(a) Find the probability that in a packet of $Spany$'s pansy seeds\n(i) more than 2 but fewer than 5 seeds do not germinate,\n(ii) more than 18 seeds germinate.\n(5)",
+          "mark_scheme": "(a) B1: writing or using $X \\sim \\mathrm{B}(20,0.05)$ or $Y \\sim \\mathrm{B}(20,0.95)$ [Allow $Y \\sim \\mathrm{B}(20,0.95)$ if $Y$ is clearly defined]. Implied by 1 correct prob.\n(i) M1: for $\\mathrm{P}(X \\leqslant 4)-\\mathrm{P}(X \\leqslant 2)$ and one correct prob, or $\\mathrm{P}(X=3)+\\mathrm{P}(X=4)$ and 1 correct prob: $\\mathrm{P}(X \\leqslant 4)-\\mathrm{P}(X \\leqslant 2) = 0.9974-0.9245$ or $\\binom{20}{3}0.05^3\\times0.95^{17}+\\binom{20}{4}0.05^4\\times0.95^{16}=0.05958\\ldots+0.01332\\ldots$\nA1: $= 0.072909\\ldots$ awrt $0.0729$\n(ii) M1: for $\\mathrm{P}(X \\leqslant 1)$ or $[20]\\times(0.95)^{19}(0.05)+(0.95)^{20}$ - condone missing 20: $\\mathrm{P}(X \\leqslant 1)$ or $\\mathrm{P}(Y \\geqslant 19)=20\\times(0.95)^{19}(0.05)+(0.95)^{20}$\nA1: $= 0.7358$ or $= 0.735839\\ldots$ awrt $0.736$",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "text": "Jem buys 5 packets of $Spany$'s pansy seeds.\n(b) Calculate the probability that all of these packets contain more than 18 seeds that germinate.\n(2)",
+          "mark_scheme": "(b) [Let $W$ = no. of packets where $Y > 18$] M1: $\\mathrm{P}(W=5)=(\\text{\"}0.7358\\ldots\\text{\"})^5$ for (their(a)(ii))$^5$\nA1: $= 0.21573\\ldots$ awrt $0.216$",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "text": "Jem believes that $Spany$'s claim is incorrect. She believes that the percentage of pansy seeds that do not germinate is greater than 5%\n(c) Write down the hypotheses for a suitable test to examine Jem's belief.\n(1)",
+          "mark_scheme": "(c) B1: $\\mathrm{H_0}: p=0.05$, $\\mathrm{H_1}: p>0.05$ - both hypotheses correct with $p$ or $\\pi$",
+          "spec_refs": [
+            "S5.1",
+            "S5.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 6,
+          "text": "Jem planted all of the 100 seeds she bought from $Spany$ and found that 8 did not germinate.\n(d) Using a suitable approximation, carry out the test using a 5% level of significance.\n(6)",
+          "mark_scheme": "(d) [$V$= no. of seeds that do not germinate $V \\sim \\mathrm{B}(100,0.05)$ approximates to $V \\sim \\mathrm{Po}(5)$] M1A1 (1st M1: for realising a Poisson approximation is appropriate. NB Po(95) is M0A0; 1st A1: writing or using $V \\sim \\mathrm{Po}(5)$ i.e. correct mean for the Poisson.)\n$\\mathrm{P}(V \\geqslant 8) = 1-\\mathrm{P}(V \\leqslant 7) = 1-0.8666 = 0.1334$ (2nd M1: for writing or using $1-\\mathrm{P}(V \\leqslant 7)$ or $\\mathrm{P}(V \\leqslant 7)=0.8666$ or writing $\\mathrm{P}(V \\geqslant 10)=0.0318$ or $\\mathrm{P}(V \\geqslant 9)=0.0681$ or $\\mathrm{P}(V \\geqslant 11)=0.0137$ leading to a CR. Implied by correct CR or probability = awrt 0.133)\nCR for 1-tail in (c): $\\mathrm{P}(V \\geqslant 9)=0.0681$, $\\mathrm{P}(V \\geqslant 10)=0.0318$, CR $V \\geqslant 10$ oe\nCR for 2-tail in (c): $\\mathrm{P}(V \\geqslant 10)=0.0318$, $\\mathrm{P}(V \\geqslant 11)=0.0137$, CR $V \\geqslant 11$ oe\n(2nd A1: for awrt 0.133 or $V \\geqslant 10$ oe (e.g. $V>9$) or $V \\geqslant 11$ oe allow any letter but CR must match part(c))\ndM1: dep on 2nd M1. Accept H0 or not significant or 8 does not lie in the critical region ft their CR or probability. A correct statement based on comparing 8 with their CR or their prob with 0.05 or 0.025 [condone 0.866<0.95]- contradicting non-contextual comments M0\nA1cso: (dep, all previous marks must be awarded, need Bold words) Data consistent with $Spany$'s claim or Insufficient evidence for Jem's belief or insufficient evidence that percentage of seeds not germinating is more than 5% (o.e.)\nNB award M1A1 for a correct contextual statement on its own. If there are no hypotheses or they are the wrong way around, then 3rd M0 3rd A0.\nSC1 Normal approximation: Award marks in pairs with 2, 4 or 6 marks available. Sight of $\\mathrm{N}(5\\text{ or }95, \\sqrt{4.75}^2)$ M1A1; probability awrt 0.125/6 M1A1; Correct contextual concl' dM1A1\nSC2 No approximation: Use of $\\mathrm{B}(100,0.05)$ M0A0; probability awrt 0.128 or CR $\\geqslant 10$ M1A1; then M0A0",
+          "spec_refs": [
+            "S4.1",
+            "S4.2",
+            "S5.1",
+            "S5.2"
+          ]
+        }
+      ],
+      "qp_pages": [
+        1,
+        5
+      ],
+      "low_confidence": false,
+      "notes": "",
+      "source_qp_file": "pearson/IAL-2018/June2021/IAL2018_WST02_June2021_QP.txt",
+      "source_ms_file": "pearson/IAL-2018/June2021/IAL2018_WST02_June2021_MS.txt",
+      "notation": "latex",
+      "extraction_method": "single-call-v1",
+      "question_text": "$Spany$ sells seeds and claims that 5% of its pansy seeds do not germinate. A packet of pansy seeds contains 20 seeds. Each seed germinates independently of the other seeds.\n(a) Find the probability that in a packet of $Spany$'s pansy seeds\n(i) more than 2 but fewer than 5 seeds do not germinate,\n(ii) more than 18 seeds germinate.\n(5)\nJem buys 5 packets of $Spany$'s pansy seeds.\n(b) Calculate the probability that all of these packets contain more than 18 seeds that germinate.\n(2)\nJem believes that $Spany$'s claim is incorrect. She believes that the percentage of pansy seeds that do not germinate is greater than 5%\n(c) Write down the hypotheses for a suitable test to examine Jem's belief.\n(1)\nJem planted all of the 100 seeds she bought from $Spany$ and found that 8 did not germinate.\n(d) Using a suitable approximation, carry out the test using a 5% level of significance.\n(6)",
+      "mark_scheme_text": "(a) B1: writing or using $X \\sim \\mathrm{B}(20,0.05)$ or $Y \\sim \\mathrm{B}(20,0.95)$ [Allow $Y \\sim \\mathrm{B}(20,0.95)$ if $Y$ is clearly defined]. Implied by 1 correct prob.\n(i) M1: for $\\mathrm{P}(X \\leqslant 4)-\\mathrm{P}(X \\leqslant 2)$ and one correct prob, or $\\mathrm{P}(X=3)+\\mathrm{P}(X=4)$ and 1 correct prob: $\\mathrm{P}(X \\leqslant 4)-\\mathrm{P}(X \\leqslant 2) = 0.9974-0.9245$ or $\\binom{20}{3}0.05^3\\times0.95^{17}+\\binom{20}{4}0.05^4\\times0.95^{16}=0.05958\\ldots+0.01332\\ldots$\nA1: $= 0.072909\\ldots$ awrt $0.0729$\n(ii) M1: for $\\mathrm{P}(X \\leqslant 1)$ or $[20]\\times(0.95)^{19}(0.05)+(0.95)^{20}$ - condone missing 20: $\\mathrm{P}(X \\leqslant 1)$ or $\\mathrm{P}(Y \\geqslant 19)=20\\times(0.95)^{19}(0.05)+(0.95)^{20}$\nA1: $= 0.7358$ or $= 0.735839\\ldots$ awrt $0.736$\n(b) [Let $W$ = no. of packets where $Y > 18$] M1: $\\mathrm{P}(W=5)=(\\text{\"}0.7358\\ldots\\text{\"})^5$ for (their(a)(ii))$^5$\nA1: $= 0.21573\\ldots$ awrt $0.216$\n(c) B1: $\\mathrm{H_0}: p=0.05$, $\\mathrm{H_1}: p>0.05$ - both hypotheses correct with $p$ or $\\pi$\n(d) [$V$= no. of seeds that do not germinate $V \\sim \\mathrm{B}(100,0.05)$ approximates to $V \\sim \\mathrm{Po}(5)$] M1A1 (1st M1: for realising a Poisson approximation is appropriate. NB Po(95) is M0A0; 1st A1: writing or using $V \\sim \\mathrm{Po}(5)$ i.e. correct mean for the Poisson.)\n$\\mathrm{P}(V \\geqslant 8) = 1-\\mathrm{P}(V \\leqslant 7) = 1-0.8666 = 0.1334$ (2nd M1: for writing or using $1-\\mathrm{P}(V \\leqslant 7)$ or $\\mathrm{P}(V \\leqslant 7)=0.8666$ or writing $\\mathrm{P}(V \\geqslant 10)=0.0318$ or $\\mathrm{P}(V \\geqslant 9)=0.0681$ or $\\mathrm{P}(V \\geqslant 11)=0.0137$ leading to a CR. Implied by correct CR or probability = awrt 0.133)\nCR for 1-tail in (c): $\\mathrm{P}(V \\geqslant 9)=0.0681$, $\\mathrm{P}(V \\geqslant 10)=0.0318$, CR $V \\geqslant 10$ oe\nCR for 2-tail in (c): $\\mathrm{P}(V \\geqslant 10)=0.0318$, $\\mathrm{P}(V \\geqslant 11)=0.0137$, CR $V \\geqslant 11$ oe\n(2nd A1: for awrt 0.133 or $V \\geqslant 10$ oe (e.g. $V>9$) or $V \\geqslant 11$ oe allow any letter but CR must match part(c))\ndM1: dep on 2nd M1. Accept H0 or not significant or 8 does not lie in the critical region ft their CR or probability. A correct statement based on comparing 8 with their CR or their prob with 0.05 or 0.025 [condone 0.866<0.95]- contradicting non-contextual comments M0\nA1cso: (dep, all previous marks must be awarded, need Bold words) Data consistent with $Spany$'s claim or Insufficient evidence for Jem's belief or insufficient evidence that percentage of seeds not germinating is more than 5% (o.e.)\nNB award M1A1 for a correct contextual statement on its own. If there are no hypotheses or they are the wrong way around, then 3rd M0 3rd A0.\nSC1 Normal approximation: Award marks in pairs with 2, 4 or 6 marks available. Sight of $\\mathrm{N}(5\\text{ or }95, \\sqrt{4.75}^2)$ M1A1; probability awrt 0.125/6 M1A1; Correct contextual concl' dM1A1\nSC2 No approximation: Use of $\\mathrm{B}(100,0.05)$ M0A0; probability awrt 0.128 or CR $\\geqslant 10$ M1A1; then M0A0",
+      "has_figure": false,
+      "figure_pages": []
+    },
+    {
+      "paper_id": "IAL2018_WST02_June2021",
+      "spec": "IAL-2018",
+      "qualification": "IAL-2018",
+      "unit": "WST02",
+      "status": "legacy",
+      "paper": "WST02",
+      "sitting": "June2021",
+      "id": "IAL2018_WST02_June2021_Q6",
+      "q_num": "6",
+      "total_marks": 10,
+      "component": "stats",
+      "uses_large_data_set": false,
+      "stem": "The random variable $Y \\sim \\mathrm{B}(225, p)$\n\nUsing a normal approximation, the probability that $Y$ is at least 188 is 0.1056 to 4 decimal places.",
+      "parts": [
+        {
+          "label": null,
+          "marks": 10,
+          "text": "(i) Show that $p$ satisfies $145p^2-241p+100=0$ when the normal probability tables are used.\n(ii) Hence find the value of $p$, justifying your answer.\n(10)",
+          "mark_scheme": "(i) B1: $z=1.25$ or better (calculator gives: 1.25027…)\nM1: for attempting to use a continuity correction i.e. for sight of $188 \\pm 0.5$\nM1: for standardising using $\\mu$ and $\\sigma$ or $np$ and $\\sqrt{np(1-p)}$ (Condone letter $n$ or any integer $>0$)\nA1: for a correct equation with compatible signs, allow 1.250…, $\\frac{187.5-\\mu}{\\sigma}=1.25$ leading to $187.5-\\mu=1.25\\sigma$\nM1: for $\\mu=225p$ seen at any stage in the working\nM1: for $\\sigma=\\sqrt{225p(1-p)}$ seen at any stage in the working. Must be for $\\sigma$ not $\\sigma^2=225p(1-p)$\nM1: for squaring to get a quadratic equation in $p$: $(187.5-225p)^2=(1.25)^2\\times225p(1-p)$ or $(150-180p)^2=225p(1-p)$ (o.e.)\nA1*: (dep on all previous Ms and use of 1.25 (with correct sign) for at least 1 correct intermediate step from a correct quadratic equation e.g. one of those in scheme for 5th M1): e.g. $900(5-6p)^2=225(p-p^2) \\Rightarrow 4(25-60p+36p^2)=p-p^2$ leading to $145p^2-241p+100=0$*\n(ii) M1: for solving the quadratic correctly - leading to $p=\\ldots$ or implied by 0.8 or awrt 0.862: $[(29p-25)(5p-4)=0 \\Rightarrow]$ $p=0.8$ or $p=\\frac{25}{29}$ (accept 0.862(0689…))\nA1: for 0.8 and a correct reason to eliminate 0.862: $[p=]$ $0.8$ because 0.862 gives a mean greater than 188 (oe)\nOfficial notes (completeness pass):\n- 1st A1: If using a value for $n$ it must be 225",
+          "spec_refs": [
+            "S4.1",
+            "S4.2",
+            "P2.3"
+          ]
+        }
+      ],
+      "qp_pages": [
+        21,
+        24
+      ],
+      "low_confidence": false,
+      "notes": "Question 6 is a single printed mark bracket (10) covering both (i) and (ii), so treated as one part with label null.",
+      "source_qp_file": "pearson/IAL-2018/June2021/IAL2018_WST02_June2021_QP.txt",
+      "source_ms_file": "pearson/IAL-2018/June2021/IAL2018_WST02_June2021_MS.txt",
+      "notation": "latex",
+      "extraction_method": "single-call-v1",
+      "question_text": "The random variable $Y \\sim \\mathrm{B}(225, p)$\n\nUsing a normal approximation, the probability that $Y$ is at least 188 is 0.1056 to 4 decimal places.\n(i) Show that $p$ satisfies $145p^2-241p+100=0$ when the normal probability tables are used.\n(ii) Hence find the value of $p$, justifying your answer.\n(10)",
+      "mark_scheme_text": "(i) B1: $z=1.25$ or better (calculator gives: 1.25027…)\nM1: for attempting to use a continuity correction i.e. for sight of $188 \\pm 0.5$\nM1: for standardising using $\\mu$ and $\\sigma$ or $np$ and $\\sqrt{np(1-p)}$ (Condone letter $n$ or any integer $>0$)\nA1: for a correct equation with compatible signs, allow 1.250…, $\\frac{187.5-\\mu}{\\sigma}=1.25$ leading to $187.5-\\mu=1.25\\sigma$\nM1: for $\\mu=225p$ seen at any stage in the working\nM1: for $\\sigma=\\sqrt{225p(1-p)}$ seen at any stage in the working. Must be for $\\sigma$ not $\\sigma^2=225p(1-p)$\nM1: for squaring to get a quadratic equation in $p$: $(187.5-225p)^2=(1.25)^2\\times225p(1-p)$ or $(150-180p)^2=225p(1-p)$ (o.e.)\nA1*: (dep on all previous Ms and use of 1.25 (with correct sign) for at least 1 correct intermediate step from a correct quadratic equation e.g. one of those in scheme for 5th M1): e.g. $900(5-6p)^2=225(p-p^2) \\Rightarrow 4(25-60p+36p^2)=p-p^2$ leading to $145p^2-241p+100=0$*\n(ii) M1: for solving the quadratic correctly - leading to $p=\\ldots$ or implied by 0.8 or awrt 0.862: $[(29p-25)(5p-4)=0 \\Rightarrow]$ $p=0.8$ or $p=\\frac{25}{29}$ (accept 0.862(0689…))\nA1: for 0.8 and a correct reason to eliminate 0.862: $[p=]$ $0.8$ because 0.862 gives a mean greater than 188 (oe)\nOfficial notes (completeness pass):\n- 1st A1: If using a value for $n$ it must be 225",
+      "has_figure": false,
+      "figure_pages": []
+    }
+  ],
+  "autofixes": 0,
+  "triage_method": "triage-v1",
+  "ms_complete_method": "single-call-v2",
+  "ms_complete_added": 1,
+  "ms_complete_unverified": false
+}

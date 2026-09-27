@@ -1,0 +1,245 @@
+{
+  "_paper_id": "GCE2008_6666_Jan2011",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.1181865,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "main",
+          "marks": 6,
+          "technique": "Integration by parts, definite integral",
+          "reason": "Integration by parts of x sin2x and evaluation of definite integral is covered by P8.5 (integration by parts) and P8.3 (definite integrals).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.5",
+            "P8.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 5,
+      "parts": [
+        {
+          "label": "main",
+          "marks": 5,
+          "technique": "Differentiation of a^(kx)",
+          "reason": "P7.2 explicitly covers differentiation of a^{kx} giving ka^{kx}ln a, used here for 16-16(0.5)^t.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Partial fractions",
+          "reason": "Decomposition of 5/((x-1)(3x+2)) into linear partial fractions is exactly P2.10.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.10"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Integration using partial fractions",
+          "reason": "Integrating the partial fraction result gives ln terms, covered by P8.6.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.6"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 6,
+          "technique": "Separable first order differential equation",
+          "reason": "Separating variables and integrating using partial fractions/logs, finding particular solution, matches P8.7 (and P4.5 guidance on using logs).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.7",
+            "P8.6"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Vector subtraction (AB = b-a)",
+          "reason": "Finding AB from position vectors is standard vector work covered by P10.3/P10.4 (position vectors, subtraction); no dot product or line equation needed.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P10.3",
+            "P10.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Vector equation of a line",
+          "reason": "Explicitly listed in the 'concepts no statement covers' list: vector equation of a line (r = a + λb) is OUT regardless of other vector coverage.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Dot product for perpendicularity",
+          "reason": "Requires AC.AB = 0, i.e. the scalar (dot) product, which is explicitly listed as a concept no 9MA0 statement covers.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Distance between two points using magnitude",
+          "reason": "Although finding |AC| itself only needs the magnitude formula (P10.4), this part requires the value of p found in part (c), which is out of spec; per the rule a part using an out-of-spec answer is OUT.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Binomial expansion for negative/rational index",
+          "reason": "Expanding (2-3x)^{-2} in ascending powers of x is exactly the extension to rational n in P4.1.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Binomial expansion with unknown coefficients",
+          "reason": "Combining a linear numerator with the binomial expansion and matching coefficients is a direct application of P4.1.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Binomial expansion coefficient",
+          "reason": "Further coefficient extraction using values found in (b), same binomial method (P4.1); no out-of-spec dependency since (b) is in spec.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 15,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 6,
+          "technique": "Parametric differentiation, tangent/normal",
+          "reason": "Finding dy/dx from parametric equations and the normal line equation is covered by P3.3 (parametric equations) and P7.5 (parametric differentiation) plus P7.3 (normals).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P3.3",
+            "P7.5",
+            "P7.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Cartesian equation from parametric form",
+          "reason": "Conversion between parametric and Cartesian forms is explicitly covered by P3.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P3.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 6,
+          "technique": "Volume of revolution",
+          "reason": "Rotating the area about the x-axis to find a volume of revolution is explicitly listed among concepts no 9MA0 statement covers.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Numerical evaluation of function values (trapezium rule prep)",
+          "reason": "Producing a table of y-values for use in the trapezium rule is part of the numerical integration process in P9.4.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P9.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Trapezium rule",
+          "reason": "Using the trapezium rule to estimate a definite integral is exactly P9.4.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P9.4"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 8,
+          "technique": "Integration by substitution",
+          "reason": "Using a given substitution to find the exact value of the integral is covered by P8.5 (integration by substitution).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.5"
+          ]
+        }
+      ]
+    }
+  ]
+}

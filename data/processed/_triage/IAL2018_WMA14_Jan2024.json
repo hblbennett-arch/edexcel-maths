@@ -1,0 +1,278 @@
+{
+  "_paper_id": "IAL2018_WMA14_Jan2024",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.192524,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 4,
+      "parts": [
+        {
+          "label": "main",
+          "marks": 4,
+          "technique": "Binomial expansion (1-4x)^-3, rational n",
+          "reason": "P4.1 explicitly covers binomial expansion for any rational n including approximation; proof not required exclusion doesn't affect this computational task.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Partial fractions with repeated linear factor (ax+b)(cx+d)^2",
+          "reason": "P2.10 explicitly covers denominators of form (ax+b)(cx+d)^2 with numerators constant/linear, exactly matching this decomposition.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.10"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Integration using partial fractions incl. squared linear term",
+          "reason": "P8.6 guidance explicitly notes integration of terms like 2/(2x-1)^4 (squared/higher power linear denominators) is required as part of P8.2 power-rule integration, so the C/(2x+1)^2 term is coverable; combined with ln terms from P8.2/P8.6, full method is in spec.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P8.2",
+            "P8.6"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Implicit differentiation (first derivative)",
+          "reason": "P7.5 explicitly covers differentiation of relations defined implicitly for first derivative only, matching this task on y^2x+3y=4x^2+k.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Using dy/dx=0 to find turning point and substitute back",
+          "reason": "Uses stationary point condition (P7.3) applied to the result of part (a), which is in spec; no excluded content involved.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.3",
+            "P7.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 5,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Pythagoras for slant height expression",
+          "reason": "Simple algebraic expression, not itself a spec statement but trivial and required for connected rates part; treated as part of the modelling context of P7.4.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P7.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Connected rates of change using chain rule with given formula",
+          "reason": "P7.4 guidance explicitly covers connected rates of change models such as dV/dt = dV/dr × dr/dt, matching this surface area rate problem.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Integration by parts (repeated) of x^2 cos2x",
+          "reason": "P8.5 explicitly allows integration by parts with more than one application of the method (excluding reduction formulae), matching this integral.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.5"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Separable first order differential equation",
+          "reason": "P8.7 covers analytical solution of separable first order differential equations including factorisation; this uses the part (a) result, which is itself in spec, so the part remains in spec.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.7",
+            "P8.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Finding intersection of two 3D vector lines / solving simultaneous equations",
+          "reason": "P10.1 and P10.5 cover use of vectors in 3D and solving problems including finding intersections via simultaneous equations from vector line equations.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P10.1",
+            "P10.5"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Position vector of intersection point",
+          "reason": "Direct application of substituting parameter back into line equation, part of P10.1/P10.5 vector methods.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P10.1",
+            "P10.5"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Angle between two vectors using scalar product",
+          "reason": "Use of vector dot product to find angle between lines is a standard vector technique covered under P10 vector use in problems, consistent with P10.3/P10.5 (dot product for angle, though not explicitly named, is standard vector manipulation within scope).",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P10.5"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 5,
+          "technique": "Finding foot of perpendicular from point to line using vectors",
+          "reason": "P10.5 covers using vectors to solve problems in pure mathematics, and finding a point B such that AB is perpendicular to l2 uses scalar product (dot product) methods consistent with vector techniques in scope.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P10.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Integration by substitution to evaluate definite integral",
+          "reason": "P8.5 explicitly covers integration by substitution including finding a suitable substitution for definite integrals.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.5"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Volume of revolution (solid of revolution)",
+          "reason": "No statement in the specification mentions volumes of revolution/rotating a region about an axis to form a solid; P8.3 only covers area under a curve and area between curves, not volumes, so this named concept is absent from the spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "8",
+      "total_marks": 4,
+      "parts": [
+        {
+          "label": "main",
+          "marks": 4,
+          "technique": "Proof by contradiction",
+          "reason": "P1.1 explicitly lists proof by contradiction as a required method of proof, matching this task exactly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P1.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "9",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Parametric differentiation dy/dx",
+          "reason": "P3.3 covers parametric equations and P7.5 covers differentiation of relations defined parametrically for the first derivative, matching this task.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P3.3",
+            "P7.5"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Tangent to parametric curve at given point",
+          "reason": "Combines parametric differentiation (P7.5) with equation of a straight line (P3.1) to find tangent equation, both in spec.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5",
+            "P3.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 5,
+          "technique": "Eliminating parameter using compound angle/trig identities to find Cartesian equation",
+          "reason": "P3.3 covers conversion between Cartesian and parametric forms, and P5.6 covers compound angle formulae for sin(A+B); the tan(1/2θ) exclusion doesn't apply here as no half-angle formulae required.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P3.3",
+            "P5.6",
+            "P5.5"
+          ]
+        }
+      ]
+    }
+  ]
+}

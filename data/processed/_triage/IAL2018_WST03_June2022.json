@@ -1,0 +1,272 @@
+{
+  "_paper_id": "IAL2018_WST03_June2022",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.1426265,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Spearman's rank correlation - dealing with tied ranks",
+          "reason": "Spearman's rank correlation coefficient is not mentioned anywhere in the 9MA0 statements; only PMCC is referenced (S5.1) and use of its formula is explicitly excluded. Rank correlation is a distinct topic not covered at all.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Calculating Spearman's rank correlation coefficient",
+          "reason": "No statement mentions rank correlation coefficients; only PMCC (S5.1) is referenced and explicitly its formula use is excluded. Spearman's coefficient is a different, uncovered concept.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Hypothesis test using Spearman's rank correlation critical values",
+          "reason": "S5.1 covers hypothesis testing extended to correlation coefficients but explicitly refers to PMCC (product moment correlation coefficient, denoted r/rho), not Spearman's rank correlation. This test uses Spearman's critical value tables, a different technique not covered.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 1,
+          "technique": "Finding significance level from Spearman's critical value tables",
+          "reason": "Depends on Spearman's rank correlation coefficient framework, not covered by S5.1 which only refers to PMCC.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Unbiased estimates of population mean and variance from summary statistics",
+          "reason": "S2.3 covers calculating standard deviation from summary statistics, but the concept of an 'unbiased estimator' (dividing by n-1) for mean and variance of a population is not described in any statement; this is estimation theory not present in the spec.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 7,
+          "technique": "Hypothesis test for difference of two population means using large-sample z-test",
+          "reason": "S5.3 only covers a hypothesis test for the mean of a single Normal distribution; there is no statement covering a two-sample test for difference of means. This is not in spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Justifying variance approximation from large samples",
+          "reason": "This part only makes sense as a follow-up justification for the two-sample test in (b), which is out of spec, and the underlying concept (large-sample approximation of variance) is not covered by any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Finding sample mean from a confidence interval",
+          "reason": "Confidence intervals are not mentioned anywhere in the 9MA0 statements; this topic is entirely absent from the specification.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Deriving standard deviation from confidence interval width formula",
+          "reason": "Confidence interval theory and formulae are not covered by any statement in the specification.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 6,
+          "technique": "Calculating confidence level from interval width using inverse normal",
+          "reason": "Confidence intervals are not part of the 9MA0 specification at all.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "technique": "Sample size calculation for a required confidence interval width",
+          "reason": "Confidence interval theory, including sample size determination, is not mentioned in any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Continuous uniform distribution model",
+          "reason": "The continuous uniform distribution is not mentioned in any statement; S3.1 only notes a general understanding that area under a curve represents probability for continuous distributions, without naming or requiring knowledge of the (continuous) uniform distribution as a model.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Mean and standard deviation of a continuous uniform distribution",
+          "reason": "Requires formulae for mean/variance of a continuous distribution, not covered by any statement (S4.2 explicitly excludes pdf-related derivations, and continuous uniform is not named anywhere).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 5,
+          "technique": "Central Limit Theorem approximation for sample mean",
+          "reason": "S5.3 explicitly excludes 'Knowledge of the Central Limit Theorem or other large sample approximations'. This part directly requires the CLT.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [
+            "S5.3"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 1,
+          "technique": "Stating assumption for CLT application",
+          "reason": "Depends entirely on the CLT-based calculation in (c), which is explicitly excluded by S5.3.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [
+            "S5.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Concept of a statistic vs parameter-dependent expression",
+          "reason": "This estimation-theory concept (distinguishing a statistic from an expression involving unknown parameters) is not covered by any statement in the specification.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Definition of unbiased estimator",
+          "reason": "Unbiased estimators (general estimation theory) are not mentioned anywhere in the statements; S4.1 explicitly excludes calculation of mean/variance of discrete random variables, and no statement introduces the concept of an estimator.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Proving estimators are unbiased using E(aX+bY)",
+          "reason": "Requires expectation algebra for linear combinations of random variables, a concept (estimation theory) not present in any statement; general E(X) work is excluded (S4.1).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "technique": "Comparing variances of estimators for efficiency",
+          "reason": "Variance of linear combinations of random variables and estimator efficiency are not covered by any statement in the specification.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Sum of independent normal random variables (linear combination) probability calculation",
+          "reason": "S4.2 covers a single Normal distribution and probabilities from it, but summing multiple independent normal variables to get a new normal distribution's parameters is not described in any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Solving for number of people using sum of normals and quadratic inequality",
+          "reason": "Depends on the same sum-of-independent-normals technique as (a), which is not covered by any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Chi-squared goodness of fit hypotheses",
+          "reason": "Chi-squared goodness-of-fit testing is not mentioned in any statement; S5.1-S5.3 only cover binomial proportion tests, correlation, and Normal mean tests.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b(i)",
+          "marks": 8,
+          "technique": "Chi-squared test statistic and critical value comparison",
+          "reason": "Chi-squared distribution and goodness-of-fit test statistic are not covered anywhere in the specification statements.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b(ii)",
+          "marks": 2,
+          "technique": "Finding number of die rolls from chi-squared test result",
+          "reason": "Depends entirely on the chi-squared goodness-of-fit result from (b)(i), which is not covered by any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    }
+  ]
+}

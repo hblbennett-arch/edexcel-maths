@@ -1,0 +1,304 @@
+{
+  "_paper_id": "IAL2018_WST02_Jan2024",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.33722549999999996,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 16,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Mean and variance of grouped/discrete data",
+          "reason": "S2.3 explicitly covers calculation of mean, variance and standard deviation from data, including from frequency tables. This is just descriptive statistics of raw data, not requiring any distribution knowledge.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Justifying suitability of Poisson model",
+          "reason": "Requires knowledge that mean ≈ variance suggests Poisson distribution. Poisson distribution is not mentioned anywhere in the specification statements (only binomial and normal are covered under S4.1/S4.2), so this is out.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c(i)",
+          "marks": 2,
+          "technique": "Poisson probability calculation",
+          "reason": "Uses Poisson distribution which is not part of the spec (only binomial and normal distributions listed under S4.1/S4.2).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c(ii)",
+          "marks": 2,
+          "technique": "Poisson probability calculation",
+          "reason": "Same as above, requires Poisson distribution, not in spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 5,
+          "technique": "Normal approximation to Poisson sum",
+          "reason": "Requires summing Poisson variables and using a Normal approximation to a Poisson-based quantity; Poisson is not in spec at all, so this cannot be done using in-spec methods.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 3,
+          "technique": "Binomial probability using previous Poisson-derived probability",
+          "reason": "Although this part uses a binomial distribution (S4.1), it depends entirely on the probability found in part (d), which is out of spec (Poisson-based). Since it only makes sense after an out-of-spec part, it is out.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Normal distribution, finding sigma from a percentile",
+          "reason": "S4.2 covers Normal distribution as a model and finding probabilities/parameters, including solving simultaneous equations for unknown parameters. This is a standard normal inverse calculation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Binomial distribution probability, more than a value",
+          "reason": "S4.1 covers binomial distribution and calculating probabilities including cumulative probabilities.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Poisson approximation to binomial for repeated sampling",
+          "reason": "Requires use of a Poisson distribution, which is not mentioned in the specification statements at all (only binomial and normal are covered).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Binomial modelling assumptions",
+          "reason": "S4.3 covers selecting an appropriate probability distribution with reasoning, including conditions for binomial suitability; this matches giving contextual assumptions for binomial model.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Critical region for binomial hypothesis test",
+          "reason": "S5.2 covers conducting a hypothesis test for the proportion in a binomial distribution, which includes finding critical regions; this is standard binomial hypothesis testing content.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S5.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Actual significance level from critical region",
+          "reason": "This follows directly from the S5.2 critical region calculation, a standard part of binomial hypothesis testing procedure.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S5.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 1,
+          "technique": "Interpreting result against critical region",
+          "reason": "Straightforward interpretation of hypothesis test result in context, part of S5.2 content.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S5.2"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 5,
+          "technique": "One-tailed binomial hypothesis test for proportion",
+          "reason": "S5.2 explicitly covers conducting a statistical hypothesis test for the proportion in a binomial distribution and interpreting results in context, including stating hypotheses in terms of p.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S5.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Sketching graph of a probability density function",
+          "reason": "S3.1 explicitly states 'No formal knowledge of probability density functions is required' and S4.2 excludes knowledge of the pdf; sketching an explicit pdf given by formula is out of spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Conditional probability calculation using a continuous pdf",
+          "reason": "Requires integrating a given probability density function to find probabilities, which relies on knowledge of pdfs explicitly excluded by S4.2/S3.1.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 6,
+          "technique": "E(X) of a continuous random variable via integration, combined with general E(aX+bY+c)",
+          "reason": "Requires computing E(G) by integrating g·f(g), i.e. derivation/calculation of the mean of a continuous random variable from a pdf; this is explicitly excluded knowledge (S4.2: derivation of the mean not required, and no pdf knowledge required generally). Also uses general linear combination of E(X) which is not covered.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Continuous uniform distribution variance",
+          "reason": "The continuous uniform distribution is not mentioned in any specification statement (S4.1 explicitly only covers discrete distributions and binomial; S4.2 covers only Normal). No statement covers continuous uniform distribution.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b(i)",
+          "marks": 2,
+          "technique": "Continuous uniform distribution percentile",
+          "reason": "Same issue: continuous uniform distribution not covered by any statement in the specification.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b(ii)",
+          "marks": 2,
+          "technique": "Continuous uniform distribution probability",
+          "reason": "Depends on continuous uniform distribution, not in spec, and also uses previous out-of-spec part's answer.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Continuous uniform distribution probability in modelling context",
+          "reason": "Relies on continuous uniform distribution model (part a/b), which is not covered anywhere in the specification statements.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 6,
+          "technique": "Sampling distribution of a derived discrete random variable",
+          "reason": "Finding the full sampling/probability distribution of a discrete random variable built from binomial-type outcomes is not directly named in the statements. S3.1/S4.1 cover discrete distributions generally as models but constructing a sampling distribution table like this (a general discrete distribution derivation) goes beyond simple binomial probability calculation named in S4.1; however S4.1 does say 'understand and use simple, discrete probability distributions' which could cover this as long as calculation of mean/variance isn't required (it isn't here). This borders on being an 'S4.1 simple discrete probability distribution' problem, which is in spec.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Geometric-type distribution / binomial minimum n for P(Y≥1)>0.95",
+          "reason": "This is modelled as Y~B(n,p) and finding minimum n such that P(Y≥1)>0.95, which is a binomial calculation (S4.1) using logs, but depends on the probability found in part (a), which is a borderline/out topic depending on interpretation; given part (a) is judged in spec, this follows as binomial calculation.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Finding parameter using mode of continuous distribution via cdf differentiation",
+          "reason": "Requires differentiating a cumulative distribution function (cdf) to find a pdf and mode; knowledge of pdf/cdf for continuous random variables is explicitly excluded (S4.2: knowledge of pdf not required, derivation of cdf not required) and no statement covers general continuous distributions with cdfs.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Using F(1)=0 to find a constant in a cdf",
+          "reason": "Relies on cdf of a general continuous random variable, a topic not covered in the specification (S4.2 excludes pdf/cdf derivation, and no general continuous distribution content exists).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Finding median from cdf of continuous random variable",
+          "reason": "Uses the cdf of a general continuous random variable to locate the median, which is not covered by any specification statement; S4.2 explicitly excludes pdf/cdf derivation and no general continuous r.v. topic exists.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    }
+  ]
+}

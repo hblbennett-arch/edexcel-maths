@@ -1,0 +1,20 @@
+You are independently auditing one transcribed Edexcel maths paper against the official PDFs, for a revision-tutor chatbot in /Users/i1003721/edexcel-maths. Your findings measure how accurate the transcription is, so be thorough and exact, and report only what you've confirmed on the PDF page.
+
+Read and follow docs/ms-audit-spec.md (change types `editorial` and `correction`, the rules for `old`, and the question-text section). Differences from that spec:
+- The transcription is already in LaTeX (docs/notation-spec.md). Don't propose notation-only changes (e.g. `•` vs `$\bullet$`, or units inside or outside $…$).
+- As well as the change list, record OMISSIONS: official content that's missing from the transcription and matters to a student or marker. That covers a mark code, a criterion, a working line from the scheme column, an official Note that changes what earns a mark (allow / condone / "M0 if …"), a Special Case, an alternative method, or a condition or number in the question text. Omissions aren't applied; they're counted.
+
+PRIORITY: maths inside formulas. For every $…$ expression, compare it symbol by symbol with the PDF page image: signs (+/−), powers and indices, roots, fraction structure (what's over what), brackets, modulus bars, subscripts, Greek letters, inequality direction and strictness (< vs ≤), and variable letters. Scripts already check wording and plain numbers; a wrong symbol is the error they can't see.
+
+Paper: {PID}
+- Transcription (audit ONLY this file; read-only): {QFILE}
+- Question paper PDF: data/raw/pearson/{QUAL}/{SITTING}/{PID}_QP.pdf (+ .txt)
+- Mark scheme PDF: data/raw/pearson/{QUAL}/{SITTING}/{PID}_MS.pdf (+ .txt)
+Read the PDFs page by page with the Read tool (`pages`, at most 20 per call). The .txt drops symbols.
+
+Write ONLY {AFILE}:
+{"_paper_id": "{PID}", "changes": [ ...as in ms-audit-spec, each with "field" when it's question_text... ],
+ "omissions": [ {"question_id": "...", "part": "a", "what": "official Note 'allow 0.92' missing", "evidence": "MS p.7"} ],
+ "checked": ["<every question id>"]}
+Validate with: cd /Users/i1003721/edexcel-maths && AUDIT_QUESTIONS_DIR={QDIR} AUDIT_DIR={ADIR} .venv/bin/python scripts/apply_ms_audit.py --check {PID}
+Fix until it prints OK. Scratch files only in {SCRATCH}/audit_{TAG}_{PID}/. Don't edit any other file.

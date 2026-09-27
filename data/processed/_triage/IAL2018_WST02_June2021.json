@@ -1,0 +1,237 @@
+{
+  "_paper_id": "IAL2018_WST02_June2021",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.151234,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "(a)(i)(ii)",
+          "marks": 5,
+          "technique": "Binomial distribution probability calculations",
+          "reason": "S4.1 explicitly covers calculating probabilities using the binomial distribution; these sub-parts are direct binomial probability calculations at the expected depth.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Independent events / binomial probability product",
+          "reason": "Combines binomial probability from (a) with independence of events (S3.1) to find probability all 5 packets satisfy condition; standard technique, no exclusion applies.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1",
+            "S3.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Hypothesis test for binomial proportion - stating hypotheses",
+          "reason": "S5.2 explicitly covers stating hypotheses in terms of population proportion p for a binomial proportion test.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S5.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 6,
+          "technique": "Hypothesis test using an approximation (Poisson main method, Normal approximation as full-mark alternative)",
+          "reason": "The main mark scheme method uses a Poisson approximation, which is not mentioned anywhere in the specification statements and so is out of spec. However, the mark scheme's SC1 special case explicitly allows a Normal approximation to the binomial (N(5,4.75^2) with continuity correction) to earn the same full 6 marks (M1A1;M1A1;dM1A1). Normal approximation to a binomial with continuity correction is explicitly in S4.2, so a fully in-spec method can earn full marks.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.2",
+            "S5.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 15,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Poisson probability calculation",
+          "reason": "Uses the Poisson distribution, which is not named or covered anywhere in the specification statements; no in-spec alternative method exists for this calculation.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Poisson probability calculation",
+          "reason": "Same as (a): requires Poisson distribution, not covered by any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Poisson property / memorylessness reasoning",
+          "reason": "Requires knowledge that Poisson events occur independently/randomly and reasoning based on Poisson probability from (a); Poisson not in spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "technique": "Poisson modelling for expected profit calculation",
+          "reason": "Requires setting up Po(0.9) and solving for n; entirely dependent on Poisson distribution which is not in spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 5,
+          "technique": "Hypothesis test for a Poisson rate",
+          "reason": "This is a hypothesis test for a Poisson parameter lambda; S5 only covers tests for binomial proportion and Normal mean, not Poisson rate, so this is out of spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 15,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Sketching a probability density function",
+          "reason": "S4.2 explicitly excludes knowledge of the probability density function; sketching a given pdf for a general continuous random variable is out of spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Finding the mode from a pdf using differentiation",
+          "reason": "Requires working with a probability density function, explicitly excluded by S4.2 ('Knowledge of the probability density function is not required').",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Finding E(Y^2) by integrating a pdf",
+          "reason": "Depends on pdf knowledge and calculating E(Y^2) for a continuous random variable, not covered/excluded by S4.2.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Variance of a continuous random variable from pdf-derived moments",
+          "reason": "Uses out-of-spec E(Y^2) from part (c) and pdf-based variance; not covered by any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 4,
+          "technique": "Finding a percentile using the cdf derived from a pdf",
+          "reason": "Requires integrating the pdf to get cdf and solving for a percentile; pdf knowledge explicitly excluded (S4.2).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "i(ii)",
+          "marks": 10,
+          "technique": "Sampling distribution of the range of a discrete random sample",
+          "reason": "The question explicitly requires finding the 'sampling distribution' of B, a named concept the specification statements do not mention; this makes it out of spec per the explicit rule that unmentioned named concepts like 'sampling distribution' are out.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Properties of a cumulative distribution function for a continuous random variable",
+          "reason": "Requires understanding of cdf/pdf for a general continuous random variable; S4.2 excludes knowledge of the pdf and its derivation, and no statement covers general continuous distributions' cdf.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Deriving a pdf from a cdf by differentiation",
+          "reason": "Directly requires pdf knowledge, excluded by S4.2.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Continuous uniform distribution probability calculation",
+          "reason": "Continuous uniform distribution is not mentioned anywhere in the specification statements (only binomial and Normal distributions are covered in S4), so this is out of spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "technique": "Binomial-type probability calculation using probabilities derived from out-of-spec continuous distributions",
+          "reason": "Although the final combinatorial calculation resembles a binomial-style calculation, it relies entirely on probabilities (121/625 etc.) derived from the out-of-spec pdf/cdf and uniform distribution in earlier parts, so it only makes sense after out-of-spec work.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "i(ii)",
+          "marks": 10,
+          "technique": "Normal approximation to binomial with continuity correction; solving resulting quadratic for p",
+          "reason": "S4.2 explicitly covers approximating B(n,p) by N(np, np(1-p)) with continuity correction, and standardising to find probabilities/parameters. The algebraic manipulation to derive and solve the quadratic uses standard quadratic-solving skills (P2.3). All required techniques (normal approximation to binomial, continuity correction, standardising, solving quadratics) are covered by statements, though the overall multi-step depth is unusually high for this topic.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.2",
+            "P2.3"
+          ]
+        }
+      ]
+    }
+  ]
+}

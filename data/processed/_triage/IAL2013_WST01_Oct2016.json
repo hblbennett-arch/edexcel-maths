@@ -1,0 +1,365 @@
+{
+  "_paper_id": "IAL2013_WST01_Oct2016",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.148569,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 5,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Normal distribution symmetry",
+          "reason": "Uses symmetry of N(µ,σ²) about mean; S4.2 covers Normal distribution as a model with knowledge of shape/symmetry, no pdf needed.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Normal distribution symmetry",
+          "reason": "Simple probability manipulation using symmetry, covered by S4.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Conditional probability with Normal distribution",
+          "reason": "Uses ratio of probabilities P(A∩B)/P(B), standard conditional probability (S3.2) applied to normal distribution results from earlier parts, no excluded content.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S3.2",
+            "S4.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 15,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Discrete probability distribution - sum of probabilities equation",
+          "reason": "Writing sum of probabilities = 1 is basic use of a discrete probability distribution (S4.1), not itself mean/variance calculation, so not caught by the exclusion.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "E(X) of a discrete random variable",
+          "reason": "S4.1 explicitly excludes calculation of mean of discrete random variables.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Using E(X^2) to find distribution parameters",
+          "reason": "Requires E(X^2) which is a variance-related calculation for a discrete random variable, explicitly excluded by S4.1.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Var(X) of a discrete random variable",
+          "reason": "Direct calculation of variance of a discrete random variable, explicitly excluded by S4.1.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 3,
+          "technique": "P(Y>0) using distribution values from excluded part",
+          "reason": "Depends on values of a and b found in part (c), which is out of spec; part only makes sense after an out-of-spec part.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "f",
+          "marks": 3,
+          "technique": "E(Y), Var(Y) of linear transformation of discrete random variable",
+          "reason": "Direct calculation of mean and variance of a discrete random variable (transformed), explicitly excluded by S4.1.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Venn diagram construction",
+          "reason": "Standard Venn diagram representation of events, covered by S3.1/S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b(i)",
+          "marks": 1,
+          "technique": "Basic probability from Venn diagram",
+          "reason": "Simple probability calculation, covered by S3.1.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1"
+          ]
+        },
+        {
+          "label": "b(ii)",
+          "marks": 2,
+          "technique": "Conditional probability",
+          "reason": "Direct application of conditional probability formula, S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b(iii)",
+          "marks": 2,
+          "technique": "Testing statistical independence",
+          "reason": "Uses P(A)P(B)=P(A∩B) test for independence, explicitly covered in S3.1 guidance.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Comparing conditional probabilities",
+          "reason": "Further application of conditional probability to compare performance, covered by S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 15,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Calculating Sxx summary statistic",
+          "reason": "Calculation of sum of squares statistic Sxx, explicitly covered in S2.3 guidance.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Calculating Syy (Shh) summary statistic",
+          "reason": "Same type of summary statistic calculation as Sxx, covered by S2.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Product moment correlation coefficient calculation using formula",
+          "reason": "Explicit exclusion: calculation involving correlation coefficient formula is excluded (S5.1: use of formula not required; calculations involving regression lines/PMCC formula excluded).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [
+            "S5.1"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 1,
+          "technique": "Interpretation of correlation coefficient value from (c)",
+          "reason": "Depends on the excluded PMCC calculation from part (c); part only makes sense after an out-of-spec part.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": [
+            "S5.1"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 4,
+          "technique": "Finding regression line equation",
+          "reason": "Explicit exclusion: calculations involving regression lines are excluded (S2.2).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.2"
+          ]
+        },
+        {
+          "label": "f",
+          "marks": 3,
+          "technique": "Normal distribution probability calculation",
+          "reason": "Standard Normal distribution probability calculation using given N(0,4²), independent of the excluded regression/PMCC parts; covered by S4.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 7,
+          "technique": "Finding µ and σ of a Normal distribution from two probabilities",
+          "reason": "Standard normal distribution problem involving standardising and solving simultaneous equations, explicitly covered by S4.2 ('Questions may involve the solution of simultaneous equations').",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Expected value of a discrete random variable (profit)",
+          "reason": "Mark scheme sets up a discrete probability distribution for profit and computes E(X); calculation of mean of discrete random variable explicitly excluded by S4.1.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 17,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Median and quartiles from stem-and-leaf",
+          "reason": "Measures of central tendency/variation from grouped/ungrouped data, covered by S2.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Interquartile range",
+          "reason": "IQR explicitly listed as a measure of variation in S2.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Outlier identification using 1.5×IQR rule",
+          "reason": "Explicitly given as an example rule for identifying outliers in S2.4 guidance.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.4"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "technique": "Box and whisker plot with outliers",
+          "reason": "Box and whisker plots including outliers explicitly mentioned in S2.1 guidance.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 3,
+          "technique": "Mean and standard deviation from summary statistics",
+          "reason": "Calculation of mean and standard deviation from summary statistics explicitly covered by S2.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "f",
+          "marks": 2,
+          "technique": "Outlier identification using mean ± k×sd rule",
+          "reason": "Explicitly given as an example outlier rule (mean ± 3×sd) in S2.4 guidance; here 2.7 is analogous and rule specified in question.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.4"
+          ]
+        },
+        {
+          "label": "g",
+          "marks": 1,
+          "technique": "Assessing suitability of Normal model using skewness/outlier evidence",
+          "reason": "Drawing inferences about appropriateness of a distribution model from summary statistics/outliers, covered by S2.4 and S4.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.4",
+            "S4.3"
+          ]
+        }
+      ]
+    }
+  ]
+}

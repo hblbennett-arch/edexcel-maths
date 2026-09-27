@@ -1,0 +1,397 @@
+{
+  "_paper_id": "IAL2013_WST01_Jan2015",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.3734605,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Discrete probability distribution - cumulative distribution function value",
+          "reason": "S4.1 covers discrete probability distributions as a model; reading off a cdf value is not a mean/variance calculation, so the explicit S4.1 exclusion does not apply.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Discrete probability distribution - using pmf/cdf relationships",
+          "reason": "S4.1 covers discrete probability distributions; using p(x) and F(x) relationships to find unknown probabilities is basic distribution work, not the excluded mean/variance calculation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Discrete probability distribution - P(X>x)",
+          "reason": "S4.1 covers discrete distributions; reading P(X>4) from the table is standard distribution work, not excluded.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Independent events probability",
+          "reason": "S3.1 covers independent events and their probability calculations, which is exactly what is required here.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 3,
+          "technique": "Conditional probability",
+          "reason": "S3.2 covers conditional probability including the formula P(A|B)=P(A∩B)/P(B), which is applied here to a discrete distribution; not excluded.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Median from stem-and-leaf diagram",
+          "reason": "S2.1/S2.3 cover interpretation of diagrams and measures of central tendency including median; directly in spec.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1",
+            "S2.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Quartiles from stem-and-leaf diagram",
+          "reason": "S2.3 covers measures of variation including quartiles, calculated from raw/grouped data as here.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Skewness from medians and quartiles",
+          "reason": "S2.3 covers measures of central tendency and variation and their interpretation, including using quartile spacing to describe skewness.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Suitability of Normal distribution as a model",
+          "reason": "S4.3 explicitly covers recognising when the Normal model may not be appropriate for a data set.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Sum of products (intermediate step for PMCC/S_bm)",
+          "reason": "This value (Σbm) is calculated solely as an intermediate step toward computing S_bm and then the PMCC using the formula; since S5.1/S2.2 explicitly exclude calculation of correlation coefficients using the formula, this preparatory calculation is part of the excluded process.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Calculating S_bm (summary statistic for PMCC)",
+          "reason": "S_bm is calculated specifically to substitute into the PMCC formula; S5.1 states 'use of the formula is not required' and calculation of correlation coefficients is excluded, so this step toward the excluded formula-based calculation is out.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Calculating PMCC using the formula",
+          "reason": "S5.1 explicitly excludes calculation of correlation coefficients using the formula; here r is computed via S_bm/√(S_bb·S_mm), the formula method, which is excluded even though calculator-based r is allowed elsewhere.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 1,
+          "technique": "Interpreting correlation coefficient",
+          "reason": "S2.2 covers informal interpretation of correlation and use of terms such as positive/negative/strong/weak; interpreting a given r value in context is in spec.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.2"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Informal reasoning about effect of an outlier on correlation",
+          "reason": "S2.2 covers recognition of scatter diagrams and effect of points without requiring calculation; this is informal reasoning without recomputation, not the excluded calculation.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Venn diagram probability expressions, conditional probability",
+          "reason": "S3.1/S3.2 cover Venn diagrams, set notation and conditional probability formula, exactly as required here.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Venn diagram union probability",
+          "reason": "S3.2 covers P(A∪B)=P(A)+P(B)-P(A∩B), directly applicable.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 5,
+          "technique": "Solving simultaneous equations from probability constraints",
+          "reason": "S3.2 covers probability relationships (sum=1, P(A)=2P(B)); solving resulting equations is basic algebra applied to in-spec probability content.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Identifying response variable",
+          "reason": "S2.2 requires familiarity with explanatory/response variable terminology and reasoning about which is which.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Interpreting gradient of regression line",
+          "reason": "S2.2 explicitly permits interpretation of a regression line in context (not calculation); this is an interpretation task, not an excluded calculation.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Calculating mean values",
+          "reason": "S2.3 covers calculation of the mean; finding t̄ and h̄ is a basic summary statistic calculation, not a regression-line calculation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 1,
+          "technique": "Substituting into regression line equation to verify a point",
+          "reason": "S2.2 explicitly excludes 'calculations involving regression lines'; substituting values into the regression equation to show the point lies on it is such a calculation.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 1,
+          "technique": "Using regression line to estimate a value",
+          "reason": "S2.2 explicitly excludes calculations involving regression lines; substituting t=60 to estimate h is exactly such a calculation.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "f",
+          "marks": 2,
+          "technique": "Commenting on reliability of a regression estimate",
+          "reason": "This part explicitly refers to and depends on 'the estimate in part (e)', which is out of spec as a regression-line calculation; per the rule that a part relying on an out-of-spec part's answer is OUT, this is excluded.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "g",
+          "marks": 4,
+          "technique": "Normal distribution - finding values from symmetric middle percentage",
+          "reason": "S4.2 covers use of the Normal distribution to find probabilities/values, including via z-values and symmetry, as required here.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Verifying constant in discrete probability function using sum=1",
+          "reason": "S4.1 covers discrete probability distributions as a model; using Σp(x)=1 to find/verify k is standard distribution work, not the excluded mean/variance calculation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Discrete probability distribution - complement probability",
+          "reason": "S4.1 covers discrete distributions; finding 1-P(X=4) is basic probability, not excluded.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "E(X) of a discrete random variable",
+          "reason": "S4.1 explicitly excludes 'calculation of mean ... of discrete random variables'; finding E(X) is precisely this excluded calculation.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "technique": "Var(X) of a discrete random variable",
+          "reason": "S4.1 explicitly excludes 'calculation of ... variance of discrete random variables'; finding Var(X) is precisely this excluded calculation.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 4,
+          "technique": "E(Y^2) via linear transformation using E(X) and Var(X)",
+          "reason": "This part requires E(X) and Var(X) of the discrete random variable X, both excluded under S4.1, and depends on the (out-of-spec) results of parts (c) and (d); per the rule that a part relying on an out-of-spec part is OUT, this is excluded.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Normal distribution probability calculation",
+          "reason": "S4.2 covers finding probabilities using the Normal distribution via standardisation, exactly as required.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Normal distribution - finding a value from a probability relationship",
+          "reason": "S4.2 covers using the Normal distribution to find values corresponding to given probabilities via standardisation, as required here.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Naming a percentile (upper quartile)",
+          "reason": "S2.3 covers percentiles/quartiles as measures of variation; naming the value found as the upper quartile is basic terminology in spec.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Normal distribution - finding standard deviation from a percentile",
+          "reason": "S4.2 covers use of the Normal distribution including solving for unknown parameters (questions may involve simultaneous equations); finding σ from a given percentile is in spec.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        }
+      ]
+    }
+  ]
+}

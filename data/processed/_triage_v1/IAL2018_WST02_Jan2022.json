@@ -1,0 +1,301 @@
+{
+  "_paper_id": "IAL2018_WST02_Jan2022",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.14785399999999999,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Poisson distribution probability calculation",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "Poisson distribution is not mentioned anywhere in the 9MA0 statistics statements (S4.1 only covers discrete uniform and binomial); named concept not covered makes it OUT."
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Normal approximation to sum of Poisson variables",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "Relies on Poisson distribution which is not in the specification; S4.2 only allows normal approximation to binomial, not Poisson."
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Binomial probability using Poisson-derived value of x",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "Depends on x found in part (a) which required Poisson (out of spec); part only makes sense after out-of-spec part."
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Deriving pdf from cumulative distribution function",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "S4.2 explicit exclusion: 'Knowledge of the probability density function is not required'."
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "E(X) of continuous random variable",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "S4.1 excludes calculation of mean and variance of (discrete) random variables, and no continuous r.v. mean/variance content exists in spec; pdf knowledge excluded per S4.2."
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Var(X) via integration of pdf",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "Requires pdf/integration techniques not in spec; S4.2 excludes pdf knowledge."
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "E(3X^2) via integration",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "Builds on pdf integration techniques excluded by S4.2 and uses out-of-spec earlier results."
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Justifying Poisson model",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "Poisson distribution not mentioned in specification statements."
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Hypotheses for Poisson rate test",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "S5.2/S5.3 only cover tests for binomial proportion or Normal mean; no hypothesis test for Poisson rate is in spec."
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Critical region using Poisson distribution",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "Poisson distribution not in specification."
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Actual significance level from Poisson critical region",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "Depends on out-of-spec Poisson critical region from (c)."
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Interpreting Poisson hypothesis test result",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "Depends on out-of-spec Poisson test from (c)/(d)."
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 15,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Sketching a piecewise pdf",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "S4.2 excludes knowledge of the probability density function."
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Finding constant k using area under pdf = 1",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "Requires pdf knowledge excluded by S4.2."
+        },
+        {
+          "label": "c",
+          "marks": 7,
+          "technique": "Deriving cumulative distribution function by integrating pdf",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "S4.2: 'Derivation of the mean, variance and cumulative distribution function is not required'; pdf knowledge excluded."
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Probability from cdf using given E(X)",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "Depends on out-of-spec cdf/pdf work from earlier parts."
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Describing skewness from mean/median comparison",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "Depends on out-of-spec pdf/cdf results from earlier parts; skewness of continuous distributions not covered in spec."
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Stating binomial model B(n,p)",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ],
+          "reason": "S4.1 covers use of the binomial distribution as a model."
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Stating assumption for binomial model",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1",
+            "S4.3"
+          ],
+          "reason": "S4.3 requires knowing conditions under which binomial model is suitable."
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Poisson approximation to binomial",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "Poisson distribution is not mentioned in the specification statements."
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Justifying Poisson approximation conditions",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "Depends on Poisson distribution, not in spec."
+        },
+        {
+          "label": "e",
+          "marks": 7,
+          "technique": "Hypothesis test for binomial proportion using normal approximation",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S5.2",
+            "S4.2"
+          ],
+          "reason": "S5.2 covers hypothesis test for binomial proportion; S4.2 explicitly supports normal approximation to B(n,p) with continuity correction when n large, which is the method used here."
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Explaining sampling distribution of a statistic",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "'Sampling distribution' is a named concept not mentioned anywhere in the specification statements."
+        },
+        {
+          "label": "b",
+          "marks": 7,
+          "technique": "Constructing sampling distribution of a sum of discrete variables",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "Depends on the concept of sampling distribution, which is not in the specification."
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Finding E(T) from sampling distribution",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "Depends on out-of-spec sampling distribution constructed in (b)."
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Probability calculation with continuous uniform distribution",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": [],
+          "reason": "Continuous uniform distribution is not a named content item in the specification statements (only discrete uniform distribution is mentioned in S4.1); no pdf/continuous distribution content is included."
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Var(L) via transformation of continuous uniform variable using integration",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": [],
+          "reason": "Requires integration with a pdf and transformation of a continuous random variable, excluded per S4.2 pdf exclusion and not covered by any statement."
+        }
+      ]
+    }
+  ]
+}

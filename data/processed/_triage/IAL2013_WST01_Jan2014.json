@@ -1,0 +1,380 @@
+{
+  "_paper_id": "IAL2013_WST01_Jan2014",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.145569,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Calculating Scs and Sss (components of PMCC formula)",
+          "reason": "These sums are calculated purely as a step toward the product moment correlation coefficient formula in part (b); S5.1 explicitly excludes use of the PMCC formula, and this calculation is inseparable from that excluded method.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Product moment correlation coefficient via formula",
+          "reason": "S5.1 explicitly states 'use of the formula is not required' for PMCC, and S2.2/S5.1 exclude calculations involving PMCC formula.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Interpretation of PMCC result",
+          "reason": "This part uses the numerical answer from the excluded part (b), so per the rule about parts depending on out-of-spec answers, it is out.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 6,
+          "technique": "Estimating mean, median, variance from grouped frequency data",
+          "reason": "S2.3 covers calculation of mean, median, variance/standard deviation from grouped data including linear interpolation, matching this part exactly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Comparing measures of central tendency between two data sets",
+          "reason": "S2.4 explicitly expects students to draw inferences and give interpretations to measures of central tendency and variation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Drawing a scatter diagram",
+          "reason": "S2.2 covers interpreting scatter diagrams for bivariate data; drawing one is the natural counterpart and not excluded.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Informal comment on correlation from scatter diagram",
+          "reason": "S2.2 explicitly allows informal interpretation of correlation using terms such as positive/negative.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Finding the equation of a regression line",
+          "reason": "S2.2 explicitly excludes 'calculations involving regression lines'.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Using regression equation to estimate a value",
+          "reason": "This directly uses the regression equation found in the excluded part (c), so it is out per the dependency rule as well as the explicit regression exclusion.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Dangers of extrapolation",
+          "reason": "S2.2 guidance explicitly mentions 'the dangers of extrapolation'; this part is a conceptual comment about extrapolating beyond the data range (t=39 outside range 10-27) and does not require using the excluded regression equation's numeric output.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Finding unknown probabilities using E(X) of a discrete random variable",
+          "reason": "S4.1 explicitly excludes 'calculation of mean and variance of discrete random variables'; this part requires using the given E(X) value to set up equations.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Cumulative distribution function using values a, b found from excluded part",
+          "reason": "This part relies on the values of a and b obtained in part (a), which was solved using an excluded technique (mean of discrete r.v.), so it is out per the dependency rule.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "P(X<2.5) using cumulative distribution built on excluded values",
+          "reason": "Depends on the CDF values from part (b), which itself depends on the excluded part (a).",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "technique": "Variance of a linear transformation of a discrete random variable",
+          "reason": "S4.1 explicitly excludes calculation of variance of discrete random variables.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Venn diagram construction from set information",
+          "reason": "S3.1/S3.2 cover use of Venn diagrams for probability, matching this part.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Identifying mutually exclusive events",
+          "reason": "S3.1 covers understanding and using mutually exclusive events.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Probability from Venn diagram",
+          "reason": "S3.2 covers use of Venn diagrams to find probabilities.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 1,
+          "technique": "Probability from Venn diagram",
+          "reason": "S3.2 covers use of Venn diagrams to find probabilities.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 1,
+          "technique": "Probability of union of events",
+          "reason": "S3.2 covers P(A∪B) formula and use with Venn diagrams.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "f",
+          "marks": 2,
+          "technique": "Conditional probability",
+          "reason": "S3.2 explicitly covers conditional probability formula P(A|B).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Finding a probability using the Normal distribution",
+          "reason": "S4.2 covers finding probabilities using the Normal distribution as a model.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Finding an unknown mean of a Normal distribution given a probability",
+          "reason": "S4.2 covers use of Normal distribution including solving simultaneous/inverse problems for parameters; guidance notes 'questions may involve the solution of simultaneous equations'.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Finding an unknown standard deviation of a Normal distribution given a probability",
+          "reason": "S4.2 covers finding parameters of the Normal distribution from given probabilities.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Conditional probability using tree/formula",
+          "reason": "S3.2 explicitly covers the conditional probability formula P(A|B).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Conditional probability with algebraic unknown",
+          "reason": "S3.2 covers conditional probability calculations, including setting up equations from given conditional probabilities.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Probability of complementary/independent-type events",
+          "reason": "S3.2 covers P(A') = 1-P(A) and related probability calculations.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Probability involving two independent trials",
+          "reason": "S3.1 covers independent events and calculating probabilities from combinations of events.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "8",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Histogram area representing frequency",
+          "reason": "S2.1 explicitly states that area in a histogram represents frequency, matching this part directly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Estimating median from grouped/histogram data using linear interpolation",
+          "reason": "S2.3 explicitly expects use of linear interpolation to calculate percentiles/median from grouped data.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Estimating mean from grouped frequency data",
+          "reason": "S2.3 covers calculation of mean from grouped data using midpoints.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Choosing appropriate measure of central tendency considering skew/outliers",
+          "reason": "S2.4 expects students to draw inferences and interpretations regarding measures of central tendency, including effect of outliers/skew.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.4"
+          ]
+        }
+      ]
+    }
+  ]
+}

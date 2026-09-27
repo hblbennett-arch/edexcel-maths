@@ -1,0 +1,263 @@
+{
+  "_paper_id": "IAL2018_WST03_Jan2025",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.344688,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Spearman's rank correlation coefficient",
+          "reason": "S5.1 covers hypothesis testing developed through correlation coefficients but explicitly states 'calculation of correlation coefficients is excluded' and restricts calculation to the PMCC via calculator, not a formula. Spearman's rank correlation coefficient and the ranking/tied-ranks method used here is a distinct named technique that no statement mentions at all, so it is out regardless of the arithmetic similarity to S2.3.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Hypothesis test for correlation using Spearman's coefficient",
+          "reason": "This part uses the answer from (a) (Spearman's rs) and tests it against a critical value; S5.1 only covers hypothesis testing for the PMCC (denoted ρ, tested against ρ=0), not Spearman's rank correlation, which is a separate named technique not mentioned in any statement. It also depends on the out-of-spec part (a).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Sample mean calculation for goodness-of-fit test of Poisson model",
+          "reason": "This calculates a mean from a frequency table (superficially like S2.3), but it is explicitly set up as a step in testing suitability of a Poisson distribution. Poisson distribution is not named in any statement (only binomial and Normal distributions are covered in S4.1/S4.2), so any part relying on it is out regardless of the arithmetic involved.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Poisson expected frequencies",
+          "reason": "Requires understanding of expected frequencies generated from a Poisson probability model; Poisson is not mentioned in any 9MA0 statement, so this is out.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Combining cells for chi-squared goodness-of-fit test",
+          "reason": "This is part of setting up a chi-squared goodness-of-fit test (requiring expected frequencies >5), a technique not mentioned in any statement (only binomial proportion test, normal mean test, and correlation-based tests appear in Section 5).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "technique": "Chi-squared goodness-of-fit test for Poisson distribution",
+          "reason": "Chi-squared goodness-of-fit testing and the Poisson distribution are not covered by any statement; S5 only covers hypothesis tests for a binomial proportion (S5.2) and for a Normal mean (S5.3), with correlation coefficients in S5.1. This whole part is out.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Unbiased estimates of population mean and variance from summary statistics",
+          "reason": "S2.3 explicitly covers calculating standard deviation (and hence variance) from summary statistics using Sxx, and calculation of the mean is standard. No named exclusion applies to 'unbiased estimator' terminology; the calculation performed (p = sum x / n, q from Sxx/(n-1)) is the same technique as S2.3 applied to sample data, just with different labelling/divisor convention, which the specification itself acknowledges as acceptable.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 7,
+          "technique": "Two-sample z-test for difference of population means with known/estimated variances",
+          "reason": "S5.3 only covers a hypothesis test for the mean of a single Normal distribution with known/given/assumed variance; a two-sample test comparing means of two independent populations is a distinct, more advanced technique not described by any statement, so it is out.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Justification via Central Limit Theorem for large samples",
+          "reason": "S5.3 explicitly states 'Knowledge of the Central Limit Theorem or other large sample approximations is not required', and this part directly requires that concept to justify normality of sample means; it also depends on the out-of-spec two-sample test in (b).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Confidence interval for a Normal mean - standard error derivation",
+          "reason": "Confidence intervals are not mentioned as a topic in any 9MA0 statement (Section 5 covers only hypothesis testing for a binomial proportion and for a Normal mean, not confidence intervals). This entire topic is absent from the specification.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "95% confidence interval for a Normal mean",
+          "reason": "Confidence intervals are not covered by any statement; also depends on the out-of-spec standard error found in (a).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 5,
+          "technique": "Finding confidence level from interval width",
+          "reason": "Confidence intervals are not covered by any statement and this part depends on results from (a) and (b).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a(i)",
+          "marks": 1,
+          "technique": "Advantages of quota sampling",
+          "reason": "S1.1 explicitly states students should be familiar with quota sampling and be able to comment on advantages/disadvantages of sampling techniques.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S1.1"
+          ]
+        },
+        {
+          "label": "a(ii)",
+          "marks": 1,
+          "technique": "Disadvantages of quota sampling",
+          "reason": "S1.1 explicitly covers quota sampling and critiquing sampling techniques including disadvantages.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S1.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Expected frequencies for a contingency table (chi-squared test set-up)",
+          "reason": "This is a preparatory calculation for a chi-squared test of independence, a technique not named or described in any statement; Section 5 only covers binomial proportion tests, Normal mean tests, and correlation coefficient tests.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 7,
+          "technique": "Chi-squared test of independence for a contingency table",
+          "reason": "Chi-squared tests of independence/association are not mentioned in any statement; S5.1-S5.3 cover only correlation coefficient tests, binomial proportion tests, and Normal mean tests, so this is out.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Bias of an estimator based on the continuous uniform distribution",
+          "reason": "The continuous uniform distribution is not named or described in any statement (S4.1 covers only discrete distributions, explicitly excluding mean/variance calculation for general discrete random variables, and S4.2 covers only the Normal distribution among continuous distributions, excluding pdf knowledge). Bias of an estimator is also not a named concept in any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Bias of an estimator",
+          "reason": "Depends on the out-of-spec result from (a) and continues use of the continuous uniform distribution and bias concept, neither of which is covered by any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Constructing an unbiased estimator",
+          "reason": "Depends on the out-of-spec continuous uniform distribution and bias concepts from (a)/(b), none of which are covered by any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Point estimation using sample mean for continuous uniform distribution parameter",
+          "reason": "Relies on the continuous uniform distribution and the estimator constructed in (c), neither of which is in the specification.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 15,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Distribution of a linear combination (sum) of independent Normal random variables",
+          "reason": "S4.2 covers finding probabilities using the Normal distribution as a model but does not mention combining independent Normal random variables (sums with combined mean/variance); this is a distinct technique not described by any statement.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Distribution of the difference of two independent Normal random variables",
+          "reason": "As with (a), forming and using the distribution of a difference of two independent Normal variables is not mentioned in S4.2 or any other statement, so this is out.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 6,
+          "technique": "Distribution of a linear combination of Normal random variables with unknown n, solved via a resulting quadratic",
+          "reason": "This requires forming the distribution of a general linear combination of n+1 Normal random variables, a technique beyond simply 'finding probabilities using the Normal distribution' (S4.2); it is not described by any statement.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        }
+      ]
+    }
+  ]
+}

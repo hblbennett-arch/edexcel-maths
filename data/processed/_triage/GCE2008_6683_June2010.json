@@ -1,0 +1,402 @@
+{
+  "_paper_id": "GCE2008_6683_June2010",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.27671049999999997,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 4,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "PMCC calculation",
+          "reason": "Calculating the product moment correlation coefficient using Sxx, Syy, Sxy is explicitly excluded by S5.1 ('use of the formula is not required') and S2.2 ('calculations involving regression lines are excluded' relates to similar excluded calculation ethos); PMCC formula calculation is explicitly out.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "interpret correlation coefficient",
+          "reason": "S2.2 covers informal interpretation of correlation in context, which is what is asked here regardless of how r was obtained.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "effect of scaling on PMCC",
+          "reason": "This part only makes sense after using the value from part (a), which required the excluded PMCC formula calculation; also relates to PMCC invariance under scaling, not a listed technique.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "tree diagram probabilities",
+          "reason": "S3.1/S3.2 guidance explicitly mentions tree diagrams for probability calculations.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "total probability via tree diagram",
+          "reason": "Standard use of tree diagram to combine probabilities, covered by S3.1/S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "conditional probability",
+          "reason": "S3.2 explicitly covers conditional probability formula P(A|B)=P(A∩B)/P(B).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "independent events probability",
+          "reason": "Sum of squared probabilities for matching outcomes uses independence and basic probability rules from S3.1/S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "find unknown probability in discrete distribution",
+          "reason": "S4.1 covers simple discrete probability distributions; the exclusion only removes calculation of mean and variance, not finding an unknown probability constant using sum of probabilities = 1, so this remains in spec.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "E(X) of discrete random variable",
+          "reason": "S4.1 explicitly excludes 'calculation of mean ... of discrete random variables'.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Var(X) of discrete random variable",
+          "reason": "S4.1 explicitly excludes 'calculation of ... variance of discrete random variables'.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Var(Y) for linear transformation Y=6-2X",
+          "reason": "Depends directly on the excluded Var(X) calculation from part (c); variance of discrete r.v. is excluded under S4.1.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 3,
+          "technique": "probability comparing X and Y using distribution",
+          "reason": "This uses only the probability distribution values (P(X=x)) to find P(X>Y), not mean or variance, so it is not caught by the S4.1 mean/variance exclusion; it is a probability calculation from a given discrete distribution.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Venn diagram probability",
+          "reason": "S3.1/S3.2 guidance explicitly mentions Venn diagrams for probability.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "addition rule for probability",
+          "reason": "S3.2 covers P(A∪B)=P(A)+P(B)-P(A∩B).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "reading Venn diagram probability",
+          "reason": "Direct reading of Venn diagram, covered by S3.1/S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "conditional probability from Venn diagram",
+          "reason": "S3.2 explicitly covers conditional probability using Venn diagrams.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 3,
+          "technique": "testing statistical independence",
+          "reason": "S3.1 covers use of P(A∩B)=P(A)P(B) for independent events; testing independence using this relation is within spec.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "midpoints of grouped data",
+          "reason": "Basic grouped data handling covered under S2.3 (data may be discrete, continuous, grouped).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "histogram bar width/height (frequency density)",
+          "reason": "S2.1 explicitly covers histograms and area representing frequency.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 5,
+          "technique": "mean and standard deviation from grouped frequency data",
+          "reason": "S2.3 explicitly covers calculating standard deviation, including from grouped/summary statistics via Sxx.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "linear interpolation for median from grouped data",
+          "reason": "S2.3 guidance explicitly mentions linear interpolation to calculate percentiles from grouped data.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "skewness from quartiles",
+          "reason": "S2.3/S2.4 cover interpretation of measures of variation and central tendency including skewness reasoning from quartiles.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.3",
+            "S2.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "scatter diagram",
+          "reason": "S2.2 explicitly covers interpreting/producing scatter diagrams for bivariate data.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "justify linear regression model appropriateness",
+          "reason": "S2.2 covers interpreting scatter diagrams and appropriateness of linear model, informal judgement not a regression calculation.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "calculate Sdd and Sfd for regression",
+          "reason": "These summary statistics are calculated specifically as inputs to the regression line; S2.2 explicitly excludes 'calculations involving regression lines', which this directly supports.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "technique": "regression line equation f=a+bd",
+          "reason": "S2.2 explicitly states 'calculations involving regression lines are excluded'.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 1,
+          "technique": "interpret gradient of regression line",
+          "reason": "Depends directly on the excluded regression line calculation from part (d); regression line calculations are excluded under S2.2.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "f",
+          "marks": 2,
+          "technique": "use regression line to compare costs",
+          "reason": "Uses the regression line equation from part (d), which is out of spec under S2.2's exclusion of regression line calculations.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Normal distribution probability calculation",
+          "reason": "S4.2 explicitly covers finding probabilities using the Normal distribution.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "finding quartile of Normal distribution",
+          "reason": "S4.2 covers use of Normal distribution including simultaneous equation/quantile problems.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "symmetry of Normal distribution for lower quartile",
+          "reason": "S4.2 covers knowledge of symmetry of the Normal distribution.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "outlier boundary calculation using IQR",
+          "reason": "S2.4 explicitly covers identifying outliers using Q1-1.5×IQR and Q3+1.5×IQR type rules.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.4"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 3,
+          "technique": "probability of an outlier using Normal distribution",
+          "reason": "Combines Normal probability calculation (S4.2) with outlier boundaries (S2.4), both in spec.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2",
+            "S2.4"
+          ]
+        }
+      ]
+    }
+  ]
+}

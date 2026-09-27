@@ -1,0 +1,132 @@
+{
+  "_paper_id": "IAL2013_WMA02_June2017",
+  "summary": [
+    {
+      "q_num": "6",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": null,
+          "marks": 6,
+          "technique": "Determining if two 3D vector lines are parallel, intersecting, or skew",
+          "reason": "Vector equation of a line (r=a+λb), intersection of lines, and skew lines are explicitly listed as concepts no 9MA0 statement covers."
+        }
+      ]
+    },
+    {
+      "q_num": "8",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "in spec",
+          "reason": "question dropped: other parts out of spec"
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Volume of solid of revolution about x-axis",
+          "reason": "Volume of revolution is explicitly listed among concepts no 9MA0 statement covers."
+        }
+      ]
+    },
+    {
+      "q_num": "9",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "scalar (dot) product, including the angle between vectors or lines",
+          "reason": "Uses scalar (dot) product, including the angle between vectors or lines, which no 9MA0 statement covers (concept screen; terms verified absent from spec_9ma0.json). Evidence: Attempts (2,3,-2)·(5,-6,1) = sqrt(2^2+3^2+(-2)^2) sqrt(5^2+(-6)^2+1^2) cos(angle CAB) — explicit use of the dot product formula a.b = |a||b|cos(theta) to find the angle between two vectors."
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "in spec",
+          "reason": "question dropped: other parts out of spec"
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "in spec",
+          "reason": "question dropped: other parts out of spec"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "paper_id": "IAL2013_WMA02_June2017",
+      "spec": "IAL-2013",
+      "qualification": "IAL-2013",
+      "unit": "WMA02",
+      "status": "legacy",
+      "paper": "WMA02",
+      "sitting": "June2017",
+      "id": "IAL2013_WMA02_June2017_Q9",
+      "q_num": "9",
+      "total_marks": 8,
+      "component": "pure",
+      "uses_large_data_set": false,
+      "stem": "Figure 2 shows a sketch of a triangle $ABC$.\nGiven $\\overrightarrow{AB}=2\\mathbf{i}+3\\mathbf{j}-2\\mathbf{k}$ and $\\overrightarrow{AC}=5\\mathbf{i}-6\\mathbf{j}+\\mathbf{k}$,",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "text": "(a) find the size of angle $CAB$, giving your answer in degrees to 2 decimal places,\n(3)",
+          "mark_scheme": "Attempts $\\begin{pmatrix}2\\\\3\\\\-2\\end{pmatrix}\\cdot\\begin{pmatrix}5\\\\-6\\\\1\\end{pmatrix}=\\sqrt{(2^2+3^2+(-2)^2)}\\sqrt{(5^2+(-6)^2+1^2)}\\cos(\\angle CAB)$ M1\n$\\angle CAB=\\arccos\\left(-\\frac{10}{\\sqrt{17}\\sqrt{62}}\\right)=107.94^\\circ$ dM1A1\nM1: Attempts to use $\\mathbf{a}\\cdot\\mathbf{b}=|\\mathbf{a}||\\mathbf{b}|\\cos\\theta$ where $\\mathbf{a}=\\pm(2\\mathbf{i}+3\\mathbf{j}-2\\mathbf{k})$, $\\mathbf{b}=\\pm(5\\mathbf{i}-6\\mathbf{j}+\\mathbf{k})$ i.e. correct use of Pythagoras to find and multiply the lengths together and multiplies and adds components (allow arithmetic slips) for dot product.\ndM1: Dependent upon previous M1. For continuing to find $\\angle CAB$ using invcos. Allow $\\arccos\\left(\\frac{\\pm 10}{\\sqrt{17}\\sqrt{62}}\\right)$\nA1: awrt $107.94^\\circ$ only (Do not isw, so $107.94...$ followed by $180-107.94...=72.06...$ scores A0). Note that the correct answer in radians is $1.8839...$ and scores M1dM1A0 following correct work.\nOfficial notes (completeness pass):\n- dM1: Implied by previous M1 + angle rounding to $108^\\circ$ or $72.1^\\circ$ (NB $\\cos\\theta=-0.308…$)\n- ALT (a): Calculates $|BC|=\\sqrt{(5-2)^2+(-6-3)^2+(1--2)^2}$ M1; Uses cosine rule $\\cos\\angle CAB=\\frac{17+62-99}{2\\times\\sqrt{17}\\times\\sqrt{62}}$ dM1; $\\Rightarrow\\angle CAB=\\arccos\\left(-\\frac{20}{2\\sqrt{17}\\sqrt{62}}\\right)=107.94^\\circ$ A1",
+          "spec_refs": [
+            "P10.2"
+          ],
+          "out_of_spec": {
+            "reason": "Uses scalar (dot) product, including the angle between vectors or lines, which no 9MA0 statement covers (concept screen; terms verified absent from spec_9ma0.json). Evidence: Attempts (2,3,-2)·(5,-6,1) = sqrt(2^2+3^2+(-2)^2) sqrt(5^2+(-6)^2+1^2) cos(angle CAB) — explicit use of the dot product formula a.b = |a||b|cos(theta) to find the angle between two vectors.",
+            "technique": "scalar (dot) product, including the angle between vectors or lines",
+            "spec_note": "concept_screen.py"
+          }
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "text": "(b) find the area of triangle $ABC$, giving your answer to 2 decimal places.\n(2)",
+          "mark_scheme": "Area $=\\frac{1}{2}\\sqrt{17}\\sqrt{62}\\sin(107.94^\\circ)=15.44$ M1A1\nM1: Uses Area$=\\frac{1}{2}|\\mathbf{a}||\\mathbf{b}|\\sin C$ with $\\mathbf{a}=2\\mathbf{i}+3\\mathbf{j}-2\\mathbf{k}$, $\\mathbf{b}=5\\mathbf{i}-6\\mathbf{j}+\\mathbf{k}$ and $C=$ their $107.94^\\circ$\nA1: Area = awrt 15.44 (Allow if $72.06^\\circ$ is used for angle CAB)\nOfficial notes (completeness pass):\n- ALT (b): Area $=\\sqrt{s(s-a)(s-b)(s-c)}=\\sqrt{\\left(\\frac{\\sqrt{17}+\\sqrt{62}+\\sqrt{99}}{2}\\right)\\left(\\frac{\\sqrt{17}-\\sqrt{62}+\\sqrt{99}}{2}\\right)\\left(\\frac{\\sqrt{17}+\\sqrt{62}-\\sqrt{99}}{2}\\right)\\left(\\frac{\\sqrt{62}+\\sqrt{99}-\\sqrt{17}}{2}\\right)}$ M1A1\n- Alt (b) ii: Area $=\\frac{1}{2}\\sqrt{|AB|^2|AC|^2-(\\overrightarrow{AB}.\\overrightarrow{AC})^2}=\\frac{1}{2}\\sqrt{17\\times62-100}=\\frac{3}{2}\\sqrt{106}$ M1A1\n- ALT (b): Area $=\\frac{1}{2}|a\\times b|=\\frac{1}{2}\\begin{vmatrix}i&j&k\\\\2&3&-2\\\\5&-6&1\\end{vmatrix}=\\frac{1}{2}|-9i-12j-27k|=\\frac{1}{2}\\sqrt{9^2+12^2+27^2}=15.44$ M1A1",
+          "spec_refs": [
+            "P5.1",
+            "P10.5"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "text": "Using your answer to part (b), or otherwise,\n(c) find the shortest distance from $A$ to $BC$, giving your answer to 2 decimal places.\n(3)",
+          "mark_scheme": "Calculates $|BC|=\\sqrt{(5-2)^2+(-6-3)^2+(1--2)^2}$ M1\nUses Area$=\\frac{1}{2}|BC|\\times|AD|\\Rightarrow 15.44=\\frac{1}{2}\\times\\sqrt{99}\\times|AD|\\Rightarrow |AD|=3.10$ M1A1\nM1: Attempts to find the length of BC or BC$^2$ e.g. $|BC|=\\sqrt{(5-2)^2+(-6-3)^2+(1--2)^2}$. Alternatively uses the cosine rule $BC^2=17+62-2\\sqrt{17}\\sqrt{62}\\cos 107.9$. This may be seen in (a) or (b) but must be used in (c) to score this mark.\nM1: Attempts to use Area$=\\frac{1}{2}|BC|\\times|AD|$ using their area from (b) and their $|BC|$. This may be implied by their working.\nA1: $|AD|=$ awrt 3.10 (Not 3.1). Note that assuming AD bisects BAC without finding BC generally scores no marks.\nOfficial notes (completeness pass):\n- ALT (c): Calculates $|BC|=\\sqrt{(5-2)^2+(-6-3)^2+(1--2)^2}$ M1; $\\frac{\\sin(\"107.94\")}{BC}=\\frac{\\sin B}{\"\\sqrt{62}\"}\\Rightarrow B=48.84...\\Rightarrow AD=\"\\sqrt{17}\"\\sin B=3.10$ M1A1\n- NB $BC=\\sqrt{99}$ or $3\\sqrt{11}$",
+          "spec_refs": [
+            "P10.4",
+            "P10.5"
+          ]
+        }
+      ],
+      "qp_pages": [
+        28,
+        31
+      ],
+      "low_confidence": false,
+      "notes": "[fix_parts] (c) mark_scheme: 'NB BC = √99 or 3√11' -> 'NB $BC=\\\\sqrt{99}$ or $3\\\\sqrt{11}$' (LaTeX for the completeness-pass line)",
+      "source_qp_file": "pearson/IAL-2013/June2017/IAL2013_WMA02_June2017_QP.txt",
+      "source_ms_file": "pearson/IAL-2013/June2017/IAL2013_WMA02_June2017_MS.txt",
+      "notation": "latex",
+      "extraction_method": "single-call-v1",
+      "question_text": "Figure 2 shows a sketch of a triangle $ABC$.\nGiven $\\overrightarrow{AB}=2\\mathbf{i}+3\\mathbf{j}-2\\mathbf{k}$ and $\\overrightarrow{AC}=5\\mathbf{i}-6\\mathbf{j}+\\mathbf{k}$,\n(a) find the size of angle $CAB$, giving your answer in degrees to 2 decimal places,\n(3)\n(b) find the area of triangle $ABC$, giving your answer to 2 decimal places.\n(2)\nUsing your answer to part (b), or otherwise,\n(c) find the shortest distance from $A$ to $BC$, giving your answer to 2 decimal places.\n(3)",
+      "mark_scheme_text": "Attempts $\\begin{pmatrix}2\\\\3\\\\-2\\end{pmatrix}\\cdot\\begin{pmatrix}5\\\\-6\\\\1\\end{pmatrix}=\\sqrt{(2^2+3^2+(-2)^2)}\\sqrt{(5^2+(-6)^2+1^2)}\\cos(\\angle CAB)$ M1\n$\\angle CAB=\\arccos\\left(-\\frac{10}{\\sqrt{17}\\sqrt{62}}\\right)=107.94^\\circ$ dM1A1\nM1: Attempts to use $\\mathbf{a}\\cdot\\mathbf{b}=|\\mathbf{a}||\\mathbf{b}|\\cos\\theta$ where $\\mathbf{a}=\\pm(2\\mathbf{i}+3\\mathbf{j}-2\\mathbf{k})$, $\\mathbf{b}=\\pm(5\\mathbf{i}-6\\mathbf{j}+\\mathbf{k})$ i.e. correct use of Pythagoras to find and multiply the lengths together and multiplies and adds components (allow arithmetic slips) for dot product.\ndM1: Dependent upon previous M1. For continuing to find $\\angle CAB$ using invcos. Allow $\\arccos\\left(\\frac{\\pm 10}{\\sqrt{17}\\sqrt{62}}\\right)$\nA1: awrt $107.94^\\circ$ only (Do not isw, so $107.94...$ followed by $180-107.94...=72.06...$ scores A0). Note that the correct answer in radians is $1.8839...$ and scores M1dM1A0 following correct work.\nOfficial notes (completeness pass):\n- dM1: Implied by previous M1 + angle rounding to $108^\\circ$ or $72.1^\\circ$ (NB $\\cos\\theta=-0.308…$)\n- ALT (a): Calculates $|BC|=\\sqrt{(5-2)^2+(-6-3)^2+(1--2)^2}$ M1; Uses cosine rule $\\cos\\angle CAB=\\frac{17+62-99}{2\\times\\sqrt{17}\\times\\sqrt{62}}$ dM1; $\\Rightarrow\\angle CAB=\\arccos\\left(-\\frac{20}{2\\sqrt{17}\\sqrt{62}}\\right)=107.94^\\circ$ A1\nArea $=\\frac{1}{2}\\sqrt{17}\\sqrt{62}\\sin(107.94^\\circ)=15.44$ M1A1\nM1: Uses Area$=\\frac{1}{2}|\\mathbf{a}||\\mathbf{b}|\\sin C$ with $\\mathbf{a}=2\\mathbf{i}+3\\mathbf{j}-2\\mathbf{k}$, $\\mathbf{b}=5\\mathbf{i}-6\\mathbf{j}+\\mathbf{k}$ and $C=$ their $107.94^\\circ$\nA1: Area = awrt 15.44 (Allow if $72.06^\\circ$ is used for angle CAB)\nOfficial notes (completeness pass):\n- ALT (b): Area $=\\sqrt{s(s-a)(s-b)(s-c)}=\\sqrt{\\left(\\frac{\\sqrt{17}+\\sqrt{62}+\\sqrt{99}}{2}\\right)\\left(\\frac{\\sqrt{17}-\\sqrt{62}+\\sqrt{99}}{2}\\right)\\left(\\frac{\\sqrt{17}+\\sqrt{62}-\\sqrt{99}}{2}\\right)\\left(\\frac{\\sqrt{62}+\\sqrt{99}-\\sqrt{17}}{2}\\right)}$ M1A1\n- Alt (b) ii: Area $=\\frac{1}{2}\\sqrt{|AB|^2|AC|^2-(\\overrightarrow{AB}.\\overrightarrow{AC})^2}=\\frac{1}{2}\\sqrt{17\\times62-100}=\\frac{3}{2}\\sqrt{106}$ M1A1\n- ALT (b): Area $=\\frac{1}{2}|a\\times b|=\\frac{1}{2}\\begin{vmatrix}i&j&k\\\\2&3&-2\\\\5&-6&1\\end{vmatrix}=\\frac{1}{2}|-9i-12j-27k|=\\frac{1}{2}\\sqrt{9^2+12^2+27^2}=15.44$ M1A1\nCalculates $|BC|=\\sqrt{(5-2)^2+(-6-3)^2+(1--2)^2}$ M1\nUses Area$=\\frac{1}{2}|BC|\\times|AD|\\Rightarrow 15.44=\\frac{1}{2}\\times\\sqrt{99}\\times|AD|\\Rightarrow |AD|=3.10$ M1A1\nM1: Attempts to find the length of BC or BC$^2$ e.g. $|BC|=\\sqrt{(5-2)^2+(-6-3)^2+(1--2)^2}$. Alternatively uses the cosine rule $BC^2=17+62-2\\sqrt{17}\\sqrt{62}\\cos 107.9$. This may be seen in (a) or (b) but must be used in (c) to score this mark.\nM1: Attempts to use Area$=\\frac{1}{2}|BC|\\times|AD|$ using their area from (b) and their $|BC|$. This may be implied by their working.\nA1: $|AD|=$ awrt 3.10 (Not 3.1). Note that assuming AD bisects BAC without finding BC generally scores no marks.\nOfficial notes (completeness pass):\n- ALT (c): Calculates $|BC|=\\sqrt{(5-2)^2+(-6-3)^2+(1--2)^2}$ M1; $\\frac{\\sin(\"107.94\")}{BC}=\\frac{\\sin B}{\"\\sqrt{62}\"}\\Rightarrow B=48.84...\\Rightarrow AD=\"\\sqrt{17}\"\\sin B=3.10$ M1A1\n- NB $BC=\\sqrt{99}$ or $3\\sqrt{11}$",
+      "excluded_because": [
+        {
+          "label": "a",
+          "reason": "Uses scalar (dot) product, including the angle between vectors or lines, which no 9MA0 statement covers (concept screen; terms verified absent from spec_9ma0.json). Evidence: Attempts (2,3,-2)·(5,-6,1) = sqrt(2^2+3^2+(-2)^2) sqrt(5^2+(-6)^2+1^2) cos(angle CAB) — explicit use of the dot product formula a.b = |a||b|cos(theta) to find the angle between two vectors.",
+          "technique": "scalar (dot) product, including the angle between vectors or lines",
+          "spec_note": "concept_screen.py"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,392 @@
+{
+  "_paper_id": "IAL2018_WST01_Jan2024",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.40892999999999996,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Histogram frequency density calculation",
+          "reason": "S2.1 covers interpreting histograms where area represents frequency; finding frequencies from frequency density is standard.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Linear interpolation for median from grouped data",
+          "reason": "S2.3 guidance explicitly requires linear interpolation to calculate percentiles from grouped data.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Describing skewness using mean vs median",
+          "reason": "S2.3/S2.4 cover interpreting measures of central tendency and drawing inferences such as skewness comparisons.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.3",
+            "S2.4"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Probability without replacement using frequencies (conditional/independent events)",
+          "reason": "S3.1/S3.2 cover calculating probabilities of combined events including without-replacement scenarios.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a(i)",
+          "marks": 1,
+          "technique": "Calculating mean from summary statistics",
+          "reason": "S2.3 covers calculation of mean from summary statistics.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "a(ii)",
+          "marks": 2,
+          "technique": "Standard deviation from summary statistics",
+          "reason": "S2.3 explicitly allows calculation of standard deviation from summary statistics using Sxx.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Calculating PMCC using formula from summary statistics",
+          "reason": "S5.1 explicitly excludes calculation of correlation coefficients using the formula; here the Sxy/Sxx/Syy formula is required rather than a calculator-only value, so this is excluded.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [
+            "S5.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Coding: effect of linear transformation on mean and standard deviation",
+          "reason": "S2.3 guidance explicitly mentions understanding and use of coding for mean and standard deviation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Effect of coding on PMCC",
+          "reason": "This part relies on the PMCC value from part (b), which used the excluded formula method; it inherits that exclusion since it uses that out-of-spec answer.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": [
+            "S5.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Completing a tree diagram",
+          "reason": "S3.2 explicitly covers use of tree diagrams for conditional/combined probabilities.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Solving for unknown probability using total probability with tree diagram",
+          "reason": "S3.2 covers combining probabilities via tree diagrams, including forming and solving equations for unknowns.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Calculating joint probability from tree diagram",
+          "reason": "S3.2 covers P(A∩B)=P(A)P(B|A) type calculations via tree diagrams.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Conditional probability calculation P(Year12|Right-handed)",
+          "reason": "S3.2 explicitly covers the conditional probability formula P(A|B)=P(A∩B)/P(B).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Identifying outliers using IQR rule",
+          "reason": "S2.4 explicitly covers identifying outliers using a specified rule such as Q3+1.5×IQR.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Calculating regression line equation from summary statistics",
+          "reason": "S2.2/S5.1 explicitly exclude calculations involving regression lines; here the gradient and intercept must be computed from Sxy/Sxx, which is the excluded calculation.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Interpreting gradient of regression line",
+          "reason": "This interpretation directly depends on the numerical gradient calculated in the excluded part (b), so it uses that out-of-spec answer and is out of spec.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Using regression equation to predict values (interpolation/extrapolation)",
+          "reason": "Depends on the regression equation derived via the excluded calculation in (b); using a regression line for prediction is itself a calculation involving a regression line, explicitly excluded by S2.2/S5.1.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.2"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Reliability of interpolation vs extrapolation",
+          "reason": "This part evaluates the numeric estimates found in the excluded part (d), so it uses that out-of-spec answer and is out of spec.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Standardising a Normal random variable to find probability",
+          "reason": "S4.2 explicitly covers using the Normal distribution as a model and finding probabilities via standardisation with calculator/tables.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Combining Normal probability calculation with conditional probability of independent trials",
+          "reason": "This uses standardisation of a Normal distribution (S4.2) together with independent/conditional event calculations (S3.1, S3.2), both explicitly covered statements; no excluded content (e.g. CLT, pdf derivation) is required.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2",
+            "S3.1",
+            "S3.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Deriving equation using conditional probability and addition rule",
+          "reason": "S3.2 explicitly covers P(A|B) formula and P(A∪B)=P(A)+P(B)-P(A∩B).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b(i)",
+          "marks": 2,
+          "technique": "Using mutually exclusive event addition rule to form equation",
+          "reason": "S3.1 covers mutually exclusive events and P(A∪B)=P(A)+P(B) in that case.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1"
+          ]
+        },
+        {
+          "label": "b(ii)",
+          "marks": 2,
+          "technique": "Solving simultaneous linear equations",
+          "reason": "P2.4 covers solving simultaneous equations; this is a standard algebraic skill within spec.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.4"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Testing statistical independence of events",
+          "reason": "S3.1/S3.2 cover the condition P(A∩B)=P(A)P(B) for independent events and computing P(A|B) vs P(B) to test independence.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Using cumulative distribution function property F(max)=1 to find constant",
+          "reason": "S4.1 covers discrete probability distributions generally; using the sum-to-1 property to find an unknown constant is a basic step within scope, and no calculation of mean/variance is involved.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Finding probability distribution from cumulative distribution function",
+          "reason": "S4.1 covers discrete probability distributions; deriving individual probabilities from a CDF via differencing is a basic distributional skill, not the excluded mean/variance calculation.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Identifying the mode from a probability distribution",
+          "reason": "S4.1 covers simple discrete probability distributions; reading off the mode (the value with the highest probability) from the distribution found in part (b) is a basic descriptive step distinct from the excluded mean/variance calculation, so it remains in spec.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 5,
+          "technique": "Calculating Var(X) and variance of a linear transformation for a general discrete random variable",
+          "reason": "S4.1 explicitly excludes 'calculation of mean and variance of discrete random variables'; this part requires computing E(X), E(X^2), Var(X) and Var(13X-6), directly matching the exclusion.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "8",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Using symmetry of Normal distribution and inverse standardisation to find unknown k",
+          "reason": "S4.2 covers using the Normal distribution as a model, including finding probabilities/percentiles via standardisation, consistent with calculator-based inverse normal use.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Solving simultaneous equations involving Normal distribution parameters and standardisation",
+          "reason": "S4.2 explicitly states questions may involve solution of simultaneous equations for Normal distribution parameters; standardisation and inverse normal use are within scope.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2",
+            "P2.4"
+          ]
+        }
+      ]
+    }
+  ]
+}

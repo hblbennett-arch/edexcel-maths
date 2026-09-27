@@ -1,0 +1,299 @@
+{
+  "_paper_id": "GCE2008_6677_Jan2008",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.12170149999999999,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Impulse = change in momentum for a particle",
+          "reason": "No statement in the current 9MA0 spec covers momentum or impulse (M6-M9 sections given are only quantities/units, kinematics, forces/Newton's laws, and moments; momentum/impulse is absent entirely).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Conservation of linear momentum in a collision",
+          "reason": "Conservation of momentum (CLM) is not covered by any listed statement; no section on momentum/impulse exists in the given spec content.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "suvat constant acceleration formula",
+          "reason": "M7.3 covers constant acceleration formulae for straight-line motion; finding acceleration from s, u, t is standard.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "suvat to find velocity",
+          "reason": "M7.3 covers use of constant acceleration formulae to find speed.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Motion under gravity, constant acceleration formulae",
+          "reason": "M7.3/M8.3 cover motion under gravity with constant g; finding height after burnout uses suvat with g.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.3",
+            "M8.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Sketching speed-time graph",
+          "reason": "M7.2 explicitly covers interpreting/using velocity-time graphs including gradient and area, which includes sketching such graphs from given motion description.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Area under speed-time graph to find distance/time",
+          "reason": "M7.2 covers area under velocity-time graph representing distance; used here to find total time via given distance.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.2",
+            "M7.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 5,
+          "technique": "Area under graph / suvat to find unknown speed V",
+          "reason": "Combination of M7.2 (area under graph) and M7.3 (constant acceleration formulae) used to solve for V given total distance.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.2",
+            "M7.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Resolving forces parallel to inclined plane, equilibrium",
+          "reason": "M8.4 guidance explicitly extends equilibrium of forces to inclined-plane problems requiring resolution of forces; this is exactly such a case.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M8.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Resolving forces perpendicular to plane to find normal reaction",
+          "reason": "Same inclined plane equilibrium context, covered by M8.4 guidance (resolving forces, inclined plane).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M8.4"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Newton's second law on inclined plane with resolved forces",
+          "reason": "M8.2 guidance explicitly extends Newton's second law to situations requiring resolving forces, e.g. a particle on an inclined plane.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M8.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "(a)(i)(ii)",
+          "marks": 5,
+          "technique": "Moments of a uniform rod, equilibrium",
+          "reason": "M9.1 covers moments in simple static contexts including rigid body/rod equilibrium with two supports.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M9.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Moments with variable position of load",
+          "reason": "M9.1 covers moments problems; expressing tension in terms of y is standard moments application.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M9.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Solving inequality from moments equation",
+          "reason": "Follows directly from part (b)'s in-spec moments expression, solved via linear inequality (P2.5) applied in mechanics context; both underlying techniques are in spec.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "M9.1",
+            "P2.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Magnitude of a velocity vector (speed)",
+          "reason": "M7.3 extends kinematics to 2D using vectors; finding speed as magnitude of velocity vector uses P10.2 magnitude of a vector, both in spec.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.3",
+            "P10.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Direction of vector as bearing",
+          "reason": "M7.3 covers 2D vector kinematics; direction/bearing calculations are standard ordinary vector work (in spec per vector guidance), not excluded (no dot product/skew line concept involved).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.3",
+            "P10.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 5,
+          "technique": "Position vector with constant velocity, solving for unknown velocity components",
+          "reason": "M7.3 covers suvat/position vector formulae in 2D vector form (r=ut+...); finding u,v from position vector conditions is standard vector kinematics.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.3",
+            "P10.4"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Vector kinematics to find time when displacement satisfies a direction condition",
+          "reason": "Continues the in-spec vector kinematics method (M7.3), using position vector components; no excluded concept (e.g., skew lines) is required.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "M7.3",
+            "P10.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 15,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Newton's second law for connected particles via pulley",
+          "reason": "M8.4 guidance explicitly covers problems involving smooth pulleys and connected particles.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M8.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Newton's second law with friction on connected particle system",
+          "reason": "M8.6 covers the F ≤ μR model and motion of a body on a rough surface, combined with M8.4 connected particles/pulleys.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M8.4",
+            "M8.6"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 6,
+          "technique": "suvat before/after event, then decelerating motion with friction",
+          "reason": "Uses M7.3 constant acceleration formulae and M8.6 friction deceleration once B lands; entirely in-spec kinematics/forces methods.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.3",
+            "M8.6"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 1,
+          "technique": "Modelling assumption: light string means equal tension throughout",
+          "reason": "This is a basic modelling assumption within the Forces and Newton's laws context (tension concept from M8.1, connected particles M8.4); no excluded concept involved.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "M8.1",
+            "M8.4"
+          ]
+        }
+      ]
+    }
+  ]
+}

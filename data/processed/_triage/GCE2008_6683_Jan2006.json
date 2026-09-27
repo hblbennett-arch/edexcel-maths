@@ -1,0 +1,340 @@
+{
+  "_paper_id": "GCE2008_6683_Jan2006",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.107009,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Mode from stem-and-leaf",
+          "reason": "Finding the mode of a data set is covered by S2.3 (measures of central tendency: mean, median, mode).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Quartiles from stem-and-leaf/grouped data",
+          "reason": "S2.3 explicitly covers measures of variation including interpercentile ranges and use of linear interpolation to find percentiles, which covers quartiles.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Mean and standard deviation from summary statistics (Sxx)",
+          "reason": "S2.3 explicitly allows calculation of standard deviation from summary statistics using Sxx formula.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Pearson's measure of skewness",
+          "reason": "No statement mentions skewness or a skewness coefficient; this named concept is absent from the specification statements, so it is out despite using otherwise in-spec quantities (mean, mode, sd).",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 4,
+          "technique": "Reasons for negative skewness (mean<median<mode, quartile spacing)",
+          "reason": "Depends on the skewness concept from part (d) which is not covered by any statement; also comparing quartile spacing as evidence of skew is not an explicit statement topic.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Forming equations using E(X) of a discrete random variable",
+          "reason": "S4.1 explicitly excludes calculation of mean of discrete random variables; forming an equation using E(X)=3.5 requires this excluded concept.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Solve simultaneous equations from (a) for p, q",
+          "reason": "This part only makes sense using the equations from part (a), which relies on the excluded E(X) calculation.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Variance of a discrete random variable",
+          "reason": "S4.1 explicitly excludes calculation of variance of discrete random variables.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Var(3-2X) using linear transformation of variance",
+          "reason": "Depends directly on Var(X) found in the excluded part (c).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 18,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Draw scatter diagram",
+          "reason": "S2.2 explicitly covers interpreting scatter diagrams for bivariate data; drawing one from raw data is the same topic and skill.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Justify linear regression model from scatter pattern",
+          "reason": "This is a qualitative judgement about the scatter diagram (points lying close to a line), not a calculation involving a regression line, so it falls under S2.2's coverage of scatter diagrams/correlation rather than the excluded calculation.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 7,
+          "technique": "Calculate a and b for regression line y=a+bx",
+          "reason": "S2.2 explicitly excludes 'calculations involving regression lines'.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 1,
+          "technique": "Interpret gradient b of regression line",
+          "reason": "Depends on the value of b calculated in the excluded part (c), and is itself a regression-line calculation interpretation excluded by S2.2.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Predict y using regression equation",
+          "reason": "Requires substituting into the regression equation from the excluded part (c).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "f",
+          "marks": 4,
+          "technique": "Comment on reliability of regression predictions (interpolation/extrapolation)",
+          "reason": "Although interpolation/extrapolation concepts appear in S2.2, this part only makes sense after using the excluded regression predictions from part (e).",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "tree diagram",
+          "marks": 3,
+          "technique": "Tree diagram for sampling without replacement",
+          "reason": "S3.2 explicitly mentions use of tree diagrams for conditional probability.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "(a) P(second red)",
+          "marks": 2,
+          "technique": "Total probability using tree diagram",
+          "reason": "Uses standard conditional/total probability techniques covered by S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "(b) P(both red | second red)",
+          "marks": 2,
+          "technique": "Conditional probability formula",
+          "reason": "Directly matches S3.2's conditional probability formula P(A|B)=P(A∩B)/P(B).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 4,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Reasons for using statistical models",
+          "reason": "S3.3 explicitly covers modelling with probability including critiquing/reasoning about models.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Examples of normal and discrete uniform distributions",
+          "reason": "S4.2 covers Normal distribution as a model and S4.1 explicitly requires students to identify the discrete uniform distribution.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1",
+            "S4.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Venn diagram for two events",
+          "reason": "S3.2 explicitly mentions use of Venn diagrams for conditional probability topics.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Find P(A), P(B) from Venn diagram",
+          "reason": "Basic probability manipulation covered by S3.2 guidance (P(A∪B)=P(A)+P(B)-P(A∩B) etc).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Conditional probability P(A|B)",
+          "reason": "Matches S3.2's explicit conditional probability formula.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Test for independence of events",
+          "reason": "S3.1 explicitly covers use of P(A∩B)=P(A)P(B) to test independence.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Normal distribution probability calculation",
+          "reason": "S4.2 explicitly covers finding probabilities using the Normal distribution.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Normal distribution probability calculation",
+          "reason": "Same as (a), standard Normal probability calculation covered by S4.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Independent events probability with Normal distributions",
+          "reason": "Combines S3.1 (independent events) with S4.2 (Normal probabilities), both explicitly in spec.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S4.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 1,
+          "technique": "Critique independence assumption",
+          "reason": "S3.3 explicitly covers critiquing modelling assumptions such as independence.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.3"
+          ]
+        }
+      ]
+    }
+  ]
+}

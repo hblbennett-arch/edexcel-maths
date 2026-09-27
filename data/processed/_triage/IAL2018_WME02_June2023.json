@@ -1,0 +1,253 @@
+{
+  "_paper_id": "IAL2018_WME02_June2023",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.1645615,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Impulse-momentum (I=mv-mu), magnitude of vector",
+          "in_spec": false,
+          "confidence": "high",
+          "reason": "No statement in the list covers momentum or impulse (M6-M9 cover units, kinematics, Newton's laws, forces/friction, moments only - no momentum/impulse topic at all). This is a named mechanics concept absent from the given statements, so it is OUT regardless of the vector arithmetic being simple.",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Angle between impulse vector and direction of motion",
+          "in_spec": false,
+          "confidence": "high",
+          "reason": "Depends on the impulse vector I found in (a), which is an out-of-spec concept (impulse/momentum not in statement list); a part that only makes sense after an out-of-spec part is OUT.",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Integrate velocity vector to find position vector (2D kinematics using calculus)",
+          "in_spec": true,
+          "confidence": "high",
+          "reason": "M7.4 explicitly extends calculus in kinematics to 2 dimensions using vectors, with guidance giving exactly this type of example (given r or v as vector function of t, find r/v at a given time). Integration of x^n covered by P8.2.",
+          "spec_refs": [
+            "M7.4",
+            "P8.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Find direction of velocity vector at time T, solve resulting equation",
+          "in_spec": true,
+          "confidence": "high",
+          "reason": "Uses vectors in kinematics (M7.4/M7.3) with direction given by ratio of components, plus solving a quadratic (P2.3). This is a standard vector kinematics manipulation, fully covered.",
+          "spec_refs": [
+            "M7.4",
+            "P2.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Differentiate velocity to get acceleration vector, find magnitude",
+          "in_spec": true,
+          "confidence": "high",
+          "reason": "M7.4 explicitly covers differentiation of a vector with respect to time to obtain acceleration, and finding magnitude uses Pythagoras/vector magnitude (P10.2).",
+          "spec_refs": [
+            "M7.4",
+            "P10.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Centre of mass of a composite/folded lamina",
+          "in_spec": false,
+          "confidence": "high",
+          "reason": "The explicit exclusion rules list 'centre of mass' as an example of a named concept not covered by any statement in the list; no statement addresses centre of mass calculations, so this is OUT.",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Suspension/equilibrium using centre of mass position found in (a)",
+          "in_spec": false,
+          "confidence": "high",
+          "reason": "This part depends directly on the centre-of-mass result d found in the out-of-spec part (a); per the rules, a part that only makes sense after an out-of-spec part is OUT.",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Impulse-momentum equation for a particle",
+          "in_spec": false,
+          "confidence": "high",
+          "reason": "No statement covers momentum, impulse, or collisions (topics such as conservation of momentum, Newton's experimental law of impact are absent from the whole statement list). OUT.",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Impulse-momentum / conservation of linear momentum to find k",
+          "in_spec": false,
+          "confidence": "high",
+          "reason": "Same as (a): momentum/collision topic not present in any statement.",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Newton's experimental law of restitution",
+          "in_spec": false,
+          "confidence": "high",
+          "reason": "Coefficient of restitution / Newton's law of impact is not mentioned in any statement (M8 only covers Newton's 1st/2nd/3rd laws of motion for forces, not impact/restitution). OUT.",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Kinetic energy loss in a collision",
+          "in_spec": false,
+          "confidence": "high",
+          "reason": "Kinetic energy / work-energy concepts are not present in any of the given mechanics statements, and this part depends on the collision context established in earlier out-of-spec parts. OUT.",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Moments about a point for a beam in equilibrium against a wall (with friction force included)",
+          "in_spec": true,
+          "confidence": "medium",
+          "reason": "M9.1 covers moments in simple static contexts (rigid bodies, ladder-type problems explicitly given as guidance example), and M8.6 covers friction (F≤μR). Taking moments including a friction term at the wall is a standard combination of these statements, though the guidance's 'ladder problems' example is usually ground-friction only; this variant (wall friction) is a natural extension of the same content.",
+          "spec_refs": [
+            "M9.1",
+            "M8.6"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Resolving forces horizontally and vertically, and using F=μR to find coefficient of friction at the ground",
+          "in_spec": true,
+          "confidence": "high",
+          "reason": "Standard resolving of forces (M8.4) and F≤μR /F=μR friction model (M8.6) for a rigid body in equilibrium (M9.1 covers moments; resolving is separate but standard mechanics content covered by M8.1-M8.6).",
+          "spec_refs": [
+            "M8.4",
+            "M8.6",
+            "M9.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Equation of motion with driving force found from power P=Fv",
+          "in_spec": false,
+          "confidence": "high",
+          "reason": "No statement mentions power, rate of working, or P=Fv; this concept (power in mechanics) is absent from the entire statement list (M6-M9 do not include power), so this is OUT despite the equation of motion (N2L) itself being in M8.2.",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Equation of motion for connected van+trailer on an incline, using power to find driving force",
+          "in_spec": false,
+          "confidence": "high",
+          "reason": "Again requires power (P=Fv), a concept not present in any statement; connected particles on inclined plane is otherwise covered by M8.4 guidance, but the essential method here (power) is out of spec.",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Work-energy principle to find distance travelled by decelerating trailer",
+          "in_spec": false,
+          "confidence": "high",
+          "reason": "The question explicitly requires 'the work-energy principle'; work and energy (kinetic energy, work done against resistance/gravity) are not covered by any statement in the list, so this is OUT.",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 15,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Energy conservation to find speed of projectile at impact",
+          "in_spec": false,
+          "confidence": "high",
+          "reason": "The question explicitly instructs 'by considering energy'; energy methods (KE, PE) are not covered by any given statement, so despite an alternative suvat method existing in principle, the mark scheme's only method shown requires energy - and no statement supports it, making this OUT.",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Direction of velocity at impact using components",
+          "in_spec": false,
+          "confidence": "medium",
+          "reason": "This part uses the speed found in part (a) (an energy-based, out-of-spec result) as its main method per the mark scheme ('cos θ = 3/their(a)'); since it relies on the out-of-spec speed value, it is OUT even though the alternative method (finding vertical component via suvat, from the ft alt scheme) could stand alone with vector direction (P10.2).",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "suvat equation to find time of flight under gravity",
+          "in_spec": true,
+          "confidence": "high",
+          "reason": "This uses constant acceleration formulae for projectile motion in a vertical plane, which is directly covered by M7.5 (projectiles) and M7.3 (suvat formulae), independent of parts (a)/(b).",
+          "spec_refs": [
+            "M7.5",
+            "M7.3"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 6,
+          "technique": "Find height when velocity is perpendicular to given vector, using suvat/vectors (dot product) and constant acceleration",
+          "in_spec": true,
+          "confidence": "medium",
+          "reason": "Mark scheme offers a full alternative method using suvat (dependent M1 for 'use of suvat or use of energy') to find distance, which is entirely doable using constant acceleration formulae (M7.3, M7.5) and vector dot product condition for perpendicularity (P10 vectors), without needing the energy method or the earlier out-of-spec parts. Since a full-marks in-spec alternative exists, this is IN, though borderline since the printed scheme mixes methods.",
+          "spec_refs": [
+            "M7.5",
+            "M7.3",
+            "P10.3"
+          ]
+        }
+      ]
+    }
+  ]
+}

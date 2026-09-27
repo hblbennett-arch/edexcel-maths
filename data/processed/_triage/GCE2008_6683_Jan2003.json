@@ -1,0 +1,288 @@
+{
+  "_paper_id": "GCE2008_6683_Jan2003",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.196693,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 4,
+      "parts": [
+        {
+          "label": null,
+          "marks": 4,
+          "technique": "Histogram construction (frequency density for unequal class widths)",
+          "reason": "Histograms with area representing frequency are explicitly covered by S2.1.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Joint probability from two-way table",
+          "reason": "Calculating P(A∩B) from a table is basic probability covered by S3.1/S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Complement rule",
+          "reason": "P(A') = 1-P(A) is explicitly listed under S3.2 guidance.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Conditional probability",
+          "reason": "Directly matches the conditional probability formula and use given in S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Testing independence via P(A∩B) vs P(A)P(B)",
+          "reason": "S3.1 explicitly gives the independence test P(A∩B)=P(A)P(B); this is a direct application.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Normal distribution - finding standard deviation from a percentile",
+          "reason": "S4.2 covers use of Normal distribution to find probabilities/parameters, including solving simultaneous equations; finding sigma from a percentile is standard practice.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Normal distribution probability calculation",
+          "reason": "Direct use of Normal distribution to find a probability, covered by S4.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Normal distribution - finding mean from a percentile",
+          "reason": "Same as (a): finding a parameter of the Normal distribution using an inverse normal calculation, covered by S4.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 16,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Median and interquartile range",
+          "reason": "Measures of central tendency and variation (median, IQR) are explicitly covered by S2.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 7,
+          "technique": "Boxplot with outlier identification",
+          "reason": "Box and whisker plots including outliers, using a specified rule, are explicitly covered by S2.1/S2.4.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1",
+            "S2.4"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Mean calculation",
+          "reason": "Mean is a measure of central tendency explicitly listed in S2.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Interpreting skewness from mean/median/quartiles",
+          "reason": "S2.3/S2.4 require drawing inferences and interpretations from measures of central tendency and variation, which includes commenting on skewness.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3",
+            "S2.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 16,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Finding unknown constant in a discrete probability function using sum of probabilities = 1",
+          "reason": "S4.1 covers understanding and use of discrete probability distributions; finding k from normalisation is basic distribution work, not the excluded mean/variance calculation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "E(X) and E(X^2) of a general discrete random variable",
+          "reason": "Explicit exclusion S4.1: 'calculation of mean and variance of discrete random variables is excluded'. This part directly requires E(X) and E(X^2).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Variance of a linear transformation of a discrete random variable",
+          "reason": "Requires Var(X), excluded by S4.1, and also uses the out-of-spec result from (b).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 1,
+          "technique": "Probability of sum of two independent discrete random variables taking a value, via independence",
+          "reason": "This uses only the probability function from part (a) (in spec) and the independence multiplication rule P(X1=a and X2=b)=P(X1=a)P(X2=b) from S3.1; it does not require E(X) or Var(X), so the S4.1 exclusion does not apply here.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S3.1"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 3,
+          "technique": "Full probability distribution of the sum of two independent discrete random variables",
+          "reason": "Built from the in-spec part (a) distribution and independence rules (S3.1); no statement explicitly covers convolution of distributions, but the calculation only uses independence probability rules applied repeatedly, so it is reasonably within the S3.1 toolkit rather than an excluded named concept.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S3.1"
+          ]
+        },
+        {
+          "label": "f",
+          "marks": 3,
+          "technique": "Probability from the derived distribution of X1+X2",
+          "reason": "Directly follows from the in-spec distribution built in (e) using basic summation of probabilities; consistent with S3.1.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S3.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 19,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Scatter diagram and identifying explanatory variable",
+          "reason": "S2.2 covers scatter diagrams and explanatory/response variables explicitly; this part does not involve regression line calculation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 7,
+          "technique": "Calculating equation of least squares regression line",
+          "reason": "Explicit exclusion S2.2: 'calculations involving regression lines are excluded'.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Deducing regression line after decoding",
+          "reason": "Regression line calculation, excluded by S2.2, and depends on the out-of-spec part (b).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Interpreting regression intercept",
+          "reason": "Depends on the excluded regression line calculation from (b)/(c); calculations involving regression lines are excluded per S2.2.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Prediction using regression line gradient",
+          "reason": "Uses the regression line coefficient from the excluded part (b); regression line calculations are explicitly excluded per S2.2.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,404 @@
+{
+  "_paper_id": "IAL2013_WST01_Jan2018",
+  "_paper": "WST01",
+  "_sitting": "Jan2018",
+  "qualification": "IAL-2013",
+  "unit": "WST01",
+  "component": "stats",
+  "status": "legacy",
+  "paper_total": 75,
+  "source_qp_file": "pearson/IAL-2013/Jan2018/IAL2013_WST01_Jan2018_QP.txt",
+  "source_ms_file": "pearson/IAL-2013/Jan2018/IAL2013_WST01_Jan2018_MS.txt",
+  "extraction_method": "single-call-v1",
+  "extraction_model": "claude-sonnet-5",
+  "pearson_errors": [],
+  "questions": [
+    {
+      "paper_id": "IAL2013_WST01_Jan2018",
+      "spec": "IAL-2013",
+      "qualification": "IAL-2013",
+      "unit": "WST01",
+      "status": "legacy",
+      "paper": "WST01",
+      "sitting": "Jan2018",
+      "id": "IAL2013_WST01_Jan2018_Q1",
+      "q_num": "1",
+      "total_marks": 12,
+      "component": "stats",
+      "uses_large_data_set": false,
+      "stem": "Two classes of students, class $A$ and class $B$, sat a test.\n\nClass $A$ has 10 students. Class $B$ has 15 students.\n\nEach student achieved a score, $x$, on the test and their scores are summarised in the table below.\n\n$\\begin{array}{|c|c|c|c|}\\hline & n & \\sum x & \\sum x^2\\\\ \\hline \\text{Class } A & 10 & 770 & 59610\\\\ \\hline \\text{Class } B & 15 & t & 58035\\\\ \\hline\\end{array}$\n\nThe mean score for Class $A$ is 77 and the mean score for Class $B$ is 61",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "text": "(a) Find the value of $t$\n(1)",
+          "mark_scheme": "[61\\times 15 =] $\\underline{915}$ B1",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "text": "(b) Calculate the variance of the test scores for each class.\n(3)",
+          "mark_scheme": "$[\\mathrm{Var}_A]=\\frac{59610}{10}-77^2$ M1\n$=\\underline{32}$ A1\n$[\\mathrm{Var}_B]=\\frac{58035}{15}-61^2$\n$=\\underline{148}$ A1\nNotes: M1 for a correct method for variance for either class. Accept $s^2$ and allow inside $\\sqrt{...}$. 1st A1 for 1 correct answer. NB $s_A^2=35.\\dot 5$ or awrt 35.6 and $s_B^2=158.57...$ or awrt 159. 2nd A1 for both correct. [ISW standard deviations following correct variances.]",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "text": "The highest score on the test was 95 and the lowest score was 45\n\nThese were each scored by students from the same class.\n\n(c) State, with a reason, which class you believe they were from.\n(1)",
+          "mark_scheme": "Class B since its variance is larger B1ft\nNote: B1ft for Class $B$ and it has a larger variance/standard deviation (do not allow spread). If $\\mathrm{Var}_A>\\mathrm{Var}_B$ then allow choice of A since variance is larger. Ft their values if $>0$",
+          "spec_refs": [
+            "S2.3",
+            "S2.4"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "text": "The two classes are combined into one group of 25 students.\n\n(d) (i) Find the mean test score for all 25 students.\n(ii) Find the variance of the test scores for all 25 students.\n(4)",
+          "mark_scheme": "$\\mathrm{Mean}_{AB}=\\frac{770+\"915\"}{25}=67.4$ or $\\frac{10}{25}\\times 77+\\frac{15}{25}\\times 61=\\underline{67.4}$ M1 A1\n$\\mathrm{Var}_{AB}=\\frac{59610+58035}{25}-\"67.4\"^2=163.04$ awrt $\\underline{163}$ M1 A1\nNotes: M1 for a correct calculation for the mean (or weighted mean), ft their 915 from (a). A1 for 67.4 o.e. M1 for use of correct formula (no $\\sqrt{...}$) with total $\\sum x^2=117645$ and their mean. NB $\\frac{S_{xx}}{25}=\\frac{4076}{25}$. A1 for awrt 163 [Don't ISW standard deviations]",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 3,
+          "text": "The teacher of class $A$ later realises that he added up the test scores for his class incorrectly. Each student's test score in class $A$ should be increased by 3\n\n(e) Without further calculations, state, with a reason, the effect this will have on\n\n(i) the variance of the test scores for class $A$\n\n(ii) the mean test score for all 25 students\n\n(iii) the variance of the test scores for all 25 students.\n(3)",
+          "mark_scheme": "(i) No effect on the variance of class A since addition does not change variance ($\\mathrm{Var}(X+b)=\\mathrm{Var}(X)$) B1\n(ii) The mean will increase since the total score has increased or mean of A increased but mean of B stayed the same B1\n(iii) The variance of the entire group will increase since the mean of class A is now further away from the mean of class B B1\nNotes: (i) B1 for no effect/does not change and correct supporting reason that mentions addition or subtraction doesn't affect or only affected by multiplication/division. Comment that $(x-\\bar{x})$ doesn't change is fine. Just \"coding\" is not sufficient. (ii) B1 for stating the mean will increase and correct supporting reason that states or implies that total (of scores) has increased. Allow new mean $=\\frac{1715}{25}=68.6$. (iii) B1 for increase and correct supporting reason that mentions A marks and B marks and that they are more spread out. Just saying: \"marks are more varied\" or \"only added 3 to one class\" is not sufficient. NB: Calc for (iii) gives new $\\sum x^2=64320$ and $\\mathrm{Var}_{AB}=188.24$ but no mark",
+          "spec_refs": [
+            "S2.3"
+          ]
+        }
+      ],
+      "qp_pages": [
+        1,
+        5
+      ],
+      "low_confidence": false,
+      "notes": "",
+      "source_qp_file": "pearson/IAL-2013/Jan2018/IAL2013_WST01_Jan2018_QP.txt",
+      "source_ms_file": "pearson/IAL-2013/Jan2018/IAL2013_WST01_Jan2018_MS.txt",
+      "notation": "latex",
+      "extraction_method": "single-call-v1",
+      "question_text": "Two classes of students, class $A$ and class $B$, sat a test.\n\nClass $A$ has 10 students. Class $B$ has 15 students.\n\nEach student achieved a score, $x$, on the test and their scores are summarised in the table below.\n\n$\\begin{array}{|c|c|c|c|}\\hline & n & \\sum x & \\sum x^2\\\\ \\hline \\text{Class } A & 10 & 770 & 59610\\\\ \\hline \\text{Class } B & 15 & t & 58035\\\\ \\hline\\end{array}$\n\nThe mean score for Class $A$ is 77 and the mean score for Class $B$ is 61\n(a) Find the value of $t$\n(1)\n(b) Calculate the variance of the test scores for each class.\n(3)\nThe highest score on the test was 95 and the lowest score was 45\n\nThese were each scored by students from the same class.\n\n(c) State, with a reason, which class you believe they were from.\n(1)\nThe two classes are combined into one group of 25 students.\n\n(d) (i) Find the mean test score for all 25 students.\n(ii) Find the variance of the test scores for all 25 students.\n(4)\nThe teacher of class $A$ later realises that he added up the test scores for his class incorrectly. Each student's test score in class $A$ should be increased by 3\n\n(e) Without further calculations, state, with a reason, the effect this will have on\n\n(i) the variance of the test scores for class $A$\n\n(ii) the mean test score for all 25 students\n\n(iii) the variance of the test scores for all 25 students.\n(3)",
+      "mark_scheme_text": "[61\\times 15 =] $\\underline{915}$ B1\n$[\\mathrm{Var}_A]=\\frac{59610}{10}-77^2$ M1\n$=\\underline{32}$ A1\n$[\\mathrm{Var}_B]=\\frac{58035}{15}-61^2$\n$=\\underline{148}$ A1\nNotes: M1 for a correct method for variance for either class. Accept $s^2$ and allow inside $\\sqrt{...}$. 1st A1 for 1 correct answer. NB $s_A^2=35.\\dot 5$ or awrt 35.6 and $s_B^2=158.57...$ or awrt 159. 2nd A1 for both correct. [ISW standard deviations following correct variances.]\nClass B since its variance is larger B1ft\nNote: B1ft for Class $B$ and it has a larger variance/standard deviation (do not allow spread). If $\\mathrm{Var}_A>\\mathrm{Var}_B$ then allow choice of A since variance is larger. Ft their values if $>0$\n$\\mathrm{Mean}_{AB}=\\frac{770+\"915\"}{25}=67.4$ or $\\frac{10}{25}\\times 77+\\frac{15}{25}\\times 61=\\underline{67.4}$ M1 A1\n$\\mathrm{Var}_{AB}=\\frac{59610+58035}{25}-\"67.4\"^2=163.04$ awrt $\\underline{163}$ M1 A1\nNotes: M1 for a correct calculation for the mean (or weighted mean), ft their 915 from (a). A1 for 67.4 o.e. M1 for use of correct formula (no $\\sqrt{...}$) with total $\\sum x^2=117645$ and their mean. NB $\\frac{S_{xx}}{25}=\\frac{4076}{25}$. A1 for awrt 163 [Don't ISW standard deviations]\n(i) No effect on the variance of class A since addition does not change variance ($\\mathrm{Var}(X+b)=\\mathrm{Var}(X)$) B1\n(ii) The mean will increase since the total score has increased or mean of A increased but mean of B stayed the same B1\n(iii) The variance of the entire group will increase since the mean of class A is now further away from the mean of class B B1\nNotes: (i) B1 for no effect/does not change and correct supporting reason that mentions addition or subtraction doesn't affect or only affected by multiplication/division. Comment that $(x-\\bar{x})$ doesn't change is fine. Just \"coding\" is not sufficient. (ii) B1 for stating the mean will increase and correct supporting reason that states or implies that total (of scores) has increased. Allow new mean $=\\frac{1715}{25}=68.6$. (iii) B1 for increase and correct supporting reason that mentions A marks and B marks and that they are more spread out. Just saying: \"marks are more varied\" or \"only added 3 to one class\" is not sufficient. NB: Calc for (iii) gives new $\\sum x^2=64320$ and $\\mathrm{Var}_{AB}=188.24$ but no mark"
+    },
+    {
+      "paper_id": "IAL2013_WST01_Jan2018",
+      "spec": "IAL-2013",
+      "qualification": "IAL-2013",
+      "unit": "WST01",
+      "status": "legacy",
+      "paper": "WST01",
+      "sitting": "Jan2018",
+      "id": "IAL2013_WST01_Jan2018_Q2",
+      "q_num": "2",
+      "total_marks": 8,
+      "component": "stats",
+      "uses_large_data_set": false,
+      "stem": "",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "text": "(a) Shade the region representing the event $A \\cup B'$ on the Venn diagram below.\n\n[editor: Venn diagram with overlapping circles $A$ and $B$ in a rectangle]\n(1)",
+          "mark_scheme": "[Diagram: region $A \\cup B'$ shaded, i.e. all of $A$ and everything outside $B$] B1\nNote: If a 2nd diagram is drawn then award B0 unless the incorrect diagram is crossed out",
+          "spec_refs": [
+            "S3.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "text": "The two events $C$ and $D$ are mutually exclusive.\n\nGiven that $\\mathrm{P}(C)=\\frac{1}{5}$ and $\\mathrm{P}(D)=\\frac{3}{10}$\n\nfind\n\n(b) (i) $\\mathrm{P}(C\\cup D)$\n\n(ii) $\\mathrm{P}(C|D)$\n(3)",
+          "mark_scheme": "$[\\mathrm{P}(C\\cap D)=0]$ B1\n$\\mathrm{P}(C\\cup D)=\\mathrm{P}(C)+\\mathrm{P}(D)=\\frac{1}{2}$ B1\n$\\mathrm{P}(C|D)[=\\frac{\\mathrm{P}(C\\cap D)}{\\mathrm{P}(D)}]=0$ B1\nNotes: 1st B1 for writing or using $\\mathrm{P}(C\\cap D)=0$ anywhere in (b) (may be implied by correct $\\mathrm{P}(C|D)$). $\\mathrm{P}(C\\cup D)=\\mathrm{P}(C)+\\mathrm{P}(D)-\\mathrm{P}(C\\cap D)=[\\frac{1}{5}+\\frac{3}{10}]=\\frac{1}{2}$ does imply 1st B1. 2nd B1 for $\\mathrm{P}(C\\cup D)=0.5$ o.e. (may just be labelled (b)(i) $\\frac{1}{2}$) This does not imply 1st B1. 3rd B1 for $\\mathrm{P}(C|D)=0$...this will imply 1st B1 too",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "text": "The two events $F$ and $G$ are independent.\n\nGiven that $\\mathrm{P}(F)=\\frac{1}{6}$ and $\\mathrm{P}(F\\cup G)=\\frac{3}{8}$\n\nfind\n\n(c) (i) $\\mathrm{P}(G)$\n\n(ii) $\\mathrm{P}(F|G')$\n(4)",
+          "mark_scheme": "$\\mathrm{P}(F\\cup G)=\\mathrm{P}(F)+\\mathrm{P}(G)-\\mathrm{P}(F\\cap G)$\n$\\frac{3}{8}=\\frac{1}{6}+\\mathrm{P}(G)-\\frac{1}{6}\\times \\mathrm{P}(G)$ M1 M1\n$\\mathrm{P}(G)=\\frac{1}{4}$ A1\n$\\mathrm{P}(F|G')[=\\mathrm{P}(F)]=\\frac{1}{6}$ B1\nNotes: 1st M1 for use of addition formula (3 terms) with correct substitution of at least one term. Assuming or stating $\\mathrm{P}(F\\cap G)=0$ scores M0. 2nd M1 for use of independence $\\mathrm{P}(F\\cap G)=\\mathrm{P}(F)\\times \\mathrm{P}(G)=\\frac{1}{6}\\times \\mathrm{P}(G)$ (i.e. must be used). Use of e.g. $x$ for $\\mathrm{P}(G)$ is fine. NB $\\frac{3}{8}=\\frac{1}{6}\\times \\mathrm{P}(G)$ is M0M0. ALT: Let $y=\\mathrm{P}(F\\cap G)$ then $\\mathrm{P}(G)=y+\\frac{3}{8}-\\frac{1}{6}$ scores 1st M1 and $y=\\frac{1}{6}(y+\\frac{3}{8}-\\frac{1}{6})$ o.e. gets 2nd M1. A1 for $\\frac{1}{4}$ o.e. (ii) B1 for $\\mathrm{P}(F|G')=\\frac{1}{6}$ (may be labelled (c)(ii) $\\frac{1}{6}$) Accept exact equivalents.",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        }
+      ],
+      "qp_pages": [
+        6,
+        7
+      ],
+      "low_confidence": false,
+      "notes": "[fix_parts] (a) text: '[Venn diagram with circles $A$ and $B$ overlapping]' -> '[editor: Venn diagram with overlapping circles $A$ and $B$ in a rectangle]' (figure placeholder in the [editor: ...] form)",
+      "source_qp_file": "pearson/IAL-2013/Jan2018/IAL2013_WST01_Jan2018_QP.txt",
+      "source_ms_file": "pearson/IAL-2013/Jan2018/IAL2013_WST01_Jan2018_MS.txt",
+      "notation": "latex",
+      "extraction_method": "single-call-v1",
+      "question_text": "(a) Shade the region representing the event $A \\cup B'$ on the Venn diagram below.\n\n[editor: Venn diagram with overlapping circles $A$ and $B$ in a rectangle]\n(1)\nThe two events $C$ and $D$ are mutually exclusive.\n\nGiven that $\\mathrm{P}(C)=\\frac{1}{5}$ and $\\mathrm{P}(D)=\\frac{3}{10}$\n\nfind\n\n(b) (i) $\\mathrm{P}(C\\cup D)$\n\n(ii) $\\mathrm{P}(C|D)$\n(3)\nThe two events $F$ and $G$ are independent.\n\nGiven that $\\mathrm{P}(F)=\\frac{1}{6}$ and $\\mathrm{P}(F\\cup G)=\\frac{3}{8}$\n\nfind\n\n(c) (i) $\\mathrm{P}(G)$\n\n(ii) $\\mathrm{P}(F|G')$\n(4)",
+      "mark_scheme_text": "[Diagram: region $A \\cup B'$ shaded, i.e. all of $A$ and everything outside $B$] B1\nNote: If a 2nd diagram is drawn then award B0 unless the incorrect diagram is crossed out\n$[\\mathrm{P}(C\\cap D)=0]$ B1\n$\\mathrm{P}(C\\cup D)=\\mathrm{P}(C)+\\mathrm{P}(D)=\\frac{1}{2}$ B1\n$\\mathrm{P}(C|D)[=\\frac{\\mathrm{P}(C\\cap D)}{\\mathrm{P}(D)}]=0$ B1\nNotes: 1st B1 for writing or using $\\mathrm{P}(C\\cap D)=0$ anywhere in (b) (may be implied by correct $\\mathrm{P}(C|D)$). $\\mathrm{P}(C\\cup D)=\\mathrm{P}(C)+\\mathrm{P}(D)-\\mathrm{P}(C\\cap D)=[\\frac{1}{5}+\\frac{3}{10}]=\\frac{1}{2}$ does imply 1st B1. 2nd B1 for $\\mathrm{P}(C\\cup D)=0.5$ o.e. (may just be labelled (b)(i) $\\frac{1}{2}$) This does not imply 1st B1. 3rd B1 for $\\mathrm{P}(C|D)=0$...this will imply 1st B1 too\n$\\mathrm{P}(F\\cup G)=\\mathrm{P}(F)+\\mathrm{P}(G)-\\mathrm{P}(F\\cap G)$\n$\\frac{3}{8}=\\frac{1}{6}+\\mathrm{P}(G)-\\frac{1}{6}\\times \\mathrm{P}(G)$ M1 M1\n$\\mathrm{P}(G)=\\frac{1}{4}$ A1\n$\\mathrm{P}(F|G')[=\\mathrm{P}(F)]=\\frac{1}{6}$ B1\nNotes: 1st M1 for use of addition formula (3 terms) with correct substitution of at least one term. Assuming or stating $\\mathrm{P}(F\\cap G)=0$ scores M0. 2nd M1 for use of independence $\\mathrm{P}(F\\cap G)=\\mathrm{P}(F)\\times \\mathrm{P}(G)=\\frac{1}{6}\\times \\mathrm{P}(G)$ (i.e. must be used). Use of e.g. $x$ for $\\mathrm{P}(G)$ is fine. NB $\\frac{3}{8}=\\frac{1}{6}\\times \\mathrm{P}(G)$ is M0M0. ALT: Let $y=\\mathrm{P}(F\\cap G)$ then $\\mathrm{P}(G)=y+\\frac{3}{8}-\\frac{1}{6}$ scores 1st M1 and $y=\\frac{1}{6}(y+\\frac{3}{8}-\\frac{1}{6})$ o.e. gets 2nd M1. A1 for $\\frac{1}{4}$ o.e. (ii) B1 for $\\mathrm{P}(F|G')=\\frac{1}{6}$ (may be labelled (c)(ii) $\\frac{1}{6}$) Accept exact equivalents."
+    },
+    {
+      "paper_id": "IAL2013_WST01_Jan2018",
+      "spec": "IAL-2013",
+      "qualification": "IAL-2013",
+      "unit": "WST01",
+      "status": "legacy",
+      "paper": "WST01",
+      "sitting": "Jan2018",
+      "id": "IAL2013_WST01_Jan2018_Q6",
+      "q_num": "6",
+      "total_marks": 11,
+      "component": "stats",
+      "uses_large_data_set": false,
+      "stem": "Anju has a bag that contains 5 socks of which 2 are blue.\n\nAnju randomly selects socks from the bag, one sock at a time. She does not replace any socks but continues to select socks at random until she has both blue socks.\n\nThe discrete random variable $S$ represents the total number of socks that Anju has selected.",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "text": "(a) Write down the value of $\\mathrm{P}(S=1)$\n(1)",
+          "mark_scheme": "$[\\mathrm{P}(S=1)=]$ $\\underline{0}$ B1",
+          "spec_refs": [
+            "S3.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "text": "(b) Find $\\mathrm{P}(S>2)$\n(3)",
+          "mark_scheme": "$\\mathrm{P}(S>2)=1-\\mathrm{P}(S=2)$ or $1-\\mathrm{P}(S\\leqslant 2)$ or $\\mathrm{P}(S=3)+\\mathrm{P}(S=4)+\\mathrm{P}(S=5)$ M1\n$=1-(\\frac{2}{5}\\times \\frac{1}{4})=\\frac{9}{10}$ or e.g. $\\frac{2}{5}\\times \\frac{3}{4}+\\frac{3}{5}=\\underline{0.9}$ M1 A1\nNotes: 1st M1 for writing or using $1-\\mathrm{P}(S=2)$ etc or identifying cases for $S>2$ e.g. $BB'$ or $B'$. This mark may be implied by a fully correct numerical expression for the probability. 2nd M1 for correct expression for $\\mathrm{P}(S=2)$ or for $\\mathrm{P}(S>2)$ e.g. $0.4\\times 0.75+0.6$\nOfficial notes (completeness pass):\n- Ans of 0.9 3/3",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "text": "(c) Find $\\mathrm{P}(S=3)$\n(2)",
+          "mark_scheme": "$\\mathrm{P}(S=3)=\\left(\\frac{3}{5}\\times \\frac{2}{4}\\times \\frac{1}{3}+\\frac{2}{5}\\times \\frac{3}{4}\\times \\frac{1}{3}\\right)=\\frac{1}{5}$ M1, A1\nNote: M1 for both correct products (or $2\\times ...$)",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "text": "(d) Given that the second sock selected is blue, find the probability that Anju selects exactly 3 socks.\n(2)",
+          "mark_scheme": "$\\mathrm{P}(S=3|\\text{2nd is blue})=\\frac{\\mathrm{P}(S=3\\cap \\text{2nd is blue})}{\\mathrm{P}(\\text{2nd is blue})}=\\frac{\\frac{3}{5}\\times \\frac{2}{4}\\times \\frac{1}{3}}{\\frac{3}{5}\\times \\frac{2}{4}+\\frac{2}{5}\\times \\frac{1}{4}}=\\frac{1}{4}$ M1 A1\nNote: M1 for a correct ratio of probabilities or a correct expression with correct substitution of either numerator or denominator (num<denom)",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 3,
+          "text": "(e) Find $\\mathrm{P}(S=5)$\n(3)",
+          "mark_scheme": "$\\mathrm{P}(S=5)=4\\times \\left(\\frac{3}{5}\\times \\frac{2}{4}\\times \\frac{1}{3}\\times \\frac{2}{2}\\times \\frac{1}{1}\\right)=\\frac{2}{5}$ B1\nM1 A1\nNotes: B1 for $\\times 4$ or the sum of 4 identical (or equivalent) products. Allow \"replacement\" here. M1 for any one product correct (don't need to see all $\\frac{2}{2}$ or $\\frac{1}{1}$ terms). A1 for 0.4 o.e. Some may write it down so score B1 and M1 by implication.\nNB table: s: 2,3,4,5; P(S=s): 1/10, 1/5, 3/10, 2/5\n7 socks: Allow MR for using 5+2 socks. Deduct upto 2 A1 marks.",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        }
+      ],
+      "qp_pages": [
+        20,
+        23
+      ],
+      "low_confidence": false,
+      "notes": "",
+      "source_qp_file": "pearson/IAL-2013/Jan2018/IAL2013_WST01_Jan2018_QP.txt",
+      "source_ms_file": "pearson/IAL-2013/Jan2018/IAL2013_WST01_Jan2018_MS.txt",
+      "notation": "latex",
+      "extraction_method": "single-call-v1",
+      "question_text": "Anju has a bag that contains 5 socks of which 2 are blue.\n\nAnju randomly selects socks from the bag, one sock at a time. She does not replace any socks but continues to select socks at random until she has both blue socks.\n\nThe discrete random variable $S$ represents the total number of socks that Anju has selected.\n(a) Write down the value of $\\mathrm{P}(S=1)$\n(1)\n(b) Find $\\mathrm{P}(S>2)$\n(3)\n(c) Find $\\mathrm{P}(S=3)$\n(2)\n(d) Given that the second sock selected is blue, find the probability that Anju selects exactly 3 socks.\n(2)\n(e) Find $\\mathrm{P}(S=5)$\n(3)",
+      "mark_scheme_text": "$[\\mathrm{P}(S=1)=]$ $\\underline{0}$ B1\n$\\mathrm{P}(S>2)=1-\\mathrm{P}(S=2)$ or $1-\\mathrm{P}(S\\leqslant 2)$ or $\\mathrm{P}(S=3)+\\mathrm{P}(S=4)+\\mathrm{P}(S=5)$ M1\n$=1-(\\frac{2}{5}\\times \\frac{1}{4})=\\frac{9}{10}$ or e.g. $\\frac{2}{5}\\times \\frac{3}{4}+\\frac{3}{5}=\\underline{0.9}$ M1 A1\nNotes: 1st M1 for writing or using $1-\\mathrm{P}(S=2)$ etc or identifying cases for $S>2$ e.g. $BB'$ or $B'$. This mark may be implied by a fully correct numerical expression for the probability. 2nd M1 for correct expression for $\\mathrm{P}(S=2)$ or for $\\mathrm{P}(S>2)$ e.g. $0.4\\times 0.75+0.6$\nOfficial notes (completeness pass):\n- Ans of 0.9 3/3\n$\\mathrm{P}(S=3)=\\left(\\frac{3}{5}\\times \\frac{2}{4}\\times \\frac{1}{3}+\\frac{2}{5}\\times \\frac{3}{4}\\times \\frac{1}{3}\\right)=\\frac{1}{5}$ M1, A1\nNote: M1 for both correct products (or $2\\times ...$)\n$\\mathrm{P}(S=3|\\text{2nd is blue})=\\frac{\\mathrm{P}(S=3\\cap \\text{2nd is blue})}{\\mathrm{P}(\\text{2nd is blue})}=\\frac{\\frac{3}{5}\\times \\frac{2}{4}\\times \\frac{1}{3}}{\\frac{3}{5}\\times \\frac{2}{4}+\\frac{2}{5}\\times \\frac{1}{4}}=\\frac{1}{4}$ M1 A1\nNote: M1 for a correct ratio of probabilities or a correct expression with correct substitution of either numerator or denominator (num<denom)\n$\\mathrm{P}(S=5)=4\\times \\left(\\frac{3}{5}\\times \\frac{2}{4}\\times \\frac{1}{3}\\times \\frac{2}{2}\\times \\frac{1}{1}\\right)=\\frac{2}{5}$ B1\nM1 A1\nNotes: B1 for $\\times 4$ or the sum of 4 identical (or equivalent) products. Allow \"replacement\" here. M1 for any one product correct (don't need to see all $\\frac{2}{2}$ or $\\frac{1}{1}$ terms). A1 for 0.4 o.e. Some may write it down so score B1 and M1 by implication.\nNB table: s: 2,3,4,5; P(S=s): 1/10, 1/5, 3/10, 2/5\n7 socks: Allow MR for using 5+2 socks. Deduct upto 2 A1 marks."
+    },
+    {
+      "paper_id": "IAL2013_WST01_Jan2018",
+      "spec": "IAL-2013",
+      "qualification": "IAL-2013",
+      "unit": "WST01",
+      "status": "legacy",
+      "paper": "WST01",
+      "sitting": "Jan2018",
+      "id": "IAL2013_WST01_Jan2018_Q7",
+      "q_num": "7",
+      "total_marks": 11,
+      "component": "stats",
+      "uses_large_data_set": false,
+      "stem": "The weights, $G$, of a particular breed of gorilla are normally distributed with mean 180 kg and standard deviation 15 kg.",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "text": "(a) Find the proportion of these gorillas whose weights exceed 174 kg.\n(2)",
+          "mark_scheme": "$\\mathrm{P}(G>174)=\\mathrm{P}\\left(Z>\\frac{174-180}{15}\\right)=\\mathrm{P}(Z>-0.4)$, $=0.6554$ M1, A1\nawrt $\\underline{0.655}$\nNotes: M1 for standardising 174 with 180 and 15 and selecting correct region i.e. $\\mathrm{P}(...>-0.4)$ o.e. Just $Z=-0.4$ is M0 unless indicate with $>$ or diagram which region (use of tables may be wrong). A1 awrt 0.655 do not isw [Final answer of awrt 0.655 scores M1A1]",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "text": "(b) Find, to 1 decimal place, the value of $k$ such that $\\mathrm{P}(k<G<174)=0.3196$\n(4)",
+          "mark_scheme": "$\\mathrm{P}(k<G<174)=\\mathrm{P}(G<174)-\\mathrm{P}(G<k)$\n$\\mathrm{P}(G<k)=(1-'0.6554')-0.3196$ or $\\mathrm{P}(G>k)='0.6554'+0.3196$ $[=0.975]$ M1\n$\\mathrm{P}\\left(Z<\\frac{k-180}{15}\\right)=0.025 \\Rightarrow \\frac{k-180}{15}=-1.96$ M1 B1\nawrt $\\underline{150.6}$ A1\nNotes: 1st M1 for a correct expression for $\\mathrm{P}(G<k)$ (may be seen in diagram or implied) or a correct expression for $\\mathrm{P}(G>k)$ ft their \"0.6554\" from (a). Probability for $G$ may be standardised. 2nd M1 for standardising $k$ with 180 and 15 and equating to a z-value $|z|>1.5$. B1 for $(\\pm)1.96$ or better (used as their z value) NB $\\frac{k-180}{15}=-1.96$ will imply M1M1B1. A1 for awrt 150.6 (must come from a correct equation)",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 5,
+          "text": "The weights, $B$, of a particular breed of buffalo are normally distributed with mean 216 kg and standard deviation 30 kg.\n\nGiven that $\\mathrm{P}(G>w)=\\mathrm{P}(B<w)=p$\n\n(c) (i) find the value of $w$\n\n(ii) find the value of $p$\n(5)",
+          "mark_scheme": "$\\mathrm{P}(G>w)=\\mathrm{P}(B<w) \\Rightarrow \\frac{w-180}{15}=-\\frac{w-216}{30}$ M1 A1\n$\\Rightarrow 45w=8640 \\Rightarrow$ $w=\\underline{192}$ A1\n$\\mathrm{P}(G>w)=\\mathrm{P}\\left(Z>\\frac{\"192\"-180}{15}\\right)$ or $\\mathrm{P}(B<w)=\\mathrm{P}\\left(Z<\\frac{\"192\"-216}{30}\\right)$ M1\n$\\mathrm{P}(Z>0.8)=1-0.7881=0.2119$ $p=$ awrt $\\underline{0.212}$ A1\nNotes: (i) M1 for standardising $w$ with 180 and 15 and 216 and 30 (allow $\\pm$). 1st A1 for equating standardisations with correct signs. 2nd A1 for 192. (ii) M1 for correct standardisation of $G>w$ with '192', 180 and 15 or $B<w$ with '192', 216 and 30. A1 for awrt 0.212",
+          "spec_refs": [
+            "S4.2"
+          ]
+        }
+      ],
+      "qp_pages": [
+        24,
+        28
+      ],
+      "low_confidence": false,
+      "notes": "",
+      "source_qp_file": "pearson/IAL-2013/Jan2018/IAL2013_WST01_Jan2018_QP.txt",
+      "source_ms_file": "pearson/IAL-2013/Jan2018/IAL2013_WST01_Jan2018_MS.txt",
+      "notation": "latex",
+      "extraction_method": "single-call-v1",
+      "question_text": "The weights, $G$, of a particular breed of gorilla are normally distributed with mean 180 kg and standard deviation 15 kg.\n(a) Find the proportion of these gorillas whose weights exceed 174 kg.\n(2)\n(b) Find, to 1 decimal place, the value of $k$ such that $\\mathrm{P}(k<G<174)=0.3196$\n(4)\nThe weights, $B$, of a particular breed of buffalo are normally distributed with mean 216 kg and standard deviation 30 kg.\n\nGiven that $\\mathrm{P}(G>w)=\\mathrm{P}(B<w)=p$\n\n(c) (i) find the value of $w$\n\n(ii) find the value of $p$\n(5)",
+      "mark_scheme_text": "$\\mathrm{P}(G>174)=\\mathrm{P}\\left(Z>\\frac{174-180}{15}\\right)=\\mathrm{P}(Z>-0.4)$, $=0.6554$ M1, A1\nawrt $\\underline{0.655}$\nNotes: M1 for standardising 174 with 180 and 15 and selecting correct region i.e. $\\mathrm{P}(...>-0.4)$ o.e. Just $Z=-0.4$ is M0 unless indicate with $>$ or diagram which region (use of tables may be wrong). A1 awrt 0.655 do not isw [Final answer of awrt 0.655 scores M1A1]\n$\\mathrm{P}(k<G<174)=\\mathrm{P}(G<174)-\\mathrm{P}(G<k)$\n$\\mathrm{P}(G<k)=(1-'0.6554')-0.3196$ or $\\mathrm{P}(G>k)='0.6554'+0.3196$ $[=0.975]$ M1\n$\\mathrm{P}\\left(Z<\\frac{k-180}{15}\\right)=0.025 \\Rightarrow \\frac{k-180}{15}=-1.96$ M1 B1\nawrt $\\underline{150.6}$ A1\nNotes: 1st M1 for a correct expression for $\\mathrm{P}(G<k)$ (may be seen in diagram or implied) or a correct expression for $\\mathrm{P}(G>k)$ ft their \"0.6554\" from (a). Probability for $G$ may be standardised. 2nd M1 for standardising $k$ with 180 and 15 and equating to a z-value $|z|>1.5$. B1 for $(\\pm)1.96$ or better (used as their z value) NB $\\frac{k-180}{15}=-1.96$ will imply M1M1B1. A1 for awrt 150.6 (must come from a correct equation)\n$\\mathrm{P}(G>w)=\\mathrm{P}(B<w) \\Rightarrow \\frac{w-180}{15}=-\\frac{w-216}{30}$ M1 A1\n$\\Rightarrow 45w=8640 \\Rightarrow$ $w=\\underline{192}$ A1\n$\\mathrm{P}(G>w)=\\mathrm{P}\\left(Z>\\frac{\"192\"-180}{15}\\right)$ or $\\mathrm{P}(B<w)=\\mathrm{P}\\left(Z<\\frac{\"192\"-216}{30}\\right)$ M1\n$\\mathrm{P}(Z>0.8)=1-0.7881=0.2119$ $p=$ awrt $\\underline{0.212}$ A1\nNotes: (i) M1 for standardising $w$ with 180 and 15 and 216 and 30 (allow $\\pm$). 1st A1 for equating standardisations with correct signs. 2nd A1 for 192. (ii) M1 for correct standardisation of $G>w$ with '192', 180 and 15 or $B<w$ with '192', 216 and 30. A1 for awrt 0.212"
+    }
+  ],
+  "excluded_questions": [
+    {
+      "q_num": "3",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "in spec",
+          "reason": "question dropped: other parts out of spec"
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "in spec",
+          "reason": "question dropped: other parts out of spec"
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Calculating gradient of regression line from Sxy/Sxx to test a claim",
+          "reason": "S2.2 explicit exclusion: 'calculations involving regression lines are excluded'; this part requires computing the regression gradient."
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Calculating regression line intercept to estimate a value",
+          "reason": "S2.2 explicit exclusion: 'calculations involving regression lines are excluded'; this part computes the intercept and predicts a value using the regression equation."
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Expectation of a discrete random variable",
+          "reason": "S4.1 explicit exclusion: 'calculation of mean and variance of discrete random variables is excluded'."
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Using E(X) and Var(X)=E(X^2) to find unknown probabilities",
+          "reason": "S4.1 explicit exclusion of mean/variance calculation for discrete random variables; this part requires E(X) and E(X^2)."
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Var(aX+b) for a discrete random variable",
+          "reason": "S4.1 explicit exclusion of variance calculation for discrete random variables."
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "technique": "Probabilities for a transformed discrete random variable Y=1-X",
+          "reason": "This part relies on the values of a and b found in part (b), which is out-of-spec (S4.1 exclusion); per the rule, a part depending on an out-of-spec answer is OUT."
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "in spec",
+          "reason": "question dropped: other parts out of spec"
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Calculating the PMCC using the formula",
+          "reason": "S5.1 explicit exclusion: 'calculation of correlation coefficients is excluded' / 'use of the formula is not required'; this part requires deriving r via Swy/Sww/Syy formula."
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Effect of coding on correlation coefficient",
+          "reason": "This part is about stating the correlation coefficient value between x and y based on the excluded PMCC calculation in (b); tied to an out-of-spec calculation, so treated as OUT."
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Converting a regression line under coding to obtain regression line of y on x",
+          "reason": "S2.2 explicit exclusion: 'calculations involving regression lines are excluded'."
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Using a regression line to estimate a response value",
+          "reason": "S2.2 explicit exclusion of regression line calculations; also depends on out-of-spec part (d)."
+        },
+        {
+          "label": "f",
+          "marks": 2,
+          "technique": "Assessing reliability of estimates (interpolation/extrapolation) from a regression line",
+          "reason": "Although S2.2 guidance mentions interpolation/extrapolation conceptually, this part only makes sense after the excluded regression-line calculations in (d)/(e), so per the rule it is OUT."
+        }
+      ]
+    }
+  ],
+  "extraction_retries": 1,
+  "pages_input": "png",
+  "autofixes": 0,
+  "triage_method": "triage-v1",
+  "ms_complete_method": "single-call-v2",
+  "ms_complete_added": 1,
+  "ms_complete_unverified": false,
+  "check_overrides": [
+    {
+      "match": "IAL2013_WST01_Jan2018_Q2(a): text not verbatim",
+      "evidence": "QP p.6 (rendered) prints 'Shade the region representing the event A u B' on the Venn diagram below.'; 'Venn' is missing from the text layer",
+      "verified_by": "Claude, reading the rendered PDF page"
+    }
+  ],
+  "ms_verify_method": "visual-v1",
+  "ms_verify_fixed": 0
+}

@@ -1,0 +1,234 @@
+{
+  "_paper_id": "IAL2018_WST03_Oct2020",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.1494565,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 4,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Bias of an estimator (E(2X̄) for discrete uniform parameter)",
+          "reason": "Involves E(X) of a general discrete random variable and the concept of bias of an estimator, neither of which appear in any 9MA0 statement; S4.1 explicitly excludes calculation of mean of discrete random variables.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Point estimation using sample mean for discrete uniform parameter",
+          "reason": "Relies on the E(X) relationship from part (a) and estimator theory not present in any statement; discrete uniform distribution mean/estimation is not covered.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Chi-squared goodness-of-fit/independence contribution calculation",
+          "reason": "Chi-squared test statistic and contingency table analysis are not mentioned anywhere in the 9MA0 statements (S5 only covers binomial proportion and normal mean tests, and correlation coefficient interpretation).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Chi-squared test of independence",
+          "reason": "No statement covers chi-squared tests; S5.1-S5.3 restrict hypothesis testing to binomial proportion, normal mean, and correlation coefficient interpretation only.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Spearman's rank correlation coefficient",
+          "reason": "Spearman's rank correlation is not mentioned in any statement; S5.1 only discusses the product moment correlation coefficient (PMCC), and S5.1/exclusions restrict correlation coefficient calculation to PMCC context, not Spearman's.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Hypothesis test on Spearman's rank correlation coefficient",
+          "reason": "Testing on Spearman's coefficient is not within S5.1, which is specific to PMCC (ρ); no statement covers rank correlation tests.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Tied ranks in Spearman's coefficient",
+          "reason": "Relates to Spearman's rank correlation methodology which is entirely absent from the specification statements.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 15,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Systematic sampling",
+          "reason": "S1.1 explicitly states students should be familiar with systematic sampling as a technique, matching this part's requirement to describe selecting a systematic sample.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S1.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Chi-squared goodness-of-fit test for uniform distribution",
+          "reason": "Chi-squared testing is not covered by any statement; S2.4 explicitly limits significance tests to those in Section 5 (binomial proportion, normal mean, correlation coefficient), none of which is chi-squared.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 8,
+          "technique": "Chi-squared goodness-of-fit test with grouped data",
+          "reason": "Same reasoning as (b): chi-squared tests are outside the scope of any 9MA0 statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Critique of sampling method using prior chi-squared conclusion",
+          "reason": "The required advice depends on the conclusion reached in the out-of-spec chi-squared test in part (c), so this part only makes sense after an out-of-spec part; also involves interpreting chi-squared results for uniformity of digits, not covered by any statement.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Unbiased estimate of population variance from summary statistics",
+          "reason": "S2.3 explicitly permits use of S=√(Sxx/(n-1)) as an accepted equivalent to standard deviation from summary statistics, so calculating the unbiased variance estimate using Sxx and (n-1) is within the stated guidance.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 7,
+          "technique": "Hypothesis test for difference of two population means (large sample, unknown variance via sample estimates)",
+          "reason": "S5.3 only covers a test for the mean of a single Normal distribution with known/given/assumed variance; testing the difference between two independent sample means is not covered by any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Justification via Central Limit Theorem for large samples",
+          "reason": "S5.3 explicitly excludes 'Knowledge of the Central Limit Theorem or other large sample approximations', which is exactly what this part requires.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Approximate distribution of sample mean from Poisson distribution (CLT)",
+          "reason": "Poisson distribution is never mentioned in any statement, and use of CLT/large sample approximations for sample means is explicitly excluded by S5.3.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Confidence interval for Poisson mean using normal approximation",
+          "reason": "Poisson distribution and confidence intervals generally are not covered by any 9MA0 statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Probability calculation involving independent confidence intervals",
+          "reason": "Depends on the out-of-spec confidence interval concept established in part (b), and confidence intervals are not a topic in any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 16,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Sum of independent Normal random variables",
+          "reason": "While the Normal distribution itself is covered by S4.2, no statement mentions combining/summing independent normal random variables to form a new normal distribution; S4.2 only covers using N(μ,σ²) as a model and finding probabilities for a single variable, not linear combinations.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Linear combination of two different independent Normal random variables",
+          "reason": "Same as (a): combining multiple independent normal variables (of different distributions) into a total distribution is not covered by S4.2 or any other statement.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 8,
+          "technique": "Distribution theory: linear combination of normal random variables, solving resulting equation for n",
+          "reason": "Requires deriving the distribution of a defined linear combination of normal variables and solving a quadratic from a standardised value; this combination/derivation technique is not covered by any statement (S4.2 explicitly excludes derivation-type work and doesn't address combinations of random variables).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    }
+  ]
+}

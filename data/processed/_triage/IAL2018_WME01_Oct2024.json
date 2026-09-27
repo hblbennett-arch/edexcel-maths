@@ -1,0 +1,274 @@
+{
+  "_paper_id": "IAL2018_WME01_Oct2024",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.163794,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Conservation of linear momentum in a direct collision",
+          "reason": "This requires PCLM/impulse-momentum principles for collisions. No statement in the list (M6.1, M7.x, M8.x, M9.1) mentions momentum, impulse, or collisions - these are named mechanics concepts entirely absent from the given statement set, so per the rule this makes the part OUT regardless of the underlying algebra being simple.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Impulse = change in momentum",
+          "reason": "Impulse (I = mv - mu) is not mentioned in any of the M6-M9 statements provided. This is a named mechanics concept absent from the statement list, making it OUT.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 6,
+          "technique": "Moments - equilibrium of a non-uniform rod on two supports",
+          "reason": "M9.1 explicitly covers moments in simple static contexts including equilibrium of rigid bodies with parallel coplanar forces, which matches this beam/support problem exactly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M9.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Moments - tilting condition",
+          "reason": "Continuation of the moments problem, still within M9.1's scope of static equilibrium of rigid bodies (point of tilting is a standard application).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M9.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Constant velocity vectors, finding position vector as function of t",
+          "reason": "M7.3 covers suvat in 2D using vectors including finding velocity and position vectors; P10 covers vector operations and position vectors. This matches directly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.3",
+            "P10.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Magnitude of a velocity vector (speed)",
+          "reason": "P10.2 explicitly covers calculating magnitude of a vector from component form, directly matching this part.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P10.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 5,
+          "technique": "Vector kinematics - finding position of a second particle and equating position vectors",
+          "reason": "M7.3 explicitly covers use of suvat formulae in 2D with vectors given in i-j form to solve problems, matching this scenario of two ships with constant velocities meeting at a point.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Speed-time graph, area = distance",
+          "reason": "M7.2 explicitly covers understanding and interpreting velocity-time graphs including area under the graph representing distance travelled, matching this part.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Acceleration from speed-time graph gradient",
+          "reason": "M7.2 covers interpretation of gradient in velocity-time graphs as acceleration, directly matching.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Sketching a speed-time graph for two objects",
+          "reason": "M7.2 explicitly states graphical solutions to problems may be required and covers velocity-time graphs, matching this sketching task.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 5,
+          "technique": "Using areas/distances on speed-time graphs to form and solve an equation",
+          "reason": "This uses M7.2 (graphical interpretation, area under graph as distance) and M7.3 (constant acceleration formulae) to set up and solve for an unknown time, both covered.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.2",
+            "M7.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Newton's second law equation of motion for a particle on a pulley system",
+          "reason": "M8.4 explicitly covers application to problems involving smooth pulleys and connected particles, directly matching writing an equation of motion for one particle.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M8.4",
+            "M8.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Solving simultaneous equations of motion for connected particles over a pulley to find tension",
+          "reason": "M8.4 explicitly covers connected particle problems with smooth pulleys, matching this exactly (finding tension from two N2L equations).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M8.4"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Resultant force on a pulley from string tension",
+          "reason": "This is a straightforward application of forces in the context of a pulley system covered under M8.4's connected particle/pulley problems, requiring simple vector addition (2T) which is within the addition-of-forces content of M8.5/M8.4.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "M8.4",
+            "M8.5"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 5,
+          "technique": "Free-fall motion under gravity using suvat after string breaks",
+          "reason": "After the string breaks, this is simple motion under gravity in a straight line using constant acceleration formulae, matching M7.3/M8.3 (weight and motion under gravity, g constant).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.3",
+            "M8.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 6,
+          "technique": "Equilibrium on an inclined rough plane with a horizontal applied force and friction",
+          "reason": "M8.6 covers F ≤ μR model for friction and limiting friction/statics on a rough surface; M8.2's guidance explicitly extends to particles on an inclined plane requiring resolution of forces. This matches directly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M8.6",
+            "M8.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Motion on an inclined rough plane with friction, using N2L and suvat",
+          "reason": "M8.6 (friction F=μR when moving) combined with M8.2 guidance on particles on inclined planes and M7.3 (suvat) directly cover finding acceleration and time taken to slide a given distance.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M8.6",
+            "M8.2",
+            "M7.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Vertical projectile motion using suvat to find time of flight",
+          "reason": "M7.3/M8.3 cover constant acceleration motion under gravity in a straight line, matching this vertical throw-and-return problem.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.3",
+            "M8.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Impulse from a bounce (change of momentum)",
+          "reason": "Impulse (I = mv - mu) is not covered by any statement in the provided list; momentum and impulse concepts are absent from the M6-M9 statements, making this OUT regardless of the suvat sub-step used to find the rebound speed.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Equal heights of two vertically projected particles using suvat",
+          "reason": "This is solved using constant acceleration equations for vertical motion under gravity for two particles, matching M7.3/M8.3 with no reference to momentum or impulse.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.3",
+            "M8.3"
+          ]
+        }
+      ]
+    }
+  ]
+}

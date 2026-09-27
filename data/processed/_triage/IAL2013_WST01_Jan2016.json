@@ -1,0 +1,337 @@
+{
+  "_paper_id": "IAL2013_WST01_Jan2016",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.154609,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "CDF value F(5) for discrete random variable",
+          "reason": "S4.1 covers simple discrete probability distributions and probability calculations; cumulative probability P(X<=5) is a probability calculation not explicitly the excluded mean/variance calculation, so plausibly in spec at a basic level, though general discrete rv CDF work is not explicitly detailed anywhere.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "E(X) for discrete random variable",
+          "reason": "S4.1 explicit exclusion: 'calculation of mean and variance of discrete random variables is excluded'.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Var(X) for discrete random variable",
+          "reason": "S4.1 explicit exclusion of variance calculation for discrete random variables.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 6,
+          "technique": "E(Y), Var(Y), P(Y>X) using linear transformation of X",
+          "reason": "Relies directly on E(X) and Var(X) which are excluded by S4.1; part builds on out-of-spec results.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Reading percentile/pass mark from box plot",
+          "reason": "S2.1 covers interpreting box and whisker plots including percentiles.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Reading percentile from box plot",
+          "reason": "Same as (a), standard box plot interpretation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Outlier boundary calculation using Q3+1.5IQR, Q1-1.5IQR",
+          "reason": "S2.4 guidance explicitly gives this exact rule as an example for identifying outliers.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.4"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Identify highest values consistent with outlier rule and box plot",
+          "reason": "Direct application of S2.1/S2.4 interpretation of box plots and outliers.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1",
+            "S2.4"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 3,
+          "technique": "Complete box and whisker plot including outlier",
+          "reason": "S2.1 covers box and whisker plots including outliers explicitly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1"
+          ]
+        },
+        {
+          "label": "f",
+          "marks": 3,
+          "technique": "Probability calculation combining independent-style probabilities (binomial-type selection)",
+          "reason": "S3.1/S3.2 cover probability calculations with independent/mutually exclusive events; treating selection probabilities as fixed and combining via multiplication/combinations is within probability techniques covered.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 15,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Calculate Svs and Sss (covariance/variance sums for bivariate data)",
+          "reason": "These sums are components used to compute PMCC/regression; S5.1 excludes use of PMCC formula and S2.2 excludes regression line calculations, and this calculation directly feeds those excluded methods.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Calculate product moment correlation coefficient using formula",
+          "reason": "S5.1 explicit exclusion: 'calculation of correlation coefficients is excluded' and use of the formula is not required.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Interpret PMCC value to assess linear model appropriateness",
+          "reason": "Depends on the out-of-spec PMCC value calculated in (b); part only makes sense after an out-of-spec part.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "technique": "Find regression line equation s = a + bv",
+          "reason": "S2.2 explicit exclusion: 'calculations involving regression lines are excluded'.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 3,
+          "technique": "Convert coded regression line back to original variables",
+          "reason": "Regression line calculation, excluded by S2.2, and depends on out-of-spec part (d).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "f",
+          "marks": 2,
+          "technique": "Compare regression line gradients to make a recommendation",
+          "reason": "Uses regression line calculations which are explicitly excluded (S2.2) and depends on out-of-spec earlier parts.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Complete tree diagram with conditional probabilities",
+          "reason": "S3.2 explicitly covers use of tree diagrams for conditional probability.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Calculate overall probability using tree diagram (sum of paths)",
+          "reason": "S3.1/S3.2 cover combining probabilities via tree diagrams.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Conditional probability P(A|B) using tree diagram results",
+          "reason": "S3.2 explicitly covers conditional probability formula and tree diagrams.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Form quadratic equation from probability model (algebraic modelling with probability)",
+          "reason": "Uses S3.1/S3.2 probability setup combined with P2.3/P2.6 algebraic manipulation; forming equation from tree-diagram-style probabilities is within scope.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S3.2",
+            "P2.3"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 3,
+          "technique": "Solve quadratic equation using formula",
+          "reason": "P2.3 covers solving quadratic equations using the formula.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Standardise and find Normal probability",
+          "reason": "S4.2 covers use of Normal distribution to find probabilities.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Conditional probability using Normal distribution tail probabilities",
+          "reason": "Combines S4.2 (Normal probabilities) with S3.2 (conditional probability formula); both explicitly covered.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.2",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 6,
+          "technique": "Solve simultaneous equations to find Normal distribution parameters mu and sigma",
+          "reason": "S4.2 guidance explicitly states 'Questions may involve the solution of simultaneous equations' for finding Normal parameters.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Calculate mean and standard deviation from summary statistics",
+          "reason": "S2.3 explicitly covers calculating standard deviation including from summary statistics (sum x, sum(x-xbar)^2).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Describe skewness by comparing mean and median",
+          "reason": "The term 'skewness' and this comparative technique are not named or described in any statement; no statement covers skewness explicitly.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Reasoning about effect on mean of adding two data points",
+          "reason": "S2.3 covers measures of central tendency (mean) and interpretation of effect of data changes is a natural extension of this content.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Reasoning about effect on standard deviation of adding two data points using sum of squared deviations",
+          "reason": "S2.3 covers standard deviation and its calculation via S_xx type sums, and reasoning about how added data affects the statistic is a direct extension of this content.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.3"
+          ]
+        }
+      ]
+    }
+  ]
+}

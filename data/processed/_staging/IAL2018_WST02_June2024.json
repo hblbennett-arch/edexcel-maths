@@ -1,0 +1,205 @@
+{
+  "_paper_id": "IAL2018_WST02_June2024",
+  "_paper": "WST02",
+  "_sitting": "June2024",
+  "qualification": "IAL-2018",
+  "unit": "WST02",
+  "component": "stats",
+  "status": "legacy",
+  "paper_total": 75,
+  "source_qp_file": "pearson/IAL-2018/June2024/IAL2018_WST02_June2024_QP.txt",
+  "source_ms_file": "pearson/IAL-2018/June2024/IAL2018_WST02_June2024_MS.txt",
+  "extraction_method": "single-call-v1",
+  "extraction_model": "claude-sonnet-5",
+  "pearson_errors": [],
+  "questions": [],
+  "excluded_questions": [
+    {
+      "q_num": "1",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Poisson distribution probabilities",
+          "reason": "Uses Po(2) distribution; Poisson is not mentioned anywhere in the 9MA0 statements, so the whole topic is out of spec."
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Poisson combined with Binomial",
+          "reason": "Requires modelling with Po(6) then B(20,p); Poisson component not in spec statements."
+        },
+        {
+          "label": "c",
+          "marks": 5,
+          "technique": "Hypothesis test for Poisson mean",
+          "reason": "Test based on Po(5); Poisson not in spec, and this test type is not among those listed under S5 (only binomial proportion and normal mean tests are covered)."
+        },
+        {
+          "label": "d",
+          "marks": 1,
+          "technique": "Explain limitations of Poisson model",
+          "reason": "Concept relies on Poisson distribution, not covered in the specification statements."
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Manipulating a CDF of a continuous random variable",
+          "reason": "Relies on cumulative distribution function of a general continuous random variable; S4.2 explicitly excludes knowledge of the pdf and derivation of the cdf, and no general CRV cdf theory is included in the statements."
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Conditional probability using CDF of continuous r.v.",
+          "reason": "Depends on the CDF-based general continuous random variable framework not present in the spec (S4.2 excludes pdf/derivation knowledge, and no general CRV cdf/pdf content is listed)."
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Finding pdf from CDF",
+          "reason": "Directly excluded: S4.2 states 'Knowledge of the probability density function is not required.'"
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 15,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "in spec",
+          "reason": "question dropped: other parts out of spec"
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "in spec",
+          "reason": "question dropped: other parts out of spec"
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "in spec",
+          "reason": "question dropped: other parts out of spec"
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "in spec",
+          "reason": "question dropped: other parts out of spec"
+        },
+        {
+          "label": "e",
+          "marks": 1,
+          "technique": "in spec",
+          "reason": "question dropped: other parts out of spec"
+        },
+        {
+          "label": "f",
+          "marks": 7,
+          "technique": "Normal approximation hypothesis test for binomial proportion",
+          "reason": "S5.2 covers exact binomial proportion tests but its guidance does not mention using a Normal approximation for a proportion test; S5.3 only covers tests for a Normal mean, not proportion. No statement explicitly sanctions this large-sample approximation test for p."
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "in spec",
+          "reason": "question dropped: other parts out of spec"
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Sampling distribution of a statistic",
+          "reason": "Explicitly named as an out-of-spec topic example ('sampling distribution') in the rules; not covered by any statement."
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Binomial probability using probability from sampling distribution",
+          "reason": "Depends on the value of P(M=4) derived from the out-of-spec sampling distribution in part (b), so this part only makes sense after an out-of-spec part."
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "in spec",
+          "reason": "question dropped: other parts out of spec"
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Poisson approximation to binomial",
+          "reason": "Requires Poisson distribution, which is not mentioned anywhere in the specification statements."
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Continuous uniform distribution",
+          "reason": "Continuous uniform (rectangular) distribution is not mentioned in any statement; general CRV pdf knowledge is explicitly excluded by S4.2."
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "technique": "Poisson probability combined with other probability",
+          "reason": "Requires Poisson distribution calculations, not covered by any statement."
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 16,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Finding constants of a general pdf via integration to 1",
+          "reason": "Requires working with a general continuous random variable's pdf, explicitly excluded by S4.2 ('Knowledge of the probability density function is not required'); no general CRV pdf content is in the spec."
+        },
+        {
+          "label": "b(i)",
+          "marks": 5,
+          "technique": "E(X^2) for general continuous random variable",
+          "reason": "Requires integrating x^2 f(x) for a general pdf, which relies on pdf knowledge excluded by S4.2."
+        },
+        {
+          "label": "b(ii)",
+          "marks": 2,
+          "technique": "Solving simultaneous equations from pdf constants",
+          "reason": "Depends directly on the out-of-spec pdf work in (a) and (b)(i)."
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Sketching a general pdf",
+          "reason": "Requires knowledge/sketching of a general continuous random variable's pdf, excluded by S4.2."
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "technique": "Finding percentile of general continuous random variable via integration",
+          "reason": "Requires integrating the general pdf to find a percentile, which depends on pdf knowledge excluded by S4.2."
+        }
+      ]
+    }
+  ],
+  "triage_method": "triage-v1"
+}

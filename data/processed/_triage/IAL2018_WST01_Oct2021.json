@@ -1,0 +1,369 @@
+{
+  "_paper_id": "IAL2018_WST01_Oct2021",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.3013255,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Probability - Venn diagram, sum of probabilities =1",
+          "reason": "Uses P(sum)=1 to find P(B), standard Venn diagram probability, covered by S3.1/S3.2 on mutually exclusive/independent events and set notation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Testing independence of events",
+          "reason": "Requires comparing P(A)P(B) with P(A∩B), explicitly covered by S3.1 guidance on independent events.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Conditional probability formula",
+          "reason": "Uses P(C|B)=P(C) with the conditional probability formula from S3.2, no excluded technique involved.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 1,
+          "technique": "Venn diagram construction",
+          "reason": "Drawing a Venn diagram to satisfy set conditions is standard S3.1/S3.2 material.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Summary statistic Sxp calculation",
+          "reason": "Shows Sxp using summation formula; this is a summary-statistic manipulation akin to S2.3's Sxx, not itself a regression or correlation calculation, so not caught by the exclusions.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Product moment correlation coefficient calculation using formula",
+          "reason": "S5.1 explicitly excludes calculation of correlation coefficients using the formula; here the mark scheme requires computing r via Sxp/√(Sxx·Syy), which is the excluded formula method.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [
+            "S5.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Regression line calculation (finding a and b)",
+          "reason": "S2.2 explicitly excludes 'calculations involving regression lines'; finding the regression equation from Sxp, Sxx is precisely such a calculation.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 1,
+          "technique": "Interpretation of regression gradient",
+          "reason": "Interpreting the gradient of a regression line found in the excluded part (c); calculations involving regression lines are excluded under S2.2.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.2"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 3,
+          "technique": "Percentage saving using regression line model",
+          "reason": "Requires substituting into the regression line equation from part (c), which is an excluded regression-line calculation under S2.2; also depends on the out-of-spec part (c).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Median from stem-and-leaf diagram",
+          "reason": "Finding median from raw/grouped data is standard S2.3 measure of central tendency.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Interquartile range calculation",
+          "reason": "Calculating quartiles and IQR is a standard measure of variation under S2.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Outlier identification using 1.5×IQR rule",
+          "reason": "S2.4 explicitly covers identifying outliers using a specified rule such as 1.5×IQR, exactly as used here.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.4"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "technique": "Box plot construction",
+          "reason": "Drawing a box plot including outliers is explicitly listed under S2.1 guidance (box and whisker plots including outliers).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 1,
+          "technique": "Comparing distributions using box plots and summary statistics",
+          "reason": "Comparing medians/IQRs/ranges between two box plots is standard interpretation under S2.1/S2.3, no excluded technique used.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1",
+            "S2.3"
+          ]
+        },
+        {
+          "label": "f",
+          "marks": 3,
+          "technique": "Informal inference about individual values from box plot statistics not changing",
+          "reason": "This requires deducing bounds on ages given that adding four values leaves the box plot (quartiles) unchanged - an informal inference drawn from box plot statistics, consistent with S1.1 (informal inference) and S2.4 (drawing inferences from measures of variation); no excluded technique is required.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S1.1",
+            "S2.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Tree diagram completion with probabilities",
+          "reason": "Completing a tree diagram of dependent events is standard S3.1/S3.2 material.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Combining tree-diagram probabilities for compound event",
+          "reason": "Summing products of branch probabilities for multiple paths is standard use of tree diagrams under S3.1/S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Conditional probability from tree diagram",
+          "reason": "Uses P(A|B)=P(A∩B)/P(B) with tree-diagram probabilities, directly matching S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Constructing probability distribution of a discrete random variable",
+          "reason": "S4.1 explicitly allows understanding and use of simple discrete probability distributions (only mean/variance calculation is excluded, not the distribution itself).",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "E(X) of a discrete random variable",
+          "reason": "S4.1 explicitly excludes 'calculation of mean and variance of discrete random variables'; this part requires exactly E(X).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "E(Y) of a discrete random variable",
+          "reason": "S4.1 explicitly excludes calculation of mean of discrete random variables; even though found 'by symmetry', the mark scheme requires stating E(Y), the excluded quantity.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Cumulative distribution function value and solving for a probability",
+          "reason": "Uses F(0) with sum of probabilities =1 to solve for u; this is working with the probability distribution itself (allowed under S4.1) rather than calculating mean/variance, so the exclusion does not apply.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Var(Y) of a discrete random variable, requiring E(Y^2)",
+          "reason": "S4.1 explicitly excludes calculation of variance of discrete random variables; this part requires computing E(Y^2) and solving using Var(Y)=37, the excluded technique.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 6,
+          "technique": "Probability distribution of a transformed random variable, using q and r values",
+          "reason": "This part depends on the values of q and r obtained in part (c), which is out of spec (variance calculation excluded); since it only makes sense after an out-of-spec part, it is also out.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 15,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Normal distribution probability calculation",
+          "reason": "Standardising and finding a Normal probability is directly covered by S4.2, with no excluded technique required.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Inverse Normal distribution calculation",
+          "reason": "Finding a value from a given tail probability using the Normal distribution is standard S4.2 material.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "c(i)",
+          "marks": 3,
+          "technique": "Inverse Normal distribution calculation with combined probabilities",
+          "reason": "Standard Normal distribution probability/percentile calculation, fully covered by S4.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "c(ii)",
+          "marks": 4,
+          "technique": "Inverse Normal distribution calculation",
+          "reason": "Standard Normal probability calculation, S4.2; does not rely on any excluded technique.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Arithmetic combination of Normal-distribution-derived values",
+          "reason": "Simple arithmetic using results from in-spec Normal distribution parts; no excluded technique required.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        }
+      ]
+    }
+  ]
+}

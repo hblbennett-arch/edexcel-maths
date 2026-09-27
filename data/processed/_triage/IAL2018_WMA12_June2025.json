@@ -1,0 +1,308 @@
+{
+  "_paper_id": "IAL2018_WMA12_June2025",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.48551,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Binomial expansion (1-4x)^7",
+          "reason": "P4.1 covers binomial expansion of (a+bx)^n for positive integer n, first several terms in ascending powers of x.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Use expansion coefficients to find constant k",
+          "reason": "Extension of binomial expansion application (P4.1), straightforward algebra using part (a) answer, no excluded content.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Circle equation from diameter endpoints",
+          "reason": "P3.2 covers coordinate geometry of circles, finding centre/radius, equation of circle.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P3.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Find point on circle nearest x-axis",
+          "reason": "Uses circle geometry (centre, radius) covered by P3.2; straightforward extension.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P3.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 5,
+      "parts": [
+        {
+          "label": "main",
+          "marks": 5,
+          "technique": "Algebraic integration to find area between curve and line",
+          "reason": "P8.3 covers evaluating definite integrals and area between curve and straight line segments; P8.2 covers integrating x^n and x^-2 terms.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.2",
+            "P8.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Factor theorem to derive relation between coefficients",
+          "reason": "P2.6 covers use of factor theorem for polynomial factors.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.6"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Remainder theorem with (2x-1) and simultaneous equations",
+          "reason": "P2.6 factor/remainder theorem application combined with simple simultaneous equations (P2.4), within spec depth.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.6",
+            "P2.4"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Algebraic division to find quotient and remainder",
+          "reason": "P2.6 explicitly covers algebraic division by linear expressions (ax-b), matching division by (x-2).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.6"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Trapezium rule estimate",
+          "reason": "P9.4 explicitly covers numerical integration using the trapezium rule with tabulated values.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P9.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Scaling/combining trapezium rule result with algebraic integration for related integrals",
+          "reason": "Part (b)(i) scales the trapezium estimate from (a) linearly and (b)(ii) combines it with algebraic integration of 2x (P8.2); both rely on P9.4 numerical integration and simple integration, within spec.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P9.4",
+            "P8.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "i",
+          "marks": 5,
+          "technique": "Solving log equation using laws of logarithms",
+          "reason": "P6.4 covers laws of logarithms and solving log equations; P2.3 quadratic solving in function of unknown.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P6.4",
+            "P2.3"
+          ]
+        },
+        {
+          "label": "ii",
+          "marks": 5,
+          "technique": "Solving exponential equation for intersection using laws of indices/logs",
+          "reason": "P6.1/P6.4/P6.5 cover exponential functions, laws of logs and solving a^x=b type equations, matching required manipulation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P6.1",
+            "P6.4",
+            "P6.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "i(a)",
+          "marks": 2,
+          "technique": "Sum to infinity of geometric series",
+          "reason": "P4.5 explicitly covers sum to infinity of convergent geometric series.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.5"
+          ]
+        },
+        {
+          "label": "i(b)",
+          "marks": 3,
+          "technique": "Using logs to find n/k term below threshold in geometric sequence",
+          "reason": "P4.5 guidance explicitly states students should use logs to find n given geometric series terms/sum condition.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.5"
+          ]
+        },
+        {
+          "label": "ii",
+          "marks": 4,
+          "technique": "Maximum sum of arithmetic series (terms turning negative)",
+          "reason": "P4.4 covers arithmetic sequences and sum formula; finding greatest Sn by locating sign change of terms is standard application.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "8",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "i",
+          "marks": 3,
+          "technique": "Solving tan equation with transformation and interval",
+          "reason": "P5.7 covers solving trig equations involving multiples of unknown angle in a given interval, radians.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P5.7"
+          ]
+        },
+        {
+          "label": "ii",
+          "marks": 5,
+          "technique": "Solving trig equation using tan=sin/cos identity to form quadratic in cos",
+          "reason": "P5.5 covers tanθ=sinθ/cosθ and sin²+cos²=1 identities used to reduce to a quadratic; P5.7 covers solving resulting quadratic trig equation in given interval.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P5.5",
+            "P5.7"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "9",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Forming surface area formula S(x) using volume constraint substitution",
+          "reason": "This is algebraic modelling: using a volume constraint to eliminate a variable and substitute into a surface-area expression to derive S(x)=Px^2+Q/x. This matches P2.11 (use of functions in modelling) and general algebraic manipulation (P2.6); it does not touch any explicitly excluded topic, so despite being a geometry/modelling task it is covered by the algebra-in-modelling statement at this depth.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P2.11",
+            "P2.6"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Differentiation to find minimum of S(x)",
+          "reason": "P7.2 differentiation of x^n and constant multiples, P7.3 stationary points/minima - standard optimisation calculus.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.2",
+            "P7.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Second derivative test to justify minimum",
+          "reason": "P7.1 explicitly covers use of second derivative f''(x)>0 implies minimum to justify nature of stationary point.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "10",
+      "total_marks": 4,
+      "parts": [
+        {
+          "label": "main",
+          "marks": 4,
+          "technique": "Proof by exhaustion (algebraic cases)",
+          "reason": "P1.1 explicitly lists proof by exhaustion including examples of showing an expression is a multiple of a number by considering cases; matches exactly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P1.1"
+          ]
+        }
+      ]
+    }
+  ]
+}

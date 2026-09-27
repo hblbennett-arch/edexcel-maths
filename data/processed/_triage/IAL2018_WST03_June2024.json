@@ -1,0 +1,253 @@
+{
+  "_paper_id": "IAL2018_WST03_June2024",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.33091800000000005,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 4,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Systematic sampling",
+          "reason": "S1.1 explicitly lists systematic sampling as a technique students should be familiar with; describing selection of random start and every nth item is standard content.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S1.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Critique sampling technique",
+          "reason": "S1.1 requires ability to select or critique sampling techniques including disadvantages; this matches directly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S1.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Probability within systematic sampling context",
+          "reason": "This part asks for the probability that a systematic sample includes both first and last item, which depends on understanding systematic sampling mechanics (sampling interval fixed by random start), a specific numeric/structural insight not stated in S1.1's guidance. However S1.1 covers systematic sampling as a technique and basic probability reasoning about it is a natural extension within that statement's scope; still, no statement mentions computing selection probabilities for systematic samples specifically, so it's borderline but plausibly covered by S1.1 as understanding of the technique.",
+          "in_spec": true,
+          "confidence": "low",
+          "spec_refs": [
+            "S1.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Spearman's rank correlation coefficient",
+          "reason": "Spearman's rank correlation is not mentioned anywhere in the S statements; S5.1 only covers PMCC (product moment correlation coefficient) hypothesis testing, and S2.2/S5.1 explicitly exclude calculation involving correlation coefficients via formula but do mention PMCC via calculator, not Spearman's. Spearman's rank is a named concept not covered.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Hypothesis test using Spearman's rank correlation",
+          "reason": "Depends on Spearman's rank coefficient from part (a), which is out of spec; also no statement covers hypothesis testing with Spearman's rank (critical values table for rank correlation not mentioned).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Rationale for using rank correlation over PMCC",
+          "reason": "This explanation relies on understanding Spearman's rank vs PMCC, a topic not in spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 1,
+          "technique": "Effect of tied ranks",
+          "reason": "Concept of tied ranks in Spearman's correlation, not covered by any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Hypothesis test for mean using confidence interval",
+          "reason": "S5.3 covers hypothesis testing for the mean of a Normal distribution with known/given/assumed variance; using a CI to test a claim relates to this idea, though S5.3 doesn't explicitly cover using a given CI for testing. This is a natural extension within S5.3's scope.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S5.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Confidence interval for mean using sample variance (large sample z)",
+          "reason": "This is a standard CI construction for population mean, similar to logic underlying S5.3's z-test structure (X-bar ~ N(mu, sigma^2/n)), using z critical values; this matches methods implied by S5.3 even though CI construction itself isn't separately named, it's a natural companion calculation to the hypothesis test statement.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S5.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Binomial probability for number of CIs containing mu",
+          "reason": "Uses binomial distribution (S4.1) applied to a probability context involving confidence intervals; calculating binomial probabilities directly matches S4.1's coverage, though it requires understanding of CI coverage probability from (b)'s out-of-spec-adjacent context is actually fine since S4.1 covers binomial calc directly.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 8,
+          "technique": "Chi-squared goodness of fit test",
+          "reason": "Chi-squared tests (goodness of fit) are not mentioned in any S statement; S2.4 explicitly says 'Significance tests, other than those mentioned in Section 5, will not be expected' and Section 5 only covers binomial proportion and normal mean tests, not chi-squared.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Expected frequency calculation for contingency table (chi-squared test of association)",
+          "reason": "Part of chi-squared test of association, not covered by any statement and excluded per S2.4.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Degrees of freedom for chi-squared test",
+          "reason": "Chi-squared test concept entirely absent from spec statements.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 8,
+          "technique": "Two-sample z-test for difference of means",
+          "reason": "Hypothesis testing for difference between two population means is not covered; S5.3 only covers a test for the mean of a single Normal distribution, not two-sample tests. This is a distinct, unlisted technique.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Assumptions for two-sample test",
+          "reason": "Relies on the out-of-spec two-sample hypothesis test framework from (a).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Combining sample statistics / unbiased variance estimate with pooled data",
+          "reason": "This concerns combining sums to find unbiased variance estimator for an updated sample; while S2.3 covers standard deviation/variance calculation including from summary statistics, this specific technique of updating sums (Σx, Σx²) from combined data isn't fully matched, but S2.3 does state 'calculate standard deviation, including from summary statistics' which covers manipulating Sxx-type sums. It's a plausible extension.",
+          "in_spec": true,
+          "confidence": "low",
+          "spec_refs": [
+            "S2.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 16,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Sum of independent Normal random variables",
+          "reason": "Normal distribution linear combination (sum of independent normals) is not covered by S4.2, which only covers the single Normal distribution as a model and finding probabilities, not combinations/sums of normal variables (a distinct technique not stated anywhere in the S statements).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Difference of independent Normal random variables",
+          "reason": "Same issue as (a); linear combinations of normal distributions not in spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 7,
+          "technique": "Linear combination of independent Normal random variables (G - 2T)",
+          "reason": "Same issue; combinations of normal random variables entirely absent from spec statements.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Central Limit Theorem applied to uniform distribution",
+          "reason": "Central Limit Theorem is explicitly excluded: S5.3 states 'Knowledge of the Central Limit Theorem or other large sample approximations is not required.' Also uniform distribution/continuous random variable mean-variance not covered.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Confidence interval using CLT result for uniform distribution parameter",
+          "reason": "Depends on the CLT-based distribution derived in (a), which is explicitly excluded per S5.3.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    }
+  ]
+}

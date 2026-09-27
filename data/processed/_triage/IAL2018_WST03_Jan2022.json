@@ -1,0 +1,260 @@
+{
+  "_paper_id": "IAL2018_WST03_Jan2022",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.28228299999999995,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "unbiased estimates of mean and variance from summary statistics",
+          "reason": "S2.3 covers standard deviation/variance from summary statistics (Sxx formula); unbiased variance estimate is a standard extension of this calculation.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "confidence interval for mean, known variance",
+          "reason": "No statement in S1-S5 covers confidence intervals; this concept (and z-interval for a mean) is not mentioned anywhere in the statements, so it is out of spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "probability using confidence interval result and normal distribution",
+          "reason": "This part depends directly on the answer to part (b) which is out of spec (confidence interval), and confidence intervals are not covered by any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 7,
+          "technique": "hypothesis test for difference of two means using CLT/sampling distribution of sample mean",
+          "reason": "This requires the sampling distribution of the sample mean (CLT) for two samples, which is not covered by S5.3 (only tests for mean of a single Normal distribution) and explicitly S5.3 excludes CLT knowledge; two-sample tests are not mentioned anywhere.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "significance of Central Limit Theorem",
+          "reason": "S5.3 explicitly excludes 'Knowledge of the Central Limit Theorem or other large sample approximations is not required', so any question on CLT significance is out.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [
+            "S5.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "calculate PMCC value",
+          "reason": "S5.1 explicitly states 'calculation of correlation coefficients is excluded' and S5.1 also states students calculate r using calculator, formula not required — but this part requires calculating r from Sxy, Sxx, Syy using the formula, which is the excluded calculation method.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [
+            "S5.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "hypothesis test using PMCC compared to critical value",
+          "reason": "S5.1 explicitly covers extending hypothesis testing language to correlation coefficients, comparing a calculated r to a critical value/p-value, with hypotheses stated in terms of population correlation coefficient rho with null rho=0 — this is exactly what is described and is in spec (the exclusion is only on deriving/calculating r via formula, not on using an already-obtained r value in a test).",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S5.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "assumption for PMCC hypothesis test (bivariate normality)",
+          "reason": "This is part of the standard hypothesis test procedure for correlation coefficient under S5.1, which requires an assumption about the underlying distribution being stated - a natural extension of the S5.1 test content.",
+          "in_spec": true,
+          "confidence": "low",
+          "spec_refs": [
+            "S5.1"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "technique": "calculate Spearman's rank correlation coefficient",
+          "reason": "Spearman's rank correlation coefficient is not mentioned anywhere in the statements; only PMCC (product moment correlation coefficient) is referenced in S5.1, and no rank correlation method is included.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "hypothesis test using Spearman's rank correlation coefficient",
+          "reason": "Depends on part (d)'s Spearman's coefficient, which is not covered by any statement (only PMCC is named); Spearman's is out of spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "quota sampling description",
+          "reason": "S1.1 explicitly lists quota sampling as a technique students should be familiar with, including describing how a sample could be obtained.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S1.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 8,
+          "technique": "chi-squared test for independence (contingency table)",
+          "reason": "Chi-squared tests, contingency tables, and tests of independence are not mentioned in any S1-S5 statement (only tests for binomial proportion, normal mean, and correlation coefficient are covered in S5), so this is out of spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "effect of scaling on chi-squared test statistic/critical value/conclusion",
+          "reason": "This depends entirely on the chi-squared test in part (b), which is out of spec, and chi-squared testing itself is not mentioned in any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 17,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "sum of independent normal random variables, probability calculation",
+          "reason": "S4.2 covers the Normal distribution as a model and finding probabilities; combining independent normal variables (sum having a normal distribution) is a natural application of S3.1 (independence) and S4.2, though the specific 'sum of normals' result isn't explicitly named — this is a standard extension of S4.2/S3.1 content.",
+          "in_spec": true,
+          "confidence": "low",
+          "spec_refs": [
+            "S4.2",
+            "S3.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "difference of independent normal random variables, probability calculation",
+          "reason": "Similarly requires combining independent normal distributions (difference), extending S4.2's normal probability calculations and S3.1's independence — not explicitly stated as excluded, treated as an application of named content.",
+          "in_spec": true,
+          "confidence": "low",
+          "spec_refs": [
+            "S4.2",
+            "S3.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "inverse normal calculation for sum of normals",
+          "reason": "Uses the same combined normal distribution from part (a); finding t from a probability is a standard S4.2 percentile-type calculation on a normal distribution.",
+          "in_spec": true,
+          "confidence": "low",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "binomial distribution probability using part (a) answer",
+          "reason": "S4.1 covers calculating binomial probabilities; this uses the probability from part (a) (itself judged in spec) as parameter p in a binomial model, so is a straightforward binomial calculation.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "critique of independence assumption in modelling",
+          "reason": "S4.3/S3.3 cover critiquing modelling assumptions including independence assumptions in probability models.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S3.3",
+            "S4.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "normal probability calculation for expected frequencies",
+          "reason": "S4.2 covers finding probabilities using the Normal distribution, directly applicable to computing these expected frequency tail probabilities.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 7,
+          "technique": "chi-squared goodness-of-fit test",
+          "reason": "Chi-squared goodness-of-fit testing is not mentioned anywhere in the statements; only binomial proportion tests, normal mean tests, and correlation coefficient tests are listed in S5, so this is out of spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "effect of estimated parameters on chi-squared critical value (degrees of freedom)",
+          "reason": "This depends entirely on the chi-squared goodness-of-fit test framework from part (b), which is not covered by any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    }
+  ]
+}

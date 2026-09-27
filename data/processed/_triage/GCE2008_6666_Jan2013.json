@@ -1,0 +1,251 @@
+{
+  "_paper_id": "GCE2008_6666_Jan2013",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.1864315,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 5,
+      "parts": [
+        {
+          "label": null,
+          "marks": 5,
+          "technique": "Binomial expansion of (a+bx)^n for rational n",
+          "reason": "P4.1 explicitly covers binomial expansion for any rational n including validity condition; this exactly matches the question (2+3x)^-3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Integration by parts",
+          "reason": "P8.5 covers integration by parts including cases with more than one function combination; integrating x^(-3)ln x by parts is standard IBP.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.5"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Definite integral evaluation using part (a) result",
+          "reason": "Simply substitutes limits into the antiderivative found in part (a), which is in spec; depends on an in-spec part.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.3",
+            "P8.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 4,
+      "parts": [
+        {
+          "label": null,
+          "marks": 4,
+          "technique": "Partial fractions decomposition",
+          "reason": "P2.10 covers partial fractions with denominators of up to 3 linear/quadratic terms and constant numerators; matches (x+2)(3x-1) with 3 terms overall.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.10"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Function evaluation",
+          "reason": "Simple substitution of x=3 into given formula to complete table; no excluded technique involved.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P9.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Trapezium rule for numerical integration",
+          "reason": "P9.4 explicitly covers use of trapezium rule to estimate area under a curve.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P9.4"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 8,
+          "technique": "Integration by substitution to find exact area",
+          "reason": "P8.5 covers integration by substitution including finding a suitable substitution; P8.3 covers exact area under curve via integration.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.5",
+            "P8.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 15,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Parametric equations - finding coordinates",
+          "reason": "P3.3 covers parametric equations of curves and finding specific points by substituting parameter values.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P3.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Parametric equations - finding coordinates",
+          "reason": "Same as above, substituting y=0 to find parameter and hence x, standard parametric curve work.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P3.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 5,
+          "technique": "Parametric differentiation and normal to curve",
+          "reason": "P7.5 covers differentiating parametrically for first derivative; P7.3 covers finding tangents and normals using differentiation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5",
+            "P7.3"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 6,
+          "technique": "Area under a parametrically-defined curve using integration",
+          "reason": "P8.3 guidance explicitly states this includes curves defined parametrically; this is a plane area calculation, not a volume of revolution, so not excluded.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.3",
+            "P8.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Solving trigonometric equation for roots",
+          "reason": "P5.7 covers solving trig equations in a given interval such as 1-2cos x =0.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P5.7"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Volume of solid of revolution by integration",
+          "reason": "Explicitly listed as a concept no 9MA0 statement covers ('volume of revolution... about an axis'), so this is out regardless of the trig/integration skills involved.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Finding intersection point of two 3D vector lines",
+          "reason": "Explicitly listed as a concept not covered by any 9MA0 statement ('intersection of lines'); vector equation of a line r=a+λb also excluded.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Angle between two lines using scalar (dot) product",
+          "reason": "Explicitly excluded concept ('scalar (dot) product, including the angle between vectors or lines').",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 6,
+          "technique": "Finding foot of perpendicular from a point to a line using dot product",
+          "reason": "Requires the dot product to establish perpendicularity to a vector line, an explicitly excluded concept; also builds on line equation not covered.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "8",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Solving a first order separable differential equation",
+          "reason": "P8.7 covers analytical solution of simple first order differential equations with separable variables, matching this derivation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.7"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Using solution of differential equation to find a value of t, interpreting in context",
+          "reason": "P8.8 covers interpreting solutions of differential equations in context; uses exponential equation solving (P6.3) building on part (a)'s in-spec result.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.8",
+            "P6.3"
+          ]
+        }
+      ]
+    }
+  ]
+}

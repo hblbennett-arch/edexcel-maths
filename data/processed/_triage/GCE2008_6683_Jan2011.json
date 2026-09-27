@@ -1,0 +1,369 @@
+{
+  "_paper_id": "GCE2008_6683_Jan2011",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.138799,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Calculate Sll and Slw from summary statistics",
+          "reason": "S2.3 covers use of summary statistics (Sxx-type calculations) for standard deviation/variance; computing Sll and Slw is directly analogous and within depth.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Calculate PMCC using formula",
+          "reason": "S5.1 and S2.2 explicitly exclude calculation of correlation coefficients using the formula; here Sll, Slw, Sww are given and the formula is applied directly, which is the excluded case.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Interpret correlation coefficient",
+          "reason": "This interpretation relies on the numeric r value obtained in the excluded part (b), so it only makes sense after an out-of-spec calculation.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 4,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Calculate mean of combined data",
+          "reason": "Basic mean calculation is covered under S2.3 measures of central tendency.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Reasoning about effect of data correction on mean",
+          "reason": "S2.4 covers data cleaning/correction and S2.3 covers interpretation of central tendency; reasoning about effect of correcting errors on the mean is within this scope.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.3",
+            "S2.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Draw box plot with outliers",
+          "reason": "S2.1 covers box and whisker plots including outliers, and S2.4 covers identifying outliers with a given rule.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1",
+            "S2.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "State and justify skewness",
+          "reason": "S2.3 covers interpretation of measures of central tendency/variation including drawing inferences such as skewness.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Comment on claim about quartiles",
+          "reason": "S2.3/S2.4 cover drawing inferences and interpretations from quartile/median data.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3",
+            "S2.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Find regression line equation",
+          "reason": "S2.2 explicitly excludes calculations involving regression lines; here students are required to compute the regression coefficients a and b.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Use regression line to estimate value",
+          "reason": "This directly uses the regression line found in part (a), which is excluded, and calculations involving regression lines are explicitly excluded.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Use interpolation to estimate median from grouped data",
+          "reason": "S2.3 explicitly states use of linear interpolation to calculate percentiles from grouped data is expected.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Find mean and standard deviation from summary statistics",
+          "reason": "S2.3 explicitly covers calculating standard deviation including from summary statistics, and mean as a measure of central tendency.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Comment on skewness using mean/median comparison",
+          "reason": "S2.3 covers drawing inferences and interpretations about skewness from central tendency measures.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Show sum of probabilities =1 for discrete distribution",
+          "reason": "S4.1 covers discrete probability distributions; finding k so probabilities sum to 1 is a basic property, not mean/variance calculation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Calculate E(X) for discrete random variable",
+          "reason": "S4.1 explicitly excludes calculation of mean and variance of discrete random variables.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Calculate E(X^2)",
+          "reason": "Same explicit exclusion in S4.1 regarding calculation of mean/variance (and moments) of discrete random variables.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Calculate Var(2-5X)",
+          "reason": "Requires E(X) and E(X^2) results from excluded parts (b)/(c), and is itself a variance calculation for a discrete random variable, explicitly excluded by S4.1.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Show P(X1+X2=4) using independence",
+          "reason": "This is a probability calculation using independent events (S3.1), not a mean/variance calculation, so it is not caught by the S4.1 exclusion.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S3.1"
+          ]
+        },
+        {
+          "label": "f",
+          "marks": 2,
+          "technique": "Complete probability distribution table for sum of two variables",
+          "reason": "This is direct probability calculation for a discrete distribution (S4.1/S3.1), not mean or variance, so within spec.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.1",
+            "S3.1"
+          ]
+        },
+        {
+          "label": "g",
+          "marks": 2,
+          "technique": "Find probability from distribution table",
+          "reason": "Simple probability summation from a discrete distribution, covered by S4.1/S3.1, not excluded.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.1",
+            "S3.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 17,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Complete tree diagram probabilities",
+          "reason": "S3.1/S3.2 cover use of tree diagrams for probability calculations including conditional/sequential events.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Find P(A) using tree diagram probabilities",
+          "reason": "Standard probability calculation using tree diagram outcomes, covered by S3.1/S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Show P(B) by summing conditional probability paths",
+          "reason": "Use of tree diagrams and conditional probability as per S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Show P(A∩B) using tree diagram paths",
+          "reason": "Standard intersection probability calculation covered by S3.1/S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Find P(A∪B) using addition rule",
+          "reason": "S3.2 explicitly covers P(A∪B) = P(A)+P(B)-P(A∩B).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "f",
+          "marks": 3,
+          "technique": "Conditional probability given all three balls same colour",
+          "reason": "Direct application of conditional probability formula from S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "8",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Find probability using Normal distribution",
+          "reason": "S4.2 covers finding probabilities using the Normal distribution as a model.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Find value w using inverse Normal probability",
+          "reason": "S4.2 covers use of Normal distribution including finding related values via calculator, consistent with statement guidance.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 6,
+          "technique": "Find mean and sd of Normal distribution from two probabilities using simultaneous equations",
+          "reason": "S4.2 guidance explicitly states questions may involve solution of simultaneous equations for Normal distribution parameters.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        }
+      ]
+    }
+  ]
+}

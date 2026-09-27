@@ -1,0 +1,287 @@
+{
+  "_paper_id": "GCE2008_6666_June2012",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.27029800000000004,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Partial fractions decomposition",
+          "reason": "P2.10 covers decomposing rational functions into partial fractions including denominators of form (ax+b)(cx+d)^2; this matches the given form exactly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.10"
+          ]
+        },
+        {
+          "label": "b(i)",
+          "marks": 3,
+          "technique": "Integration using partial fractions",
+          "reason": "P8.6 explicitly covers integrating using partial fractions with linear/quadratic terms in denominator; guidance references exactly this type of term.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.6"
+          ]
+        },
+        {
+          "label": "b(ii)",
+          "marks": 3,
+          "technique": "Definite integral evaluation with logs",
+          "reason": "P8.3 covers evaluating definite integrals; combined with log manipulation from P6.4, no excluded concept is required.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.3",
+            "P8.6",
+            "P6.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Differentiation of x^3",
+          "reason": "P7.2 covers differentiating x^n; showing dV/dx=3x^2 is standard power rule differentiation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Connected rates of change",
+          "reason": "P7.4 guidance explicitly covers connected rates of change such as dV/dt=dV/dr × dr/dt; this is directly that structure.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.4"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Connected rates of change (surface area)",
+          "reason": "Same connected-rates-of-change technique as (b), applied to surface area; covered by P7.4 guidance.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 6,
+          "technique": "Binomial expansion for rational index",
+          "reason": "P4.1 explicitly extends binomial expansion to any rational n with awareness of validity range |bx/a|<1; proof not required per exclusion, but the technique itself (expansion) is in spec.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Substitution into known binomial expansion",
+          "reason": "Uses the same binomial expansion technique with a sign substitution; still within P4.1 scope, not dependent on any excluded result from (a).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Substitution into known binomial expansion",
+          "reason": "Uses the same binomial expansion technique with a variable substitution; within P4.1 scope.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 5,
+      "parts": [
+        {
+          "label": "(only part)",
+          "marks": 5,
+          "technique": "Separation of variables differential equation",
+          "reason": "P8.7 covers analytical solution of first order differential equations with separable variables including finding a particular solution; matches exactly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.7"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Implicit differentiation",
+          "reason": "P7.5 explicitly covers differentiating functions defined implicitly for the first derivative; this matches directly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 7,
+          "technique": "Solving using implicit differentiation result and algebra",
+          "reason": "Builds on the implicit differentiation result from part (a) (P7.5) combined with standard algebraic solving of equations (P2.4/P2.6); it uses the answer to an in-spec part, not an excluded one, so it remains in spec.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5",
+            "P2.6"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Parametric differentiation",
+          "reason": "P7.5 covers differentiating functions defined parametrically for the first derivative; matches directly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Tangent to a parametrically defined curve",
+          "reason": "P7.5 guidance explicitly states finding equations of tangents to curves given parametrically is required.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Cartesian equation from parametric equations",
+          "reason": "P3.3 covers conversion between Cartesian and parametric forms; this is exactly that conversion using a trig identity.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P3.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Trapezium rule",
+          "reason": "P9.4 explicitly covers numerical integration using the trapezium rule to estimate area under a curve.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P9.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Integration by parts",
+          "reason": "P8.5 covers integration by parts including more than one application; integrating x^(1/2) ln 2x fits this method.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.5"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Definite integral evaluation with log laws",
+          "reason": "P8.3 covers evaluating definite integrals to find exact area, combined with log laws from P6.4 to simplify the result; no excluded concept is involved.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.3",
+            "P6.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "8",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Vector between two points using position vectors",
+          "reason": "P10.4 explicitly covers position vectors and the result AB = b-a; finding AB from position vectors of A and B is directly this technique, with no excluded concept required.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P10.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Vector equation of a line",
+          "reason": "The explicit 'concepts no statement covers' list names the vector equation of a line (r = a + λb) as out of spec; this part requires exactly that.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 6,
+          "technique": "Finding a point on a line perpendicular to a given vector, using the line's vector equation",
+          "reason": "This part requires setting up and using the vector equation of the line from part (b) (excluded) and solving for the parameter; since it depends entirely on the excluded vector-line-equation concept, it is out of spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    }
+  ]
+}

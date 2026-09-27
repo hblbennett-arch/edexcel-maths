@@ -1,0 +1,263 @@
+{
+  "_paper_id": "GCE2008_6683_June2016",
+  "_paper": "6683",
+  "_sitting": "June2016",
+  "qualification": "GCE-2008",
+  "unit": "6683",
+  "component": "stats",
+  "status": "legacy",
+  "paper_total": 75,
+  "source_qp_file": "pearson/GCE-2008/June2016/GCE2008_6683_June2016_QP.txt",
+  "source_ms_file": "pearson/GCE-2008/June2016/GCE2008_6683_June2016_MS.txt",
+  "extraction_method": "single-call-v1",
+  "extraction_model": "claude-sonnet-5",
+  "pearson_errors": [
+    "Q4(e): the mark scheme note flags that using P(D)×77 directly (giving 32.7, rounding to 33) scores M0A0, i.e. the 'obvious' shortcut method is explicitly disallowed despite giving the same rounded answer."
+  ],
+  "questions": [
+    {
+      "paper_id": "GCE2008_6683_June2016",
+      "spec": "GCE-2008",
+      "qualification": "GCE-2008",
+      "unit": "6683",
+      "status": "legacy",
+      "paper": "6683",
+      "sitting": "June2016",
+      "id": "GCE2008_6683_June2016_Q4",
+      "q_num": "4",
+      "total_marks": 13,
+      "component": "stats",
+      "uses_large_data_set": false,
+      "stem": "The Venn diagram shows the probabilities of customer bookings at Harry's hotel.\n\n$R$ is the event that a customer books a room\n\n$B$ is the event that a customer books breakfast\n\n$D$ is the event that a customer books dinner\n\n$u$ and $t$ are probabilities.\n\n[Venn diagram: $R$ and $B$ are overlapping ellipses inside $D$'s overlapping ellipse; the region in $B$ only is $0.33$, the region in $R \\cap B$ (inside both $B$ and $D$'s overlap with $R$) is $0.27$, the region in $R \\cap D$ only is $0.15$, the region in $R$ only (outside $B$, inside $R \\cap D$ boundary) is labelled $u$, the region in $D$ only (outside $R$) is labelled $t$, and the region outside all three circles is $0$.]",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "text": "(a) Write down the probability that a customer books breakfast but does not book a room.\n(1)",
+          "mark_scheme": "(a) [P($B \\cap R'$) =] $0$\nB1",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "text": "Given that the events $B$ and $D$ are independent\n(b) find the value of $t$\n(4)",
+          "mark_scheme": "(b) $\\mathrm{P}(B) = 0.27+0.33 = 0.6$, $\\mathrm{P}(D) = 0.27+0.15+t$, $\\mathrm{P}(B \\cap D)=0.27$\nM1: for attempting 3 suitable probabilities, one involving $t$ (at least 2 correct); e.g. sight of $0.6, 0.27, 0.42+t$ correctly labelled in terms of $B,D,R$ or in a correct equation. May see e.g. $\\mathrm{P}(B|D)=\\frac{0.27}{0.42+t}$\n[$\\mathrm{P}(B)\\times \\mathrm{P}(D) = \\mathrm{P}(B \\cap D)$ gives] $0.6\\times(0.42+t)=0.27$\nM1: for using the independence to form a linear equation in $t$. ft their probs if stated.\n$0.42+t=\\frac{0.27}{0.6}$ or $0.6t=0.018$\nA1: for solving leading to a correct equation as far as $p+t=q$ or $pt=q$\n$t=0.03$\nA1: for $0.03$ or exact equivalent",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "text": "(c) hence find the value of $u$\n(2)",
+          "mark_scheme": "(c) [$u=$] $1-(0.6+0.15+t)$\nM1: for a correct expression for $u$. Allow their $t$ or just letter $t$ in a correct expression\n$u=0.22$\nA1ft: for $0.22$ (or exact equivalent) or ft their $t$, provided $u$ and $t$ are probs. Can score M1A1ft provided their $u$+their $t$=$0.25$ where $u$ and $t$ are both in $[0,1]$",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "text": "(d) Find\n(i) $\\mathrm{P}(D|R \\cap B)$\n(ii) $\\mathrm{P}(D|R \\cap B')$\n(4)",
+          "mark_scheme": "(d)(i) $\\left[\\frac{\\mathrm{P}(D \\cap R \\cap B)}{\\mathrm{P}(R \\cap B)}\\right] = \\frac{0.27}{0.27+0.33}$ or $\\mathrm{P}(D|R\\cap B)=\\mathrm{P}(D|B)=\\mathrm{P}(D)$\nM1: for a correct numerical ratio of probabilities\n$=0.45$\nA1: for $0.45$ or exact equivalent (Answer only 2/2)\n(ii) $\\left[\\frac{\\mathrm{P}(D \\cap [R \\cap B'])}{\\mathrm{P}(R\\cap B')}\\right] = \\frac{0.15}{0.15+u}$\nM1: for a correct numerical ratio of probabilities, ft their $u$, provided $u$ is a probability\n$=\\frac{15}{37}$\nA1: for $\\frac{15}{37}$ or $0.\\dot{4}0\\dot{5}$ or allow awrt $0.41$ following a correct expression (Answer only 2/2)",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "text": "A coach load of 77 customers arrive at Harry's hotel.\n\nOf these 77 customers\n\n40 have booked a room and breakfast\n\n37 have booked a room without breakfast\n\n(e) Estimate how many of these 77 customers will book dinner.\n(2)",
+          "mark_scheme": "(e) $40\\times\\text{\"0.45\"}$ and $37\\times\\text{\"}\\frac{15}{37}\\text{\"}$\nM1: for a correct method for both 18 and 15 ft their 0.45 and their $\\frac{15}{37}$ provided both in $[0,1]$. NB $\\mathrm{P}(D)\\times 77$ is M0\n$=33$\nA1: for $33$ only. NB $\\frac{27}{33}\\times 40 = 32.7\\ldots$ which rounds to 33 but scores M0A0. (Ans only send to review)",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        }
+      ],
+      "qp_pages": [
+        2,
+        5
+      ],
+      "low_confidence": false,
+      "notes": "Venn diagram is described in the stem for reference; original page image should be checked by the model for exact layout.\n[ms_verify] (d) '$0.4\\\\dot{0}\\\\dot{5}$' -> '$0.\\\\dot{4}0\\\\dot{5}$' (MS p.9: On the page the dots are over the 4 and the 5 (15/37 = 0.405405..., repeating block 405).)",
+      "source_qp_file": "pearson/GCE-2008/June2016/GCE2008_6683_June2016_QP.txt",
+      "source_ms_file": "pearson/GCE-2008/June2016/GCE2008_6683_June2016_MS.txt",
+      "notation": "latex",
+      "extraction_method": "single-call-v1",
+      "question_text": "The Venn diagram shows the probabilities of customer bookings at Harry's hotel.\n\n$R$ is the event that a customer books a room\n\n$B$ is the event that a customer books breakfast\n\n$D$ is the event that a customer books dinner\n\n$u$ and $t$ are probabilities.\n\n[Venn diagram: $R$ and $B$ are overlapping ellipses inside $D$'s overlapping ellipse; the region in $B$ only is $0.33$, the region in $R \\cap B$ (inside both $B$ and $D$'s overlap with $R$) is $0.27$, the region in $R \\cap D$ only is $0.15$, the region in $R$ only (outside $B$, inside $R \\cap D$ boundary) is labelled $u$, the region in $D$ only (outside $R$) is labelled $t$, and the region outside all three circles is $0$.]\n(a) Write down the probability that a customer books breakfast but does not book a room.\n(1)\nGiven that the events $B$ and $D$ are independent\n(b) find the value of $t$\n(4)\n(c) hence find the value of $u$\n(2)\n(d) Find\n(i) $\\mathrm{P}(D|R \\cap B)$\n(ii) $\\mathrm{P}(D|R \\cap B')$\n(4)\nA coach load of 77 customers arrive at Harry's hotel.\n\nOf these 77 customers\n\n40 have booked a room and breakfast\n\n37 have booked a room without breakfast\n\n(e) Estimate how many of these 77 customers will book dinner.\n(2)",
+      "mark_scheme_text": "(a) [P($B \\cap R'$) =] $0$\nB1\n(b) $\\mathrm{P}(B) = 0.27+0.33 = 0.6$, $\\mathrm{P}(D) = 0.27+0.15+t$, $\\mathrm{P}(B \\cap D)=0.27$\nM1: for attempting 3 suitable probabilities, one involving $t$ (at least 2 correct); e.g. sight of $0.6, 0.27, 0.42+t$ correctly labelled in terms of $B,D,R$ or in a correct equation. May see e.g. $\\mathrm{P}(B|D)=\\frac{0.27}{0.42+t}$\n[$\\mathrm{P}(B)\\times \\mathrm{P}(D) = \\mathrm{P}(B \\cap D)$ gives] $0.6\\times(0.42+t)=0.27$\nM1: for using the independence to form a linear equation in $t$. ft their probs if stated.\n$0.42+t=\\frac{0.27}{0.6}$ or $0.6t=0.018$\nA1: for solving leading to a correct equation as far as $p+t=q$ or $pt=q$\n$t=0.03$\nA1: for $0.03$ or exact equivalent\n(c) [$u=$] $1-(0.6+0.15+t)$\nM1: for a correct expression for $u$. Allow their $t$ or just letter $t$ in a correct expression\n$u=0.22$\nA1ft: for $0.22$ (or exact equivalent) or ft their $t$, provided $u$ and $t$ are probs. Can score M1A1ft provided their $u$+their $t$=$0.25$ where $u$ and $t$ are both in $[0,1]$\n(d)(i) $\\left[\\frac{\\mathrm{P}(D \\cap R \\cap B)}{\\mathrm{P}(R \\cap B)}\\right] = \\frac{0.27}{0.27+0.33}$ or $\\mathrm{P}(D|R\\cap B)=\\mathrm{P}(D|B)=\\mathrm{P}(D)$\nM1: for a correct numerical ratio of probabilities\n$=0.45$\nA1: for $0.45$ or exact equivalent (Answer only 2/2)\n(ii) $\\left[\\frac{\\mathrm{P}(D \\cap [R \\cap B'])}{\\mathrm{P}(R\\cap B')}\\right] = \\frac{0.15}{0.15+u}$\nM1: for a correct numerical ratio of probabilities, ft their $u$, provided $u$ is a probability\n$=\\frac{15}{37}$\nA1: for $\\frac{15}{37}$ or $0.\\dot{4}0\\dot{5}$ or allow awrt $0.41$ following a correct expression (Answer only 2/2)\n(e) $40\\times\\text{\"0.45\"}$ and $37\\times\\text{\"}\\frac{15}{37}\\text{\"}$\nM1: for a correct method for both 18 and 15 ft their 0.45 and their $\\frac{15}{37}$ provided both in $[0,1]$. NB $\\mathrm{P}(D)\\times 77$ is M0\n$=33$\nA1: for $33$ only. NB $\\frac{27}{33}\\times 40 = 32.7\\ldots$ which rounds to 33 but scores M0A0. (Ans only send to review)",
+      "has_figure": true,
+      "figure_pages": [
+        2,
+        5
+      ],
+      "figure_pages_source": "diagram mentioned (no Figure label): whole question pages"
+    },
+    {
+      "paper_id": "GCE2008_6683_June2016",
+      "spec": "GCE-2008",
+      "qualification": "GCE-2008",
+      "unit": "6683",
+      "status": "legacy",
+      "paper": "6683",
+      "sitting": "June2016",
+      "id": "GCE2008_6683_June2016_Q5",
+      "q_num": "5",
+      "total_marks": 17,
+      "component": "stats",
+      "uses_large_data_set": false,
+      "stem": "A midwife records the weights, in kg, of a sample of 50 babies born at a hospital. Her results are given in the table below.\n\n$\\begin{array}{|c|c|c|}\\hline \\text{Weight } (w \\text{ kg}) & \\text{Frequency (f)} & \\text{Weight midpoint } (x) \\\\ \\hline 0 \\leqslant w < 2 & 1 & 1 \\\\ \\hline 2 \\leqslant w < 3 & 8 & 2.5 \\\\ \\hline 3 \\leqslant w < 3.5 & 17 & 3.25 \\\\ \\hline 3.5 \\leqslant w < 4 & 17 & 3.75 \\\\ \\hline 4 \\leqslant w < 5 & 7 & 4.5 \\\\ \\hline\\end{array}$\n\n[You may use $\\sum fx^2 = 611.375$]\n\nA histogram has been drawn to represent these data.\n\nThe bar representing the weight $2 \\leqslant w < 3$ has a width of 1 cm and a height of 4 cm.",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "text": "(a) Calculate the width and height of the bar representing a weight of $3 \\leqslant w < 3.5$\n(3)",
+          "mark_scheme": "(a) Width $= 0.5$ (cm)\nB1\ne.g. 4 [cm$^2$] represents 8 babies or frequency densities are 8 and 34\nM1: for clear representation of area with frequency or height$\\times$width$=8.5$\nHeight $= 17$ (cm)\nA1: for 17 (cm) [Must be clear it is height not frequency] (Ans only must satisfy $h\\times w = 8.5$)",
+          "spec_refs": [
+            "S2.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "text": "(b) Use linear interpolation to estimate the median weight of these babies.\n(2)",
+          "mark_scheme": "(b) $[Q_2=]$ $\\{3\\}+\\frac{(25-9)}{(26-9)}\\times 0.5$, or $\\{3.5\\}-\\frac{(25-24)}{(41-24)}\\times 0.5$\nM1: for $\\frac{16}{17}\\times 0.5$ or if using $n+1$ for $\\frac{16.5}{17}\\times 0.5$. May see $-\\frac{1}{17}\\times 0.5$ if working down\n$=$ awrt $3.47$ (allow $\\frac{59}{17}$)\nA1: for awrt 3.47 (or $\\frac{59}{17}$) [check from correct working] or (if using $(n+1)$ for) 3.485 or awrt 3.49",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "text": "(c) (i) Show that an estimate of the mean weight of these babies is 3.43 kg.\n(ii) Find an estimate of the standard deviation of the weights of these babies.\n(3)",
+          "mark_scheme": "(c)(i) $\\sum fx = 1\\times 1+2.5\\times 8+3.25\\times 17+3.75\\times 17+4.5\\times 7=171.5$, $\\bar{x}=\\frac{171.5}{50}=(3.43)$ (*)\nB1cso: for $\\sum fx$ (at least 3 correct \\& no incorrect products seen) and correct $\\frac{\\sum fx}{50}$ or $\\frac{171.5}{50}$\n(ii) $\\sqrt{\\frac{611.375}{50}-3.43^2}$\nM1: for a correct expression including square root. Must use 3.43 no ft\n$=0.680147\\ldots$ (awrt 0.680)\nA1: for awrt 0.680 (accept 0.68). Allow use of $s=$ awrt 0.687 (Ans only 2/2)",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "text": "Shyam decides to model the weights of babies born at the hospital, by the random variable $W$, where $W \\sim \\mathrm{N}(3.43, 0.65^2)$\n\n(d) Find $\\mathrm{P}(W<3)$\n(3)",
+          "mark_scheme": "(d) $[\\mathrm{P}(W<3)=\\mathrm{P}\\left(Z<\\frac{-0.43}{0.65}\\right)]=\\mathrm{P}(Z<-0.6615\\ldots)$\nM1: for an attempt to standardise with 3, 3.43 and 0.65. Allow $\\pm$ and also use of their sd\n$=1-0.7454$ (tables)\nM1: for $1-p$ where $0.74<p<0.75$ NB calculator gives 0.7458665...\n$=0.2546$ awrt 0.254~0.255\nA1: for awrt 0.254 or 0.255",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 3,
+          "text": "(e) With reference to your answers to (b), (c)(i) and (d) comment on Shyam's decision.\n(3)",
+          "mark_scheme": "(e) (b) and (c)(i) mean $\\neq$ median or skew or mean$\\approx$median or no skew and comment\nB1: for a statement about mean/median and compatible comment about normal\n(d)$=0.254$ or $0.255$ compare data$=0.18$ (or $12.7$ compared with $9$)\nB1: for statement comparing their (d) with data (sight of 0.18 or 12.7 and 9 required)\n0.18 different from 0.25 so normal not good or 0.18 similar to 0.25 so normal is OK\ndB1: dep on 2nd B1 for conclusion about normal compatible with 2nd statement",
+          "spec_refs": [
+            "S4.2",
+            "S4.3",
+            "S2.3"
+          ]
+        },
+        {
+          "label": "f",
+          "marks": 3,
+          "text": "A newborn baby weighing 3.43 kg is born at the hospital.\n\n(f) Without carrying out any further calculations, state, giving a reason, what effect the addition of this newborn baby to the sample would have on your estimate of the\n(i) mean,\n(ii) standard deviation.\n(3)",
+          "mark_scheme": "(f)(i) No change in mean (since weight is the same)\nB1: for no change in mean {send a correct argument for decrease to review}\n(ii) s.d. will decrease (Extra value is at \"centre\" so data more concentrated)\nB1: for s.d. decreases\ndB1: dep on 1st and 2nd Bs for a correct reason for both mean and sd e.g. \"new mean the same so within 1 s.d. of old mean\"\nBoth statements correct and correct reasons for each",
+          "spec_refs": [
+            "S2.3"
+          ]
+        }
+      ],
+      "qp_pages": [
+        6,
+        9
+      ],
+      "low_confidence": false,
+      "notes": "",
+      "source_qp_file": "pearson/GCE-2008/June2016/GCE2008_6683_June2016_QP.txt",
+      "source_ms_file": "pearson/GCE-2008/June2016/GCE2008_6683_June2016_MS.txt",
+      "notation": "latex",
+      "extraction_method": "single-call-v1",
+      "question_text": "A midwife records the weights, in kg, of a sample of 50 babies born at a hospital. Her results are given in the table below.\n\n$\\begin{array}{|c|c|c|}\\hline \\text{Weight } (w \\text{ kg}) & \\text{Frequency (f)} & \\text{Weight midpoint } (x) \\\\ \\hline 0 \\leqslant w < 2 & 1 & 1 \\\\ \\hline 2 \\leqslant w < 3 & 8 & 2.5 \\\\ \\hline 3 \\leqslant w < 3.5 & 17 & 3.25 \\\\ \\hline 3.5 \\leqslant w < 4 & 17 & 3.75 \\\\ \\hline 4 \\leqslant w < 5 & 7 & 4.5 \\\\ \\hline\\end{array}$\n\n[You may use $\\sum fx^2 = 611.375$]\n\nA histogram has been drawn to represent these data.\n\nThe bar representing the weight $2 \\leqslant w < 3$ has a width of 1 cm and a height of 4 cm.\n(a) Calculate the width and height of the bar representing a weight of $3 \\leqslant w < 3.5$\n(3)\n(b) Use linear interpolation to estimate the median weight of these babies.\n(2)\n(c) (i) Show that an estimate of the mean weight of these babies is 3.43 kg.\n(ii) Find an estimate of the standard deviation of the weights of these babies.\n(3)\nShyam decides to model the weights of babies born at the hospital, by the random variable $W$, where $W \\sim \\mathrm{N}(3.43, 0.65^2)$\n\n(d) Find $\\mathrm{P}(W<3)$\n(3)\n(e) With reference to your answers to (b), (c)(i) and (d) comment on Shyam's decision.\n(3)\nA newborn baby weighing 3.43 kg is born at the hospital.\n\n(f) Without carrying out any further calculations, state, giving a reason, what effect the addition of this newborn baby to the sample would have on your estimate of the\n(i) mean,\n(ii) standard deviation.\n(3)",
+      "mark_scheme_text": "(a) Width $= 0.5$ (cm)\nB1\ne.g. 4 [cm$^2$] represents 8 babies or frequency densities are 8 and 34\nM1: for clear representation of area with frequency or height$\\times$width$=8.5$\nHeight $= 17$ (cm)\nA1: for 17 (cm) [Must be clear it is height not frequency] (Ans only must satisfy $h\\times w = 8.5$)\n(b) $[Q_2=]$ $\\{3\\}+\\frac{(25-9)}{(26-9)}\\times 0.5$, or $\\{3.5\\}-\\frac{(25-24)}{(41-24)}\\times 0.5$\nM1: for $\\frac{16}{17}\\times 0.5$ or if using $n+1$ for $\\frac{16.5}{17}\\times 0.5$. May see $-\\frac{1}{17}\\times 0.5$ if working down\n$=$ awrt $3.47$ (allow $\\frac{59}{17}$)\nA1: for awrt 3.47 (or $\\frac{59}{17}$) [check from correct working] or (if using $(n+1)$ for) 3.485 or awrt 3.49\n(c)(i) $\\sum fx = 1\\times 1+2.5\\times 8+3.25\\times 17+3.75\\times 17+4.5\\times 7=171.5$, $\\bar{x}=\\frac{171.5}{50}=(3.43)$ (*)\nB1cso: for $\\sum fx$ (at least 3 correct \\& no incorrect products seen) and correct $\\frac{\\sum fx}{50}$ or $\\frac{171.5}{50}$\n(ii) $\\sqrt{\\frac{611.375}{50}-3.43^2}$\nM1: for a correct expression including square root. Must use 3.43 no ft\n$=0.680147\\ldots$ (awrt 0.680)\nA1: for awrt 0.680 (accept 0.68). Allow use of $s=$ awrt 0.687 (Ans only 2/2)\n(d) $[\\mathrm{P}(W<3)=\\mathrm{P}\\left(Z<\\frac{-0.43}{0.65}\\right)]=\\mathrm{P}(Z<-0.6615\\ldots)$\nM1: for an attempt to standardise with 3, 3.43 and 0.65. Allow $\\pm$ and also use of their sd\n$=1-0.7454$ (tables)\nM1: for $1-p$ where $0.74<p<0.75$ NB calculator gives 0.7458665...\n$=0.2546$ awrt 0.254~0.255\nA1: for awrt 0.254 or 0.255\n(e) (b) and (c)(i) mean $\\neq$ median or skew or mean$\\approx$median or no skew and comment\nB1: for a statement about mean/median and compatible comment about normal\n(d)$=0.254$ or $0.255$ compare data$=0.18$ (or $12.7$ compared with $9$)\nB1: for statement comparing their (d) with data (sight of 0.18 or 12.7 and 9 required)\n0.18 different from 0.25 so normal not good or 0.18 similar to 0.25 so normal is OK\ndB1: dep on 2nd B1 for conclusion about normal compatible with 2nd statement\n(f)(i) No change in mean (since weight is the same)\nB1: for no change in mean {send a correct argument for decrease to review}\n(ii) s.d. will decrease (Extra value is at \"centre\" so data more concentrated)\nB1: for s.d. decreases\ndB1: dep on 1st and 2nd Bs for a correct reason for both mean and sd e.g. \"new mean the same so within 1 s.d. of old mean\"\nBoth statements correct and correct reasons for each",
+      "has_figure": true,
+      "figure_pages": [
+        6,
+        9
+      ],
+      "figure_pages_source": "diagram mentioned (no Figure label): whole question pages"
+    },
+    {
+      "paper_id": "GCE2008_6683_June2016",
+      "spec": "GCE-2008",
+      "qualification": "GCE-2008",
+      "unit": "6683",
+      "status": "legacy",
+      "paper": "6683",
+      "sitting": "June2016",
+      "id": "GCE2008_6683_June2016_Q6",
+      "q_num": "6",
+      "total_marks": 9,
+      "component": "stats",
+      "uses_large_data_set": false,
+      "stem": "The time, in minutes, taken by men to run a marathon is modelled by a normal distribution with mean 240 minutes and standard deviation 40 minutes.",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "text": "(a) Find the proportion of men that take longer than 300 minutes to run a marathon.\n(3)",
+          "mark_scheme": "(a) [$T \\sim \\mathrm{N}(240,40^2)\\ldots$ require $\\mathrm{P}(T>300)$]\n$\\mathrm{P}\\left(Z>\\frac{300-240}{40}\\right)$\nM1: for standardising with 300, 240 and 40. May be implied by use of 1.5. Allow $\\pm$\n$=1-\\mathrm{P}(Z<1.5)$ or $1-0.9332$\nM1: for $1-\\mathrm{P}(Z<\\text{\"1.5\"})$ i.e. a correct method for finding $\\mathrm{P}(Z>\\text{\"1.5\"})$ e.g. $1-p$ where $0.5<p<0.99$\n$=$ awrt $0.0668$ or $6.68\\%$\nA1: for awrt 0.0668 (Answer only 3/3)",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "text": "Nathaniel is preparing to run a marathon. He aims to finish in the first 20% of male runners.\n\n(b) Using the above model estimate the longest time that Nathaniel can take to run the marathon and achieve his aim.\n(3)",
+          "mark_scheme": "(b) $[\\mathrm{P}(T<n)=0.20 \\Rightarrow]$ $\\frac{n-240}{40}=-0.8416$\nM1: for an attempt to standardise with 240, 40 and $n$ and set $=\\pm z$ ($0.8<|z|<0.9$)\nB1: for $z=\\pm 0.8416$ (or better) used as a $z$ value. Do not allow for $1-0.8416$. Calc gives $0.8416212\\ldots$ [May be implied by awrt 206.34, give B1 as well as A1 if seen]\n$n=$ awrt $206$ minutes\nA1: for awrt 206 (can be scored for using a $z$ value of 0.84 or even 0.85). Must follow from correct working but a range of possible $z$ values are OK\nAns only: If answer is awrt 206 score M1B0A1 (unless of course $z=0.8416$ seen) but awrt 206.34 scores 3/3",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "text": "The time, $W$ minutes, taken by women to run a marathon is modelled by a normal distribution with mean $\\mu$ minutes.\n\nGiven that $\\mathrm{P}(W<\\mu+30)=0.82$\n\n(c) find $\\mathrm{P}(W<\\mu-30\\mid W<\\mu)$\n(3)",
+          "mark_scheme": "(c) $[\\mathrm{P}(W<\\mu-30\\mid W<\\mu)=]$ $\\frac{\\mathrm{P}(W<\\mu-30)}{\\mathrm{P}(W<\\mu)}$\nM1: for the correct ratio expression (Not $\\mathrm{P}([W<30-\\mu]\\cap[W<\\mu])$ on numerator). Condone use of $Z$ instead of $W$ only if they later get a correct numerical ratio otherwise M0. However they may write $\\mathrm{P}\\left(Z<\\frac{-30}{\\sigma}\\right)$ etc which is of course fine\n$=\\frac{1-0.82}{0.50}$\nA1: for a correct numerical ratio. May see use of $z=0.92$ or better (calc: 0.9153650...) or $\\sigma=32.6\\sim32.8$\n$=0.36$\nA1cao: for 0.36 or an exact equivalent e.g. $\\frac{9}{25}$ (Answer only M1A1A0)\nALT (use tables): $\\frac{\\mathrm{P}(Z<-0.92)}{\\mathrm{P}(Z<0)}$ M1, and $\\frac{1-0.8212}{0.5}$ or $\\frac{0.1788}{0.5}$ A1, $=0.36$ or exact equivalent e.g. $\\frac{9}{25}$ A1 (Answer only M1A1A0). The final answer of 0.36 must come from exact values; 0.36 rounded from 0.3576 etc is A0",
+          "spec_refs": [
+            "S4.2",
+            "S3.2"
+          ]
+        }
+      ],
+      "qp_pages": [
+        10,
+        13
+      ],
+      "low_confidence": false,
+      "notes": "",
+      "source_qp_file": "pearson/GCE-2008/June2016/GCE2008_6683_June2016_QP.txt",
+      "source_ms_file": "pearson/GCE-2008/June2016/GCE2008_6683_June2016_MS.txt",
+      "notation": "latex",
+      "extraction_method": "single-call-v1",
+      "question_text": "The time, in minutes, taken by men to run a marathon is modelled by a normal distribution with mean 240 minutes and standard deviation 40 minutes.\n(a) Find the proportion of men that take longer than 300 minutes to run a marathon.\n(3)\nNathaniel is preparing to run a marathon. He aims to finish in the first 20% of male runners.\n\n(b) Using the above model estimate the longest time that Nathaniel can take to run the marathon and achieve his aim.\n(3)\nThe time, $W$ minutes, taken by women to run a marathon is modelled by a normal distribution with mean $\\mu$ minutes.\n\nGiven that $\\mathrm{P}(W<\\mu+30)=0.82$\n\n(c) find $\\mathrm{P}(W<\\mu-30\\mid W<\\mu)$\n(3)",
+      "mark_scheme_text": "(a) [$T \\sim \\mathrm{N}(240,40^2)\\ldots$ require $\\mathrm{P}(T>300)$]\n$\\mathrm{P}\\left(Z>\\frac{300-240}{40}\\right)$\nM1: for standardising with 300, 240 and 40. May be implied by use of 1.5. Allow $\\pm$\n$=1-\\mathrm{P}(Z<1.5)$ or $1-0.9332$\nM1: for $1-\\mathrm{P}(Z<\\text{\"1.5\"})$ i.e. a correct method for finding $\\mathrm{P}(Z>\\text{\"1.5\"})$ e.g. $1-p$ where $0.5<p<0.99$\n$=$ awrt $0.0668$ or $6.68\\%$\nA1: for awrt 0.0668 (Answer only 3/3)\n(b) $[\\mathrm{P}(T<n)=0.20 \\Rightarrow]$ $\\frac{n-240}{40}=-0.8416$\nM1: for an attempt to standardise with 240, 40 and $n$ and set $=\\pm z$ ($0.8<|z|<0.9$)\nB1: for $z=\\pm 0.8416$ (or better) used as a $z$ value. Do not allow for $1-0.8416$. Calc gives $0.8416212\\ldots$ [May be implied by awrt 206.34, give B1 as well as A1 if seen]\n$n=$ awrt $206$ minutes\nA1: for awrt 206 (can be scored for using a $z$ value of 0.84 or even 0.85). Must follow from correct working but a range of possible $z$ values are OK\nAns only: If answer is awrt 206 score M1B0A1 (unless of course $z=0.8416$ seen) but awrt 206.34 scores 3/3\n(c) $[\\mathrm{P}(W<\\mu-30\\mid W<\\mu)=]$ $\\frac{\\mathrm{P}(W<\\mu-30)}{\\mathrm{P}(W<\\mu)}$\nM1: for the correct ratio expression (Not $\\mathrm{P}([W<30-\\mu]\\cap[W<\\mu])$ on numerator). Condone use of $Z$ instead of $W$ only if they later get a correct numerical ratio otherwise M0. However they may write $\\mathrm{P}\\left(Z<\\frac{-30}{\\sigma}\\right)$ etc which is of course fine\n$=\\frac{1-0.82}{0.50}$\nA1: for a correct numerical ratio. May see use of $z=0.92$ or better (calc: 0.9153650...) or $\\sigma=32.6\\sim32.8$\n$=0.36$\nA1cao: for 0.36 or an exact equivalent e.g. $\\frac{9}{25}$ (Answer only M1A1A0)\nALT (use tables): $\\frac{\\mathrm{P}(Z<-0.92)}{\\mathrm{P}(Z<0)}$ M1, and $\\frac{1-0.8212}{0.5}$ or $\\frac{0.1788}{0.5}$ A1, $=0.36$ or exact equivalent e.g. $\\frac{9}{25}$ A1 (Answer only M1A1A0). The final answer of 0.36 must come from exact values; 0.36 rounded from 0.3576 etc is A0",
+      "has_figure": false,
+      "figure_pages": []
+    }
+  ],
+  "extraction_retries": 1,
+  "pages_input": "png",
+  "autofixes": 0,
+  "triage_method": "triage-v1",
+  "ms_complete_method": "single-call-v2",
+  "ms_complete_added": 0,
+  "ms_complete_unverified": false,
+  "ms_verify_method": "visual-v1",
+  "ms_verify_fixed": 1
+}

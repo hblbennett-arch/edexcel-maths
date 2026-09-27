@@ -1,0 +1,235 @@
+{
+  "_paper_id": "IAL2018_WME01_Jan2021",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.127354,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "suvat/kinematics under gravity",
+          "reason": "This is Mechanics content (vertical motion under gravity, speed calculation using v^2=u^2+2as) which falls under M7 kinematics topics. No M-section statements were provided in the spec list given, so this topic is not covered.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "suvat/kinematics under gravity - time of flight",
+          "reason": "Mechanics kinematics problem requiring suvat equations for projectile motion; no M-section statements provided in the given spec list.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "impulse-momentum, collisions",
+          "reason": "Requires impulse-momentum equation for particle collisions - a Mechanics topic (impulse, momentum) not covered by any P or S statement given.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "impulse-momentum, collisions",
+          "reason": "Same as (a), uses impulse-momentum principle, Mechanics topic not in the given spec statements.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "main",
+          "marks": 9,
+          "technique": "statics, resolving forces, friction (F ≤ μR)",
+          "reason": "This is a statics/friction problem (Mechanics M8.6 territory) - resolving forces and friction limiting equilibrium. No M-section statements given in spec list provided.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "main",
+          "marks": 6,
+          "technique": "moments, rigid body equilibrium",
+          "reason": "Moments problem (non-uniform rod on two supports) - Mechanics M9 moments topic, not covered by any given statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "i",
+          "marks": 4,
+          "technique": "vector addition of forces, cosine rule",
+          "reason": "Although this uses cosine rule (P5.1) and vector concepts, the context is force resolution/addition in Mechanics (bearings, resultant force) which is M8.5 territory, not a pure vectors P10 problem. The forces context makes it a mechanics-specific application not covered by given statements.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "ii",
+          "marks": 3,
+          "technique": "vector addition of forces, direction/bearing",
+          "reason": "Continuation of force resultant direction finding, same mechanics force-addition context (M8.5), not covered by given P/S statements.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "position vector as function of time",
+          "reason": "This is essentially a pure vectors problem (position vector = initial + t*velocity), matching P10.1/P10.4 vector techniques on position vectors, though presented in a kinematics context of constant velocity. The underlying vector algebra required (position vector at time t) is pure vector work covered by P10.4.",
+          "in_spec": true,
+          "confidence": "low",
+          "spec_refs": [
+            "P10.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "equating position vectors, solving simultaneous equations",
+          "reason": "Uses vector position equations and solving simultaneous linear equations from vector components - this is vector algebra (P10.1, P10.3) applied to a kinematics/moving particle context. Since P10.5 explicitly allows vectors to solve problems in context including kinematics, and this is testable purely via vector algebra without needing suvat, this is IN spec via P10 vector methods.",
+          "in_spec": true,
+          "confidence": "low",
+          "spec_refs": [
+            "P10.1",
+            "P10.4",
+            "P10.5"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "vector subtraction to find relative position vector",
+          "reason": "Simple vector subtraction AB = position of B minus position of A, which is standard P10.4 vector technique (position vectors, AB = b-a) applied to a moving-particle context; achievable via pure vector algebra.",
+          "in_spec": true,
+          "confidence": "low",
+          "spec_refs": [
+            "P10.4"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "technique": "minimizing magnitude of vector expression (completing square/calculus)",
+          "reason": "Finding minimum distance using magnitude of a vector expression, completing the square or calculus - uses P10.2 (magnitude) combined with P2.3 (completing square) or P7 differentiation; core techniques are all pure maths methods, though question is framed in a kinematics 'closest approach' context which is a velocity/relative-motion mechanics topic not explicitly listed. Given the vector/algebra techniques used are pure, but the underlying concept of relative velocity/closest approach between moving particles is a kinematics-in-2D topic not explicitly named as in-spec (mechanics M7 not provided), this is borderline.",
+          "in_spec": false,
+          "confidence": "low",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "suvat, speed under gravity",
+          "reason": "Kinematics under gravity (free fall speed) - Mechanics M7 topic, not covered by given statements.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "speed-time graph sketching",
+          "reason": "Sketching a speed-time graph for motion is Mechanics M7.2 kinematics graph work, not covered by given statements.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 5,
+          "technique": "suvat, deceleration, solving quadratic for time",
+          "reason": "Kinematics problem requiring constant acceleration equations to find time of deceleration - Mechanics M7.3 topic, not covered.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "technique": "area under speed-time graph, total distance",
+          "reason": "Uses area under speed-time graph to find total height/distance - Mechanics M7.2 topic, not covered by given statements.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "8",
+      "total_marks": 17,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 9,
+          "technique": "connected particles, pulley, N2L, friction, inclined plane",
+          "reason": "Connected particles problem with pulley, inclined plane, Newton's second law and friction - Mechanics M8.4/M8.6 topics, not covered by any given statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 7,
+          "technique": "suvat after pulley system, deceleration on incline, range of distances",
+          "reason": "Continuation of connected particles mechanics problem, requiring suvat and force equations on inclined plane - Mechanics topic not covered.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "model criticism (mechanics context)",
+          "reason": "Asks for a physical factor (e.g., mass of string, friction at pulley) to improve realism of the mechanics model - this is a mechanics modelling assumption question, not covered by the given P/S statements (which include modelling but in non-mechanics contexts).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    }
+  ]
+}

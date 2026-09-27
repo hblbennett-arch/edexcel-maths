@@ -1,0 +1,265 @@
+{
+  "_paper_id": "GCE2008_6666R_June2013",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.2183665,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 4,
+      "parts": [
+        {
+          "label": "whole",
+          "marks": 4,
+          "technique": "Partial fractions with repeated linear factor (2x+1)(x+1)^2",
+          "reason": "Denominator is linear times squared linear term, numerator linear - matches P2.10 exactly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.10"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "whole",
+          "marks": 7,
+          "technique": "Implicit differentiation with exponential and logs",
+          "reason": "Implicit differentiation of 3^(x-1)+xy-y^2+5=0, use of ln, e - covered by P7.2 (differentiate a^kx), P7.4/P7.5 (implicit), P6.3/P6.4 (logs).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.2",
+            "P7.5",
+            "P6.3",
+            "P6.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "whole",
+          "marks": 8,
+          "technique": "Integration by substitution, definite integral",
+          "reason": "Substitution u=2+√(2x+1) leading to standard integral - matches P8.5 integration by substitution, evaluated as definite integral P8.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.5",
+            "P8.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 6,
+          "technique": "Binomial expansion for rational n",
+          "reason": "Expansion of (8-9x)^(1/3) matches P4.1 extension to rational n including validity range.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Use binomial expansion for numerical approximation",
+          "reason": "Directly matches P4.1 guidance 'use for approximation'; uses part (a) which is in spec.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Evaluate function value from given formula",
+          "reason": "Simple substitution into given exponential expression, basic skill, no exclusion applies.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P6.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Trapezium rule numerical integration",
+          "reason": "Directly matches P9.4 trapezium rule for estimating area.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P9.4"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 6,
+          "technique": "Integration by parts / exact area under curve involving exponential",
+          "reason": "Integration of t·e^(-t/3) type function using integration by parts (P8.5) and definite integral for area (P8.3).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.5",
+            "P8.3"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 1,
+          "technique": "Compare numerical estimate with exact value",
+          "reason": "Uses results of (b) and (c), both in spec, simple arithmetic difference.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P9.4",
+            "P8.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Point lying on vector line r=a+λb",
+          "reason": "Uses vector equation of a line in form r=a+λb, an explicitly excluded concept (no statement covers vector equation of a line).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Perpendicularity condition using dot product with vector line",
+          "reason": "Requires dot product (scalar product) to establish AB perpendicular to line l, and uses the excluded vector line equation - both explicitly excluded concepts.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Distance between two points using found b,c values",
+          "reason": "Depends on out-of-spec parts (a) and (b) for values of b and c, even though the distance calculation itself (P10.4) would be in spec in isolation.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Reflection of a point in a line using vector line and dot product results",
+          "reason": "Relies on the vector line equation and perpendicularity (dot product) results from earlier out-of-spec parts.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Differentiate parametric equations to find gradient",
+          "reason": "Standard parametric differentiation using chain rule, dy/dx = (dy/dt)/(dx/dt) - matches P7.5 and P3.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5",
+            "P3.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Convert parametric to Cartesian using trig identity",
+          "reason": "Uses sec^2t=1+tan^2t identity (P5.5) to convert parametric equations to Cartesian form (P3.3).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P3.3",
+            "P5.5"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 5,
+          "technique": "Volume of solid of revolution",
+          "reason": "Explicitly listed in the concepts no 9MA0 statement covers: 'volume of revolution (solid formed by rotating a region about an axis)'.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "8",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Interpret terms of a differential equation in context",
+          "reason": "Matches P7.6 constructing/interpreting differential equations in context and P8.8 interpreting solutions in context.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.6",
+            "P8.8"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Solve first order differential equation by separation of variables",
+          "reason": "Separable variable DE dx/dt=k(M-x), solved via integration and logs - matches P8.7 exactly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.7"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Use solution of differential equation to find particular value",
+          "reason": "Substituting given conditions into the in-spec solution from part (b) to find k and then x - standard application, no excluded concept.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.7",
+            "P8.8"
+          ]
+        }
+      ]
+    }
+  ]
+}

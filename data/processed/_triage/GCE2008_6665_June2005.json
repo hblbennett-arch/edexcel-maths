@@ -1,0 +1,323 @@
+{
+  "_paper_id": "GCE2008_6665_June2005",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.10125899999999999,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Trig identity proof (sin^2+cos^2=1 dividing to get 1+tan^2=sec^2)",
+          "reason": "Covered by P5.5 which explicitly lists sec^2θ=1+tan^2θ and states these identities may be used to prove further identities.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P5.5"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Solve trig equation using sec/tan identity, quadratic in sec",
+          "reason": "Uses P5.5 identity and P5.7 solving trig equations with restricted domain; both are explicitly in spec.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P5.5",
+            "P5.7"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 15,
+      "parts": [
+        {
+          "label": "a(i)",
+          "marks": 3,
+          "technique": "Differentiate 3sin^2x + sec2x (chain rule, derivative of sec)",
+          "reason": "P7.4 explicitly covers differentiation of sec x and use of chain rule for composite trig functions.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.4"
+          ]
+        },
+        {
+          "label": "a(ii)",
+          "marks": 3,
+          "technique": "Differentiate {x+ln(2x)}^3 using chain rule and derivative of ln",
+          "reason": "P7.2 covers derivative of ln x, P7.4 covers chain rule for composite functions.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.2",
+            "P7.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Quotient rule differentiation",
+          "reason": "P7.4 explicitly covers the quotient rule.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Algebraic manipulation of rational expressions (combining fractions)",
+          "reason": "P2.6 covers simplifying rational expressions by factorising and cancelling, and algebraic division; this is direct algebraic manipulation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.6"
+          ]
+        },
+        {
+          "label": "(b) inverse",
+          "marks": 3,
+          "technique": "Find inverse function",
+          "reason": "P2.8 explicitly covers inverse functions.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.8"
+          ]
+        },
+        {
+          "label": "(b) fg(x)=14",
+          "marks": 3,
+          "technique": "Composite functions, solve equation",
+          "reason": "P2.8 explicitly covers composite functions fg(x); solving resulting equation is standard algebra (P2.4/P2.6).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.8",
+            "P2.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Differentiate exponential and logarithmic function",
+          "reason": "P7.2 covers differentiation of e^kx and ln x directly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Show stationary point condition by setting f'(x)=0 and rearranging",
+          "reason": "Uses standard algebra with derivative from part (a) which is in spec; setting f'(x)=0 for turning point is covered by P7.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.3",
+            "P7.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Iterative formula x_{n+1}=f(x_n), calculate successive values",
+          "reason": "P9.2 explicitly covers simple iterative methods using x_{n+1}=f(x_n).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P9.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Change of sign method to verify root to given accuracy",
+          "reason": "P9.1 explicitly covers locating roots by considering changes of sign of f(x).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P9.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 15,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Prove cos2A=1-2sin^2A using compound angle formula",
+          "reason": "P5.6 covers double angle formulae and their derivation from compound angle formulae for cos(A+B); proof is a deduction proof (P1.1, proof not required for expansion but derivation here is straightforward algebra) - fully covered.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P5.6",
+            "P1.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Prove trig identity using double angle formulae",
+          "reason": "P5.8 explicitly covers constructing proofs involving trig identities, and P5.6 supplies the double angle formulae used.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P5.8",
+            "P5.6"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Express acosθ+bsinθ as Rsin(θ±α)",
+          "reason": "P5.6 explicitly covers expressing a cosθ + b sinθ in the form R cos(θ±α) or R sin(θ±α).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P5.6"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 5,
+          "technique": "Solve trig equation using double angle and R sin(θ+α) results",
+          "reason": "Combines P5.6 (R form) and P5.7 (solving trig equations in given interval); both fully in spec.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P5.6",
+            "P5.7"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Sketch transformation y=f(x+1) (translation)",
+          "reason": "P2.9 explicitly covers transformation y=f(x+a).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.9"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Sketch transformation y=f(-x) (reflection)",
+          "reason": "P2.9 covers combinations of transformations including reflections such as f(-x); guidance discusses sketching y=f(-x)+1 type examples.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.9"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Find values a and b using given piecewise linear f(x)=|x-1|-2",
+          "reason": "Straightforward evaluation of modulus function, covered by P2.7 (modulus of linear function).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.7"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "technique": "Solve f(x)=5x, involving modulus equation split into linear cases",
+          "reason": "P2.7 covers using graph of y=|ax+b| to solve equations/inequalities like |2x-1|=x; this is analogous algebraic solving of modulus equation.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P2.7"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Substitute t=0 into exponential model and solve for constant a",
+          "reason": "Algebraic manipulation of exponential expression; P6.7 covers finding constants used in exponential-type models, and this is basic substitution/algebra despite the model being logistic in form.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P6.7",
+            "P6.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Solve exponential equation using logarithms",
+          "reason": "P6.3/P6.5 cover solving equations of the form e^(ax+b)=p using logs, directly applicable here despite the surrounding logistic context.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P6.3",
+            "P6.5"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Algebraic manipulation - divide numerator and denominator by e^0.2t",
+          "reason": "Pure algebraic rearrangement of an exponential expression, not a named excluded concept; consistent with algebra skills expected alongside P6 statements.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P6.7"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Consider behaviour as t→∞ (limit) to find maximum population",
+          "reason": "P6.7 guidance explicitly mentions exploring behaviour for large values of t as part of exponential modelling.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P6.7"
+          ]
+        }
+      ]
+    }
+  ]
+}

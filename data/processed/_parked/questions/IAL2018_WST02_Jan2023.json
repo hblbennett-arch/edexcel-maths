@@ -1,0 +1,82 @@
+{
+  "_paper_id": "IAL2018_WST02_Jan2023",
+  "_paper": "WST02",
+  "_sitting": "Jan2023",
+  "qualification": "IAL-2018",
+  "unit": "WST02",
+  "component": "stats",
+  "status": "legacy",
+  "paper_total": 75,
+  "source_qp_file": "pearson/IAL-2018/Jan2023/IAL2018_WST02_Jan2023_QP.txt",
+  "source_ms_file": "pearson/IAL-2018/Jan2023/IAL2018_WST02_Jan2023_MS.txt",
+  "extraction_method": "single-call-v1",
+  "extraction_model": "claude-sonnet-5",
+  "pearson_errors": [],
+  "questions": [
+    {
+      "paper_id": "IAL2018_WST02_Jan2023",
+      "spec": "IAL-2018",
+      "qualification": "IAL-2018",
+      "unit": "WST02",
+      "status": "legacy",
+      "paper": "WST02",
+      "sitting": "Jan2023",
+      "id": "IAL2018_WST02_Jan2023_Q3",
+      "q_num": "3",
+      "total_marks": 11,
+      "component": "stats",
+      "uses_large_data_set": false,
+      "stem": "*Superbounce* is a manufacturer of tennis balls.\n\nIt knows from past records that 10% of its tennis balls fail a bounce test.",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "text": "(a) Find the probability that from a random sample of 10 of these tennis balls\n\n(i) at least 4 fail the bounce test\n\n(ii) more than 1 but fewer than 5 fail the bounce test.\n(4)",
+          "mark_scheme": "(a)(i) $X \\sim \\mathrm{B}(10, 0.1)$\n$\\mathrm{P}(X \\geqslant 4) = 1-\\mathrm{P}(X \\leqslant 3) = 1-0.9872$ M1\n$= 0.0128$ awrt 0.0128 A1\n\n(ii) $\\mathrm{P}(1<X<5) = \\mathrm{P}(X \\leqslant 4)-\\mathrm{P}(X \\leqslant 1) = 0.9984-0.7361$\nor $\\mathrm{P}(X=2)+\\mathrm{P}(X=3)+\\mathrm{P}(X=4) = 0.1937+0.0574+0.0112$ M1\n$= 0.2623$ awrt 0.262 A1\n\nNotes:\n(i) M1: for writing or using $\\mathrm{P}(X \\geqslant 4) = 1-\\mathrm{P}(X \\leqslant 3)$\nA1: awrt 0.0128\n(ii) M1: for writing or using $\\mathrm{P}(X \\leqslant 4)-\\mathrm{P}(X \\leqslant 1)$ or for writing or using $\\mathrm{P}(X=2)+\\mathrm{P}(X=3)+\\mathrm{P}(X=4)$\nA1: awrt 0.262",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "text": "The managing director makes changes to the production process and claims that these changes will reduce the probability of its tennis balls failing the bounce test.\n\nAfter the changes were made a random sample of 50 of the tennis balls were tested and it was found that 2 failed the bounce test.\n\n(b) Test, at the 5% significance level, whether or not this result supports the managing director's claim.\n(4)",
+          "mark_scheme": "(b) $\\mathrm{H_0}: p=0.1$ $\\mathrm{H_1}: p<0.1$ B1\n$X \\sim \\mathrm{B}(50, 0.1)$\n$\\mathrm{P}(X \\leqslant 2) = 0.1117$ or CR $X \\leqslant 1$ B1\nDo not reject $\\mathrm{H_0}$/Not in the critical region M1\nThere is insufficient evidence to suggest that this result supports the managing director's claim/not enough evidence to suggest a reduction in the probability of a tennis ball failing the bounce test A1\n\nNotes:\nB1: Both hypotheses correct. Must be in terms of $p$ or $\\pi$. Must be attached to $\\mathrm{H_0}$ and $\\mathrm{H_1}$\nB1: awrt 0.112 or CR $X \\leqslant 1$\nM1: A correct ft statement consistent with their p-value and 0.05 or their CR and 2 - no context needed but do not allow contradicting non contextual comments. The comparison of their p-value and the significance level is not counted as a non contextual statement.\nMay be implied by a correct ft conclusion in context.\nA1: Correct conclusion in context which must be not rejecting $\\mathrm{H_0}$. Must use underlined words (oe). No hypotheses then A0\nOfficial notes (completeness pass):\n- M1: Must have a p-value or CR to access this mark.",
+          "spec_refs": [
+            "S5.2",
+            "S4.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "text": "In a second random sample of $n$ tennis balls it was found that none failed the bounce test. As a result of this sample, the managing director's claim is supported at the 1% significance level.\n\n(c) Find the smallest possible value of $n$\n(3)",
+          "mark_scheme": "(c) $X \\sim \\mathrm{B}(n, 0.1)$ and we reject $\\mathrm{H_0}$ if $\\mathrm{P}(X=0)<0.01$\n$\\mathrm{P}(X=0) = \\left[{}^n C_0 \\times 0.1^0\\right] \\times 0.9^n [<0.01]$ M1\n$0.9^{44} = 0.00969... [<0.01]$ or $n > \\dfrac{\\ln 0.01}{\\ln 0.9} \\Rightarrow n>43.7$ M1\n$n = 44$ A1\n\nNotes:\nM1: For recognising $\\mathrm{P}(X=0)=0.9^n$\nM1: For $0.9^{44}(=0.00969...)$ or $0.9^{43}(=0.01077...)$ or rearranging to $n>\\dfrac{\\ln 0.01}{\\ln 0.9}$ ... (Allow =)\n$n>$ awrt 43.7 implies M1M1 (Allow $n=$ awrt 43.7 for M1M1)\nA1: Cao\nSC: Use of tables only, $n=40, p=0.0148$ and $n=50, p=0.0052$ scores M1M0A0",
+          "spec_refs": [
+            "S4.1",
+            "S5.2"
+          ]
+        }
+      ],
+      "qp_pages": [
+        7,
+        11
+      ],
+      "low_confidence": false,
+      "notes": "",
+      "source_qp_file": "pearson/IAL-2018/Jan2023/IAL2018_WST02_Jan2023_QP.txt",
+      "source_ms_file": "pearson/IAL-2018/Jan2023/IAL2018_WST02_Jan2023_MS.txt",
+      "notation": "latex",
+      "extraction_method": "single-call-v1",
+      "question_text": "*Superbounce* is a manufacturer of tennis balls.\n\nIt knows from past records that 10% of its tennis balls fail a bounce test.\n(a) Find the probability that from a random sample of 10 of these tennis balls\n\n(i) at least 4 fail the bounce test\n\n(ii) more than 1 but fewer than 5 fail the bounce test.\n(4)\nThe managing director makes changes to the production process and claims that these changes will reduce the probability of its tennis balls failing the bounce test.\n\nAfter the changes were made a random sample of 50 of the tennis balls were tested and it was found that 2 failed the bounce test.\n\n(b) Test, at the 5% significance level, whether or not this result supports the managing director's claim.\n(4)\nIn a second random sample of $n$ tennis balls it was found that none failed the bounce test. As a result of this sample, the managing director's claim is supported at the 1% significance level.\n\n(c) Find the smallest possible value of $n$\n(3)",
+      "mark_scheme_text": "(a)(i) $X \\sim \\mathrm{B}(10, 0.1)$\n$\\mathrm{P}(X \\geqslant 4) = 1-\\mathrm{P}(X \\leqslant 3) = 1-0.9872$ M1\n$= 0.0128$ awrt 0.0128 A1\n\n(ii) $\\mathrm{P}(1<X<5) = \\mathrm{P}(X \\leqslant 4)-\\mathrm{P}(X \\leqslant 1) = 0.9984-0.7361$\nor $\\mathrm{P}(X=2)+\\mathrm{P}(X=3)+\\mathrm{P}(X=4) = 0.1937+0.0574+0.0112$ M1\n$= 0.2623$ awrt 0.262 A1\n\nNotes:\n(i) M1: for writing or using $\\mathrm{P}(X \\geqslant 4) = 1-\\mathrm{P}(X \\leqslant 3)$\nA1: awrt 0.0128\n(ii) M1: for writing or using $\\mathrm{P}(X \\leqslant 4)-\\mathrm{P}(X \\leqslant 1)$ or for writing or using $\\mathrm{P}(X=2)+\\mathrm{P}(X=3)+\\mathrm{P}(X=4)$\nA1: awrt 0.262\n(b) $\\mathrm{H_0}: p=0.1$ $\\mathrm{H_1}: p<0.1$ B1\n$X \\sim \\mathrm{B}(50, 0.1)$\n$\\mathrm{P}(X \\leqslant 2) = 0.1117$ or CR $X \\leqslant 1$ B1\nDo not reject $\\mathrm{H_0}$/Not in the critical region M1\nThere is insufficient evidence to suggest that this result supports the managing director's claim/not enough evidence to suggest a reduction in the probability of a tennis ball failing the bounce test A1\n\nNotes:\nB1: Both hypotheses correct. Must be in terms of $p$ or $\\pi$. Must be attached to $\\mathrm{H_0}$ and $\\mathrm{H_1}$\nB1: awrt 0.112 or CR $X \\leqslant 1$\nM1: A correct ft statement consistent with their p-value and 0.05 or their CR and 2 - no context needed but do not allow contradicting non contextual comments. The comparison of their p-value and the significance level is not counted as a non contextual statement.\nMay be implied by a correct ft conclusion in context.\nA1: Correct conclusion in context which must be not rejecting $\\mathrm{H_0}$. Must use underlined words (oe). No hypotheses then A0\nOfficial notes (completeness pass):\n- M1: Must have a p-value or CR to access this mark.\n(c) $X \\sim \\mathrm{B}(n, 0.1)$ and we reject $\\mathrm{H_0}$ if $\\mathrm{P}(X=0)<0.01$\n$\\mathrm{P}(X=0) = \\left[{}^n C_0 \\times 0.1^0\\right] \\times 0.9^n [<0.01]$ M1\n$0.9^{44} = 0.00969... [<0.01]$ or $n > \\dfrac{\\ln 0.01}{\\ln 0.9} \\Rightarrow n>43.7$ M1\n$n = 44$ A1\n\nNotes:\nM1: For recognising $\\mathrm{P}(X=0)=0.9^n$\nM1: For $0.9^{44}(=0.00969...)$ or $0.9^{43}(=0.01077...)$ or rearranging to $n>\\dfrac{\\ln 0.01}{\\ln 0.9}$ ... (Allow =)\n$n>$ awrt 43.7 implies M1M1 (Allow $n=$ awrt 43.7 for M1M1)\nA1: Cao\nSC: Use of tables only, $n=40, p=0.0148$ and $n=50, p=0.0052$ scores M1M0A0",
+      "has_figure": false,
+      "figure_pages": []
+    }
+  ],
+  "autofixes": 0,
+  "triage_method": "triage-v1",
+  "ms_complete_method": "single-call-v2",
+  "ms_complete_added": 1,
+  "ms_complete_unverified": false
+}

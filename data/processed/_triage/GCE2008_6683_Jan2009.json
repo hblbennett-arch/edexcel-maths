@@ -1,0 +1,333 @@
+{
+  "_paper_id": "GCE2008_6683_Jan2009",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.134699,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Calculate Sxx and Sxy for regression",
+          "reason": "This is preparatory calculation for a regression line; S2.2 explicit exclusion states 'calculations involving regression lines are excluded', and this whole part exists only to build the regression line in (b). Treated as part of excluded regression calculation.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Find least squares regression line y=a+bx",
+          "reason": "S2.2 explicit exclusion: 'calculations involving regression lines are excluded'.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Interpret gradient of regression line",
+          "reason": "Depends on the regression line found in (b), which is excluded (S2.2 exclusion).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Use regression line to predict value",
+          "reason": "Uses regression line equation from excluded part (b); S2.2 exclusion applies directly (calculation involving regression line).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 1,
+          "technique": "Comment on extrapolation danger",
+          "reason": "Although extrapolation is mentioned in S2.2 guidance, this part is entirely dependent on the excluded regression line calculation and prediction in (d), so it is out.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Conditional probability calculation",
+          "reason": "S3.2 covers conditional probability formula and calculations; this is a straightforward application.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Probability using addition rule/complement",
+          "reason": "S3.2 guidance covers P(A'), P(A∪B), P(A∩B) formulas used here.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Test statistical independence of events",
+          "reason": "S3.1 explicitly covers independent events and the condition P(A∩B)=P(A)P(B) for testing independence.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 16,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Calculate E(X) for discrete random variable",
+          "reason": "S4.1 explicit exclusion: 'calculation of mean and variance of discrete random variables is excluded'.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Find cumulative distribution value F(1.5)",
+          "reason": "This is a cumulative probability calculation from a discrete distribution, not mean/variance; S4.1 allows use of discrete probability distributions, and this doesn't fall under the mean/variance exclusion.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Show Var(X)=1 for discrete random variable",
+          "reason": "S4.1 explicit exclusion: 'calculation of mean and variance of discrete random variables is excluded'.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Var(5-3X) using linear transformation of variance",
+          "reason": "Depends directly on Var(X) from excluded part (c); variance of discrete r.v. is excluded per S4.1.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 6,
+          "technique": "Probability calculation combining independent trials of discrete distribution",
+          "reason": "This uses only the probability distribution table values (not mean/variance) combined via independence (S3.1), so it stands independently of the excluded mean/variance parts.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S3.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Find median and quartiles from raw data",
+          "reason": "S2.3 covers measures of central tendency and variation including quartiles.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Identify outlier using 1.5×IQR rule",
+          "reason": "S2.4 explicitly covers identifying outliers using a specified rule such as Q1-1.5×IQR/Q3+1.5×IQR.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.4"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Draw box plot with outlier marked",
+          "reason": "S2.1 explicitly mentions box and whisker plots including outliers as diagrams students should be familiar with.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1",
+            "S2.4"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Calculate Syy from summary statistics",
+          "reason": "S2.3 covers calculation of standard deviation/variance-related sums (Sxx) from summary statistics; Syy is analogous summary statistic calculation, not a regression-line calculation.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Calculate product moment correlation coefficient",
+          "reason": "S5.1 explicit exclusion: 'calculation of correlation coefficients is excluded' (calculator use only, formula not required, but explicit exclusion states calculation is excluded in this context of the exam-required computation from Sxx/Sxy).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "f",
+          "marks": 1,
+          "technique": "Interpret correlation coefficient value",
+          "reason": "Depends entirely on the correlation coefficient calculated in the excluded part (e).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 16,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Histogram width/height (frequency density) calculation",
+          "reason": "S2.1 explicitly covers histograms and the concept that area represents frequency, which underlies frequency density calculations.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Linear interpolation for median and interquartile range from grouped data",
+          "reason": "S2.3 guidance explicitly states 'Use of linear interpolation to calculate percentiles from grouped data is expected.'",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Estimate mean and standard deviation from grouped frequency data",
+          "reason": "S2.3 covers calculation of standard deviation from grouped/ungrouped data including use of Sxx.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Determine skewness from mean/median/quartile comparison",
+          "reason": "S2.3/S2.1 cover measures of central tendency and variation and informal inference; comparing quartile spacing to determine skewness is standard interpretation of these statistics.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Recommend appropriate average/measure of dispersion",
+          "reason": "S2.4 explicitly expects students to draw inferences and interpretations of measures of central tendency and variation, including reasoning about which is appropriate given skew/outliers.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Find normal probability P(X<39)",
+          "reason": "S4.2 covers finding probabilities using the Normal distribution with calculator.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Find value d given normal probability using inverse normal/z-value",
+          "reason": "S4.2 covers use of Normal distribution including solving simultaneous equations for parameters; finding an x-value from a given probability is standard normal distribution work covered.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Find value e given normal probability using symmetry",
+          "reason": "Same as (b), standard Normal distribution calculation covered by S4.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Find P(d<X<e) using normal distribution",
+          "reason": "Standard probability calculation using the Normal distribution, covered by S4.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        }
+      ]
+    }
+  ]
+}

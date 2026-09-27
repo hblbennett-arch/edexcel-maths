@@ -1,0 +1,326 @@
+{
+  "_paper_id": "GCE2008_6683_Jan2008",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.1250815,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "PMCC calculation",
+          "reason": "S5.1 explicitly excludes calculation of correlation coefficients using the formula; question requires computing r from raw sums.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [
+            "S5.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Interpreting correlation coefficients",
+          "reason": "Depends on the excluded PMCC calculation in (a) and requires comparing computed r values, which is tied to the excluded calculation method.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [
+            "S5.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Mean and standard deviation from summary statistics",
+          "reason": "S2.3 explicitly covers calculating standard deviation including from summary statistics using Sxx.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Median and quartiles",
+          "reason": "S2.3 covers measures of central tendency and variation including quartiles/percentiles.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Outlier identification using given rule",
+          "reason": "S2.4 covers recognising outliers using a rule specified in the question (e.g. Q3+1.5IQR).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.4"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Quartile skewness coefficient",
+          "reason": "No statement mentions this specific skewness measure formula; S2.3 covers central tendency/variation but not this skewness coefficient, so it is not explicitly covered at this depth.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 5,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Histogram frequency density and area interpretation",
+          "reason": "S2.1 explicitly covers interpreting histograms where area represents frequency.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Calculating Sxx and Sxy for regression",
+          "reason": "S2.2 explicitly excludes calculations involving regression lines; finding Sxx/Sxy is a step toward the regression line calculation.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Least squares regression line equation",
+          "reason": "S2.2 explicitly excludes calculations involving regression lines.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Interpreting slope of regression line",
+          "reason": "Requires the regression line calculated in (b), which is excluded by S2.2.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Prediction using regression line",
+          "reason": "S2.2 explicitly excludes calculations involving regression lines, and this part uses the excluded regression equation.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 16,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 6,
+          "technique": "Venn diagram construction",
+          "reason": "S3.1/S3.2 cover use of Venn diagrams for probability problems.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Probability from Venn diagram",
+          "reason": "Basic probability calculation covered by S3.1/S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Probability of set difference",
+          "reason": "Covered by S3.1/S3.2 use of Venn diagrams and set notation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Probability of union",
+          "reason": "Covered by S3.2 formula P(A∪B)=P(A)+P(B)-P(A∩B).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Probability of exactly two events",
+          "reason": "Standard Venn diagram probability calculation covered by S3.1/S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "f",
+          "marks": 3,
+          "technique": "Conditional probability",
+          "reason": "S3.2 explicitly covers conditional probability formula P(A|B).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Normal distribution median",
+          "reason": "S4.2 covers Normal distribution as a model including symmetry; median equals mean for Normal distribution.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Finding standard deviation using Normal distribution probabilities",
+          "reason": "S4.2 covers finding probabilities/parameters using the Normal distribution, including solving simultaneous equations for parameters.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Normal probability calculation",
+          "reason": "S4.2 covers finding probabilities using the Normal distribution.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Independent events probability",
+          "reason": "S3.1 covers independent events probability calculation P(A∩B)=P(A)P(B).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Sample space diagram construction",
+          "reason": "Basic sample space / probability enumeration covered under S3.1 discrete probability distributions.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S3.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Discrete probability distribution values",
+          "reason": "S4.1 covers simple discrete probability distributions (not the excluded mean/variance calc, just probabilities).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Expectation E(T) of discrete random variable",
+          "reason": "S4.1 explicitly excludes calculation of mean and variance of discrete random variables.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 4,
+          "technique": "Variance Var(T) of discrete random variable",
+          "reason": "S4.1 explicitly excludes calculation of mean and variance of discrete random variables.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,346 @@
+{
+  "_paper_id": "IAL2013_WST01_Jan2020",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.1559665,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 5,
+      "parts": [
+        {
+          "label": "whole",
+          "marks": 5,
+          "technique": "Discrete probability distribution with E(X) used to find parameters",
+          "reason": "The method requires using E(X)=1 to deduce a=c, which is calculation of the mean of a discrete random variable, explicitly excluded by S4.1 ('calculation of mean and variance of discrete random variables is excluded'). No alternative in-spec method reaches full marks since the mean calculation is essential.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Venn diagram construction",
+          "reason": "S3.1/S3.2 guidance explicitly mentions Venn diagrams for probability problems.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Mutually exclusive events",
+          "reason": "S3.1 explicitly covers mutually exclusive events.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Basic probability from Venn diagram",
+          "reason": "Direct application of S3.1/S3.2 probability calculation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Testing independence via P(A∩B)=P(A)P(B)",
+          "reason": "S3.1 explicitly gives the independence test formula.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Conditional probability",
+          "reason": "S3.2 explicitly covers conditional probability calculation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "f",
+          "marks": 2,
+          "technique": "Conditional probability with union and complement",
+          "reason": "S3.2 covers conditional probability formula and combination with complement/union rules.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Calculation of Smp (covariance sum) for correlation/regression",
+          "reason": "This sum underlies the correlation coefficient/regression formula calculation, which S5.1 and S2.2 explicitly exclude ('use of the formula is not required'/'calculations involving regression lines are excluded').",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "PMCC calculation using formula",
+          "reason": "S5.1 explicitly excludes use of the PMCC formula; only calculator-based values are permitted, but here the mark scheme requires the formula calculation from summary statistics.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Interpreting correlation/scatter diagram",
+          "reason": "S2.2 explicitly covers informal interpretation of correlation and consistency with a scatter diagram, without requiring calculation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Using totals to find a proportionality constant",
+          "reason": "Not a regression/correlation calculation; it's basic use of totals/ratio, loosely related to S2.2's proportional relationship guidance, though not explicitly this exact scenario.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.2"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 4,
+          "technique": "Linear regression line equation calculation",
+          "reason": "S2.2 explicitly excludes 'calculations involving regression lines'.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "f",
+          "marks": 1,
+          "technique": "Using regression line to estimate value",
+          "reason": "Depends directly on the out-of-spec regression equation from (e); also itself a regression-line calculation excluded by S2.2.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "g",
+          "marks": 2,
+          "technique": "Comparing manager's model and regression model",
+          "reason": "This relies on values computed from the excluded regression model in (e)/(f), so it only makes sense after an out-of-spec part.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Histogram bar width/height (frequency density)",
+          "reason": "S2.1 explicitly covers histograms and area representing frequency.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Linear interpolation for quartile from grouped data",
+          "reason": "S2.3 explicitly states 'use of linear interpolation to calculate percentiles from grouped data is expected'.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Describing skewness from quartiles",
+          "reason": "No statement mentions 'skewness' anywhere in the specification; S2.3/S2.4 discuss central tendency and variation but not skewness as a named concept, so this named concept is not covered.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Mean and standard deviation from summary statistics/grouped data",
+          "reason": "S2.3 explicitly covers calculating standard deviation, including from summary statistics, for grouped/continuous data.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Skewness coefficient formula",
+          "reason": "Skewness is not mentioned by any specification statement, so this named concept and its formula are out of spec.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "f",
+          "marks": 2,
+          "technique": "Effect of regrouping data on estimates of median and mean",
+          "reason": "This is a reasoning/interpretation task about linear interpolation and grouped data estimates, which extends S2.3's coverage of grouped data and central tendency measures.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Normal distribution probability via standardisation",
+          "reason": "S4.2 explicitly covers finding probabilities using the Normal distribution.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Finding value from symmetric normal interval probability",
+          "reason": "S4.2 covers use of Normal distribution and standardisation to solve for unknown parameters; questions may involve solving equations.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 8,
+          "technique": "Normal distribution combined with quadratic inequality for rectangle area",
+          "reason": "Combines S4.2 Normal probability calculation with P2.5 quadratic inequality solving, both in spec; no excluded content (no pdf, no CLT).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2",
+            "P2.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 17,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Sum of discrete probability distribution equals 1",
+          "reason": "S4.1 covers discrete probability distributions; summing probabilities to 1 is not the excluded mean/variance calculation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Calculating E(S) of a discrete random variable",
+          "reason": "S4.1 explicitly excludes 'calculation of mean and variance of discrete random variables'.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Expected profit calculation using E(S) type reasoning",
+          "reason": "This requires computing an expectation (260×P(S=5)-10 is essentially E of a transformed discrete rv), which is excluded per S4.1's exclusion of mean calculation for discrete random variables.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Explaining a probability using independent trial reasoning",
+          "reason": "This is basic probability reasoning (product of probabilities for sequential independent-type events), covered by S3.1/S4.1 without needing mean/variance.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S4.1"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 3,
+          "technique": "Constructing a discrete probability distribution in terms of p",
+          "reason": "S4.1 covers understanding and using discrete probability distributions as a model; no mean/variance calculation required here.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "f",
+          "marks": 4,
+          "technique": "Solving for p using expected profit comparison",
+          "reason": "Requires E(profit) computation (mean of a discrete random variable), excluded by S4.1, and depends on the out-of-spec expected profit from (c).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,359 @@
+{
+  "_paper_id": "IAL2018_WMA12_June2024",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.3676605,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 5,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Binomial expansion, rational/positive integer n",
+          "reason": "Expansion of (1+bx)^n for positive integer n (n=9), matches P4.1 statement directly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Binomial expansion combined with algebraic multiplication to find coefficient",
+          "reason": "Uses result of (a) and multiplies out to find coefficient of x^3, standard extension covered by P4.1 guidance on combining with other expressions.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Arithmetic sequences - nth term and sum formulae",
+          "reason": "Directly matches P4.4, solving simultaneous equations from arithmetic series formulae.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Arithmetic series sum inequality, solving quadratic",
+          "reason": "Uses sum formula and solves resulting quadratic inequality for smallest n, covered by P4.4 and P2.5.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.4",
+            "P2.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "i",
+          "marks": 5,
+          "technique": "Laws of logarithms, solving log equations leading to quadratic",
+          "reason": "Directly matches P6.4 laws of logs and P2.3 solving quadratics from resulting equation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P6.4",
+            "P2.3"
+          ]
+        },
+        {
+          "label": "ii",
+          "marks": 1,
+          "technique": "Logarithm law k log_a x = log_a x^k / log_a a =1",
+          "reason": "Uses log_a a^6 = 6, directly from P6.4 guidance 'includes log_a a=1'.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P6.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Remainder theorem",
+          "reason": "State remainder when dividing by (x-2); uses factor/remainder theorem concept, covered by P2.6.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.6"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Factor theorem to find unknown constant",
+          "reason": "Given factor (2x-1), solve for k using factor theorem, matches P2.6 guidance on factor theorem.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.6"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 5,
+          "technique": "Factorising cubic and discriminant analysis of number of real roots",
+          "reason": "Factorising cubic expression and using discriminant to determine number of real roots matches P2.6 (cubic factorisation) and P2.3 (discriminant conditions).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.6",
+            "P2.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Proof by deduction using algebraic manipulation of inequality",
+          "reason": "Matches P1.1 proof by deduction, algebraic manipulation of a given inequality to reach conclusion.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P1.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Disproof by counter example",
+          "reason": "Directly matches P1.1 disproof by counter example.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P1.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Sketching exponential graph a^x+c with asymptote and intercept",
+          "reason": "Sketching y=a^x+4 with asymptote y=4, matches P6.1/P2.9 transformations of exponential graphs.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P6.1",
+            "P2.9"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Trapezium rule numerical integration",
+          "reason": "Directly matches P9.4 trapezium rule for estimating a definite integral from tabulated values.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P9.4"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Using trapezium estimate plus algebraic splitting of integrals to estimate related integrals",
+          "reason": "This part explicitly instructs 'using your answer to part (b)', so it depends on the trapezium-rule result from (b). Since (b) itself is in spec (P9.4), building on that numeric estimate together with standard integral splitting (linearity of integration, P8.2/P8.3) does not introduce any excluded content; the manipulation of the integral bounds and combining with a scalar multiple is within the pure integration statements. It is in spec, consistent with (b) being in spec.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P9.4",
+            "P8.2",
+            "P8.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Circle equation - completing square to find centre and radius",
+          "reason": "Directly matches P3.2, completing the square to find centre and radius of circle.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P3.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Distance between circle centres compared to sum of radii to prove non-intersection",
+          "reason": "Uses distance formula (P10.4/P3.2 properties) and circle geometry to prove circles neither touch nor intersect; matches P3.2 coordinate geometry of circles.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P3.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "8",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "i",
+          "marks": 5,
+          "technique": "Solving trig equation using tan=sin/cos identity and Pythagorean identity, quadratic in cos",
+          "reason": "Matches P5.5 use of tanθ=sinθ/cosθ and sin^2+cos^2=1 to form and solve quadratic equation in cosx.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P5.5",
+            "P2.3"
+          ]
+        },
+        {
+          "label": "ii(a)",
+          "marks": 4,
+          "technique": "Solving trig equation in context (modelling), sin(kt+18)=value, multiple solutions",
+          "reason": "Modelling with sine function and solving for parameter k within given interval, matches P5.7 and P2.11/P5.9 modelling with trig functions.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P5.7",
+            "P5.9"
+          ]
+        },
+        {
+          "label": "ii(b)",
+          "marks": 1,
+          "technique": "Maximum value of a sinusoidal model",
+          "reason": "Finding max value of H=10+12sin(...) is straightforward use of trig function properties, matches P5.3/P5.9.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P5.3",
+            "P5.9"
+          ]
+        },
+        {
+          "label": "ii(c)",
+          "marks": 2,
+          "technique": "Finding time at which max occurs by solving for t",
+          "reason": "Solving kt+18=90 for t, using trig equation solving skills, matches P5.7/P5.9.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P5.7",
+            "P5.9"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "9",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Differentiation to find stationary point of a power function",
+          "reason": "Differentiating x^(3/2)-type function and setting derivative to zero to find stationary point, matches P7.2/P7.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.2",
+            "P7.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Integration to find area under curve and equating two areas to solve for k",
+          "reason": "Integrating x^n terms and evaluating definite integrals/areas, matches P8.2/P8.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.2",
+            "P8.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "10",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Geometric sequence modelling growth",
+          "reason": "Directly matches P4.5/P4.6 geometric sequences used in modelling (percentage increase).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.5",
+            "P4.6"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Finding parameters of geometric/exponential model N=ab^t from two data points using logs/roots",
+          "reason": "Fits exponential model to data using geometric sequence relations and logarithms, matches P4.5/P6.7/P4.6.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.5",
+            "P6.7",
+            "P4.6"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Solving exponential equation with logs, equating two exponential models",
+          "reason": "Solving a^x=b type equation using logarithms (change of base/log laws), matches P6.5/P6.4.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P6.5",
+            "P6.4"
+          ]
+        }
+      ]
+    }
+  ]
+}

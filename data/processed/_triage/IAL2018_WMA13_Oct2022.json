@@ -1,0 +1,354 @@
+{
+  "_paper_id": "IAL2018_WMA13_Oct2022",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.154289,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Algebraic division and partial fractions (linear + quadratic with linear numerator)",
+          "reason": "Statement P2.10 covers decomposition into partial fractions with denominators up to squared linear terms and P2.6 covers algebraic division; this matches Ax+B+C(2x+3)/(x^2+3x+4) form.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.10",
+            "P2.6"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Integration of rational function using ln f(x) result, definite integral, log laws",
+          "reason": "P8.2/P8.6 cover integrating x^n, 1/x-type and partial fraction results; P8.5 guidance explicitly notes recognising integrals of form f'(x)/f(x)=ln f(x)+c. Evaluating definite integral and combining logs is standard.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.2",
+            "P8.3",
+            "P8.5",
+            "P8.6"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Range of a function",
+          "reason": "Covered directly by P2.8 domain/range of functions.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.8"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Inverse function and its domain",
+          "reason": "P2.8 explicitly covers inverse functions and their graphs/domain.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.8"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Composite functions with trig evaluation",
+          "reason": "P2.8 covers composite functions (fg means do g first); evaluating trig values is P5.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.8",
+            "P5.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Product rule differentiation and stationary points",
+          "reason": "P7.4 covers product rule for functions like x^2 e^{3x}; P7.3 covers finding stationary points/maxima using differentiation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.4",
+            "P7.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Using graph/turning points to deduce range of k for number of roots",
+          "reason": "P2.7 covers using intersection points of graphs to solve equations/interpret solutions graphically, consistent with curve sketching applications in P7.3.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P2.7",
+            "P7.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 5,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Rearranging log equation, change of subject",
+          "reason": "P6.3 covers definition of log as inverse of exponential and solving such equations.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P6.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Differentiation of exponential (implicit style) using dy/dx = 1/(dx/dy)",
+          "reason": "P7.4 explicitly covers use of dy/dx=1/(dx/dy) and differentiating a^{kx} type expressions (P7.2 gives d/dx(a^kx)=ka^kx ln a).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.4",
+            "P7.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Substitution into given model, evaluating logs",
+          "reason": "Simple substitution using ln, exponential/log function evaluation, standard P6 content combined with modelling context (P2.11/P6.7).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P6.3",
+            "P2.11"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Sign change method to locate root",
+          "reason": "Directly matches P9.1 locating roots by sign change on continuous function.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P9.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Algebraic rearrangement into iteration form using log laws",
+          "reason": "Rearranging equation using log laws (P6.4) as preparation for iteration (P9.2/P9.3).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P6.4",
+            "P9.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Iterative formula x_{n+1}=f(x_n)",
+          "reason": "Matches P9.2/P9.3 use of iteration of form x_{n+1}=f(x_n) to find root numerically.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P9.2",
+            "P9.3"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Interpreting numerical solution in modelling context",
+          "reason": "P9.5 covers using numerical methods to solve problems in context; interpreting result as months is direct application.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P9.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "main",
+          "marks": 6,
+          "technique": "Quotient rule differentiation with trig identities simplification",
+          "reason": "P7.4 covers quotient rule differentiation of trig functions; P5.5 covers use of Pythagorean identities to simplify resulting trig expressions.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.4",
+            "P5.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Reading vertex and y-intercept of modulus graph",
+          "reason": "P2.7 explicitly covers modulus of linear function graphs and reading key features.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.7"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Solving modulus equation for x-intercepts",
+          "reason": "P2.7 guidance explicitly gives example of using modulus graph to solve equations like |2x-1|=x, matching this technique.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.7"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Sketching quadratic curve and labelling intercepts, comparing with modulus curve",
+          "reason": "P2.7/P2.3 cover sketching quadratic graphs and identifying intercepts; combined sketch on given diagram is within these skills.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.7",
+            "P2.3"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 5,
+          "technique": "Solving simultaneous quadratic/modulus equations algebraically",
+          "reason": "P2.4 covers solving simultaneous equations including one linear and one quadratic; here modulus reduces to linear cases combined with quadratic, matching required algebraic method (no calculator).",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P2.4",
+            "P2.6"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "8",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Expressing acosx+bsinx in R sin(x-alpha) form",
+          "reason": "Directly matches P5.6 statement on expressing a cosθ+b sinθ in equivalent R cos/sin(θ±α) forms.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P5.6"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Finding min value and location using R sin form",
+          "reason": "Builds on P5.6 result to find max/min of function; standard technique of substituting the R sin(x-alpha) expression into denominator.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P5.6",
+            "P5.3"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 1,
+          "technique": "Transformation of graph y=-f(2x) affecting stationary point location",
+          "reason": "P2.9 covers transformations f(ax) and combinations, sketching/interpreting effect on stationary points.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.9"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Transformation of graph y=2f(x)-5 affecting stationary point value",
+          "reason": "P2.9 covers transformations af(x)+a and their effect on graph features such as minimum value.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.9"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "9",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Trig identity proof using compound angle and Pythagorean identities",
+          "reason": "P5.6 covers compound angle formulae (sin(A+B) etc.) and P5.8 covers constructing proofs involving trig identities; P5.5 covers Pythagorean identities used to simplify.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P5.6",
+            "P5.8",
+            "P5.5"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Solving trig equation reducible to quadratic in sinθ",
+          "reason": "P5.7 explicitly covers solving quadratic equations in sin, cos, tan in a given interval.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P5.7"
+          ]
+        }
+      ]
+    }
+  ]
+}

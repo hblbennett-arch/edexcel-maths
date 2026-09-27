@@ -1,0 +1,297 @@
+{
+  "_paper_id": "GCE2008_6683_June2005",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.10763400000000001,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "main",
+          "marks": 6,
+          "technique": "Interpreting PMCC values on scatter diagrams (correlation)",
+          "reason": "S2.2 covers interpretation of scatter diagrams and informal understanding of correlation, including strength/direction language; this task only requires matching given r values to diagrams by pattern, not calculating a correlation coefficient, so the S5.1/PMCC-formula exclusion does not apply.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 16,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Justifying histogram use for continuous data",
+          "reason": "S2.1 covers histograms and their use for continuous data.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Calculating frequency density",
+          "reason": "Directly required for histograms under S2.1.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Linear interpolation for median and quartiles from grouped data",
+          "reason": "S2.3 guidance explicitly expects linear interpolation to calculate percentiles from grouped data.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "technique": "Mean and standard deviation from summary statistics (Sxx)",
+          "reason": "S2.3 explicitly covers calculation of standard deviation including from summary statistics using Sxx.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 4,
+          "technique": "Quartile-based skewness coefficient",
+          "reason": "No statement mentions 'skewness' or a skewness coefficient formula; S2.3/S2.4 cover central tendency/variation and outliers but not skewness as a named concept, so this specific technique is not evidenced in the specification statements.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "f",
+          "marks": 1,
+          "technique": "Alternative justification of skewness via mean/median comparison",
+          "reason": "This continues the skewness discussion from (e); skewness is not a named concept in any statement, so this part is also out, and it also depends on the out-of-spec part (e).",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 6,
+          "technique": "Finding regression line y on x using coded summary statistics",
+          "reason": "S2.2 explicitly excludes 'calculations involving regression lines'; this part requires deriving the regression line equation from Sxy/Sxx.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Converting coded regression line to original variables",
+          "reason": "Depends on and continues the excluded regression-line calculation from (a); regression line calculations are explicitly excluded (S2.2).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Prediction using a regression line",
+          "reason": "Uses the regression line from (b), which is explicitly excluded (S2.2) and the part cannot be answered without it.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 7,
+          "technique": "Box plot construction and outlier identification",
+          "reason": "S2.1 covers box and whisker plots including outliers, and S2.4 covers identifying outliers using a specified rule (1.5×IQR).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1",
+            "S2.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Commenting on skewness of a distribution using quartile spacing",
+          "reason": "Skewness is not a named concept in any statement; although S2.4 allows drawing inferences from measures of variation, the specific quartile-difference skewness comparison technique is not evidenced in the spec text.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Contextual interpretation of a distribution for decision-making",
+          "reason": "This is a general contextual comment about the data (many delays are small) which reflects S2.4's expectation that students draw inferences/interpretations from data, and it can be answered without relying on the skewness terminology used in (b).",
+          "in_spec": true,
+          "confidence": "low",
+          "spec_refs": [
+            "S2.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Finding constant k using sum of probabilities = 1 for discrete distribution",
+          "reason": "S4.1 covers discrete probability distributions; summing probabilities to 1 is basic to defining such a distribution, not a mean/variance calculation, so the S4.1 exclusion does not apply here.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Calculating E(X) for a general discrete random variable",
+          "reason": "S4.1 explicitly excludes 'calculation of mean and variance of discrete random variables'.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Calculating Var(X) for a general discrete random variable",
+          "reason": "S4.1 explicitly excludes calculation of variance of discrete random variables.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Variance of a linear transformation of X, Var(4-3X)",
+          "reason": "Depends directly on the excluded Var(X) calculation from (c); the underlying technique (variance of discrete random variable) is excluded by S4.1.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Normal distribution probability via standardising",
+          "reason": "S4.2 covers finding probabilities using the Normal distribution.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Normal distribution probability for a range",
+          "reason": "S4.2 covers finding probabilities using the Normal distribution.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Inverse normal calculation to find a value from a given probability",
+          "reason": "S4.2 covers use of the Normal distribution including solving for unknowns (questions may involve solution of simultaneous/standardising equations).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Probability from a two-way table",
+          "reason": "S3.2 explicitly covers two-way tables and probability calculations.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Conditional probability from a two-way table",
+          "reason": "S3.2 covers conditional probability using two-way tables.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Total probability using weighted conditional probabilities",
+          "reason": "S3.2 covers P(A∩B)=P(A)P(B|A) and combining via tree/table reasoning to find overall probability.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Bayes'-type conditional probability using the conditional probability formula",
+          "reason": "S3.2 explicitly covers the conditional probability formula P(A|B) = P(A∩B)/P(B).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        }
+      ]
+    }
+  ]
+}

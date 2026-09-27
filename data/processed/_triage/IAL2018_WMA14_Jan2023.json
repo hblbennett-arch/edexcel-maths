@@ -1,0 +1,299 @@
+{
+  "_paper_id": "IAL2018_WMA14_Jan2023",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.42675,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Partial fractions decomposition",
+          "reason": "Standard partial fractions with linear factors, matches P2.10/P2.6.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.10",
+            "P2.6"
+          ]
+        },
+        {
+          "label": "b(i)",
+          "marks": 5,
+          "technique": "Binomial expansion of partial fractions (rational n)",
+          "reason": "Binomial expansion for negative integer powers via partial fractions, matches P4.1 guidance on combining with partial fractions.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1",
+            "P2.10"
+          ]
+        },
+        {
+          "label": "b(ii)",
+          "marks": 1,
+          "technique": "Range of validity of binomial expansion",
+          "reason": "P4.1 explicitly mentions commenting on range of validity.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Parametric equations, eliminating parameter to show linear relation",
+          "reason": "Matches P3.3 conversion between parametric and Cartesian form.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P3.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Solving simultaneous linear equations",
+          "reason": "Uses result from (a); simple linear solving covered under P3.1/P2.4.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P3.1",
+            "P2.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 5,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Volume of revolution via integration (ln result), using algebraic manipulation",
+          "reason": "Volume of revolution about x-axis using integration is not explicitly listed in P8 statements (only area under curve/between curves is mentioned, not volumes of revolution) — this is a named technique (volume of revolution) not covered by any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Integration by substitution",
+          "reason": "Matches P8.5 substitution method explicitly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.5"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Integration by parts (twice)",
+          "reason": "P8.5 explicitly allows more than one application of integration by parts.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Implicit differentiation",
+          "reason": "Matches P7.5 differentiation of relations defined implicitly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Using dy/dx denominator=0 and discriminant of resulting quadratic to find interval where curve undefined",
+          "reason": "This builds on the implicit differentiation result (P7.5) by setting the denominator (2y-10=0) to find y, then substitutes into original equation and solves the resulting quadratic in x, using the standard method of solving quadratics (P2.3) — both underlying techniques (implicit differentiation, solving quadratics) are explicitly in spec, so this is IN.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P7.5",
+            "P2.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a(i)",
+          "marks": 1,
+          "technique": "Vector subtraction to find AB",
+          "reason": "Matches P10.3/P10.4 position vectors and vector subtraction.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P10.3",
+            "P10.4"
+          ]
+        },
+        {
+          "label": "a(ii)",
+          "marks": 2,
+          "technique": "Vector equation of a line",
+          "reason": "Standard vector line equation, though not explicitly named as a topic in P10 statements (which cover position vectors, magnitude/direction, addition) — however finding vector equations of lines through two points is a well-established extension covered under P10.5 'use vectors to solve problems'.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P10.5",
+            "P10.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Finding foot of perpendicular from point to line using vectors (scalar product)",
+          "reason": "Uses vector equation of line (from (a)) and scalar product perpendicularity condition; P10.5 covers using vectors to solve problems, dot product not explicitly named as a statement topic in the P10 list given (no explicit mention of scalar/dot product anywhere in statements).",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Differentiation of x^n",
+          "reason": "Matches P7.2 differentiation of powers.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.2"
+          ]
+        },
+        {
+          "label": "(b)(i)+(ii)",
+          "marks": 5,
+          "technique": "Separable first order differential equation and limiting behaviour",
+          "reason": "Matches P8.7 separable variables differential equations and P8.8 interpreting solution including behaviour for large t.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.7",
+            "P8.8"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Substitution to find value, solving for r using volume formula",
+          "reason": "Straightforward substitution and solving a cubic-type equation for r, basic algebra covered generally by spec (P2.6 etc.) and context of P8.8 differential equation application.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P8.8",
+            "P2.6"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Connected rates of change using chain rule",
+          "reason": "Matches P7.4 explicitly: connected rates of change dV/dt = dV/dr × dr/dt.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "8",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Parametric differentiation to find normal equation",
+          "reason": "Matches P7.5 (parametric differentiation) and P7.3 (tangents/normals), combined per guidance.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5",
+            "P7.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Area under parametric curve using integration with trig identity (double angle) substitution",
+          "reason": "Matches P8.3 guidance explicitly stating area calculations include curves defined parametrically, and P8.2 use of trig identities (cos2t) to integrate.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.3",
+            "P8.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "9",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Proof by exhaustion/deduction with algebraic expansion",
+          "reason": "Matches P1.1 proof by deduction/exhaustion involving cubic expansion, similar to given example style.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P1.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Proof by contradiction of irrationality (cube root of 3)",
+          "reason": "P1.1 explicitly names proof by contradiction including irrationality of √2 as an example; irrationality of cube root of 3 is directly analogous and explicitly the named method (proof by contradiction, irrationality), covered by P1.1 guidance 'application to unfamiliar proofs'.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P1.1"
+          ]
+        }
+      ]
+    }
+  ]
+}

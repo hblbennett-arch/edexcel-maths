@@ -1,0 +1,316 @@
+{
+  "_paper_id": "IAL2018_WMA14_June2022",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.17584149999999998,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Binomial expansion (a+bx)^n, rational n",
+          "reason": "P4.1 covers binomial expansion for rational n including finding constant term A.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Binomial expansion coefficients, forming equation",
+          "reason": "Uses same binomial expansion (P4.1) to find B and C coefficients and derive quadratic in k; purely algebraic manipulation within spec.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Solve quadratic, binomial coefficient substitution",
+          "reason": "Solving k^2+6k=0 (P2.3) and substituting into binomial coefficient formula (P4.1) to find D.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1",
+            "P2.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Partial fractions decomposition",
+          "reason": "Denominator (1+3x)(1-x), two linear factors, numerator constant - matches P2.10 exactly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.10"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Separable first order differential equation with partial fractions and trig integration",
+          "reason": "Separation of variables (P8.7), integration using partial fractions (P8.6) and integrating cot y via ln|sin y| type result, then use log laws to reach sin^n y = f(x) form (P6.4). All matches specified pure techniques.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P8.7",
+            "P8.6",
+            "P6.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Connected rates of change (chain rule)",
+          "reason": "Uses dA/dt given, dA/dx from area formula, chain rule to find dx/dt — directly matches connected rates of change guidance in P7.4.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Connected rates of change for volume",
+          "reason": "Same connected rates of change technique extended to volume, matching P7.4 guidance example dV/dt = dV/dr x dr/dt.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Implicit differentiation",
+          "reason": "Differentiating an implicit relation in x and y to find dy/dx matches P7.5 exactly (finding tangents to curves given implicitly).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Implicit differentiation, turning point condition, solving cubic",
+          "reason": "Uses dy/dx=0 at given x with implicit relation and algebraic solving; consistent with P7.5 and P2.6 (algebraic manipulation).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5",
+            "P2.6"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Integration by substitution (trig substitution)",
+          "reason": "Trigonometric substitution x=2sinu used to transform integral, matches P8.5 (integration by substitution) with trig identities P5.5.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.5",
+            "P5.5"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Integrate sec u tan u and sec^2 u, evaluate definite integral with exact trig values",
+          "reason": "Standard integration of secant-related functions (P8.2 guidance mentions sec^2 2x etc.) and exact trig values (P5.3), definite integral evaluation (P8.3).",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P8.2",
+            "P5.3",
+            "P8.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Vector equation of a line through two points",
+          "reason": "Matches P10.1-P10.4 guidance directly (finding AB and forming vector equation of line).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P10.1",
+            "P10.3",
+            "P10.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Perpendicularity of vectors via dot product",
+          "reason": "Using scalar (dot) product to find p given perpendicular vectors; dot product/perpendicularity not explicitly named but implied by vector problem-solving in P10.5 and standard vector operations in P10.3/10.4.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P10.5",
+            "P10.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Area of triangle using vector magnitudes and trig",
+          "reason": "Combines vector magnitude (P10.2) with area of triangle formula 1/2 ab sinC (P5.1) via Pythagorean identity; not explicitly listed as a vector technique but composed of in-spec elements per P10.5's general problem-solving remit.",
+          "in_spec": true,
+          "confidence": "low",
+          "spec_refs": [
+            "P10.2",
+            "P10.5",
+            "P5.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Parametric differentiation",
+          "reason": "dy/dx from parametric equations matches P7.5 and P3.3 exactly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5",
+            "P3.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Equation of tangent to parametric curve",
+          "reason": "Finding tangent line equation using gradient and point, matches P7.3/P3.1.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.3",
+            "P3.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Substitute tangent line into parametric equations, trig manipulation",
+          "reason": "Algebraic substitution combined with trig identities (P5.5) to derive given equation; standard technique within parametric equations and trig identity use.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P3.3",
+            "P5.5"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Solve quadratic in cos t, evaluate y exactly",
+          "reason": "Solving quadratic equation in cos t (P2.3) then substitute into parametric y equation using exact/surd values; within spec.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P2.3",
+            "P3.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "8",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Volume of solid of revolution",
+          "reason": "No statement in the specification list mentions volumes of revolution about the x-axis; this named concept is absent from the given statements, so it is out despite involving integration set-up.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Integration by parts (repeated)",
+          "reason": "Although arising from the volume context, the task itself is a self-contained integration by parts of x^2 e^-x, matching P8.5 which explicitly allows more than one application of integration by parts; it does not use the numerical answer from part (a).",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P8.5"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 5,
+          "technique": "Volume of revolution, density calculation",
+          "reason": "Explicitly builds on the out-of-spec volume of revolution result from (a) and introduces 'density' which is not a listed statement concept; excluded per rule that parts relying on an out-of-spec part are out.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "9",
+      "total_marks": 4,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Proof by contradiction",
+          "reason": "P1.1 explicitly lists proof by contradiction as a required method, with application to unfamiliar proofs such as this divisibility result.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P1.1"
+          ]
+        }
+      ]
+    }
+  ]
+}

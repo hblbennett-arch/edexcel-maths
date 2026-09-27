@@ -1,0 +1,100 @@
+{
+  "_paper_id": "IAL2018_WST03_Jan2022",
+  "_paper": "WST03",
+  "_sitting": "Jan2022",
+  "qualification": "IAL-2018",
+  "unit": "WST03",
+  "component": "stats",
+  "status": "legacy",
+  "paper_total": 75,
+  "source_qp_file": "pearson/IAL-2018/Jan2022/IAL2018_WST03_Jan2022_QP.txt",
+  "source_ms_file": "pearson/IAL-2018/Jan2022/IAL2018_WST03_Jan2022_MS.txt",
+  "extraction_method": "single-call-v1",
+  "extraction_model": "claude-sonnet-5",
+  "pearson_errors": [],
+  "questions": [
+    {
+      "paper_id": "IAL2018_WST03_Jan2022",
+      "spec": "IAL-2018",
+      "qualification": "IAL-2018",
+      "unit": "WST03",
+      "status": "legacy",
+      "paper": "WST03",
+      "sitting": "Jan2022",
+      "id": "IAL2018_WST03_Jan2022_Q5",
+      "q_num": "5",
+      "total_marks": 17,
+      "component": "stats",
+      "uses_large_data_set": false,
+      "stem": "Charlie is training for three events: a 1500 m swim, a 40 km bike ride and a 10 km run.\nFrom past experience his times, in minutes, for each of the three events independently have the following distributions.\n$S \\sim \\mathrm{N}(41, 5.2^2)$ represents the time for the swim\n$B \\sim \\mathrm{N}(81, 4.2^2)$ represents the time for the bike ride\n$R \\sim \\mathrm{N}(57, 6.6^2)$ represents the time for the run",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "text": "(a) Find the probability that Charlie's total time for a randomly selected swim, bike ride and run exceeds 3 hours.\n(5)",
+          "mark_scheme": "Let $T$ = total time taken\n$T \\sim \\mathrm{N}(41+81+57, 5.2^2+4.2^2+6.6^2)$ [So $T \\sim \\mathrm{N}(179, 88.24)$] M1 A1\n$\\mathrm{P}(T>180) = \\mathrm{P}\\left(Z>\\frac{180-179}{\\sqrt{88.24}}\\right)$ M1\n$= 1-0.5438 = 0.4562$ (calculator gives 0.4576…) awrt 0.456 to 0.458 M1 A1\nOfficial notes (completeness pass):\n- M1 for setting up a normal distribution with a mean 41 + 81 + 57 (= 179)\n- A1 for a correct expression of variance implied by (variance =) 88.24 or for s.d. = awrt 9.39\n- M1 for standardising with 180, their mean and their standard deviation\n- M1 use of $1-p$ with $0.5<p<1$",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "text": "(b) Find the probability that the time for a randomly selected swim will be at least 20 minutes quicker than the time for a randomly selected run.\n(4)",
+          "mark_scheme": "Let $Y$ = difference between run and swim or Let $D = R-S-20$\n$Y \\sim \\mathrm{N}(16, 70.6)$ or $D \\sim \\mathrm{N}(-4, 70.6)$ B1\n$\\mathrm{P}(Y>20) = \\mathrm{P}\\left(Z>\\frac{20-16}{\\sqrt{70.6}}\\right)$ or $\\mathrm{P}(D>0) = \\mathrm{P}\\left(Z>\\frac{0-(-4)}{\\sqrt{70.6}}\\right)$ M1\n$= 1-0.6844 = 0.3156$ (calculator gives 0.3170…) awrt 0.316/0.317 M1 A1\nOfficial notes (completeness pass):\n- B1 For $\\mathrm{N}(\\pm 16, 70.6)$ or $\\mathrm{N}(\\pm 4, 70.6)$ May be seen in a calculation\n- M1 for standardisation with $\\pm 20$ or 0, their mean and their s.d.(their var must be > 0) must be compatible e.g. – 20 with –16\n- M1 use of $1-p$ with $0.5<p<1$",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "text": "Given that $\\mathrm{P}(S+B+R>t) = 0.95$\n(c) find the value of $t$\n(3)",
+          "mark_scheme": "$\\mathrm{P}(T>t) = 0.95 \\Rightarrow \\mathrm{P}\\left(Z>\\frac{t-179}{\\sqrt{88.24}}\\right) = 0.95 \\Rightarrow \\frac{t-179}{\\sqrt{88.24}} = -1.6449$ M1 B1\n$t = 163.548…$ awrt 164 A1\nOfficial notes (completeness pass):\n- M1 for standardising using their mean and standard deviation = $z$ value $1<|z|<2$\n- B1 for correct $z$ value $\\pm 1.6449$ or better. Must have compatible sign with standardisation",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "text": "A triathlon consists of a 1500 m swim, immediately followed by a 40 km bike ride, immediately followed by a 10 km run.\nCharlie uses the answer to part (a) to find the probability that, in 6 successive independent triathlons, his time will exceed 3 hours on at least one occasion.\n(d) Find the answer Charlie should obtain.\n(3)",
+          "mark_scheme": "Let $X$ = the number of times greater than 3 hours in 6 attempts\n$X \\sim \\mathrm{B}(6,\\text{\"}0.456\\text{\"})$ B1ft\n$\\mathrm{P}(X \\geqslant 1) = 1-\\mathrm{P}(X=0) = 1-\\text{\"}0.5438\\text{\"}^6$ M1\n$= 0.9741…$ (using the calculator value gives 0.9745…) awrt 0.974/0.975 A1\nOfficial notes (completeness pass):\n- B1ft for writing or using B(6,'0.4562') ft their answer to part (a) to 3sf\n- M1 use of $\\mathrm{P}(X\\geqslant 1)=1-\\mathrm{P}(X=0)$ $[=1-(1-their(a))^6]$ allow $\\mathrm{P}(X\\geqslant 1)=\\mathrm{P}(X=1)+\\mathrm{P}(X=2)+...+\\mathrm{P}(X=6)$",
+          "spec_refs": [
+            "S4.1",
+            "S4.2"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "text": "Jane says that Charlie should not have used the answer to part (a) for the calculation in part (d).\n(e) Explain whether or not Jane is correct.\n(2)",
+          "mark_scheme": "eg The times for each event are not now likely to be independent M1\nJane is correct / calculation is not valid A1\nOfficial notes (completeness pass):\n- M1 Reference to the events no longer being independent (he might get tired after each event or events now follow consecutively)/ calculation does not include time between events\n- A1 Correct conclusion (Jane is correct) with corresponding reason",
+          "spec_refs": [
+            "S3.3",
+            "S4.3"
+          ]
+        }
+      ],
+      "qp_pages": [
+        17,
+        21
+      ],
+      "low_confidence": false,
+      "notes": "",
+      "source_qp_file": "pearson/IAL-2018/Jan2022/IAL2018_WST03_Jan2022_QP.txt",
+      "source_ms_file": "pearson/IAL-2018/Jan2022/IAL2018_WST03_Jan2022_MS.txt",
+      "notation": "latex",
+      "extraction_method": "single-call-v1",
+      "question_text": "Charlie is training for three events: a 1500 m swim, a 40 km bike ride and a 10 km run.\nFrom past experience his times, in minutes, for each of the three events independently have the following distributions.\n$S \\sim \\mathrm{N}(41, 5.2^2)$ represents the time for the swim\n$B \\sim \\mathrm{N}(81, 4.2^2)$ represents the time for the bike ride\n$R \\sim \\mathrm{N}(57, 6.6^2)$ represents the time for the run\n(a) Find the probability that Charlie's total time for a randomly selected swim, bike ride and run exceeds 3 hours.\n(5)\n(b) Find the probability that the time for a randomly selected swim will be at least 20 minutes quicker than the time for a randomly selected run.\n(4)\nGiven that $\\mathrm{P}(S+B+R>t) = 0.95$\n(c) find the value of $t$\n(3)\nA triathlon consists of a 1500 m swim, immediately followed by a 40 km bike ride, immediately followed by a 10 km run.\nCharlie uses the answer to part (a) to find the probability that, in 6 successive independent triathlons, his time will exceed 3 hours on at least one occasion.\n(d) Find the answer Charlie should obtain.\n(3)\nJane says that Charlie should not have used the answer to part (a) for the calculation in part (d).\n(e) Explain whether or not Jane is correct.\n(2)",
+      "mark_scheme_text": "Let $T$ = total time taken\n$T \\sim \\mathrm{N}(41+81+57, 5.2^2+4.2^2+6.6^2)$ [So $T \\sim \\mathrm{N}(179, 88.24)$] M1 A1\n$\\mathrm{P}(T>180) = \\mathrm{P}\\left(Z>\\frac{180-179}{\\sqrt{88.24}}\\right)$ M1\n$= 1-0.5438 = 0.4562$ (calculator gives 0.4576…) awrt 0.456 to 0.458 M1 A1\nOfficial notes (completeness pass):\n- M1 for setting up a normal distribution with a mean 41 + 81 + 57 (= 179)\n- A1 for a correct expression of variance implied by (variance =) 88.24 or for s.d. = awrt 9.39\n- M1 for standardising with 180, their mean and their standard deviation\n- M1 use of $1-p$ with $0.5<p<1$\nLet $Y$ = difference between run and swim or Let $D = R-S-20$\n$Y \\sim \\mathrm{N}(16, 70.6)$ or $D \\sim \\mathrm{N}(-4, 70.6)$ B1\n$\\mathrm{P}(Y>20) = \\mathrm{P}\\left(Z>\\frac{20-16}{\\sqrt{70.6}}\\right)$ or $\\mathrm{P}(D>0) = \\mathrm{P}\\left(Z>\\frac{0-(-4)}{\\sqrt{70.6}}\\right)$ M1\n$= 1-0.6844 = 0.3156$ (calculator gives 0.3170…) awrt 0.316/0.317 M1 A1\nOfficial notes (completeness pass):\n- B1 For $\\mathrm{N}(\\pm 16, 70.6)$ or $\\mathrm{N}(\\pm 4, 70.6)$ May be seen in a calculation\n- M1 for standardisation with $\\pm 20$ or 0, their mean and their s.d.(their var must be > 0) must be compatible e.g. – 20 with –16\n- M1 use of $1-p$ with $0.5<p<1$\n$\\mathrm{P}(T>t) = 0.95 \\Rightarrow \\mathrm{P}\\left(Z>\\frac{t-179}{\\sqrt{88.24}}\\right) = 0.95 \\Rightarrow \\frac{t-179}{\\sqrt{88.24}} = -1.6449$ M1 B1\n$t = 163.548…$ awrt 164 A1\nOfficial notes (completeness pass):\n- M1 for standardising using their mean and standard deviation = $z$ value $1<|z|<2$\n- B1 for correct $z$ value $\\pm 1.6449$ or better. Must have compatible sign with standardisation\nLet $X$ = the number of times greater than 3 hours in 6 attempts\n$X \\sim \\mathrm{B}(6,\\text{\"}0.456\\text{\"})$ B1ft\n$\\mathrm{P}(X \\geqslant 1) = 1-\\mathrm{P}(X=0) = 1-\\text{\"}0.5438\\text{\"}^6$ M1\n$= 0.9741…$ (using the calculator value gives 0.9745…) awrt 0.974/0.975 A1\nOfficial notes (completeness pass):\n- B1ft for writing or using B(6,'0.4562') ft their answer to part (a) to 3sf\n- M1 use of $\\mathrm{P}(X\\geqslant 1)=1-\\mathrm{P}(X=0)$ $[=1-(1-their(a))^6]$ allow $\\mathrm{P}(X\\geqslant 1)=\\mathrm{P}(X=1)+\\mathrm{P}(X=2)+...+\\mathrm{P}(X=6)$\neg The times for each event are not now likely to be independent M1\nJane is correct / calculation is not valid A1\nOfficial notes (completeness pass):\n- M1 Reference to the events no longer being independent (he might get tired after each event or events now follow consecutively)/ calculation does not include time between events\n- A1 Correct conclusion (Jane is correct) with corresponding reason",
+      "has_figure": false,
+      "figure_pages": []
+    }
+  ],
+  "autofixes": 0,
+  "triage_method": "triage-v1",
+  "ms_complete_method": "single-call-v2",
+  "ms_complete_added": 13,
+  "ms_complete_unverified": false
+}

@@ -1,0 +1,549 @@
+{
+  "_paper_id": "IAL2013_WMA02_June2019",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.316272,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Algebraic rearrangement to iteration form",
+          "reason": "Rearranging a cubic equation into an iteration form is standard algebraic manipulation, part of preparing for P9.2/P9.3 iteration.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P9.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Fixed point iteration",
+          "reason": "Uses iteration formula x_{n+1}=f(x_n), directly matches P9.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P9.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Change of sign method",
+          "reason": "Locating a root by sign change matches P9.1 exactly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P9.1"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 1,
+          "technique": "Transformation/substitution applied to root of related equation",
+          "reason": "Uses the root found in (c) applied to a transformed equation; this is a numerical methods application (P9.5) using an in-spec prior result.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P9.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Integration of rational expression",
+          "reason": "Splitting (4x+3)/x and integrating 1/x and constant multiples of x^n matches P8.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Separable first order differential equation",
+          "reason": "Separation of variables and integration to find particular solution matches P8.7 exactly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.7"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Parametric to Cartesian conversion (domain)",
+          "reason": "Finding range of x from parametric domain, matches P3.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P3.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Conversion using trig identity",
+          "reason": "Uses 1+tan^2θ=sec^2θ to convert parametric to Cartesian form, matches P5.5/P3.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P3.3",
+            "P5.5"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Differentiation of parametric/Cartesian function",
+          "reason": "Differentiating the resulting polynomial or using parametric differentiation, matches P7.5/P7.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5",
+            "P7.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Implicit differentiation with product/chain rule",
+          "reason": "Differentiating an implicit relation with product rule and chain rule matches P7.5 and P7.4.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5",
+            "P7.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Equation of normal to implicit curve",
+          "reason": "Finding tangent/normal using gradient from implicit differentiation matches P7.3/P7.5 guidance.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.3",
+            "P7.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Exponential model - finding constant from initial condition",
+          "reason": "Substituting t=0 into exponential decay model matches P6.7 (finding constants, 'initial' meaning t=0).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P6.7"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Exponential equation solving using logs",
+          "reason": "Solving for k using logarithm laws matches P6.3/P6.4/P6.7.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P6.3",
+            "P6.4",
+            "P6.7"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Evaluate exponential model",
+          "reason": "Substituting values into the exponential model, matches P6.7.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P6.7"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 1,
+          "technique": "Limiting behaviour of exponential model",
+          "reason": "Discussing limitations/asymptotic behaviour of exponential model matches P6.7/P2.11 guidance on considering behaviour for large t.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P6.7",
+            "P2.11"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Modulus function graph intercepts",
+          "reason": "Finding intercepts of y=|4x+10a| matches P2.7 sketching graphs of modulus of linear function.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.7"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Sketch modulus graph transformation",
+          "reason": "Sketching y=|x|-a from given graph matches P2.7/P2.9 (modulus functions and transformations).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.7",
+            "P2.9"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Solve modulus equation graphically/algebraically",
+          "reason": "Solving equations involving modulus of linear expressions matches P2.7 guidance on using graph to solve |2x-1|=x type equations.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.7"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "R cos(θ+α) form",
+          "reason": "Expressing acosθ-bsinθ in Rcos(θ+α) form matches P5.6 exactly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P5.6"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Solve trig equation using R cos(θ+α) form in context",
+          "reason": "Solving a cos θ+b sin θ=c type equation in a modelling context matches P5.6 guidance and P5.9 (trig in context).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P5.6",
+            "P5.9"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "8",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Quotient rule differentiation",
+          "reason": "Differentiating (6x+2)/(3x^2+5) using the quotient rule matches P7.4 exactly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Stationary points via derivative",
+          "reason": "Setting derivative numerator to zero to find turning points matches P7.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Transformation of graph (turning point)",
+          "reason": "Finding turning point of f(2x)+4 from known turning point matches P2.9 transformations.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.9"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Range of a function using turning points/domain",
+          "reason": "Finding range using domain restriction and turning point matches P2.8 (domain/range of functions).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.8"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "9",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Trig identity proof using sin(A+B) and double angle formulae",
+          "reason": "Deriving sin3x identity using addition and double angle formulae matches P5.6 and P5.8 (constructing proofs involving trig identities).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P5.6",
+            "P5.8"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Integration of trig product using identity",
+          "reason": "Using the derived identity to integrate sin3x cos x, and evaluating definite integral, matches P8.2 (using trig identities to integrate) and P8.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.2",
+            "P8.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "10",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Binomial expansion for rational index/negative power",
+          "reason": "Binomial series expansion of (2+3x)^(-1/3)*|x|^(2/3)-type expression for rational n matches P4.1 exactly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Binomial expansion coefficient extraction/combination",
+          "reason": "Using part (a)'s expansion and combining with another series (partial fraction-style decomposition of rational function) matches P4.1 guidance on use with rational functions decomposed into partial fractions.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1",
+            "P2.10"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "11",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Partial fractions with repeated linear factor",
+          "reason": "Decomposing 9/[t^2(t-3)] into partial fractions matches P2.10 (denominators with squared linear terms).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.10"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Integration using partial fractions and evaluating definite integral with logs",
+          "reason": "Integrating each partial fraction term (including 1/t^2) and evaluating definite integral with log simplification matches P8.6 and P8.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.6",
+            "P8.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Volume of solid of revolution from parametric curve",
+          "reason": "Explicitly listed exclusion: 'volume of revolution (solid formed by rotating a region about an axis)' is a concept no 9MA0 statement covers.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "12",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Vector subtraction (finding AB)",
+          "reason": "Finding vector AB from position vectors matches P10.4 exactly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P10.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Vector equation of a line r=a+λb",
+          "reason": "Explicit exclusion list states vector equation of a line (r=a+λb) is a concept no 9MA0 statement covers.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Angle between vectors using scalar (dot) product",
+          "reason": "Uses AB.AC = |AB||AC|cosθ, i.e. the scalar (dot) product to find angle between vectors, which is explicitly listed as a concept no 9MA0 statement covers.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Area of triangle using vectors (depends on angle from dot product)",
+          "reason": "Uses the angle found in part (c) via the dot product method, so this part only makes sense after an out-of-spec part.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 3,
+          "technique": "Finding point on line using area ratio (depends on dot-product-derived angle/area)",
+          "reason": "Relies on the area of triangle CAB found in (d), which itself depends on the out-of-spec dot product method in (c); also uses the vector line equation from (b).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "13",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Trapezium rule",
+          "reason": "Estimating area using trapezium rule with given table of values matches P9.4 exactly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P9.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Integration by substitution",
+          "reason": "Using substitution u=x^2 to transform the integral matches P8.5 (integration by substitution, finding suitable substitution).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.5"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 6,
+          "technique": "Integration by parts (with ln)",
+          "reason": "Evaluating the integral of u ln(2u) via integration by parts matches P8.5.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "14",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Exponential function evaluation (y-intercepts)",
+          "reason": "Finding y-intercepts of exponential curves by substituting x=0 matches P6.1/P2.7.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P6.1",
+            "P2.7"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Solving simultaneous exponential equations using logs",
+          "reason": "Equating two exponential functions and using index/log laws to solve for intersection point matches P6.3/P6.4/P6.5 and P2.4 (simultaneous equations).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P6.3",
+            "P6.4",
+            "P2.4"
+          ]
+        }
+      ]
+    }
+  ]
+}

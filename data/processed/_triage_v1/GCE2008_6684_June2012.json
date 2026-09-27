@@ -1,0 +1,265 @@
+{
+  "_paper_id": "GCE2008_6684_June2012",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.210739,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Continuous uniform distribution probability calculation",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "Continuous uniform distribution is not mentioned in the current 9MA0 statements; S3.1 states 'No formal knowledge of probability density functions is required' and no statement covers this named model."
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Binomial probability using p from part (a)",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "Depends on the value derived in the out-of-spec part (a); rule states a part that only makes sense after an out-of-spec part is OUT."
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Combining binomial probabilities from part (b)",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "Uses the answer from part (b), which is itself out of spec."
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 5,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Critical region for binomial proportion hypothesis test",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S5.1",
+            "S5.2"
+          ],
+          "reason": "S5.2 covers hypothesis testing for the proportion in a binomial distribution; 'critical region' is explicit terminology in S5.1."
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Significance level as probability of incorrectly rejecting H0",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S5.2"
+          ],
+          "reason": "S5.2 states students should appreciate that the significance level is the probability of incorrectly rejecting the null hypothesis."
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Conditions for Poisson approximation to binomial",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "Poisson distribution is not mentioned anywhere in the 9MA0 statements; only binomial and Normal distributions and their approximation (S4.2) are covered, not Poisson."
+        },
+        {
+          "label": "b",
+          "marks": 7,
+          "technique": "Hypothesis test using Poisson approximation",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "Requires use of the Poisson distribution, which is not covered anywhere in the current specification statements."
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a(i)",
+          "marks": 3,
+          "technique": "Poisson probability calculation",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "Poisson distribution is not named or covered by any statement in the current 9MA0 specification."
+        },
+        {
+          "label": "a(ii)",
+          "marks": 2,
+          "technique": "Poisson probability calculation",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "Poisson distribution is not covered by the current specification."
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Binomial distribution using Poisson probability from (a)",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "Depends on the Poisson probability found in part (a), which is out of spec, so this part is also OUT."
+        },
+        {
+          "label": "c",
+          "marks": 6,
+          "technique": "Normal approximation to Poisson distribution",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "Requires the Poisson distribution as the underlying model, which is not covered in the current specification; only Normal approximation to binomial (S4.2) is included."
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Finding constant using continuous pdf integration",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "Requires knowledge and manipulation of a probability density function; S3.1 explicitly states 'No formal knowledge of probability density functions is required'."
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "E(X) for continuous random variable with symmetric pdf",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "Requires pdf knowledge, explicitly excluded per S3.1 ('No formal knowledge of probability density functions is required')."
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Var(X) via integration of pdf",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "Requires integrating a pdf to find variance; pdf knowledge and derivation of mean/variance for continuous rvs is not covered/explicitly excluded (S4.2, S3.1)."
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Probability calculation via pdf integration",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "Requires integrating the pdf, which is explicitly excluded knowledge per S3.1."
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "main",
+          "marks": 6,
+          "technique": "Sampling distribution of range statistic",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "'Sampling distribution' is a named concept not mentioned anywhere in the 9MA0 statements, making this out of spec per the general instruction on unmentioned named concepts."
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Sketching a piecewise probability density function",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "Requires working directly with a pdf, explicitly excluded per S3.1 'No formal knowledge of probability density functions is required'."
+        },
+        {
+          "label": "b",
+          "marks": 8,
+          "technique": "Deriving cumulative distribution function F(x) from pdf",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "S4.2 explicitly excludes 'Derivation of the mean, variance and cumulative distribution function' and pdf knowledge is not required per S3.1."
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Evaluating F(x) at a point",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [],
+          "reason": "Depends on the cdf F(x) derived in the out-of-spec part (b)."
+        }
+      ]
+    },
+    {
+      "q_num": "8",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a(i)",
+          "marks": 3,
+          "technique": "Binomial probability calculation",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ],
+          "reason": "S4.1 covers calculating probabilities using the binomial distribution."
+        },
+        {
+          "label": "a(ii)",
+          "marks": 2,
+          "technique": "Binomial cumulative probability calculation",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ],
+          "reason": "S4.1 covers use of calculator to find cumulative binomial probabilities."
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Finding smallest n satisfying cumulative binomial probability condition",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ],
+          "reason": "Uses cumulative binomial probability calculations, which S4.1 explicitly covers via calculator use."
+        }
+      ]
+    }
+  ]
+}

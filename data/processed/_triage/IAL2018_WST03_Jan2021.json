@@ -1,0 +1,246 @@
+{
+  "_paper_id": "IAL2018_WST03_Jan2021",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.137439,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Simple random sampling using random numbers",
+          "reason": "S1.1 explicitly covers simple random sampling and use of random number techniques to select a sample.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S1.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Stratified sampling",
+          "reason": "S1.1 explicitly lists stratified sampling as a technique students must be familiar with.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S1.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Critique of simple random sampling / identifying under-represented groups",
+          "reason": "S1.1 covers understanding sampling techniques including critiquing them and reasoning about which groups may be missed; this matches directly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S1.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Spearman's rank correlation coefficient",
+          "reason": "No statement mentions Spearman's rank correlation; only PMCC (r) is mentioned in S5.1 and its formula use is excluded. Spearman's rank is a distinct named concept not covered anywhere.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Hypothesis test using Spearman's rank correlation critical value",
+          "reason": "Depends on the out-of-spec Spearman's rank coefficient from (a); also Spearman's test itself is not a statement (only PMCC correlation testing per S5.1, which excludes formula calculation but the test itself for rho is PMCC-based, not Spearman's).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Correlation does not imply causation",
+          "reason": "Depends on prior out-of-spec parts (a)/(b); also this is a general comment not tied to any statement about causation vs correlation for regression/Spearman context (S2.2 mentions correlation not causation but this question is about Spearman's rank result specifically).",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Chi-squared goodness-of-fit test",
+          "reason": "Chi-squared tests are not mentioned in any statement; S5 only covers binomial proportion and Normal mean tests.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Chi-squared test hypotheses for association",
+          "reason": "Chi-squared test for association is not covered by any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Expected frequency calculation for contingency table",
+          "reason": "This is part of the chi-squared association test method, not covered by any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Degrees of freedom for contingency table with pooling",
+          "reason": "Part of chi-squared methodology, not in spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Chi-squared test conclusion",
+          "reason": "Part of chi-squared methodology, not in spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Confidence interval for population mean (known variance)",
+          "reason": "No statement describes construction of confidence intervals; S5.3 covers hypothesis testing for the mean, not confidence intervals, so this named technique is absent.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Two-sample z-test for difference of means (known variances)",
+          "reason": "S5.3 only describes a one-sample test for the mean of a Normal distribution with known variance; a two-sample test comparing two independent means is not described by any statement.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "One-sample z-test structure (known variance) applied separately to each sample to bound mu",
+          "reason": "This part uses the same one-sample z-statistic (X-μ)/(σ/√n) ~ N(0,1) structure described in S5.3, applied independently to each sample; it does not rely on the out-of-spec two-sample test in (b).",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S5.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 18,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 10,
+          "technique": "Chi-squared goodness-of-fit test for Normal distribution",
+          "reason": "Chi-squared tests are not mentioned in any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Unbiased estimates of mean and variance from summary statistics (Σx, Σx²)",
+          "reason": "S2.3 explicitly covers calculating mean and standard deviation (including unbiased S=√(Sxx/(n-1))) from summary statistics; this matches directly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Chi-squared goodness-of-fit test (with estimated parameters, reduced df)",
+          "reason": "Chi-squared testing is not covered by any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Normal distribution probability calculation using estimated mean/variance",
+          "reason": "S4.2 covers finding probabilities using the Normal distribution; using the in-spec mean/variance from part (b) to find P(X>7) is a standard Normal probability calculation.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.2",
+            "S2.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 18,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Distribution of the difference of two independent Normal random variables",
+          "reason": "No statement covers linear combinations (sums/differences) of independent Normal random variables; S4.2 only covers Normal distribution as a single-variable model, not combinations.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 7,
+          "technique": "Distribution of a linear combination of independent Normal random variables",
+          "reason": "Same as (a): combining independent normal variables (sums, scalar multiples) is not described by any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 7,
+          "technique": "Optimisation of variance for a linear combination aR+bY subject to constraint on mean",
+          "reason": "Requires the same out-of-spec concept of linear combinations of independent Normal random variables and their variance; not covered by any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    }
+  ]
+}

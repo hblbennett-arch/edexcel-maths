@@ -1,0 +1,216 @@
+{
+  "_paper_id": "IAL2018_WST03_June2021",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.1161065,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Spearman's rank correlation coefficient",
+          "reason": "Spearman's rank correlation is not mentioned anywhere in the 9MA0 statements; only PMCC (calculator) is mentioned and even that is excluded from formula calculation. Spearman's rank is a distinct named concept not covered.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Hypothesis test for Spearman's rank correlation",
+          "reason": "Depends on part (a)'s Spearman's rank value and is a significance test for rank correlation, not mentioned in S5.1 (which only covers PMCC, with derivation excluded). Out of spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "main",
+          "marks": 9,
+          "technique": "Chi-squared test of independence (contingency table)",
+          "reason": "Chi-squared tests, contingency tables, and degrees of freedom for independence testing are not mentioned in any 9MA0 statement. S2.4 explicitly limits significance tests to those in Section 5, which only covers binomial proportion and Normal mean tests.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 6,
+          "technique": "Confidence interval for population mean",
+          "reason": "Confidence intervals are not mentioned in any 9MA0 statement (S5.3 covers hypothesis testing for the mean, not CIs). Named concept absent from spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Binomial probability applied to confidence intervals",
+          "reason": "Although the binomial calculation itself is S4.1-type, this uses the concept of a confidence interval containing μ (from out-of-spec part (a)), a concept not in spec; the part only makes sense after the out-of-spec confidence interval concept.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 16,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Stratified sampling",
+          "reason": "S1.1 explicitly lists stratified sampling as a technique students should be familiar with.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S1.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 7,
+          "technique": "Hypothesis test for difference of two means (Normal approximation, two independent samples)",
+          "reason": "S5.3 only covers a test for the mean of a single Normal distribution; a two-sample test for difference of means is not mentioned anywhere in the statements.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Central Limit Theorem",
+          "reason": "S5.3 explicitly excludes knowledge of the Central Limit Theorem.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": [
+            "S5.3"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 1,
+          "technique": "Assumption for two-sample z-test (known/large-sample variance)",
+          "reason": "Relates to the out-of-spec two-sample hypothesis test; not covered by any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Interpretation of two-sample hypothesis test result",
+          "reason": "Depends on the out-of-spec two-sample test in (b).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "f",
+          "marks": 1,
+          "technique": "Comment on effectiveness based on test outcomes",
+          "reason": "Depends entirely on out-of-spec parts (b) and (e).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 16,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Assumptions for binomial model",
+          "reason": "S4.1 covers using the binomial distribution as a model and commenting critically on appropriateness, which includes assumptions.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Mean from frequency table (grouped data mean)",
+          "reason": "S2.3 covers measures of central tendency including mean calculation from data.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Expected frequencies using binomial probabilities",
+          "reason": "S4.1 covers calculating probabilities using the binomial distribution; computing expected frequencies from binomial probabilities is a direct application.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 8,
+          "technique": "Chi-squared goodness-of-fit test for binomial distribution",
+          "reason": "Chi-squared goodness of fit tests are not mentioned anywhere in the 9MA0 statements; S2.4 restricts significance tests to those in Section 5 (binomial proportion, Normal mean), which does not include goodness-of-fit testing.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 17,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Linear combination of independent Normal random variables",
+          "reason": "S4.2 covers the Normal distribution as a model and finding probabilities, but forming and using the distribution of a linear combination (B - 1.1R) of two independent Normal variables is not mentioned in any statement; this is a distinct technique beyond simple probability lookup.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Distribution of difference of two independent identical Normal random variables",
+          "reason": "Same issue as (a): combining Normal random variables via sums/differences is not covered by S4.2, which only addresses finding probabilities for a single Normal distribution.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 6,
+          "technique": "Distribution of sums of multiple independent Normal random variables",
+          "reason": "Requires combining sums of 10/11 independent Normal variables plus another Normal variable, a technique not mentioned in any 9MA0 statement.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        }
+      ]
+    }
+  ]
+}

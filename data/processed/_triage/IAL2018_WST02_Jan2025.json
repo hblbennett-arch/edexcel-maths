@@ -1,0 +1,338 @@
+{
+  "_paper_id": "IAL2018_WST02_Jan2025",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.174834,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Binomial probability calculation",
+          "reason": "Calculating P(X=2) using binomial formula is direct binomial probability calculation, covered by S4.1 (calculate probabilities using the binomial distribution).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Poisson approximation to binomial",
+          "reason": "Requires use of the Poisson distribution as an approximation. Poisson distribution is not named anywhere in the specification statements, so this is out.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Percentage error using Poisson approximation result",
+          "reason": "This part only makes sense using the answer from the out-of-spec Poisson approximation in (b), so it is out per the rule that dependent parts are out.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 1,
+          "technique": "Conditions for Poisson approximation to binomial",
+          "reason": "Asks for conditions under which Poisson approximates binomial - Poisson is not covered in the spec at all.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 4,
+          "technique": "Solving simultaneous equations from Poisson probability formulae",
+          "reason": "Requires forming equations using the Poisson pmf, which is not part of the specification.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "(i)(a)(b)",
+          "marks": 2,
+          "technique": "Statistic vs parameter concept",
+          "reason": "This concerns 'statistic' and 'sampling distribution' terminology which is not mentioned anywhere in the specification statements (only simple random sampling etc. under S1.1, not the concept of a statistic as an estimator or sampling distribution).",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "ii",
+          "marks": 3,
+          "technique": "Sampling distribution of a discrete random variable / order comparison",
+          "reason": "Explicitly framed as 'sampling distribution' of Y, a named concept not mentioned in the specification statements (only probability topics S3.1-S3.3 mention independent events but not sampling distributions of random variables).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "iii(a)",
+          "marks": 1,
+          "technique": "Listing outcomes from sampling without replacement",
+          "reason": "This is part of building a sampling distribution (explicitly named later in the question, part (c)), a concept not covered in the spec statements.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "iii(b)",
+          "marks": 2,
+          "technique": "Listing values of derived random variable T",
+          "reason": "Continues building toward the sampling distribution of T, not covered by any spec statement.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "iii(c)",
+          "marks": 3,
+          "technique": "Sampling distribution of T",
+          "reason": "Explicitly asks for the 'sampling distribution' of T, a named concept absent from the specification statements.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 15,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Probability density function of continuous uniform distribution",
+          "reason": "Requires finding a pdf. S4.2 explicitly states 'Knowledge of the probability density function is not required'.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Sketch pdf graph",
+          "reason": "Sketching a probability density function - excluded per S4.2 exclusion of pdf knowledge.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Mean of continuous uniform distribution",
+          "reason": "Finding mean of a continuous random variable defined via pdf; pdf knowledge and this distribution are not in the spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "technique": "Cumulative distribution function",
+          "reason": "S4.2 excludes derivation of cumulative distribution function knowledge, and cdf/pdf work generally is not covered anywhere in the statements.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 3,
+          "technique": "E(Y) for Y=X^2 using pdf integration",
+          "reason": "Requires integrating using the pdf, explicitly excluded (S4.2) and not part of any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "f",
+          "marks": 3,
+          "technique": "Probability calculation using pdf/cdf",
+          "reason": "Based on the pdf/cdf of the continuous uniform distribution, excluded topic.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "i(a)",
+          "marks": 3,
+          "technique": "E(X^2) via integration of a given pdf",
+          "reason": "Explicitly uses a probability density function f(x), which S4.2 states knowledge of is not required.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "i(b)",
+          "marks": 2,
+          "technique": "Var(X) from E(X) and E(X^2) of continuous r.v. with pdf",
+          "reason": "Depends on the out-of-spec pdf-based E(X^2) from part (a), and Var(X) of a continuous rv via pdf is not in the specification.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "ii(a)",
+          "marks": 3,
+          "technique": "Binomial probability regarding order statistics relative to quartile",
+          "reason": "Although the arithmetic resembles binomial probability, the setup relies on continuous random variable Y and its quartiles (probability density function context), a topic combination not covered by the specification.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "ii(b)",
+          "marks": 2,
+          "technique": "Binomial probability regarding order statistics relative to quartile",
+          "reason": "Same as (ii)(a): depends on continuous distribution quartile context not in spec.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Poisson probability calculations",
+          "reason": "Requires modelling meteors with Poisson distribution; Poisson is not covered anywhere in the specification statements.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Hypotheses for Poisson mean test",
+          "reason": "Hypothesis test framed in terms of Poisson parameter λ; the specification's hypothesis testing statements (S5.2, S5.3) only cover binomial proportion and Normal mean, not Poisson.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Critical region for Poisson hypothesis test",
+          "reason": "Based on Poisson distribution, not covered by the specification's hypothesis testing statements.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Conclusion of Poisson hypothesis test",
+          "reason": "Depends on the out-of-spec Poisson-based critical region from (c).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Variance of binomial distribution in terms of p",
+          "reason": "S4.2 guidance explicitly gives the normal approximation variance np[1-p] for a binomial B(n,p), so knowledge of binomial variance np(1-p) is implicit and required for this approximation; this is directly used within the spec's normal approximation to binomial content.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Normal approximation to binomial with continuity correction, standardisation",
+          "reason": "S4.2 explicitly covers the normal approximation to binomial B(n,p)~N(np,np[1-p]) with continuity correction, and standardisation is basic normal distribution work covered by S4.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Solving quadratic/algebraic equation for p",
+          "reason": "Pure algebraic manipulation following on from the in-spec normal approximation equation in (b); uses only algebra to solve for p, in spec (P2 algebra techniques) as continuation of the in-spec (b).",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.2",
+            "P2.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Sketch pdf",
+          "reason": "Sketching a given probability density function; S4.2 excludes knowledge of pdf.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Mode of continuous distribution from pdf",
+          "reason": "Mode identified from a pdf graph, part of the excluded pdf topic.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c(i)",
+          "marks": 4,
+          "technique": "Finding normalising constant k by integrating pdf",
+          "reason": "Requires integrating a given probability density function to find k such that total probability is 1; explicit pdf exclusion under S4.2 applies.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c(ii)",
+          "marks": 3,
+          "technique": "Verifying upper quartile using pdf integration",
+          "reason": "Uses integration of the pdf to locate a quartile, excluded topic (pdf knowledge not required, S4.2), and depends on the out-of-spec k from (c)(i).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,301 @@
+{
+  "_paper_id": "IAL2018_WST02_Jan2022",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.1486515,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Poisson distribution inverse probability",
+          "reason": "Uses Poisson distribution, which is not mentioned anywhere in the statements. No statement covers Poisson.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Normal approximation to Poisson sum",
+          "reason": "Requires Poisson distribution and normal approximation to it; Poisson not in spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Binomial probability derived from Poisson critical value",
+          "reason": "Depends on part (a) which used Poisson (out of spec), and the underlying setup is Poisson-based.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Find pdf from cdf for general continuous random variable",
+          "reason": "Requires differentiating cdf to get pdf of a general continuous distribution; S4.2 explicitly excludes knowledge of pdf, and no statement covers general continuous distributions beyond binomial/normal.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "E(X) of continuous random variable",
+          "reason": "Calculation of E(X) for a general continuous distribution is not covered; S4.1 excludes calculation of mean/variance of discrete rv, and continuous general rv calculations are not mentioned at all in spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Var(X) of continuous random variable",
+          "reason": "Same as above - variance of general continuous rv not in spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "E(3X^2) using integration of pdf",
+          "reason": "Requires E(X^2) calculation via integration of pdf for general continuous rv, not covered by any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Justify Poisson model",
+          "reason": "Poisson distribution not mentioned anywhere in the statements.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Hypotheses for Poisson rate test",
+          "reason": "Hypothesis testing statements (S5.2, S5.3) only cover binomial proportion and normal mean, not Poisson rate.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Critical region using Poisson distribution",
+          "reason": "Uses Poisson probabilities, not covered by spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Actual significance level from Poisson critical region",
+          "reason": "Depends on Poisson critical region from (c), out of spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Interpret Poisson hypothesis test result",
+          "reason": "Depends on Poisson-based critical region, out of spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 15,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Sketch pdf of piecewise continuous distribution",
+          "reason": "S4.2 excludes knowledge of pdf; general continuous distributions beyond binomial/normal are not in spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Find constant k using area under pdf =1",
+          "reason": "Requires working with pdf of general continuous distribution, excluded by S4.2 and not covered elsewhere.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 7,
+          "technique": "Derive cdf by integrating piecewise pdf",
+          "reason": "Derivation of cdf from pdf for general continuous rv is explicitly excluded (S4.2: 'Derivation of ... cumulative distribution function is not required') and not otherwise covered.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Probability using cdf of continuous rv",
+          "reason": "Depends on out-of-spec cdf work; general continuous distribution not covered.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Describe skewness of continuous distribution",
+          "reason": "Depends on out-of-spec distribution and comparison of mean/median for continuous rv, not covered.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "State binomial model for a proportion",
+          "reason": "S4.1 explicitly covers binomial distribution as a model for a discrete random variable.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "State assumption for binomial model",
+          "reason": "S3.3/S4.1 guidance covers modelling assumptions and critiquing appropriateness of binomial model.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1",
+            "S3.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Poisson approximation to binomial",
+          "reason": "Requires using Poisson distribution as an approximation; Poisson is not mentioned anywhere in the specification statements.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Justify Poisson approximation conditions",
+          "reason": "Relies on Poisson approximation concept from part (c), which is out of spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 7,
+          "technique": "Hypothesis test for binomial proportion using normal approximation",
+          "reason": "S5.2 covers hypothesis testing for a binomial proportion, and S4.2 explicitly covers approximating B(n,p) by a Normal distribution including continuity correction; combining these gives a full in-spec method for this test.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S5.2",
+            "S4.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Define sampling distribution of a statistic",
+          "reason": "The term 'sampling distribution' is not mentioned in any statement (S5.3 refers to distribution of sample mean under CLT-type context but explicit general definition and its explanation is not covered, and CLT/large sample approximations are explicitly excluded).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 7,
+          "technique": "Construct sampling distribution of sum of two random variables",
+          "reason": "Depends on the concept of sampling distribution from (a), which is not covered by any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "E(T) from a derived sampling distribution",
+          "reason": "Depends on out-of-spec sampling distribution table constructed in (b).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Probability from continuous uniform distribution via transformation",
+          "reason": "Requires working with a continuous rv (area transformed into length) which is a general continuous distribution beyond binomial/normal; S4.2 excludes pdf knowledge and no statement covers continuous uniform transformations of this kind.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Var(L) via integration of transformed pdf",
+          "reason": "Requires deriving pdf of L from uniform A and integrating to find E(L), E(L^2); this general continuous-distribution calculus is not covered by any statement (pdf knowledge explicitly excluded by S4.2).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    }
+  ]
+}

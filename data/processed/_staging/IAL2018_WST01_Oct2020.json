@@ -1,0 +1,345 @@
+{
+  "_paper_id": "IAL2018_WST01_Oct2020",
+  "_paper": "WST01",
+  "_sitting": "Oct2020",
+  "qualification": "IAL-2018",
+  "unit": "WST01",
+  "component": "stats",
+  "status": "legacy",
+  "paper_total": 75,
+  "source_qp_file": "pearson/IAL-2018/Oct2020/IAL2018_WST01_Oct2020_QP.txt",
+  "source_ms_file": "pearson/IAL-2018/Oct2020/IAL2018_WST01_Oct2020_MS.txt",
+  "extraction_method": "single-call-v1",
+  "extraction_model": "claude-sonnet-5",
+  "pearson_errors": [],
+  "questions": [
+    {
+      "paper_id": "IAL2018_WST01_Oct2020",
+      "spec": "IAL-2018",
+      "qualification": "IAL-2018",
+      "unit": "WST01",
+      "status": "legacy",
+      "paper": "WST01",
+      "sitting": "Oct2020",
+      "id": "IAL2018_WST01_Oct2020_Q2",
+      "q_num": "2",
+      "total_marks": 13,
+      "component": "stats",
+      "uses_large_data_set": false,
+      "stem": "In a school canteen, students can choose from a main course of meat ($M$), fish ($F$) or vegetarian ($V$). They can then choose a drink of either water ($W$) or juice ($J$).\n\nThe partially completed tree diagram, where $p$ and $q$ are probabilities, shows the probabilities of these choices for a randomly selected student.\n\n[Tree diagram: Main course branches Meat (0.40), Fish (0.35), Vegetarian (……); from Meat: Drink branches Water ($p$), Juice (……); from Fish: Drink branches Water ($q$), Juice (……); from Vegetarian: Drink branches Water (0.40), Juice (……)]",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "text": "(a) Complete the tree diagram, giving your answers in terms of $p$ and $q$ where appropriate.\n(2)",
+          "mark_scheme": "(a) B1: 0.25 for P($V$)\nB1: correct probabilities on 2nd branches $(1-p)$, $(1-q)$ [allow their values] and 0.6",
+          "spec_refs": [
+            "S3.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "text": "(b) Find an expression, in terms of $p$ and $q$, for the probability that a randomly selected student chooses water to drink.\n(1)",
+          "mark_scheme": "(b) B1ft: $\\mathrm{P}(W) = 0.4p + 0.35q + \"0.25\"\\times 0.4$ [$= 0.4p+0.35q+0.1$] for a correct expression using their values from tree diagram",
+          "spec_refs": [
+            "S3.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "text": "The events \"choosing a vegetarian main course\" and \"choosing water to drink\" are independent.\n(c) Find a linear equation in terms of $p$ and $q$.\n(2)",
+          "mark_scheme": "(c) M1: correct expression: $\\mathrm{P}(W\\cap V) = \"0.1\" = \"0.25\"\\times \\mathrm{P}(W)$ or $\\mathrm{P}(W) = \\mathrm{P}(W|V) = 0.4$, for sight or use of a correct expression in $V$ and $W$ or correct equation in $p$ and $q$ (ft their part (b))\nA1: for a fully correct equation (needn't be simplified) [may see $0.4p+0.35q=0.3$ or $8p+7q=6$]",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 5,
+          "text": "A student who has chosen juice to drink is selected at random. The probability that they chose fish for their main course is $\\frac{7}{30}$\n(d) Find the value of $p$ and the value of $q$.\n(5)",
+          "mark_scheme": "(d) M1: for using given conditional probability to form an equation in $q$ and P($J$) using $\\frac{7}{30}$: $\\frac{7}{30} = \\frac{0.35(1-q)}{\"\\mathrm{P}(J)\"}$\ndM1: (dep on 1st M1) for getting P($J$) = 0.6 or sub $1-$their (b) to get 2nd equation in $p$ and $q$ [May see $8p-23q+12=0$]\nSince $V$ and $W$ are independent so are $V$ and $W' = J$ so P($J$) = 0.6\nA1: [So $1-q = \\frac{2}{3}\\mathrm{P}(J)$ therefore] $q=0.6$\n$8p+7\\times\"0.6\" = 6$\nddM1: (dep on both Ms) for seeing substitution of their 1st value to find the 2nd value ($p$ or $q$). Allow ft of their $p$ or $q$ in one of their equations provided $p$ and $q$ both lie in $(0,1)$\nA1: so $p=0.225$ or exact equivalent. After the 2nd M1, sight of $p=0.225$ and $q=0.6$ earns the final 3 marks\nOfficial notes (completeness pass):\n- 1st A1 for $q = 0.6$ [NB must be $q = 0.6$ not just P($J$) = 0.6] May see after 3rd M1 for solving with $p$",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 3,
+          "text": "The canteen manager claims that students who choose water to drink are most likely to choose a fish main course.\n(e) State, showing your working clearly, whether or not the manager's claim is correct.\n(3)",
+          "mark_scheme": "(e) {P($V|W$) = P($V$) = 0.25 (since independent) and P($M|W$) = 0.225 (=$p$)}\nM1: $\\mathrm{P}(F|W) = \\frac{0.35\\times\"0.6\"}{\"0.4\"}$ or $\\frac{0.35q}{(b)}$ for a method for finding P($F|W$)\nA1: $= \\frac{21}{40}$ or 0.525 for a correct value $\\frac{21}{40}$ or exact equivalent\nB1ft: [Since this prob > 0.5 therefore it must be the largest] so conclusion is correct, for a correct conclusion based on enough probs found ft their probabilities. Allow B1ft for comparing 3 calculated probs of the form P($M\\cap W$) needn't be correct ft",
+          "spec_refs": [
+            "S3.2"
+          ]
+        }
+      ],
+      "qp_pages": [
+        4,
+        7
+      ],
+      "low_confidence": false,
+      "notes": "[fix_parts] moved lead-in after (b)'s mark to the start of (c): 'The events \"choosing a vegetarian main course\" and \"choosing'\n[fix_parts] moved lead-in after (c)'s mark to the start of (d): 'A student who has chosen juice to drink is selected at rando'\n[fix_parts] moved lead-in after (d)'s mark to the start of (e): 'The canteen manager claims that students who choose water to'",
+      "source_qp_file": "pearson/IAL-2018/Oct2020/IAL2018_WST01_Oct2020_QP.txt",
+      "source_ms_file": "pearson/IAL-2018/Oct2020/IAL2018_WST01_Oct2020_MS.txt",
+      "notation": "latex",
+      "extraction_method": "single-call-v1",
+      "question_text": "In a school canteen, students can choose from a main course of meat ($M$), fish ($F$) or vegetarian ($V$). They can then choose a drink of either water ($W$) or juice ($J$).\n\nThe partially completed tree diagram, where $p$ and $q$ are probabilities, shows the probabilities of these choices for a randomly selected student.\n\n[Tree diagram: Main course branches Meat (0.40), Fish (0.35), Vegetarian (……); from Meat: Drink branches Water ($p$), Juice (……); from Fish: Drink branches Water ($q$), Juice (……); from Vegetarian: Drink branches Water (0.40), Juice (……)]\n(a) Complete the tree diagram, giving your answers in terms of $p$ and $q$ where appropriate.\n(2)\n(b) Find an expression, in terms of $p$ and $q$, for the probability that a randomly selected student chooses water to drink.\n(1)\nThe events \"choosing a vegetarian main course\" and \"choosing water to drink\" are independent.\n(c) Find a linear equation in terms of $p$ and $q$.\n(2)\nA student who has chosen juice to drink is selected at random. The probability that they chose fish for their main course is $\\frac{7}{30}$\n(d) Find the value of $p$ and the value of $q$.\n(5)\nThe canteen manager claims that students who choose water to drink are most likely to choose a fish main course.\n(e) State, showing your working clearly, whether or not the manager's claim is correct.\n(3)",
+      "mark_scheme_text": "(a) B1: 0.25 for P($V$)\nB1: correct probabilities on 2nd branches $(1-p)$, $(1-q)$ [allow their values] and 0.6\n(b) B1ft: $\\mathrm{P}(W) = 0.4p + 0.35q + \"0.25\"\\times 0.4$ [$= 0.4p+0.35q+0.1$] for a correct expression using their values from tree diagram\n(c) M1: correct expression: $\\mathrm{P}(W\\cap V) = \"0.1\" = \"0.25\"\\times \\mathrm{P}(W)$ or $\\mathrm{P}(W) = \\mathrm{P}(W|V) = 0.4$, for sight or use of a correct expression in $V$ and $W$ or correct equation in $p$ and $q$ (ft their part (b))\nA1: for a fully correct equation (needn't be simplified) [may see $0.4p+0.35q=0.3$ or $8p+7q=6$]\n(d) M1: for using given conditional probability to form an equation in $q$ and P($J$) using $\\frac{7}{30}$: $\\frac{7}{30} = \\frac{0.35(1-q)}{\"\\mathrm{P}(J)\"}$\ndM1: (dep on 1st M1) for getting P($J$) = 0.6 or sub $1-$their (b) to get 2nd equation in $p$ and $q$ [May see $8p-23q+12=0$]\nSince $V$ and $W$ are independent so are $V$ and $W' = J$ so P($J$) = 0.6\nA1: [So $1-q = \\frac{2}{3}\\mathrm{P}(J)$ therefore] $q=0.6$\n$8p+7\\times\"0.6\" = 6$\nddM1: (dep on both Ms) for seeing substitution of their 1st value to find the 2nd value ($p$ or $q$). Allow ft of their $p$ or $q$ in one of their equations provided $p$ and $q$ both lie in $(0,1)$\nA1: so $p=0.225$ or exact equivalent. After the 2nd M1, sight of $p=0.225$ and $q=0.6$ earns the final 3 marks\nOfficial notes (completeness pass):\n- 1st A1 for $q = 0.6$ [NB must be $q = 0.6$ not just P($J$) = 0.6] May see after 3rd M1 for solving with $p$\n(e) {P($V|W$) = P($V$) = 0.25 (since independent) and P($M|W$) = 0.225 (=$p$)}\nM1: $\\mathrm{P}(F|W) = \\frac{0.35\\times\"0.6\"}{\"0.4\"}$ or $\\frac{0.35q}{(b)}$ for a method for finding P($F|W$)\nA1: $= \\frac{21}{40}$ or 0.525 for a correct value $\\frac{21}{40}$ or exact equivalent\nB1ft: [Since this prob > 0.5 therefore it must be the largest] so conclusion is correct, for a correct conclusion based on enough probs found ft their probabilities. Allow B1ft for comparing 3 calculated probs of the form P($M\\cap W$) needn't be correct ft"
+    },
+    {
+      "paper_id": "IAL2018_WST01_Oct2020",
+      "spec": "IAL-2018",
+      "qualification": "IAL-2018",
+      "unit": "WST01",
+      "status": "legacy",
+      "paper": "WST01",
+      "sitting": "Oct2020",
+      "id": "IAL2018_WST01_Oct2020_Q3",
+      "q_num": "3",
+      "total_marks": 13,
+      "component": "stats",
+      "uses_large_data_set": false,
+      "stem": "The distance achieved in a long jump competition by students at a school is normally distributed with mean 3.8 metres and standard deviation 0.9 metres.\n\nStudents who achieve a distance greater than 4.3 metres receive a medal.",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "text": "(a) Find the proportion of students who receive medals.\n(3)",
+          "mark_scheme": "(a) [$D$ = distance achieved] M1: $\\mathrm{P}(D>4.3) = \\mathrm{P}\\left(Z>\\frac{4.3-3.8}{0.9}\\right)$ or P($Z>0.555\\ldots$)\nM1: $= 1-0.7123$ (tables)\nA1: $= 0.2877$ (tables) or $0.289257\\ldots$ (calc) awrt 0.288 or awrt 0.289\nOfficial notes (completeness pass):\n- 1st M1 for standardising 4.3 with 3.8 and 0.9 (allow $\\pm$)\n- 2nd M1 for $1 - p$ (where $0.7 < p < 0.8$)\n- A1 for awrt 0.288 or 0.289 (calc. 0.289257) (correct answer only 3/3)",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "text": "The school wishes to give a certificate of achievement or a medal to the 80% of students who achieve a distance of at least $d$ metres.\n(b) Find the value of $d$.\n(3)",
+          "mark_scheme": "(b) M1: $\\frac{d-3.8}{0.9} = -0.8416$ (calc $-0.84162123\\ldots$)\nB1: for $z=\\pm 0.8416$ or better used\nA1: $d = 3.0425\\ldots$ awrt 3.04\nOfficial notes (completeness pass):\n- M1 for standardising with $d$, 3.8 and 0.9 and setting equal to a $z$ value $0.8 < |z| < 0.9$\n- A1 for awrt 3.04 (condone $d \\geqslant$ ...)\n- Ans only: For awrt 3.0425 or 3.0426 score 3/3 For awrt 3.04 score M1B0A1",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "text": "Of those who received medals, the $\\frac{1}{3}$ who jump the furthest will receive gold medals.\n(c) Find the shortest distance, $g$ metres, that must be achieved to receive a gold medal.\n(4)",
+          "mark_scheme": "(c) M1: $\\mathrm{P}(D>g|D>4.3) = \\frac{\\mathrm{P}(D>g)}{\\mathrm{P}(D>4.3)}$ or (a) $\\left[=\\frac{1}{3}\\right]$ (o.e.), for either expression for the conditional prob. [or sight of $\\frac{1}{3}$(a)] (ft their answer to (a) to 2 sf)\nA1ft: $\\therefore \\mathrm{P}(D>g) = \\frac{1}{3}(a) = 0.096419\\ldots$ for P($D>g$) = 0.096 or better (0.289 gives 0.09633... calc 0.096419...). The P($D>g$) may be clearly shown on a diagram\ndM1: (dep on 1st M1) $\\frac{g-3.8}{0.9} = 1.302228\\ldots$ for standardising with $g$, 3.8 and 0.9 and put equal to a $z$ value where $|z|>1$\nA1: so $g=4.97200\\ldots$ awrt 4.97 or awrt 4.98 (Correct answer with no incorrect working seen 4/4) (condone $g\\geqslant\\ldots$)\nSC (Medals v Certificates): 1st B1 for [P($D>g$)=] $\\frac{1}{3}\\times 0.8 = \\frac{4}{15}$ or 0.267 (score as 1st M0 1st A1); 2nd B1 for $g$ = awrt 4.36 (4.358 tables, 4.3606..calc) (score as 2nd M0 2nd A1)\nOfficial notes (completeness pass):\n- 1st M1A1 can be awarded for P($D > g$) = $\\frac{1}{3}$(a) or for P($D < g$) = 1 – $\\frac{1}{3}$(a) [ft their (a) to 2 sf]",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "text": "A journalist from the local newspaper interviews a randomly selected group of 3 medal winners.\n(d) Find the exact probability that there is at least one gold medal winner in the group.\n(3)",
+          "mark_scheme": "(d) M1: $\\mathrm{P}(\\text{no gold medals}) = \\left(\\frac{2}{3}\\right)^3$ for a correct probability of no gold medals or 2 of: $3\\left(\\frac{2}{3}\\right)^2\\times\\frac{1}{3}$ or $3\\left(\\frac{1}{3}\\right)^2\\times\\frac{2}{3}$ or $\\left(\\frac{1}{3}\\right)^3$\nM1: $\\mathrm{P}(\\text{at least one gold}) = 1-\\left(\\frac{2}{3}\\right)^3$ for $1-p^3$ or $3(p)^2(1-p)+3p(1-p)^2+(1-p)^3$ where $0<p<1$\nA1: $= \\frac{19}{27}$ (or exact equivalent) only e.g. $0.\\dot{7}0\\dot{3}$",
+          "spec_refs": [
+            "S4.1"
+          ]
+        }
+      ],
+      "qp_pages": [
+        8,
+        11
+      ],
+      "low_confidence": false,
+      "notes": "[fix_parts] moved lead-in after (a)'s mark to the start of (b): 'The school wishes to give a certificate of achievement or a '\n[fix_parts] moved lead-in after (b)'s mark to the start of (c): 'Of those who received medals, the $\\\\frac{1}{3}$ who jump the'\n[fix_parts] moved lead-in after (c)'s mark to the start of (d): 'A journalist from the local newspaper interviews a randomly '",
+      "source_qp_file": "pearson/IAL-2018/Oct2020/IAL2018_WST01_Oct2020_QP.txt",
+      "source_ms_file": "pearson/IAL-2018/Oct2020/IAL2018_WST01_Oct2020_MS.txt",
+      "notation": "latex",
+      "extraction_method": "single-call-v1",
+      "question_text": "The distance achieved in a long jump competition by students at a school is normally distributed with mean 3.8 metres and standard deviation 0.9 metres.\n\nStudents who achieve a distance greater than 4.3 metres receive a medal.\n(a) Find the proportion of students who receive medals.\n(3)\nThe school wishes to give a certificate of achievement or a medal to the 80% of students who achieve a distance of at least $d$ metres.\n(b) Find the value of $d$.\n(3)\nOf those who received medals, the $\\frac{1}{3}$ who jump the furthest will receive gold medals.\n(c) Find the shortest distance, $g$ metres, that must be achieved to receive a gold medal.\n(4)\nA journalist from the local newspaper interviews a randomly selected group of 3 medal winners.\n(d) Find the exact probability that there is at least one gold medal winner in the group.\n(3)",
+      "mark_scheme_text": "(a) [$D$ = distance achieved] M1: $\\mathrm{P}(D>4.3) = \\mathrm{P}\\left(Z>\\frac{4.3-3.8}{0.9}\\right)$ or P($Z>0.555\\ldots$)\nM1: $= 1-0.7123$ (tables)\nA1: $= 0.2877$ (tables) or $0.289257\\ldots$ (calc) awrt 0.288 or awrt 0.289\nOfficial notes (completeness pass):\n- 1st M1 for standardising 4.3 with 3.8 and 0.9 (allow $\\pm$)\n- 2nd M1 for $1 - p$ (where $0.7 < p < 0.8$)\n- A1 for awrt 0.288 or 0.289 (calc. 0.289257) (correct answer only 3/3)\n(b) M1: $\\frac{d-3.8}{0.9} = -0.8416$ (calc $-0.84162123\\ldots$)\nB1: for $z=\\pm 0.8416$ or better used\nA1: $d = 3.0425\\ldots$ awrt 3.04\nOfficial notes (completeness pass):\n- M1 for standardising with $d$, 3.8 and 0.9 and setting equal to a $z$ value $0.8 < |z| < 0.9$\n- A1 for awrt 3.04 (condone $d \\geqslant$ ...)\n- Ans only: For awrt 3.0425 or 3.0426 score 3/3 For awrt 3.04 score M1B0A1\n(c) M1: $\\mathrm{P}(D>g|D>4.3) = \\frac{\\mathrm{P}(D>g)}{\\mathrm{P}(D>4.3)}$ or (a) $\\left[=\\frac{1}{3}\\right]$ (o.e.), for either expression for the conditional prob. [or sight of $\\frac{1}{3}$(a)] (ft their answer to (a) to 2 sf)\nA1ft: $\\therefore \\mathrm{P}(D>g) = \\frac{1}{3}(a) = 0.096419\\ldots$ for P($D>g$) = 0.096 or better (0.289 gives 0.09633... calc 0.096419...). The P($D>g$) may be clearly shown on a diagram\ndM1: (dep on 1st M1) $\\frac{g-3.8}{0.9} = 1.302228\\ldots$ for standardising with $g$, 3.8 and 0.9 and put equal to a $z$ value where $|z|>1$\nA1: so $g=4.97200\\ldots$ awrt 4.97 or awrt 4.98 (Correct answer with no incorrect working seen 4/4) (condone $g\\geqslant\\ldots$)\nSC (Medals v Certificates): 1st B1 for [P($D>g$)=] $\\frac{1}{3}\\times 0.8 = \\frac{4}{15}$ or 0.267 (score as 1st M0 1st A1); 2nd B1 for $g$ = awrt 4.36 (4.358 tables, 4.3606..calc) (score as 2nd M0 2nd A1)\nOfficial notes (completeness pass):\n- 1st M1A1 can be awarded for P($D > g$) = $\\frac{1}{3}$(a) or for P($D < g$) = 1 – $\\frac{1}{3}$(a) [ft their (a) to 2 sf]\n(d) M1: $\\mathrm{P}(\\text{no gold medals}) = \\left(\\frac{2}{3}\\right)^3$ for a correct probability of no gold medals or 2 of: $3\\left(\\frac{2}{3}\\right)^2\\times\\frac{1}{3}$ or $3\\left(\\frac{1}{3}\\right)^2\\times\\frac{2}{3}$ or $\\left(\\frac{1}{3}\\right)^3$\nM1: $\\mathrm{P}(\\text{at least one gold}) = 1-\\left(\\frac{2}{3}\\right)^3$ for $1-p^3$ or $3(p)^2(1-p)+3p(1-p)^2+(1-p)^3$ where $0<p<1$\nA1: $= \\frac{19}{27}$ (or exact equivalent) only e.g. $0.\\dot{7}0\\dot{3}$"
+    },
+    {
+      "paper_id": "IAL2018_WST01_Oct2020",
+      "spec": "IAL-2018",
+      "qualification": "IAL-2018",
+      "unit": "WST01",
+      "status": "legacy",
+      "paper": "WST01",
+      "sitting": "Oct2020",
+      "id": "IAL2018_WST01_Oct2020_Q4",
+      "q_num": "4",
+      "total_marks": 14,
+      "component": "stats",
+      "uses_large_data_set": false,
+      "stem": "A group of students took some tests. A teacher is analysing the average mark for each student. Each student obtained a different average mark.\n\nFor these average marks, the lower quartile is 24, the median is 30 and the interquartile range (IQR) is 10\nThe three lowest average marks are 8, 10 and 15.5 and the three highest average marks are 45, 52.5 and 56\n\nThe teacher defines an outlier to be a value that is either\n\nmore than $1.5\\times$ IQR below the lower quartile or\nmore than $1.5\\times$ IQR above the upper quartile",
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "text": "(a) Determine any outliers in these data.\n(4)",
+          "mark_scheme": "(a) B1: Upper quartile = 34\nM1: Lower limit $= 24-15=9$ or upper limit is \"34\"$+15=49$\nA1ft, A1ft: So outliers are: 8, 52.5 and 56 (2nd A1ft for the lower outlier at 8 ft their limit provided limit $\\leqslant 12$; 3rd A1ft for upper outliers at 52.5 and 56 ft their limit provided it is $>45$). NB these accuracy marks are for the outliers not the limits\nOfficial notes (completeness pass):\n- B1 for $Q_3$ = 34 either stated or used/implied (score if seen on box plot)\n- M1 for one correct calculation (ft their 34 for upper limit) [ May be implied by correct outliers]\n- Award if their outliers are seen on box plot",
+          "spec_refs": [
+            "S2.4",
+            "S2.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "text": "(b) On the grid below draw a box plot for these data, indicating clearly any outliers.\n(3)",
+          "mark_scheme": "(b) B1: for a box with $Q_1=24$, $Q_2=30$, $Q_3=$ their 34 and two whiskers one on each side\nB1: for one lower whisker ending at 10 (or their 9) and outlier at 8 only\nB1: for one upper whisker ending at 45 (or their 49 to match \"9\") and outliers at 52.5 and 56 only\nSC Extra whiskers: If one set of whiskers gives a correct box plot award B1B0B0. Usual accuracy for plots – to within 0.5 of a square",
+          "spec_refs": [
+            "S2.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "text": "(c) Use the quartiles to describe the skewness of these data.\nGive a reason for your answer.\n(2)",
+          "mark_scheme": "(c) M1: $Q_2-Q_1 (=6) > (\"4\"=)Q_3-Q_2$ or e.g. in words e.g. \"$Q_3$ closer to $Q_2$ than $Q_1$ is\", for correct comparison of $Q_2-Q_1$ and $Q_3-Q_2$ (ft their $Q_3$) (if no values seen must see comparison otherwise accept correctly assigned 6 and 4 without $>$)\nA1ft: So negative (skew), for correct deduction based on their $Q_3$ (+ve skew if their $Q_3>36$, no skew if their $Q_3=36$)",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "text": "Two more students also took the tests. Their average marks, which were both less than 45, are added to the data and the box plot redrawn.\n\nThe median and the upper quartile are the same but the lower quartile is now 26\n(d) Redraw the box plot on the grid below.\n(3)",
+          "mark_scheme": "(d) M1: IQR now \"34\"$-26=8$ so new outlier limits are $26-1.5\\times\"8\" = 14$ and \"34\"$+1.5\\times\"8\"=46$, for recognising new IQR and at least one correct new limit (ft their 34, implied by correct plot)\nA1ft: for a correct lower whisker ending at 15.5 (or their 14) and 2 correct outliers at 8 and 10\nA1: for a fully correct box plot with upper whisker to 45 (or could go to 46 [to match their 14])\nSC Extra whiskers: If one set of whiskers gives a correct box plot award M1A0A1",
+          "spec_refs": [
+            "S2.4",
+            "S2.1"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "text": "(e) Give ranges of values within which each of these students' average marks must lie.\n(2)",
+          "mark_scheme": "(e) [$Q_1$ has increased so both above 24 Median same so either side of or on median] B1: So one between 26 and 30 inc, allow that (…) (o.e. eg between 26 and 30)\n[$Q_3$ unchanged so must be either side of $Q_3$] B1: so one between \"34\" and 45 inc, condone […] or (…) (ft their 34 and allow o.e. e.g. between 34 and 45)",
+          "spec_refs": [
+            "S2.3"
+          ]
+        }
+      ],
+      "qp_pages": [
+        12,
+        13
+      ],
+      "low_confidence": false,
+      "notes": "[fix_parts] moved lead-in after (c)'s mark to the start of (d): 'Two more students also took the tests. Their average marks, '",
+      "source_qp_file": "pearson/IAL-2018/Oct2020/IAL2018_WST01_Oct2020_QP.txt",
+      "source_ms_file": "pearson/IAL-2018/Oct2020/IAL2018_WST01_Oct2020_MS.txt",
+      "notation": "latex",
+      "extraction_method": "single-call-v1",
+      "question_text": "A group of students took some tests. A teacher is analysing the average mark for each student. Each student obtained a different average mark.\n\nFor these average marks, the lower quartile is 24, the median is 30 and the interquartile range (IQR) is 10\nThe three lowest average marks are 8, 10 and 15.5 and the three highest average marks are 45, 52.5 and 56\n\nThe teacher defines an outlier to be a value that is either\n\nmore than $1.5\\times$ IQR below the lower quartile or\nmore than $1.5\\times$ IQR above the upper quartile\n(a) Determine any outliers in these data.\n(4)\n(b) On the grid below draw a box plot for these data, indicating clearly any outliers.\n(3)\n(c) Use the quartiles to describe the skewness of these data.\nGive a reason for your answer.\n(2)\nTwo more students also took the tests. Their average marks, which were both less than 45, are added to the data and the box plot redrawn.\n\nThe median and the upper quartile are the same but the lower quartile is now 26\n(d) Redraw the box plot on the grid below.\n(3)\n(e) Give ranges of values within which each of these students' average marks must lie.\n(2)",
+      "mark_scheme_text": "(a) B1: Upper quartile = 34\nM1: Lower limit $= 24-15=9$ or upper limit is \"34\"$+15=49$\nA1ft, A1ft: So outliers are: 8, 52.5 and 56 (2nd A1ft for the lower outlier at 8 ft their limit provided limit $\\leqslant 12$; 3rd A1ft for upper outliers at 52.5 and 56 ft their limit provided it is $>45$). NB these accuracy marks are for the outliers not the limits\nOfficial notes (completeness pass):\n- B1 for $Q_3$ = 34 either stated or used/implied (score if seen on box plot)\n- M1 for one correct calculation (ft their 34 for upper limit) [ May be implied by correct outliers]\n- Award if their outliers are seen on box plot\n(b) B1: for a box with $Q_1=24$, $Q_2=30$, $Q_3=$ their 34 and two whiskers one on each side\nB1: for one lower whisker ending at 10 (or their 9) and outlier at 8 only\nB1: for one upper whisker ending at 45 (or their 49 to match \"9\") and outliers at 52.5 and 56 only\nSC Extra whiskers: If one set of whiskers gives a correct box plot award B1B0B0. Usual accuracy for plots – to within 0.5 of a square\n(c) M1: $Q_2-Q_1 (=6) > (\"4\"=)Q_3-Q_2$ or e.g. in words e.g. \"$Q_3$ closer to $Q_2$ than $Q_1$ is\", for correct comparison of $Q_2-Q_1$ and $Q_3-Q_2$ (ft their $Q_3$) (if no values seen must see comparison otherwise accept correctly assigned 6 and 4 without $>$)\nA1ft: So negative (skew), for correct deduction based on their $Q_3$ (+ve skew if their $Q_3>36$, no skew if their $Q_3=36$)\n(d) M1: IQR now \"34\"$-26=8$ so new outlier limits are $26-1.5\\times\"8\" = 14$ and \"34\"$+1.5\\times\"8\"=46$, for recognising new IQR and at least one correct new limit (ft their 34, implied by correct plot)\nA1ft: for a correct lower whisker ending at 15.5 (or their 14) and 2 correct outliers at 8 and 10\nA1: for a fully correct box plot with upper whisker to 45 (or could go to 46 [to match their 14])\nSC Extra whiskers: If one set of whiskers gives a correct box plot award M1A0A1\n(e) [$Q_1$ has increased so both above 24 Median same so either side of or on median] B1: So one between 26 and 30 inc, allow that (…) (o.e. eg between 26 and 30)\n[$Q_3$ unchanged so must be either side of $Q_3$] B1: so one between \"34\" and 45 inc, condone […] or (…) (ft their 34 and allow o.e. e.g. between 34 and 45)"
+    }
+  ],
+  "excluded_questions": [
+    {
+      "q_num": "1",
+      "total_marks": 5,
+      "parts": [
+        {
+          "label": null,
+          "marks": 5,
+          "technique": "E(X) of a discrete random variable",
+          "reason": "S4.1 explicitly excludes 'calculation of mean and variance of discrete random variables'; this question requires finding E(X) for a discrete random variable, which is exactly the excluded content."
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 15,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Regression line calculation",
+          "reason": "Explicit exclusion S2.2: 'calculations involving regression lines are excluded'; this part directly requires substituting into a regression equation."
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "in spec",
+          "reason": "question dropped: other parts out of spec"
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "PMCC calculation using formula",
+          "reason": "S5.1 explicit exclusion: 'Students will be expected to calculate a value of r using their calculator but use of the formula is not required' and S2.2 excludes correlation coefficient formula calculations; this part explicitly requires calculating Sxy then r via formula, which is the excluded method with no calculator-only alternative offered in the mark scheme."
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Sxy algebraic reasoning with regression line data",
+          "reason": "This requires manipulating Sxy formula in context of an 11th data point added to a regression dataset; while it's an algebraic argument, it is intrinsically a 'calculation involving regression lines' context excluded by S2.2, and depends on the excluded Sxy/regression machinery."
+        },
+        {
+          "label": "e",
+          "marks": 3,
+          "technique": "Finding new regression line equation",
+          "reason": "Explicitly a calculation involving/deriving a regression line equation, excluded by S2.2."
+        },
+        {
+          "label": "f",
+          "marks": 1,
+          "technique": "in spec",
+          "reason": "question dropped: other parts out of spec"
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 15,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "E(X) of discrete random variable",
+          "reason": "S4.1 explicit exclusion: 'calculation of mean and variance of discrete random variables is excluded'; this asks to show E(A) for a general discrete random variable."
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Var(X) of discrete random variable",
+          "reason": "Directly excluded by S4.1 exclusion on calculation of variance of discrete random variables."
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "in spec",
+          "reason": "question dropped: other parts out of spec"
+        },
+        {
+          "label": "d",
+          "marks": 1,
+          "technique": "Symmetry argument for E(B) of discrete uniform distribution",
+          "reason": "Although framed via E(B)=E(A), the mark scheme accepts a symmetry argument for the discrete uniform distribution rather than requiring calculation of E(X); however it fundamentally relies on E(A) from the excluded part (a) and the concept of E(X) for discrete RVs, which S4.1 excludes."
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "in spec",
+          "reason": "question dropped: other parts out of spec"
+        },
+        {
+          "label": "f",
+          "marks": 4,
+          "technique": "in spec",
+          "reason": "question dropped: other parts out of spec"
+        },
+        {
+          "label": "g",
+          "marks": 2,
+          "technique": "in spec",
+          "reason": "question dropped: other parts out of spec"
+        }
+      ]
+    }
+  ],
+  "extraction_retries": 1,
+  "pages_input": "png",
+  "autofixes": 9,
+  "triage_method": "triage-v1",
+  "ms_complete_method": "single-call-v2",
+  "ms_complete_added": 11,
+  "ms_complete_unverified": false
+}

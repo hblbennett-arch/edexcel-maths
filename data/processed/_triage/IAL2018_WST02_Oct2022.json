@@ -1,0 +1,238 @@
+{
+  "_paper_id": "IAL2018_WST02_Oct2022",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.158104,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Poisson distribution probabilities",
+          "reason": "Uses Poisson distribution which is not mentioned anywhere in the 9MA0 statements; Poisson is a named concept absent from spec, making this out per the rules.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Poisson then Binomial distribution",
+          "reason": "Requires finding Poisson probability first then applying binomial - Poisson distribution not covered anywhere in 9MA0.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Poisson distribution expected profit",
+          "reason": "Relies on Poisson distribution (Po(0.4)) which is not part of the 9MA0 statements.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 15,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Sketch probability density function",
+          "reason": "Explicit exclusion S4.2: 'Knowledge of the probability density function is not required'; sketching a pdf directly requires this knowledge.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Solve equation using pdf integrating to 1",
+          "reason": "Requires manipulating and integrating a probability density function, explicitly excluded by S4.2.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "E(X) using calculus on pdf",
+          "reason": "Requires knowledge and integration of a probability density function to find E(X), excluded by S4.2 statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 5,
+          "technique": "Interquartile range from pdf/cdf",
+          "reason": "Requires working with the pdf/cdf of a continuous random variable, a concept explicitly excluded (S4.2).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Hypothesis test for binomial proportion - critical region",
+          "reason": "S5.2 explicitly covers 'Conduct a statistical hypothesis test for the proportion in the binomial distribution' with hypotheses in terms of p, matching this two-tailed critical region test.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S5.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Actual significance level of binomial hypothesis test",
+          "reason": "Continuation of the in-spec binomial proportion test (S5.2); stating the actual significance level is a normal part of this technique.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S5.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 5,
+          "technique": "Poisson approximation hypothesis test for proportion",
+          "reason": "Mark scheme requires approximating the binomial by a Poisson distribution (Y~Po(7)); Poisson is not mentioned anywhere in the 9MA0 statements, so this method is out even though the underlying hypothesis-test language (S5.2) would otherwise be in spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Binomial probability calculation",
+          "reason": "S4.1 explicitly covers calculating probabilities using the binomial distribution; this is a direct application.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Normal approximation to binomial with continuity correction",
+          "reason": "S4.2 explicitly states that B(n,p) can be approximated by N(np, np[1-p]) with a continuity correction, which is exactly what this part requires (finding n from a given probability).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Show constant using cumulative distribution function",
+          "reason": "Requires manipulating the cdf of a continuous random variable derived from a pdf; S4.2 excludes knowledge of pdf and derivation of cdf, and no statement covers general cdf manipulation for continuous variables.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Probability from cdf of continuous random variable",
+          "reason": "Uses the given cdf directly - this requires understanding of continuous distribution functions not covered in the statements (pdf/cdf excluded, S4.2).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Conditional probability using cdf of continuous random variable",
+          "reason": "Depends on the same out-of-spec cdf framework as parts (a) and (b); no statement covers continuous distribution functions of this kind.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Forming equation from probability of a derived statistic (range) equal to a value",
+          "reason": "The equation is set up using the probability that the 'range' statistic R takes a value, which is the sampling distribution concept for a statistic computed from selected counters; sampling distribution is a named concept absent from the statements, and the whole context of the question depends on it.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Sampling distribution of a statistic (range)",
+          "reason": "Explicitly asks for the 'sampling distribution of R', and 'sampling distribution' is listed as a named concept not covered by any statement, making this out per the exclusion rule.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "i",
+          "marks": 3,
+          "technique": "Continuous uniform distribution probability/expectation",
+          "reason": "Continuous uniform distribution and its properties (E(X), probability calculations) are not mentioned in any 9MA0 statement; S4.2 excludes pdf knowledge generally and no statement introduces uniform distributions.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "ii",
+          "marks": 4,
+          "technique": "Continuous uniform distribution variance and E(Y^2)",
+          "reason": "Requires Var(Y) and E(Y^2) formulae for a continuous uniform distribution, a topic not covered by any statement in the specification.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "iii",
+          "marks": 5,
+          "technique": "Continuous uniform distribution modelling problem",
+          "reason": "Relies on treating lengths as continuous uniform random variables; uniform distribution is not part of the 9MA0 statements.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    }
+  ]
+}

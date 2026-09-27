@@ -1,0 +1,364 @@
+{
+  "_paper_id": "GCE2008_6683_Jan2007",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.15975899999999998,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 15,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Reading data value",
+          "reason": "Simple data reading task, no excluded topic involved.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Calculating Sxx, Syy, Sxy",
+          "reason": "S2.3 explicitly gives the Sxx-type formula and its use for summary statistics; computing these sums is in spec.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Calculate PMCC using the formula",
+          "reason": "S5.1 explicit exclusion states 'calculation of correlation coefficients is excluded' and 'use of the formula is not required' - calculator-only PMCC would be allowed but the mark scheme requires the formula method, so this part as marked is out.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "State PMCC for transformed data, justify",
+          "reason": "Depends directly on the excluded PMCC calculation from (c); uses that out-of-spec result.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Interpret PMCC values",
+          "reason": "Interpretation of correlation coefficients whose calculation is explicitly excluded (S5.1); relies on (c)/(d).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "f",
+          "marks": 1,
+          "technique": "Suggest practical reason for different PMCC values",
+          "reason": "Depends on the excluded PMCC values calculated in (c)/(d).",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Tree diagram",
+          "reason": "S3.1/S3.2 guidance explicitly mentions tree diagrams for probability calculations.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b(i)",
+          "marks": 2,
+          "technique": "Joint probability from tree diagram",
+          "reason": "Standard probability multiplication rule, covered by S3.1/S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b(ii)",
+          "marks": 3,
+          "technique": "Total probability using tree diagram",
+          "reason": "Law of total probability via tree diagram, covered by S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Conditional probability formula",
+          "reason": "Directly matches S3.2 conditional probability formula P(A|B).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Construct discrete probability distribution table",
+          "reason": "S4.1 covers simple discrete probability distributions as a model; constructing the table is in spec.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Probability from distribution",
+          "reason": "Simple summation of probabilities, in spec via S4.1/S3.1.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "E(X) of discrete random variable",
+          "reason": "S4.1 explicit exclusion: 'calculation of mean and variance of discrete random variables is excluded'.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "technique": "Var(X) of discrete random variable",
+          "reason": "S4.1 explicit exclusion covers variance of discrete random variables; also depends on E(X) from (c).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Var(2-3X) using linear transformation",
+          "reason": "Depends directly on the excluded Var(X) value from (d), which is itself excluded under S4.1.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Describe shape of distribution",
+          "reason": "Basic data interpretation, covered by S2.1/S2.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Linear interpolation for median",
+          "reason": "S2.3 explicitly states 'Use of linear interpolation to calculate percentiles from grouped data is expected.'",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Estimate mean and standard deviation from grouped data",
+          "reason": "S2.3 explicitly covers mean and standard deviation calculation including from summary statistics/coding for grouped data.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Coefficient of skewness calculation",
+          "reason": "'Skewness' as a named statistical measure is not mentioned by any statement; only shape/skew description in general terms (S2.1) is covered, not a formal skewness coefficient calculation.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Consistency check using skewness coefficient",
+          "reason": "Depends directly on the skewness coefficient value from (d), which is out of spec.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "f",
+          "marks": 2,
+          "technique": "Choose mean or median to represent skewed data",
+          "reason": "General reasoning about measures of central tendency and effect of skew/outliers, covered by S2.3/S2.4 guidance on drawing inferences from central tendency measures.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.3",
+            "S2.4"
+          ]
+        },
+        {
+          "label": "g",
+          "marks": 1,
+          "technique": "State condition where mean/median choice doesn't matter",
+          "reason": "General reasoning about symmetry and central tendency measures, consistent with S2.3 guidance on interpreting central tendency.",
+          "in_spec": true,
+          "confidence": "low",
+          "spec_refs": [
+            "S2.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Justify use of histogram for continuous data",
+          "reason": "S2.1 covers histograms and their interpretation for single-variable continuous/grouped data.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Feature of histogram bars (area=frequency)",
+          "reason": "S2.1 explicitly states 'area in a histogram represents frequency'.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Use area-frequency relationship in histogram",
+          "reason": "Direct application of S2.1's area-frequency principle.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Find total frequency from total histogram area",
+          "reason": "Direct application of S2.1's area-frequency principle.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 5,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Justify use of statistical models",
+          "reason": "General modelling justification is echoed across several statements (S1.1, S2.2, S3.3, S4.3) discussing modelling assumptions and appropriateness, though no statement gives this exact generic list of reasons; treated as borderline general modelling content.",
+          "in_spec": true,
+          "confidence": "low",
+          "spec_refs": [
+            "S3.3",
+            "S4.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Identify stages of statistical modelling process",
+          "reason": "The specific generic 7-stage statistical modelling cycle (real-world problem, prediction, data collection, refinement) is not described by any statement; this is a distinct methodological framework not named in the spec.",
+          "in_spec": false,
+          "confidence": "low",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Normal distribution probability calculation",
+          "reason": "S4.2 covers finding probabilities using the Normal distribution with calculator/tables; no PDF knowledge required.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Find unknown value from Normal probability using inverse standardisation",
+          "reason": "S4.2 covers use of Normal distribution and 'questions may involve the solution of simultaneous equations'/finding parameters; standard standardisation technique in spec.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        }
+      ]
+    }
+  ]
+}

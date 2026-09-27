@@ -1,0 +1,280 @@
+{
+  "_paper_id": "GCE2008_6666R_June2014",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.1674215,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Binomial expansion (1+x)^n rational n",
+          "reason": "P4.1 covers binomial expansion of (a+bx)^n for rational n including approximation, exactly what's tested here.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Binomial expansion combination",
+          "reason": "Extension of part (a) using same binomial expansion technique, covered by P4.1.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Trapezium rule",
+          "reason": "P9.4 explicitly covers numerical integration using trapezium rule.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P9.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Improving trapezium rule accuracy",
+          "reason": "Directly part of understanding numerical integration via trapezium rule, P9.4.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P9.4"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 5,
+          "technique": "Integration by parts",
+          "reason": "P8.5 covers integration by parts including exponential*linear functions.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Implicit differentiation",
+          "reason": "P7.5 covers differentiating relations defined implicitly, exactly this scenario.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Solving quadratic from implicit dy/dx=0 condition",
+          "reason": "Uses P7.5 result plus solving quadratic equations (P2.3); both are in-spec methods.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5",
+            "P2.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Partial fractions",
+          "reason": "P2.10 covers decomposition into partial fractions with denominators up to squared linear term, matching x^2(2x+1).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.10"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Volume of revolution using integration",
+          "reason": "Solid of revolution about an axis is explicitly listed among concepts no 9MA0 statement covers, so this is OUT regardless of the integration technique used.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Connected rates of change",
+          "reason": "P7.4 guidance explicitly covers connected rates of change like dV/dt = dV/dr × dr/dt.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Connected rates of change",
+          "reason": "Same connected-rate-of-change technique as (a), covered by P7.4.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Point lying on vector line r=a+μb",
+          "reason": "Requires using the vector equation of a line (r=a+λb) which is listed among concepts no 9MA0 statement covers.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Intersection of two lines given in vector form",
+          "reason": "Intersection of lines is explicitly listed as a concept not covered by any 9MA0 statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Angle between vectors via dot product",
+          "reason": "Requires scalar (dot) product to find angle between vectors, explicitly excluded as a concept no statement covers.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Area of triangle using vectors, depends on prior parts",
+          "reason": "Depends on the angle found in (c) which uses dot product (excluded), and area itself often uses cross product; also builds on out-of-spec earlier parts.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Separable first order differential equation",
+          "reason": "P8.7 covers solving separable first order differential equations, matching this derivation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.7"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Finding constants in exponential/DE model using given data",
+          "reason": "P8.8/P6.7 cover interpreting and finding constants in exponential-type models arising from differential equations.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "P8.8",
+            "P6.7"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Evaluating model at given time",
+          "reason": "Simple substitution into the model found in (b), consistent with P8.8 interpreting solutions of differential equations.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.8"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "8",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Parametric equations - solving for parameter and coordinate",
+          "reason": "P3.3 covers parametric equations of curves, finding coordinates for given parameter values.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P3.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Parametric differentiation for gradient",
+          "reason": "P7.5 explicitly covers differentiating functions defined parametrically and finding tangents at specific points.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 6,
+          "technique": "Solving trig equation using R sin/cos(t±α) form and inverse trig",
+          "reason": "P5.6 explicitly covers expressing a cosθ+b sinθ as R cos(θ±α) or R sin(θ±α) and solving such equations, matching the mark scheme's method.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P5.6",
+            "P7.5"
+          ]
+        }
+      ]
+    }
+  ]
+}

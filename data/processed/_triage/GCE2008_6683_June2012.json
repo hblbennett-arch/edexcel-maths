@@ -1,0 +1,367 @@
+{
+  "_paper_id": "GCE2008_6683_June2012",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.288598,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "discrete probability distribution - sum of probabilities =1",
+          "reason": "Finding k such that probabilities sum to 1 is basic discrete distribution work (S4.1); only mean/variance calculation is excluded, not this.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "E(X) of discrete random variable",
+          "reason": "S4.1 explicitly excludes calculation of mean and variance of discrete random variables.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "E(X^2) of discrete random variable",
+          "reason": "Part of mean/variance calculation explicitly excluded by S4.1.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Var(1-3X)",
+          "reason": "Variance of discrete random variable explicitly excluded by S4.1, and this uses E(X), E(X^2) from excluded parts.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "calculate PMCC using Sxy/Sxx/Syy formula",
+          "reason": "Explicit exclusion: use of the PMCC formula from summary statistics is excluded (S5.1 requires calculator use only, not formula).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "write down PMCC for original variables",
+          "reason": "Uses the answer from part (a) which is out of spec (formula-derived r), so this part only makes sense after an out-of-spec part.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "interpret correlation coefficient in context",
+          "reason": "Although informal interpretation of correlation is in spec (S2.2), this part relies entirely on the numeric r value obtained via the out-of-spec formula calculation in (a)/(b), so it only makes sense after an out-of-spec part and is therefore OUT.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 15,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "scatter diagram",
+          "reason": "Drawing a scatter diagram for bivariate data is covered by S2.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "explain suitability of linear model",
+          "reason": "Informal interpretation of correlation/scatter diagrams is covered by S2.2 and does not require any excluded calculation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "calculate Spt and Spp for regression",
+          "reason": "These are calculations leading to a regression line, explicitly excluded by S2.2 ('calculations involving regression lines are excluded').",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "technique": "find regression line equation t=a+bp",
+          "reason": "Explicitly excluded by S2.2: calculations involving regression lines are excluded.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "plot regression line on scatter diagram",
+          "reason": "Depends directly on the regression line equation calculated in the out-of-spec part (d).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "f",
+          "marks": 2,
+          "technique": "use regression line to estimate value",
+          "reason": "Uses the out-of-spec regression line from (d) to make the prediction, so this part only makes sense after an out-of-spec part.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "identify mutually exclusive events",
+          "reason": "Mutually exclusive events are covered under S3.1 probability.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "test independence of events using P(A∩B)=P(A)P(B)",
+          "reason": "S3.1 explicitly covers use of P(A∩B)=P(A)P(B) for independent events.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "basic probability from Venn diagram",
+          "reason": "Simple probability calculation from a Venn diagram, covered by S3.1/S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 1,
+          "technique": "basic probability of intersection from Venn diagram",
+          "reason": "Simple probability calculation from a Venn diagram, covered by S3.1/S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "conditional probability P(T|B)",
+          "reason": "Conditional probability formula P(A|B)=P(A∩B)/P(B) is explicitly covered by S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "histogram frequency density calculation",
+          "reason": "Interpreting histograms where area represents frequency is covered by S2.1.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "estimate mean from grouped/histogram data",
+          "reason": "Calculation of mean from grouped data using mid-points is covered by S2.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "estimate median using linear interpolation",
+          "reason": "Use of linear interpolation to calculate percentiles from grouped data is explicitly expected in S2.3.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "comment on skewness of distribution",
+          "reason": "Interpreting shape of distribution and drawing inferences is covered by S2.1/S2.4.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1",
+            "S2.4"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "compare mean vs median as measure of central tendency",
+          "reason": "Interpreting measures of central tendency and giving reasoned comment is covered by S2.3/S2.4.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3",
+            "S2.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "find probability using Normal distribution",
+          "reason": "Finding probabilities using the Normal distribution as a model is explicitly covered by S4.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "find value from given percentile of Normal distribution",
+          "reason": "Uses standardisation with the Normal distribution, covered by S4.2 (simultaneous equation/percentile work).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "find mean of Normal distribution given probability condition",
+          "reason": "Standard Normal distribution problem solving simultaneous-style equation for parameter, explicitly covered by S4.2 guidance ('questions may involve the solution of simultaneous equations').",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "tree diagram construction",
+          "reason": "Tree diagrams for probability are explicitly covered by S3.1/S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "probability of exactly one of two events using tree diagram",
+          "reason": "Uses tree diagram and basic probability rules, covered by S3.1/S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "probability of none of three independent events",
+          "reason": "Use of independent events probability multiplication, covered by S3.1.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "technique": "probability of exactly one of three events combining dependent and independent events",
+          "reason": "Combines tree diagram probabilities with independent event, all covered by S3.1/S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        }
+      ]
+    }
+  ]
+}

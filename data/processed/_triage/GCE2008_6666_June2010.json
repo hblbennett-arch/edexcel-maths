@@ -1,0 +1,231 @@
+{
+  "_paper_id": "GCE2008_6666_June2010",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.120279,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Evaluating y-values from given function (trapezium rule table)",
+          "reason": "Simple function evaluation supporting trapezium rule, part of P9.4 numerical integration content.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P9.4"
+          ]
+        },
+        {
+          "label": "b(i)",
+          "marks": 3,
+          "technique": "Trapezium rule with 3 strips",
+          "reason": "Explicitly covered by P9.4 numerical integration/trapezium rule.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P9.4"
+          ]
+        },
+        {
+          "label": "b(ii)",
+          "marks": 3,
+          "technique": "Trapezium rule with 5 strips",
+          "reason": "Explicitly covered by P9.4 numerical integration/trapezium rule.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P9.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 6,
+          "technique": "Integration by substitution with definite limits",
+          "reason": "P8.5 covers integration by substitution including finding a suitable substitution; this is exactly that form.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 7,
+      "parts": [
+        {
+          "label": "main",
+          "marks": 7,
+          "technique": "Implicit differentiation involving d/dx(2^x)",
+          "reason": "P7.5 covers implicit differentiation and P7.2 explicitly gives d/dx(a^{kx})=ka^{kx}ln a, matching the 2^x term.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5",
+            "P7.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Parametric differentiation dy/dx",
+          "reason": "P7.5 explicitly covers differentiation of functions defined parametrically for first derivative.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Tangent to parametric curve, finding x-intercept",
+          "reason": "P7.5 guidance explicitly mentions finding equations of tangents to curves given parametrically.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.5",
+            "P3.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Partial fractions decomposition",
+          "reason": "P2.10 covers partial fractions with denominators like (ax+b)(cx+d) with linear/constant terms, matching this case.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P2.10"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 7,
+          "technique": "Binomial expansion of partial fractions to x^2 term",
+          "reason": "P4.1 covers binomial expansion for rational n including approximation, explicitly noted for use with partial fractions decomposition (P2.10 guidance: applications to series expansions).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P4.1",
+            "P2.10"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Double angle formula identity proof",
+          "reason": "P5.6 covers double angle formulae and P5.8 covers construction of trig proofs; this is a straightforward double-angle identity derivation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P5.6",
+            "P5.8"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 7,
+          "technique": "Integration by parts (with theta) using double angle result",
+          "reason": "P8.5 explicitly covers integration by parts including more than one application; standard technique here.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.5"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Intersection of two vector lines (r=a+λb form)",
+          "reason": "Vector equation of a line and intersection of lines is explicitly listed among concepts no 9MA0 statement covers.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Angle between two lines using scalar (dot) product",
+          "reason": "Scalar product and angle between vectors/lines is explicitly excluded as a concept no 9MA0 statement covers; also depends on part (a)'s out-of-spec intersection point.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 5,
+          "technique": "Area of triangle using vector magnitudes and included angle from dot product",
+          "reason": "Relies on the angle found via scalar product in part (b) which is out of spec, and scalar product itself is an excluded concept.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "8",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Setting up a differential equation from rates in context (related rates, chain rule)",
+          "reason": "P7.6 covers constructing differential equations in context; uses connected rates of change (P7.4 guidance) with volume/height relation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P7.6",
+            "P7.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Solving separable first order differential equation with initial condition",
+          "reason": "P8.7 explicitly covers analytical solution of separable first order differential equations including finding particular solutions.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "P8.7"
+          ]
+        }
+      ]
+    }
+  ]
+}

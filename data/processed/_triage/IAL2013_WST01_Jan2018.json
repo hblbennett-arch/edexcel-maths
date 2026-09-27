@@ -1,0 +1,361 @@
+{
+  "_paper_id": "IAL2013_WST01_Jan2018",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.329033,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Finding an unknown sum from a given mean",
+          "reason": "S2.3 covers mean/variance calculation including from summary statistics; finding t from mean=Σx/n is basic use of summary statistics, not excluded.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Variance from summary statistics (Sxx formula)",
+          "reason": "S2.3 explicitly covers calculation of standard deviation/variance from summary statistics using Sxx.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Interpreting variance to identify source class",
+          "reason": "S2.3 explicitly expects students to draw inferences and interpretations from measures of variation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "technique": "Combining summary statistics for a merged data set to find mean and variance",
+          "reason": "S2.3 covers mean and variance calculation from summary statistics; combining two data sets uses the same Sxx-based approach, no excluded method required.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 3,
+          "technique": "Effect of linear coding on mean and variance",
+          "reason": "S2.3 guidance explicitly states 'Understanding and use of coding' as part of the section.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Venn diagram representation of union",
+          "reason": "S3.2 explicitly covers use of Venn diagrams for events.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Mutually exclusive events probability rules",
+          "reason": "S3.1 covers mutually exclusive events and calculating probabilities using addition rule (P(A∪B) in S3.2).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Independent events probability rules",
+          "reason": "S3.1 explicitly covers independent events including P(A∩B)=P(A)P(B) and the addition formula in S3.2.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Interpreting PMCC value for linear relationship",
+          "reason": "S5.1 permits interpreting a given/calculated correlation coefficient value (calculation via formula excluded, but interpretation of a value close to -1 supporting linearity is explicitly allowed).",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S5.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Definition of response variable",
+          "reason": "S2.2 explicitly covers the terms explanatory (independent) and response (dependent) variables.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Calculating gradient of regression line from Sxy/Sxx to test a claim",
+          "reason": "S2.2 explicit exclusion: 'calculations involving regression lines are excluded'; this part requires computing the regression gradient.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Calculating regression line intercept to estimate a value",
+          "reason": "S2.2 explicit exclusion: 'calculations involving regression lines are excluded'; this part computes the intercept and predicts a value using the regression equation.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Expectation of a discrete random variable",
+          "reason": "S4.1 explicit exclusion: 'calculation of mean and variance of discrete random variables is excluded'.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Using E(X) and Var(X)=E(X^2) to find unknown probabilities",
+          "reason": "S4.1 explicit exclusion of mean/variance calculation for discrete random variables; this part requires E(X) and E(X^2).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Var(aX+b) for a discrete random variable",
+          "reason": "S4.1 explicit exclusion of variance calculation for discrete random variables.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 4,
+          "technique": "Probabilities for a transformed discrete random variable Y=1-X",
+          "reason": "This part relies on the values of a and b found in part (b), which is out-of-spec (S4.1 exclusion); per the rule, a part depending on an out-of-spec answer is OUT.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Substitution into a linear coding relationship",
+          "reason": "S2.3 guidance explicitly includes 'understanding and use of coding'; recovering the original value from a coded value w via x=1000w+20000 is a straightforward coding substitution, not a regression/correlation calculation, so the S2.2/S5.1 exclusions do not apply here.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Calculating the PMCC using the formula",
+          "reason": "S5.1 explicit exclusion: 'calculation of correlation coefficients is excluded' / 'use of the formula is not required'; this part requires deriving r via Swy/Sww/Syy formula.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Effect of coding on correlation coefficient",
+          "reason": "This part is about stating the correlation coefficient value between x and y based on the excluded PMCC calculation in (b); tied to an out-of-spec calculation, so treated as OUT.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Converting a regression line under coding to obtain regression line of y on x",
+          "reason": "S2.2 explicit exclusion: 'calculations involving regression lines are excluded'.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Using a regression line to estimate a response value",
+          "reason": "S2.2 explicit exclusion of regression line calculations; also depends on out-of-spec part (d).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "f",
+          "marks": 2,
+          "technique": "Assessing reliability of estimates (interpolation/extrapolation) from a regression line",
+          "reason": "Although S2.2 guidance mentions interpolation/extrapolation conceptually, this part only makes sense after the excluded regression-line calculations in (d)/(e), so per the rule it is OUT.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Probability of an impossible event without replacement",
+          "reason": "S3.1/S3.2 cover probability calculations with dependent events; this is a straightforward identification.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.1",
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Probability without replacement using complement",
+          "reason": "S3.2 covers conditional/sequential probability with tree diagrams and complement rule P(A')=1-P(A).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Probability of sequence of dependent events (sampling without replacement)",
+          "reason": "S3.2 covers use of tree diagrams for dependent/conditional probability.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Conditional probability P(A|B)",
+          "reason": "S3.2 explicitly gives and requires use of the conditional probability formula P(A|B)=P(A∩B)/P(B).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "e",
+          "marks": 3,
+          "technique": "Probability of an ordered sequence without replacement",
+          "reason": "S3.2 covers use of tree diagrams for sequences of dependent events.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Normal distribution probability calculation",
+          "reason": "S4.2 explicitly covers using the Normal distribution to find probabilities via calculator/standardisation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Finding an unknown boundary from a Normal probability",
+          "reason": "S4.2 explicitly covers solving for unknowns using the Normal distribution, including simultaneous-equation-type problems.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 5,
+          "technique": "Equating probabilities across two Normal distributions to find unknowns",
+          "reason": "S4.2 covers Normal distribution probability calculations and solving simultaneous equations arising from standardisation; no excluded technique (pdf, derivation) required.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,396 @@
+{
+  "_paper_id": "IAL2013_WST01_June2017",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.1514365,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Linear interpolation for median from grouped frequency data",
+          "reason": "S2.3 covers linear interpolation for percentiles/median from grouped data.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Estimate mean from grouped frequency data",
+          "reason": "S2.3 covers measures of central tendency including mean, using summary statistics.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Estimate standard deviation using Sxx formula",
+          "reason": "S2.3 explicitly permits calculating standard deviation from summary statistics using Sxx.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Probability from grouped frequency data using interpolation",
+          "reason": "Combines S2.3 interpolation with basic probability estimation (S3.1), no excluded content involved.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3",
+            "S3.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 11,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Range from box plot",
+          "reason": "S2.1 covers box plots and interpretation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "IQR from box plot",
+          "reason": "S2.1 covers box plot interpretation including quartiles.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Skewness from quartiles",
+          "reason": "S2.1/S2.3 cover interpretation of box plots and measures of variation; comparing quartile spacing to assess skew is standard interpretation.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.1",
+            "S2.3"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "Calculate PMCC using Sxx, Sxt, Stt formula",
+          "reason": "S5.1 explicitly excludes calculation of correlation coefficients using the formula; this requires exactly that.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Interpret computed correlation coefficient",
+          "reason": "Depends directly on the excluded PMCC formula calculation in (d); the part only makes sense after that out-of-spec calculation.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "f",
+          "marks": 3,
+          "technique": "Identify outliers and redraw box plot",
+          "reason": "S2.4 covers identifying outliers using specified rules and box plot representation.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.4",
+            "S2.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Normal distribution probability calculation",
+          "reason": "S4.2 covers using the Normal distribution to find probabilities; no pdf knowledge required.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Inverse normal to find a percentile",
+          "reason": "S4.2 covers finding probabilities/values with Normal distribution, including simultaneous equation type problems.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Conditional probability with Normal distribution (median of truncated distribution)",
+          "reason": "Uses standard Normal distribution inverse calculation methods covered by S4.2; no pdf derivation required.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Normal probability combined with independent event probability",
+          "reason": "S4.2 for normal probability and S3.1 for independent events multiplication.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S4.2",
+            "S3.1"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Tree diagram, solve for unknown probability using total probability",
+          "reason": "S3.2 covers tree diagrams and conditional probability relations.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Tree diagram algebra to find unknown probability",
+          "reason": "S3.2 covers tree diagrams, conditional probability formula application.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Compute probability of event from tree diagram",
+          "reason": "S3.2 covers computing probabilities using tree diagrams.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Conditional probability formula",
+          "reason": "S3.2 explicitly covers conditional probability formula P(A|B).",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S3.2"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 15,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Calculate Sss (sum of squares) statistic",
+          "reason": "S2.3 explicitly permits use of the Sxx-type statistic for calculating standard deviation; the same computational technique is used here, not the PMCC formula.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Interpret given correlation coefficient value re suitability of linear model",
+          "reason": "S2.2 covers informal interpretation of correlation without requiring the PMCC formula; value of r is given, not calculated by the student.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.2"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Identify explanatory variable",
+          "reason": "S2.2 covers terms explanatory/response variable and reasoning about causal direction.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.2"
+          ]
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Find Sst using the PMCC formula r = Sst/√(SssStt)",
+          "reason": "S5.1 explicitly states use of the PMCC formula is not required/excluded; this method requires exactly that formula.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 4,
+          "technique": "Calculate linear regression equation",
+          "reason": "S2.2 explicitly excludes calculations involving regression lines.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "f",
+          "marks": 1,
+          "technique": "Standard deviation calculation",
+          "reason": "S2.3 covers standard deviation calculation from summary statistics; independent of the excluded regression parts.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "g",
+          "marks": 1,
+          "technique": "Use regression equation to estimate value",
+          "reason": "Depends directly on the excluded regression equation calculated in (e); calculations involving regression lines are excluded.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "h",
+          "marks": 2,
+          "technique": "Comment on reliability of regression estimate (extrapolation)",
+          "reason": "Depends on the out-of-spec regression estimate from (g); regression-line calculations are excluded even though extrapolation concept itself is mentioned in S2.2 guidance.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 17,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Show probability value for discrete distribution (geometric-type)",
+          "reason": "S4.1 covers understanding and using simple discrete probability distributions (excluding mean/variance calculation only); finding a probability value itself is in spec.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Complete discrete probability distribution table",
+          "reason": "S4.1 covers use of simple discrete probability distributions; finding probabilities (not mean/variance) is permitted.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Calculate E(X) of a general discrete random variable",
+          "reason": "S4.1 explicitly excludes calculation of mean and variance of discrete random variables.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "Calculate Var(X) of a general discrete random variable",
+          "reason": "S4.1 explicitly excludes calculation of mean and variance of discrete random variables.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Determine probability distribution of related discrete random variable H",
+          "reason": "S4.1 covers understanding and use of simple discrete probability distributions; this is constructing a distribution, not computing mean/variance.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "f",
+          "marks": 2,
+          "technique": "Find intersection probabilities from discrete distributions",
+          "reason": "S3.1/S4.1 cover probability calculations with discrete distributions; no mean/variance involved.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S3.1",
+            "S4.1"
+          ]
+        },
+        {
+          "label": "g",
+          "marks": 4,
+          "technique": "Find probability distribution of S = X + H",
+          "reason": "S4.1 covers use of simple discrete probability distributions; constructing the distribution table is permitted, distinct from the excluded mean/variance calculation.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S4.1"
+          ]
+        }
+      ]
+    }
+  ]
+}

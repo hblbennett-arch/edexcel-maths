@@ -1,0 +1,204 @@
+{
+  "_paper_id": "IAL2018_WME02_June2022",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.265133,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Differentiation of vector position to find velocity and acceleration in kinematics",
+          "reason": "M7.4 explicitly covers use of calculus in kinematics for motion in a straight line extended to 2D using vectors, including differentiating a vector r(t) to find v and a; this matches the required method exactly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.4"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Using direction of velocity vector to form and solve an equation for t",
+          "reason": "Continues from M7.4 (finding v(t) as a vector) and uses vector direction reasoning (P10 vectors); no excluded concept is involved, so this remains in spec.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M7.4",
+            "P10.3"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Newton's experimental law (coefficient of restitution) for successive collisions with walls, computing time between bounces",
+          "reason": "No statement in the list mentions restitution, coefficient of restitution, or Newton's Experimental Law (NEL). The mechanics statements (M6-M9) cover only quantities/units, kinematics, Newton's first/second/third laws, friction, and moments in simple statics - none of which include impact/collision laws. This concept is absent, so the part is out regardless of the kinematics-style time calculation.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "Same restitution-based bounce timing, extended to a second cycle",
+          "reason": "Depends entirely on the restitution setup and result of part (a), which is out of spec (no NEL/restitution statement exists); this part cannot stand alone either.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 6,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 6,
+          "technique": "Impulse-momentum equation (I = mv - mu) with vectors and magnitude of impulse",
+          "reason": "No statement mentions impulse or momentum change; M6-M9 statements cover units, kinematics, Newton's laws, friction and moments only, with no impulse/momentum topic. This is an out-of-spec concept.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "only part",
+          "marks": 8,
+          "technique": "Variable force from constant power (F = P/v), Newton's second law along a slope with resolving weight component",
+          "reason": "The concept of power (P watts) and the relation F = P/v is not mentioned in any statement; M8.2 covers N2L resolved forces but not power-driven variable force problems. Since the required method (P=Fv) is absent from the specification list, this is out.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Taking moments about a point for a rod in equilibrium under weight, tension and reaction",
+          "reason": "M9.1 explicitly covers moments in simple static contexts for rigid bodies (e.g. ladder-type problems), which matches this rod-and-cable equilibrium setup exactly.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M9.1"
+          ]
+        },
+        {
+          "label": "b",
+          "marks": 6,
+          "technique": "Resolving forces horizontally and vertically, and using limiting friction F=μR",
+          "reason": "M8.6 explicitly covers the F≤μR model for friction and limiting equilibrium, combined with resolving forces (M8.4/M8.1); this is a standard covered statics technique.",
+          "in_spec": true,
+          "confidence": "high",
+          "spec_refs": [
+            "M8.6",
+            "M8.4"
+          ]
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 9,
+          "technique": "Conservation of linear momentum, Newton's experimental law (restitution) and impulse to find unknown speeds/mass ratio",
+          "reason": "Momentum, impulse and restitution/NEL are not mentioned in any statement; the mechanics list only covers units, kinematics, Newton's first/second/third laws, friction and simple moments - collision mechanics (CLM/NEL/impulse) is absent entirely.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "Kinetic energy loss in a collision using (1/2)mv^2 before/after",
+          "reason": "Depends on the out-of-spec collision values from part (a) and 'kinetic energy' as a mechanics concept is not mentioned in any statement (no work-energy topic listed); this is out.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 5,
+          "technique": "Centre of mass of composite laminas using moments of mass about an axis",
+          "reason": "'Centre of mass' is explicitly listed in the instructions as a named concept that no statement mentions, making it out regardless of the moments-style arithmetic involved.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 7,
+          "technique": "Freely suspended lamina hanging in equilibrium - finding angle using centre of mass position",
+          "reason": "This part depends directly on the centre-of-mass result from part (a), an out-of-spec concept, and further requires centre-of-mass reasoning for suspension equilibrium, which is not covered by any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "8",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Work done against friction (Work = Force × distance) using F=μR on an incline",
+          "reason": "While F≤μR (M8.6) covers finding the friction force itself, 'work done' as a mechanics concept (work = force × distance) is not mentioned in any statement; no work/energy topic appears anywhere in the list, so the calculation required for this part goes beyond what is covered.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Work-energy principle to find initial speed U",
+          "reason": "The work-energy principle is explicitly named in the question and is not mentioned by any statement; the instructions list 'work–energy' as an example of an excluded named concept. Also depends on the out-of-spec work value from part (a).",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 6,
+          "technique": "Projectile motion under gravity from a ramp - using suvat/trig to find time of flight and horizontal range",
+          "reason": "M7.5 explicitly covers modelling motion under gravity in a vertical plane using vectors/projectiles, including finding time of flight and range; the speed at B (5 m/s) is given directly in the question stem independent of the out-of-spec part (b), so this part can be solved using only in-spec projectile methods.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "M7.5",
+            "M7.3"
+          ]
+        }
+      ]
+    }
+  ]
+}

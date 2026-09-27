@@ -1,0 +1,268 @@
+{
+  "_paper_id": "IAL2018_WST03_Jan2023",
+  "triage_method": "triage-v1",
+  "triage_model": "claude-sonnet-5",
+  "cost_usd": 0.19747400000000004,
+  "questions": [
+    {
+      "q_num": "1",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a(i)",
+          "marks": 0,
+          "technique": "coding and unbiased estimation of mean",
+          "reason": "Coding of data and derivation of an 'unbiased estimate' of a population mean from a sample is not covered by any statement; S2.3 only covers mean/standard deviation calculation, not unbiased estimators terminology.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "a(ii)",
+          "marks": 4,
+          "technique": "unbiased estimate of variance",
+          "reason": "Calculating an 'unbiased estimate of variance' (dividing by n-1) as an estimator concept for inference is not stated in the spec; S2.3 only allows S=sqrt(Sxx/(n-1)) as an alternative for standard deviation of a data set, not as an inferential unbiased estimator used later for hypothesis testing of an unknown variance.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "hypothesis test set up for a mean",
+          "reason": "Setting up hypotheses for a test of a mean is superficially close to S5.3, but here it is for a test using an estimated (unbiased) variance, not a known/given/assumed variance as required by S5.3.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "critical region using estimated variance",
+          "reason": "S5.3 requires known, given, or assumed variance for a test of the mean of a Normal distribution; here the variance is an unbiased sample estimate (essentially a t-test scenario), not covered.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "interpret critical region result",
+          "reason": "Depends on the critical region found in part (c), which is out of spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "e",
+          "marks": 1,
+          "technique": "justification of variance approximation (large sample)",
+          "reason": "This relates to using s^2 as an approximation for sigma^2 in large samples, akin to large-sample approximation ideas explicitly excluded (S5.3: 'Knowledge of the Central Limit Theorem or other large sample approximations is not required').",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "2",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Spearman's rank correlation coefficient",
+          "reason": "Spearman's rank correlation coefficient is not mentioned anywhere in the statements; only PMCC ('r') is referenced in S5.1, and Spearman's is a distinct technique entirely absent from spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "hypothesis test for Spearman's rank correlation",
+          "reason": "Testing correlation via Spearman's rank coefficient (with its own critical value tables) is not covered; S5.1 only covers PMCC-based correlation testing.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "calculation of PMCC from summary statistics",
+          "reason": "Explicit exclusion: 'calculation of correlation coefficients is excluded' (S5.1); calculating r from Sxx, Syy, Sxy via the formula is precisely the excluded method.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "hypothesis test using PMCC",
+          "reason": "Although S5.1 permits interpreting a given correlation coefficient with a critical value, this part explicitly uses the answer from part (c), which is out of spec (excluded calculation), so the part only makes sense after an out-of-spec part.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "expected frequencies for contingency table (chi-squared test)",
+          "reason": "Chi-squared tests for independence and contingency tables are not mentioned in any statement; S2.4 explicitly limits significance tests to those in Section 5, and chi-squared is not in Section 5.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 7,
+          "technique": "chi-squared test for independence",
+          "reason": "Chi-squared test of independence is not part of the 9MA0 specification; S5 only covers binomial proportion and Normal mean tests, and S2.4 excludes other significance tests.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 8,
+          "technique": "chi-squared goodness-of-fit test for binomial model",
+          "reason": "Chi-squared goodness-of-fit testing is not covered by any statement; S2.4 restricts significance tests to those in Section 5 (binomial proportion, Normal mean), which does not include goodness-of-fit chi-squared tests.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "calculating a mean/proportion from a frequency table",
+          "reason": "This part is simple arithmetic finding a weighted mean/proportion from frequency data, matching S2.3 (measures of central tendency: mean) even though used later for a chi-squared context.",
+          "in_spec": true,
+          "confidence": "medium",
+          "spec_refs": [
+            "S2.3"
+          ]
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "chi-squared goodness-of-fit test (refined model)",
+          "reason": "Again a chi-squared goodness-of-fit significance test, not included in Section 5 hypothesis testing content and excluded by S2.4.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 7,
+          "technique": "two-sample z-test for difference of means",
+          "reason": "S5.3 only covers a hypothesis test for the mean of a single Normal distribution with known/given/assumed variance; a two-sample test comparing two independent means is not mentioned anywhere in the statements.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 3,
+          "technique": "profit calculation using test conclusion",
+          "reason": "This part explicitly instructs to use the answer to part (a), which is out of spec, so it only makes sense after an out-of-spec part; also the profit-per-plant calculation itself is not a statistics technique covered by any statement.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 10,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "confidence interval for a Normal mean",
+          "reason": "Confidence intervals are not mentioned anywhere in the statistics statements (S5 only covers hypothesis tests, not confidence intervals); this technique is entirely absent from the spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "explain why Central Limit Theorem not needed",
+          "reason": "This part requires discussion of the Central Limit Theorem, which is explicitly named as excluded knowledge (S5.3: 'Knowledge of the Central Limit Theorem... is not required'); a named excluded concept makes this OUT even though the point being made is that CLT isn't needed.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "interpret confidence interval",
+          "reason": "Depends on the confidence interval computed in part (a), which is out of spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "d",
+          "marks": 3,
+          "technique": "distribution of sample mean of Normal variables (sampling distribution)",
+          "reason": "This requires knowledge of the sampling distribution of the mean of several independent Normal variables (X̄~N(μ,σ²/n)), which is a 'sampling distribution' concept — an example explicitly listed in the rules as making a part OUT if not covered by a statement, and it is only referenced within S5.3's hypothesis-testing context, not for direct probability calculation.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 8,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "sum/distribution of independent Normal random variables",
+          "reason": "Finding the distribution of a sum of independent Normal random variables (combining several customers' service times) is a 'sampling distribution'-type technique not mentioned in any statement; S4.2 only covers probabilities for a single specified Normal distribution.",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        },
+        {
+          "label": "b",
+          "marks": 1,
+          "technique": "stating independence assumption",
+          "reason": "This part is directly dependent on the method in part (a), which is out of spec.",
+          "in_spec": false,
+          "confidence": "high",
+          "spec_refs": []
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "distribution of difference of sums of independent Normal variables",
+          "reason": "Requires combining distributions of sums of independent Normal random variables (standard checkout total minus express checkout total), which is not covered by any statement (S4.2 only covers single Normal distribution probabilities).",
+          "in_spec": false,
+          "confidence": "medium",
+          "spec_refs": []
+        }
+      ]
+    }
+  ]
+}

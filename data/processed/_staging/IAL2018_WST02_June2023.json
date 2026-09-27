@@ -1,0 +1,292 @@
+{
+  "_paper_id": "IAL2018_WST02_June2023",
+  "_paper": "WST02",
+  "_sitting": "June2023",
+  "qualification": "IAL-2018",
+  "unit": "WST02",
+  "component": "stats",
+  "status": "legacy",
+  "paper_total": 75,
+  "source_qp_file": "pearson/IAL-2018/June2023/IAL2018_WST02_June2023_QP.txt",
+  "source_ms_file": "pearson/IAL-2018/June2023/IAL2018_WST02_June2023_MS.txt",
+  "extraction_method": "single-call-v1",
+  "extraction_model": "claude-sonnet-5",
+  "pearson_errors": [],
+  "questions": [
+    {
+      "paper_id": "IAL2018_WST02_June2023",
+      "spec": "IAL-2018",
+      "qualification": "IAL-2018",
+      "unit": "WST02",
+      "status": "legacy",
+      "paper": "WST02",
+      "sitting": "June2023",
+      "id": "IAL2018_WST02_June2023_Q1",
+      "q_num": "1",
+      "total_marks": 11,
+      "component": "stats",
+      "uses_large_data_set": false,
+      "stem": "In a large population 40% of adults use online banking.\n\nA random sample of 50 adults is taken.\n\nThe random variable $X$ represents the number of adults in the sample that use online banking.",
+      "parts": [
+        {
+          "label": "a(i)",
+          "marks": 2,
+          "text": "(a) Find\n\n(i) $\\mathrm{P}(X=26)$\n(2)",
+          "mark_scheme": "(a)(i) M1: Use of tables or $^{50}C_{26}(p)^{26}(1-p)^{24}$ with $0<p<1$ allow alternative notations for $^{50}C_{26}$\nA1: awrt 0.0259 (correct answer scores 2 out of 2)\nOfficial notes (completeness pass):\n- $X\\sim B(50,0.4)$ $P(X=26)=0.9686-0.9427$ or $^{50}C_{26}(0.4)^{26}(0.6)^{24}$ M1; awrt $0.0259$ A1",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "a(ii)",
+          "marks": 2,
+          "text": "(ii) $\\mathrm{P}(X\\geqslant 26)$\n(2)",
+          "mark_scheme": "(ii) M1: writing or using $1-\\mathrm{P}(X\\leqslant 25)$\nA1: awrt 0.0573 (calc 0.0573437….) (correct answer scores 2 out of 2)\nOfficial notes (completeness pass):\n- $P(X\\geqslant 26)=1-P(X\\leqslant 25)$ M1; $=1-0.9427=$ awrt $0.0573$ A1",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "a(iii)",
+          "marks": 1,
+          "text": "(iii) the smallest value of $k$ such that $\\mathrm{P}(X\\leqslant k)>0.4$\n(1)",
+          "mark_scheme": "(iii) B1: (From tables) $k=19$ cao $k\\leqslant 19$ or $k\\geqslant 19$ is B0",
+          "spec_refs": [
+            "S4.1"
+          ]
+        },
+        {
+          "label": "b(i)",
+          "marks": 5,
+          "text": "A random sample of 600 adults is taken.\n(b) (i) Find, using a normal approximation, the probability that no more than 222 of these 600 adults use online banking.\n(5)",
+          "mark_scheme": "(b)(i) Let $J\\sim\\mathrm{N}(240,144)$\n1st M1: For writing or using $\\mathrm{N}(240,\\ldots)$ (May be seen in standardisation)\n1st A1: For writing or using $\\mathrm{N}(240,144)$ (May be seen in standardisation)\n2nd M1: use of continuity correction $222\\pm0.5$\n3rd M1: $\\pm\\left(\\frac{222\\text{ or }222.5\\text{ or }221.5-\\text{their mean}}{\\text{their sd}}\\right)$ if distribution not clearly stated, then the mean and sd must be correct in the standardisation to score this mark\n2nd A1: awrt 0.0721 through to awrt 0.0724 (calc 0.0723743…) Answer in the range implies all previous marks unless clearly comes from wrong method [NB: Use of binomial distribution gives 0.0719]\nOfficial notes (completeness pass):\n- $P(X\\leqslant 222)\\sim P(J<222.5)=P\\left(Z<\\frac{222.5-240}{\\sqrt{144}}\\right)$ M1M1\n- $P(Z<-1.46)=1-0.9279=$ awrt $0.0721-0.0724$ A1",
+          "spec_refs": [
+            "S4.1",
+            "S4.2"
+          ]
+        },
+        {
+          "label": "b(ii)",
+          "marks": 1,
+          "text": "(ii) Explain why a normal approximation is suitable in part (b)(i)\n(1)",
+          "mark_scheme": "(ii) B1: both conditions required for $n$ is large allow in words e.g. 'sample is large' allow 0.4 in place of $p$ condone 'n > 30' (or any number > 30) Ignore comments about $np$\nOfficial notes (completeness pass):\n- $n$ is large (oe) and $p$ is close to 0.5 B1",
+          "spec_refs": [
+            "S4.2",
+            "S4.3"
+          ]
+        }
+      ],
+      "qp_pages": [
+        2,
+        3
+      ],
+      "low_confidence": false,
+      "notes": "[fix_parts] moved lead-in after (a(iii))'s mark to the start of (b(i)): 'A random sample of 600 adults is taken.'",
+      "source_qp_file": "pearson/IAL-2018/June2023/IAL2018_WST02_June2023_QP.txt",
+      "source_ms_file": "pearson/IAL-2018/June2023/IAL2018_WST02_June2023_MS.txt",
+      "notation": "latex",
+      "extraction_method": "single-call-v1",
+      "question_text": "In a large population 40% of adults use online banking.\n\nA random sample of 50 adults is taken.\n\nThe random variable $X$ represents the number of adults in the sample that use online banking.\n(a) Find\n\n(i) $\\mathrm{P}(X=26)$\n(2)\n(ii) $\\mathrm{P}(X\\geqslant 26)$\n(2)\n(iii) the smallest value of $k$ such that $\\mathrm{P}(X\\leqslant k)>0.4$\n(1)\nA random sample of 600 adults is taken.\n(b) (i) Find, using a normal approximation, the probability that no more than 222 of these 600 adults use online banking.\n(5)\n(ii) Explain why a normal approximation is suitable in part (b)(i)\n(1)",
+      "mark_scheme_text": "(a)(i) M1: Use of tables or $^{50}C_{26}(p)^{26}(1-p)^{24}$ with $0<p<1$ allow alternative notations for $^{50}C_{26}$\nA1: awrt 0.0259 (correct answer scores 2 out of 2)\nOfficial notes (completeness pass):\n- $X\\sim B(50,0.4)$ $P(X=26)=0.9686-0.9427$ or $^{50}C_{26}(0.4)^{26}(0.6)^{24}$ M1; awrt $0.0259$ A1\n(ii) M1: writing or using $1-\\mathrm{P}(X\\leqslant 25)$\nA1: awrt 0.0573 (calc 0.0573437….) (correct answer scores 2 out of 2)\nOfficial notes (completeness pass):\n- $P(X\\geqslant 26)=1-P(X\\leqslant 25)$ M1; $=1-0.9427=$ awrt $0.0573$ A1\n(iii) B1: (From tables) $k=19$ cao $k\\leqslant 19$ or $k\\geqslant 19$ is B0\n(b)(i) Let $J\\sim\\mathrm{N}(240,144)$\n1st M1: For writing or using $\\mathrm{N}(240,\\ldots)$ (May be seen in standardisation)\n1st A1: For writing or using $\\mathrm{N}(240,144)$ (May be seen in standardisation)\n2nd M1: use of continuity correction $222\\pm0.5$\n3rd M1: $\\pm\\left(\\frac{222\\text{ or }222.5\\text{ or }221.5-\\text{their mean}}{\\text{their sd}}\\right)$ if distribution not clearly stated, then the mean and sd must be correct in the standardisation to score this mark\n2nd A1: awrt 0.0721 through to awrt 0.0724 (calc 0.0723743…) Answer in the range implies all previous marks unless clearly comes from wrong method [NB: Use of binomial distribution gives 0.0719]\nOfficial notes (completeness pass):\n- $P(X\\leqslant 222)\\sim P(J<222.5)=P\\left(Z<\\frac{222.5-240}{\\sqrt{144}}\\right)$ M1M1\n- $P(Z<-1.46)=1-0.9279=$ awrt $0.0721-0.0724$ A1\n(ii) B1: both conditions required for $n$ is large allow in words e.g. 'sample is large' allow 0.4 in place of $p$ condone 'n > 30' (or any number > 30) Ignore comments about $np$\nOfficial notes (completeness pass):\n- $n$ is large (oe) and $p$ is close to 0.5 B1"
+    }
+  ],
+  "excluded_questions": [
+    {
+      "q_num": "2",
+      "total_marks": 4,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "in spec",
+          "reason": "question dropped: other parts out of spec"
+        },
+        {
+          "label": "(b)(i)+(ii)",
+          "marks": 2,
+          "technique": "in spec",
+          "reason": "question dropped: other parts out of spec"
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Identifying a statistic vs parameter",
+          "reason": "The term 'statistic' as distinct from population parameter is not mentioned anywhere in the statements (S1.1 mentions only population/sample, not the statistic/parameter distinction), so this concept is not evidenced as in spec."
+        }
+      ]
+    },
+    {
+      "q_num": "3",
+      "total_marks": 9,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Continuous random variable pdf, finding constant",
+          "reason": "S4.2 explicit exclusion: 'Knowledge of the probability density function is not required.' This question is entirely built on a given pdf."
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Probability from pdf via integration",
+          "reason": "Same explicit exclusion of pdf knowledge (S4.2)."
+        },
+        {
+          "label": "c",
+          "marks": 1,
+          "technique": "Quartile from pdf",
+          "reason": "Depends on pdf, excluded per S4.2."
+        },
+        {
+          "label": "d",
+          "marks": 1,
+          "technique": "Mode via differentiation of pdf",
+          "reason": "Depends on pdf, excluded per S4.2."
+        },
+        {
+          "label": "e",
+          "marks": 2,
+          "technique": "Finding mode from pdf",
+          "reason": "Depends on pdf, excluded per S4.2."
+        }
+      ]
+    },
+    {
+      "q_num": "4",
+      "total_marks": 13,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 1,
+          "technique": "Poisson approximation condition",
+          "reason": "Poisson distribution is not mentioned anywhere in the statements, so this is out of spec."
+        },
+        {
+          "label": "b",
+          "marks": 4,
+          "technique": "Poisson approximation to binomial, cumulative Poisson probability",
+          "reason": "Requires Poisson distribution, which is not part of any statement listed."
+        },
+        {
+          "label": "c(i)",
+          "marks": 5,
+          "technique": "in spec",
+          "reason": "question dropped: other parts out of spec"
+        },
+        {
+          "label": "c(ii)",
+          "marks": 1,
+          "technique": "in spec",
+          "reason": "question dropped: other parts out of spec"
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "in spec",
+          "reason": "question dropped: other parts out of spec"
+        }
+      ]
+    },
+    {
+      "q_num": "5",
+      "total_marks": 14,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 4,
+          "technique": "Finding constants in a cumulative distribution function",
+          "reason": "Continuous random variable given via cdf/pdf; S4.2 explicitly excludes knowledge of the probability density function, and this entire question relies on pdf/cdf manipulation not covered by any statement."
+        },
+        {
+          "label": "b",
+          "marks": 2,
+          "technique": "Finding constant in cdf using continuity",
+          "reason": "Same pdf/cdf exclusion under S4.2 applies."
+        },
+        {
+          "label": "c",
+          "marks": 3,
+          "technique": "Probability from cdf",
+          "reason": "Same pdf/cdf exclusion under S4.2 applies."
+        },
+        {
+          "label": "d",
+          "marks": 1,
+          "technique": "Deriving pdf from cdf by differentiation",
+          "reason": "Same pdf exclusion under S4.2 applies."
+        },
+        {
+          "label": "e",
+          "marks": 4,
+          "technique": "Expectation via integration of pdf",
+          "reason": "Requires pdf and E(X) of continuous random variable, both excluded/absent from statements (S4.2 exclusion, and no statement covers E(X) integration for continuous variables)."
+        }
+      ]
+    },
+    {
+      "q_num": "6",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 2,
+          "technique": "Continuous uniform distribution probability",
+          "reason": "The continuous uniform distribution is not mentioned in any statement; S4.2 only covers Normal and Binomial distributions, so uniform distribution work is out of spec."
+        },
+        {
+          "label": "b(i)",
+          "marks": 4,
+          "technique": "Uniform distribution variance formula, solving for parameters",
+          "reason": "Continuous uniform distribution not covered by any statement."
+        },
+        {
+          "label": "b(ii)",
+          "marks": 2,
+          "technique": "Uniform distribution probability equation",
+          "reason": "Continuous uniform distribution not covered by any statement."
+        },
+        {
+          "label": "c",
+          "marks": 2,
+          "technique": "Uniform distribution probability",
+          "reason": "Continuous uniform distribution not covered by any statement."
+        },
+        {
+          "label": "d",
+          "marks": 2,
+          "technique": "E(W^2) via Var and E(W)",
+          "reason": "Continuous uniform distribution not covered; also general E(X)/Var(X) of continuous r.v. not addressed by any statement."
+        }
+      ]
+    },
+    {
+      "q_num": "7",
+      "total_marks": 12,
+      "parts": [
+        {
+          "label": "a",
+          "marks": 3,
+          "technique": "Poisson distribution probability",
+          "reason": "Poisson distribution is not mentioned in any statement listed, making this topic out of spec entirely."
+        },
+        {
+          "label": "b",
+          "marks": 5,
+          "technique": "Poisson then binomial combination",
+          "reason": "Relies on Poisson distribution which is not covered by any statement."
+        },
+        {
+          "label": "c",
+          "marks": 4,
+          "technique": "Conditional probability with Poisson splitting",
+          "reason": "Relies on Poisson distribution, not covered by any statement."
+        }
+      ]
+    }
+  ],
+  "autofixes": 1,
+  "triage_method": "triage-v1",
+  "ms_complete_method": "single-call-v2",
+  "ms_complete_added": 5,
+  "ms_complete_unverified": false
+}
