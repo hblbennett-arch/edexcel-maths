@@ -296,7 +296,7 @@ Store every gate result in `gate_results`. Nothing enters the `clean` pack witho
 | Engine | `chatbot/`: `recommend.py` (finder, ladders), `search.py` (BM25 + bge), `tutor.py`, `validate.py`, `prompts.py`, `controller.py`, `web.py` + `static/index.html` |
 | Evals | `eval/practice_eval.py`, `eval/practice_search_eval.py` (+ `practice_search_results.txt`), `eval/retrieval.py`, `eval/chat_smoke.py` |
 | Pipeline tooling worth reusing (patterns, not Pearson data) | `scripts/tag_single.py`, `scripts/check_tags.py`, `scripts/check_notation.js`, `scripts/ms_verify.py` (a pattern for visual/structured checks), `scripts/build_db.py`, `scripts/build_embeddings.py`, `docs/notation-spec.md`, `docs/tagging-spec.md`, `docs/skill-worked-example-style.md` |
-| Human-review log | `docs/review-checklist.md` (last section §26) |
+| Human-review log | `docs/review-checklist.md` (§27 = relaunch to-dos; add from §28) |
 | Chat UI | `lsof -ti tcp:8765 \| xargs kill; .venv/bin/python -m chatbot.web` → http://127.0.0.1:8765 |
 
 ## 11. First actions for the next session
