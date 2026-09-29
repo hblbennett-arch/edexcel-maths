@@ -1,5 +1,9 @@
 # Edexcel Maths Revision Site
 
+> **Branch `commercial-clean-room`:** building the copyright-clean product to sell. Read
+> `docs/handoff-clean-room.md` first. The Pearson-based tutor stays on `main`. No Pearson text may
+> enter prompts, the product or its content packs (see the abstraction firewall, §3 of the handoff).
+
 ## Project Overview
 Interactive revision tool for Edexcel A Level (9MA0) and AS Level (8MA0) Mathematics. Self-contained HTML pages per topic with worked examples from real exam papers, step-by-step reveals, KaTeX maths rendering, and links to original papers via PMT.
 

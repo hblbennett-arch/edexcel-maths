@@ -261,6 +261,14 @@ How it works: each question stores the **page numbers** of its figure(s) in the 
 - [ ] **Later speed-ups, not done yet** (details in `docs/rag-chatbot-plan.md` Phase 7): cache explanations so reopening is instant; test a lower thinking budget (~$1 test); generate part (a) first. Say when you want these.
 - [ ] **Old bug found, not fixed:** `--dry-run` mode crashes when opening a multi-part question (the recommendations look up a part that doesn't exist). Live and offline modes are unaffected. Say if you want it fixed.
 
+## 27. Commercial clean-room relaunch (added 2026-09-29, branch `commercial-clean-room`)
+- [ ] **Make the GitHub repo private now:** it's public and publishes Pearson questions, mark schemes and examiner quotes plus 8 AQA PDFs. GitHub → your repo → Settings → General → Danger Zone → Change visibility → Private.
+- [ ] **Approve the history clean-up** (backup, then `git filter-repo` to remove `data/processed`, the AQA PDFs and the real-question topic pages from every commit). It rewrites history, so the next session will ask first.
+- [ ] **Check your employment contract** for intellectual-property and side-business clauses before selling anything.
+- [ ] **Open your own Anthropic API account** and add the key to `.env`. The product and its content must not be generated on your employer's Claude Code login.
+- [ ] **Book a fixed-fee UK IP solicitor review** before launch. The questions to ask are in `docs/commercial-relaunch-plan.md` §9.
+- [ ] **Pick a product name** without "Edexcel" or "Pearson", and check the domain is free.
+
 ## 13. Practice lookup (fixed 2026-09-26, from your testing)
 - [x] **"Give me a question on X" ignored the skill tags.** It matched question wording only, so "2nd derivative test" opened a question without one, and "normal-distribution hypothesis testing" gave a binomial test. It now uses the tags: only questions **tagged** with the requested skill are suggested, opened at that part. It understands "not a binomial" and "stats/mechanics" hints, never re-suggests a question you've already opened, and lists current 9MA0 questions first. Checked by `eval/practice_eval.py`: **226 skills, 100% of suggestions tagged with the requested skill** (1085/1089), plus your two conversations as regression tests.
 - [ ] **Skill titles vs everyday names:** some skill titles don't use students' words (e.g. "Determine the nature of a stationary point" = the second-derivative test). The search now also uses each skill's short name. If a request still maps to the wrong skill, note the wording here.
