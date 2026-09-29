@@ -24,7 +24,13 @@ from .session import Session
 from .tutor import explain, explain_offline, explain_topic, follow_up
 
 PRACTICE_RE = re.compile(r"\b(give me|find me|show me|i want|can i have|suggest|recommend)\b.*\bquestions?\b|"
-                         r"\bpractice\b|\bquestions? (on|about|to do with|involving|for|with)\b", re.I)
+                         r"\bpractice\b|\bquestions? (on|about|to do with|involving|for|with)\b|"
+                         # "can you find a question that uses …", "is there a question combining …" — needs
+                         # a/an/any… so follow-ups about *this* question ("how do I find x in this question") don't match
+                         r"\b(find|i need|looking for|is there|are there)\b.*\b(a|an|another|some|any|more|other)\s+"
+                         r"(?:[a-z]+\s+){0,2}questions?\b|"
+                         r"\b(a|an|another|any|some)\s+(?:[a-z]+\s+){0,2}questions? (that|which|where|combining|linking|"
+                         r"covering|mixing|using|testing)\b", re.I)
 SMALL_TALK_RE = re.compile(r"^\s*(hi|hello|hey|hiya|yo|good (morning|afternoon|evening)|thanks?( you)?|cheers|ok(ay)?|"
                            r"help|what can you do\??|who are you\??)[\s!.?]*$", re.I)
 ORDINALS = {"first": 1, "1st": 1, "second": 2, "2nd": 2, "third": 3, "3rd": 3, "fourth": 4, "4th": 4,
@@ -61,6 +67,8 @@ class Conversation:
     mode: str = "live"                      # "live" | "offline" | "dry-run"
     s: Session = field(default_factory=Session)
     pending_confirm: tuple[str, str | None, list] | None = None   # (qid, part, other candidates)
+    defer_explanations: bool = False        # web UI: return the question first, explanation via resume()
+    pending_open: tuple[str, str | None] | None = None             # (qid, part) awaiting resume()
 
     # ---------- message builders ----------
     def _list(self, title: str, items: list[tuple[str, str | None, str]]) -> dict:
@@ -117,6 +125,26 @@ class Conversation:
         s.question_id, s.reply, s.suggestions = qid, None, []
         s.seen.add(qid)
         out = [self._question_msg(qid)]
+        if self.defer_explanations and self.mode == "live":
+            # Show the question now (it's in the database); the explanation takes ~30-60 s and is
+            # fetched by a second request (resume), so the student can read the question meanwhile.
+            self.pending_open = (qid, part_label)
+            return out + [{"type": "pending", "md": "Writing the explanation — usually 30–60 seconds. "
+                                                    "Have a go at the question while you wait."}]
+        return out + self._explain_open(qid, part_label)
+
+    def resume(self) -> list[dict]:
+        """Finish a deferred explanation (see _open); [] if there is none."""
+        if not self.pending_open:
+            return []
+        qid, part_label = self.pending_open
+        self.pending_open = None
+        return self._explain_open(qid, part_label)
+
+    def _explain_open(self, qid: str, part_label: str | None) -> list[dict]:
+        """The model's explanation of the question just opened, as step/intro messages."""
+        s = self.s
+        out = []
         if self.mode == "offline":
             result = explain_offline(qid)
         elif self.mode == "dry-run":
@@ -185,6 +213,8 @@ class Conversation:
         return [{"type": "confirm", "md": f"Is this **{summary(found.question_id)}**?"}]
 
     def handle(self, text: str) -> list[dict]:
+        if self.pending_open:              # a message arrived before the explanation was fetched
+            return self.resume() + self.handle(text)
         s, msg = self.s, text.strip()
         low = msg.lower()
         if self.pending_confirm:

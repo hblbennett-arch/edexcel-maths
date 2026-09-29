@@ -65,7 +65,8 @@ class Handler(BaseHTTPRequestHandler):
         self._send(404, b"not found", "text/plain")
 
     def do_POST(self):
-        if urlparse(self.path).path != "/api/message":
+        path = urlparse(self.path).path
+        if path not in ("/api/message", "/api/resume"):
             return self._send(404, b"not found", "text/plain")
         try:
             data = json.loads(self.rfile.read(int(self.headers.get("Content-Length", 0))) or b"{}")
@@ -73,9 +74,11 @@ class Handler(BaseHTTPRequestHandler):
             return self._json(400, {"error": "bad json"})
         sid = data.get("session") or str(uuid.uuid4())
         with LOCK:
-            conv = SESSIONS.setdefault(sid, Conversation(mode=MODE))
+            # defer_explanations: an opened question comes back at once with a "pending" message; the
+            # page then calls /api/resume, which runs the slow model call and returns the explanation.
+            conv = SESSIONS.setdefault(sid, Conversation(mode=MODE, defer_explanations=True))
         try:
-            messages = conv.handle(str(data.get("text", "")))
+            messages = conv.resume() if path == "/api/resume" else conv.handle(str(data.get("text", "")))
         except RuntimeError as e:
             messages = [{"type": "warning", "md": str(e)}]
         except Exception as e:  # show unexpected errors in the page instead of hanging it

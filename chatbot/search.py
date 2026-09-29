@@ -79,6 +79,12 @@ def embed(texts: list[str], model: str = DEFAULT_MODEL) -> np.ndarray:
     return vecs / np.linalg.norm(vecs, axis=1, keepdims=True)
 
 
+@lru_cache(maxsize=512)
+def embed_query(query: str, model: str = DEFAULT_MODEL) -> np.ndarray:
+    """One search query's vector (cached: a practice request is searched against several kinds)."""
+    return embed([QUERY_PREFIX.get(model, "") + latex_to_plain(query)], model)[0]
+
+
 @dataclass
 class Hit:
     doc_id: str
@@ -115,12 +121,17 @@ class Index:
         bm25, rows = self._bm25_for(kind)
         return [self.ids[i] for i in rows], bm25.get_scores(tokens(query) or ["_"])
 
+    def scores(self, query: str, kind: str) -> tuple[list[str], "np.ndarray", "np.ndarray"]:
+        """(doc ids, BM25 scores, cosine similarities) for every doc of one kind, unranked."""
+        bm25, rows = self._bm25_for(kind)
+        return ([self.ids[i] for i in rows], bm25.get_scores(tokens(query) or ["_"]),
+                self.vecs[rows] @ embed_query(query, self.model))
+
     def search(self, query: str, kind: str, k: int = 10, mode: str | None = None) -> list[Hit]:
         """Top-k docs of one kind. mode: 'hybrid', 'semantic' or 'bm25' (default: best per kind)."""
         mode = mode or DEFAULT_MODE.get(kind, "hybrid")
         bm25, rows = self._bm25_for(kind)
-        q_vec = embed([QUERY_PREFIX.get(self.model, "") + latex_to_plain(query)], self.model)[0]
-        sem = self.vecs[rows] @ q_vec
+        sem = self.vecs[rows] @ embed_query(query, self.model)
         sem_rank = np.argsort(-sem)
         kw = bm25.get_scores(tokens(query) or ["_"])
         kw_rank = np.argsort(-kw)

@@ -55,7 +55,20 @@ It is for both students and tutors.
 ## Status (2026-09-27): knowledge base = 2,702 questions
 9MA0 (P1/P2 210, Paper 3 88) + IAL 2018 (770) + IAL 2013 (587) + UK GCE pre-2017 (1,046), in-spec only; 21,764 examiner notes; all tagged. Pipeline: `scripts/run_tier.sh` (triage → extract → MS completeness → MS visual verification → page map → spec filter → concept screen → notes → tags → completeness). See `docs/review-checklist.md` §22–24.
 
-Practice lookup ("a question on X"): skill tags, plus an exact-expression search of the question LaTeX when the request names specific maths (`recommend.expression_hits`), since tags describe techniques, not expressions.
+Practice lookup ("find me a question on X", `recommend.find_practice`, rebuilt 2026-09-27) has three channels:
+1. **Exact maths** (`expression_hits`): an expression in the request ("x^x") found in the question LaTeX is listed first.
+2. **Description** (`description_hits`): BM25 over whole questions with light stemming (dentists = dentist), used when no skill matches well ("dentists and 10% of customers arriving late"). The part to open is the part whose own text clearly matches best (`best_part`), else the whole question. Padded with the semantically closest questions, not with the weak skill's.
+3. **Skill tags**: one technique → today's tagged-part ranking (unchanged). Several topics or skills ("differentiation, partial fractions and stationary points", "integration by parts and the trapezium rule") → `split_concepts` splits on commas/"and", resolves each piece to skills or a whole topic, and ranks questions by how many pieces they cover ("covers 2 of 3: …"). A single topic name ("vectors") counts all that topic's skills (`named_groups`).
+Filters apply to every channel: component, already seen, "not a …", a year ("from 2019", "a 2019 question") and qualification ("IAL", "old spec"). The chat's `PRACTICE_RE` now also catches "can you find a question that…", "is there a question combining…".
+
+Benchmark `eval/practice_search_eval.py` (seeded, no model; results in `eval/practice_search_results.txt`), before → after:
+description recall@5 1% → **100%** (recall@1 0% → 96%); multi-topic "top result covers every topic" 27% → **95%**; multi-skill "top result has both skills" 48% → **93%**; hand cases 4/9 → **9/9**. `eval/practice_eval.py` unchanged (228/228 skills resolve, was 227; precision 1103/1106); retrieval 31/31, 0 wrong pasted.
+
+Lessons (keep for later changes):
+- **Calibrate thresholds on half the benchmark and confirm on the other half.** The calibrate/held-out numbers above agree within ~3 points, except multi-skill (97% vs 89%).
+- **Skill similarity alone can't tell a technique from a scenario.** Technique requests go down to 0.685 (typos), scenarios up to 0.707. The tie-breaker is how much of the request is maths vocabulary (`maths_share`): 100% for techniques, median 0% for scenarios. Rejected: "the description hits carry the skill". Scenario words find same-topic questions, so it sent 5% of descriptions down the skill route.
+- **BM25 beats embeddings for described scenarios** (top-1 97% vs 69%), because the distinctive words are rare nouns.
+- **Multi-topic splitting:** re-join pieces only when one isn't a topic by itself, both mean the same area, the joined phrase is a skill's own name, or it matches ≥ 0.06 better. A looser join (0.0) swallowed "suvat" into "projectiles" (79% vs 97%). Give a skill near two topics to the closer one only. A topic name counts only that topic's skills ("quadratics" must not bring in trig quadratics).
 
 ## Status (2026-09-25): Phases 2 and 3 complete
 | Step | Result |
@@ -219,6 +232,10 @@ Each step ends with: `build_db.py` passes, notebook re-run, diff shown to you, c
 - **FastAPI backend** (`POST /ask`, `/feedback`) returning the Phase 5 JSON, for your own front-end.
 - **More papers:** June 2025 (a truly unseen test), Paper 3, AS 8MA0.
 - **GitHub push:** `gh auth login` → `gh auth setup-git` → push; revoke the old token.
+- **Tutor speed (measured 2026-09-27; to come back to).** One explanation (P2 June 2024 Q1) took ~37 s: ~3 s to start `claude -p`, ~33 s generating ~5,000 output tokens (~3,000 of them thinking, budget 4,000). Search and question lookup take < 0.5 s. Past logs: 3,000–11,000 output tokens per question, and a validation retry (a second full call) on 2 of the last 12. **Done:** the web UI shows the question at once (0.1 s) and fetches the explanation separately (`Conversation.defer_explanations` / `resume()`, `POST /api/resume`). Still to do:
+  1. **Cache explanations** per (question, detail level). Replies are already in `logs/answers.jsonl`; reuse a verified one when the question is opened again, with a way to force a fresh one. Repeats become instant at no cost. Optional: pre-generate the 298 current 9MA0 questions once (~$10 at ~$0.03 each).
+  2. **Lower `TUTOR_THINKING_BUDGET`** from 4,000 to ~1,500 (maybe saves 10–15 s a question). Only adopt it after an A/B test on ~30 questions (~$1): the mark-scheme validation pass rate (`verified`) and the retry rate must not get worse.
+  3. **Generate one part at a time:** part (a) first, the rest in the background. Most complex, and it adds calls (each ~3 s start-up on `claude -p`), so try only if 1–2 aren't enough. (Moving to the Anthropic API backend would also save ~3 s a call and allow streaming text, but it needs a paid key.)
 
 ---
 

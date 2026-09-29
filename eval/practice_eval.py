@@ -11,6 +11,8 @@ really tagged with X?
    and questions that must not be returned (already seen).
 3. Specific-expression requests (user report 2026-09-27): the question containing the
    expression must be listed first, and every expression hit must really contain it.
+4. Routing: which messages the chat treats as practice requests (controller.PRACTICE_RE), and
+   follow-ups about the open question that must not be taken for one.
 """
 import os
 import sys
@@ -38,6 +40,19 @@ CASES = [  # (request, exclude, required skill (any of), forbidden skills)
 
 EXPR_CASES = [  # (request, question that must come first)
     ("Find me a question on differentiating x^x", "P2_June2019_Q11"),
+]
+
+
+ROUTING = [  # (message, is a practice request)
+    ("can you find a question that use the following topics of differentiation, partial fractions, stationary points", True),
+    ("a question combining the chain rule and tangents", True),
+    ("is there a question about a ferris wheel", True),
+    ("find me a question on vectors", True),
+    ("Find me a stats question to do with dentists and 10% of customers arriving late", True),
+    ("how do I find the gradient in this question", False),
+    ("is there a minus in this question?", False),
+    ("I dont get the part of the question that asks for k", False),
+    ("why do we find dy/dx here", False),
 ]
 
 
@@ -95,6 +110,11 @@ def main() -> None:
                    [f"{b} doesn't contain {expr}" for b in bad]
         failed += bool(problems)
         print(f"{'OK  ' if not problems else 'FAIL'} {text[:70]}" + "".join(f"\n     {p}" for p in problems))
+    from chatbot.controller import PRACTICE_RE
+    for text, want in ROUTING:
+        ok = bool(PRACTICE_RE.search(text)) == want
+        failed += not ok
+        print(f"{'OK  ' if ok else 'FAIL'} routing: {text[:60]!r} {'is' if want else 'is not'} a practice request")
     sys.stdout.flush()
     os._exit(1 if failed else 0)
 

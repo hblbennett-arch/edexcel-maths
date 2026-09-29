@@ -171,13 +171,26 @@ async function send(text, shown) {
   if (busy) return;
   busy = true; sendBtn.disabled = true;
   if (shown !== "") add(`<div class="bubble">${esc(shown ?? text)}</div>`, "msg user");
-  const w = add(`<div class="working"><span class="dot"></span>Working… (a new explanation takes about a minute)</div>`);
+  const w = add(`<div class="working"><span class="dot"></span>Working…</div>`);
   try {
     const r = await fetch("/api/message", {method: "POST", headers: {"Content-Type": "application/json"},
                                            body: JSON.stringify({session, text})});
     const data = await r.json();
     session = data.session; w.remove();
-    for (const m of data.messages) render(m);
+    let pending = null;
+    for (const m of data.messages) m.type === "pending" ? (pending = m) : render(m);
+    if (pending) {           // the question is shown; now wait for the explanation
+      const p = add(`<div class="working"><span class="dot"></span>${esc(pending.md)} <span class="secs"></span></div>`);
+      const t0 = Date.now(), secs = p.querySelector(".secs");
+      const tick = setInterval(() => { secs.textContent = `(${Math.round((Date.now() - t0) / 1000)} s)`; }, 1000);
+      try {
+        const r2 = await fetch("/api/resume", {method: "POST", headers: {"Content-Type": "application/json"},
+                                               body: JSON.stringify({session})});
+        const more = (await r2.json()).messages;
+        p.remove();
+        for (const m of more) render(m);
+      } finally { clearInterval(tick); p.remove(); }
+    }
   } catch (e) {
     w.remove(); add(`<div class="warning">⚠️ Couldn't reach the tutor server (${esc(e)}). Is it still running?</div>`);
   } finally { busy = false; sendBtn.disabled = false; input.focus(); }
