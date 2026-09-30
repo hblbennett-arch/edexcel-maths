@@ -10,7 +10,8 @@
                 content/novelty_whitelist.json and maths-only runs), 5-gram Jaccard per source question,
                 shared distinctive numbers, shared rare words, bge cosine vs every question/part/note.
                 Reject: any non-whitelisted 8-gram, Jaccard > 0.15, >= 3 distinctive numbers shared with one
-                source, cosine > 0.85 with a source that has the same marks per part (or cosine > 0.97).
+                source, cosine > 0.85 with a source that has the same marks per part and 5-gram Jaccard
+                >= 0.08 with it, or cosine > 0.97.
                 Flag for review: any other cosine >= 0.75, >= 3 shared rare words.
                 Cosine alone measures topic, not copying: from-scratch originals on common topics reach 0.92
                 (eval/gates_selftest.py, 2026-09-29), so it only rejects together with a structural match.
@@ -84,7 +85,11 @@ def g1_structure(item: dict) -> dict:
     parts = item.get("parts") or []
     if not parts:
         errs.append("no parts")
-    keys = [_label_key(p.get("label")) for p in parts]
+    labels = [p.get("label") for p in parts]
+    if labels and all(l in ROMAN for l in labels):  # top-level (i), (ii), ...: "i" is roman, not the letter i
+        keys = [(0, ROMAN.index(l) + 1) for l in labels]
+    else:
+        keys = [_label_key(l) for l in labels]
     if any(k == (-1, -1) for k in keys):
         errs.append(f"bad part label(s): {[p.get('label') for p in parts]}")
     elif keys != sorted(keys) or len(set(keys)) != len(keys):
@@ -114,7 +119,8 @@ def g1_structure(item: dict) -> dict:
 # ---- G7 novelty ----------------------------------------------------------------------------
 WORD_RE = re.compile(r"[a-z]+|\d+(?:\.\d+)?")
 MATHS_WORDS = set("""sin cos tan sec cosec cot ln log e exp sqrt frac pi theta alpha beta lambda mu sigma rho
-dx dy dt dv dy dx d x y z t n r k a b c p q f g h i j u v w s integral sum lim infinity degrees""".split())
+dx dy dt dv dy dx d x y z t n r k a b c p q f g h i j u v w s integral sum lim infinity degrees
+cm mm km kg ms ml""".split())
 COMMON_NUMBERS = {str(n) for n in range(0, 13)} | {"0.5", "0.1", "0.05", "0.01", "0.025", "0.95", "100", "1000",
                                                     "9.8", "360", "180", "90", "60", "45", "30", "20", "15", "25", "50"}
 WHITELIST_PATH = ROOT / "content" / "novelty_whitelist.json"
@@ -127,12 +133,27 @@ def words(text: str) -> list[str]:
 def item_text(item: dict) -> str:
     bits = [item.get("stem") or ""]
     for p in item.get("parts") or []:
-        bits += [p.get("text", ""), " ".join(m.get("for", "") + " " + (m.get("notes") or "")
-                                             for m in p.get("mark_scheme") or [])]
+        marks = list(p.get("mark_scheme") or []) + [m for alt in p.get("alternatives") or [] for m in alt.get("marks") or []]
+        bits += [p.get("text", ""), " ".join(m.get("for", "") + " " + (m.get("notes") or "") for m in marks)]
         bits += [s.get("working", "") if isinstance(s, dict) else str(s) for s in p.get("solution") or []]
         bits += list(p.get("hints") or [])
     bits += [pf.get("text", "") for pf in item.get("pitfalls") or []]
     return "\n".join(bits)
+
+
+def item_fields(item: dict) -> list[tuple[str, str]]:
+    """(field name, text) for each piece of an item: where an overlap is, without saying what it is."""
+    out = [("stem", item.get("stem") or "")]
+    for p in item.get("parts") or []:
+        lab = p.get("label") or "-"
+        marks = list(p.get("mark_scheme") or []) + [m for alt in p.get("alternatives") or [] for m in alt.get("marks") or []]
+        out += [(f"part {lab} text", p.get("text", "")),
+                (f"part {lab} mark scheme", " ".join(m.get("for", "") + " " + (m.get("notes") or "") for m in marks)),
+                (f"part {lab} solution", " ".join(s.get("working", "") if isinstance(s, dict) else str(s)
+                                                  for s in p.get("solution") or [])),
+                (f"part {lab} hints", " ".join(p.get("hints") or []))]
+    out.append(("pitfalls", " ".join(pf.get("text", "") for pf in item.get("pitfalls") or [])))
+    return out
 
 
 def _grams(ws: list[str], n: int) -> set[str]:
@@ -140,7 +161,8 @@ def _grams(ws: list[str], n: int) -> set[str]:
 
 
 def _is_maths(tok: str) -> bool:
-    return tok in MATHS_WORDS or len(tok) == 1 or tok[0].isdigit()
+    """Maths tokens: symbols, numbers, function names, units, and derivative pieces like ds, dr, dtheta."""
+    return tok in MATHS_WORDS or len(tok) == 1 or tok[0].isdigit() or bool(re.fullmatch(r"d(theta|[a-z])", tok))
 
 
 def _whitelisted(gram: str, whitelist: list[str]) -> bool:
@@ -191,7 +213,12 @@ class Corpus:
         self.rare = {w for w, c in df.items() if c <= max(3, n // 500) and w.isalpha() and len(w) > 3
                      and w not in MATHS_WORDS}
         self.q_rare = {q: set(ws) & self.rare for q, ws in self.q_words.items()}
-        self.q_nums = {q: {w for w in ws if w[0].isdigit() and w not in COMMON_NUMBERS} for q, ws in self.q_words.items()}
+        # A number is distinctive when it appears in at most 2% of real questions (500 is in 1%, 14 in 2.3%).
+        # A weak, secondary signal: copies are caught by 8-grams (eval/gates_selftest.py, 2026-09-30).
+        num_df = Counter(w for ws in self.q_words.values() for w in set(ws) if w[0].isdigit())
+        self.common_numbers = COMMON_NUMBERS | {w for w, k in num_df.items() if k > max(5, n // 50)}
+        self.q_nums = {q: {w for w in ws if w[0].isdigit() and w not in self.common_numbers}
+                       for q, ws in self.q_words.items()}
         data = np.load(p.embeddings_dir / "embeddings_baai-bge-small-en-v1-5.npz", allow_pickle=False)
         ids = [str(x) for x in data["ids"]]
         keep = [i for i, d in enumerate(ids) if d.split(":", 1)[0] in ("question", "part", "note")]
@@ -214,17 +241,20 @@ def g7_novelty(item: dict) -> dict:
     hits8 = [g for g in _grams(ws, 8) & c.grams8 if not _whitelisted(g, c.whitelist)]
     if hits8:
         reasons.append(f"{len(hits8)} word 8-gram(s) also in the Pearson corpus (not whitelisted)")
-    g5 = _grams(ws, 5)
+    hit_fields = sorted({name for name, t in item_fields(item) if _grams(words(t), 8) & set(hits8)})
+    # 5-gram Jaccard and shared numbers compare like with like: our question text against theirs
+    q_ws = words("\n".join([item.get("stem") or ""] + [p.get("text", "") for p in item.get("parts") or []]))
+    g5 = _grams(q_ws, 5)
     inter = Counter(q for g in g5 for q in c.inv5.get(g, ()))
     jac = {q: n / (len(g5) + len(c.q_grams5[q]) - n) for q, n in inter.items()}
     max_q, max_j = max(jac.items(), key=lambda kv: kv[1], default=(None, 0.0))
     if max_j > 0.15:
         reasons.append(f"5-gram Jaccard {max_j:.2f} with {max_q}")
-    nums = {w for w in ws if w[0].isdigit() and w not in COMMON_NUMBERS}
+    nums = {w for w in q_ws if w[0].isdigit() and w not in c.common_numbers}
     num_q, num_n = max(((q, len(nums & s)) for q, s in c.q_nums.items()), key=lambda kv: kv[1], default=(None, 0))
     if num_n >= 3:
         reasons.append(f"{num_n} distinctive numbers shared with {num_q}")
-    rare = set(ws) & c.rare
+    rare = set(q_ws) & c.rare
     rare_q, rare_n = max(((q, len(rare & s)) for q, s in c.q_rare.items()), key=lambda kv: kv[1], default=(None, 0))
     if rare_n >= 3:
         flags.append(f"{rare_n} rare words shared with {rare_q}")
@@ -232,15 +262,23 @@ def g7_novelty(item: dict) -> dict:
     chunks = [t for t in [item.get("stem") or ""] + [p.get("text", "") for p in item.get("parts") or []]
               + [text] if t.strip()]
     sims = c.vecs @ search.embed([latex_to_plain(t) for t in chunks], search.DEFAULT_MODEL).T
-    best = np.unravel_index(int(np.argmax(sims)), sims.shape)
-    max_cos, cos_id = float(sims[best]), c.vec_ids[best[0]]
-    src_q = cos_id.split(":", 1)[1].split(":")[0]
-    same_shape = c.marks_shape.get(src_q) == [p.get("marks") for p in item.get("parts") or []]
-    if max_cos > 0.97 or (max_cos > 0.85 and same_shape):
-        reasons.append(f"cosine {max_cos:.3f} with {cos_id}" + (" and the same marks per part" if same_shape else ""))
+    per_doc = sims.max(axis=1)
+    best_i = int(np.argmax(per_doc))
+    max_cos, cos_id = float(per_doc[best_i]), c.vec_ids[best_i]
+    shape = [p.get("marks") for p in item.get("parts") or []]
+    # a likely variant: any source above 0.85 with our exact marks per part AND some shared wording (5-gram
+    # Jaccard >= 0.08). Shape and topic alone are commonplace: a from-scratch "find dy/dx, stationary points,
+    # nature" cubic (2/4/2 marks) matches several real questions at 0.9 (eval/gates_selftest.py, 2026-09-30)
+    src = lambda i: c.vec_ids[i].split(":", 1)[1].split(":")[0]
+    same = [c.vec_ids[i] for i in np.flatnonzero(per_doc > 0.85)
+            if c.marks_shape.get(src(i)) == shape and jac.get(src(i), 0) >= 0.08]
+    if max_cos > 0.97:
+        reasons.append(f"cosine {max_cos:.3f} with {cos_id}")
+    elif same:
+        reasons.append(f"cosine > 0.85 with {same[0]}, which has the same marks per part")
     elif max_cos >= 0.75:
         flags.append(f"cosine {max_cos:.3f} with {cos_id}")
-    return {"pass": not reasons, "flag": bool(flags), "reasons": reasons, "flags": flags,
+    return {"pass": not reasons, "flag": bool(flags), "reasons": reasons, "flags": flags, "hit_fields": hit_fields,
             "n_8gram_hits": len(hits8), "max_jaccard": round(max_j, 3), "jaccard_source": max_q,
             "shared_numbers": num_n, "max_cosine": round(max_cos, 3), "cosine_source": cos_id}
 

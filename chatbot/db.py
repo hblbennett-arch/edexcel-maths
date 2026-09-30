@@ -31,6 +31,12 @@ def one(sql: str, params: tuple = ()) -> sqlite3.Row | None:
     return connect().execute(sql, params).fetchone()
 
 
+@lru_cache(maxsize=None)
+def has_table(name: str) -> bool:
+    """A pack may lack a table (clean packs: no Pearson tables; older databases: no pitfalls)."""
+    return one("SELECT 1 FROM sqlite_master WHERE type = 'table' AND name = ?", (name,)) is not None
+
+
 def part_key(question_id: str, label: str | None) -> str:
     """Stable id for a part: "P1_June2022_Q15:b" ("P1_June2022_Q1:" for a single-part question)."""
     return f"{question_id}:{label or ''}"

@@ -16,7 +16,7 @@ them with KaTeX. Message types:
 import re
 from dataclasses import dataclass, field
 
-from . import recommend
+from . import pack, recommend
 from .identify import identify, parse_reference, summary
 from .retrieve import generic_bundle, question_bundle
 from .search import get_index
@@ -85,18 +85,26 @@ class Conversation:
 
     def _question_msg(self, qid: str) -> dict:
         b = question_bundle(qid, with_related=False)
-        return {"type": "question", "question_id": qid, "title": b["summary"].split(":")[0],
-                "link": b["links"]["question_paper_page"],
-                "stem": b["stem"] if b["stem"] and b["parts"][0]["label"] is not None else "",
-                "parts": [p["text"] for p in b["parts"]], "figures": b["figure_pages"]}
+        msg = {"type": "question", "question_id": qid, "title": b["summary"].split(":")[0],
+               "link": b["links"].get("question_paper_page"),
+               "stem": b["stem"] if b["stem"] and b["parts"][0]["label"] is not None else "",
+               "parts": [p["text"] for p in b["parts"]], "figures": b["figure_pages"]}
+        if not b["links"]:  # our own items (commercial pack): no paper to link to
+            del msg["link"]
+        return msg
+
+    def _insight(self, i: dict) -> dict:
+        out = {"quote": i["quote"], "comment": i["comment"],
+               "other": None if i["from_question"] == self.s.question_id else i["from_question"]}
+        if "says_common" in i:  # one of our pitfalls (commercial pack), not an examiner's note
+            out["who"] = "A common mistake on questions like this" if i["says_common"] else "Watch out"
+        return out
 
     def _part_intro(self, part: dict) -> dict:
         self.s.intros_shown.add(part["label"])
         return {"type": "part_intro", "label": part["label"], "marks": part["marks"],
                 "how_to_start": part["how_to_start"],
-                "insights": [{"quote": i["quote"], "comment": i["comment"],
-                              "other": None if i["from_question"] == self.s.question_id else i["from_question"]}
-                             for i in self.s.insights_for(part["label"])]}
+                "insights": [self._insight(i) for i in self.s.insights_for(part["label"])]}
 
     def _step(self, part: dict, step: dict, n: int) -> dict:
         return {"type": "step", "label": part["label"], "n": n, "of": len(part["steps"]), "text": step["text"],
@@ -150,18 +158,20 @@ class Conversation:
         elif self.mode == "dry-run":
             req = explain(question_id=qid, detail=s.detail, dry_run=True).request
             n_img = sum(b["type"] == "image" for b in req["messages"][-1]["content"])
+            notes = "pitfalls" if pack.current().commercial else "examiner notes"
             out.append({"type": "text", "md": f"*[dry run] would call {req['model']} with the mark scheme, skills and "
-                                              f"examiner notes as context ({n_img} figure image(s)).*"})
+                                              f"{notes} as context ({n_img} figure image(s)).*"})
             return out + [self._recommendations(qid, part_label)]
         else:
             result = explain(question_id=qid, detail=s.detail)
         s.reply, s.history, s.part_index, s.steps_shown = result.reply, result.history, 0, {}
         s.verified, s.warnings, s.intros_shown = result.verified, result.warnings, set()
         out.append({"type": "text", "md": s.reply["intro"]})
-        if s.reply["how_students_did"]:
+        if s.reply.get("how_students_did"):  # (no cohort data on a commercial pack)
             out.append({"type": "text", "md": f"📊 {s.reply['how_students_did']}"})
         if not s.verified:
-            out.append({"type": "warning", "md": "Some checks against the official mark scheme didn't pass — treat the working with care."})
+            ms = "our mark scheme" if pack.current().commercial else "the official mark scheme"
+            out.append({"type": "warning", "md": f"Some checks against {ms} didn't pass — treat the working with care."})
         if part_label:
             s.go_to(part_label)
         if s.detail == "tutor":

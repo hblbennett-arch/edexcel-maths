@@ -34,7 +34,10 @@ class Session:
         return [p["label"] for p in self.parts]
 
     def insights_for(self, label: str) -> list[dict]:
-        return [i for i in self.reply["examiner_insights"] if i["part_label"] == label] if self.reply else []
+        if not self.reply:
+            return []
+        cited = self.reply.get("examiner_insights", self.reply.get("pitfalls", []))  # pitfalls: commercial pack
+        return [i for i in cited if i["part_label"] == label]
 
     def next_step(self) -> tuple[dict | None, dict | None]:
         """Reveal the next step of the current part. Returns (part, step), or (next part, None)

@@ -45,14 +45,17 @@ def main() -> None:
         if "bundle" in out:
             b = out["bundle"]
             print(f"   type: {b['question_type']['id']} | topics: {', '.join(b['topics'])}")
-            print(f"   paper: {b['links']['question_paper_page']}")
-            perf = b["performance"]
+            if b["links"]:
+                print(f"   paper: {b['links']['question_paper_page']}")
+            perf = b.get("performance")
             if perf:
                 print(f"   how students did: {perf.get('rating', '')} {perf.get('mean_mark', '')}/{perf.get('max_mark', '')}")
             for p in b["parts"]:
                 print(f"\n   ({p['label'] or '-'}) {p['marks']} marks — skills: {', '.join(s['id'] + ('*' if s['formula_booklet'] else '') for s in p['skills'])}")
-                for n in p["examiner_notes"][:3]:
+                for n in p.get("examiner_notes", [])[:3]:
                     print(f"      examiner [{n['kind']}]: {_plain(n['text'])}")
+                for n in p.get("pitfalls", [])[:3]:
+                    print(f"      pitfall: {_plain(n['text'])}")
                 for n in p["related_pitfalls"][:2]:
                     print(f"      similar-question pitfall ({n['question_id']} {n['part_label']}): {_plain(n['text'], 90)}")
             r = out["recommendations"]
@@ -67,8 +70,9 @@ def main() -> None:
                 print(f"\n   skill: {s['id']}{' *' if s['formula_booklet'] else ''} — {s['description'][:80]}")
                 for e in s["example_parts"]:
                     print(f"      try: {e['question_id']} {e['part_label'] or ''} ({e['marks']} marks, {e['tier']})")
-            for n in g["examiner_notes"][:3]:
-                print(f"   examiner [{n['kind']}] {n['question_id']}: {_plain(n['text'])}")
+            who = "examiner" if "examiner_notes" in g else "our pitfall"
+            for n in g.get("examiner_notes", g.get("pitfalls", []))[:3]:
+                print(f"   {who} [{n['kind']}] {n['question_id']}: {_plain(n['text'])}")
     sys.stdout.flush()
     os._exit(0)  # onnxruntime can abort during interpreter teardown
 

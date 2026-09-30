@@ -4,7 +4,7 @@ Documents (one per row, `kind` in brackets):
   question  — a whole question's plain text (used to recognise pasted questions)
   part      — stem + one part's text + its skill titles (what the part asks and tests)
   skill     — skill title + description + group title
-  note      — an examiner-report quote
+  note      — an examiner-report quote (a commercial pack: one of our own pitfalls)
   qtype     — question-type title + definition
 
 Maths symbols embed poorly, so keyword (BM25) and semantic rankings are merged
@@ -59,7 +59,11 @@ def documents() -> list[tuple[str, str, str]]:
         # ("Determine the nature of a stationary point"), so include it in words.
         docs.append((f"skill:{s['id']}", "skill",
                      f"{s['id'].replace('-', ' ')}: {s['title']}. {s['description']} ({s['gtitle']})"))
-    for n in db.rows("SELECT id, COALESCE(display, quote) AS t FROM examiner_notes"):
+    if pack.current().commercial:  # no examiner notes: our pitfalls (none yet -> no "note" docs)
+        notes = db.rows("SELECT id, text AS t FROM pitfalls") if db.has_table("pitfalls") else []
+    else:
+        notes = db.rows("SELECT id, COALESCE(display, quote) AS t FROM examiner_notes")
+    for n in notes:
         docs.append((f"note:{n['id']}", "note", latex_to_plain(n["t"])))
     for t in db.rows("SELECT id, title, definition FROM question_types"):
         docs.append((f"qtype:{t['id']}", "qtype", f"{t['id'].replace('-', ' ')}: {t['title']}. {t['definition'] or ''}"))
@@ -114,7 +118,7 @@ class Index:
     def _bm25_for(self, kind: str) -> tuple[BM25Okapi, list[int]]:
         if kind not in self._bm25:
             rows = [i for i, k in enumerate(self.kinds) if k == kind]
-            self._bm25[kind] = (BM25Okapi([tokens(self.texts[i]) or ["_"] for i in rows]), rows)
+            self._bm25[kind] = (BM25Okapi([tokens(self.texts[i]) or ["_"] for i in rows]) if rows else None, rows)
         return self._bm25[kind]
 
     def bm25_scores(self, query: str, kind: str) -> tuple[list[str], "np.ndarray"]:
@@ -131,6 +135,8 @@ class Index:
         """Top-k docs of one kind. mode: 'hybrid', 'semantic' or 'bm25' (default: best per kind)."""
         mode = mode or DEFAULT_MODE.get(kind, "hybrid")
         bm25, rows = self._bm25_for(kind)
+        if not rows:  # e.g. a pack with no pitfalls yet has no "note" docs
+            return []
         sem = self.vecs[rows] @ embed_query(query, self.model)
         sem_rank = np.argsort(-sem)
         kw = bm25.get_scores(tokens(query) or ["_"])

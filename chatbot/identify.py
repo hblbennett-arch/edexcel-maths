@@ -249,6 +249,8 @@ def summary(question_id: str) -> str:
     q = db.one("SELECT paper, paper_id, qualification, sitting, q_num, total_marks, question_text FROM questions WHERE id = ?",
                (question_id,))
     first = latex_to_plain(q["question_text"]).split(". ")[0][:110]
+    if q["qualification"] == "original":                  # our own item (commercial pack): no paper or sitting
+        return f"Question {q['q_num']} ({q['total_marks']} marks): {first}…"
     if q["qualification"] != "9MA0":                      # legacy / IAL: always say which qualification
         return f"{paper_label(q['paper_id'])} Q{q['q_num']} ({q['total_marks']} marks): {first}…"
     sitting = re.sub(r"(\D+)(\d+)", r"\1 \2", q["sitting"]).replace("Oct", "October")

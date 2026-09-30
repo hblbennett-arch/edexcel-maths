@@ -9,19 +9,30 @@
    "stem": "The curve $C$ has equation $y = 2x^3 - 15x^2 + 36x - 20$.",
    "parts": [
     {"label": "a", "marks": 2, "text": "Find $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$. (2)", "command": "find",
-     "skills": ["differentiate-polynomials"],
+     "skills": ["differentiate-polynomials"], "forms": [],
+     "answers": [{"name": "dydx", "expr": "6x^2 - 30x + 36", "form": "exact"}],
+     "checks": [{"type": "derivative", "f": "2x^3 - 15x^2 + 36x - 20", "var": "x", "answer": "dydx"}],
      "mark_scheme": [
       {"code": "M1", "for": "Reduces at least one power by one, e.g. $x^3 \\to x^2$"},
       {"code": "A1", "for": "$6x^2 - 30x + 36$ (any equivalent form)"}]},
     {"label": "b", "marks": 4, "text": "Hence find the coordinates of the two stationary points of $C$. (4)", "command": "hence",
-     "skills": ["set-derivative-zero-and-solve", "use-hence-previous-result"],
+     "skills": ["set-derivative-zero-and-solve", "use-hence-previous-result"], "forms": [],
+     "answers": [{"name": "x1", "expr": "2", "form": "exact"}, {"name": "y1", "expr": "8", "form": "exact"},
+                 {"name": "x2", "expr": "3", "form": "exact"}, {"name": "y2", "expr": "7", "form": "exact"}],
+     "checks": [{"type": "solutions", "equation": "6x^2 - 30x + 36 = 0", "var": "x", "result": ["2", "3"]},
+                {"type": "substitute", "expr": "2x^3 - 15x^2 + 36x - 20", "at": {"x": "2"}, "answer": "y1"},
+                {"type": "substitute", "expr": "2x^3 - 15x^2 + 36x - 20", "at": {"x": "3"}, "answer": "y2"}],
      "mark_scheme": [
       {"code": "M1", "for": "Sets their derivative equal to zero and solves a three-term quadratic", "depends_on": "a"},
       {"code": "A1", "for": "$x = 2$ and $x = 3$"},
       {"code": "dM1", "for": "Substitutes at least one of their $x$ values into the equation of $C$"},
       {"code": "A1", "for": "$(2, 8)$ and $(3, 7)$"}]},
     {"label": "c", "marks": 2, "text": "Use the second derivative to decide whether each stationary point is a maximum or a minimum. (2)", "command": "use",
-     "skills": ["second-derivative-test"],
+     "skills": ["second-derivative-test"], "forms": [],
+     "answers": [{"name": "d2y_at_2", "expr": "-6", "form": "exact"}, {"name": "d2y_at_3", "expr": "6", "form": "exact"}],
+     "checks": [{"type": "derivative", "f": "2x^3 - 15x^2 + 36x - 20", "var": "x", "order": 2, "result": "12x - 30"},
+                {"type": "substitute", "expr": "12x - 30", "at": {"x": "2"}, "answer": "d2y_at_2"},
+                {"type": "substitute", "expr": "12x - 30", "at": {"x": "3"}, "answer": "d2y_at_3"}],
      "mark_scheme": [
       {"code": "M1", "for": "Finds $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} = 12x - 30$ and substitutes one of their $x$ values"},
       {"code": "A1ft", "for": "$-6 < 0$ so $(2, 8)$ is a maximum; $6 > 0$ so $(3, 7)$ is a minimum", "ft_of": "b"}]}
@@ -40,10 +51,15 @@
    "stem": "A bakery says that $30\\%$ of its loyalty-card holders buy a cake on every visit. The new manager suspects the true proportion is lower. She picks $25$ card holders at random and finds that $3$ of them bought a cake on every visit last month.",
    "parts": [
     {"label": "a", "marks": 1, "text": "Write down hypotheses for a test of the manager's suspicion. (1)", "command": "write-down",
-     "skills": ["state-hypotheses-binomial-test"],
+     "skills": ["state-hypotheses-binomial-test"], "forms": [],
+     "answers": [{"name": "p0", "expr": "0.3", "exact": "3/10"}],
      "mark_scheme": [{"code": "B1", "for": "$\\mathrm{H}_0: p = 0.3$, $\\mathrm{H}_1: p < 0.3$"}]},
     {"label": "b", "marks": 3, "text": "Test, at the $5\\%$ significance level, whether the manager is right. State your conclusion in context. (3)", "command": "test",
-     "skills": ["binomial-test-probability", "conclude-test-in-context"],
+     "skills": ["binomial-test-probability", "conclude-test-in-context"], "forms": [],
+     "answers": [{"name": "p_value", "expr": "0.0332", "form": "sf-3"}],
+     "checks": [{"type": "binomial_cdf", "n": 25, "p": "0.3", "k": 3, "tail": "le", "answer": "p_value"},
+                {"type": "binomial_cdf", "n": 25, "p": "0.3", "k": 4, "tail": "le", "result": "0.0905", "form": "sf-3"},
+                {"type": "numeric", "expr": "25 * 0.3", "result": "7.5"}],
      "mark_scheme": [
       {"code": "M1", "for": "Uses $X \\sim \\mathrm{B}(25, 0.3)$ and attempts $\\mathrm{P}(X \\leqslant 3)$"},
       {"code": "A1", "for": "$0.0332$ (awrt), or a critical region $X \\leqslant 3$"},
@@ -59,7 +75,11 @@
    "stem": "A box $A$ of mass $3\\,\\mathrm{kg}$ lies on a rough horizontal shelf. It is tied to a light inextensible cord that runs over a small smooth pulley at the edge of the shelf to a weight $B$ of mass $2\\,\\mathrm{kg}$, which hangs clear of the floor. The coefficient of friction between $A$ and the shelf is $0.25$. The boxes are let go from rest with the cord taut.",
    "parts": [
     {"label": "a", "marks": 5, "text": "Find the acceleration of $B$. (5)", "command": "find",
-     "skills": ["connected-particles-equations", "friction-f-equals-mu-r", "newtons-second-law-equation"],
+     "skills": ["connected-particles-equations", "friction-f-equals-mu-r", "newtons-second-law-equation"], "forms": [],
+     "answers": [{"name": "a", "expr": "2.45", "form": "sf-3", "exact": "0.25 * 9.8"}],
+     "checks": [{"type": "system", "equations": ["T - 0.25 * 3 * 9.8 = 3a", "2 * 9.8 - T = 2a"], "vars": ["a", "T"],
+                 "result": {"a": "2.45", "T": "14.7"}},
+                {"type": "numeric", "expr": "(2 * 9.8 - 0.25 * 3 * 9.8) / 5", "answer": "a"}],
      "mark_scheme": [
       {"code": "B1", "for": "Normal reaction on $A$ is $3g$"},
       {"code": "M1", "for": "Uses friction $= 0.25 \\times$ their reaction"},
@@ -67,7 +87,10 @@
       {"code": "M1", "for": "Equation of motion for $B$ (or the whole system): $2g - T = 2a$"},
       {"code": "A1", "for": "$a = 2.45\\,\\mathrm{m\\,s^{-2}}$ (or $0.25g$)"}]},
     {"label": "b", "marks": 2, "text": "Find the tension in the cord. (2)", "command": "find",
-     "skills": ["connected-particles-equations"],
+     "skills": ["connected-particles-equations"], "forms": [],
+     "answers": [{"name": "T", "expr": "14.7", "form": "sf-3", "exact": "1.5 * 9.8", "check": "2 * 9.8 - T = 2 * 2.45"}],
+     "checks": [{"type": "substitute", "expr": "2 * 9.8 - 2a", "at": {"a": "2.45"}, "answer": "T"},
+                {"type": "substitute", "expr": "3a + 0.25 * 3 * 9.8", "at": {"a": "0.25 * 9.8"}, "result": "14.7", "form": "sf-3"}],
      "mark_scheme": [
       {"code": "M1", "for": "Substitutes their $a$ into an equation of motion"},
       {"code": "A1", "for": "$T = 14.7\\,\\mathrm{N}$"}]}

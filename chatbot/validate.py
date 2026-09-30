@@ -9,13 +9,16 @@
 - Final answers: evaluate `final_answer_sympy` and check it matches a number in the part's
   mark scheme (to the precision the mark scheme gives).
 - Structure: every part of the question is present.
+On a commercial pack the reply has `pitfalls` (pitfall_id) instead of examiner insights: each must be
+a row of our pitfalls table (and among those the model was given); its text is attached the same way.
+The mark checks are the same, against our own mark scheme.
 Problems are returned as warnings; the caller decides whether to retry or flag "unverified".
 """
 import re
 
 import sympy
 
-from . import db
+from . import db, pack
 
 MARK_CODE_RE = re.compile(r"\b(dd?M\d|M\d|A\d\*?|B\d\*?)(?:ft|cso|cao)?\b")
 
@@ -105,11 +108,13 @@ def normalise_label(label: str | None) -> str:
 
 
 def validate(reply: dict, question_id: str | None, allowed_note_ids: set[str]) -> tuple[dict, list[str]]:
-    """Return (cleaned reply, warnings). The reply's insights gain a verbatim `quote`."""
+    """Return (cleaned reply, warnings). The reply's insights gain a verbatim `quote`
+    (commercial pack: its pitfalls gain our note's text as `quote`)."""
     warnings: list[str] = []
+    clean = pack.current().commercial
     for part in reply["parts"]:  # tidy "(a)", "Part a", "a " -> "a" (the schema enum should prevent these)
         part["label"] = normalise_label(part["label"])
-    for ins in reply["examiner_insights"]:
+    for ins in reply["pitfalls" if clean else "examiner_insights"]:
         ins["part_label"] = normalise_label(ins["part_label"])
     parts_db = {}
     if question_id:
@@ -140,6 +145,8 @@ def validate(reply: dict, question_id: str | None, allowed_note_ids: set[str]) -
         if w:
             warnings.append(f"part {part['label']}: {w}")
 
+    if clean:
+        return dict(reply, pitfalls=_check_pitfalls(reply["pitfalls"], allowed_note_ids, warnings)), warnings
     kept = []
     for ins in reply["examiner_insights"]:
         row = db.one("SELECT quote, display, kind, question_id, part_label FROM examiner_notes WHERE id = ?",
@@ -151,3 +158,18 @@ def validate(reply: dict, question_id: str | None, allowed_note_ids: set[str]) -
                          from_question=row["question_id"]))
     reply = dict(reply, examiner_insights=kept)
     return reply, warnings
+
+
+def _check_pitfalls(cited: list[dict], allowed_ids: set[str], warnings: list[str]) -> list[dict]:
+    """Keep the pitfalls the reply cites that are rows of our pitfalls table (and were given to the
+    model), each with our own text attached; warn about the rest."""
+    kept = []
+    for ins in cited:
+        row = db.one("SELECT text, says_common, question_id FROM pitfalls WHERE id = ?",
+                     (ins["pitfall_id"],)) if db.has_table("pitfalls") else None
+        if row is None or (allowed_ids and ins["pitfall_id"] not in allowed_ids):
+            warnings.append(f"dropped pitfall with unknown pitfall_id {ins['pitfall_id']}")
+            continue
+        kept.append(dict(ins, quote=row["text"], kind="pitfall", says_common=bool(row["says_common"]),
+                         from_question=row["question_id"]))
+    return kept

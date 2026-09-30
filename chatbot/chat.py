@@ -40,7 +40,7 @@ def render(msg: dict) -> None:
     elif t == "confirm":
         say(f"{_plain(msg['md'])} [y/n]")
     elif t == "question":
-        say(f"\n══ {msg['title']} ══   (paper: {msg['link']})")
+        say(f"\n══ {msg['title']} ══" + (f"   (paper: {msg['link']})" if "link" in msg else ""))
         if msg["stem"]:
             say(msg["stem"])
         for p in msg["parts"]:
@@ -53,7 +53,7 @@ def render(msg: dict) -> None:
         say(f"💡 How to start: {msg['how_to_start']}")
         for ins in msg["insights"]:
             where = f" (on a similar question, {ins['other']})" if ins["other"] else ""
-            say(f"⚠️  Examiners{where}: \"{ins['quote']}\"\n    → {ins['comment']}")
+            say(f"⚠️  {ins.get('who', 'Examiners')}{where}: \"{ins['quote']}\"\n    → {ins['comment']}")
     elif t == "step":
         marks = f"  [{', '.join(msg['marks'])}]" if msg["marks"] else ""
         say(f"  Step {msg['n']}: {msg['text']}{marks}")

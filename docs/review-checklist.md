@@ -283,6 +283,22 @@ What was built and how to run it: `docs/clean-room-pipeline.md`.
 - [ ] **Mark-code sequences:** 7,030 of 7,055 parts give a sequence that adds up exactly to the part's marks and has a sensible M-before-A order. 17 add up but look irregular; 8 couldn't be resolved. Nothing to do unless you want those 25 checked.
 - [ ] **Reminder: the repo is still public** (§27, first item). Nothing from this branch has been pushed.
 - [ ] **Check the new bank targets** (handoff §5.3, set 2026-09-30 from your request). They mirror current 9MA0 papers: 18% of real questions are short one-topic, 15% longer one-topic, 29% combine two topics, 38% three or more. The plan is ~600 exam-style questions in that mix (pure ~420, stats ~90, mech ~90), 6 fresh mock papers, and ~490 short skill drills (2 per skill). Say if you want more or fewer drills, or a heavier tilt towards multi-topic questions than the real papers have.
+- [ ] **Decide on stock question-setting phrases (important, legal).** In the first pilot round, 8 of 11 generated questions failed the copy check (G7) only because they used the exam board's standard phrasing for a configuration, e.g. "the finite region R is bounded by the curve C and the line l", "the tangent to C at P meets the x-axis at the point Q", "use algebraic integration to find the exact area of R". I've added 19 such generic phrases to `content/novelty_whitelist.json` (listed after "the finite region r is bounded by"). They describe mathematics in the usual way, and every board and textbook uses similar wording. Please confirm, remove any you think are too distinctive, and put it to the solicitor (added to `commercial-relaunch-plan.md` §9, question 7).
+- [ ] **The generator was reproducing mark-scheme idioms** from memory ("x^n → x^(n−1) for at least one term", "subtracts the right way round"). The copy check caught them. The generator's instructions now say to write every mark description in its own words; when retrying, it's told which fields overlapped, never the matched text. Look out for this when reviewing.
+- [ ] **Gate rules I changed after measuring them** (details in `docs/clean-room-pipeline.md`, Lessons):
+  - **Blind solve (G3):** only "blocker" problems fail; "minor" ones are review flags. A value the solver found that we don't have, such as a possibly missing root, is also a flag.
+  - **Tags (G6):** only a different topic fails; the same topic with different skills is a flag.
+  - **Copy check (G7):** similarity alone flags; it rejects only when the item also has a real question's marks per part and shares wording with it (5-gram overlap ≥ 0.08). This change came after the shape rule rejected my from-scratch stationary-points question.
+  - **Copy check (G7):** a number counts as "distinctive" only if it appears in ≤ 2% of real questions.
+
+  All 40 copies and 40 number-changed variants are still rejected.
+- [ ] **When can a pitfall say "common"?** Only when its error code has ≥ 10 matched examiner-report notes for the skill (`FREQUENT_NOTES`). Set this after you've marked the match samples (item 2 above).
+- [ ] **Style check (G8), small question types:** for the 6 question types with fewer than 5 real questions, marks outside the observed range only give a warning, since the range from so few questions isn't reliable.
+- [ ] **Review screen ready:** `.venv/bin/python scripts/clean/review_server.py` opens http://127.0.0.1:8766.
+  - Items are queued by risk (copy-check flags first).
+  - Keys: `a` accept, `r` reject (with a reason), `e` edit.
+  - An edited item must pass the gates again: `.venv/bin/python scripts/clean/generate.py --regate`.
+  - Please review the pilot items there. Your accept/reject decisions and minutes per item set the pace for scaling up.
 
 ## 13. Practice lookup (fixed 2026-09-26, from your testing)
 - [x] **"Give me a question on X" ignored the skill tags.** It matched question wording only, so "2nd derivative test" opened a question without one, and "normal-distribution hypothesis testing" gave a binomial test. It now uses the tags: only questions **tagged** with the requested skill are suggested, opened at that part. It understands "not a binomial" and "stats/mechanics" hints, never re-suggests a question you've already opened, and lists current 9MA0 questions first. Checked by `eval/practice_eval.py`: **226 skills, 100% of suggestions tagged with the requested skill** (1085/1089), plus your two conversations as regression tests.

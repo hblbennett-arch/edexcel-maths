@@ -6,7 +6,7 @@
 Inputs (all original work, nothing Pearson-written):
     content/clean/tags.json          skill / question-type vocabulary (our taxonomy)
     content/clean/items/*.json       reviewed, generated items (format: docs/clean-room-pipeline.md)
-Only items whose review decision is accept/edit are loaded. The build fails if the licence gate
+Only items whose review decision is accept/edit, and that don't need re-gating after an edit, are loaded. The build fails if the licence gate
 (scripts/clean/check_provenance.py) finds any problem.
 """
 import json
@@ -81,7 +81,9 @@ def main() -> int:
     n = skipped = 0
     for path in sorted((p.dir / "items").glob("*.json")):
         item = json.loads(path.read_text())
-        if (item.get("review") or {}).get("decision") not in ("accept", "edit"):
+        review = item.get("review") or {}
+        # an item edited in the review UI must go through the gates again before it can ship
+        if review.get("decision") not in ("accept", "edit") or review.get("regate_needed"):
             skipped += 1
             continue
         load_item(conn, item, type_ids, skill_ids)

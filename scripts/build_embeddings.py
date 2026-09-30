@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Embed every searchable document (see chatbot/search.py) with a local model.
 
-Writes data/processed/embeddings_<model>.npz (gitignored). Rerun after
-scripts/build_db.py whenever questions, tags or examiner notes change —
-chatbot.search refuses to load a stale file.
+Writes <pack embeddings_dir>/embeddings_<model>.npz (gitignored; pearson-private: data/processed/,
+CONTENT_PACK=clean: content/clean/). Rerun after scripts/build_db.py (or build_pack.py) whenever
+questions, tags, examiner notes or pitfalls change — chatbot.search refuses to load a stale file.
 
     .venv/bin/python scripts/build_embeddings.py                              # default model
     .venv/bin/python scripts/build_embeddings.py --model BAAI/bge-base-en-v1.5

@@ -4,6 +4,8 @@ explain(question_id=...)          one structured call for a question in the know
 explain(text=..., new=True)       a question we don't have (no official mark scheme)
 follow_up(session, message)       a free-text follow-up in the same conversation
 Pass dry_run=True to get the exact request instead of calling the API (no key needed).
+On a commercial pack (pack.current().commercial) the CLEAN_* prompts are used, and the context
+carries our mark scheme and our pitfalls instead of examiner notes and cohort performance.
 
 Cost design: one model call per question. The chat reveals the steps one at a time
 from that single reply, and recommendations come from chatbot.recommend (no model call).
@@ -14,7 +16,8 @@ import time
 from dataclasses import dataclass, field
 
 from . import config, db, pack
-from .prompts import FOLLOW_UP_SYSTEM_SUFFIX, SYSTEM_PROMPT, TUTOR_SCHEMA, schema_for
+from .prompts import (CLEAN_FOLLOW_UP_SYSTEM_SUFFIX, CLEAN_SYSTEM_PROMPT, FOLLOW_UP_SYSTEM_SUFFIX, SYSTEM_PROMPT,
+                      TUTOR_SCHEMA, schema_for)
 from .retrieve import figure_images, generic_bundle, question_bundle
 from .validate import validate
 
@@ -39,8 +42,16 @@ def _fmt_note(n: dict, prefix: str = "") -> str:
     return f"  - [{n['id']}] ({n['kind']}{prefix}) {n['text']}"
 
 
+def _fmt_pitfall(n: dict, where: str = "") -> str:
+    """One of our pitfalls; "common" only when its row says so (says_common), else "watch out"."""
+    step = f", step {n['step']}" if n.get("step") else ""
+    return f"  - [{n['id']}] ({'common' if n['says_common'] else 'watch out'}{step}{where}) {n['text']}"
+
+
 def build_context(bundle: dict, detail: str) -> str:
     """Question-specific material for the user message. Deterministic (same input, same text)."""
+    if pack.current().commercial:
+        return build_clean_context(bundle, detail)
     L = [f"Detail level: {detail}", "", f"# Question {bundle['summary'].split(':')[0]}"]
     if bundle["question_type"]:
         L.append(f"Question type: {bundle['question_type']['title']}")
@@ -70,8 +81,43 @@ def build_context(bundle: dict, detail: str) -> str:
     return "\n".join(L)
 
 
+def build_clean_context(bundle: dict, detail: str) -> str:
+    """build_context() for a commercial pack: our mark scheme and our common-mistakes notes."""
+    L = [f"Detail level: {detail}", "", f"# {bundle['summary'].split(':')[0]}"]  # summary: "Question <id> (n marks)"
+    if bundle["question_type"]:
+        L.append(f"Question type: {bundle['question_type']['title']}")
+    if bundle["stem"] and bundle["parts"][0]["label"] is not None:
+        L += ["", "## Stem", bundle["stem"]]
+    if bundle["general_pitfalls"]:
+        L += ["", "Our common-mistakes notes on the whole question:"] + [_fmt_pitfall(n) for n in bundle["general_pitfalls"]]
+    for p in bundle["parts"]:
+        label = p["label"] or "-"
+        L += ["", f"## Part {label} ({p['marks']} marks)", p["text"], "", "Our mark scheme:", p["mark_scheme"],
+              "", "Skills: " + "; ".join(f"{s['title']} (booklet: {'yes' if s['formula_booklet'] else 'no'})"
+                                         for s in p["skills"])]
+        if p["pitfalls"]:
+            L.append("Our common-mistakes notes on this part:")
+            L += [_fmt_pitfall(n) for n in p["pitfalls"]]
+        if p["related_pitfalls"]:
+            L.append("Our common-mistakes notes on similar parts of OTHER questions:")
+            L += [_fmt_pitfall(n, f", {n['question_id']} {n['part_label'] or ''}".rstrip()) for n in p["related_pitfalls"]]
+    if bundle["has_figure"]:
+        L += ["", "The question has a diagram, which is not attached: rely only on what the text states."]
+    L += ["", "Explain this question following your instructions."]
+    return "\n".join(L)
+
+
 def build_new_question_context(text: str, detail: str) -> tuple[str, set[str]]:
     g = generic_bundle(text)
+    if pack.current().commercial:
+        L = [f"Detail level: {detail}", "", "# A question the student has brought: it is NOT in our question bank",
+             "We have no mark scheme for it: label marks as 'likely ...' and say in intro that the marks are your "
+             "estimate, not an exam board's mark scheme.", "", "## The question", text, "", "## Skills it most likely tests"]
+        L += [f"- {s['title']} (booklet: {'yes' if s['formula_booklet'] else 'no'}): {s['description']}" for s in g["skills"]]
+        L += ["", "## Our common-mistakes notes on similar questions (cite only these, by pitfall_id)"]
+        L += [_fmt_pitfall(n, f", {n['question_id']} {n.get('part_label') or ''}".rstrip()) for n in g["pitfalls"]]
+        L += ["", "Split your explanation into the question's parts (label '-' if it has none)."]
+        return "\n".join(L), {n["id"] for n in g["pitfalls"]}
     L = [f"Detail level: {detail}", "", "# A question that is NOT in our past-paper database",
          "There is no official mark scheme for it: label marks as 'likely ...' and say the allocation is your estimate.",
          "", "## The question", text, "", "## Skills it most likely tests"]
@@ -84,9 +130,11 @@ def build_new_question_context(text: str, detail: str) -> tuple[str, set[str]]:
 
 
 def _allowed_notes(bundle: dict) -> set[str]:
-    ids = {n["id"] for n in bundle["general_examiner_notes"]}
+    general, own = (("general_pitfalls", "pitfalls") if pack.current().commercial
+                    else ("general_examiner_notes", "examiner_notes"))
+    ids = {n["id"] for n in bundle[general]}
     for p in bundle["parts"]:
-        ids |= {n["id"] for n in p["examiner_notes"]} | {n["id"] for n in p["related_pitfalls"]}
+        ids |= {n["id"] for n in p[own]} | {n["id"] for n in p["related_pitfalls"]}
     return ids
 
 
@@ -100,9 +148,10 @@ def _images(question_id: str) -> list[dict]:
 
 
 def _system(follow_up: bool = False) -> list[dict]:
-    blocks = [{"type": "text", "text": SYSTEM_PROMPT, "cache_control": {"type": "ephemeral"}}]
+    clean = pack.current().commercial
+    blocks = [{"type": "text", "text": CLEAN_SYSTEM_PROMPT if clean else SYSTEM_PROMPT, "cache_control": {"type": "ephemeral"}}]
     if follow_up:
-        blocks.append({"type": "text", "text": FOLLOW_UP_SYSTEM_SUFFIX})
+        blocks.append({"type": "text", "text": CLEAN_FOLLOW_UP_SYSTEM_SUFFIX if clean else FOLLOW_UP_SYSTEM_SUFFIX})
     return blocks
 
 
@@ -237,7 +286,7 @@ def explain(question_id: str | None = None, text: str | None = None, detail: str
         context, allowed = build_new_question_context(text, detail)
         content = [{"type": "text", "text": context}]
     labels = [p["label"] or "-" for p in bundle["parts"]] if bundle else None
-    schema = schema_for(labels)
+    schema = schema_for(labels, clean=pack.current().commercial)
     req = build_request(content, schema=schema)
     if dry_run:
         return TutorResult(None, request=req, bundle=bundle)
@@ -247,7 +296,8 @@ def explain(question_id: str | None = None, text: str | None = None, detail: str
     reply, warnings = validate(reply, question_id, allowed)
     serious = [w for w in warnings if any(k in w for k in RETRY_ON)]
     if serious:  # one targeted retry, in the same conversation
-        fix = [{"type": "text", "text": "Your answer failed these checks against the official mark scheme:\n- "
+        ms = "our mark scheme" if pack.current().commercial else "the official mark scheme"
+        fix = [{"type": "text", "text": f"Your answer failed these checks against {ms}:\n- "
                 + "\n- ".join(serious) + "\nFix them and return the full answer again in the same format."}]
         retry = build_request(fix, messages_before=req["messages"] + [{"role": "assistant", "content": assistant_content}],
                               schema=schema)
@@ -303,9 +353,11 @@ def follow_up(history: list[dict], message: str, dry_run: bool = False,
 
 def offline_reply(bundle: dict) -> dict:
     """A reply built only from the knowledge base (no model): the official mark scheme split
-    into its marks as the steps, and the first examiner pitfall per part as insights. Used by
+    into its marks as the steps, and the first examiner pitfall per part as insights (a commercial
+    pack: our mark scheme and our first pitfall per part). Used by
     `python -m chatbot.chat --offline` to test the whole chat flow without an API key."""
     import re
+    clean = pack.current().commercial
     parts, insights = [], []
     for p in bundle["parts"]:
         label = p["label"] or "-"
@@ -313,13 +365,20 @@ def offline_reply(bundle: dict) -> dict:
         pieces = [re.sub(r"\s*\[editor:[^\]]*\]", "", x) for x in pieces if not re.fullmatch(r"\([a-z()iv]+\)", x)]
         steps = [{"text": piece, "marks_awarded": [m.group(0).rstrip(":") for m in
                   re.finditer(r"\b(?:dd?M\d|M\d|A\d\*?|B\d\*?)(?:ft|cso|cao)?(?=:)", piece)]} for piece in pieces]
+        if clean:  # our mark scheme is one "<code> <what earns it>" line per mark (scripts/clean/build_pack.py)
+            steps = [{"text": line, "marks_awarded": [line.split()[0]]} for line in p["mark_scheme"].splitlines()
+                     if line.strip()]
         skills = ", ".join(s["title"].lower() for s in p["skills"][:3])
         parts.append({"label": label, "marks": p["marks"],
                       "how_to_start": f"(offline preview) This part tests: {skills}.",
                       "steps": steps, "final_answer": "", "final_answer_sympy": ""})
-        note = next((n for n in p["examiner_notes"] if n["kind"] == "pitfall"), None)
+        note = next((n for n in p["pitfalls" if clean else "examiner_notes"] if n["kind"] == "pitfall"), None)
         if note:
-            insights.append({"note_id": note["id"], "part_label": label, "comment": "(offline preview)"})
+            insights.append({"pitfall_id" if clean else "note_id": note["id"], "part_label": label,
+                             "comment": "(offline preview)"})
+    if clean:
+        return {"intro": f"Offline preview of {bundle['summary']} — our mark scheme shown step by step.",
+                "parts": parts, "pitfalls": insights, "follow_up": "Which part did you find hardest?"}
     perf = bundle["performance"]
     return {"intro": f"Offline preview of {bundle['summary']} — official mark scheme shown step by step.",
             "parts": parts, "examiner_insights": insights,
@@ -340,6 +399,12 @@ def explain_topic(text: str, dry_run: bool = False) -> tuple[str, list[dict]]:
     ctx = ["A student asks a general question (not a specific exam question).", "", f"Question: {text}", "",
            "## Relevant skills"]
     ctx += [f"- {s['title']} (booklet: {'yes' if s['formula_booklet'] else 'no'}): {s['description']}" for s in g["skills"]]
+    if pack.current().commercial:
+        ctx += ["", "## Our common-mistakes notes on related questions (use only these, citing the pitfall id)"]
+        ctx += [_fmt_pitfall(n, f", {n['question_id']}") for n in g["pitfalls"]]
+        ctx += ["", "Explain the method with a short worked example in the style of our mark schemes, then list the "
+                    "mistakes to watch out for (call one common only if its note is marked common)."]
+        return follow_up([], "\n".join(ctx), dry_run=dry_run)
     ctx += ["", "## Examiner notes on related past questions (quote only these, citing the note id)"]
     ctx += [_fmt_note(n, f", {n['question_id']}") for n in g["examiner_notes"]]
     ctx += ["", "Explain the method with a short worked example in the mark-scheme style, then list common mistakes."]

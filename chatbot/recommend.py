@@ -42,7 +42,8 @@ def _catalogue():
     n = len(parts)
     weight = {s: math.log(1 + n / c) * (EXAM_TECHNIQUE_WEIGHT if groups[s] == db.EXAM_TECHNIQUE_GROUP else 1.0)
               for s, c in df.items()}
-    perf = {(r["question_id"], r["part_label"]): r for r in db.rows("SELECT * FROM question_performance")}
+    perf = ({(r["question_id"], r["part_label"]): r for r in db.rows("SELECT * FROM question_performance")}
+            if db.has_table("question_performance") else {})  # clean packs have no performance data
     for key, p in parts.items():
         row = perf.get((p["question_id"], p["label"])) or perf.get((p["question_id"], None))
         d = p["marks"] * 0.6 + 0.5 * sum(1 for s in p["skills"] if groups[s] != db.EXAM_TECHNIQUE_GROUP)
@@ -99,7 +100,7 @@ def narrow(question_id: str, limit: int = 5) -> list[dict]:
                    "JOIN questions q ON q.id = t.question_id "
                    "WHERE t.tag_type = 'question_type' AND t.tag_value = ? AND t.question_id != ?",
                    (qtype["tag_value"], question_id))
-    year = lambda s: int("".join(ch for ch in s if ch.isdigit()))
+    year = lambda s: int("".join(ch for ch in s if ch.isdigit()) or 0)  # (our own items: no sitting year)
     rows = sorted(rows, key=lambda r: (r["status"] != "current", -year(r["sitting"])))   # 9MA0 first, newest first
     return [{"question_id": r["question_id"], "part_label": None, "marks": r["total_marks"],
              "summary": summary(r["question_id"]), "reason": f"same question type ({qtype['tag_value']})",
@@ -117,10 +118,22 @@ def broad(question_id: str, part_label: str | None = None, per_skill: int = 3) -
     return [{"skill": s, "parts": parts_with_skill(s, exclude_question=question_id, limit=per_skill)} for s in skills]
 
 
+def _target(question_id: str, part_label: str | None) -> dict:
+    """The part's catalogue entry; with no part chosen on a multi-part question, the whole question
+    (all its parts' skills, as broad() uses)."""
+    parts, _, _ = _catalogue()
+    key = db.part_key(question_id, part_label)
+    if key in parts:
+        return parts[key]
+    mine = [p for p in parts.values() if p["question_id"] == question_id]
+    return {"skills": set().union(*(p["skills"] for p in mine)),
+            "core_skills": set().union(*(p["core_skills"] for p in mine))}
+
+
 def similar_parts(question_id: str, part_label: str | None, limit: int = 5) -> list[dict]:
     """Parts elsewhere that share the most (weighted) skills with this part."""
     parts, weight, _ = _catalogue()
-    target = parts[db.part_key(question_id, part_label)]["skills"]
+    target = _target(question_id, part_label)["skills"]
     scored = []
     for key, p in parts.items():
         if p["question_id"] == question_id:
@@ -138,7 +151,7 @@ def ladder(question_id: str, part_label: str | None) -> list[dict]:
     """Build-up path for one part: a starter for each of its two most specific skills,
     a core part combining them, then a full question of the same type."""
     parts, weight, _ = _catalogue()
-    target = parts[db.part_key(question_id, part_label)]
+    target = _target(question_id, part_label)
     main = sorted(target["core_skills"], key=lambda s: -weight[s])[:2]
     steps, used = [], set()
     for s in main:
@@ -508,7 +521,7 @@ def find_practice(text: str, exclude_questions: set[str] = frozenset(), k: int =
     qinfo = {r["id"]: r for r in db.rows("SELECT id, component, status, qualification, sitting FROM questions")}
     qtypes = {r["question_id"]: r["tag_value"] for r in db.rows(
         "SELECT question_id, tag_value FROM question_tags WHERE tag_type = 'question_type'")}
-    year = lambda q: int(_re.search(r"\d{4}", qinfo[q]["sitting"]).group())
+    year = lambda q: int((_re.search(r"\d{4}", qinfo[q]["sitting"]) or [0])[0])  # 0: our own items have no year
     ym = _YEAR.search(text)
     want_year = int(ym.group(1) or ym.group(2)) if ym else None
     want_quals = next((q for rx, q in _QUAL_WORDS if rx.search(text)), None)

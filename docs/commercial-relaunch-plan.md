@@ -146,6 +146,7 @@ Size and cost (estimates):
 4. The past-paper map: any risk from Pearson's database right or its terms of use?
 5. Wording for the trade mark reference and the "not affiliated" disclaimer.
 6. Cleaning up the public repo: anything more needed beyond making it private and purging history?
+7. Our questions reuse the board's generic phrasing for mathematical set-ups (e.g. "the finite region R is bounded by the curve C and the line l"), but no whole questions, scenarios or mark schemes. Is that acceptable as commonplace, functional wording? (Our whitelist: `content/novelty_whitelist.json`.)
 
 ## 10. Phased plan
 

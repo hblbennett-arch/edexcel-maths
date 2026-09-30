@@ -126,11 +126,11 @@ function render(m) {
       return add(`<div class="card question"><h3>${esc(m.title)}</h3>
         ${m.stem ? md(m.stem) : ""}<div class="parts">${(m.parts || []).map(p => md(p)).join("")}</div>
         ${figs ? `<details open><summary>Figure</summary>${figs}</details>` : ""}
-        <a href="${esc(m.link)}" target="_blank" rel="noopener">Open the question paper ↗</a></div>`);
+        ${m.link !== undefined ? `<a href="${esc(m.link)}" target="_blank" rel="noopener">Open the question paper ↗</a>` : ""}</div>`);
     }
     case "part_intro": {
       const name = m.label === "-" ? "The question" : `Part (${esc(m.label)})`;
-      const ins = (m.insights || []).map(i => `<div class="insight"><div class="who">Examiners said${i.other ? ` (on a similar question, ${esc(i.other)})` : ""}:</div>
+      const ins = (m.insights || []).map(i => `<div class="insight"><div class="who">${esc(i.who || "Examiners said")}${i.other ? ` (on a similar question, ${esc(i.other)})` : ""}:</div>
           <blockquote>“${mdInline(i.quote)}”</blockquote>${mdInline("→ " + i.comment)}</div>`).join("");
       return add(`<div class="card"><h3>${name} · ${m.marks} mark${m.marks === 1 ? "" : "s"}</h3>
         <div class="hint"><b>💡 How to start:</b> ${mdInline(m.how_to_start)}</div>${ins}</div>`);
