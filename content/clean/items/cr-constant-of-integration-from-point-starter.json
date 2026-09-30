@@ -1,0 +1,386 @@
+{
+ "id": "cr-constant-of-integration-from-point-starter",
+ "blueprint_id": "dr-constant-of-integration-from-point-starter",
+ "question_type": "find-curve-from-gradient",
+ "component": "pure",
+ "tier": "starter",
+ "kind": "drill",
+ "stem": null,
+ "parts": [
+  {
+   "label": null,
+   "marks": 3,
+   "text": "A curve $C$ has equation $y = \\mathrm{f}(x)$, $x > 0$. The gradient of $C$ is given by\n$$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 6x - \\frac{4}{x^2}.$$\nThe point $(2, 9)$ lies on $C$.\n\nFind $\\mathrm{f}(x)$. (3)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "constant-of-integration-from-point"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Writes $\\frac{4}{x^2}$ as $4x^{-2}$ (can be implied) and integrates, raising at least one power of $x$ by 1, e.g. $6x \\to kx^2$ or $x^{-2} \\to kx^{-1}$",
+     "notes": "Integrating $\\frac{4}{x^2}$ straight to something like $\\frac{4}{3x^3}$ or $4\\ln x^2$ does not count as raising a power. The $6x$ term alone, correctly raised, is enough."
+    },
+    {
+     "code": "A1",
+     "for": "Correct integral $3x^2 + 4x^{-1}$, with or without $+c$ at this stage",
+     "notes": "oe e.g. $3x^2 + \\frac{4}{x}$. Terms need not be simplified, e.g. $\\frac{6x^2}{2} - \\frac{4x^{-1}}{-1}$ is fine."
+    },
+    {
+     "code": "A1",
+     "for": "Puts $x = 2$, $y = 9$ into their integral with $+c$, gets $c = -5$ and writes $\\mathrm{f}(x) = 3x^2 + \\frac{4}{x} - 5$",
+     "depends_on": "M1",
+     "notes": "cao. Accept $3x^2 + 4x^{-1} - 5$ oe. Any correct equivalent form; isw. If $+c$ never appears, or the coordinates are swapped (e.g. $x=9$), this mark is lost."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Rewrite as powers: $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 6x - 4x^{-2}$.",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "Integrate: $y = \\frac{6x^2}{2} - \\frac{4x^{-1}}{-1} + c = 3x^2 + 4x^{-1} + c$.",
+     "mark": "M1 A1"
+    },
+    {
+     "step": 3,
+     "working": "Substitute $(2, 9)$: $9 = 3(2)^2 + \\frac{4}{2} + c = 12 + 2 + c$, so $c = -5$.",
+     "mark": "0"
+    },
+    {
+     "step": 4,
+     "working": "So $\\mathrm{f}(x) = 3x^2 + \\frac{4}{x} - 5$.",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "y",
+     "expr": "3x^2 + 4/x - 5",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "integral",
+     "f": "6x - 4/x^2",
+     "var": "x",
+     "answer": "y"
+    },
+    {
+     "type": "integral",
+     "f": "6x - 4/x^2",
+     "var": "x",
+     "result": "3x^2 + 4/x - 5"
+    },
+    {
+     "type": "substitute",
+     "expr": "3x^2 + 4/x - 5",
+     "at": {
+      "x": 2
+     },
+     "result": "9"
+    }
+   ],
+   "hints": [
+    "Before integrating, write $\\frac{4}{x^2}$ as a power of $x$.",
+    "Remember the $+c$, then use the point $(2, 9)$ to find its value."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "step": 1,
+   "error_code": "not-rewritten-as-powers",
+   "text": "If you integrate $\\frac{4}{x^2}$ without first writing it as $4x^{-2}$, you may raise the power in the denominator and get $\\frac{4}{3x^3}$. This is wrong. Written as a power, $4x^{-2}$ integrates to $-4x^{-1}$, so $-4x^{-2}$ integrates to $+\\frac{4}{x}$. If you make this mistake you lose the first A1, and the M1 too unless your $6x$ term is right.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "step": 2,
+   "error_code": "missing-constant-of-integration",
+   "text": "If you write $y = 3x^2 + \\frac{4}{x}$ with no $+c$, you have nothing for the point $(2, 9)$ to fix, so you cannot finish. (With no $c$, $x = 2$ gives $y = 14$, not $9$.) You lose the final A1.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "step": 3,
+   "error_code": "constant-not-found-from-point",
+   "text": "Put $x = 2$ and $y = 9$ into your expression for $y$, not into $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$, and don't swap the coordinates. Substituting $x = 9$, or using the gradient function, gives the wrong value of $c$, so the final A1 is lost.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T17:04:57",
+ "generation": {
+  "attempts": 1,
+  "cost_usd": 0.0779
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 3
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.942 with question:GCE2008_6663_June2008_Q11"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.068,
+   "jaccard_source": "IAL2018_WMA11_Jan2023_Q11",
+   "shared_numbers": 0,
+   "max_cosine": 0.942,
+   "cosine_source": "question:GCE2008_6663_June2008_Q11"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 3,
+   "n_answers": 1,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0065,
+   "solver": {
+    "parts": [
+     {
+      "label": null,
+      "answers": [
+       "3*x**2 + 4/x - 5"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "Integrate 6x - 4x^-2 to get 3x^2 + 4x^-1 + c. Substitute (2,9): 12 + 2 + c = 9, so c = -5."
+     }
+    ],
+    "problems": []
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "n_responses": 5,
+   "agreed": [
+    "r1",
+    "r2",
+    "r3",
+    "r4",
+    "r5"
+   ],
+   "consistent": {},
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "r1",
+     "kind": "correct",
+     "work": "$\\frac{dy}{dx}=6x-4x^{-2}$\n$y=3x^2+4x^{-1}+c$\nSub $(2,9)$: $9=12+2+c$, so $c=-5$\n$f(x)=3x^2+\\frac{4}{x}-5$",
+     "error_code": null,
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "kind": "pitfall",
+     "work": "$y=\\int 6x-\\frac{4}{x^2}\\,dx = 3x^2-\\frac{4}{3x^3}+c$\nSub $(2,9)$: $9=12-\\frac{4}{24}+c$, so $c=9-12+\\frac16=-\\frac{17}{6}$\n$f(x)=3x^2-\\frac{4}{3x^3}-\\frac{17}{6}$",
+     "error_code": "not-rewritten-as-powers",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r3",
+     "kind": "pitfall",
+     "work": "$\\frac{dy}{dx}=6x-4x^{-2}$\n$y=3x^2+4x^{-1}$\nWhen $x=2$, $y=12+2=14$, which doesn't match $9$, so I can't find anything further.\n$f(x)=3x^2+\\frac{4}{x}$",
+     "error_code": "missing-constant-of-integration",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r4",
+     "kind": "pitfall",
+     "work": "$\\frac{dy}{dx}=6x-4x^{-2}$\n$y=3x^2+4x^{-1}+c$\nSub $x=9$, $y=2$: $2=3(81)+\\frac{4}{9}+c$, so $c=2-243-\\frac49=-\\frac{2173}{9}$\n$f(x)=3x^2+\\frac{4}{x}-\\frac{2173}{9}$",
+     "error_code": "constant-not-found-from-point",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r5",
+     "kind": "partial",
+     "work": "$\\frac{dy}{dx}=6x-4x^{-2}$\nIntegrating: $y=3x^2+\\dots$ I'm not sure how to do the second term.",
+     "error_code": null,
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A0",
+        "A0"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "r1",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "A1 not awarded: the 4/x^2 term was integrated to -4/(3x^3), which is incorrect.",
+      "A1 not awarded: the final answer is wrong (c = -17/6 follows from the wrong integral)."
+     ]
+    },
+    {
+     "id": "r3",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "A1 not awarded: no +c is used and no correct c = -5 is found."
+     ]
+    },
+    {
+     "id": "r4",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "A1 not awarded: the coordinates are swapped (x=9, y=2), so c is wrong."
+     ]
+    },
+    {
+     "id": "r5",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "A1 not awarded: the 4/x^2 term is not integrated, so the integral is incomplete.",
+      "A1 not awarded: no c is found and no f(x) is given."
+     ]
+    }
+   ],
+   "awarded_second": [],
+   "cost_usd": 0.0261
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "agreement": "1/1",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.009158,
+   "retagged": {
+    "-": [
+     "integrate-powers-of-x",
+     "constant-of-integration-from-point"
+    ]
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

@@ -1,0 +1,151 @@
+{
+ "id": "cr-binomial-expected-value-core",
+ "blueprint_id": "dr-binomial-expected-value-core",
+ "question_type": "binomial-probabilities-in-context",
+ "component": "stats",
+ "tier": "core",
+ "kind": "drill",
+ "stem": null,
+ "parts": [
+  {
+   "label": null,
+   "marks": 3,
+   "text": "In the card game *Vault Breakers*, every turn a player draws one card at random from a deck of 40 cards. Exactly 6 of the cards are *Alarm* cards. After each draw the card goes back into the deck and the deck is shuffled, so draws are independent. During one evening a group plays 12 games, and each game has exactly 15 turns. The random variable $X$ is the total number of Alarm cards drawn during the evening.\n\nCalculate the expected value of $X$. (3)",
+   "command": "calculate",
+   "forms": [],
+   "skills": [
+    "binomial-expected-value"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Gives the probability that a single draw is an Alarm card as $p = \\frac{6}{40}$, or $0.15$ or $\\frac{3}{20}$",
+     "notes": "Can be implied if $0.15$ appears correctly in the product."
+    },
+    {
+     "code": "M1",
+     "for": "Treats $X$ as $\\mathrm{B}(n, p)$ with $n = 12 \\times 15 = 180$ total draws, and multiplies this $n$ by their $p$",
+     "notes": "Using $n = 15$ or $n = 12$ on its own earns M0. Credit $180 \\times$ any value of $p$ strictly between 0 and 1."
+    },
+    {
+     "code": "A1",
+     "for": "Expected value $\\mathrm{E}(X) = 27$",
+     "notes": "cao. Do not accept a rounded or truncated value that differs from 27."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Chance that one draw gives an Alarm card: $p = \\frac{6}{40} = 0.15$",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "Number of draws in the evening: $n = 12 \\times 15 = 180$. The draws are independent and $p$ is the same each time, so $X \\sim \\mathrm{B}(180, 0.15)$. Then $\\mathrm{E}(X) = np = 180 \\times 0.15$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$\\mathrm{E}(X) = 27$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "EX",
+     "expr": "27",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "12*15*6/40",
+     "answer": "EX"
+    },
+    {
+     "type": "equals",
+     "lhs": "180*(3/20)",
+     "rhs": "27"
+    }
+   ],
+   "hints": [
+    "Work out how many draws there are in the whole evening, not in a single game.",
+    "For a binomial distribution the mean is the number of trials multiplied by the chance of success on one trial."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "step": 2,
+   "error_code": "binomial-parameters-wrong",
+   "text": "If you use $n = 15$ (one game) or $n = 12$ (the number of games) in place of $n = 12 \\times 15 = 180$ draws, you get $2.25$ or $1.8$. You lose the M1 and the A1. Another way to lose them is using $p = \\frac{6}{34}$ (the non-Alarm cards as the denominator) in place of $\\frac{6}{40}$.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "step": 3,
+   "error_code": "cumulative-individual-confused",
+   "text": "The expected value is the mean $np$. It is not a probability. If you work out $\\mathrm{P}(X = 27)$ or $\\mathrm{P}(X \\leqslant 27)$ on your calculator and give that as the answer, you have not found $\\mathrm{E}(X)$, so the M1 and A1 are lost.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "step": 2,
+   "error_code": "binomial-coefficient-error",
+   "text": "You don't need to find the mean by adding up $\\binom{180}{r}(0.15)^r(0.85)^{180-r}$ terms. If you try it, a wrong coefficient such as $\\frac{180!}{r!}$ gives a wrong total and costs you the method mark. Just use $np$.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T17:04:29",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.1612
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 3
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "4 rare words shared with IAL2018_WST01_Oct2023_Q1",
+    "cosine 0.811 with question:P3_June2023_stats_Q5"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.008,
+   "jaccard_source": "IAL2013_WST01_June2015_Q5",
+   "shared_numbers": 0,
+   "max_cosine": 0.811,
+   "cosine_source": "question:P3_June2023_stats_Q5"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 2,
+   "n_answers": 1,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": false,
+   "errors": [
+    "binomial-probabilities-in-context: total marks 3 outside 5-12 (seen 6-11, +-1)"
+   ],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

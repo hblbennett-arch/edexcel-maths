@@ -1,0 +1,1082 @@
+{
+ "id": "cr-stats-summary-statistics-and-lds-026",
+ "blueprint_id": "bp-stats-summary-statistics-and-lds-026",
+ "question_type": "summary-statistics-and-lds",
+ "component": "stats",
+ "tier": "standard",
+ "kind": "exam",
+ "stem": "A potato grower is trialling a new variety. She digs up 30 rows and records the mass, $x$ kg, of potatoes from each row. To keep the arithmetic simple she codes each mass using $y = \\frac{x - 50}{2}$ and works out these totals:\n$$\\sum y = 36, \\qquad \\sum y^2 = 410.$$",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 1,
+   "text": "Calculate the total mass, in kg, of potatoes harvested from all 30 rows. (1)",
+   "command": "calculate",
+   "forms": [],
+   "skills": [
+    "clean-data",
+    "exact-form-answers"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "$\\sum x = 1572$ kg, from $\\sum x = 2\\sum y + 30 \\times 50 = 72 + 1500$",
+     "notes": "cao. Accept 1572 with no working."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Each $x = 2y + 50$, so $\\sum x = 2\\sum y + 30 \\times 50 = 2(36) + 1500 = 1572$ kg.",
+     "mark": "B1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "total",
+     "expr": "1572",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "2*36 + 30*50",
+     "answer": "total"
+    }
+   ],
+   "hints": [
+    "Rearrange the coding so that $x$ is the subject, then add it up over all 30 rows.",
+    "The constant 50 is added once for every row, not only once in total."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 3,
+   "text": "Start with the coded values $y$. Use them to find the mean mass per row and the standard deviation of the 30 row masses, both in kilograms. Give the standard deviation correct to 3 significant figures. (3)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "mean-from-summary-statistics",
+    "standard-deviation-from-summary-statistics",
+    "exact-form-answers",
+    "histogram-area-frequency"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "A correct method for the standard deviation of $y$: $\\sqrt{\\frac{410}{30} - \\left(\\frac{36}{30}\\right)^2}$ (about 3.50), with $\\bar{y} = 1.2$ used",
+     "notes": "Accept a divisor of 29 for the variance ($s_y \\approx 3.56$)."
+    },
+    {
+     "code": "dM1",
+     "for": "Reverses the coding correctly: $\\bar{x} = 2\\bar{y} + 50$ and $\\sigma_x = 2\\sigma_y$. The standard deviation is not affected by the $+50$",
+     "depends_on": "M1",
+     "notes": "Using $\\bar{x} = 1572/30$ from part (a) is also acceptable for the mean."
+    },
+    {
+     "code": "A1",
+     "for": "Mean $= 52.4$ kg and standard deviation $=$ awrt $6.99$ kg",
+     "notes": "Accept awrt 7.11 if a divisor of 29 was used. Giving the variance 48.9 as the answer loses this mark."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\bar{y} = \\frac{36}{30} = 1.2$ and $\\sigma_y = \\sqrt{\\frac{410}{30} - 1.2^2} = \\sqrt{13.6\\dot{6} - 1.44} = \\sqrt{12.22\\dot{6}} = 3.4967\\ldots$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$\\bar{x} = 2(1.2) + 50 = 52.4$ and $\\sigma_x = 2 \\times 3.4967\\ldots = 6.9933\\ldots$",
+     "mark": "dM1"
+    },
+    {
+     "step": 3,
+     "working": "The mean is $52.4$ kg per row and the standard deviation is $6.99$ kg (3 s.f.).",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "mean",
+     "expr": "262/5",
+     "form": "exact"
+    },
+    {
+     "name": "sd",
+     "expr": "6.99",
+     "form": "sf-3",
+     "exact": "2*sqrt(410/30 - (36/30)^2)"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "2*(36/30) + 50",
+     "answer": "mean"
+    },
+    {
+     "type": "numeric",
+     "expr": "2*sqrt(410/30 - (36/30)^2)",
+     "answer": "sd",
+     "form": "sf-3"
+    },
+    {
+     "type": "numeric",
+     "expr": "sqrt(4*(410/30 - (36/30)^2))",
+     "result": "6.99",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "Work out $\\bar{y}$ and $\\sigma_y$ first, using $\\sigma_y^2 = \\frac{\\sum y^2}{n} - \\bar{y}^2$.",
+    "Think about what multiplying by 2 and adding 50 each do to a mean and to a spread."
+   ]
+  },
+  {
+   "label": "c",
+   "marks": 3,
+   "text": "Her records show that the lower quartile of the 30 row masses is $48.5$ kg and the upper quartile is $56.0$ kg. The lightest row gave $36.2$ kg. An outlier is any value more than $1.5 \\times$ the interquartile range below the lower quartile or above the upper quartile. Find the lower and upper limits for outliers, and hence determine whether the row with $36.2$ kg is an outlier. (3)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "median-quartiles-iqr",
+    "explain-with-reason",
+    "compare-distributions-in-context",
+    "large-data-set-knowledge"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Finds IQR $= 56.0 - 48.5 = 7.5$ and multiplies it by 1.5 to get $11.25$"
+    },
+    {
+     "code": "M1",
+     "for": "Uses the correct quartile for each limit: $48.5 - 11.25$ or $56.0 + 11.25$",
+     "notes": "Using the median, or the mean from (b), in place of a quartile scores M0."
+    },
+    {
+     "code": "A1",
+     "for": "Limits $37.25$ kg and $67.25$ kg, with the conclusion that $36.2 < 37.25$ so the $36.2$ kg row is an outlier",
+     "notes": "Both limits and the conclusion are needed."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "IQR $= 56.0 - 48.5 = 7.5$, so $1.5 \\times 7.5 = 11.25$.",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "Lower limit $= 48.5 - 11.25 = 37.25$ and upper limit $= 56.0 + 11.25 = 67.25$.",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$36.2 < 37.25$, so the row that gave $36.2$ kg is an outlier.",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "lower",
+     "expr": "149/4",
+     "form": "exact"
+    },
+    {
+     "name": "upper",
+     "expr": "269/4",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "48.5 - 1.5*(56 - 48.5)",
+     "answer": "lower"
+    },
+    {
+     "type": "numeric",
+     "expr": "56 + 1.5*(56 - 48.5)",
+     "answer": "upper"
+    }
+   ],
+   "hints": [
+    "Find the interquartile range first, then take 1.5 times it.",
+    "Measure the lower limit down from the lower quartile, not from the median or the mean."
+   ]
+  },
+  {
+   "label": "d",
+   "marks": 2,
+   "text": "The grower then finds out that the row giving $36.2$ kg had been waterlogged, so she removes it from the data. Explain, with a supporting calculation, how removing this row changes the mean mass per row. (2)",
+   "command": "explain",
+   "forms": [],
+   "skills": [
+    "explain-with-reason",
+    "use-hence-previous-result",
+    "median-quartiles-iqr",
+    "binomial-conditions"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Removes the value from the total and divides by 29: $\\frac{1572 - 36.2}{29}$",
+     "ft_of": "a",
+     "notes": "Follow through their $\\sum x$ from part (a)."
+    },
+    {
+     "code": "A1ft",
+     "for": "New mean awrt $53.0$ kg, so the mean goes up (from $52.4$ kg), because $36.2$ kg was below the original mean",
+     "ft_of": "a",
+     "notes": "Needs both the new value and the statement that the mean increases, with a reason."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "New mean $= \\frac{1572 - 36.2}{29} = \\frac{1535.8}{29} = 52.958\\ldots$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "The mean rises from $52.4$ kg to about $53.0$ kg. This is because the waterlogged row's $36.2$ kg was well below the original mean, so it was pulling the mean down.",
+     "mark": "A1ft"
+    }
+   ],
+   "answers": [
+    {
+     "name": "newmean",
+     "expr": "53.0",
+     "form": "sf-3",
+     "exact": "(1572 - 181/5)/29"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "(1572 - 36.2)/29",
+     "answer": "newmean",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "Use your total from part (a). Take away the waterlogged row's mass and think about how many rows are left.",
+    "Compare the new mean with your answer to part (b) and say why it has changed."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "error_code": "histogram-scale-error",
+   "step": 1,
+   "text": "If you use the wrong scale factor when you undo the coding, you get the wrong total and lose the B1. For example, you might add 50 only once, getting $72 + 50 = 122$, or halve $\\sum y$ instead of doubling it. Since $x = 2y + 50$ for every row, the total is $2 \\times 36 + 30 \\times 50$.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "error_code": "variance-given-as-sd",
+   "step": 3,
+   "text": "If you stop at the variance ($\\sigma_y^2 \\approx 12.2$ or $\\sigma_x^2 \\approx 48.9$) and give that as the standard deviation, the final A1 is lost. Remember to take the square root. Also, the standard deviation scales by 2, but the variance scales by 4.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "error_code": "histogram-scale-error",
+   "step": 2,
+   "text": "If you add 50 to the standard deviation, or forget to multiply it by 2, you have undone the coding wrongly and lose the dM1. Adding a constant does not change the spread, so $\\sigma_x = 2\\sigma_y$.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "error_code": "outlier-fence-error",
+   "step": 2,
+   "text": "If you measure $1.5 \\times$ IQR from the median or from the mean of 52.4 kg instead of from the quartiles, or use $1 \\times$ IQR, your limits are wrong and the second M1 is lost. The lower limit must be $48.5 - 11.25$.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "error_code": "median-position-error",
+   "step": 1,
+   "text": "If you use the median in place of a quartile when working out the spread, you get the wrong IQR and lose the first M1. The IQR is upper quartile minus lower quartile: $56.0 - 48.5$.",
+   "says_common": false
+  },
+  {
+   "part": "d",
+   "error_code": "median-position-error",
+   "step": 1,
+   "text": "If you still divide by 30 after removing a row, you are using the wrong number of values and lose the M1. Only 29 rows are left, so the new mean is $\\frac{1535.8}{29}$.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T17:04:05",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.4604
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 9
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.842 with part:IAL2013_WST01_Oct2017_Q1:e"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.007,
+   "jaccard_source": "GCE2008_6683_June2015_Q1",
+   "shared_numbers": 1,
+   "max_cosine": 0.842,
+   "cosine_source": "part:IAL2013_WST01_Oct2017_Q1:e"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 7,
+   "n_answers": 6,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "part d: expected newmean = 53.0, solver got ['1535.8/29 = 52.96 (approx), mean increases from 52.4 by about 0.56'] [judge: same - The solver's new mean is 1535.8/29 ≈ 52.96 kg, which rounds to the setter's 53.0. The solver also states the mean increases from 52.4, which is correct.]",
+    "ambiguity (part d): 'Explain how removing this row changes the mean' does not say what accuracy to give the new mean. 52.96 (or 53.0) is acceptable, but the mark scheme should say so.",
+    "ambiguity (part b): The question does not say whether 'standard deviation' means population (divide by n) or sample (divide by n-1). The coded-data context implies the population form, giving 6.99. The sample form would give 7.11. The mark scheme should state which is expected."
+   ],
+   "flag": true,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0237,
+   "solver": {
+    "parts": [
+     {
+      "label": "a",
+      "answers": [
+       "1572"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "x = 2y + 50, so sum x = 2(36) + 50(30) = 1572 kg."
+     },
+     {
+      "label": "b",
+      "answers": [
+       "52.4",
+       "6.99"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "Mean y = 1.2, so mean x = 2(1.2)+50 = 52.4. Var(y) = 410/30 - 1.2^2 = 12.2267, sd y = 3.4967, sd x = 2 × 3.4967 = 6.99 (3 s.f.)."
+     },
+     {
+      "label": "c",
+      "answers": [
+       "37.25",
+       "67.25",
+       "Yes, 36.2 is an outlier"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "IQR = 56.0 - 48.5 = 7.5; 1.5×IQR = 11.25. Lower limit = 48.5 - 11.25 = 37.25; upper limit = 56.0 + 11.25 = 67.25. Since 36.2 < 37.25, it is an outlier."
+     },
+     {
+      "label": "d",
+      "answers": [
+       "1535.8/29 = 52.96 (approx), mean increases from 52.4 by about 0.56"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "New total = 1572 - 36.2 = 1535.8 over 29 rows; new mean ≈ 52.96 kg. The mean increases by about 0.56 kg, because the removed value was below the old mean."
+     }
+    ],
+    "problems": [
+     {
+      "kind": "ambiguity",
+      "severity": "minor",
+      "part": "d",
+      "detail": "'Explain how removing this row changes the mean' does not say what accuracy to give the new mean. 52.96 (or 53.0) is acceptable, but the mark scheme should say so."
+     },
+     {
+      "kind": "ambiguity",
+      "severity": "minor",
+      "part": "b",
+      "detail": "The question does not say whether 'standard deviation' means population (divide by n) or sample (divide by n-1). The coded-data context implies the population form, giving 6.99. The sample form would give 7.11. The mark scheme should state which is expected."
+     }
+    ]
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "n_responses": 8,
+   "agreed": [
+    "r1",
+    "r2",
+    "r3",
+    "r4",
+    "r5",
+    "r6",
+    "r7",
+    "r8"
+   ],
+   "consistent": {},
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "r1",
+     "kind": "correct",
+     "error_code": null,
+     "work": "(a) $\\sum x = 2(36)+30\\times50 = 1572$ kg.\n(b) $\\bar y=36/30=1.2$, $\\sigma_y=\\sqrt{410/30-1.2^2}=3.4967$. $\\bar x=2(1.2)+50=52.4$, $\\sigma_x=2\\times3.4967=6.99$ kg.\n(c) IQR $=56.0-48.5=7.5$; $1.5\\times7.5=11.25$. Lower $=48.5-11.25=37.25$, upper $=56.0+11.25=67.25$. $36.2<37.25$ so it is an outlier.\n(d) New mean $=(1572-36.2)/29=52.96\\approx53.0$ kg. The mean increases from 52.4 because 36.2 was below the mean.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "kind": "pitfall",
+     "error_code": "histogram-scale-error",
+     "work": "(a) $\\sum x = 2\\sum y + 50 = 72+50 = 122$ kg.\n(b) $\\bar y=1.2$, $\\sigma_y=\\sqrt{410/30-1.44}=3.4967$. $\\bar x=2(1.2)+50=52.4$, $\\sigma_x=6.99$ kg.\n(c) IQR $=7.5$, $\\times1.5=11.25$. Limits $37.25$ and $67.25$. $36.2<37.25$ so it is an outlier.\n(d) Total is $52.4\\times30=1572$, so new mean $=(1572-36.2)/29=53.0$ kg. The mean goes up because 36.2 was below the mean.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r3",
+     "kind": "pitfall",
+     "error_code": "variance-given-as-sd",
+     "work": "(a) $\\sum x=2(36)+1500=1572$ kg.\n(b) $\\bar y=1.2$, variance of $y=410/30-1.44=12.2$. Variance of $x=4\\times12.2=48.9$. Mean $=52.4$ kg, standard deviation $=48.9$.\n(c) IQR $=7.5$, $1.5\\times7.5=11.25$. Limits $37.25$ and $67.25$; $36.2<37.25$ so outlier.\n(d) $(1572-36.2)/29=53.0$ kg; mean increases since 36.2 was below the mean.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r4",
+     "kind": "pitfall",
+     "error_code": "histogram-scale-error",
+     "work": "(a) $2(36)+1500=1572$ kg.\n(b) $\\bar y=1.2$, $\\sigma_y=\\sqrt{410/30-1.2^2}=3.50$. Mean $x=2(1.2)+50=52.4$. Standard deviation: only the mean is affected by coding so $\\sigma_x=3.50$ kg.\n(c) IQR $=7.5$, $\\times1.5=11.25$. Limits $37.25$, $67.25$. $36.2<37.25$ so outlier.\n(d) $(1572-36.2)/29=53.0$ kg. Mean increases as 36.2 is below the mean.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r5",
+     "kind": "pitfall",
+     "error_code": "outlier-fence-error",
+     "work": "(a) $1572$ kg.\n(b) $\\sigma_y=3.4967$, $\\sigma_x=6.99$ kg, mean $52.4$ kg.\n(c) IQR $=56.0-48.5=7.5$, $1.5\\times7.5=11.25$. I measure from the mean: lower $=52.4-11.25=41.15$, upper $=52.4+11.25=63.65$. $36.2<41.15$ so it is an outlier.\n(d) $(1572-36.2)/29=53.0$ kg; mean increases as the removed value was below the mean.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r6",
+     "kind": "pitfall",
+     "error_code": "median-position-error",
+     "work": "(a) $1572$ kg.\n(b) Mean $52.4$, $\\sigma_x=6.99$ kg.\n(c) I take the middle value as 52.4, so IQR $=56.0-52.4=3.6$, $1.5\\times3.6=5.4$. Lower $=48.5-5.4=43.1$, upper $=56.0+5.4=61.4$. $36.2<43.1$ so outlier.\n(d) $(1572-36.2)/29=53.0$ kg; the mean goes up since 36.2 was below the mean.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r7",
+     "kind": "pitfall",
+     "error_code": "median-position-error",
+     "work": "(a) $1572$ kg.\n(b) Mean $52.4$ kg, $\\sigma_x=6.99$ kg.\n(c) IQR $=7.5$, $\\times1.5=11.25$; limits $37.25$ and $67.25$. $36.2<37.25$ so outlier.\n(d) New total $=1572-36.2=1535.8$. New mean $=1535.8/30=51.19$ kg. The mean goes down from 52.4.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r8",
+     "kind": "partial",
+     "error_code": null,
+     "work": "(a) $\\sum x=2(36)+30\\times50=1572$ kg.\n(b) $\\bar y=36/30=1.2$, $\\sigma_y=\\sqrt{410/30-1.2^2}=3.50$. (stops here)",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "r1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A1ft"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) 122 is wrong; the 50 was not multiplied by 30."
+     ]
+    },
+    {
+     "id": "r3",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A1ft"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) The variance 48.9 was given as the standard deviation."
+     ]
+    },
+    {
+     "id": "r4",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A1ft"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) The standard deviation was not multiplied by 2, so the coding was not reversed correctly.",
+      "(b) The standard deviation 3.50 is wrong."
+     ]
+    },
+    {
+     "id": "r5",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A1ft"
+       ]
+      }
+     ],
+     "reasons": [
+      "(c) The limits were measured from the mean, not the quartiles.",
+      "(c) The limits are wrong, so the final A mark is lost."
+     ]
+    },
+    {
+     "id": "r6",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A1ft"
+       ]
+      }
+     ],
+     "reasons": [
+      "(c) The IQR of 3.6 is wrong because the mean was used in place of the lower quartile.",
+      "(c) The limits 43.1 and 61.4 are wrong."
+     ]
+    },
+    {
+     "id": "r7",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(d) The new total was divided by 30 instead of 29.",
+      "(d) The new mean 51.19 and the statement that the mean decreases are wrong."
+     ]
+    },
+    {
+     "id": "r8",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) The coding was not reversed, and no mean or standard deviation of x was given.",
+      "(c) Not attempted.",
+      "(d) Not attempted."
+     ]
+    }
+   ],
+   "awarded_second": [],
+   "cost_usd": 0.0736
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": false,
+   "errors": [
+    "part a: tagged ['clean-data'], retagged ['coding-mean-and-sd', 'rearrange-to-make-subject']"
+   ],
+   "flags": [
+    "part d: same topic, different skills: tagged ['median-quartiles-iqr', 'binomial-conditions'], retagged ['effect-of-changing-data-on-statistics']"
+   ],
+   "flag": true,
+   "agreement": "2/4",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.014341999999999999,
+   "retagged": {
+    "a": [
+     "coding-mean-and-sd",
+     "rearrange-to-make-subject"
+    ],
+    "b": [
+     "coding-mean-and-sd",
+     "standard-deviation-from-summary-statistics"
+    ],
+    "c": [
+     "median-quartiles-iqr",
+     "identify-outliers-using-rule"
+    ],
+    "d": [
+     "effect-of-changing-data-on-statistics"
+    ]
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

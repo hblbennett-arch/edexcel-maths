@@ -1,0 +1,2036 @@
+{
+ "id": "cr-stats-normal-unknown-parameters-016",
+ "blueprint_id": "bp-stats-normal-unknown-parameters-016",
+ "question_type": "normal-unknown-parameters",
+ "component": "stats",
+ "tier": "challenging",
+ "kind": "exam",
+ "stem": "A dental clinic sedates nervous patients with drug A. The recovery time, $T$ minutes, is measured from the end of treatment until the patient is judged fit to leave the treatment chair. It is modelled by $T \\sim \\mathrm{N}(42, \\sigma^2)$. Clinic records show that $15\\%$ of patients sedated with drug A have a recovery time of more than $50$ minutes.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 2,
+   "text": "Show that $\\sigma = 7.7$ to 2 significant figures. (2)",
+   "command": "show-that",
+   "skills": [
+    "normal-probability-calculator",
+    "show-that-given-answer",
+    "accuracy-units-and-rounding",
+    "standardise-to-find-mu-or-sigma"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Writes $\\mathrm{P}(T > 50) = 0.15$ in standardised form, $\\frac{50 - 42}{\\sigma} = z$, where $z$ is a value between $1.03$ and $1.04$",
+     "notes": "Accept $\\frac{8}{\\sigma} = 1.036$. An equation with $\\sigma^2$ in the denominator scores M0."
+    },
+    {
+     "code": "A1cso",
+     "for": "Obtains $\\sigma = \\frac{8}{1.0364} = 7.718\\ldots$ with this unrounded value seen, then concludes $\\sigma = 7.7$ (2 s.f.)",
+     "notes": "A value of $7.72$ or better must be seen before the rounded $7.7$. No sign errors anywhere in the working."
+    }
+   ],
+   "alternatives": [
+    {
+     "name": "Way 2 (verification using bounds)",
+     "marks": [
+      {
+       "code": "M1",
+       "for": "Works out $\\mathrm{P}(T > 50)$ for both $\\sigma = 7.65$ and $\\sigma = 7.75$, getting awrt $0.148$ and awrt $0.151$"
+      },
+      {
+       "code": "A1cso",
+       "for": "States that $0.15$ lies between these two probabilities, so $\\sigma$ lies between $7.65$ and $7.75$ and therefore $\\sigma = 7.7$ to 2 s.f.",
+       "notes": "Checking $\\sigma = 7.7$ alone and getting $0.1499$ earns M1 A0."
+      }
+     ]
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\mathrm{P}(T > 50) = 0.15 \\Rightarrow \\mathrm{P}(T < 50) = 0.85$, so $z = 1.03643\\ldots$",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "$\\frac{50 - 42}{\\sigma} = 1.03643$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$\\sigma = \\frac{8}{1.03643} = 7.7188\\ldots = 7.7$ (2 s.f.)",
+     "mark": "A1cso"
+    }
+   ],
+   "answers": [
+    {
+     "name": "sigma",
+     "expr": "7.7",
+     "form": "sf-2"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "8/1.036433",
+     "answer": "sigma",
+     "form": "sf-2"
+    },
+    {
+     "type": "normal",
+     "mean": 42,
+     "sd": "7.71878",
+     "lower": 50,
+     "result": "0.150",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "The value $50$ is above the mean, so the $z$-value you need is positive. Which $z$ has $85\\%$ of the standard normal distribution below it?",
+    "Keep the unrounded value of $\\sigma$ in your working before you round it to 2 s.f."
+   ],
+   "forms": []
+  },
+  {
+   "label": "b",
+   "marks": 2,
+   "text": "One morning the clinic sedates $10$ patients with drug A. Assuming the recovery times of these patients are independent, find the probability that exactly $2$ of them take more than $50$ minutes to recover. Give your answer to 3 significant figures. (2)",
+   "command": "find",
+   "skills": [
+    "standardise-to-find-mu-or-sigma",
+    "inverse-normal",
+    "combine-independent-observations",
+    "binomial-individual-probability"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Uses $X \\sim \\mathrm{B}(10, 0.15)$ for the number who take more than $50$ minutes and writes $\\mathrm{P}(X = 2) = \\binom{10}{2}(0.15)^2(0.85)^8$",
+     "notes": "A correct calculator statement such as 'B(10, 0.15), P(X = 2)' also earns the mark."
+    },
+    {
+     "code": "A1",
+     "for": "$0.276$",
+     "notes": "awrt $0.276$"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Let $X$ be the number of the $10$ patients taking more than $50$ minutes. Then $X \\sim \\mathrm{B}(10, 0.15)$.",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "$\\mathrm{P}(X = 2) = \\binom{10}{2}(0.15)^2(0.85)^8 = 45 \\times 0.0225 \\times 0.27249\\ldots$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$= 0.27589\\ldots = 0.276$ (3 s.f.)",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "p",
+     "expr": "0.276",
+     "form": "sf-3"
+    }
+   ],
+   "checks": [
+    {
+     "type": "binomial_cdf",
+     "n": 10,
+     "p": "0.15",
+     "k": 2,
+     "tail": "eq",
+     "answer": "p",
+     "form": "sf-3"
+    },
+    {
+     "type": "numeric",
+     "expr": "binomial(10,2)*0.15^2*0.85^8",
+     "result": "0.276",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "Each patient either does or does not take more than $50$ minutes, and you already know the probability of this from the stem. Which discrete distribution fits?"
+   ],
+   "forms": []
+  },
+  {
+   "label": "c",
+   "marks": 3,
+   "text": "The clinic switches to a new sedative, drug B. The recovery time, $R$ minutes, for a patient sedated with drug B is normally distributed with the same standard deviation as $T$ but a different mean. With drug B, only $4\\%$ of patients take more than $50$ minutes to recover. Find the mean of $R$, giving your answer to 3 significant figures. (3)",
+   "command": "find",
+   "skills": [
+    "inverse-normal",
+    "standardise-to-find-mu-or-sigma",
+    "accuracy-units-and-rounding",
+    "normal-simultaneous-mu-sigma"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Forms the equation $\\frac{50 - \\mu}{7.72} = z$ using the standard deviation from (a) and a $z$-value with $|z|$ between $1.5$ and $2.1$",
+     "notes": "Accept $\\sigma = 7.7$ or $7.72$ or better. Dividing by $\\sigma^2$ scores M0."
+    },
+    {
+     "code": "B1",
+     "for": "Uses the correct $z$-value, $z = 1.7507$ (awrt $1.75$), with a positive sign"
+    },
+    {
+     "code": "A1",
+     "for": "$\\mu = 36.5$",
+     "notes": "awrt $36.5$. Both $\\sigma = 7.7$ (which gives $36.52$) and $\\sigma = 7.7188$ (which gives $36.49$) are accepted."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\mathrm{P}(R > 50) = 0.04 \\Rightarrow \\mathrm{P}(R < 50) = 0.96$, so $z = 1.75069\\ldots$",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "$\\frac{50 - \\mu}{7.7188} = 1.75069$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$\\mu = 50 - 1.75069 \\times 7.7188 = 50 - 13.513 = 36.487\\ldots = 36.5$ minutes (3 s.f.)",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "mu",
+     "expr": "36.5",
+     "form": "sf-3"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "50 - 1.750686*8/1.036433",
+     "answer": "mu",
+     "form": "sf-3"
+    },
+    {
+     "type": "normal",
+     "mean": "36.487",
+     "sd": "7.71878",
+     "lower": 50,
+     "result": "0.0400",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "Only $4\\%$ of patients are above $50$ minutes, so $50$ is well above the new mean. Your $z$-value should be positive.",
+    "Use the value of $\\sigma$ from part (a) in your standardised equation, then rearrange for $\\mu$."
+   ],
+   "forms": []
+  },
+  {
+   "label": "d",
+   "marks": 1,
+   "text": "A patient sedated with drug B has still not recovered $45$ minutes after the end of treatment. Find the probability that this patient's total recovery time is more than $50$ minutes. Give your answer to 2 significant figures. (1)",
+   "command": "find",
+   "skills": [
+    "explain-with-reason",
+    "interpret-model-parameters",
+    "normal-conditional-probability",
+    "conditional-probability-formula"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "$\\mathrm{P}(R > 50 \\mid R > 45) = \\frac{0.04}{\\mathrm{P}(R > 45)} = \\frac{0.04}{0.1350} = 0.30$",
+     "notes": "awrt $0.30$ (from $0.296$ or $0.297$, depending on the values of $\\mu$ and $\\sigma$ used). Using $\\mu = 36.5$ and $\\sigma = 7.7$ gives $\\mathrm{P}(R > 45) = 0.1348$."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\mathrm{P}(R > 50 \\mid R > 45) = \\frac{\\mathrm{P}(R > 50)}{\\mathrm{P}(R > 45)}$, because anyone above $50$ is also above $45$",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "$\\mathrm{P}(R > 45) = 0.13504\\ldots$ from $R \\sim \\mathrm{N}(36.487, 7.7188^2)$",
+     "mark": "0"
+    },
+    {
+     "step": 3,
+     "working": "$\\frac{0.04}{0.13504} = 0.2962\\ldots = 0.30$ (2 s.f.)",
+     "mark": "B1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "q",
+     "expr": "0.30",
+     "form": "sf-2"
+    }
+   ],
+   "checks": [
+    {
+     "type": "normal",
+     "mean": "36.487",
+     "sd": "7.71878",
+     "lower": 45,
+     "result": "0.135",
+     "form": "sf-3"
+    },
+    {
+     "type": "numeric",
+     "expr": "0.04/0.13504",
+     "answer": "q",
+     "form": "sf-2"
+    }
+   ],
+   "hints": [
+    "You are told the patient has already passed $45$ minutes, so the probability you divide by must be the one for that condition.",
+    "Ask yourself what the event '$R > 50$ and $R > 45$' simplifies to."
+   ],
+   "forms": []
+  },
+  {
+   "label": "e",
+   "marks": 2,
+   "text": "After each drug B sedation, the clinic keeps its single recovery bay booked for a fixed period of $k$ minutes after the treatment ends. The value of $k$ is chosen so that, in the long run, just one drug B patient in every hundred still has not recovered when the booking ends. Using your answer to part (c), estimate $k$, giving your answer to 3 significant figures. (2)",
+   "command": "estimate",
+   "skills": [
+    "translate-context-into-model",
+    "accuracy-units-and-rounding",
+    "use-hence-previous-result",
+    "standardise-to-find-mu-or-sigma"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1ft",
+     "ft_of": "(c)",
+     "for": "Turns the booking condition into $\\mathrm{P}(R > k) = 0.01$ and writes $\\frac{k - \\text{their } \\mu}{7.72} = 2.326$ (awrt $2.33$), or $k = \\text{their } \\mu + 2.326 \\times 7.72$",
+     "notes": "Follow through their mean from (c). Accept $\\sigma = 7.7$."
+    },
+    {
+     "code": "dB1ft",
+     "depends_on": "B1ft",
+     "ft_of": "(c)",
+     "for": "$k = 54.4$",
+     "notes": "awrt $54.4$, or their $\\mu + 17.9$ (accept anything from $17.9$ to $18.0$ added), correctly rounded to 3 s.f."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "The booking is too short for just $1\\%$ of patients, so $\\mathrm{P}(R > k) = 0.01$, which gives $z = 2.32635\\ldots$",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "$\\frac{k - 36.487}{7.7188} = 2.32635$",
+     "mark": "B1ft"
+    },
+    {
+     "step": 3,
+     "working": "$k = 36.487 + 2.32635 \\times 7.7188 = 36.487 + 17.956 = 54.443\\ldots = 54.4$ minutes (3 s.f.)",
+     "mark": "dB1ft"
+    }
+   ],
+   "answers": [
+    {
+     "name": "k",
+     "expr": "54.4",
+     "form": "sf-3"
+    }
+   ],
+   "checks": [
+    {
+     "type": "normal",
+     "mean": "36.487",
+     "sd": "7.71878",
+     "prob": "0.01",
+     "tail": "ge",
+     "result": "54.4",
+     "form": "sf-3"
+    },
+    {
+     "type": "numeric",
+     "expr": "50 + (2.326348 - 1.750686)*8/1.036433",
+     "answer": "k",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "Write 'one patient in every hundred still not recovered at time $k$' as a probability statement about $R$.",
+    "The value $k$ is in the upper tail, so it sits above your mean from part (c)."
+   ],
+   "forms": []
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "standardising-error",
+   "text": "If you write $\\frac{8}{\\sigma^2} = 1.036$ you end up with $\\sigma^2 = 7.72$, which makes $\\sigma$ about $2.78$. You can't reach the printed value that way, and the M1 is lost. The standard deviation, not the variance, goes in the denominator.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "z-sign-error",
+   "text": "Taking $z = -1.036$ gives $\\sigma = -7.72$, which is impossible. A standard deviation can't be negative, so the A1cso is lost. $50$ minutes is above the mean of $42$, so $z$ must be positive. This sign slip is a common one.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "cumulative-individual-confused",
+   "text": "The question wants exactly $2$ patients. If you use the cumulative value $\\mathrm{P}(X \\leqslant 2) = 0.820$, you have also counted the cases with $0$ or $1$ slow patients. The M1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "step": 1,
+   "error_code": "inverse-normal-tail-error",
+   "text": "Looking up $0.04$ directly gives $z = -1.75$, and then $\\mu = 50 + 13.5 = 63.5$. That would put the mean above $50$, so most patients would take longer than $50$ minutes, not just $4\\%$. The point $50$ has $96\\%$ below it. Using the wrong tail like this is a frequent error, and it costs you the B1 and the A1.",
+   "says_common": true
+  },
+  {
+   "part": "d",
+   "step": 3,
+   "error_code": "conditional-denominator-error",
+   "text": "If you divide by $\\mathrm{P}(R < 45) = 0.865$ to get $0.046$, or work out $\\frac{0.135}{0.04}$ (which is bigger than $1$), you have used the wrong denominator. The patient is known to be past $45$ minutes, so you must divide by $\\mathrm{P}(R > 45) = 0.135$. Many students slip here, and the B1 is lost.",
+   "says_common": true
+  },
+  {
+   "part": "d",
+   "step": 1,
+   "error_code": "independence-assumed",
+   "text": "Multiplying $0.04 \\times 0.135$ treats '$R > 50$' and '$R > 45$' as if they were independent. They are not: one event sits inside the other. This gives $0.0054$ and scores nothing.",
+   "says_common": false
+  },
+  {
+   "part": "e",
+   "step": 1,
+   "error_code": "z-sign-error",
+   "text": "With $z = -2.326$ you get $k = 36.5 - 18.0 = 18.5$ minutes, which would leave almost every patient unrecovered when the booking ends. $k$ must be well above $36.5$. Taking the negative value is a common mistake, and it loses both marks.",
+   "says_common": true
+  },
+  {
+   "part": "e",
+   "step": 2,
+   "error_code": "standardising-error",
+   "text": "Multiplying $2.326$ by the variance $7.72^2 \\approx 59.6$ instead of by $7.72$ gives a booking of more than $170$ minutes. That is far too long, and both marks are lost.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T16:33:07",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.5872
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 10
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.836 with question:IAL2013_WMA01_Oct2016_Q2"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.015,
+   "jaccard_source": "P3_Oct2020_stats_Q4",
+   "shared_numbers": 1,
+   "max_cosine": 0.836,
+   "cosine_source": "question:IAL2013_WMA01_Oct2016_Q2"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 10,
+   "n_answers": 5,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part a: write A1cso as A1 with 'cso' in its notes",
+    "part a: write A1cso as A1 with 'cso' in its notes"
+   ]
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "ambiguity (part e): The 3 s.f. answer depends on rounding. The unrounded mean 36.487 with sigma 7.719 gives 54.4. The rounded mean 36.5 gives 54.5. Using sigma=7.7 with mean 36.5 gives 54.4. The mark scheme should accept both 54.4 and 54.5, or say which values to use.",
+    "unrealistic (part e): The recovery bay context is contrived. 'Estimate' is vague, since the answer is an exact normal quantile under the model.",
+    "ambiguity (part d): The answer of 0.30 to 2 s.f. is sensitive to rounding of the mean. The unrounded value is 0.296, and the mean of 36.5 gives about 0.297. Both round to 0.30, so the answer is stable."
+   ],
+   "flag": true,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0205,
+   "solver": {
+    "parts": [
+     {
+      "label": "a",
+      "answers": [
+       "7.7"
+      ],
+      "working_summary": "P(T>50)=0.15 gives z=1.0364; (50-42)/sigma=1.0364 so sigma=7.719, which is 7.7 to 2 s.f.",
+      "printed_result_correct": true
+     },
+     {
+      "label": "b",
+      "answers": [
+       "0.276"
+      ],
+      "working_summary": "X~B(10,0.15): 45*0.15^2*0.85^8=0.2759",
+      "printed_result_correct": null
+     },
+     {
+      "label": "c",
+      "answers": [
+       "36.5"
+      ],
+      "working_summary": "z=1.7507; mu=50-1.7507*7.719=36.49",
+      "printed_result_correct": null
+     },
+     {
+      "label": "d",
+      "answers": [
+       "0.30"
+      ],
+      "working_summary": "P(R>50)/P(R>45)=0.04/0.1350=0.296",
+      "printed_result_correct": null
+     },
+     {
+      "label": "e",
+      "answers": [
+       "54.4"
+      ],
+      "working_summary": "z=2.3263; k=36.487+2.3263*7.719=54.44. Using the rounded 36.5 gives 54.5.",
+      "printed_result_correct": null
+     }
+    ],
+    "problems": [
+     {
+      "kind": "ambiguity",
+      "severity": "minor",
+      "part": "e",
+      "detail": "The 3 s.f. answer depends on rounding. The unrounded mean 36.487 with sigma 7.719 gives 54.4. The rounded mean 36.5 gives 54.5. Using sigma=7.7 with mean 36.5 gives 54.4. The mark scheme should accept both 54.4 and 54.5, or say which values to use."
+     },
+     {
+      "kind": "unrealistic",
+      "severity": "minor",
+      "part": "e",
+      "detail": "The recovery bay context is contrived. 'Estimate' is vague, since the answer is an exact normal quantile under the model."
+     },
+     {
+      "kind": "ambiguity",
+      "severity": "minor",
+      "part": "d",
+      "detail": "The answer of 0.30 to 2 s.f. is sensitive to rounding of the mean. The unrounded value is 0.296, and the mean of 36.5 gives about 0.297. Both round to 0.30, so the answer is stable."
+     }
+    ]
+   }
+  },
+  "G4": {
+   "pass": false,
+   "errors": [
+    "response r3 (pitfall z-sign-error): markers disagree ({'a': ['M1', 'A0'], 'b': ['M1', 'A1'], 'c': ['M1', 'B1', 'A1'], 'd': ['B1'], 'e': ['B1', 'B1']} vs {'a': ['M0', 'A0'], 'b': ['M1', 'A1'], 'c': ['M1', 'B1', 'A1'], 'd': ['B1'], 'e': ['B1', 'dB1']}; designed {'a': ['M1', 'A0'], 'b': ['M1', 'A1'], 'c': ['M1', 'B1', 'A1'], 'd': ['B1'], 'e': ['B1', 'dB1']}): the mark scheme is ambiguous here"
+   ],
+   "flags": [
+    "response r1 (correct): second marker agrees with the design; first marker gave {'a': ['M1', 'A1'], 'b': ['M1', 'A1'], 'c': ['M1', 'B1', 'A1'], 'd': ['B1'], 'e': ['B1', 'B1']}",
+    "response r2 (pitfall standardising-error): second marker agrees with the design; first marker gave {'a': ['M0', 'A0'], 'b': ['M1', 'A1'], 'c': ['M1', 'B1', 'A1'], 'd': ['B1'], 'e': ['B1', 'B1']}",
+    "response r4 (pitfall cumulative-individual-confused): second marker agrees with the design; first marker gave {'a': ['M1', 'A1'], 'b': ['M0', 'A0'], 'c': ['M1', 'B1', 'A1'], 'd': ['B1'], 'e': ['B1', 'B1']}",
+    "response r5 (pitfall inverse-normal-tail-error): second marker agrees with the design; first marker gave {'a': ['M1', 'A1'], 'b': ['M1', 'A1'], 'c': ['M1', 'B0', 'A0'], 'd': ['B0'], 'e': ['B1', 'B1']}",
+    "response r6 (pitfall conditional-denominator-error): second marker agrees with the design; first marker gave {'a': ['M1', 'A1'], 'b': ['M1', 'A1'], 'c': ['M1', 'B1', 'A1'], 'd': ['B0'], 'e': ['B1', 'B1']}",
+    "response r7 (pitfall independence-assumed): second marker agrees with the design; first marker gave {'a': ['M1', 'A1'], 'b': ['M1', 'A1'], 'c': ['M1', 'B1', 'A1'], 'd': ['B0'], 'e': ['B1', 'B1']}",
+    "response r8 (pitfall z-sign-error): second marker agrees with the design; first marker gave {'a': ['M1', 'A1'], 'b': ['M1', 'A1'], 'c': ['M1', 'B1', 'A1'], 'd': ['B1'], 'e': ['B0', 'B0']}",
+    "response r9 (pitfall standardising-error): second marker agrees with the design; first marker gave {'a': ['M1', 'A1'], 'b': ['M1', 'A1'], 'c': ['M1', 'B1', 'A1'], 'd': ['B1'], 'e': ['B0', 'B0']}",
+    "response r10 (alternative): second marker agrees with the design; first marker gave {'a': ['M1', 'A1'], 'b': ['M1', 'A1'], 'c': ['M1', 'B1', 'A1'], 'd': ['B1'], 'e': ['B1', 'B1']}",
+    "response r11 (partial): second marker agrees with the design; first marker gave {'a': ['M1', 'A1'], 'b': ['M1', 'A1'], 'c': ['M0', 'B1', 'A0'], 'd': ['B0'], 'e': ['B0', 'B0']}"
+   ],
+   "flag": true,
+   "n_responses": 11,
+   "agreed": [
+    "r1",
+    "r2",
+    "r4",
+    "r5",
+    "r6",
+    "r7",
+    "r8",
+    "r9",
+    "r10",
+    "r11"
+   ],
+   "consistent": {},
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "r1",
+     "kind": "correct",
+     "error_code": null,
+     "work": "(a) P(T>50)=0.15 so P(T<50)=0.85, z=1.0364. (50-42)/σ=1.0364, σ=8/1.0364=7.718... = 7.7 (2sf).\n(b) X~B(10,0.15). P(X=2)=C(10,2)(0.15)^2(0.85)^8=0.276.\n(c) P(R<50)=0.96, z=1.7507. (50-μ)/7.7188=1.7507, μ=50-13.513=36.487=36.5.\n(d) P(R>50|R>45)=0.04/P(R>45)=0.04/0.1350=0.296=0.30.\n(e) P(R>k)=0.01, z=2.326. (k-36.487)/7.7188=2.326, k=36.487+17.956=54.4.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1cso"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "B1ft",
+        "dB1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "kind": "pitfall",
+     "error_code": "standardising-error",
+     "work": "(a) z=1.036. 8/σ²=1.036, σ²=7.72, so σ=2.78... This doesn't match, but I'll take σ=7.7 as given.\n(b) X~B(10,0.15), P(X=2)=C(10,2)(0.15)^2(0.85)^8=0.276.\n(c) P(R<50)=0.96, z=1.7507. (50-μ)/7.7=1.7507, μ=50-13.48=36.5.\n(d) 0.04/P(R>45); P(R>45)=0.1348 so 0.04/0.1348=0.30.\n(e) P(R>k)=0.01, z=2.326, (k-36.5)/7.7=2.326, k=36.5+17.9=54.4.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "B1ft",
+        "dB1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r3",
+     "kind": "pitfall",
+     "error_code": "z-sign-error",
+     "work": "(a) P(T>50)=0.15. (50-42)/σ=-1.0364, σ=-7.72. Standard deviation can't be negative so σ=7.72=7.7.\n(b) X~B(10,0.15), P(X=2)=C(10,2)(0.15)^2(0.85)^8=0.276.\n(c) z=1.7507, (50-μ)/7.72=1.7507, μ=36.5.\n(d) P(R>50|R>45)=0.04/0.1350=0.30.\n(e) P(R>k)=0.01, z=2.326, k=36.5+2.326×7.72=54.4.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "B1ft",
+        "dB1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r4",
+     "kind": "pitfall",
+     "error_code": "cumulative-individual-confused",
+     "work": "(a) z=1.0364, 8/σ=1.0364, σ=7.7188=7.7.\n(b) X~B(10,0.15). Using calculator P(X≤2)=0.820.\n(c) z=1.7507, (50-μ)/7.7188=1.7507, μ=36.5.\n(d) 0.04/0.1350=0.30.\n(e) z=2.326, k=36.5+2.326×7.7188=54.4.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1cso"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "B1ft",
+        "dB1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r5",
+     "kind": "pitfall",
+     "error_code": "inverse-normal-tail-error",
+     "work": "(a) 8/σ=1.0364, σ=7.7188=7.7.\n(b) B(10,0.15), P(X=2)=0.276.\n(c) Inverse normal of 0.04 gives z=-1.75. (50-μ)/7.7188=-1.75, μ=50+13.5=63.5.\n(d) P(R>45)=P(Z>(45-63.5)/7.72)=P(Z>-2.40)=0.992. 0.04/0.992=0.040.\n(e) z=2.326, k=63.5+2.326×7.72=63.5+17.96=81.5. (using 63.5 and 17.9: 81.4)",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1cso"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B0",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "B1ft",
+        "dB1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r6",
+     "kind": "pitfall",
+     "error_code": "conditional-denominator-error",
+     "work": "(a) 8/σ=1.0364, σ=7.7188=7.7.\n(b) B(10,0.15), P(X=2)=0.276.\n(c) z=1.7507, μ=50-1.7507×7.7188=36.5.\n(d) P(R>50|R>45)=0.04/P(R<45)=0.04/0.865=0.046.\n(e) z=2.326, k=36.487+2.326×7.7188=54.4.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1cso"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "B1ft",
+        "dB1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r7",
+     "kind": "pitfall",
+     "error_code": "independence-assumed",
+     "work": "(a) 8/σ=1.0364, σ=7.7188=7.7.\n(b) B(10,0.15), P(X=2)=0.276.\n(c) z=1.7507, μ=36.5.\n(d) Treat as independent: P(R>50 and R>45)=0.04×0.135=0.0054.\n(e) z=2.326, k=36.5+2.326×7.72=54.4.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1cso"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "B1ft",
+        "dB1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r8",
+     "kind": "pitfall",
+     "error_code": "z-sign-error",
+     "work": "(a) 8/σ=1.0364, σ=7.7188=7.7.\n(b) B(10,0.15), P(X=2)=0.276.\n(c) z=1.7507, μ=36.5.\n(d) 0.04/0.1350=0.30.\n(e) P(R>k)=0.01, z=-2.326. (k-36.5)/7.72=-2.326, k=36.5-18.0=18.5.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1cso"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "B0",
+        "dB0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r9",
+     "kind": "pitfall",
+     "error_code": "standardising-error",
+     "work": "(a) 8/σ=1.0364, σ=7.7188=7.7.\n(b) B(10,0.15), P(X=2)=0.276.\n(c) z=1.7507, μ=36.5.\n(d) 0.04/0.1350=0.30.\n(e) P(R>k)=0.01, z=2.326. k=36.5+2.326×7.72²=36.5+2.326×59.6=36.5+138.6=175.1, so k=175.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1cso"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "B0",
+        "dB0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r10",
+     "kind": "alternative",
+     "error_code": null,
+     "work": "(a) Check bounds. σ=7.65: P(T>50)=P(Z>8/7.65=1.0458)=0.148. σ=7.75: P(Z>1.0323)=0.151. 0.15 lies between 0.148 and 0.151 so σ is between 7.65 and 7.75, hence σ=7.7 to 2sf.\n(b) X~B(10,0.15), P(X=2)=C(10,2)(0.15)^2(0.85)^8=0.276.\n(c) z=1.7507, (50-μ)/7.7188=1.7507, μ=36.5.\n(d) 0.04/0.1350=0.30.\n(e) z=2.326, k=36.487+17.956=54.4.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1cso"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "B1ft",
+        "dB1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r11",
+     "kind": "partial",
+     "error_code": null,
+     "work": "(a) P(T>50)=0.15, z=1.0364. 8/σ=1.0364, σ=7.7188=7.7 (2sf).\n(b) X~B(10,0.15). P(X=2)=C(10,2)(0.15)^2(0.85)^8=0.276.\n(c) P(R<50)=0.96, so z=1.75... I'm not sure how to carry on.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1cso"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "B0",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "B0ft",
+        "dB0ft"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "r1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) used σ² in the denominator (8/σ²), so M0 and A0."
+     ]
+    },
+    {
+     "id": "r3",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) A0: the working has sign errors (z = -1.0364 and σ = -7.72), which the cso mark does not allow."
+     ]
+    },
+    {
+     "id": "r4",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) M0 A0: calculated P(X≤2) instead of P(X=2)."
+     ]
+    },
+    {
+     "id": "r5",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B0",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(c) B0: the z-value was taken as negative (-1.75), so it has the wrong sign.",
+      "(c) A0: μ = 63.5 is wrong.",
+      "(d) B0: the answer 0.040 is wrong because it used the wrong mean.",
+      "(e) Both marks are follow-through from μ = 63.5, with 63.5 + 17.96 = 81.5."
+     ]
+    },
+    {
+     "id": "r6",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(d) B0: used P(R<45) in the denominator instead of P(R>45)."
+     ]
+    },
+    {
+     "id": "r7",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(d) B0: treated the events as independent and did not use conditional probability."
+     ]
+    },
+    {
+     "id": "r8",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "B0",
+        "B0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(e) B0: used z = -2.326, the wrong sign.",
+      "(e) dB0: k = 18.5 is wrong."
+     ]
+    },
+    {
+     "id": "r9",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "B0",
+        "B0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(e) B0: multiplied z by σ² (7.72²) instead of σ.",
+      "(e) dB0: k = 175 is wrong."
+     ]
+    },
+    {
+     "id": "r10",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r11",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "B1",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "B0",
+        "B0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(c) M0: never formed the equation with σ, and stopped after finding z.",
+      "(c) A0: no value for μ was found.",
+      "(d) B0: not attempted.",
+      "(e) B0 dB0: not attempted."
+     ]
+    }
+   ],
+   "awarded_second": [
+    {
+     "id": "r1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "B1ft",
+        "dB1ft"
+       ]
+      }
+     ],
+     "reasons": []
+    },
+    {
+     "id": "r2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "B1ft",
+        "dB1ft"
+       ]
+      }
+     ],
+     "reasons": [
+      "a M0: the equation has σ² in the denominator (8/σ² = 1.036).",
+      "a A0: the M mark was not earned, and 7.7 was taken as given rather than derived."
+     ]
+    },
+    {
+     "id": "r3",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "B1ft",
+        "dB1ft"
+       ]
+      }
+     ],
+     "reasons": [
+      "a M0: z = -1.0364 is used, so z is not between 1.03 and 1.04 (sign error).",
+      "a A0: cso fails because of the sign error (σ = -7.72), and the M mark was not earned."
+     ]
+    },
+    {
+     "id": "r4",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "B1ft",
+        "dB1ft"
+       ]
+      }
+     ],
+     "reasons": [
+      "b M0: works out P(X≤2) instead of P(X=2).",
+      "b A0: 0.820 is wrong, and the M mark was not earned."
+     ]
+    },
+    {
+     "id": "r5",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B0",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "B1ft",
+        "dB1ft"
+       ]
+      }
+     ],
+     "reasons": [
+      "c B0: uses z = -1.75, which has the wrong sign.",
+      "c A0: μ = 63.5 is wrong.",
+      "d B0: 0.040 is wrong (it needs awrt 0.30)."
+     ]
+    },
+    {
+     "id": "r6",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "B1ft",
+        "dB1ft"
+       ]
+      }
+     ],
+     "reasons": [
+      "d B0: divides by P(R<45) instead of P(R>45), so 0.046 is wrong."
+     ]
+    },
+    {
+     "id": "r7",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "B1ft",
+        "dB1ft"
+       ]
+      }
+     ],
+     "reasons": [
+      "d B0: treats the events as independent and multiplies, instead of using conditional probability; 0.0054 is wrong."
+     ]
+    },
+    {
+     "id": "r8",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "B0",
+        "dB0"
+       ]
+      }
+     ],
+     "reasons": [
+      "e B0: uses z = -2.326, so the equation is wrong.",
+      "e dB0: depends on the previous B mark, and k = 18.5 is wrong."
+     ]
+    },
+    {
+     "id": "r9",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "B0",
+        "dB0"
+       ]
+      }
+     ],
+     "reasons": [
+      "e B0: multiplies z by σ² instead of σ.",
+      "e dB0: depends on the previous B mark, and k = 175 is wrong."
+     ]
+    },
+    {
+     "id": "r10",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "B1ft",
+        "dB1ft"
+       ]
+      }
+     ],
+     "reasons": []
+    },
+    {
+     "id": "r11",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "B0",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "B0",
+        "dB0"
+       ]
+      }
+     ],
+     "reasons": [
+      "c M0: no standardisation equation with μ is formed.",
+      "c B0: z = 1.75 is stated but never used in an equation.",
+      "c A0: no value for μ is found.",
+      "d B0: not attempted.",
+      "e B0: not attempted.",
+      "e dB0: not attempted."
+     ]
+    }
+   ],
+   "cost_usd": 0.199
+  },
+  "G5": {
+   "pass": false,
+   "errors": [
+    "pitfall [z-sign-error] part e: doesn't use the question's own numbers"
+   ]
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

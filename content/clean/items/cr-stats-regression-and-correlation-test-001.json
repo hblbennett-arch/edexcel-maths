@@ -1,0 +1,284 @@
+{
+ "id": "cr-stats-regression-and-correlation-test-001",
+ "blueprint_id": "bp-stats-regression-and-correlation-test-001",
+ "question_type": "regression-and-correlation-test",
+ "component": "stats",
+ "tier": "challenging",
+ "kind": "exam",
+ "stem": "A town council runs an electric-scooter hire scheme with 14 docking stations. For each station, the council recorded $x$, the walking distance from the station to the town's railway station, in hundreds of metres, and $y$, the mean number of scooter hires per day at that station over a four-week period. The values of $x$ ranged from 1 to 18.\n\nThe product moment correlation coefficient between $x$ and $y$ is $r = -0.512$, and the regression line of $y$ on $x$ is\n$$y = 47.6 - 3.1x.$$\n\nThe table below gives some critical values of the product moment correlation coefficient.\n\n| Sample size $n$ | One-tailed 5% (two-tailed 10%) | One-tailed 2.5% (two-tailed 5%) |\n|---|---|---|\n| 13 | 0.4762 | 0.5529 |\n| 14 | 0.4575 | 0.5324 |\n| 15 | 0.4409 | 0.5140 |\n\nA council officer believes that stations further from the railway station tend to have fewer hires per day.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 1,
+   "text": "Describe, in the context of the scheme, what the value $-3.1$ in the regression line tells you. (1)",
+   "command": "describe",
+   "forms": [],
+   "skills": [
+    "describe-correlation",
+    "interpret-regression-coefficients"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "States that for each extra 100 metres of walking distance from the railway station, the mean number of hires per day at a docking station goes down by about 3.1 (oe, e.g. about 31 fewer hires per day for each extra kilometre)",
+     "notes": "Must mention both variables in context and the direction (decrease). Accept 'on average' or 'predicted'. Do not accept a statement that just says 'gradient is negative' or 'negative correlation'. Do not award if the answer claims distance causes the drop in hires."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "The gradient $-3.1$ is the change in $y$ for a one-unit rise in $x$. One unit of $x$ is $100\\,\\mathrm{m}$, so moving a docking station $100\\,\\mathrm{m}$ further from the railway station goes with an estimated fall of $3.1$ in its mean number of hires per day.",
+     "mark": "B1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "fall_per_100m",
+     "expr": "3.1",
+     "form": "dp-1"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "(47.6 - 3.1*3) - (47.6 - 3.1*4)",
+     "result": "3.1",
+     "form": "dp-1",
+     "answer": "fall_per_100m"
+    }
+   ],
+   "hints": [
+    "Think about what happens to $y$ when $x$ goes up by 1, and remember what one unit of $x$ means as a distance.",
+    "Your answer should mention both distance from the railway station and daily hires."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 1,
+   "text": "State suitable hypotheses for a test of the council officer's belief. (1)",
+   "command": "state",
+   "forms": [],
+   "skills": [
+    "state-hypotheses-correlation-test",
+    "correlation-test-critical-value",
+    "conclude-test-in-context",
+    "large-data-set-knowledge"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "$\\mathrm{H}_0: \\rho = 0$ and $\\mathrm{H}_1: \\rho < 0$",
+     "notes": "Both hypotheses needed, written using $\\rho$. Do not accept $r$ in place of $\\rho$, or hypotheses written only in words. A two-tailed $\\mathrm{H}_1: \\rho \\neq 0$ scores B0."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "The officer expects fewer hires at stations further away, which means a negative correlation in the population of stations, so the test is one-tailed. $\\mathrm{H}_0: \\rho = 0$, $\\mathrm{H}_1: \\rho < 0$, where $\\rho$ is the population correlation coefficient between $x$ and $y$.",
+     "mark": "B1"
+    }
+   ],
+   "answers": [],
+   "checks": [],
+   "hints": [
+    "Hypotheses are about the population, so use the population parameter rather than the sample value $r$.",
+    "Does the officer's belief point in one particular direction?"
+   ]
+  },
+  {
+   "label": "c",
+   "marks": 1,
+   "text": "Using the table, state the critical value for a test of your hypotheses in part (b) at the 5% level of significance. (1)",
+   "command": "state",
+   "forms": [],
+   "skills": [
+    "assess-linear-model-fit",
+    "explain-with-reason",
+    "state-hypotheses-correlation-test",
+    "correlation-test-critical-value"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Critical value $-0.4575$ (accept $0.4575$ used with the one-tailed test)",
+     "notes": "Must use the row for $n = 14$ and the one-tailed 5% column. $0.5324$ (two-tailed) or $0.4762$ / $0.4409$ (wrong $n$) score B0."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "There are 14 docking stations, so $n = 14$. The test is one-tailed at 5%, so the value in the one-tailed 5% column is $0.4575$. Since $\\mathrm{H}_1$ is $\\rho < 0$, the critical region is $r \\leqslant -0.4575$.",
+     "mark": "B1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "critical_value",
+     "expr": "-0.4575",
+     "form": "dp-4"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "-4575/10000",
+     "result": "-0.4575",
+     "form": "dp-4",
+     "answer": "critical_value"
+    }
+   ],
+   "hints": [
+    "Count how many stations were in the sample.",
+    "Pick the column that matches a one-tailed test at 5%."
+   ]
+  },
+  {
+   "label": "d",
+   "marks": 1,
+   "text": "Test, at the 5% level of significance, whether there is evidence to support the council officer's belief. State your conclusion in context. (1)",
+   "command": "test",
+   "forms": [],
+   "skills": [
+    "assess-linear-model-fit",
+    "translate-context-into-model",
+    "describe-correlation",
+    "explain-with-reason"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Compares $-0.512$ with $-0.4575$ (e.g. $-0.512 < -0.4575$, or $0.512 > 0.4575$), rejects $\\mathrm{H}_0$, and concludes that there is evidence that stations further from the railway station tend to have fewer hires per day (oe)",
+     "notes": "Conclusion must be in context and mention both distance and hires, or refer to the officer's belief being supported. Do not accept wording that says the belief is proved or that distance causes fewer hires. ft their critical value from (c) if it lies between 0.4 and 0.6."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$r = -0.512$ is below $-0.4575$, so $r$ is in the critical region. That is enough to reject $\\mathrm{H}_0$ at the 5% level.",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "So the sample gives evidence (not proof) of negative correlation: docking stations further from the railway station tend to have fewer scooter hires per day. This backs the officer's belief. It also suggests the downward-sloping line $y = 47.6 - 3.1x$ is a reasonable model for $1 \\leqslant x \\leqslant 18$, although $|r|$ is only moderate.",
+     "mark": "B1"
+    }
+   ],
+   "answers": [],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "abs(-0.512) - 0.4575",
+     "result": "0.0545",
+     "form": "dp-4"
+    }
+   ],
+   "hints": [
+    "Is $r$ further from zero, in the negative direction, than your critical value?",
+    "Write your conclusion using the words 'distance from the railway station' and 'hires per day'."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "error_code": "regression-interpretation-error",
+   "text": "If you only write 'the gradient is negative so y decreases', you haven't said what $x$ and $y$ are or that one unit of $x$ is 100 metres, so the B1 is lost. Say 'about 3.1 fewer hires per day for each extra 100 m from the railway station'.",
+   "says_common": false,
+   "step": 1
+  },
+  {
+   "part": "a",
+   "error_code": "correlation-as-causation",
+   "text": "Don't say that being further away makes people hire fewer scooters. The line only describes an association, so a causal claim loses the B1.",
+   "says_common": false,
+   "step": 1
+  },
+  {
+   "part": "b",
+   "error_code": "hypotheses-not-in-parameter",
+   "text": "If you write $\\mathrm{H}_0: r = 0$, or put your hypotheses in words, you lose the B1. The hypotheses are about the population correlation coefficient $\\rho$, not the sample value $r = -0.512$.",
+   "says_common": false,
+   "step": 1
+  },
+  {
+   "part": "c",
+   "error_code": "pmcc-critical-value-error",
+   "text": "If you read $0.5324$ from the two-tailed 5% column, or use the row for $n = 13$ or $15$, the B1 is lost. The officer's belief points one way and there are 14 stations, so the value is $0.4575$.",
+   "says_common": false,
+   "step": 1
+  },
+  {
+   "part": "d",
+   "error_code": "correlation-as-causation",
+   "text": "If your conclusion says 'distance from the railway station causes fewer hires' or 'this proves the officer is right', the B1 is lost. The test only gives evidence of negative correlation.",
+   "says_common": false,
+   "step": 2
+  },
+  {
+   "part": "d",
+   "error_code": "parameter-meaning-no-context",
+   "text": "Stopping at 'reject $\\mathrm{H}_0$, $\\rho < 0$' without saying what this means for distance and daily hires loses the B1. Put the conclusion in terms of the scooter stations.",
+   "says_common": false,
+   "step": 2
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T17:01:03",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.3088
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 4
+  },
+  "G7": {
+   "pass": false,
+   "flag": true,
+   "reasons": [
+    "4 word 8-gram(s) also in the Pearson corpus (not whitelisted)"
+   ],
+   "flags": [
+    "cosine 0.824 with part:P3_Oct2020_stats_Q2:c"
+   ],
+   "hit_fields": [
+    "part d text",
+    "stem"
+   ],
+   "n_8gram_hits": 4,
+   "max_jaccard": 0.021,
+   "jaccard_source": "P3_June2022_stats_Q6",
+   "shared_numbers": 1,
+   "max_cosine": 0.824,
+   "cosine_source": "part:P3_Oct2020_stats_Q2:c"
+  },
+  "G2": {
+   "pass": false,
+   "errors": [
+    "part d: nothing verified (no answers; a test part needs answers, or for show-that / prove at least one check)"
+   ],
+   "n_checks": 3,
+   "n_answers": 2,
+   "unverified_parts": [
+    "b",
+    "d"
+   ]
+  },
+  "G8": {
+   "pass": false,
+   "errors": [
+    "regression-and-correlation-test: total marks 4 outside 5-10 (seen 6-9, +-1)"
+   ],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

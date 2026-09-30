@@ -1,0 +1,1141 @@
+{
+ "id": "cr-pure-de-given-separable-005",
+ "blueprint_id": "bp-pure-de-given-separable-005",
+ "question_type": "de-given-separable",
+ "component": "pure",
+ "tier": "standard",
+ "kind": "exam",
+ "stem": "A pharmaceutical factory grows crystals of a drug compound in a sealed vat. A cooling cycle makes the temperature of the vat rise and fall. The process begins at time $t = 0$. At time $t$ hours, $0 \\leqslant t \\leqslant 12$, the total mass of crystals in the vat is $M$ grams. The growth of the crystals is modelled by the differential equation\n$$\\frac{\\mathrm{d}M}{\\mathrm{d}t} = M\\left(\\frac{6}{3t+2} - \\frac{\\pi}{24}\\sin\\left(\\frac{\\pi t}{12}\\right)\\right),$$\nwhere the angle $\\frac{\\pi t}{12}$ is in radians.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 5,
+   "command": "show-that",
+   "skills": [
+    "standard-integrals"
+   ],
+   "text": "Show that, for $t \\geqslant 0$,\n$$\\int \\left(\\frac{6}{3t+2} - \\frac{\\pi}{24}\\sin\\left(\\frac{\\pi t}{12}\\right)\\right)\\mathrm{d}t = 2\\ln(3t+2) + \\frac{1}{2}\\cos\\left(\\frac{\\pi t}{12}\\right) + c,$$\nwhere $c$ is an arbitrary constant. (5)",
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Integrates $\\frac{6}{3t+2}$ to get $k\\ln(3t+2)$ for some non-zero constant $k$"
+    },
+    {
+     "code": "M1",
+     "for": "Integrates $\\sin\\left(\\frac{\\pi t}{12}\\right)$ to get $\\lambda\\cos\\left(\\frac{\\pi t}{12}\\right)$ for some non-zero constant $\\lambda$"
+    },
+    {
+     "code": "A1",
+     "for": "Both terms correct, unsimplified allowed: $6\\times\\frac{1}{3}\\ln(3t+2)$ and $-\\frac{\\pi}{24}\\times\\left(-\\frac{12}{\\pi}\\right)\\cos\\left(\\frac{\\pi t}{12}\\right)$",
+     "notes": "The sign of the cosine term must come out positive once simplified"
+    },
+    {
+     "code": "dM1",
+     "for": "Depends on both M marks. Simplifies the coefficients, showing $\\frac{6}{3} = 2$ and $\\frac{\\pi}{24}\\times\\frac{12}{\\pi} = \\frac{1}{2}$, and puts the two terms together",
+     "depends_on": "M1 M1"
+    },
+    {
+     "code": "A1*",
+     "for": "Reaches the printed result $2\\ln(3t+2) + \\frac{1}{2}\\cos\\left(\\frac{\\pi t}{12}\\right) + c$ with no errors in the working, and the constant $+\\,c$ included",
+     "notes": "cso. Modulus signs not needed because $3t+2>0$ when $t \\geqslant 0$; if they are written, that is fine too"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\int \\frac{6}{3t+2}\\,\\mathrm{d}t = 6\\times\\frac{1}{3}\\ln(3t+2)$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$\\int \\sin\\left(\\frac{\\pi t}{12}\\right)\\mathrm{d}t = -\\frac{12}{\\pi}\\cos\\left(\\frac{\\pi t}{12}\\right)$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "So $\\int -\\frac{\\pi}{24}\\sin\\left(\\frac{\\pi t}{12}\\right)\\mathrm{d}t = -\\frac{\\pi}{24}\\times\\left(-\\frac{12}{\\pi}\\right)\\cos\\left(\\frac{\\pi t}{12}\\right)$, and the first term is $6\\times\\frac{1}{3}\\ln(3t+2)$",
+     "mark": "A1"
+    },
+    {
+     "step": 4,
+     "working": "$6\\times\\frac{1}{3} = 2$ and $\\frac{\\pi}{24}\\times\\frac{12}{\\pi} = \\frac{1}{2}$, so the integral is $2\\ln(3t+2) + \\frac{1}{2}\\cos\\left(\\frac{\\pi t}{12}\\right)$ plus a constant",
+     "mark": "dM1"
+    },
+    {
+     "step": 5,
+     "working": "$\\int \\left(\\frac{6}{3t+2} - \\frac{\\pi}{24}\\sin\\left(\\frac{\\pi t}{12}\\right)\\right)\\mathrm{d}t = 2\\ln(3t+2) + \\frac{1}{2}\\cos\\left(\\frac{\\pi t}{12}\\right) + c$ as required",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [],
+   "checks": [
+    {
+     "type": "integral",
+     "f": "6/(3t+2) - (pi/24) sin(pi t/12)",
+     "var": "t",
+     "result": "2 ln(3t+2) + (1/2) cos(pi t/12)"
+    },
+    {
+     "type": "derivative",
+     "f": "2 ln(3t+2) + (1/2) cos(pi t/12)",
+     "var": "t",
+     "result": "6/(3t+2) - (pi/24) sin(pi t/12)"
+    }
+   ],
+   "hints": [
+    "Deal with each term on its own: one is of the form $\\frac{1}{at+b}$ and the other is $\\sin(kt)$.",
+    "Remember to divide by the coefficient of $t$ inside the bracket or the trig function, and think carefully about the sign when you integrate sine."
+   ],
+   "forms": []
+  },
+  {
+   "label": "b",
+   "marks": 2,
+   "command": "solve",
+   "skills": [
+    "separate-variables-and-integrate"
+   ],
+   "text": "Use your result from part (a) to solve the differential equation, writing $\\ln M$ as a function of $t$ that includes one unknown constant. (2)",
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Divides by $M$ to get $\\int \\frac{1}{M}\\,\\mathrm{d}M = \\int\\left(\\frac{6}{3t+2} - \\frac{\\pi}{24}\\sin\\left(\\frac{\\pi t}{12}\\right)\\right)\\mathrm{d}t$ and integrates the left-hand side to $\\ln M$",
+     "notes": "Separating as $\\int M\\,\\mathrm{d}M$ or leaving $M$ on the $t$ side scores M0"
+    },
+    {
+     "code": "A1",
+     "for": "$\\ln M = 2\\ln(3t+2) + \\frac{1}{2}\\cos\\left(\\frac{\\pi t}{12}\\right) + c$",
+     "notes": "oe. The constant must be there, on one side only"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\int \\frac{1}{M}\\,\\mathrm{d}M = \\int\\left(\\frac{6}{3t+2} - \\frac{\\pi}{24}\\sin\\left(\\frac{\\pi t}{12}\\right)\\right)\\mathrm{d}t$, and the left-hand side integrates to $\\ln M$ (since $M>0$)",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "From part (a): $\\ln M = 2\\ln(3t+2) + \\frac{1}{2}\\cos\\left(\\frac{\\pi t}{12}\\right) + c$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "lnM",
+     "expr": "2*log(3*t+2) + cos(pi*t/12)/2 + c",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "integral",
+     "f": "6/(3t+2) - (pi/24) sin(pi t/12)",
+     "var": "t",
+     "answer": "lnM"
+    },
+    {
+     "type": "derivative",
+     "f": "2 log(3t+2) + cos(pi t/12)/2 + c",
+     "var": "t",
+     "result": "6/(3t+2) - (pi/24) sin(pi t/12)"
+    }
+   ],
+   "hints": [
+    "Get every $M$ on the left with $\\mathrm{d}M$ and every $t$ on the right with $\\mathrm{d}t$ by dividing both sides by $M$.",
+    "You have already done the right-hand integral in part (a)."
+   ],
+   "forms": []
+  },
+  {
+   "label": "c",
+   "marks": 4,
+   "command": "find",
+   "skills": [
+    "find-constants-from-conditions",
+    "laws-of-logarithms",
+    "use-model-to-predict",
+    "accuracy-units-and-rounding"
+   ],
+   "text": "When the process begins there are 12 grams of crystals in the vat. Find the mass of crystals in the vat 12 hours after the process begins, as predicted by the model. Give your answer in kilograms to 3 significant figures. (4)",
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Puts $t = 0$, $M = 12$ into their solution from part (b), using $\\cos 0 = 1$, and solves for $c$: $\\ln 12 = 2\\ln 2 + \\frac{1}{2} + c$"
+    },
+    {
+     "code": "A1",
+     "for": "$c = \\ln 3 - \\frac{1}{2}$ oe, e.g. $\\ln 12 - 2\\ln 2 - \\frac{1}{2}$, or awrt $0.599$"
+    },
+    {
+     "code": "dM1",
+     "for": "Depends on the first M1. Puts $t = 12$ into their equation with $c$ found, using $\\cos\\pi = -1$, and removes the logarithms properly to get $M$, e.g. $M = 3\\times 38^2\\,\\mathrm{e}^{-1}$ or $M = \\mathrm{e}^{2\\ln 38 - 1 + \\ln 3}$",
+     "depends_on": "M1",
+     "notes": "Writing $\\mathrm{e}^{2\\ln 38}$ as $2\\times38$, or splitting $\\mathrm{e}^{a+b}$ into $\\mathrm{e}^a+\\mathrm{e}^b$, scores dM0"
+    },
+    {
+     "code": "A1",
+     "for": "awrt $1.59\\,\\mathrm{kg}$",
+     "notes": "Accept awrt $1590$ grams if the units are stated clearly. Units must be given"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$t=0,\\ M=12$: $\\ln 12 = 2\\ln 2 + \\frac{1}{2}\\cos 0 + c = \\ln 4 + \\frac{1}{2} + c$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$c = \\ln 12 - \\ln 4 - \\frac{1}{2} = \\ln 3 - \\frac{1}{2}$",
+     "mark": "A1"
+    },
+    {
+     "step": 3,
+     "working": "$t=12$: $\\ln M = 2\\ln 38 + \\frac{1}{2}\\cos\\pi + \\ln 3 - \\frac{1}{2} = \\ln(3\\times 38^2) - 1$, so $M = 4332\\,\\mathrm{e}^{-1}$",
+     "mark": "dM1"
+    },
+    {
+     "step": 4,
+     "working": "$M = 1593.6\\ldots$ grams, so the mass is $1.59\\,\\mathrm{kg}$ (3 s.f.)",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "c",
+     "expr": "log(3) - 1/2",
+     "form": "exact"
+    },
+    {
+     "name": "mass_kg",
+     "expr": "1.59",
+     "form": "sf-3",
+     "exact": "4332*exp(-1)/1000"
+    }
+   ],
+   "checks": [
+    {
+     "type": "substitute",
+     "expr": "log(12) - 2 log(3t+2) - cos(pi t/12)/2",
+     "at": {
+      "t": 0
+     },
+     "answer": "c"
+    },
+    {
+     "type": "numeric",
+     "expr": "exp(2 log(38) + cos(pi)/2 + log(3) - 1/2)/1000",
+     "answer": "mass_kg",
+     "form": "sf-3"
+    },
+    {
+     "type": "substitute",
+     "expr": "3 (3t+2)^2 exp((cos(pi t/12) - 1)/2)",
+     "at": {
+      "t": 0
+     },
+     "result": "12"
+    }
+   ],
+   "hints": [
+    "Use the starting mass to find your constant before you put in $t = 12$.",
+    "When you remove the logarithms, remember that $2\\ln 38 = \\ln(38^2)$."
+   ],
+   "forms": []
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "trig-integral-sign-error",
+   "text": "A common slip is to integrate $\\sin\\left(\\frac{\\pi t}{12}\\right)$ as $+\\frac{12}{\\pi}\\cos\\left(\\frac{\\pi t}{12}\\right)$. The cosine term then comes out as $-\\frac{1}{2}\\cos\\left(\\frac{\\pi t}{12}\\right)$, which doesn't match the printed result, and you lose the A1 and the A1*.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 5,
+   "error_code": "missing-constant-of-integration",
+   "text": "This is an indefinite integral, so your last line needs $+\\,c$. People often leave it out. If you do, your working has not reached the printed answer and you lose the A1*.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "reverse-chain-coefficient-error",
+   "text": "If you multiply by 3 rather than divide by 3, you get $18\\ln(3t+2)$ in place of $2\\ln(3t+2)$ and lose the A1. You can check your answer by differentiating $\\ln(3t+2)$: this gives $\\frac{3}{3t+2}$.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "separation-error",
+   "text": "Divide by $M$ so that you integrate $\\frac{1}{M}$ with respect to $M$. A common mistake is to multiply instead and integrate $M\\,\\mathrm{d}M$ to get $\\frac{M^2}{2}$, or to leave the $M$ on the right-hand side and integrate it as if it were a constant. Either way the M1 is lost.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "missing-constant-of-integration",
+   "text": "Forgetting the $+\\,c$ here happens a lot. It loses the A1, and it also means your solution cannot fit the starting mass of 12 grams in part (c).",
+   "says_common": true
+  },
+  {
+   "part": "c",
+   "step": 1,
+   "error_code": "initial-conditions-not-used",
+   "text": "Don't just take $c = 0$. You must put $t=0$ and $M=12$ into your solution to find $c$. If you skip this you lose the M1, and your prediction for $t = 12$ will be wrong.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "step": 2,
+   "error_code": "log-law-misapplied",
+   "text": "$\\ln 12 - \\ln 4$ is $\\ln\\frac{12}{4} = \\ln 3$, not $\\ln 8$. In the same way, $\\mathrm{e}^{2\\ln 38 - 1 + \\ln 3}$ is a product of exponentials, not a sum. Mistakes like these with the log laws are common and cost the related marks.",
+   "says_common": true
+  },
+  {
+   "part": "c",
+   "step": 3,
+   "error_code": "log-power-law-misapplied",
+   "text": "$\\mathrm{e}^{2\\ln 38} = 38^2 = 1444$, not $2\\times 38 = 76$. Likewise, $2\\ln 38$ is $\\ln 1444$, not $\\ln 76$. This slip happens often and loses the dM1, because you would get about $0.0839\\,\\mathrm{kg}$ as your answer.",
+   "says_common": true
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T16:21:22",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.632
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 11
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.848 with question:GCE2008_6666_June2010_Q2"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.01,
+   "jaccard_source": "IAL2018_WMA14_Jan2021_Q10",
+   "shared_numbers": 0,
+   "max_cosine": 0.848,
+   "cosine_source": "question:GCE2008_6666_June2010_Q2"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 7,
+   "n_answers": 3,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "part c: expected c = log(3) - 1/2, solver got ['1.59'] [judge: same - Both get 1.59 kg. The solver's working also gives c = ln3 - 1/2, the same as the setter's constant, and M = 4332/e ≈ 1594 g, which is 1.59 kg.]"
+   ],
+   "flag": true,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0167,
+   "solver": {
+    "parts": [
+     {
+      "label": "a",
+      "answers": [
+       "2*log(3*t+2) + cos(pi*t/12)/2 + c"
+      ],
+      "printed_result_correct": true,
+      "working_summary": "∫6/(3t+2)dt = 2ln(3t+2) (3t+2>0 so no modulus needed). ∫-(π/24)sin(πt/12)dt = (π/24)(12/π)cos(πt/12) = (1/2)cos(πt/12). Matches the printed result."
+     },
+     {
+      "label": "b",
+      "answers": [
+       "log(M) = 2*log(3*t+2) + cos(pi*t/12)/2 + c"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "Separate variables: ∫(1/M)dM = ∫(...)dt, so ln M = 2ln(3t+2) + ½cos(πt/12) + c. M>0 so ln M is valid."
+     },
+     {
+      "label": "c",
+      "answers": [
+       "1.59"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "At t=0, ln12 = 2ln2 + 1/2 + c, so c = ln3 - 1/2. At t=12, ln M = 2ln38 - 1/2 + ln3 - 1/2 = ln(4332) - 1. So M = 4332/e ≈ 1593.65 g ≈ 1.59 kg."
+     }
+    ],
+    "problems": []
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "n_responses": 10,
+   "agreed": [
+    "r1",
+    "r2",
+    "r3",
+    "r4",
+    "r5",
+    "r6",
+    "r7",
+    "r8",
+    "r9",
+    "r10"
+   ],
+   "consistent": {},
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "r1",
+     "kind": "correct",
+     "error_code": null,
+     "work": "(a) $\\int \\frac{6}{3t+2}dt = 6\\times\\frac13\\ln(3t+2)$ and $\\int \\sin(\\frac{\\pi t}{12})dt=-\\frac{12}{\\pi}\\cos(\\frac{\\pi t}{12})$, so $-\\frac{\\pi}{24}\\times(-\\frac{12}{\\pi})\\cos(\\frac{\\pi t}{12})$. $6/3=2$, $\\frac{\\pi}{24}\\times\\frac{12}{\\pi}=\\frac12$. So integral $=2\\ln(3t+2)+\\frac12\\cos(\\frac{\\pi t}{12})+c$.\n(b) $\\int\\frac1M dM=\\int(\\ldots)dt$ so $\\ln M=2\\ln(3t+2)+\\frac12\\cos(\\frac{\\pi t}{12})+c$.\n(c) $t=0,M=12$: $\\ln12=2\\ln2+\\frac12+c$, $c=\\ln3-\\frac12$. $t=12$: $\\ln M=2\\ln38+\\frac12\\cos\\pi+\\ln3-\\frac12=\\ln(3\\times38^2)-1$. $M=4332e^{-1}=1593.6$ g $=1.59$ kg.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "dM1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "kind": "pitfall",
+     "error_code": "trig-integral-sign-error",
+     "work": "(a) $\\int\\frac{6}{3t+2}dt=\\frac63\\ln(3t+2)=2\\ln(3t+2)$. $\\int\\sin(\\frac{\\pi t}{12})dt=+\\frac{12}{\\pi}\\cos(\\frac{\\pi t}{12})$, so $-\\frac{\\pi}{24}\\times\\frac{12}{\\pi}\\cos(\\frac{\\pi t}{12})=-\\frac12\\cos(\\frac{\\pi t}{12})$. Total: $2\\ln(3t+2)-\\frac12\\cos(\\frac{\\pi t}{12})+c$. (Doesn't match the printed answer but I'll go with the printed result below.)\n(b) $\\int\\frac1M dM=\\int(\\ldots)dt$, $\\ln M=2\\ln(3t+2)+\\frac12\\cos(\\frac{\\pi t}{12})+c$.\n(c) $\\ln12=2\\ln2+\\frac12+c$, $c=\\ln3-\\frac12$. $t=12$: $\\ln M=2\\ln38-\\frac12+\\ln3-\\frac12$, $M=3\\times38^2e^{-1}=1593.6$ g $=1.59$ kg.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A0",
+        "dM1",
+        "A0*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r3",
+     "kind": "pitfall",
+     "error_code": "missing-constant-of-integration",
+     "work": "(a) $\\int\\frac{6}{3t+2}dt=6\\times\\frac13\\ln(3t+2)$; $-\\frac{\\pi}{24}\\times(-\\frac{12}{\\pi})\\cos(\\frac{\\pi t}{12})$. $6/3=2$, $\\frac{\\pi}{24}\\times\\frac{12}{\\pi}=\\frac12$. Integral $=2\\ln(3t+2)+\\frac12\\cos(\\frac{\\pi t}{12})$.\n(b) $\\int\\frac1MdM=\\int(\\ldots)dt$, $\\ln M=2\\ln(3t+2)+\\frac12\\cos(\\frac{\\pi t}{12})+c$.\n(c) $\\ln12=2\\ln2+\\frac12+c$, $c=\\ln3-\\frac12$. $\\ln M=2\\ln38-1+\\ln3$, $M=3\\times1444e^{-1}=1593.6$ g $=1.59$ kg.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "dM1",
+        "A0*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r4",
+     "kind": "pitfall",
+     "error_code": "reverse-chain-coefficient-error",
+     "work": "(a) $\\int\\frac{6}{3t+2}dt=6\\times3\\ln(3t+2)=18\\ln(3t+2)$. $\\int\\sin(\\frac{\\pi t}{12})dt=-\\frac{12}{\\pi}\\cos(\\frac{\\pi t}{12})$, so cosine term $=\\frac12\\cos(\\frac{\\pi t}{12})$. Result: $18\\ln(3t+2)+\\frac12\\cos(\\frac{\\pi t}{12})+c$, which isn't the printed answer; I can't see my error.\n(b) Using the printed result: $\\ln M=2\\ln(3t+2)+\\frac12\\cos(\\frac{\\pi t}{12})+c$.\n(c) $\\ln12=\\ln4+\\frac12+c$, $c=\\ln3-\\frac12$. $\\ln M=2\\ln38-1+\\ln3$, $M=4332/e=1593.6$ g $=1.59$ kg.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A0",
+        "dM0",
+        "A0*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r5",
+     "kind": "pitfall",
+     "error_code": "separation-error",
+     "work": "(a) $6\\times\\frac13\\ln(3t+2)=2\\ln(3t+2)$; $-\\frac{\\pi}{24}\\times(-\\frac{12}{\\pi})\\cos=\\frac12\\cos(\\frac{\\pi t}{12})$. So $2\\ln(3t+2)+\\frac12\\cos(\\frac{\\pi t}{12})+c$.\n(b) Multiply by $M$... $\\int M\\,dM=\\int(\\ldots)dt$ so $\\frac{M^2}{2}=2\\ln(3t+2)+\\frac12\\cos(\\frac{\\pi t}{12})+c$.\n(c) $t=0,M=12$: $72=2\\ln2+\\frac12+c$, $c=71.5-\\ln4\\approx70.1$. $t=12$: $\\frac{M^2}{2}=2\\ln38-\\frac12+70.1\\approx76.9$, $M^2\\approx153.8$, $M\\approx12.4$ g $=0.0124$ kg.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "dM1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A0",
+        "dM0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r6",
+     "kind": "pitfall",
+     "error_code": "missing-constant-of-integration",
+     "work": "(a) $2\\ln(3t+2)+\\frac12\\cos(\\frac{\\pi t}{12})+c$ obtained via $6\\times\\frac13\\ln(3t+2)$ and $-\\frac{\\pi}{24}\\times(-\\frac{12}{\\pi})\\cos(\\frac{\\pi t}{12})$, with $6/3=2$ and $\\frac{\\pi}{24}\\times\\frac{12}{\\pi}=\\frac12$.\n(b) $\\int\\frac1MdM=\\int(\\ldots)dt$ so $\\ln M=2\\ln(3t+2)+\\frac12\\cos(\\frac{\\pi t}{12})$.\n(c) No constant to find, so at $t=12$: $\\ln M=2\\ln38-\\frac12$, $M=1444e^{-1/2}=875.8$ g $=0.876$ kg.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "dM1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0",
+        "dM0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r7",
+     "kind": "pitfall",
+     "error_code": "initial-conditions-not-used",
+     "work": "(a) $6\\times\\frac13\\ln(3t+2)$, $-\\frac{\\pi}{24}\\times(-\\frac{12}{\\pi})\\cos(\\frac{\\pi t}{12})$, simplify $6/3=2$, $\\frac{\\pi}{24}\\times\\frac{12}{\\pi}=\\frac12$: $2\\ln(3t+2)+\\frac12\\cos(\\frac{\\pi t}{12})+c$.\n(b) $\\ln M=2\\ln(3t+2)+\\frac12\\cos(\\frac{\\pi t}{12})+c$.\n(c) Take $c=0$. At $t=12$: $\\ln M=2\\ln38+\\frac12\\cos\\pi=2\\ln38-\\frac12$, $M=1444e^{-1/2}=875.8$ g $=0.876$ kg.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "dM1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0",
+        "dM0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r8",
+     "kind": "pitfall",
+     "error_code": "log-law-misapplied",
+     "work": "(a) $6\\times\\frac13\\ln(3t+2)$, $-\\frac{\\pi}{24}\\times(-\\frac{12}{\\pi})\\cos(\\frac{\\pi t}{12})$, $6/3=2$, $\\frac{\\pi}{24}\\times\\frac{12}{\\pi}=\\frac12$, giving $2\\ln(3t+2)+\\frac12\\cos(\\frac{\\pi t}{12})+c$.\n(b) $\\ln M=2\\ln(3t+2)+\\frac12\\cos(\\frac{\\pi t}{12})+c$.\n(c) $\\ln12=\\ln4+\\frac12+c$, so $c=\\ln12-\\ln4-\\frac12=\\ln8-\\frac12$. $t=12$: $\\ln M=2\\ln38-\\frac12+\\ln8-\\frac12=\\ln(8\\times1444)-1$. $M=11552e^{-1}=4249.7$ g $=4.25$ kg.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "dM1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A0",
+        "dM1",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r9",
+     "kind": "pitfall",
+     "error_code": "log-power-law-misapplied",
+     "work": "(a) $6\\times\\frac13\\ln(3t+2)$, $-\\frac{\\pi}{24}\\times(-\\frac{12}{\\pi})\\cos(\\frac{\\pi t}{12})$, $6/3=2$, $\\frac{\\pi}{24}\\times\\frac{12}{\\pi}=\\frac12$: $2\\ln(3t+2)+\\frac12\\cos(\\frac{\\pi t}{12})+c$.\n(b) $\\ln M=2\\ln(3t+2)+\\frac12\\cos(\\frac{\\pi t}{12})+c$.\n(c) $\\ln12=\\ln4+\\frac12+c$, $c=\\ln3-\\frac12$. $t=12$: $\\ln M=2\\ln38-1+\\ln3$. $e^{2\\ln38}=76$, so $M=76\\times3\\times e^{-1}=83.9$ g $=0.0839$ kg.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "dM1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1",
+        "dM0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r10",
+     "kind": "partial",
+     "error_code": null,
+     "work": "(a) $\\int\\frac{6}{3t+2}dt=6\\times\\frac13\\ln(3t+2)$ and $\\int-\\frac{\\pi}{24}\\sin(\\frac{\\pi t}{12})dt=-\\frac{\\pi}{24}\\times(-\\frac{12}{\\pi})\\cos(\\frac{\\pi t}{12})$. I'll stop here.\n(b) not attempted.\n(c) not attempted.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "dM0",
+        "A0*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0",
+        "dM0",
+        "A0"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "r1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "dM1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A0",
+        "dM1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "a A1: cosine term has wrong sign",
+      "a A1*: printed result not reached"
+     ]
+    },
+    {
+     "id": "r3",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "dM1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "a A1*: constant +c omitted"
+     ]
+    },
+    {
+     "id": "r4",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A0",
+        "dM0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "a A1: 18ln term wrong",
+      "a dM1: 6×3 not simplified to 2",
+      "a A1*: printed result not reached"
+     ]
+    },
+    {
+     "id": "r5",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "dM1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A0",
+        "dM0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "b M1: integrated M dM, not 1/M dM",
+      "b A1: needs M1",
+      "c A1: c is wrong",
+      "c dM1: logs not removed properly, wrong method",
+      "c A1: wrong answer"
+     ]
+    },
+    {
+     "id": "r6",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "dM1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0",
+        "dM0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "b A1: constant c missing",
+      "c M1: no constant found using t=0, M=12",
+      "c A1: c not found",
+      "c dM1: depends on M1",
+      "c A1: wrong answer"
+     ]
+    },
+    {
+     "id": "r7",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "dM1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0",
+        "dM0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "c M1: assumed c=0 instead of using M=12 at t=0",
+      "c A1: c not found",
+      "c dM1: depends on M1",
+      "c A1: wrong answer"
+     ]
+    },
+    {
+     "id": "r8",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "dM1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A0",
+        "dM1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "c A1: ln12-ln4 wrongly evaluated as ln8, so c wrong",
+      "c A1: final answer wrong"
+     ]
+    },
+    {
+     "id": "r9",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "dM1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1",
+        "dM0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "c dM1: e^{2ln38} wrongly given as 76",
+      "c A1: wrong answer"
+     ]
+    },
+    {
+     "id": "r10",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "dM0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0",
+        "dM0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "a dM1: coefficients not simplified or terms combined",
+      "a A1*: printed result not reached",
+      "b: not attempted",
+      "c: not attempted"
+     ]
+    }
+   ],
+   "awarded_second": [],
+   "cost_usd": 0.1117
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "agreement": "3/3",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.019475,
+   "retagged": {
+    "a": [
+     "reverse-chain-rule",
+     "standard-integrals"
+    ],
+    "b": [
+     "separate-variables-and-integrate"
+    ],
+    "c": [
+     "find-constants-from-conditions"
+    ]
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

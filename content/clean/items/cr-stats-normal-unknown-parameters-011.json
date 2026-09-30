@@ -1,0 +1,2433 @@
+{
+ "id": "cr-stats-normal-unknown-parameters-011",
+ "blueprint_id": "bp-stats-normal-unknown-parameters-011",
+ "question_type": "normal-unknown-parameters",
+ "component": "stats",
+ "tier": "standard",
+ "kind": "exam",
+ "stem": "An electronics workshop makes carbon-film resistors with a nominal rating of $470$ ohms on its production Line A. The resistance, $R$ ohms, of a resistor taken at random from Line A is modelled as $R \\sim \\mathrm{N}(470, 6^2)$. An automated tester accepts a resistor if $460 \\leqslant R \\leqslant 480$. All other resistors are rejected.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 3,
+   "text": "A resistor is picked at random from Line A, and the tester accepts it. Find the probability that its resistance is greater than $475$ ohms. (3)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "normal-probability-calculator",
+    "accuracy-units-and-rounding",
+    "show-that-given-answer"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Uses the calculator to find $\\mathrm{P}(460 < R < 480) = 0.9044\\ldots$, the probability of being accepted, and uses it as the denominator of a conditional probability",
+     "notes": "Accept awrt 0.904 for the denominator. Can be implied by the final answer."
+    },
+    {
+     "code": "M1",
+     "for": "Numerator $\\mathrm{P}(475 < R < 480) = 0.1545\\ldots$ divided by their $\\mathrm{P}(460 < R < 480)$",
+     "notes": "The numerator must be the intersection 'greater than 475 and accepted', not $\\mathrm{P}(R > 475)$."
+    },
+    {
+     "code": "A1",
+     "for": "awrt $0.171$",
+     "notes": "cao"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Accepted: $\\mathrm{P}(460 < R < 480) = 0.904419\\ldots$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "Greater than 475 and accepted: $\\mathrm{P}(475 < R < 480) = 0.154538\\ldots$, so $\\mathrm{P}(R > 475 \\mid \\text{accepted}) = \\dfrac{0.154538}{0.904419}$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$= 0.17087\\ldots \\approx 0.171$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "p",
+     "expr": "0.171",
+     "form": "sf-3"
+    }
+   ],
+   "checks": [
+    {
+     "type": "normal",
+     "mean": 470,
+     "sd": 6,
+     "lower": 460,
+     "upper": 480,
+     "result": "0.9044",
+     "form": "sf-4"
+    },
+    {
+     "type": "normal",
+     "mean": 470,
+     "sd": 6,
+     "lower": 475,
+     "upper": 480,
+     "result": "0.1545",
+     "form": "sf-4"
+    },
+    {
+     "type": "numeric",
+     "expr": "0.154538/0.904419",
+     "answer": "p",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "Being given that the resistor was accepted limits you to $460 \\leqslant R \\leqslant 480$. What goes in the denominator?",
+    "The numerator is the part of the accepted range that is also above 475."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 2,
+   "text": "Twelve resistors that the tester has accepted are chosen at random. Using your answer to part (a), find the probability that exactly $3$ of them have a resistance greater than $475$ ohms. (2)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "use-hence-previous-result",
+    "normal-probability-calculator",
+    "combine-independent-observations",
+    "binomial-individual-probability"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Models the number above 475 as $\\mathrm{B}(12, p)$, where $p$ is their answer to (a), and writes $\\binom{12}{3}p^3(1-p)^9$ or uses the calculator's binomial point probability",
+     "notes": "ft their (a). Must use $n = 12$ and the conditional probability from (a)."
+    },
+    {
+     "code": "A1",
+     "for": "awrt $0.203$",
+     "notes": "Allow awrt 0.203 from using $p = 0.171$ or $p = 0.17087$."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$X \\sim \\mathrm{B}(12, 0.17087)$, $\\mathrm{P}(X = 3) = \\binom{12}{3}(0.17087)^3(0.82913)^9 = 220 \\times 0.0049889 \\times 0.185184$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$= 0.20325\\ldots \\approx 0.203$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "q",
+     "expr": "0.203",
+     "form": "sf-3"
+    }
+   ],
+   "checks": [
+    {
+     "type": "binomial_cdf",
+     "n": 12,
+     "p": "0.17087",
+     "k": 3,
+     "tail": "eq",
+     "answer": "q",
+     "form": "sf-3"
+    },
+    {
+     "type": "numeric",
+     "expr": "binomial(12,3)*0.17087^3*0.82913^9",
+     "result": "0.203",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "Each accepted resistor independently either is or is not above 475 ohms. Which distribution counts successes in 12 trials?",
+    "The success probability is your answer to (a), not the unconditional $\\mathrm{P}(R > 475)$."
+   ]
+  },
+  {
+   "label": "c",
+   "marks": 3,
+   "text": "In a batch of $2000$ resistors from Line A, the expected number with resistance less than $k$ ohms is $150$. Find $k$, giving your answer to 1 decimal place. (3)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "inverse-normal",
+    "standardise-to-find-mu-or-sigma",
+    "accuracy-units-and-rounding",
+    "expected-frequency-and-value"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Turns the expected count into a probability, $\\mathrm{P}(R < k) = \\frac{150}{2000} = 0.075$, and either standardises $\\frac{k - 470}{6} = z$ with an inverse-normal $z$ or uses the inverse normal function with mean 470 and sd 6",
+     "notes": "The probability 0.075 must be used (0.925 in the upper tail is fine)."
+    },
+    {
+     "code": "B1",
+     "for": "$z = -1.4395$ (awrt $-1.44$), with a negative sign because $k$ is below the mean",
+     "notes": "May be implied by a correct $k$ from a direct inverse-normal calculation."
+    },
+    {
+     "code": "A1",
+     "for": "$k = $ awrt $461.4$",
+     "notes": "cao to 1 d.p."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\mathrm{P}(R < k) = \\dfrac{150}{2000} = 0.075$, so $\\dfrac{k - 470}{6} = z$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$z = \\Phi^{-1}(0.075) = -1.43953\\ldots$",
+     "mark": "B1"
+    },
+    {
+     "step": 3,
+     "working": "$k = 470 - 6 \\times 1.43953 = 461.36\\ldots \\approx 461.4$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "k",
+     "expr": "461.4",
+     "form": "dp-1"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "150/2000",
+     "result": "0.075",
+     "form": "dp-3"
+    },
+    {
+     "type": "normal",
+     "mean": 470,
+     "sd": 6,
+     "prob": "0.075",
+     "tail": "le",
+     "answer": "k",
+     "form": "dp-1"
+    }
+   ],
+   "hints": [
+    "First write the expected number as a proportion of the batch: this gives $\\mathrm{P}(R < k)$.",
+    "A proportion this small is in the lower tail, so should $k$ be above or below 470?"
+   ]
+  },
+  {
+   "label": "d",
+   "marks": 3,
+   "text": "Line A is then serviced. After the servicing, the standard deviation of $R$ is still $6$ ohms, but the mean changes to $\\mu$ ohms. After the servicing, $5\\%$ of the resistors made have a resistance below $462$ ohms. Find $\\mu$, and explain what your value of $\\mu$ tells the workshop about the resistors made after the servicing. (3)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "inverse-normal",
+    "standardise-to-find-mu-or-sigma",
+    "explain-with-reason",
+    "interpret-model-parameters"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Writes $\\frac{462 - \\mu}{6} = \\pm z$ where $z$ is an inverse-normal value for $5\\%$ (awrt 1.64 or 1.645)",
+     "notes": "Must divide by 6, not 36. Reject z-values that are not from the inverse normal, e.g. 0.05."
+    },
+    {
+     "code": "B1",
+     "for": "Explains in context: $\\mu$ is the mean resistance (in ohms) of resistors made after the servicing, which is now about 1.9 ohms above the nominal 470 ohms",
+     "notes": "Needs the reference to resistance of resistors after the servicing. A bare 'it is the mean' scores B0."
+    },
+    {
+     "code": "A1",
+     "for": "$\\mu = $ awrt $471.9$",
+     "notes": "Needs the negative z. Using $+1.645$ gives 452.1 and scores A0."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\mathrm{P}(R < 462) = 0.05 \\Rightarrow \\dfrac{462 - \\mu}{6} = -1.64485\\ldots$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$\\mu$ is the mean resistance, in ohms, of resistors made after the servicing. Resistors now average about 1.9 ohms more than the nominal 470 ohms",
+     "mark": "B1"
+    },
+    {
+     "step": 3,
+     "working": "$\\mu = 462 + 6 \\times 1.64485 = 471.869\\ldots \\approx 471.9$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "mu",
+     "expr": "471.9",
+     "form": "dp-1"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "462 + 6*1.644854",
+     "answer": "mu",
+     "form": "dp-1"
+    },
+    {
+     "type": "normal",
+     "mean": "471.869",
+     "sd": 6,
+     "upper": 462,
+     "result": "0.0500",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "Only 5% are below 462 ohms, so 462 is in the lower tail: think about the sign of $z$.",
+    "For the explanation, say what $\\mu$ measures for these particular resistors, and compare it with 470."
+   ]
+  },
+  {
+   "label": "e",
+   "marks": 4,
+   "text": "The workshop also has a Line B, which makes resistors rated at $1000$ ohms. For a resistor from Line B the resistance, $S$ ohms, is modelled as $\\mathrm{N}(\\mu_B, \\sigma_B^2)$. Records from the Line B test bench say that one resistor in every eight reads over $1030$ ohms, and one resistor in every five reads under $985$ ohms. Calculate $\\mu_B$ and $\\sigma_B$, giving each to 1 decimal place. (4)",
+   "command": "calculate",
+   "forms": [],
+   "skills": [
+    "standardise-to-find-mu-or-sigma",
+    "inverse-normal",
+    "translate-context-into-model",
+    "accuracy-units-and-rounding"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Converts one statement into a standardised equation, e.g. $\\frac{1030 - \\mu_B}{\\sigma_B} = z$ with $z$ an inverse-normal value from $0.125$ or $0.875$",
+     "notes": "Must be of the form $(x - \\mu_B)/\\sigma_B$, not over $\\sigma_B^2$."
+    },
+    {
+     "code": "M1",
+     "for": "Forms a second equation for 985 in the same way and solves the two equations simultaneously for both $\\mu_B$ and $\\sigma_B$",
+     "notes": "Needs both equations to have z-values from inverse normal. An error in sign still earns this mark."
+    },
+    {
+     "code": "B1",
+     "for": "Both z-values correct and with the right signs: $1.1503$ for 1030 and $-0.8416$ for 985 (awrt 1.15 and $-0.842$)",
+     "notes": ""
+    },
+    {
+     "code": "A1",
+     "for": "$\\mu_B = $ awrt $1004.0$ and $\\sigma_B = $ awrt $22.6$",
+     "notes": "Both needed."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\mathrm{P}(S > 1030) = \\tfrac{1}{8} = 0.125$, so $\\dfrac{1030 - \\mu_B}{\\sigma_B} = 1.150349$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$\\mathrm{P}(S < 985) = \\tfrac{1}{5} = 0.2$, so $\\dfrac{985 - \\mu_B}{\\sigma_B} = -0.841621$. Subtracting: $45 = 1.991970\\,\\sigma_B$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "The z-values are $1.1503$ (upper tail 0.125) and $-0.8416$ (lower tail 0.2)",
+     "mark": "B1"
+    },
+    {
+     "step": 4,
+     "working": "$\\sigma_B = 22.5907\\ldots \\approx 22.6$ and $\\mu_B = 1030 - 1.150349 \\times 22.5907 = 1004.01\\ldots \\approx 1004.0$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "sigma_B",
+     "expr": "22.6",
+     "form": "dp-1"
+    },
+    {
+     "name": "mu_B",
+     "expr": "1004.0",
+     "form": "dp-1"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "45/(1.150349+0.841621)",
+     "answer": "sigma_B",
+     "form": "dp-1"
+    },
+    {
+     "type": "numeric",
+     "expr": "1030 - 1.150349*45/(1.150349+0.841621)",
+     "answer": "mu_B",
+     "form": "dp-1"
+    },
+    {
+     "type": "normal",
+     "mean": "1004.0128",
+     "sd": "22.5907",
+     "lower": 1030,
+     "result": "0.125",
+     "form": "sf-3"
+    },
+    {
+     "type": "normal",
+     "mean": "1004.0128",
+     "sd": "22.5907",
+     "upper": 985,
+     "result": "0.200",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "Write 'one in eight' and 'one in five' as probabilities, and decide which tail each one is in.",
+    "Each statement gives an equation of the form $x = \\mu_B + z\\sigma_B$. Solve the two together."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "conditional-denominator-error",
+   "text": "A common mistake is to divide by the wrong probability, for example $\\mathrm{P}(R > 475) = 0.2023$ instead of $\\mathrm{P}(\\text{accepted}) = 0.9044$, or to give $0.1545$ without dividing at all. You are told the resistor was accepted, so the accepted probability must be the denominator. Getting this wrong loses the method marks.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "standardising-error",
+   "text": "If you standardise 475 as $\\frac{470 - 475}{6}$ you get the wrong sign of $z$ and so the wrong tail. You then find $\\mathrm{P}(460 < R < 465)$ in place of the region above 475, and the M1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "approximation-parameters-wrong",
+   "text": "$\\mathrm{N}(470, 6^2)$ has standard deviation 6. If you enter 36 as the standard deviation in your calculator, every probability is wrong and the method marks are lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "cumulative-individual-confused",
+   "text": "The question says 'exactly 3', so you need $\\mathrm{P}(X = 3)$. Using the cumulative $\\mathrm{P}(X \\leqslant 3) \\approx 0.87$ loses the M1.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "conditional-denominator-error",
+   "text": "The twelve resistors have already been accepted, so $p$ must be the conditional value $0.171$ from (a). A common error is to use the unconditional $\\mathrm{P}(R > 475) = 0.202$, which loses the M1.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "binomial-parameters-wrong",
+   "text": "If you use $n = 3$, or swap $p$ and $1 - p$ so that you calculate $\\binom{12}{3}(0.829)^3(0.171)^9$, you are using the wrong binomial parameters and the M1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "step": 2,
+   "error_code": "z-sign-error",
+   "text": "Only $7.5\\%$ of resistors are below $k$, so $k$ is below 470 and $z = -1.4395$. A frequent slip is to use $+1.4395$, which gives $k = 478.6$ and loses the B1 and the A1.",
+   "says_common": true
+  },
+  {
+   "part": "c",
+   "step": 1,
+   "error_code": "cumulative-individual-confused",
+   "text": "The value $0.075$ is a cumulative probability $\\mathrm{P}(R < k)$, so you need the inverse normal function. If you put it into the normal probability density (pdf) function, or treat 150 as the probability, you do not get a valid $z$ and the M1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "step": 1,
+   "error_code": "standardising-error",
+   "text": "If you write $\\frac{k - 470}{36} = -1.4395$ you have divided by the variance, which gives $k = 418.2$. That is not a standardisation, so the M1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "d",
+   "step": 3,
+   "error_code": "z-sign-error",
+   "text": "462 is in the lower $5\\%$ tail, so $\\frac{462 - \\mu}{6} = -1.6449$. A common error is to use $+1.6449$, which gives $\\mu = 452.1$. That cannot be right, because the mean would be below the 5th percentile. You lose the A1.",
+   "says_common": true
+  },
+  {
+   "part": "d",
+   "step": 1,
+   "error_code": "standardising-error",
+   "text": "Dividing by the variance 36 in place of the standard deviation 6 gives $\\mu = 521.2$. This loses the M1.",
+   "says_common": false
+  },
+  {
+   "part": "d",
+   "step": 2,
+   "error_code": "parameter-meaning-no-context",
+   "text": "Just writing '$\\mu$ is the mean' does not earn the B1. You need to say that it is the mean resistance in ohms of resistors made after the servicing, and it helps to compare it with the nominal 470 ohms.",
+   "says_common": false
+  },
+  {
+   "part": "e",
+   "step": 3,
+   "error_code": "z-sign-error",
+   "text": "985 is below the mean, so its z-value is $-0.8416$. A frequent slip is to use $+0.8416$ for both equations. That gives $45 = 0.3087\\,\\sigma_B$, so $\\sigma_B \\approx 146$, and you lose the B1 and the A1.",
+   "says_common": true
+  },
+  {
+   "part": "e",
+   "step": 1,
+   "error_code": "inverse-normal-tail-error",
+   "text": "'Over 1030 ohms for one in eight' is an upper-tail probability of $0.125$, so $z = +1.1503$. If you use $\\Phi^{-1}(0.125) = -1.1503$ for 1030, or $\\Phi^{-1}(0.8)$ for 985, you are in the wrong tail. This is a common error and costs the method marks.",
+   "says_common": true
+  },
+  {
+   "part": "e",
+   "step": 1,
+   "error_code": "standardising-error",
+   "text": "Each equation must be $\\frac{x - \\mu_B}{\\sigma_B} = z$. If you put $\\sigma_B^2$ in the denominator, the equations cannot be solved as linear equations and the method marks are lost.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T17:03:06",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.6279
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 15
+  },
+  "G7": {
+   "pass": true,
+   "flag": false,
+   "reasons": [],
+   "flags": [],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.012,
+   "jaccard_source": "GCE2008_6664R_June2014_Q5",
+   "shared_numbers": 2,
+   "max_cosine": 0.746,
+   "cosine_source": "part:P3_June2025_stats_Q3:a"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 13,
+   "n_answers": 6,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "ambiguity (part d): 'Explain what your value of μ tells the workshop' is open-ended. The intended conclusion (mean is above the nominal 470, so the process is off-centre and more resistors would fail the 480 upper limit) is not specified, so the mark scheme needs to state acceptable comments.",
+    "unrealistic (part e): Line B's mean of about 1004 with σ about 22.6 is a very large spread for a resistor. The values are acceptable for a modelling exercise but are not realistic."
+   ],
+   "flag": true,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0216,
+   "solver": {
+    "parts": [
+     {
+      "label": "a",
+      "answers": [
+       "0.171"
+      ],
+      "working_summary": "P(475<R<=480)/P(460<=R<=480) = (0.95221-0.79767)/(2*0.95221-1) = 0.15454/0.90442 ≈ 0.1709",
+      "printed_result_correct": null
+     },
+     {
+      "label": "b",
+      "answers": [
+       "0.203"
+      ],
+      "working_summary": "X~B(12,0.1709): 220*0.1709^3*0.8291^9 ≈ 0.203",
+      "printed_result_correct": null
+     },
+     {
+      "label": "c",
+      "answers": [
+       "461.4"
+      ],
+      "working_summary": "P(R<k)=150/2000=0.075, z=-1.4395, k=470-6*1.4395=461.36",
+      "printed_result_correct": null
+     },
+     {
+      "label": "d",
+      "answers": [
+       "471.9"
+      ],
+      "working_summary": "(462-μ)/6=-1.6449 so μ=471.87. This is above the nominal 470, so the process is centred slightly high. More resistors exceed 480 (about 8.8% above 480 versus about 4.8% before servicing), so more would be rejected. The mean has drifted upwards from the nominal value.",
+      "printed_result_correct": null
+     },
+     {
+      "label": "e",
+      "answers": [
+       "1004.0",
+       "22.6"
+      ],
+      "working_summary": "(1030-μ)/σ=1.1503, (985-μ)/σ=-0.8416. Subtracting gives σ=45/1.9919=22.59 and μ=1004.0.",
+      "printed_result_correct": null
+     }
+    ],
+    "problems": [
+     {
+      "kind": "ambiguity",
+      "severity": "minor",
+      "part": "d",
+      "detail": "'Explain what your value of μ tells the workshop' is open-ended. The intended conclusion (mean is above the nominal 470, so the process is off-centre and more resistors would fail the 480 upper limit) is not specified, so the mark scheme needs to state acceptable comments."
+     },
+     {
+      "kind": "unrealistic",
+      "severity": "minor",
+      "part": "e",
+      "detail": "Line B's mean of about 1004 with σ about 22.6 is a very large spread for a resistor. The values are acceptable for a modelling exercise but are not realistic."
+     }
+    ]
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "response r3 (pitfall standardising-error): both markers award {'a': ['M1', 'M1', 'A1'], 'b': ['M1', 'A1'], 'c': ['M1', 'B1', 'A1'], 'd': ['M1', 'B1', 'A1'], 'e': ['M1', 'M1', 'B1', 'A1']}, not the designed {'a': ['M1', 'M0', 'A0'], 'b': ['M1', 'A1'], 'c': ['M1', 'B1', 'A1'], 'd': ['M1', 'B1', 'A1'], 'e': ['M1', 'M1', 'B1', 'A1']} (script design off; scheme consistent)"
+   ],
+   "flag": true,
+   "n_responses": 17,
+   "agreed": [
+    "r1",
+    "r2",
+    "r4",
+    "r5",
+    "r6",
+    "r7",
+    "r8",
+    "r9",
+    "r10",
+    "r11",
+    "r12",
+    "r13",
+    "r14",
+    "r15",
+    "r16",
+    "r17"
+   ],
+   "consistent": {
+    "r3": [
+     {
+      "part": "a",
+      "marks": [
+       "M1",
+       "M1",
+       "A1"
+      ]
+     },
+     {
+      "part": "b",
+      "marks": [
+       "M1",
+       "A1"
+      ]
+     },
+     {
+      "part": "c",
+      "marks": [
+       "M1",
+       "B1",
+       "A1"
+      ]
+     },
+     {
+      "part": "d",
+      "marks": [
+       "M1",
+       "B1",
+       "A1"
+      ]
+     },
+     {
+      "part": "e",
+      "marks": [
+       "M1",
+       "M1",
+       "B1",
+       "A1"
+      ]
+     }
+    ]
+   },
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "r1",
+     "kind": "correct",
+     "error_code": null,
+     "work": "(a) P(460<R<480)=0.9044. P(475<R<480)=0.1545. P(R>475|accepted)=0.1545/0.9044=0.171\n(b) X~B(12,0.17087): P(X=3)=C(12,3)(0.17087)^3(0.82913)^9=0.203\n(c) P(R<k)=150/2000=0.075. z=invNorm(0.075)=-1.4395. (k-470)/6=-1.4395, k=461.4\n(d) (462-mu)/6=-1.645, mu=462+9.87=471.9. mu is the mean resistance in ohms of the resistors made after the servicing; it is about 1.9 ohms above the nominal 470.\n(e) P(S>1030)=1/8 so (1030-m)/s=1.1503; P(S<985)=1/5 so (985-m)/s=-0.8416. Subtract: 45=1.9920s, s=22.6, m=1030-1.1503*22.59=1004.0",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "M1",
+        "B1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "kind": "pitfall",
+     "error_code": "conditional-denominator-error",
+     "work": "(a) P(475<R<480)=0.1545. Divide by P(R>475)=0.2023: 0.1545/0.2023=0.764\n(b) X~B(12,0.764): P(X=3)=C(12,3)(0.764)^3(0.236)^9=0.0000 (approx 5.6e-6)\n(c) P(R<k)=0.075, z=-1.4395, k=470-6(1.4395)=461.4\n(d) (462-mu)/6=-1.645, mu=471.9. mu is the mean resistance in ohms of resistors made after the servicing, about 1.9 above 470.\n(e) (1030-m)/s=1.1503, (985-m)/s=-0.8416, 45=1.992s, s=22.6, m=1004.0",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "M1",
+        "B1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r3",
+     "kind": "pitfall",
+     "error_code": "standardising-error",
+     "work": "(a) z=(470-475)/6=-0.8333, so I found P(460<R<465)=0.1545. Divide by P(accepted)=0.9044: 0.171\n(b) X~B(12,0.171): P(X=3)=C(12,3)(0.171)^3(0.829)^9=0.203\n(c) P(R<k)=0.075, z=-1.4395, k=461.4\n(d) (462-mu)/6=-1.645, mu=471.9. mu is the mean resistance in ohms of resistors made after the servicing, about 1.9 above nominal.\n(e) (1030-m)/s=1.1503, (985-m)/s=-0.8416, s=22.6, m=1004.0",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "M1",
+        "B1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r4",
+     "kind": "pitfall",
+     "error_code": "approximation-parameters-wrong",
+     "work": "(a) Entered N(470, 36) with sd 36 in calculator: P(460<R<480)=0.2188, P(475<R<480)=0.0542. 0.0542/0.2188=0.248\n(b) X~B(12,0.248): P(X=3)=C(12,3)(0.248)^3(0.752)^9=0.257\n(c) P(R<k)=0.075, z=-1.4395, k=461.4\n(d) (462-mu)/6=-1.645, mu=471.9. mu is the mean resistance in ohms of resistors made after the servicing, about 1.9 above nominal.\n(e) (1030-m)/s=1.1503, (985-m)/s=-0.8416, s=22.6, m=1004.0",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "M1",
+        "B1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r5",
+     "kind": "pitfall",
+     "error_code": "cumulative-individual-confused",
+     "work": "(a) 0.1545/0.9044=0.171\n(b) X~B(12,0.171). 'Exactly 3' - I used the calculator's cumulative function: P(X<=3)=0.866\n(c) P(R<k)=0.075, z=-1.4395, k=461.4\n(d) (462-mu)/6=-1.645, mu=471.9. mu is the mean resistance in ohms of resistors made after the servicing, about 1.9 above nominal.\n(e) (1030-m)/s=1.1503, (985-m)/s=-0.8416, s=22.6, m=1004.0",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "M1",
+        "B1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r6",
+     "kind": "pitfall",
+     "error_code": "conditional-denominator-error",
+     "work": "(a) 0.1545/0.9044=0.171\n(b) Used p=P(R>475)=0.2023 unconditional: X~B(12,0.2023), P(X=3)=C(12,3)(0.2023)^3(0.7977)^9=0.238\n(c) P(R<k)=0.075, z=-1.4395, k=461.4\n(d) (462-mu)/6=-1.645, mu=471.9. mu is the mean resistance in ohms of resistors made after the servicing, about 1.9 above nominal.\n(e) (1030-m)/s=1.1503, (985-m)/s=-0.8416, s=22.6, m=1004.0",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "M1",
+        "B1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r7",
+     "kind": "pitfall",
+     "error_code": "binomial-parameters-wrong",
+     "work": "(a) 0.1545/0.9044=0.171\n(b) Swapped p: C(12,3)(0.829)^3(0.171)^9 = 1.6e-5\n(c) P(R<k)=0.075, z=-1.4395, k=461.4\n(d) (462-mu)/6=-1.645, mu=471.9. mu is the mean resistance in ohms of resistors made after the servicing, about 1.9 above nominal.\n(e) (1030-m)/s=1.1503, (985-m)/s=-0.8416, s=22.6, m=1004.0",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "M1",
+        "B1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r8",
+     "kind": "pitfall",
+     "error_code": "z-sign-error",
+     "work": "(a) 0.1545/0.9044=0.171\n(b) C(12,3)(0.171)^3(0.829)^9=0.203\n(c) P(R<k)=0.075, z=1.4395, (k-470)/6=1.4395, k=478.6\n(d) (462-mu)/6=-1.645, mu=471.9. mu is the mean resistance in ohms of resistors made after the servicing, about 1.9 above nominal.\n(e) (1030-m)/s=1.1503, (985-m)/s=-0.8416, s=22.6, m=1004.0",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B0",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "M1",
+        "B1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r9",
+     "kind": "pitfall",
+     "error_code": "cumulative-individual-confused",
+     "work": "(a) 0.1545/0.9044=0.171\n(b) C(12,3)(0.171)^3(0.829)^9=0.203\n(c) 150/2000=0.075. I put z=0.075 as the value: (k-470)/6=0.075, k=470.5\n(d) (462-mu)/6=-1.645, mu=471.9. mu is the mean resistance in ohms of resistors made after the servicing, about 1.9 above nominal.\n(e) (1030-m)/s=1.1503, (985-m)/s=-0.8416, s=22.6, m=1004.0",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "B0",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "M1",
+        "B1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r10",
+     "kind": "pitfall",
+     "error_code": "standardising-error",
+     "work": "(a) 0.1545/0.9044=0.171\n(b) C(12,3)(0.171)^3(0.829)^9=0.203\n(c) P(R<k)=0.075, z=-1.4395. (k-470)/36=-1.4395, k=470-51.8=418.2\n(d) (462-mu)/6=-1.645, mu=471.9. mu is the mean resistance in ohms of resistors made after the servicing, about 1.9 above nominal.\n(e) (1030-m)/s=1.1503, (985-m)/s=-0.8416, s=22.6, m=1004.0",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "B1",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "M1",
+        "B1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r11",
+     "kind": "pitfall",
+     "error_code": "z-sign-error",
+     "work": "(a) 0.1545/0.9044=0.171\n(b) C(12,3)(0.171)^3(0.829)^9=0.203\n(c) P(R<k)=0.075, z=-1.4395, k=461.4\n(d) (462-mu)/6=+1.645, so mu=462-9.87=452.1. mu is the mean resistance in ohms of resistors made after the servicing.\n(e) (1030-m)/s=1.1503, (985-m)/s=-0.8416, s=22.6, m=1004.0",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "B1",
+        "A0"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "M1",
+        "B1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r12",
+     "kind": "pitfall",
+     "error_code": "standardising-error",
+     "work": "(a) 0.1545/0.9044=0.171\n(b) C(12,3)(0.171)^3(0.829)^9=0.203\n(c) P(R<k)=0.075, z=-1.4395, k=461.4\n(d) (462-mu)/36=-1.645, 462-mu=-59.2, mu=521.2. mu is the mean resistance in ohms of resistors made after the servicing, which is much higher than 470.\n(e) (1030-m)/s=1.1503, (985-m)/s=-0.8416, s=22.6, m=1004.0",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M0",
+        "B1",
+        "A0"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "M1",
+        "B1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r13",
+     "kind": "pitfall",
+     "error_code": "parameter-meaning-no-context",
+     "work": "(a) 0.1545/0.9044=0.171\n(b) C(12,3)(0.171)^3(0.829)^9=0.203\n(c) P(R<k)=0.075, z=-1.4395, k=461.4\n(d) (462-mu)/6=-1.645, mu=471.9. mu is the mean.\n(e) (1030-m)/s=1.1503, (985-m)/s=-0.8416, s=22.6, m=1004.0",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "B0",
+        "A1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "M1",
+        "B1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r14",
+     "kind": "pitfall",
+     "error_code": "z-sign-error",
+     "work": "(a) 0.1545/0.9044=0.171\n(b) C(12,3)(0.171)^3(0.829)^9=0.203\n(c) P(R<k)=0.075, z=-1.4395, k=461.4\n(d) (462-mu)/6=-1.645, mu=471.9. mu is the mean resistance in ohms of resistors made after the servicing, about 1.9 above nominal.\n(e) Used +1.1503 and +0.8416: (1030-m)/s=1.1503, (985-m)/s=0.8416. Subtract: 45=0.3087s, s=145.8, m=1030-1.1503*145.8=862.3",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "M1",
+        "B0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r15",
+     "kind": "pitfall",
+     "error_code": "inverse-normal-tail-error",
+     "work": "(a) 0.1545/0.9044=0.171\n(b) C(12,3)(0.171)^3(0.829)^9=0.203\n(c) P(R<k)=0.075, z=-1.4395, k=461.4\n(d) (462-mu)/6=-1.645, mu=471.9. mu is the mean resistance in ohms of resistors made after the servicing, about 1.9 above nominal.\n(e) invNorm(0.125)=-1.1503 so (1030-m)/s=-1.1503; invNorm(0.2)=-0.8416 so (985-m)/s=-0.8416. Subtract: 45=-0.3087s, s=-145.8 (negative, so the answer is not valid)",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "M1",
+        "B0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r16",
+     "kind": "pitfall",
+     "error_code": "standardising-error",
+     "work": "(a) 0.1545/0.9044=0.171\n(b) C(12,3)(0.171)^3(0.829)^9=0.203\n(c) P(R<k)=0.075, z=-1.4395, k=461.4\n(d) (462-mu)/6=-1.645, mu=471.9. mu is the mean resistance in ohms of resistors made after the servicing, about 1.9 above nominal.\n(e) (1030-m)/s^2=1.1503, (985-m)/s^2=-0.8416. Subtract: 45=1.992s^2, s^2=22.59, s=4.8, m=1030-1.1503*22.59=1004.0",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M0",
+        "M0",
+        "B1",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r17",
+     "kind": "partial",
+     "error_code": null,
+     "work": "(a) P(460<R<480)=0.9044, P(475<R<480)=0.1545, so probability = 0.1545/0.9044=0.171\n(b) X~B(12,0.171), P(X=3)=C(12,3)(0.171)^3(0.829)^9=0.203\n(c) P(R<k)=150/2000=0.075, z=-1.4395, k=470-6*1.4395=461.4\n(d) Not attempted.\n(e) Not attempted.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M0",
+        "B0",
+        "A0"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M0",
+        "M0",
+        "B0",
+        "A0"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "r1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "M1",
+        "B1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "M1",
+        "B1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "a: denominator P(accepted) not found; divided by P(R>475) instead",
+      "b: 0.0000 is not awrt 0.203 (wrong p from (a))"
+     ]
+    },
+    {
+     "id": "r3",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "M1",
+        "B1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r4",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "M1",
+        "B1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "a: used sd 36 so probabilities 0.2188 and 0.0542 are wrong; not the required values",
+      "b: p from (a) wrong so answer 0.257 is not 0.203"
+     ]
+    },
+    {
+     "id": "r5",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "M1",
+        "B1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "b: used cumulative P(X<=3) instead of P(X=3)"
+     ]
+    },
+    {
+     "id": "r6",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "M1",
+        "B1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "b: used unconditional P(R>475) rather than the answer to (a)"
+     ]
+    },
+    {
+     "id": "r7",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "M1",
+        "B1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "b: p and 1-p swapped, wrong binomial expression"
+     ]
+    },
+    {
+     "id": "r8",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B0",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "M1",
+        "B1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "c: z taken positive, should be negative",
+      "c: k=478.6 wrong"
+     ]
+    },
+    {
+     "id": "r9",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "B0",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "M1",
+        "B1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "c: used 0.075 as z instead of inverse normal",
+      "c: no correct z",
+      "c: k wrong"
+     ]
+    },
+    {
+     "id": "r10",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "B1",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "M1",
+        "B1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "c: divided by 36 instead of 6",
+      "c: k wrong"
+     ]
+    },
+    {
+     "id": "r11",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "B1",
+        "A0"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "M1",
+        "B1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "d: positive z used, mu=452.1 not 471.9"
+     ]
+    },
+    {
+     "id": "r12",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M0",
+        "B1",
+        "A0"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "M1",
+        "B1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "d: divided by 36 instead of 6",
+      "d: mu wrong"
+     ]
+    },
+    {
+     "id": "r13",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "B0",
+        "A1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "M1",
+        "B1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "d: bare 'mean' with no reference to resistance after servicing"
+     ]
+    },
+    {
+     "id": "r14",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "M1",
+        "B0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "e: wrong sign for 985 z-value",
+      "e: mu_B and sigma_B wrong"
+     ]
+    },
+    {
+     "id": "r15",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "M1",
+        "B0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "e: z for 1030 has wrong sign (should be +1.1503)",
+      "e: negative sigma, values not obtained"
+     ]
+    },
+    {
+     "id": "r16",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M0",
+        "M0",
+        "B1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "e: divided by sigma squared instead of sigma in first equation",
+      "e: second equation same error",
+      "e: sigma_B=4.8 wrong"
+     ]
+    },
+    {
+     "id": "r17",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M0",
+        "B0",
+        "A0"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M0",
+        "M0",
+        "B0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "d: not attempted",
+      "e: not attempted"
+     ]
+    }
+   ],
+   "awarded_second": [
+    {
+     "id": "r3",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "B1",
+        "A1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "M1",
+        "B1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) Numerator P(460<R<465) equals P(475<R<480) by symmetry (student reflected 475 about the mean); valid equivalent of the intersection, so second M1 awarded.",
+      "All other marks fully meet the scheme."
+     ]
+    }
+   ],
+   "cost_usd": 0.2053
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "agreement": "5/5",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.010041,
+   "retagged": {
+    "a": [
+     "conditional-probability-formula",
+     "normal-probability-calculator"
+    ],
+    "b": [
+     "binomial-individual-probability"
+    ],
+    "c": [
+     "inverse-normal"
+    ],
+    "d": [
+     "inverse-normal",
+     "standardise-to-find-mu-or-sigma"
+    ],
+    "e": [
+     "normal-simultaneous-mu-sigma",
+     "inverse-normal"
+    ]
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

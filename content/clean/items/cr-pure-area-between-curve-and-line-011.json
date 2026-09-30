@@ -1,0 +1,427 @@
+{
+ "id": "cr-pure-area-between-curve-and-line-011",
+ "blueprint_id": "bp-pure-area-between-curve-and-line-011",
+ "question_type": "area-between-curve-and-line",
+ "component": "pure",
+ "tier": "accessible",
+ "kind": "exam",
+ "stem": "The curve $C$ has equation\n$$y = 12\\sqrt{x} - 2x, \\qquad x \\geqslant 0.$$\nThe point $P(16, 16)$ lies on $C$.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 3,
+   "command": "show-that",
+   "text": "Show that the tangent to $C$ at $P$ has equation $x + 2y = 48$. (3)",
+   "skills": [
+    "differentiate-polynomials"
+   ],
+   "forms": [],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Writes $\\sqrt{x}$ as $x^{\\frac{1}{2}}$ and differentiates, with at least one power reduced by 1: for example $12x^{\\frac{1}{2}} \\to kx^{-\\frac{1}{2}}$ or $2x \\to 2$",
+     "notes": "You must see a power of $x$ reduced by 1. Differentiating $12\\sqrt{x}$ as $12 \\times \\frac{1}{2\\sqrt{x}}$ is fine."
+    },
+    {
+     "code": "A1",
+     "for": "$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 6x^{-\\frac{1}{2}} - 2$, oe such as $\\frac{6}{\\sqrt{x}} - 2$",
+     "depends_on": "M1"
+    },
+    {
+     "code": "A1cso",
+     "for": "Substitutes $x = 16$ to get gradient $\\frac{6}{4} - 2 = -\\frac{1}{2}$, uses $y - 16 = -\\frac{1}{2}(x - 16)$ (or $y = mx + c$ with $(16,16)$ to get $c = 24$), and rearranges correctly to $x + 2y = 48$",
+     "depends_on": "M1",
+     "notes": "The gradient value $-\\frac{1}{2}$ must be seen, and the whole solution must be free of errors. The printed answer must be reached."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$y = 12x^{\\frac{1}{2}} - 2x \\Rightarrow \\frac{\\mathrm{d}y}{\\mathrm{d}x} = 12 \\times \\tfrac{1}{2}x^{-\\frac{1}{2}} - 2$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 6x^{-\\frac{1}{2}} - 2 = \\frac{6}{\\sqrt{x}} - 2$",
+     "mark": "A1"
+    },
+    {
+     "step": 3,
+     "working": "At $x = 16$: $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\frac{6}{4} - 2 = -\\frac{1}{2}$. Tangent: $y - 16 = -\\frac{1}{2}(x - 16) \\Rightarrow 2y - 32 = -x + 16 \\Rightarrow x + 2y = 48$",
+     "mark": "A1cso"
+    }
+   ],
+   "answers": [
+    {
+     "name": "m",
+     "expr": "-1/2",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "derivative",
+     "f": "12sqrt(x) - 2x",
+     "var": "x",
+     "result": "6/sqrt(x) - 2"
+    },
+    {
+     "type": "substitute",
+     "expr": "6/sqrt(x) - 2",
+     "at": {
+      "x": 16
+     },
+     "answer": "m"
+    },
+    {
+     "type": "substitute",
+     "expr": "12sqrt(x) - 2x",
+     "at": {
+      "x": 16
+     },
+     "result": "16"
+    },
+    {
+     "type": "substitute",
+     "expr": "x + 2y",
+     "at": {
+      "x": 16,
+      "y": 16
+     },
+     "result": "48"
+    }
+   ],
+   "hints": [
+    "Write $12\\sqrt{x}$ as a power of $x$ before you differentiate.",
+    "Find the gradient at $x = 16$, then use $y - y_1 = m(x - x_1)$ with the point $(16, 16)$."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 7,
+   "command": "find",
+   "text": "The region $R$ is bounded by the curve $C$, the tangent to $C$ at $P$ and the $x$-axis. The region $R$ lies entirely in the first quadrant.\n\nUse algebraic integration to find the exact area of $R$. (7)",
+   "skills": [
+    "evaluate-definite-integral",
+    "area-under-curve",
+    "integrate-powers-of-x",
+    "exact-form-answers"
+   ],
+   "forms": [],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "States that $C$ meets the positive $x$-axis at $x = 36$ (from $12\\sqrt{x} = 2x \\Rightarrow \\sqrt{x} = 6$)",
+     "notes": "Can be implied by using 36 as a limit."
+    },
+    {
+     "code": "M1",
+     "for": "Forms tangent minus curve, $24 - \\frac{1}{2}x - (12x^{\\frac{1}{2}} - 2x)$, oe, and integrates it with at least one power of $x$ raised by 1",
+     "notes": "The $x^{\\frac{1}{2}}$ term must be written as a power. Accept the expression left unsimplified before integrating."
+    },
+    {
+     "code": "A1ft",
+     "for": "Correct integral of their difference: $24x + \\frac{3}{4}x^2 - 8x^{\\frac{3}{2}}$ from $24 + \\frac{3}{2}x - 12x^{\\frac{1}{2}}$",
+     "ft_of": "their simplified line-minus-curve expression",
+     "depends_on": "M1",
+     "notes": "Follow through a slip in collecting terms, as long as every term is then integrated correctly."
+    },
+    {
+     "code": "dM1",
+     "for": "Substitutes the limits 36 and 16 into their integrated expression and subtracts (upper minus lower)",
+     "depends_on": "M1"
+    },
+    {
+     "code": "A1",
+     "for": "$\\int_{16}^{36} \\left(24 + \\frac{3}{2}x - 12x^{\\frac{1}{2}}\\right) \\mathrm{d}x = 108 - 64 = 44$",
+     "notes": "cao"
+    },
+    {
+     "code": "dM1",
+     "for": "Finds where the tangent meets the $x$-axis ($x = 48$) and adds the triangle between $x = 36$ and $x = 48$ under the tangent, $\\frac{1}{2} \\times 12 \\times 6$, to their 44",
+     "depends_on": "M1",
+     "notes": "The triangle's height is the tangent's $y$-value at $x = 36$, which is 6."
+    },
+    {
+     "code": "A1",
+     "for": "Area of $R = 80$",
+     "notes": "cao. Do not accept a decimal answer from a calculator with no integration shown."
+    }
+   ],
+   "alternatives": [
+    {
+     "name": "Way 2: triangle minus area under curve",
+     "marks": [
+      {
+       "code": "B1",
+       "for": "$C$ meets the $x$-axis at $x = 36$"
+      },
+      {
+       "code": "M1",
+       "for": "Integrates $12x^{\\frac{1}{2}} - 2x$ with at least one power of $x$ raised by 1"
+      },
+      {
+       "code": "A1",
+       "for": "$8x^{\\frac{3}{2}} - x^2$",
+       "depends_on": "M1"
+      },
+      {
+       "code": "dM1",
+       "for": "Substitutes the limits 36 and 16 and subtracts",
+       "depends_on": "M1"
+      },
+      {
+       "code": "A1",
+       "for": "$(1728 - 1296) - (512 - 256) = 176$"
+      },
+      {
+       "code": "dM1",
+       "for": "Finds the tangent meets the $x$-axis at $x = 48$, works out the triangle area $\\frac{1}{2} \\times 32 \\times 16 = 256$, and subtracts their 176",
+       "depends_on": "M1"
+      },
+      {
+       "code": "A1",
+       "for": "Area of $R = 80$",
+       "notes": "cao"
+      }
+     ]
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$C$ meets the $x$-axis where $12\\sqrt{x} = 2x \\Rightarrow \\sqrt{x}(12 - 2\\sqrt{x}) = 0 \\Rightarrow x = 0$ or $x = 36$. So $R$ has the curve as its lower boundary from $x = 16$ to $x = 36$, and the $x$-axis from $x = 36$ to where the tangent meets it.",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "The tangent is $y = 24 - \\frac{1}{2}x$. For $16 \\leqslant x \\leqslant 36$: tangent $-$ curve $= 24 - \\frac{1}{2}x - 12x^{\\frac{1}{2}} + 2x = 24 + \\frac{3}{2}x - 12x^{\\frac{1}{2}}$",
+     "mark": "0"
+    },
+    {
+     "step": 3,
+     "working": "$\\int \\left(24 + \\frac{3}{2}x - 12x^{\\frac{1}{2}}\\right) \\mathrm{d}x = 24x + \\frac{3}{4}x^2 - 8x^{\\frac{3}{2}}$",
+     "mark": "M1 A1ft"
+    },
+    {
+     "step": 4,
+     "working": "$\\left[24x + \\frac{3}{4}x^2 - 8x^{\\frac{3}{2}}\\right]_{16}^{36} = (864 + 972 - 1728) - (384 + 192 - 512)$",
+     "mark": "dM1"
+    },
+    {
+     "step": 5,
+     "working": "$= 108 - 64 = 44$",
+     "mark": "A1"
+    },
+    {
+     "step": 6,
+     "working": "The tangent meets the $x$-axis at $x = 48$. At $x = 36$ the tangent has $y = 24 - 18 = 6$. The triangle from $x = 36$ to $x = 48$ has area $\\frac{1}{2} \\times 12 \\times 6 = 36$",
+     "mark": "dM1"
+    },
+    {
+     "step": 7,
+     "working": "Area of $R = 44 + 36 = 80$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "A",
+     "expr": "80",
+     "form": "exact",
+     "check": "A = 256 - 176"
+    }
+   ],
+   "checks": [
+    {
+     "type": "solutions",
+     "equation": "12sqrt(x) - 2x = 0",
+     "var": "x",
+     "interval": [
+      0,
+      100
+     ],
+     "closed": [
+      true,
+      true
+     ],
+     "result": [
+      "0",
+      "36"
+     ]
+    },
+    {
+     "type": "integral",
+     "f": "24 + 3x/2 - 12sqrt(x)",
+     "var": "x",
+     "result": "24x + 3x^2/4 - 8x^(3/2)"
+    },
+    {
+     "type": "integral",
+     "f": "24 - x/2 - (12sqrt(x) - 2x)",
+     "var": "x",
+     "lower": 16,
+     "upper": 36,
+     "result": "44"
+    },
+    {
+     "type": "integral",
+     "f": "24 - x/2",
+     "var": "x",
+     "lower": 36,
+     "upper": 48,
+     "result": "36"
+    },
+    {
+     "type": "integral",
+     "f": "12sqrt(x) - 2x",
+     "var": "x",
+     "lower": 16,
+     "upper": 36,
+     "result": "176"
+    },
+    {
+     "type": "integral",
+     "f": "24 - x/2",
+     "var": "x",
+     "lower": 16,
+     "upper": 48,
+     "result": "256"
+    },
+    {
+     "type": "equals",
+     "lhs": "44 + 36",
+     "rhs": "80"
+    }
+   ],
+   "hints": [
+    "Find where $C$ crosses the $x$-axis and where the tangent crosses the $x$-axis. Then describe which curve forms the lower edge of $R$ on each interval.",
+    "One way is to split $R$ at $x = 36$. Another is to take the area under the curve away from the triangle under the tangent."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "not-rewritten-as-powers",
+   "text": "If you try to differentiate $12\\sqrt{x}$ without first writing it as $12x^{\\frac{1}{2}}$, you might write $\\frac{12}{\\sqrt{x}}$ or $6\\sqrt{x}$. That is not a valid method, so you lose the M1 and both A marks after it.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "sign-error-differentiating-negative-power",
+   "text": "Taking 1 away from $\\frac{1}{2}$ gives $-\\frac{1}{2}$, not $-\\frac{3}{2}$ and not $+\\frac{1}{2}$. If you write $6x^{-\\frac{3}{2}}$ you get a gradient of $\\frac{6}{64} - 2$ at $x = 16$ and can't reach $x + 2y = 48$, so both A marks are lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 3,
+   "error_code": "integration-power-rule-error",
+   "text": "When you integrate $12x^{\\frac{1}{2}}$ you add 1 to the power to get $x^{\\frac{3}{2}}$ and then divide by $\\frac{3}{2}$, giving $8x^{\\frac{3}{2}}$. If you multiply by $\\frac{3}{2}$ (giving $18x^{\\frac{3}{2}}$) or divide by the old power $\\frac{1}{2}$, the integration is wrong and you lose the A1ft and the answer marks.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 3,
+   "error_code": "not-rewritten-as-powers",
+   "text": "If you integrate $\\sqrt{x}$ as it stands, for example as $\\frac{1}{2\\sqrt{x}}$ or $\\sqrt{x^2}$, the method is not valid. Write it as $x^{\\frac{1}{2}}$ first, or you lose the M1 and every mark that depends on it.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 4,
+   "error_code": "area-between-wrong-subtraction",
+   "text": "The curve only bounds $R$ from $x = 16$ to $x = 36$. If you integrate tangent minus curve all the way to $x = 48$, you include a part where the curve is below the $x$-axis, and you get the wrong area. Split at $x = 36$, or use the triangle from $x = 16$ to $x = 48$ minus the area under the curve from 16 to 36. Using the wrong limits loses the dM1.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T16:52:14",
+ "generation": {
+  "attempts": 1,
+  "cost_usd": 0.2225
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 10
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.900 with question:IAL2018_WMA13_Oct2021_Q8"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.059,
+   "jaccard_source": "IAL2018_WMA12_Jan2024_Q10",
+   "shared_numbers": 1,
+   "max_cosine": 0.9,
+   "cosine_source": "question:IAL2018_WMA13_Oct2021_Q8"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 11,
+   "n_answers": 2,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part a: write A1cso as A1 with 'cso' in its notes"
+   ]
+  },
+  "G3": {
+   "pass": false,
+   "errors": [
+    "part a: expected m = -1/2, solver got [] [judge: differs - no verdict]"
+   ],
+   "flags": [
+    "ambiguity (part b): The wording 'bounded by the curve, the tangent and the x-axis' is read as the region with vertices P(16,16), (36,0) and (48,0). A student might think of the part with x<16, but that would need the y-axis as a boundary, so the reading is unique. The reference to the first quadrant helps, but the statement could be clearer. The answer is exact (80), so 'exact area' is fine."
+   ],
+   "flag": true,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0221,
+   "solver": {
+    "parts": [
+     {
+      "label": "a",
+      "answers": [],
+      "printed_result_correct": true,
+      "working_summary": "At x=16, y=12*4-32=16, so P is on C. dy/dx = 6/sqrt(x) - 2 = -1/2 at x=16. Tangent: y-16 = -(1/2)(x-16), so 2y-32 = -x+16, giving x+2y=48. The printed result is correct."
+     },
+     {
+      "label": "b",
+      "answers": [
+       "80"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "The curve meets the x-axis at x=36 and the tangent meets it at x=48. Area = (area under tangent from x=16 to 48) - (area under curve from x=16 to 36). The first is the triangle 1/2*32*16 = 256. The second is [8x^(3/2) - x^2] from 16 to 36 = 432 - 256 = 176. So area = 256 - 176 = 80."
+     }
+    ],
+    "problems": [
+     {
+      "kind": "ambiguity",
+      "severity": "minor",
+      "part": "b",
+      "detail": "The wording 'bounded by the curve, the tangent and the x-axis' is read as the region with vertices P(16,16), (36,0) and (48,0). A student might think of the part with x<16, but that would need the y-axis as a boundary, so the reading is unique. The reference to the first quadrant helps, but the statement could be clearer. The answer is exact (80), so 'exact area' is fine."
+     }
+    ]
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

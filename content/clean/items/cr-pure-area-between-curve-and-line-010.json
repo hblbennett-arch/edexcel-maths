@@ -1,0 +1,943 @@
+{
+ "id": "cr-pure-area-between-curve-and-line-010",
+ "blueprint_id": "bp-pure-area-between-curve-and-line-010",
+ "question_type": "area-between-curve-and-line",
+ "component": "pure",
+ "tier": "accessible",
+ "kind": "exam",
+ "stem": "The curve $C$ has equation $y = 4\\sqrt{x} - x$, $x \\geqslant 0$. The point $P$ lies on $C$ and has $x$-coordinate $9$. The line $l$ is the tangent to $C$ at $P$.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 4,
+   "text": "Show that $l$ has equation $x + 3y = 18$. (4)",
+   "command": "show-that",
+   "skills": [
+    "differentiate-polynomials"
+   ],
+   "forms": [],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Correct derivative $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 2x^{-\\frac{1}{2}} - 1$ or an equivalent such as $\\frac{2}{\\sqrt{x}} - 1$",
+     "notes": "Accept unsimplified forms, e.g. $4 \\times \\tfrac{1}{2}x^{-\\frac{1}{2}} - 1$."
+    },
+    {
+     "code": "M1",
+     "for": "Puts $x = 9$ into their $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ to get a numerical gradient and uses it with $(9, 3)$ (or $(9,$ their $y)$) to build a straight-line equation",
+     "notes": "The $y$-coordinate $4\\sqrt{9} - 9 = 3$ may be seen within this step. The gradient used must come from their derivative, not from the printed line."
+    },
+    {
+     "code": "A1ft",
+     "ft_of": "their gradient from their derivative at $x = 9$",
+     "for": "A correct line equation through $(9, 3)$ using their gradient, e.g. $y - 3 = -\\tfrac{1}{3}(x - 9)$",
+     "notes": "Any correct form, e.g. $y = -\\tfrac{1}{3}x + c$ with $c$ found from $(9, 3)$."
+    },
+    {
+     "code": "A1cao",
+     "for": "Rearranges with no errors to the printed equation $x + 3y = 18$",
+     "notes": "Printed answer: needs the correct gradient $-\\tfrac{1}{3}$, correct $y = 3$ and a correct intermediate line. cso."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$y = 4x^{\\frac{1}{2}} - x \\Rightarrow \\frac{\\mathrm{d}y}{\\mathrm{d}x} = 2x^{-\\frac{1}{2}} - 1$",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "At $x = 9$: $y = 4(3) - 9 = 3$ and $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\frac{2}{3} - 1 = -\\frac{1}{3}$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$y - 3 = -\\frac{1}{3}(x - 9)$",
+     "mark": "A1ft"
+    },
+    {
+     "step": 4,
+     "working": "$3y - 9 = -x + 9 \\Rightarrow x + 3y = 18$",
+     "mark": "A1cao"
+    }
+   ],
+   "answers": [
+    {
+     "name": "m",
+     "expr": "-1/3",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "derivative",
+     "f": "4*sqrt(x) - x",
+     "var": "x",
+     "result": "2/sqrt(x) - 1"
+    },
+    {
+     "type": "substitute",
+     "expr": "2/sqrt(x) - 1",
+     "at": {
+      "x": 9
+     },
+     "answer": "m"
+    },
+    {
+     "type": "substitute",
+     "expr": "x + 3*(4*sqrt(x) - x)",
+     "at": {
+      "x": 9
+     },
+     "result": "18"
+    }
+   ],
+   "hints": [
+    "The square root is really an index of one half, so change $4\\sqrt{x}$ into index notation first. After that, the usual power rule works on it.",
+    "The slope of $l$ is what the derivative gives at $x = 9$. Put that number together with the coordinates of $P$ to get the line."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 8,
+   "text": "The curve $C$ meets the $x$-axis at the origin and at the point $A$. The line $l$ meets the $x$-axis at the point $B$. The finite region $R$ is bounded by $C$, $l$ and the $x$-axis, and every point of $R$ has $x$-coordinate at least $9$. Find the exact area of $R$. (8)",
+   "command": "find",
+   "skills": [
+    "evaluate-definite-integral",
+    "area-under-curve",
+    "integrate-powers-of-x",
+    "exact-form-answers"
+   ],
+   "forms": [
+    "exact"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Sets $4\\sqrt{x} - x = 0$ and solves for the non-zero root, e.g. by factorising to $\\sqrt{x}(4 - \\sqrt{x}) = 0$ or by squaring $4\\sqrt{x} = x$ to get $16x = x^2$"
+    },
+    {
+     "code": "A1",
+     "for": "$x = 16$, so $A$ is $(16, 0)$"
+    },
+    {
+     "code": "M1",
+     "for": "Integrates $4x^{\\frac{1}{2}} - x$ with at least one term having its power raised by 1 (so $x^{\\frac{1}{2}} \\to x^{\\frac{3}{2}}$ or $x \\to x^2$)"
+    },
+    {
+     "code": "A1",
+     "for": "One term correct: $\\frac{8}{3}x^{\\frac{3}{2}}$ or $-\\frac{1}{2}x^2$"
+    },
+    {
+     "code": "A1",
+     "for": "Fully correct integral $\\frac{8}{3}x^{\\frac{3}{2}} - \\frac{1}{2}x^2$",
+     "notes": "Ignore a $+c$ if it is included."
+    },
+    {
+     "code": "M1",
+     "for": "Puts the limits $16$ and $9$ into their integrated expression and subtracts (value at 16 minus value at 9)",
+     "notes": "Correct value is $\\frac{67}{6}$, but the mark is for the method. The limits must be $9$ and their $x$-coordinate of $A$."
+    },
+    {
+     "code": "M1",
+     "for": "Finds $B$ at $x = 18$ from $l$ and works out the triangle with vertices $(9, 3)$, $(9, 0)$, $(18, 0)$ as $\\frac{1}{2} \\times 9 \\times 3 = \\frac{27}{2}$, then takes away their value of the integral",
+     "notes": "Triangle area minus integral; if they subtract the other way and get a negative, they must then take its size for this mark."
+    },
+    {
+     "code": "A1",
+     "for": "Area of $R = \\frac{7}{3}$",
+     "notes": "cao. Accept $2\\frac{1}{3}$. Do not accept only the decimal $2.33$."
+    }
+   ],
+   "alternatives": [
+    {
+     "name": "Way 2: tangent minus curve, then a small triangle",
+     "marks": [
+      {
+       "code": "M1",
+       "for": "Sets $4\\sqrt{x} - x = 0$ and solves for the non-zero root"
+      },
+      {
+       "code": "A1",
+       "for": "$x = 16$"
+      },
+      {
+       "code": "M1",
+       "for": "Integrates $\\left(6 - \\frac{1}{3}x\\right) - \\left(4x^{\\frac{1}{2}} - x\\right)$ (line minus curve), with at least one power raised by 1"
+      },
+      {
+       "code": "A1",
+       "for": "Two of the three terms of $6x + \\frac{1}{3}x^2 - \\frac{8}{3}x^{\\frac{3}{2}}$ correct"
+      },
+      {
+       "code": "A1",
+       "for": "Fully correct $6x + \\frac{1}{3}x^2 - \\frac{8}{3}x^{\\frac{3}{2}}$"
+      },
+      {
+       "code": "M1",
+       "for": "Puts in limits $16$ and $9$ and subtracts (correct value $\\frac{5}{3}$)"
+      },
+      {
+       "code": "M1",
+       "for": "Adds the triangle under $l$ from $x = 16$ to $x = 18$: $\\frac{1}{2} \\times 2 \\times \\frac{2}{3} = \\frac{2}{3}$"
+      },
+      {
+       "code": "A1",
+       "for": "$\\frac{7}{3}$ cao"
+      }
+     ]
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$4\\sqrt{x} - x = 0 \\Rightarrow \\sqrt{x}\\,(4 - \\sqrt{x}) = 0 \\Rightarrow x = 0$ or $\\sqrt{x} = 4$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$x = 16$, so $A(16, 0)$",
+     "mark": "A1"
+    },
+    {
+     "step": 3,
+     "working": "$\\int \\left(4x^{\\frac{1}{2}} - x\\right)\\mathrm{d}x = \\frac{8}{3}x^{\\frac{3}{2}} - \\frac{1}{2}x^2$",
+     "mark": "M1 A1 A1"
+    },
+    {
+     "step": 4,
+     "working": "$\\left[\\frac{8}{3}x^{\\frac{3}{2}} - \\frac{1}{2}x^2\\right]_9^{16} = \\left(\\frac{512}{3} - 128\\right) - \\left(72 - \\frac{81}{2}\\right) = \\frac{128}{3} - \\frac{63}{2} = \\frac{67}{6}$",
+     "mark": "M1"
+    },
+    {
+     "step": 5,
+     "working": "On $l$, $y = 0 \\Rightarrow x = 18$, so $B(18, 0)$. The triangle under $l$ from $x = 9$ to $x = 18$ has area $\\frac{1}{2} \\times 9 \\times 3 = \\frac{27}{2}$. Area of $R = \\frac{27}{2} - \\frac{67}{6}$",
+     "mark": "M1"
+    },
+    {
+     "step": 6,
+     "working": "$= \\frac{81}{6} - \\frac{67}{6} = \\frac{14}{6} = \\frac{7}{3}$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "area",
+     "expr": "7/3",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "solutions",
+     "equation": "4*sqrt(x) - x = 0",
+     "var": "x",
+     "interval": [
+      0,
+      100
+     ],
+     "result": [
+      "0",
+      "16"
+     ]
+    },
+    {
+     "type": "solutions",
+     "equation": "x + 3*0 = 18",
+     "var": "x",
+     "result": [
+      "18"
+     ]
+    },
+    {
+     "type": "integral",
+     "f": "4*x^(1/2) - x",
+     "var": "x",
+     "result": "(8/3)*x^(3/2) - x^2/2"
+    },
+    {
+     "type": "integral",
+     "f": "4*sqrt(x) - x",
+     "var": "x",
+     "lower": 9,
+     "upper": 16,
+     "result": "67/6"
+    },
+    {
+     "type": "integral",
+     "f": "(6 - x/3) - (4*sqrt(x) - x)",
+     "var": "x",
+     "lower": 9,
+     "upper": 16,
+     "result": "5/3"
+    },
+    {
+     "type": "numeric",
+     "expr": "27/2 - 67/6",
+     "answer": "area"
+    },
+    {
+     "type": "numeric",
+     "expr": "5/3 + (1/2)*2*(2/3)",
+     "answer": "area"
+    }
+   ],
+   "hints": [
+    "Draw a rough sketch: find where $C$ comes back down to the $x$-axis and where $l$ reaches it. Then decide which shape lies under $l$ and which piece under $C$ needs to be taken away.",
+    "The part under $l$ from $x = 9$ is a right-angled triangle, so you don't need to integrate for it. Only the curve needs integrating."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "error_code": "not-rewritten-as-powers",
+   "step": 1,
+   "text": "If you try to differentiate $4\\sqrt{x}$ directly, for example writing its derivative as $4$ or as $2\\sqrt{x}$, you get the wrong gradient at $x = 9$ and lose the B1. The printed line then can't be reached honestly, so the final A1 goes too. Write it as $4x^{\\frac{1}{2}}$ first.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "error_code": "sign-error-differentiating-negative-power",
+   "step": 1,
+   "text": "Reducing the index $\\frac{1}{2}$ by 1 gives $-\\frac{1}{2}$, not $\\frac{3}{2}$ or $-\\frac{3}{2}$. With $2x^{-\\frac{3}{2}} - 1$ you get a gradient of $\\frac{2}{27} - 1$ at $x = 9$ instead of $-\\frac{1}{3}$, so you lose the B1 and the final A1.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "error_code": "integration-power-rule-error",
+   "step": 3,
+   "text": "A common mistake is to multiply by the new power instead of dividing by it, which turns $4x^{\\frac{1}{2}}$ into $6x^{\\frac{3}{2}}$ rather than $\\frac{8}{3}x^{\\frac{3}{2}}$. The index has gone up, but the coefficient is wrong, so you lose the integration accuracy marks and the final $\\frac{7}{3}$.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "error_code": "not-rewritten-as-powers",
+   "step": 3,
+   "text": "A common mistake is to integrate $4\\sqrt{x}$ as if it were $4x$, giving $2x^2$, or to write $4x\\sqrt{x}$. Neither has the index raised from $\\frac{1}{2}$ to $\\frac{3}{2}$. Change $\\sqrt{x}$ to $x^{\\frac{1}{2}}$ before you integrate, or you risk losing the method mark and everything that depends on it.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "error_code": "area-between-wrong-subtraction",
+   "step": 4,
+   "text": "If you integrate the curve from $9$ to $18$ instead of from $9$ to $16$, you include a stretch where $C$ is below the $x$-axis, and that piece is not part of $R$. The method mark for the limits is lost. Also, remember to take the integral away from the triangle, $\\frac{27}{2} - \\frac{67}{6}$, not the other way round.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T16:18:34",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.5141
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 12
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.930 with part:GCE2008_6663_Jan2005_Q7:b"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.075,
+   "jaccard_source": "GCE2008_6663_Jan2005_Q7",
+   "shared_numbers": 0,
+   "max_cosine": 0.93,
+   "cosine_source": "part:GCE2008_6663_Jan2005_Q7:b"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 10,
+   "n_answers": 2,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part a: write A1cao as A1 with 'cao' in its notes"
+   ]
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "part a: solver also gave ['x + 3*y = 18']",
+    "part a: expected m = -1/3, solver got ['x + 3*y = 18'] [judge: same - The solver's working finds the gradient at x=9 as -1/3, which matches the setter's m = -1/3. The solver then correctly reaches x + 3y = 18.]"
+   ],
+   "flag": true,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0146,
+   "solver": {
+    "parts": [
+     {
+      "label": "(a)",
+      "answers": [
+       "x + 3*y = 18"
+      ],
+      "printed_result_correct": true,
+      "working_summary": "At x=9, y=4*3-9=3, so P=(9,3). dy/dx=2/sqrt(x)-1, which is -1/3 at x=9. Tangent: y-3=-(1/3)(x-9), so 3y+x=18."
+     },
+     {
+      "label": "(b)",
+      "answers": [
+       "7/3"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "A is (16,0) and B is (18,0). Area of triangle under l from x=9 to 18 = 1/2*9*3 = 27/2. Integral of the curve from 9 to 16 = [8/3 x^(3/2) - x^2/2] = 128/3 - 63/2 = 67/6. R = 27/2 - 67/6 = 7/3."
+     }
+    ],
+    "problems": []
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "n_responses": 8,
+   "agreed": [
+    "r1",
+    "r2",
+    "r3",
+    "r4",
+    "r5",
+    "r6",
+    "r7",
+    "r8"
+   ],
+   "consistent": {},
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "r1",
+     "kind": "correct",
+     "error_code": null,
+     "work": "(a) $y=4x^{1/2}-x$, $\\frac{dy}{dx}=2x^{-1/2}-1$. At $x=9$: $y=12-9=3$, gradient $=\\frac{2}{3}-1=-\\frac13$. $y-3=-\\frac13(x-9)$, so $3y-9=-x+9$, giving $x+3y=18$.\n(b) $4\\sqrt{x}-x=0\\Rightarrow\\sqrt{x}(4-\\sqrt{x})=0$, so $x=16$ and $A(16,0)$. $\\int(4x^{1/2}-x)dx=\\frac83x^{3/2}-\\frac12x^2$. $[\\,]_9^{16}=(\\frac{512}{3}-128)-(72-\\frac{81}{2})=\\frac{67}{6}$. $B$: $y=0\\Rightarrow x=18$. Triangle $=\\frac12\\times9\\times3=\\frac{27}{2}$. Area $R=\\frac{27}{2}-\\frac{67}{6}=\\frac73$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1ft",
+        "A1cao"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "A1",
+        "M1",
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "kind": "pitfall",
+     "error_code": "not-rewritten-as-powers",
+     "work": "(a) $y=4\\sqrt{x}-x$ so $\\frac{dy}{dx}=2\\sqrt{x}-1$. At $x=9$: $y=3$, gradient $=2(3)-1=5$. $y-3=5(x-9)$, $y=5x-42$. This doesn't give the printed answer but I will write $x+3y=18$.\n(b) $\\sqrt{x}(4-\\sqrt{x})=0$, $x=16$. $\\int=\\frac83x^{3/2}-\\frac12x^2$, limits give $\\frac{67}{6}$. $B(18,0)$, triangle $\\frac{27}{2}$. Area $=\\frac{27}{2}-\\frac{67}{6}=\\frac73$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B0",
+        "M1",
+        "A1ft",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "A1",
+        "M1",
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r3",
+     "kind": "pitfall",
+     "error_code": "sign-error-differentiating-negative-power",
+     "work": "(a) $y=4x^{1/2}-x$, $\\frac{dy}{dx}=2x^{-3/2}-1$. At $x=9$: $y=3$, gradient $=\\frac{2}{27}-1=-\\frac{25}{27}$. $y-3=-\\frac{25}{27}(x-9)$. So $27y-81=-25x+225$, and I'll say this gives $x+3y=18$.\n(b) $x=16$ from $\\sqrt{x}(4-\\sqrt{x})=0$. $\\int=\\frac83x^{3/2}-\\frac12x^2$, $[\\,]_9^{16}=\\frac{67}{6}$. $B(18,0)$, triangle $\\frac{27}{2}$, area $=\\frac{27}{2}-\\frac{67}{6}=\\frac73$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B0",
+        "M1",
+        "A1ft",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "A1",
+        "M1",
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r4",
+     "kind": "pitfall",
+     "error_code": "integration-power-rule-error",
+     "work": "(a) $\\frac{dy}{dx}=2x^{-1/2}-1$, at $x=9$ gradient $-\\frac13$, $y=3$. $y-3=-\\frac13(x-9)$, $x+3y=18$.\n(b) $4\\sqrt{x}-x=0$, $x=16$. Integrating: $4x^{1/2}\\to 4\\times\\frac32x^{3/2}=6x^{3/2}$, $-x\\to-\\frac12x^2$. $[6x^{3/2}-\\frac12x^2]_9^{16}=(384-128)-(162-40.5)=256-121.5=134.5$. $B(18,0)$, triangle $=13.5$. $13.5-134.5=-121$, so area $=121$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1ft",
+        "A1cao"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "A0",
+        "M1",
+        "M1",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r5",
+     "kind": "pitfall",
+     "error_code": "not-rewritten-as-powers",
+     "work": "(a) $\\frac{dy}{dx}=2x^{-1/2}-1$; at $x=9$, $y=3$, $m=-\\frac13$. $y-3=-\\frac13(x-9)\\Rightarrow x+3y=18$.\n(b) $x=16$. Integrate $4\\sqrt{x}$ as $4x$ giving $2x^2$, and $-x\\to-\\frac12x^2$: $\\int=2x^2-\\frac12x^2=\\frac32x^2$. $[\\frac32x^2]_9^{16}=384-121.5=262.5$. Triangle $=13.5$ ($B=18$). $13.5-262.5=-249$, so area $=249$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1ft",
+        "A1cao"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "A0",
+        "M1",
+        "M1",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r6",
+     "kind": "pitfall",
+     "error_code": "area-between-wrong-subtraction",
+     "work": "(a) $\\frac{dy}{dx}=2x^{-1/2}-1$, at $x=9$ gradient $-\\frac13$, point $(9,3)$; $y-3=-\\frac13(x-9)$ so $x+3y=18$.\n(b) $x=16$ at $A$. $\\int(4x^{1/2}-x)dx=\\frac83x^{3/2}-\\frac12x^2$. I integrate from 9 to 18 (to $B$): at 18: $\\frac83\\times54\\sqrt2-162=144\\sqrt2-162$; at 9: $31.5$. Integral $=144\\sqrt2-193.5$. Triangle $=\\frac{27}{2}$. Area $=\\frac{27}{2}-(144\\sqrt2-193.5)=207-144\\sqrt2$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1ft",
+        "A1cao"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "A1",
+        "M0",
+        "M1",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r7",
+     "kind": "alternative",
+     "error_code": null,
+     "work": "(a) $\\frac{dy}{dx}=2x^{-1/2}-1=-\\frac13$ at $x=9$; $y=3$; $y-3=-\\frac13(x-9)$; $x+3y=18$.\n(b) $\\sqrt{x}(4-\\sqrt{x})=0$, $x=16$. Line: $y=6-\\frac13x$. $\\int(6-\\frac13x-4x^{1/2}+x)dx=\\int(6+\\frac23x-4x^{1/2})$... simplifying, using line minus curve: $6x+\\frac13x^2-\\frac83x^{3/2}$ (as given in the scheme form). Between 9 and 16: $(96+\\frac{256}{3}-\\frac{512}{3})-(54+27-72)=\\frac{32}{3}\\cdot$ ... evaluates to $\\frac53$. Triangle from $x=16$ to $18$: height at 16 is $\\frac23$, area $\\frac12\\times2\\times\\frac23=\\frac23$. Total $=\\frac53+\\frac23=\\frac73$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1ft",
+        "A1cao"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "A1",
+        "M1",
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r8",
+     "kind": "partial",
+     "error_code": null,
+     "work": "(a) $\\frac{dy}{dx}=2x^{-1/2}-1$; at $x=9$: $y=3$, $m=-\\frac13$. $y-3=-\\frac13(x-9)$, $3y-9=-x+9$, $x+3y=18$.\n(b) $4\\sqrt{x}=x\\Rightarrow\\sqrt{x}(4-\\sqrt{x})=0$, $x=16$, $A(16,0)$. $\\int(4x^{1/2}-x)dx=\\frac83x^{3/2}-\\frac12x^2$. I'm not sure what to do next, so I stop.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1ft",
+        "A1cao"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "A1",
+        "M0",
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "r1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1ft",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "A1",
+        "M1",
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B0",
+        "M1",
+        "A1ft",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "A1",
+        "M1",
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "B0: derivative 2√x - 1 is wrong",
+      "A0: the line does not lead to x+3y=18; the student just wrote the printed answer"
+     ]
+    },
+    {
+     "id": "r3",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B0",
+        "M1",
+        "A1ft",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "A1",
+        "M1",
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "B0: derivative 2x^{-3/2} - 1 is wrong",
+      "A0: the line 27y-81=-25x+225 does not give x+3y=18; the student just asserted it"
+     ]
+    },
+    {
+     "id": "r4",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1ft",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "A0",
+        "M1",
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "A0 (second integral mark): 4x^{1/2} was integrated to 6x^{3/2}, which is wrong; the correct term is 8/3 x^{3/2}",
+      "A0 (final): the area 121 is not 7/3"
+     ]
+    },
+    {
+     "id": "r5",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1ft",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "A0",
+        "M1",
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "A0 (second integral mark): 4√x was integrated to 2x^2, which is wrong",
+      "A0 (final): the area 249 is not 7/3"
+     ]
+    },
+    {
+     "id": "r6",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1ft",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "A1",
+        "M0",
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "M0: the limits used were 9 and 18 (B), not 9 and 16 (A)",
+      "A0: 207-144√2 is not 7/3"
+     ]
+    },
+    {
+     "id": "r7",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1ft",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "A1",
+        "M1",
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r8",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1ft",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "A1",
+        "M0",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "M0: no limits were applied to the integral",
+      "M0: the triangle was not found and the area was not completed",
+      "A0: no final area"
+     ]
+    }
+   ],
+   "awarded_second": [],
+   "cost_usd": 0.0861
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "part a: same topic, different skills: tagged ['differentiate-polynomials'], retagged ['differentiate-negative-and-fractional-powers', 'tangent-at-a-point']"
+   ],
+   "flag": true,
+   "agreement": "1/2",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.024413749999999998,
+   "retagged": {
+    "a": [
+     "differentiate-negative-and-fractional-powers",
+     "tangent-at-a-point"
+    ],
+    "b": [
+     "area-between-curve-and-line",
+     "integrate-powers-of-x",
+     "evaluate-definite-integral",
+     "solve-power-equation"
+    ]
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

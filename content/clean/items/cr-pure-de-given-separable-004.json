@@ -1,0 +1,1196 @@
+{
+ "id": "cr-pure-de-given-separable-004",
+ "blueprint_id": "bp-pure-de-given-separable-004",
+ "question_type": "de-given-separable",
+ "component": "pure",
+ "tier": "standard",
+ "kind": "exam",
+ "stem": "The variables $x$ and $y$ satisfy the differential equation\n$$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\frac{\\sqrt{y^2+7}}{y}\\left(2\\sin 2x + \\sec^2 x\\right), \\qquad y > 0,\\quad 0 \\leqslant x < \\frac{\\pi}{2}$$\nwhere $x$ is in radians.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 3,
+   "command": "show-that",
+   "skills": [
+    "standard-integrals"
+   ],
+   "text": "Show that $\\displaystyle\\int \\left(2\\sin 2x + \\sec^2 x\\right)\\mathrm{d}x = \\tan x - \\cos 2x + c$, where $c$ is an arbitrary constant. (3)",
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Integrates $2\\sin 2x$ to a multiple of $\\cos 2x$, i.e. $\\pm k\\cos 2x$ for some constant $k$",
+     "notes": "Any non-zero $k$, including $k = 4$ or $k = 2$, earns this mark."
+    },
+    {
+     "code": "A1",
+     "for": "Obtains $-\\cos 2x$ from $2\\sin 2x$, with the negative sign and coefficient $1$",
+     "notes": "Accept $-\\frac{2}{2}\\cos 2x$ un-simplified."
+    },
+    {
+     "code": "A1*",
+     "for": "Integrates $\\sec^2 x$ to $\\tan x$ and writes the complete printed result $\\tan x - \\cos 2x + c$, including the arbitrary constant, with no errors in the working",
+     "notes": "cso. The $+c$ has to appear in the final line for this mark."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\int 2\\sin 2x\\,\\mathrm{d}x = 2\\times\\left(-\\tfrac{1}{2}\\cos 2x\\right)$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$= -\\cos 2x$",
+     "mark": "A1"
+    },
+    {
+     "step": 3,
+     "working": "$\\int \\sec^2 x\\,\\mathrm{d}x = \\tan x$, so $\\int\\left(2\\sin 2x + \\sec^2 x\\right)\\mathrm{d}x = \\tan x - \\cos 2x + c$",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [],
+   "checks": [
+    {
+     "type": "integral",
+     "f": "2 sin(2x) + sec(x)^2",
+     "var": "x",
+     "result": "tan(x) - cos(2x)"
+    },
+    {
+     "type": "derivative",
+     "f": "tan(x) - cos(2x)",
+     "var": "x",
+     "result": "2 sin(2x) + sec(x)^2"
+    }
+   ],
+   "hints": [
+    "Integrate each term on its own. Which function has derivative $\\sec^2 x$?",
+    "For $\\sin 2x$, think about what you must differentiate to get it, and remember the factor that the chain rule brings in."
+   ],
+   "forms": []
+  },
+  {
+   "label": "b",
+   "marks": 2,
+   "command": "show-that",
+   "skills": [
+    "reverse-chain-rule"
+   ],
+   "text": "Show that $\\displaystyle\\int \\frac{y}{\\sqrt{y^2+7}}\\,\\mathrm{d}y = \\sqrt{y^2+7} + k$, where $k$ is an arbitrary constant. (2)",
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Writes the integrand as $y\\left(y^2+7\\right)^{-\\frac{1}{2}}$ (or uses a substitution such as $u = y^2+7$) and integrates to $\\lambda\\left(y^2+7\\right)^{\\frac{1}{2}}$ for some constant $\\lambda$",
+     "notes": "Getting $\\lambda = 2$ or $\\lambda = \\tfrac{1}{4}$ still earns M1."
+    },
+    {
+     "code": "A1*",
+     "for": "Gets $\\lambda = 1$ with a correct reason (e.g. $\\tfrac{1}{2}\\times 2$ from the power and from $\\frac{\\mathrm{d}}{\\mathrm{d}y}(y^2+7) = 2y$, or by differentiating to check) and states $\\sqrt{y^2+7} + k$",
+     "notes": "cso. Using the printed answer only by differentiating it, with no integration shown, earns M1 A0."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\int y\\left(y^2+7\\right)^{-\\frac{1}{2}}\\,\\mathrm{d}y$: since $\\frac{\\mathrm{d}}{\\mathrm{d}y}\\left(y^2+7\\right) = 2y$, try $\\left(y^2+7\\right)^{\\frac{1}{2}}$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$\\frac{\\mathrm{d}}{\\mathrm{d}y}\\left(y^2+7\\right)^{\\frac{1}{2}} = \\tfrac{1}{2}\\left(y^2+7\\right)^{-\\frac{1}{2}}\\times 2y = \\frac{y}{\\sqrt{y^2+7}}$, so the integral is $\\sqrt{y^2+7} + k$",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [],
+   "checks": [
+    {
+     "type": "integral",
+     "f": "y/sqrt(y^2+7)",
+     "var": "y",
+     "result": "sqrt(y^2+7)"
+    },
+    {
+     "type": "derivative",
+     "f": "sqrt(y^2+7)",
+     "var": "y",
+     "result": "y/sqrt(y^2+7)"
+    }
+   ],
+   "hints": [
+    "Rewrite $\\frac{1}{\\sqrt{y^2+7}}$ as a power of $(y^2+7)$ first.",
+    "The numerator $y$ is close to the derivative of $y^2+7$. Try a power of $(y^2+7)$ and differentiate it to see what you need to adjust."
+   ],
+   "forms": []
+  },
+  {
+   "label": "c",
+   "marks": 2,
+   "command": "deduce",
+   "skills": [
+    "separate-variables-and-integrate",
+    "accuracy-units-and-rounding"
+   ],
+   "text": "A particular solution curve of this differential equation goes through the point $(0,\\,3)$. Deduce, using your results from parts (a) and (b), the $y$-coordinate of the point on this curve at which $x = \\frac{\\pi}{6}$. Give this value correct to 3 significant figures. (2)",
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Separates to $\\int \\frac{y}{\\sqrt{y^2+7}}\\,\\mathrm{d}y = \\int\\left(2\\sin 2x + \\sec^2 x\\right)\\mathrm{d}x$, writes $\\sqrt{y^2+7} = \\tan x - \\cos 2x + c$, and puts in $x = 0$, $y = 3$ to get a value for $c$",
+     "notes": "Expect $4 = 0 - 1 + c$, so $c = 5$. The constant may be put on either side. A slip in working out $c$ still earns M1."
+    },
+    {
+     "code": "A1",
+     "for": "$y = 4.33$",
+     "notes": "awrt 4.33. Exact form $\\sqrt{\\left(\\frac{9}{2}+\\frac{\\sqrt3}{3}\\right)^2 - 7}$ followed by 4.33 is fine. Reject a negative value, since $y > 0$."
+    }
+   ],
+   "alternatives": [
+    {
+     "name": "Way 2 (definite integrals)",
+     "marks": [
+      {
+       "code": "M1",
+       "for": "Writes $\\left[\\sqrt{y^2+7}\\right]_3^{Y} = \\left[\\tan x - \\cos 2x\\right]_0^{\\pi/6}$, i.e. $\\sqrt{Y^2+7} - 4 = \\left(\\frac{1}{\\sqrt3} - \\frac12\\right) - (0 - 1)$",
+       "notes": "Limits on the $y$ side must match the limits on the $x$ side."
+      },
+      {
+       "code": "A1",
+       "for": "$Y = 4.33$",
+       "notes": "awrt 4.33"
+      }
+     ]
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Separate: $\\frac{y}{\\sqrt{y^2+7}}\\,\\mathrm{d}y = \\left(2\\sin 2x + \\sec^2 x\\right)\\mathrm{d}x$, so by (a) and (b), $\\sqrt{y^2+7} = \\tan x - \\cos 2x + c$",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "At $(0,3)$: $\\sqrt{16} = 0 - 1 + c$, so $c = 5$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "At $x = \\frac{\\pi}{6}$: $\\sqrt{y^2+7} = \\frac{1}{\\sqrt3} - \\frac12 + 5 = 5.07735\\ldots$",
+     "mark": "0"
+    },
+    {
+     "step": 4,
+     "working": "$y^2 = 5.07735\\ldots^2 - 7 = 18.7795\\ldots$, so $y = 4.33$ (3 s.f.), taking the positive root because $y > 0$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "y",
+     "expr": "4.33",
+     "form": "sf-3",
+     "exact": "sqrt((9/2 + sqrt(3)/3)^2 - 7)"
+    }
+   ],
+   "checks": [
+    {
+     "type": "substitute",
+     "expr": "sqrt(y^2+7) - (tan(x) - cos(2x))",
+     "at": {
+      "x": "0",
+      "y": "3"
+     },
+     "result": "5"
+    },
+    {
+     "type": "numeric",
+     "expr": "sqrt((tan(pi/6) - cos(pi/3) + 5)^2 - 7)",
+     "answer": "y",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "Move every $y$ term to the same side as $\\mathrm{d}y$. You should end up with exactly the integrals from parts (a) and (b).",
+    "Use the point $(0,3)$ to find the constant before you substitute $x = \\frac{\\pi}{6}$."
+   ],
+   "forms": []
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "trig-integral-sign-error",
+   "text": "A common mistake is to integrate $2\\sin 2x$ to $+\\cos 2x$. The integral of $\\sin$ is $-\\cos$ (the derivative of $\\cos 2x$ is $-2\\sin 2x$). With the wrong sign you cannot reach $\\tan x - \\cos 2x$, so you lose both A marks.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "reverse-chain-coefficient-error",
+   "text": "If you multiply by 2 instead of dividing when you integrate $\\sin 2x$, you get $-4\\cos 2x$ rather than $-\\cos 2x$. You keep M1 but lose the A marks. Differentiate your answer to check it.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "step": 3,
+   "error_code": "missing-constant-of-integration",
+   "text": "Many students drop the $+c$. The printed result includes it, so if it is missing from your final line the A1* is lost.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "not-rewritten-as-powers",
+   "text": "If you try to integrate $\\frac{y}{\\sqrt{y^2+7}}$ without first writing it as $y(y^2+7)^{-1/2}$, it is easy to guess something like $\\ln\\sqrt{y^2+7}$, and the M1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "integration-power-rule-error",
+   "text": "Raising the power $-\\tfrac12$ gives $+\\tfrac12$. Dividing by the old power, which gives $-2(y^2+7)^{1/2}$, or writing the new power as $-\\tfrac32$, is not the right method and loses M1.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "reverse-chain-coefficient-error",
+   "text": "If you multiply by the $2$ from $\\frac{\\mathrm{d}}{\\mathrm{d}y}(y^2+7) = 2y$ instead of making up for it, you get $4\\sqrt{y^2+7}$ or $2\\sqrt{y^2+7}$. That does not match the printed answer, so the A1* is lost.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "step": 1,
+   "error_code": "separation-error",
+   "text": "A common slip is to write $\\frac{\\sqrt{y^2+7}}{y}\\,\\mathrm{d}y = (2\\sin 2x + \\sec^2 x)\\,\\mathrm{d}x$, i.e. multiplying by the $y$-factor instead of dividing by it. That integral is not the one from part (b), and the M1 is lost.",
+   "says_common": true
+  },
+  {
+   "part": "c",
+   "step": 2,
+   "error_code": "missing-constant-of-integration",
+   "text": "Many students leave out the constant and write $\\sqrt{y^2+7} = \\tan x - \\cos 2x$. At $x = \\frac{\\pi}{6}$ this gives $\\sqrt{y^2+7} = 0.077$, which has no real solution for $y$. You lose the A1.",
+   "says_common": true
+  },
+  {
+   "part": "c",
+   "step": 2,
+   "error_code": "initial-conditions-not-used",
+   "text": "If you do not substitute $x = 0$, $y = 3$ to get $c = 5$ (for example, you guess $c = 3$ or leave $c$ in), you have not found the particular curve, and the M1 is lost.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T16:14:41",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.388
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 7
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.863 with question:IAL2018_WMA14_June2025_Q3"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.014,
+   "jaccard_source": "IAL2018_WMA11_Jan2019_Q9",
+   "shared_numbers": 0,
+   "max_cosine": 0.863,
+   "cosine_source": "question:IAL2018_WMA14_June2025_Q3"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 6,
+   "n_answers": 1,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.009,
+   "solver": {
+    "parts": [
+     {
+      "label": "a",
+      "answers": [],
+      "printed_result_correct": true,
+      "working_summary": "∫2sin2x dx = -cos2x and ∫sec^2x dx = tan x, so the integral is tan x - cos2x + c. The printed result is correct."
+     },
+     {
+      "label": "b",
+      "answers": [],
+      "printed_result_correct": true,
+      "working_summary": "d/dy[sqrt(y^2+7)] = y/sqrt(y^2+7), so the integral is sqrt(y^2+7) + k. The printed result is correct."
+     },
+     {
+      "label": "c",
+      "answers": [
+       "4.33"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "Separating variables gives sqrt(y^2+7) = tan x - cos2x + C. At (0,3): 4 = 0 - 1 + C, so C = 5. At x = π/6: sqrt(y^2+7) = 1/sqrt(3) - 1/2 + 5 ≈ 5.07735. Then y^2 ≈ 18.7795, so y ≈ 4.3335, which is 4.33 to 3 s.f."
+     }
+    ],
+    "problems": []
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "response p-b-power (pitfall integration-power-rule-error): both markers award {'a': ['M1', 'A1', 'A1'], 'b': ['M1', 'A0'], 'c': ['M1', 'A1']}, not the designed {'a': ['M1', 'A1', 'A1'], 'b': ['M0', 'A0'], 'c': ['M1', 'A1']} (script design off; scheme consistent)"
+   ],
+   "flag": true,
+   "n_responses": 12,
+   "agreed": [
+    "correct",
+    "p-trig-sign",
+    "p-a-coeff",
+    "p-a-const",
+    "p-b-notpowers",
+    "p-b-coeff",
+    "p-c-sep",
+    "p-c-noconst",
+    "p-c-initial",
+    "alt-definite",
+    "partial"
+   ],
+   "consistent": {
+    "p-b-power": [
+     {
+      "part": "a",
+      "marks": [
+       "M1",
+       "A1",
+       "A1"
+      ]
+     },
+     {
+      "part": "b",
+      "marks": [
+       "M1",
+       "A0"
+      ]
+     },
+     {
+      "part": "c",
+      "marks": [
+       "M1",
+       "A1"
+      ]
+     }
+    ]
+   },
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "correct",
+     "kind": "correct",
+     "error_code": null,
+     "work": "(a) $\\int 2\\sin 2x\\,dx = 2\\times(-\\tfrac12\\cos 2x) = -\\cos 2x$ and $\\int\\sec^2 x\\,dx=\\tan x$, so the integral is $\\tan x-\\cos 2x+c$.\n(b) $\\int y(y^2+7)^{-1/2}dy$. Try $(y^2+7)^{1/2}$; differentiating gives $\\tfrac12(y^2+7)^{-1/2}\\times 2y = y/\\sqrt{y^2+7}$. So integral is $\\sqrt{y^2+7}+k$.\n(c) $\\int \\frac{y}{\\sqrt{y^2+7}}dy=\\int(2\\sin2x+\\sec^2x)dx$ so $\\sqrt{y^2+7}=\\tan x-\\cos 2x+c$. At $(0,3)$: $4=0-1+c$, $c=5$. At $x=\\pi/6$: $\\sqrt{y^2+7}=\\frac1{\\sqrt3}-\\frac12+5=5.0774$, $y^2=18.78$, $y=4.33$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p-trig-sign",
+     "kind": "pitfall",
+     "error_code": "trig-integral-sign-error",
+     "work": "(a) $\\int 2\\sin 2x\\,dx = 2\\times\\tfrac12\\cos 2x=\\cos 2x$, so total is $\\tan x+\\cos 2x+c$ (this doesn't quite match the printed answer but I'll go on).\n(b) $\\int y(y^2+7)^{-1/2}dy$; differentiating $(y^2+7)^{1/2}$ gives $y(y^2+7)^{-1/2}$, so the integral is $\\sqrt{y^2+7}+k$.\n(c) Using the printed result from (a): $\\sqrt{y^2+7}=\\tan x-\\cos2x+c$; $(0,3)$: $4=-1+c$, $c=5$. At $x=\\pi/6$: $\\sqrt{y^2+7}=5.0774$, $y=4.33$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p-a-coeff",
+     "kind": "pitfall",
+     "error_code": "reverse-chain-coefficient-error",
+     "work": "(a) $\\int 2\\sin 2x\\,dx = 2\\times 2\\times(-\\cos 2x)=-4\\cos 2x$, and $\\int\\sec^2x\\,dx=\\tan x$. So I get $\\tan x-4\\cos 2x+c$.\n(b) $\\int y(y^2+7)^{-1/2}dy=\\tfrac12\\cdot 2\\,(y^2+7)^{1/2}$, checking by differentiation gives $y/\\sqrt{y^2+7}$. So $\\sqrt{y^2+7}+k$.\n(c) $\\sqrt{y^2+7}=\\tan x-\\cos 2x+c$, $4=-1+c$, $c=5$; at $\\pi/6$, $\\sqrt{y^2+7}=5.0774$, $y=4.33$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p-a-const",
+     "kind": "pitfall",
+     "error_code": "missing-constant-of-integration",
+     "work": "(a) $\\int 2\\sin2x\\,dx=-\\cos2x$, $\\int\\sec^2x\\,dx=\\tan x$, so $\\int(2\\sin2x+\\sec^2x)dx=\\tan x-\\cos 2x$.\n(b) $\\int y(y^2+7)^{-1/2}dy$: $\\frac{d}{dy}(y^2+7)^{1/2}=\\tfrac12(y^2+7)^{-1/2}\\cdot2y$, so integral is $\\sqrt{y^2+7}+k$.\n(c) $\\sqrt{y^2+7}=\\tan x-\\cos2x+c$; $4=-1+c$, $c=5$. At $x=\\pi/6$: $\\sqrt{y^2+7}=5.0774$, $y=4.33$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p-b-notpowers",
+     "kind": "pitfall",
+     "error_code": "not-rewritten-as-powers",
+     "work": "(a) $\\int 2\\sin2x\\,dx=-\\cos2x$, $\\int\\sec^2x\\,dx=\\tan x$: $\\tan x-\\cos2x+c$.\n(b) $\\int\\frac{y}{\\sqrt{y^2+7}}dy$ looks like $\\frac{f'}{f}$ so $=\\ln\\sqrt{y^2+7}+k$. This isn't the printed answer, but I'll stop here.\n(c) Using the printed result $\\sqrt{y^2+7}=\\tan x-\\cos 2x+c$; $(0,3)$ gives $c=5$; at $\\pi/6$, $\\sqrt{y^2+7}=5.0774$, $y=4.33$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p-b-power",
+     "kind": "pitfall",
+     "error_code": "integration-power-rule-error",
+     "work": "(a) $\\tan x-\\cos 2x+c$ since $\\int2\\sin2x=-\\cos2x$ and $\\int\\sec^2x=\\tan x$.\n(b) $\\int y(y^2+7)^{-1/2}dy$: raise power and divide by old power $-\\tfrac12$: $-2(y^2+7)^{1/2}+k$. Doesn't match the printed answer.\n(c) Using the printed result: $\\sqrt{y^2+7}=\\tan x-\\cos2x+c$, $c=5$, and at $x=\\pi/6$ $y=4.33$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p-b-coeff",
+     "kind": "pitfall",
+     "error_code": "reverse-chain-coefficient-error",
+     "work": "(a) $\\int2\\sin2x\\,dx=-\\cos2x$, $\\int\\sec^2x\\,dx=\\tan x$, so $\\tan x-\\cos2x+c$.\n(b) $\\int y(y^2+7)^{-1/2}dy = 2y\\cdot\\ldots$ the power goes up to $\\tfrac12$ giving $\\frac{(y^2+7)^{1/2}}{1/2}\\times$ nothing more $=2\\sqrt{y^2+7}+k$.\n(c) Using the printed result: $\\sqrt{y^2+7}=\\tan x-\\cos2x+c$, $c=5$, $x=\\pi/6$: $y=4.33$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p-c-sep",
+     "kind": "pitfall",
+     "error_code": "separation-error",
+     "work": "(a) $\\tan x-\\cos2x+c$ (integrating $2\\sin 2x$ to $-\\cos 2x$ and $\\sec^2x$ to $\\tan x$).\n(b) $\\int y(y^2+7)^{-1/2}dy=\\sqrt{y^2+7}+k$ (differentiate to check).\n(c) Separating: $\\sqrt{y^2+7}\\,dy = y(2\\sin2x+\\sec^2x)\\,dx$... I'll write $\\frac{\\sqrt{y^2+7}}{y}dy=(2\\sin2x+\\sec^2x)dx$ and integrate to get $\\frac{y\\sqrt{y^2+7}}{2}\\approx\\tan x-\\cos2x+c$. At $(0,3)$: $\\frac{3\\times4}{2}=6=-1+c$, $c=7$. At $\\pi/6$: $\\frac{y\\sqrt{y^2+7}}{2}=7.077$, giving $y\\approx3.4$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p-c-noconst",
+     "kind": "pitfall",
+     "error_code": "missing-constant-of-integration",
+     "work": "(a) $\\tan x-\\cos2x+c$.\n(b) $\\sqrt{y^2+7}+k$, since $\\frac{d}{dy}\\sqrt{y^2+7}=\\frac{y}{\\sqrt{y^2+7}}$.\n(c) $\\sqrt{y^2+7}=\\tan x-\\cos 2x$. At $x=\\pi/6$: $\\sqrt{y^2+7}=0.077$, so $y^2=0.006-7<0$. No real solution, so no answer.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p-c-initial",
+     "kind": "pitfall",
+     "error_code": "initial-conditions-not-used",
+     "work": "(a) $\\tan x-\\cos2x+c$.\n(b) $\\sqrt{y^2+7}+k$ (checked by differentiating).\n(c) $\\sqrt{y^2+7}=\\tan x-\\cos2x+c$. I'll take $c=3$. At $x=\\pi/6$: $\\sqrt{y^2+7}=\\frac1{\\sqrt3}-\\frac12+3=3.0774$, $y^2=9.470-7=2.470$, $y=1.57$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "alt-definite",
+     "kind": "alternative",
+     "error_code": null,
+     "work": "(a) $\\int2\\sin2x\\,dx=2(-\\tfrac12\\cos2x)=-\\cos2x$; $\\int\\sec^2x\\,dx=\\tan x$; total $\\tan x-\\cos2x+c$.\n(b) $\\int y(y^2+7)^{-1/2}dy$: $\\frac d{dy}(y^2+7)^{1/2}=\\tfrac12\\cdot2y(y^2+7)^{-1/2}=y/\\sqrt{y^2+7}$, so $\\sqrt{y^2+7}+k$.\n(c) $\\left[\\sqrt{y^2+7}\\right]_3^Y=\\left[\\tan x-\\cos2x\\right]_0^{\\pi/6}$, so $\\sqrt{Y^2+7}-4=\\left(\\frac1{\\sqrt3}-\\frac12\\right)-(0-1)=1.0774$. $\\sqrt{Y^2+7}=5.0774$, $Y^2=18.78$, $Y=4.33$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "partial",
+     "kind": "partial",
+     "error_code": null,
+     "work": "(a) $\\int2\\sin2x\\,dx=-\\cos2x$ and $\\int\\sec^2x\\,dx=\\tan x$, so the integral is $\\tan x-\\cos2x+c$.\n(b) Not sure how to start this one.\n(c) I can't do this without (b).",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "correct",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p-trig-sign",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "a: obtained +cos2x, not -cos2x, so A1 not awarded",
+      "a: final printed result not obtained, A1* not awarded"
+     ]
+    },
+    {
+     "id": "p-a-coeff",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "a: coefficient -4cos2x rather than -cos2x",
+      "a: printed result not obtained"
+     ]
+    },
+    {
+     "id": "p-a-const",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "a: +c missing from final answer"
+     ]
+    },
+    {
+     "id": "p-b-notpowers",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "b: integrated to a ln form, not a multiple of (y^2+7)^(1/2)",
+      "b: A1 needs M1"
+     ]
+    },
+    {
+     "id": "p-b-power",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "b: lambda = -2, not 1"
+     ]
+    },
+    {
+     "id": "p-b-coeff",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "b: lambda = 2, not 1"
+     ]
+    },
+    {
+     "id": "p-c-sep",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "c: separated incorrectly and did not use the results from (a) and (b)",
+      "c: wrong answer 3.4"
+     ]
+    },
+    {
+     "id": "p-c-noconst",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "c: no constant, and (0,3) not used to find c",
+      "c: no valid y"
+     ]
+    },
+    {
+     "id": "p-c-initial",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "c: c=3 assumed, not found by substituting x=0, y=3",
+      "c: y=1.57 is wrong"
+     ]
+    },
+    {
+     "id": "alt-definite",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "partial",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "b: no attempt at the integration",
+      "c: no attempt"
+     ]
+    }
+   ],
+   "awarded_second": [
+    {
+     "id": "p-b-power",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0*"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) A0*: The student divided by the old power -1/2 to get lambda = -2 and ignored the 2y factor, so they never reach lambda = 1 or the printed sqrt(y^2+7)+k."
+     ]
+    }
+   ],
+   "cost_usd": 0.1278
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "agreement": "3/3",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.013795,
+   "retagged": {
+    "a": [
+     "standard-integrals"
+    ],
+    "b": [
+     "reverse-chain-rule"
+    ],
+    "c": [
+     "separate-variables-and-integrate",
+     "find-constants-from-conditions"
+    ]
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

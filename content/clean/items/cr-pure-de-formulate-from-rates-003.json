@@ -1,0 +1,680 @@
+{
+ "id": "cr-pure-de-formulate-from-rates-003",
+ "blueprint_id": "bp-pure-de-formulate-from-rates-003",
+ "question_type": "de-formulate-from-rates",
+ "component": "pure",
+ "tier": "standard",
+ "kind": "exam",
+ "stem": "A solid right prism has a constant cross-section in the shape of a right-angled triangle with sides of length $3x$ cm, $4x$ cm and $5x$ cm. The prism is $l$ cm long, and its volume is $150\\,\\mathrm{cm^3}$. The total surface area of the prism, including both triangular ends, is $S\\,\\mathrm{cm^2}$.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 4,
+   "text": "Use the fixed volume to write $S$ in terms of $x$ alone. Then find $\\frac{\\mathrm{d}S}{\\mathrm{d}x}$ as a function of $x$. (4)",
+   "command": "find",
+   "skills": [
+    "mensuration-formulae",
+    "differentiate-polynomials"
+   ],
+   "forms": [
+    "in-terms-of"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Writes $S = 2\\times 6x^2 + (3x+4x+5x)l$ and uses $6x^2 l = 150$ to replace $l$ with $\\frac{25}{x^2}$ (or $\\frac{150}{6x^2}$)",
+     "notes": "The area of the triangle ($\\frac12\\times3x\\times4x$) and all three rectangular faces must be included. Allow slips in simplifying."
+    },
+    {
+     "code": "A1",
+     "for": "$S = 12x^2 + \\frac{300}{x}$",
+     "notes": "oe, e.g. $12x^2 + 300x^{-1}$"
+    },
+    {
+     "code": "M1",
+     "for": "Differentiates their $S$, having rewritten $\\frac{k}{x}$ as $kx^{-1}$, so that $x^2 \\to x$ or $x^{-1} \\to x^{-2}$",
+     "notes": "Treating $\\frac{300}{x}$ as a constant or as $300$ does not earn this mark on that term."
+    },
+    {
+     "code": "A1",
+     "for": "$\\frac{\\mathrm{d}S}{\\mathrm{d}x} = 24x - \\frac{300}{x^2}$",
+     "notes": "cao oe, e.g. $24x - 300x^{-2}$; isw"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Area of triangular end $= \\frac12(3x)(4x) = 6x^2$, so $V = 6x^2 l = 150 \\Rightarrow l = \\frac{25}{x^2}$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$S = 2(6x^2) + (3x + 4x + 5x)l = 12x^2 + 12x\\cdot\\frac{25}{x^2} = 12x^2 + \\frac{300}{x}$",
+     "mark": "A1"
+    },
+    {
+     "step": 3,
+     "working": "Rewrite as $S = 12x^2 + 300x^{-1}$ and differentiate each term",
+     "mark": "M1"
+    },
+    {
+     "step": 4,
+     "working": "$\\frac{\\mathrm{d}S}{\\mathrm{d}x} = 24x - 300x^{-2} = 24x - \\frac{300}{x^2}$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "dSdx",
+     "expr": "24*x - 300/x^2",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "12x^2 + 12x*(150/(6x^2))",
+     "rhs": "12x^2 + 300/x",
+     "domain": "positive"
+    },
+    {
+     "type": "derivative",
+     "f": "12x^2 + 300/x",
+     "var": "x",
+     "answer": "dSdx"
+    }
+   ],
+   "hints": [
+    "Surface area: two triangles, each $\\frac12(3x)(4x)$, plus three rectangles. Each rectangle has length $l$.",
+    "Make $l$ the subject of the volume equation. Before you differentiate, write any term like $\\frac{k}{x}$ as $kx^{-1}$."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 4,
+   "text": "The prism slowly changes shape. Its volume stays at $150\\,\\mathrm{cm^3}$, and its cross-section always has sides $3x$, $4x$ and $5x$. The total surface area $S$ increases at a constant rate of $3\\,\\mathrm{cm^2}$ per second. Hence find the rate at which $x$ is changing at the moment when $l = 1$. Give your answer to 3 significant figures, with units. (4)",
+   "command": "find",
+   "skills": [
+    "connected-rates-of-change",
+    "use-hence-previous-result",
+    "accuracy-units-and-rounding"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Uses $l = \\frac{25}{x^2}$ with $l = 1$ to get $x = 5$, then substitutes this into their $\\frac{\\mathrm{d}S}{\\mathrm{d}x}$ from part (a)",
+     "ft_of": "a"
+    },
+    {
+     "code": "A1",
+     "for": "$\\frac{\\mathrm{d}S}{\\mathrm{d}x} = 108$ when $x = 5$",
+     "notes": "cao"
+    },
+    {
+     "code": "M1",
+     "for": "Uses the chain rule in the form $\\frac{\\mathrm{d}x}{\\mathrm{d}t} = \\frac{\\mathrm{d}S}{\\mathrm{d}t} \\div \\frac{\\mathrm{d}S}{\\mathrm{d}x}$, i.e. $3 \\div$ their value of $\\frac{\\mathrm{d}S}{\\mathrm{d}x}$",
+     "notes": "Multiplying $3$ by $108$, or working out $108 \\div 3$, scores M0."
+    },
+    {
+     "code": "A1",
+     "for": "$\\frac{\\mathrm{d}x}{\\mathrm{d}t} = 0.0278\\,\\mathrm{cm\\,s^{-1}}$",
+     "notes": "awrt 0.0278, and units are required. Accept $\\frac{1}{36}$ if it is also given as awrt 0.0278."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$l = \\frac{25}{x^2} = 1 \\Rightarrow x^2 = 25 \\Rightarrow x = 5$ (as $x > 0$). Then $\\frac{\\mathrm{d}S}{\\mathrm{d}x} = 24(5) - \\frac{300}{25}$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$\\frac{\\mathrm{d}S}{\\mathrm{d}x} = 120 - 12 = 108$",
+     "mark": "A1"
+    },
+    {
+     "step": 3,
+     "working": "$\\frac{\\mathrm{d}S}{\\mathrm{d}t} = \\frac{\\mathrm{d}S}{\\mathrm{d}x}\\times\\frac{\\mathrm{d}x}{\\mathrm{d}t} \\Rightarrow \\frac{\\mathrm{d}x}{\\mathrm{d}t} = \\frac{3}{108}$",
+     "mark": "M1"
+    },
+    {
+     "step": 4,
+     "working": "$\\frac{\\mathrm{d}x}{\\mathrm{d}t} = \\frac{1}{36} = 0.0278\\,\\mathrm{cm\\,s^{-1}}$ (3 s.f.)",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "rate",
+     "expr": "0.0278",
+     "form": "sf-3",
+     "exact": "1/36"
+    }
+   ],
+   "checks": [
+    {
+     "type": "solutions",
+     "equation": "25/x^2 = 1",
+     "var": "x",
+     "interval": [
+      0,
+      100
+     ],
+     "closed": [
+      false,
+      true
+     ],
+     "result": [
+      "5"
+     ]
+    },
+    {
+     "type": "substitute",
+     "expr": "24x - 300/x^2",
+     "at": {
+      "x": 5
+     },
+     "result": "108"
+    },
+    {
+     "type": "numeric",
+     "expr": "3/(24*5 - 300/5^2)",
+     "answer": "rate",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "First find the value of $x$ that gives $l = 1$, using your expression for $l$ from part (a).",
+    "Write the chain rule linking $\\frac{\\mathrm{d}S}{\\mathrm{d}t}$, $\\frac{\\mathrm{d}S}{\\mathrm{d}x}$ and $\\frac{\\mathrm{d}x}{\\mathrm{d}t}$, then rearrange it to get $\\frac{\\mathrm{d}x}{\\mathrm{d}t}$."
+   ],
+   "forms": []
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 3,
+   "error_code": "not-rewritten-as-powers",
+   "text": "If you try to differentiate $\\frac{300}{x}$ without first writing it as $300x^{-1}$, you may treat it as $300$ and get $0$, or differentiate the denominator to get $300$. Either way the second M1 is lost for that term. Write $S = 12x^2 + 300x^{-1}$ first.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "step": 4,
+   "error_code": "sign-error-differentiating-negative-power",
+   "text": "Differentiating $300x^{-1}$ gives $-1 \\times 300x^{-2}$. If you write $+\\frac{300}{x^2}$, or drop the power to $x^{0}$ instead of $x^{-2}$, the final A1 is lost. Your later work in part (b) will also go wrong.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 3,
+   "error_code": "connected-rates-chain-error",
+   "text": "Since $\\frac{\\mathrm{d}S}{\\mathrm{d}t} = \\frac{\\mathrm{d}S}{\\mathrm{d}x}\\times\\frac{\\mathrm{d}x}{\\mathrm{d}t}$, you must divide $3$ by $108$. If you multiply them and get $324$, you lose the second M1 and the A1. Check whether your answer is sensible: a slow change in area should give a small rate for $x$.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 3,
+   "error_code": "parametric-derivative-inverted",
+   "text": "If you divide the wrong way round, $108 \\div 3 = 36$, you have found $\\frac{\\mathrm{d}S}{\\mathrm{d}x}\\div\\frac{\\mathrm{d}S}{\\mathrm{d}t}$, which has no meaning here. This loses the M1. Write the chain rule out in full before you rearrange it.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T16:18:05",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.3666
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 8
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.896 with part:IAL2013_WMA01_June2014_Q14:c"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.029,
+   "jaccard_source": "IAL2018_WMA14_Jan2024_Q4",
+   "shared_numbers": 1,
+   "max_cosine": 0.896,
+   "cosine_source": "part:IAL2013_WMA01_June2014_Q14:c"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 5,
+   "n_answers": 2,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "unrealistic (part (b)): At l = 1 the cross-section has sides 15, 20 and 25 cm, so the 'prism' is a thin slab. The values are consistent and the question still works."
+   ],
+   "flag": true,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0074,
+   "solver": {
+    "parts": [
+     {
+      "label": "(a)",
+      "answers": [
+       "S = 12*x**2 + 300/x",
+       "dS/dx = 24*x - 300/x**2"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "Triangle area = 6x². V = 6x²l = 150 so l = 25/x². S = 2(6x²) + (3x+4x+5x)l = 12x² + 12x·25/x² = 12x² + 300/x. Differentiating: dS/dx = 24x − 300/x²."
+     },
+     {
+      "label": "(b)",
+      "answers": [
+       "1/36",
+       "0.0278 cm/s"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "l = 1 gives x² = 25, so x = 5. dS/dx = 120 − 12 = 108. dx/dt = (dS/dt)/(dS/dx) = 3/108 = 1/36 ≈ 0.0278 cm/s, so x is increasing."
+     }
+    ],
+    "problems": [
+     {
+      "kind": "unrealistic",
+      "severity": "minor",
+      "detail": "At l = 1 the cross-section has sides 15, 20 and 25 cm, so the 'prism' is a thin slab. The values are consistent and the question still works.",
+      "part": "(b)"
+     }
+    ]
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "n_responses": 6,
+   "agreed": [
+    "r1",
+    "p1",
+    "p2",
+    "p3",
+    "p4",
+    "r5"
+   ],
+   "consistent": {},
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "r1",
+     "kind": "correct",
+     "work": "Area of end = $\\frac12(3x)(4x)=6x^2$. $V=6x^2 l=150 \\Rightarrow l=\\frac{25}{x^2}$.\n$S=2(6x^2)+(3x+4x+5x)l=12x^2+12x\\cdot\\frac{25}{x^2}=12x^2+\\frac{300}{x}$\n$S=12x^2+300x^{-1}$, $\\frac{dS}{dx}=24x-300x^{-2}=24x-\\frac{300}{x^2}$\n(b) $l=1\\Rightarrow 25/x^2=1\\Rightarrow x=5$. $\\frac{dS}{dx}=120-12=108$.\n$\\frac{dS}{dt}=\\frac{dS}{dx}\\frac{dx}{dt}\\Rightarrow \\frac{dx}{dt}=\\frac{3}{108}=\\frac1{36}=0.0278$ cm/s",
+     "error_code": null,
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p1",
+     "kind": "pitfall",
+     "error_code": "not-rewritten-as-powers",
+     "work": "(a) $l=25/x^2$, $S=12x^2+\\frac{300}{x}$.\n$\\frac{dS}{dx}=24x+0=24x$ (treating $300/x$ as constant).\n(b) $x=5$, $\\frac{dS}{dx}=120$. $\\frac{dx}{dt}=3/120=0.025$ cm/s",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0",
+        "M1",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p2",
+     "kind": "pitfall",
+     "error_code": "sign-error-differentiating-negative-power",
+     "work": "(a) $S=12x^2+300x^{-1}$, $\\frac{dS}{dx}=24x+\\frac{300}{x^2}$.\n(b) $x=5$: $\\frac{dS}{dx}=120+12=132$. $\\frac{dx}{dt}=3/132=0.0227$ cm/s",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0",
+        "M1",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p3",
+     "kind": "pitfall",
+     "error_code": "connected-rates-chain-error",
+     "work": "(a) $S=12x^2+300x^{-1}$, $\\frac{dS}{dx}=24x-300x^{-2}$.\n(b) $x=5$, $\\frac{dS}{dx}=108$. $\\frac{dx}{dt}=3\\times108=324$ cm/s",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p4",
+     "kind": "pitfall",
+     "error_code": "parametric-derivative-inverted",
+     "work": "(a) $S=12x^2+300x^{-1}$, $\\frac{dS}{dx}=24x-300x^{-2}$.\n(b) $x=5$, $\\frac{dS}{dx}=108$. $\\frac{dx}{dt}=108\\div3=36$ cm/s",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r5",
+     "kind": "partial",
+     "error_code": null,
+     "work": "Triangle area $=6x^2$, $6x^2 l=150$ so $l=25/x^2$.\n$S=2(6x^2)+12x\\cdot l=12x^2+\\frac{300}{x}$.\nI'm not sure how to go on.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0",
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "r1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0",
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) M0: treated 300/x as constant, so no differentiation of that term",
+      "(a) A0: dS/dx = 24x is incorrect",
+      "(b) A0: dS/dx = 120 is not 108",
+      "(b) A0: 0.025 is not awrt 0.0278"
+     ]
+    },
+    {
+     "id": "p2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0",
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) A0: sign of the second term is wrong (+300/x^2 instead of -300/x^2)",
+      "(b) A0: dS/dx = 132 is not 108",
+      "(b) A0: 0.0227 is not awrt 0.0278"
+     ]
+    },
+    {
+     "id": "p3",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) M0: multiplied 3 by 108 instead of dividing 3 by dS/dx",
+      "(b) A0: no M mark, and 324 is wrong"
+     ]
+    },
+    {
+     "id": "p4",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) M0: worked out 108 ÷ 3 instead of 3 ÷ 108",
+      "(b) A0: no M mark, and 36 is wrong"
+     ]
+    },
+    {
+     "id": "r5",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) M0: no differentiation attempted",
+      "(a) A0: dS/dx not found",
+      "(b) M0: no work shown for part (b), so no x = 5 or substitution",
+      "(b) A0: dS/dx = 108 not found",
+      "(b) M0: chain rule not used",
+      "(b) A0: dx/dt not found"
+     ]
+    }
+   ],
+   "awarded_second": [],
+   "cost_usd": 0.0431
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "agreement": "2/2",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.01924875,
+   "retagged": {
+    "a": [
+     "differentiate-negative-and-fractional-powers",
+     "differentiate-polynomials",
+     "mensuration-formulae",
+     "rearrange-to-make-subject"
+    ],
+    "b": [
+     "connected-rates-of-change",
+     "solve-power-equation"
+    ]
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

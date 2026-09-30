@@ -1,0 +1,253 @@
+{
+ "id": "cr-pure-definite-integrals-standard-forms-003",
+ "blueprint_id": "bp-pure-definite-integrals-standard-forms-003",
+ "question_type": "definite-integrals-standard-forms",
+ "component": "pure",
+ "tier": "standard",
+ "kind": "exam",
+ "stem": "The function p is defined for all real values of $x$ by\n$$p(x) = 2x^3 - 9x^2 + 12x.$$",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 2,
+   "text": "Find $p'(x)$, writing each term in its simplest form. (2)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "differentiate-polynomials"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Differentiates term by term, with the power of $x$ in at least one term reduced by 1 (e.g. $2x^3 \\to kx^2$ or $-9x^2 \\to kx$ or $12x \\to 12$)",
+     "notes": "Any non-zero constant $k$ is fine for the method mark."
+    },
+    {
+     "code": "A1",
+     "for": "$p'(x) = 6x^2 - 18x + 12$, with all three terms correct and no constant term left over",
+     "notes": "cao. Accept $6(x^2 - 3x + 2)$ or $6(x-1)(x-2)$. isw after a correct expression."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Multiply each coefficient by its power and lower the power by 1: $\\frac{\\mathrm{d}}{\\mathrm{d}x}(2x^3) = 6x^2$, $\\frac{\\mathrm{d}}{\\mathrm{d}x}(-9x^2) = -18x$, $\\frac{\\mathrm{d}}{\\mathrm{d}x}(12x) = 12$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$p'(x) = 6x^2 - 18x + 12$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "dp",
+     "expr": "6x^2 - 18x + 12",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "derivative",
+     "f": "2x^3 - 9x^2 + 12x",
+     "var": "x",
+     "answer": "dp"
+    },
+    {
+     "type": "derivative",
+     "f": "2x^3 - 9x^2 + 12x",
+     "var": "x",
+     "result": "6x^2 - 18x + 12"
+    }
+   ],
+   "hints": [
+    "For each term $ax^n$, multiply by the power $n$ and then lower the power by 1.",
+    "Remember that the derivative of $12x$ is just a constant."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 3,
+   "text": "Find $\\displaystyle\\int \\frac{p'(x)}{6\\sqrt{x}}\\,\\mathrm{d}x$, for $x > 0$, and use your answer to find the exact value of $\\displaystyle\\int_1^4 \\frac{p'(x)}{6\\sqrt{x}}\\,\\mathrm{d}x$. (3)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "integrate-powers-of-x"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Divides their $p'(x)$ by $6\\sqrt{x}$ and writes the result as separate powers of $x$ (e.g. $x^{3/2} - 3x^{1/2} + 2x^{-1/2}$), then integrates with at least one power increased by 1",
+     "notes": "Needs at least one term correctly split, e.g. $\\frac{x^2}{\\sqrt{x}} = x^{3/2}$, before integrating. Integrating the numerator and denominator separately scores M0."
+    },
+    {
+     "code": "A1",
+     "for": "$\\frac{2}{5}x^{5/2} - 2x^{3/2} + 4x^{1/2} + c$, fully correct including the constant of integration",
+     "notes": "oe, e.g. $0.4x^{5/2} - 2x\\sqrt{x} + 4\\sqrt{x} + c$. Without $+c$ this mark is not earned.",
+     "depends_on": "M1"
+    },
+    {
+     "code": "A1",
+     "for": "Substitutes the limits 4 and 1 and subtracts to get $\\frac{12}{5}$",
+     "notes": "cao; accept 2.4 as it is exact. Values seen along the way: $\\frac{24}{5}$ at $x=4$ and $\\frac{12}{5}$ at $x=1$.",
+     "depends_on": "M1"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\dfrac{6x^2 - 18x + 12}{6\\sqrt{x}} = \\dfrac{x^2 - 3x + 2}{x^{1/2}} = x^{3/2} - 3x^{1/2} + 2x^{-1/2}$",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "Raise each power by 1 and divide by the new power: $\\int \\left(x^{3/2} - 3x^{1/2} + 2x^{-1/2}\\right)\\mathrm{d}x = \\dfrac{x^{5/2}}{5/2} - \\dfrac{3x^{3/2}}{3/2} + \\dfrac{2x^{1/2}}{1/2}$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$= \\tfrac{2}{5}x^{5/2} - 2x^{3/2} + 4x^{1/2} + c$",
+     "mark": "A1"
+    },
+    {
+     "step": 4,
+     "working": "At $x = 4$: $\\tfrac{2}{5}(32) - 2(8) + 4(2) = \\tfrac{64}{5} - 16 + 8 = \\tfrac{24}{5}$. At $x = 1$: $\\tfrac{2}{5} - 2 + 4 = \\tfrac{12}{5}$.",
+     "mark": "0"
+    },
+    {
+     "step": 5,
+     "working": "$\\displaystyle\\int_1^4 \\frac{p'(x)}{6\\sqrt{x}}\\,\\mathrm{d}x = \\tfrac{24}{5} - \\tfrac{12}{5} = \\tfrac{12}{5}$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "F",
+     "expr": "2/5*x^(5/2) - 2x^(3/2) + 4x^(1/2)",
+     "form": "exact"
+    },
+    {
+     "name": "I",
+     "expr": "12/5",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "integral",
+     "f": "(6x^2 - 18x + 12)/(6 sqrt(x))",
+     "var": "x",
+     "answer": "F"
+    },
+    {
+     "type": "integral",
+     "f": "(6x^2 - 18x + 12)/(6 sqrt(x))",
+     "var": "x",
+     "lower": 1,
+     "upper": 4,
+     "answer": "I"
+    },
+    {
+     "type": "equals",
+     "lhs": "(6x^2 - 18x + 12)/(6 sqrt(x))",
+     "rhs": "x^(3/2) - 3x^(1/2) + 2x^(-1/2)",
+     "domain": "positive"
+    },
+    {
+     "type": "substitute",
+     "expr": "2/5*x^(5/2) - 2x^(3/2) + 4x^(1/2)",
+     "at": {
+      "x": 4
+     },
+     "result": "24/5"
+    }
+   ],
+   "hints": [
+    "Split the fraction first: divide each term of $p'(x)$ by $6x^{1/2}$ so that you have a sum of powers of $x$.",
+    "For each power, add 1 to the index and divide by the new index. Then substitute 4 and 1 and subtract."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "sign-error-differentiating-negative-power",
+   "text": "Watch the signs when you differentiate. $-9x^2$ becomes $-18x$. If you drop the minus sign, or treat $12x$ as if it goes to $12x^0 = 0$, your expression will be wrong and you lose the A1.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "not-rewritten-as-powers",
+   "text": "If you integrate the top and bottom of $\\frac{6x^2 - 18x + 12}{6\\sqrt{x}}$ separately, or integrate before you rewrite $\\frac{1}{\\sqrt{x}}$ as $x^{-1/2}$, the method is invalid and you lose the M1. Split the fraction into $x^{3/2} - 3x^{1/2} + 2x^{-1/2}$ first.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "integration-power-rule-error",
+   "text": "Students often go wrong with fractional powers. For example, $2x^{-1/2}$ integrates to $\\frac{2x^{1/2}}{1/2} = 4x^{1/2}$, not $\\frac{2x^{1/2}}{-1/2}$ and not $2\\cdot\\tfrac12 x^{1/2}$. Dividing by the old power, or multiplying by the new one, loses the method mark.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 3,
+   "error_code": "missing-constant-of-integration",
+   "text": "The first thing asked for is an indefinite integral, so your answer $\\frac{2}{5}x^{5/2} - 2x^{3/2} + 4x^{1/2}$ must include $+c$. If you leave it out, you lose the first A1, even though the constant cancels when you work out the definite integral.",
+   "says_common": true
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T16:52:24",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.2696
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 5
+  },
+  "G7": {
+   "pass": false,
+   "flag": true,
+   "reasons": [
+    "1 word 8-gram(s) also in the Pearson corpus (not whitelisted)"
+   ],
+   "flags": [
+    "cosine 0.856 with question:IAL2018_WMA14_Oct2020_Q7"
+   ],
+   "hit_fields": [
+    "part a mark scheme"
+   ],
+   "n_8gram_hits": 1,
+   "max_jaccard": 0.058,
+   "jaccard_source": "IAL2018_WMA14_June2021_Q4",
+   "shared_numbers": 0,
+   "max_cosine": 0.856,
+   "cosine_source": "question:IAL2018_WMA14_Oct2020_Q7"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 6,
+   "n_answers": 3,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

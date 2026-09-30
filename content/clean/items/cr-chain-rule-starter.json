@@ -1,0 +1,170 @@
+{
+ "id": "cr-chain-rule-starter",
+ "blueprint_id": "dr-chain-rule-starter",
+ "question_type": "differentiate-to-given-form",
+ "component": "pure",
+ "tier": "starter",
+ "kind": "drill",
+ "stem": null,
+ "parts": [
+  {
+   "label": null,
+   "marks": 3,
+   "text": "A function is defined for all real $x$ by $h(x) = \\sqrt{7 - 2\\cos 3x}$, where $x$ is measured in radians.\n\nFind $h'(x)$ and write it as a single fraction in its simplest form. (3)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "chain-rule"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Writes $h(x)$ as $(7 - 2\\cos 3x)^{\\frac{1}{2}}$ and uses the chain rule to get an expression of the form $k\\sin 3x\\,(7 - 2\\cos 3x)^{-\\frac{1}{2}}$, where $k$ is a non-zero constant",
+     "notes": "The power must go down to $-\\frac{1}{2}$ and there must be a $\\sin 3x$ factor coming from the inner bracket. If the result is just $\\frac{1}{2}(7-2\\cos 3x)^{-\\frac{1}{2}}$ with nothing multiplying it, M0."
+    },
+    {
+     "code": "A1",
+     "for": "A correct derivative in any form, e.g. $\\frac{1}{2}(7 - 2\\cos 3x)^{-\\frac{1}{2}} \\times 6\\sin 3x$",
+     "notes": "Unsimplified is fine for this mark. The sign and the coefficient $6$ must both be right."
+    },
+    {
+     "code": "A1",
+     "for": "$h'(x) = \\dfrac{3\\sin 3x}{\\sqrt{7 - 2\\cos 3x}}$",
+     "notes": "cao. Accept $\\frac{3\\sin 3x}{(7-2\\cos 3x)^{1/2}}$. Isw once the correct simplified fraction appears."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Write $h(x) = (7 - 2\\cos 3x)^{\\frac{1}{2}}$ and let $u = 7 - 2\\cos 3x$, so $\\frac{\\mathrm{d}u}{\\mathrm{d}x} = -2 \\times (-3\\sin 3x) = 6\\sin 3x$.",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "Chain rule: $h'(x) = \\frac{1}{2}u^{-\\frac{1}{2}} \\times \\frac{\\mathrm{d}u}{\\mathrm{d}x}$, so the result has the form $k\\sin 3x\\,(7 - 2\\cos 3x)^{-\\frac{1}{2}}$.",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$h'(x) = \\frac{1}{2}(7 - 2\\cos 3x)^{-\\frac{1}{2}} \\times 6\\sin 3x$",
+     "mark": "A1"
+    },
+    {
+     "step": 4,
+     "working": "$h'(x) = \\dfrac{3\\sin 3x}{\\sqrt{7 - 2\\cos 3x}}$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "dhdx",
+     "expr": "3*sin(3*x)/sqrt(7 - 2*cos(3*x))",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "derivative",
+     "f": "sqrt(7 - 2*cos(3*x))",
+     "var": "x",
+     "answer": "dhdx"
+    },
+    {
+     "type": "derivative",
+     "f": "(7 - 2*cos(3*x))^(1/2)",
+     "var": "x",
+     "result": "(1/2)*(7 - 2*cos(3*x))^(-1/2)*6*sin(3*x)"
+    },
+    {
+     "type": "substitute",
+     "expr": "3*sin(3*x)/sqrt(7 - 2*cos(3*x))",
+     "at": {
+      "x": "pi/6"
+     },
+     "result": "3/sqrt(7)"
+    }
+   ],
+   "hints": [
+    "Start by writing the square root as a power of $\\frac{1}{2}$, and treat $7 - 2\\cos 3x$ as the inner function.",
+    "Work out the derivative of the inner function $7 - 2\\cos 3x$ carefully on its own before you multiply."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "step": 1,
+   "error_code": "trig-derivative-sign-error",
+   "text": "The derivative of $\\cos 3x$ is $-3\\sin 3x$, not $3\\sin 3x$. If you get the sign wrong, the inner derivative comes out as $-6\\sin 3x$ and you end up with $-\\frac{3\\sin 3x}{\\sqrt{7-2\\cos 3x}}$. You still get the method mark, but both accuracy marks are lost. The two minus signs, from $-2$ and from differentiating $\\cos$, should cancel.",
+   "says_common": true
+  },
+  {
+   "part": null,
+   "step": 2,
+   "error_code": "chain-rule-inner-derivative-missing",
+   "text": "If you write $h'(x) = \\frac{1}{2}(7 - 2\\cos 3x)^{-\\frac{1}{2}}$ and stop there, you have left out the derivative of the inside, $6\\sin 3x$. Without it this is not the chain rule, so the M1 is lost, and the two A marks go with it.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "step": 1,
+   "error_code": "chain-rule-inner-derivative-missing",
+   "text": "If you differentiate $\\cos 3x$ as $-\\sin 3x$ and forget the factor of $3$ from the $3x$, you get $\\frac{\\sin 3x}{\\sqrt{7-2\\cos 3x}}$. That has the right form, so M1 can still be awarded, but the coefficient is wrong and both A marks are lost.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T17:05:00",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.1959
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 3
+  },
+  "G7": {
+   "pass": false,
+   "flag": true,
+   "reasons": [
+    "3 word 8-gram(s) also in the Pearson corpus (not whitelisted)"
+   ],
+   "flags": [
+    "cosine 0.842 with part:IAL2018_WMA13_June2023_Q3:i"
+   ],
+   "hit_fields": [
+    "part - mark scheme",
+    "part - text"
+   ],
+   "n_8gram_hits": 3,
+   "max_jaccard": 0.091,
+   "jaccard_source": "GCE2008_6665_June2017_Q1",
+   "shared_numbers": 0,
+   "max_cosine": 0.842,
+   "cosine_source": "part:IAL2018_WMA13_June2023_Q3:i"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 3,
+   "n_answers": 1,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": false,
+   "errors": [
+    "part - A1 notes: write 'Isw' in lowercase"
+   ],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

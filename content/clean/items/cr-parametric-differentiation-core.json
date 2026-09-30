@@ -1,0 +1,220 @@
+{
+ "id": "cr-parametric-differentiation-core",
+ "blueprint_id": "dr-parametric-differentiation-core",
+ "question_type": "parametric-differentiation-tangents",
+ "component": "pure",
+ "tier": "core",
+ "kind": "drill",
+ "stem": null,
+ "parts": [
+  {
+   "label": null,
+   "marks": 4,
+   "text": "A curve $C$ is given by the parametric equations\n$$x = t^2 + 3t, \\qquad y = t^3 - 4t, \\qquad t \\in \\mathbb{R}.$$\nThe point $P(10, 0)$ is on $C$.\n\nShow that the gradient of $C$ at $P$ is $\\frac{8}{7}$. (4)",
+   "command": "show-that",
+   "forms": [],
+   "skills": [
+    "parametric-differentiation"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Identifies $t = 2$ as the parameter value at $P$, e.g. by solving $t^2 + 3t = 10$ and checking against $t^3 - 4t = 0$ (or by substituting $t=2$ to get $(10, 0)$)",
+     "notes": "Must reject or not use $t = -5$ (it gives $y = -105$), and must not use $t = 0$ or $t=-2$ from the $y$ equation alone. Verifying that $t=2$ gives $(10,0)$ is enough."
+    },
+    {
+     "code": "B1",
+     "for": "Both derivatives correct: $\\frac{\\mathrm{d}x}{\\mathrm{d}t} = 2t + 3$ and $\\frac{\\mathrm{d}y}{\\mathrm{d}t} = 3t^2 - 4$",
+     "notes": "Both are needed for this mark."
+    },
+    {
+     "code": "M1",
+     "for": "Forms $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ as their $\\frac{\\mathrm{d}y}{\\mathrm{d}t}$ divided by their $\\frac{\\mathrm{d}x}{\\mathrm{d}t}$ and substitutes their value of $t$ for $P$",
+     "notes": "Not given for $\\frac{\\mathrm{d}x/\\mathrm{d}t}{\\mathrm{d}y/\\mathrm{d}t}$, or if $t = 10$ is substituted."
+    },
+    {
+     "code": "A1*",
+     "for": "Shows $\\frac{3(2)^2 - 4}{2(2) + 3} = \\frac{8}{7}$ with no errors anywhere",
+     "notes": "cso. The numerator 8 and denominator 7 must both be shown before the printed answer."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "At $P$, $t^2 + 3t = 10 \\Rightarrow (t+5)(t-2) = 0 \\Rightarrow t = 2$ or $t = -5$. Also $t^3 - 4t = 0 \\Rightarrow t = 0, \\pm 2$. The only value that fits both is $t = 2$ (check: $x = 4 + 6 = 10$, $y = 8 - 8 = 0$).",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "$\\frac{\\mathrm{d}x}{\\mathrm{d}t} = 2t + 3, \\qquad \\frac{\\mathrm{d}y}{\\mathrm{d}t} = 3t^2 - 4$",
+     "mark": "B1"
+    },
+    {
+     "step": 3,
+     "working": "$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\frac{\\mathrm{d}y/\\mathrm{d}t}{\\mathrm{d}x/\\mathrm{d}t} = \\frac{3t^2 - 4}{2t + 3}$, and at $t = 2$ this is $\\frac{3(4) - 4}{4 + 3}$",
+     "mark": "M1"
+    },
+    {
+     "step": 4,
+     "working": "$= \\frac{8}{7}$, so the gradient of $C$ at $P$ is $\\frac{8}{7}$ as required.",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [
+    {
+     "name": "gradient",
+     "expr": "8/7",
+     "form": "exact"
+    },
+    {
+     "name": "t_P",
+     "expr": "2",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "derivative",
+     "f": "t^2 + 3t",
+     "var": "t",
+     "result": "2t + 3"
+    },
+    {
+     "type": "derivative",
+     "f": "t^3 - 4t",
+     "var": "t",
+     "result": "3t^2 - 4"
+    },
+    {
+     "type": "system",
+     "equations": [
+      "t^2 + 3t = 10",
+      "t^3 - 4t = 0"
+     ],
+     "vars": [
+      "t"
+     ],
+     "result": {
+      "t": "2"
+     }
+    },
+    {
+     "type": "solutions",
+     "equation": "t^2 + 3t = 10",
+     "var": "t",
+     "result": [
+      "2",
+      "-5"
+     ]
+    },
+    {
+     "type": "substitute",
+     "expr": "t^2 + 3t",
+     "at": {
+      "t": "2"
+     },
+     "answer": "t_P",
+     "result": "10"
+    },
+    {
+     "type": "substitute",
+     "expr": "(3t^2 - 4)/(2t + 3)",
+     "at": {
+      "t": "2"
+     },
+     "answer": "gradient"
+    },
+    {
+     "type": "substitute",
+     "expr": "(3t^2 - 4)/(2t + 3)",
+     "at": {
+      "t": "2"
+     },
+     "result": "8/7"
+    }
+   ],
+   "hints": [
+    "$P$ is given by its $x$ and $y$ coordinates, not by its value of $t$. Work out which value of $t$ gives both $x = 10$ and $y = 0$.",
+    "Differentiate $x$ and $y$ separately with respect to $t$, then put the two rates together to get the rate of change of $y$ with respect to $x$."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "step": 3,
+   "error_code": "parametric-derivative-inverted",
+   "says_common": false,
+   "text": "If you work out $\\frac{2t+3}{3t^2-4}$ you have found $\\frac{\\mathrm{d}x}{\\mathrm{d}y}$, not $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$. You get $\\frac{7}{8}$ at $t=2$, and you lose the M1 and the A1*. The $t$-derivative of $y$ goes on top."
+  },
+  {
+   "part": null,
+   "step": 1,
+   "error_code": "x-value-used-as-parameter",
+   "says_common": false,
+   "text": "The 10 in $P(10, 0)$ is an $x$-coordinate, not a value of $t$. If you put $t = 10$ into $\\frac{3t^2-4}{2t+3}$ you get $\\frac{296}{23}$, which loses the first B1, the M1 and the A1*. First solve $t^2 + 3t = 10$ and check against $y = 0$ to get $t = 2$."
+  },
+  {
+   "part": null,
+   "step": 3,
+   "error_code": "implicit-dy-dx-missing",
+   "says_common": false,
+   "text": "If you try to get rid of $t$ and differentiate a Cartesian relation between $x$ and $y$ implicitly, every term with $y$ in it must pick up a factor of $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$. If you leave it out, you can't rearrange for the gradient and you lose the M1. The parametric route with $\\frac{\\mathrm{d}y/\\mathrm{d}t}{\\mathrm{d}x/\\mathrm{d}t}$ is much quicker here."
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T17:06:57",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.2139
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 4
+  },
+  "G7": {
+   "pass": false,
+   "flag": true,
+   "reasons": [
+    "6 word 8-gram(s) also in the Pearson corpus (not whitelisted)"
+   ],
+   "flags": [
+    "cosine 0.895 with question:P1_Oct2021_Q13"
+   ],
+   "hit_fields": [
+    "part - mark scheme"
+   ],
+   "n_8gram_hits": 6,
+   "max_jaccard": 0.045,
+   "jaccard_source": "IAL2018_WMA14_Oct2020_Q4",
+   "shared_numbers": 0,
+   "max_cosine": 0.895,
+   "cosine_source": "question:P1_Oct2021_Q13"
+  },
+  "G2": {
+   "pass": false,
+   "errors": [
+    "part - check 5 (substitute): result 10 differs from answer t_P = 2"
+   ],
+   "n_checks": 7,
+   "n_answers": 2,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": false,
+   "errors": [
+    "parametric-differentiation-tangents: total marks 4 outside 5-16 (seen 6-15, +-1)"
+   ],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

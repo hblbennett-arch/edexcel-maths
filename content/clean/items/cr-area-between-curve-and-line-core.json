@@ -1,0 +1,550 @@
+{
+ "id": "cr-area-between-curve-and-line-core",
+ "blueprint_id": "dr-area-between-curve-and-line-core",
+ "question_type": "area-between-curve-and-line",
+ "component": "pure",
+ "tier": "core",
+ "kind": "drill",
+ "stem": null,
+ "parts": [
+  {
+   "label": null,
+   "marks": 5,
+   "command": "show-that",
+   "forms": [],
+   "skills": [
+    "area-between-curve-and-line"
+   ],
+   "text": "The curve $C$ has equation $y = -x^2 + 8x - 5$ and the line $l$ has equation $y = x + 1$.\n\nThe line $l$ meets $C$ at two points. The finite region $R$ is bounded by $C$ and $l$.\n\nShow that the exact area of $R$ is $\\frac{125}{6}$. (5)",
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Sets $-x^2 + 8x - 5 = x + 1$ and rearranges to a 3-term quadratic, e.g. $x^2 - 7x + 6 = 0$, then attempts to solve it",
+     "notes": "Any valid method of solving the quadratic (factorising, formula, completing the square)."
+    },
+    {
+     "code": "A1",
+     "for": "$x = 1$ and $x = 6$",
+     "notes": "Both values needed. The $y$-coordinates $2$ and $7$ are not required for this mark."
+    },
+    {
+     "code": "M1",
+     "for": "Integrates (curve $-$ line), i.e. $\\int (-x^2 + 7x - 6)\\,\\mathrm{d}x$, with at least one power of $x$ increased by 1, e.g. $-\\frac{x^3}{3} + \\frac{7x^2}{2} - 6x$",
+     "notes": "Also allow integrating $C$ and $l$ separately and subtracting. Integrating (line $-$ curve) earns this M only if the student then takes the modulus with a clear reason."
+    },
+    {
+     "code": "dM1",
+     "for": "Puts their limits $6$ and $1$ into their integrated expression and subtracts, top minus bottom",
+     "depends_on": "M1",
+     "notes": "Depends on the previous M1. Values seen: $18$ at $x = 6$ and $-\\frac{17}{6}$ at $x = 1$."
+    },
+    {
+     "code": "A1*",
+     "for": "Area $= 18 - \\left(-\\frac{17}{6}\\right) = \\frac{125}{6}$ with no errors in the working",
+     "notes": "cso. Decimal working only (e.g. 20.83) without the exact fraction does not earn this mark."
+    }
+   ],
+   "alternatives": [
+    {
+     "name": "Way 2: area under curve minus trapezium",
+     "marks": [
+      {
+       "code": "M1",
+       "for": "Sets $-x^2 + 8x - 5 = x + 1$ and attempts to solve the resulting 3-term quadratic"
+      },
+      {
+       "code": "A1",
+       "for": "$x = 1$ and $x = 6$"
+      },
+      {
+       "code": "M1",
+       "for": "Integrates $-x^2 + 8x - 5$ to get $-\\frac{x^3}{3} + 4x^2 - 5x$, with at least one power increased by 1, and substitutes limits 6 and 1, giving $\\frac{130}{3}$ if correct"
+      },
+      {
+       "code": "dM1",
+       "for": "Takes away the trapezium under $l$ from $x = 1$ to $x = 6$: $\\frac{1}{2}(2 + 7)(5) = \\frac{45}{2}$",
+       "depends_on": "M1",
+       "notes": "Trapezium heights must come from putting their $x$-values into $y = x + 1$. Allow $\\int_1^6 (x+1)\\,\\mathrm{d}x$ instead."
+      },
+      {
+       "code": "A1*",
+       "for": "$\\frac{130}{3} - \\frac{45}{2} = \\frac{125}{6}$ with no errors",
+       "notes": "cso"
+      }
+     ]
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$-x^2 + 8x - 5 = x + 1 \\Rightarrow x^2 - 7x + 6 = 0 \\Rightarrow (x - 1)(x - 6) = 0$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$x = 1$ or $x = 6$. Between these values, e.g. at $x = 2$, the curve gives $7$ and the line gives $3$, so $C$ is above $l$.",
+     "mark": "A1"
+    },
+    {
+     "step": 3,
+     "working": "Area $= \\int_1^6 \\left[(-x^2 + 8x - 5) - (x + 1)\\right]\\mathrm{d}x = \\int_1^6 (-x^2 + 7x - 6)\\,\\mathrm{d}x = \\left[-\\frac{x^3}{3} + \\frac{7x^2}{2} - 6x\\right]_1^6$",
+     "mark": "M1"
+    },
+    {
+     "step": 4,
+     "working": "$= \\left(-72 + 126 - 36\\right) - \\left(-\\frac{1}{3} + \\frac{7}{2} - 6\\right) = 18 - \\left(-\\frac{17}{6}\\right)$",
+     "mark": "dM1"
+    },
+    {
+     "step": 5,
+     "working": "$= \\frac{108}{6} + \\frac{17}{6} = \\frac{125}{6}$ as required.",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [
+    {
+     "name": "area",
+     "expr": "125/6",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "solutions",
+     "equation": "-x^2 + 8x - 5 = x + 1",
+     "var": "x",
+     "result": [
+      "1",
+      "6"
+     ]
+    },
+    {
+     "type": "integral",
+     "f": "-x^2 + 7x - 6",
+     "var": "x",
+     "lower": "1",
+     "upper": "6",
+     "answer": "area"
+    },
+    {
+     "type": "integral",
+     "f": "-x^2 + 7x - 6",
+     "var": "x",
+     "result": "-x^3/3 + 7x^2/2 - 6x"
+    },
+    {
+     "type": "integral",
+     "f": "-x^2 + 8x - 5",
+     "var": "x",
+     "lower": "1",
+     "upper": "6",
+     "result": "130/3"
+    },
+    {
+     "type": "integral",
+     "f": "x + 1",
+     "var": "x",
+     "lower": "1",
+     "upper": "6",
+     "result": "45/2"
+    },
+    {
+     "type": "equals",
+     "lhs": "130/3 - 45/2",
+     "rhs": "125/6"
+    }
+   ],
+   "hints": [
+    "Start by finding the $x$-coordinates where the curve and the line meet. These are your limits.",
+    "Work out which graph is on top between those $x$-values, then integrate (top $-$ bottom)."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "error_code": "area-between-wrong-subtraction",
+   "step": 3,
+   "says_common": true,
+   "text": "A common mistake is to integrate (line $-$ curve), $x^2 - 7x + 6$, which gives $-\\frac{125}{6}$. The curve is above the line between $x = 1$ and $x = 6$ (check $x = 2$: $7$ against $3$). If you then just drop the minus sign without explaining why, the working does not reach the printed answer correctly and the final A1* is lost."
+  },
+  {
+   "part": null,
+   "error_code": "area-between-wrong-subtraction",
+   "step": 4,
+   "says_common": true,
+   "text": "Putting the limits in the wrong order, working out the value at $x = 1$ minus the value at $x = 6$, gives $-\\frac{17}{6} - 18$. It is a common slip, and the method mark for using the limits is lost. Always do upper limit ($6$) minus lower limit ($1$)."
+  },
+  {
+   "part": null,
+   "error_code": "region-part-missed",
+   "step": 3,
+   "says_common": false,
+   "text": "If you only integrate the curve, $\\int_1^6 (-x^2 + 8x - 5)\\,\\mathrm{d}x = \\frac{130}{3}$, you have found the area all the way down to the $x$-axis. You must take away the trapezium under the line, which is $\\frac{45}{2}$. If you leave it out you lose the dM1 and the A1*."
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T17:03:44",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.2269
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 5
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.909 with part:GCE2008_6664_Jan2010_Q7:d"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.066,
+   "jaccard_source": "IAL2018_WMA14_Jan2021_Q7",
+   "shared_numbers": 1,
+   "max_cosine": 0.909,
+   "cosine_source": "part:GCE2008_6664_Jan2010_Q7:d"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 6,
+   "n_answers": 1,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0079,
+   "solver": {
+    "parts": [
+     {
+      "label": null,
+      "answers": [
+       "125/6"
+      ],
+      "printed_result_correct": true,
+      "working_summary": "Set -x^2+8x-5 = x+1, so x^2-7x+6=0, so x=1 and x=6. On [1,6] the curve is above the line. Area = ∫_1^6 (-x^2+7x-6) dx = [-x^3/3 + 7x^2/2 - 6x]_1^6 = (-72+126-36) - (-1/3+7/2-6) = 18 - (-17/6) = 125/6. Check with the formula (1/6)(6-1)^3 = 125/6."
+     }
+    ],
+    "problems": []
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "response r2 (pitfall area-between-wrong-subtraction): both markers award {'-': ['M1', 'A1', 'M0', 'dM0', 'A0']}, not the designed {'-': ['M1', 'A1', 'M1', 'dM1', 'A0']} (script design off; scheme consistent)"
+   ],
+   "flag": true,
+   "n_responses": 6,
+   "agreed": [
+    "r1",
+    "r3",
+    "r4",
+    "r5",
+    "r6"
+   ],
+   "consistent": {
+    "r2": [
+     {
+      "part": null,
+      "marks": [
+       "M1",
+       "A1",
+       "M0",
+       "dM0",
+       "A0"
+      ]
+     }
+    ]
+   },
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "r1",
+     "kind": "correct",
+     "work": "$-x^2+8x-5=x+1 \\Rightarrow x^2-7x+6=0 \\Rightarrow (x-1)(x-6)=0$, so $x=1, 6$.\nArea $=\\int_1^6(-x^2+7x-6)\\,dx=\\left[-\\frac{x^3}{3}+\\frac{7x^2}{2}-6x\\right]_1^6$\n$=(-72+126-36)-\\left(-\\frac13+\\frac72-6\\right)=18-\\left(-\\frac{17}{6}\\right)=\\frac{125}{6}$",
+     "error_code": null,
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "dM1",
+        "A1*"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "kind": "pitfall",
+     "work": "$x^2-7x+6=0$, $x=1,6$.\nArea $=\\int_1^6 (x^2-7x+6)\\,dx=\\left[\\frac{x^3}{3}-\\frac{7x^2}{2}+6x\\right]_1^6$\n$=(72-126+36)-\\left(\\frac13-\\frac72+6\\right)=-18-\\frac{17}{6}=-\\frac{125}{6}$\nSo area $=\\frac{125}{6}$.",
+     "error_code": "area-between-wrong-subtraction",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "dM1",
+        "A0*"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r3",
+     "kind": "pitfall",
+     "work": "$x^2-7x+6=0$, $(x-1)(x-6)=0$, $x=1,6$.\n$\\int(-x^2+7x-6)dx=-\\frac{x^3}{3}+\\frac{7x^2}{2}-6x$\nAt $x=1$: $-\\frac{17}{6}$. At $x=6$: $18$.\nArea $=-\\frac{17}{6}-18=-\\frac{125}{6}$, so area $=\\frac{125}{6}$.",
+     "error_code": "area-between-wrong-subtraction",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "dM0",
+        "A0*"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r4",
+     "kind": "pitfall",
+     "work": "$-x^2+8x-5=x+1 \\Rightarrow x^2-7x+6=0$, $x=1,6$.\nArea $=\\int_1^6(-x^2+8x-5)dx=\\left[-\\frac{x^3}{3}+4x^2-5x\\right]_1^6$\n$=(-72+144-30)-\\left(-\\frac13+4-5\\right)=42+\\frac43=\\frac{130}{3}$",
+     "error_code": "region-part-missed",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "dM0",
+        "A0*"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r5",
+     "kind": "alternative",
+     "work": "$x^2-7x+6=0$, $x=1,6$; $y=2$ and $7$.\n$\\int_1^6(-x^2+8x-5)dx=\\left[-\\frac{x^3}{3}+4x^2-5x\\right]_1^6=42-\\left(-\\frac43\\right)=\\frac{130}{3}$\nTrapezium under line: $\\frac12(2+7)(5)=\\frac{45}{2}$\nArea $=\\frac{130}{3}-\\frac{45}{2}=\\frac{260-135}{6}=\\frac{125}{6}$",
+     "error_code": null,
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "dM1",
+        "A1*"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r6",
+     "kind": "partial",
+     "work": "$-x^2+8x-5=x+1 \\Rightarrow x^2-7x+6=0 \\Rightarrow (x-1)(x-6)=0$\n$x=1$ or $x=6$",
+     "error_code": null,
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "M0",
+        "dM0",
+        "A0*"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "r1",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "M0",
+        "dM0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "M0: integrated line minus curve and took the modulus with no clear reason given.",
+      "dM0: depends on the previous M1, which was not awarded.",
+      "A0: needs the earlier method marks."
+     ]
+    },
+    {
+     "id": "r3",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "dM0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "dM0: subtracted bottom minus top (-17/6 - 18), not top minus bottom.",
+      "A0: the sign was fudged to reach 125/6, so the working is not error-free."
+     ]
+    },
+    {
+     "id": "r4",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "dM0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "dM0: never subtracted the trapezium or the area under the line.",
+      "A0: the answer 130/3 is not 125/6."
+     ]
+    },
+    {
+     "id": "r5",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r6",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "M0",
+        "dM0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "M0: no integration attempted.",
+      "dM0: no limits substituted.",
+      "A0: no area found."
+     ]
+    }
+   ],
+   "awarded_second": [
+    {
+     "id": "r2",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "M0",
+        "dM0",
+        "A0*"
+       ]
+      }
+     ],
+     "reasons": [
+      "M0: integrates (line - curve) and changes -125/6 to 125/6 without a clear reason for taking the modulus; also wrongly states Area = ∫(x^2-7x+6)dx",
+      "dM0: depends on the previous M1, which was not awarded (substitution itself is correct: -18 - 17/6)",
+      "A0*: cso fails - the integral is called the area and the sign is changed without justification"
+     ]
+    }
+   ],
+   "cost_usd": 0.0689
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "agreement": "1/1",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.010731999999999998,
+   "retagged": {
+    "-": [
+     "area-between-curve-and-line",
+     "substitute-to-find-intersections",
+     "solve-quadratic-equation",
+     "evaluate-definite-integral"
+    ]
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

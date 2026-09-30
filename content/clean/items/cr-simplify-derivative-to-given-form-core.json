@@ -1,0 +1,402 @@
+{
+ "id": "cr-simplify-derivative-to-given-form-core",
+ "blueprint_id": "dr-simplify-derivative-to-given-form-core",
+ "question_type": "differentiate-to-given-form",
+ "component": "pure",
+ "tier": "core",
+ "kind": "drill",
+ "stem": null,
+ "parts": [
+  {
+   "label": null,
+   "marks": 4,
+   "command": "show-that",
+   "skills": [
+    "simplify-derivative-to-given-form"
+   ],
+   "text": "A curve has equation $y = (2x+1)^3\\,\\mathrm{e}^{-3x}$.\n\nShow that $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 3(2x+1)^2(1-2x)\\,\\mathrm{e}^{-3x}$. (4)",
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Uses the product rule on $(2x+1)^3$ and $\\mathrm{e}^{-3x}$: an expression of the form $\\alpha(2x+1)^2\\mathrm{e}^{-3x} \\pm \\beta(2x+1)^3\\mathrm{e}^{-3x}$ with $\\alpha, \\beta$ non-zero constants",
+     "notes": "Terms may be in either order. The product-rule structure (two terms, each keeping one factor unchanged) is what earns this mark, even if the constants are wrong."
+    },
+    {
+     "code": "A1",
+     "for": "Fully correct derivative before simplifying: $6(2x+1)^2\\mathrm{e}^{-3x} - 3(2x+1)^3\\mathrm{e}^{-3x}$",
+     "notes": "Accept $3(2x+1)^2\\times 2\\,\\mathrm{e}^{-3x} + (2x+1)^3\\times(-3)\\mathrm{e}^{-3x}$ oe."
+    },
+    {
+     "code": "M1",
+     "for": "Takes $(2x+1)^2\\mathrm{e}^{-3x}$ (or $3(2x+1)^2\\mathrm{e}^{-3x}$) out of both terms and simplifies what remains in the bracket to a linear expression in $x$",
+     "depends_on": "M1",
+     "notes": "e.g. $3(2x+1)^2\\mathrm{e}^{-3x}[2-(2x+1)]$. If a student expands $(2x+1)^3$ fully instead, award this mark only if they later refactorise correctly."
+    },
+    {
+     "code": "A1*",
+     "for": "Arrives at $3(2x+1)^2(1-2x)\\mathrm{e}^{-3x}$ with the bracket $2-(2x+1)=1-2x$ shown and no sign or coefficient errors at any stage",
+     "notes": "cso. The step from $[2-(2x+1)]$ or $[2-2x-1]$ to $(1-2x)$ should be visible."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Let $u=(2x+1)^3$ and $v=\\mathrm{e}^{-3x}$. By the chain rule, $\\frac{\\mathrm{d}u}{\\mathrm{d}x}=3(2x+1)^2\\times 2 = 6(2x+1)^2$ and $\\frac{\\mathrm{d}v}{\\mathrm{d}x} = -3\\mathrm{e}^{-3x}$.",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = v\\frac{\\mathrm{d}u}{\\mathrm{d}x} + u\\frac{\\mathrm{d}v}{\\mathrm{d}x}$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 6(2x+1)^2\\mathrm{e}^{-3x} - 3(2x+1)^3\\mathrm{e}^{-3x}$",
+     "mark": "A1"
+    },
+    {
+     "step": 4,
+     "working": "$= 3(2x+1)^2\\mathrm{e}^{-3x}\\left[2 - (2x+1)\\right] = 3(2x+1)^2\\mathrm{e}^{-3x}(2-2x-1)$",
+     "mark": "M1"
+    },
+    {
+     "step": 5,
+     "working": "$= 3(2x+1)^2(1-2x)\\,\\mathrm{e}^{-3x}$ as required.",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [
+    {
+     "name": "dydx",
+     "expr": "3(2x+1)^2(1-2x)e^(-3x)",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "derivative",
+     "f": "(2x+1)^3 e^(-3x)",
+     "var": "x",
+     "answer": "dydx"
+    },
+    {
+     "type": "derivative",
+     "f": "(2x+1)^3 e^(-3x)",
+     "var": "x",
+     "result": "6(2x+1)^2 e^(-3x) - 3(2x+1)^3 e^(-3x)"
+    },
+    {
+     "type": "equals",
+     "lhs": "6(2x+1)^2 e^(-3x) - 3(2x+1)^3 e^(-3x)",
+     "rhs": "3(2x+1)^2(1-2x)e^(-3x)"
+    }
+   ],
+   "hints": [
+    "The function is a product of two parts, $(2x+1)^3$ and $\\mathrm{e}^{-3x}$, and each part needs the chain rule when you differentiate it.",
+    "Once you have two terms, look for the factors they share before you try to expand anything."
+   ],
+   "forms": []
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "step": 1,
+   "error_code": "chain-rule-inner-derivative-missing",
+   "says_common": false,
+   "text": "If you write the derivative of $(2x+1)^3$ as $3(2x+1)^2$, you have left out the factor of $2$ from differentiating $2x+1$. Your first term becomes $3(2x+1)^2\\mathrm{e}^{-3x}$ instead of $6(2x+1)^2\\mathrm{e}^{-3x}$, so you can't reach $(1-2x)$ and the accuracy marks go."
+  },
+  {
+   "part": null,
+   "step": 1,
+   "error_code": "exp-log-derivative-error",
+   "says_common": false,
+   "text": "Differentiating $\\mathrm{e}^{-3x}$ gives $-3\\mathrm{e}^{-3x}$, not $\\mathrm{e}^{-3x}$ or $-\\mathrm{e}^{-3x}$. If you drop the $-3$, the second term has the wrong coefficient and sign, and the A1 for the unsimplified derivative is lost."
+  },
+  {
+   "part": null,
+   "step": 4,
+   "error_code": "derivative-not-simplified-to-form",
+   "says_common": false,
+   "text": "If you stop at $6(2x+1)^2\\mathrm{e}^{-3x} - 3(2x+1)^3\\mathrm{e}^{-3x}$, or expand $(2x+1)^3$ into a long polynomial, you haven't shown the printed result. You need to take out $3(2x+1)^2\\mathrm{e}^{-3x}$ and show $2-(2x+1)=1-2x$ to earn the final two marks."
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T16:38:44",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.2699
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 4
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.888 with question:IAL2018_WMA14_Jan2021_Q6"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.034,
+   "jaccard_source": "IAL2018_WMA11_Jan2021_Q1",
+   "shared_numbers": 0,
+   "max_cosine": 0.888,
+   "cosine_source": "question:IAL2018_WMA14_Jan2021_Q6"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 3,
+   "n_answers": 1,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.008286499999999999,
+   "solver": {
+    "parts": [
+     {
+      "label": null,
+      "answers": [
+       "3*(2*x+1)**2*(1-2*x)*exp(-3*x)"
+      ],
+      "printed_result_correct": true,
+      "working_summary": "Product rule with u=(2x+1)^3, v=e^{-3x}: u'=6(2x+1)^2, v'=-3e^{-3x}. dy/dx = 6(2x+1)^2 e^{-3x} - 3(2x+1)^3 e^{-3x} = 3(2x+1)^2 e^{-3x}[2-(2x+1)] = 3(2x+1)^2(1-2x)e^{-3x}. This matches the printed result."
+     }
+    ],
+    "problems": []
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "n_responses": 5,
+   "agreed": [
+    "r1",
+    "r2",
+    "r3",
+    "r4",
+    "r5"
+   ],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "r1",
+     "kind": "correct",
+     "work": "Let $u=(2x+1)^3$, $v=e^{-3x}$. $u'=6(2x+1)^2$, $v'=-3e^{-3x}$.\n$\\frac{dy}{dx}=6(2x+1)^2e^{-3x}-3(2x+1)^3e^{-3x}$\n$=3(2x+1)^2e^{-3x}[2-(2x+1)]$\n$=3(2x+1)^2e^{-3x}(2-2x-1)$\n$=3(2x+1)^2(1-2x)e^{-3x}$",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1*"
+       ]
+      }
+     ],
+     "error_code": null
+    },
+    {
+     "id": "r2",
+     "kind": "pitfall",
+     "work": "$u=(2x+1)^3$, $u'=3(2x+1)^2$; $v=e^{-3x}$, $v'=-3e^{-3x}$.\n$\\frac{dy}{dx}=3(2x+1)^2e^{-3x}-3(2x+1)^3e^{-3x}$\n$=3(2x+1)^2e^{-3x}[1-(2x+1)]$\n$=3(2x+1)^2e^{-3x}(-2x)$\nThis doesn't match the printed answer, but that's what I get.",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A0",
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "error_code": "chain-rule-inner-derivative-missing"
+    },
+    {
+     "id": "r3",
+     "kind": "pitfall",
+     "work": "$u=(2x+1)^3$, $u'=6(2x+1)^2$; $v=e^{-3x}$, $v'=e^{-3x}$.\n$\\frac{dy}{dx}=6(2x+1)^2e^{-3x}+(2x+1)^3e^{-3x}$\n$=(2x+1)^2e^{-3x}[6+(2x+1)]$\n$=(2x+1)^2(2x+7)e^{-3x}$",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A0",
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "error_code": "exp-log-derivative-error"
+    },
+    {
+     "id": "r4",
+     "kind": "pitfall",
+     "work": "$u=(2x+1)^3$, $u'=6(2x+1)^2$; $v=e^{-3x}$, $v'=-3e^{-3x}$.\n$\\frac{dy}{dx}=6(2x+1)^2e^{-3x}-3(2x+1)^3e^{-3x}$\nExpanding: $(2x+1)^3=8x^3+12x^2+6x+1$, so\n$\\frac{dy}{dx}=e^{-3x}(6(4x^2+4x+1)-3(8x^3+12x^2+6x+1))$\n$=e^{-3x}(-24x^3-12x^2+6x+3)$\nI stop here.",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "error_code": "derivative-not-simplified-to-form"
+    },
+    {
+     "id": "r5",
+     "kind": "partial",
+     "work": "Use the product rule with $u=(2x+1)^3$, $v=e^{-3x}$.\n$u'=6(2x+1)^2$, $v'=-3e^{-3x}$.\n$\\frac{dy}{dx}=6(2x+1)^2e^{-3x}-3(2x+1)^3e^{-3x}$",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "error_code": null
+    }
+   ],
+   "awarded": [
+    {
+     "id": "r1",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1*"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A0",
+        "M1",
+        "A0*"
+       ]
+      }
+     ],
+     "reasons": [
+      "A1 not awarded: u' = 3(2x+1)^2 is wrong (chain rule factor 2 missing), so the derivative is incorrect.",
+      "A1* not awarded: the result -2x in the bracket does not lead to the required expression, and errors are present."
+     ]
+    },
+    {
+     "id": "r3",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A0",
+        "M1",
+        "A0*"
+       ]
+      }
+     ],
+     "reasons": [
+      "A1 not awarded: v' given as e^{-3x} rather than -3e^{-3x}.",
+      "A1* not awarded: the final answer is not 3(2x+1)^2(1-2x)e^{-3x}."
+     ]
+    },
+    {
+     "id": "r4",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "M0",
+        "A0*"
+       ]
+      }
+     ],
+     "reasons": [
+      "M1 not awarded: the student expanded and did not refactorise to a common factor.",
+      "A1* not awarded: the required factorised form was never reached."
+     ]
+    },
+    {
+     "id": "r5",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "M0",
+        "A0*"
+       ]
+      }
+     ],
+     "reasons": [
+      "M1 not awarded: no factorising was attempted.",
+      "A1* not awarded: the final result was not reached."
+     ]
+    }
+   ],
+   "cost_usd": 0.035
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "agreement": "1/1",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.011640000000000001,
+   "retagged": {
+    "-": [
+     "product-rule",
+     "chain-rule",
+     "differentiate-exponentials-and-logs",
+     "simplify-derivative-to-given-form"
+    ]
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

@@ -1,0 +1,474 @@
+{
+ "id": "cr-pure-de-given-separable-001",
+ "blueprint_id": "bp-pure-de-given-separable-001",
+ "question_type": "de-given-separable",
+ "component": "pure",
+ "tier": "standard",
+ "kind": "exam",
+ "stem": null,
+ "parts": [
+  {
+   "label": null,
+   "marks": 6,
+   "text": "Solve the differential equation\n$$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\frac{(3x+1)\\cos^2 y}{\\sqrt{x}}, \\qquad x > 0,\\quad -\\frac{\\pi}{2} < y < \\frac{\\pi}{2},$$\ngiven that $y = \\frac{\\pi}{4}$ when $x = 1$.\n\nGive your answer in the form $y = \\arctan\\big(\\mathrm{f}(x)\\big)$, where $\\mathrm{f}(x)$ is a function of $x$ that you should find. (6)",
+   "command": "solve",
+   "forms": [
+    "in-the-form"
+   ],
+   "skills": [
+    "separate-variables-and-integrate",
+    "reciprocal-trig-functions",
+    "standard-integrals",
+    "integrate-powers-of-x",
+    "find-constants-from-conditions",
+    "rearrange-solution-explicitly"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Integrates the $y$-side correctly: $\\int \\sec^2 y\\,\\mathrm{d}y = \\tan y$ (or $\\int \\frac{1}{\\cos^2 y}\\,\\mathrm{d}y = \\tan y$).",
+     "notes": "You can award this on its own, even if the separation or the $x$-side is wrong. Don't award it for $-\\cot y$ or for anything that comes from writing $\\frac{1}{\\cos^2 y}$ as $\\operatorname{cosec}^2 y$."
+    },
+    {
+     "code": "M1",
+     "for": "Separates the variables into the form $\\int \\frac{1}{\\cos^2 y}\\,\\mathrm{d}y = \\int \\frac{3x+1}{\\sqrt{x}}\\,\\mathrm{d}x$ (or an equivalent with $\\sec^2 y$), with every $y$ term on one side and every $x$ term on the other, and shows an intention to integrate both sides.",
+     "notes": "Don't award it if $\\cos^2 y$ stays on the same side as $\\mathrm{d}x$, or if $\\sqrt{x}$ ends up multiplying $\\mathrm{d}x$ when it should divide."
+    },
+    {
+     "code": "M1",
+     "for": "Rewrites $\\frac{3x+1}{\\sqrt{x}}$ as $3x^{1/2} + x^{-1/2}$ and integrates, raising at least one of the two powers by 1 (so $x^{3/2}$ or $x^{1/2}$ appears).",
+     "notes": "Don't award it for integrating the numerator and the denominator separately, or for integrating $3x+1$ and then dividing by $\\sqrt{x}$."
+    },
+    {
+     "code": "A1",
+     "for": "Gets $\\tan y = 2x^{3/2} + 2x^{1/2} + c$ (oe), including a constant of integration.",
+     "notes": "Accept $2x\\sqrt{x} + 2\\sqrt{x} + c$. The constant can be on either side. This mark depends on the previous M1."
+    },
+    {
+     "code": "M1",
+     "for": "Substitutes $x = 1$ and $y = \\frac{\\pi}{4}$ into an integrated equation that contains a constant, and solves for the constant: $1 = 2 + 2 + c$.",
+     "notes": "The integrated equation must contain a constant of integration. Follow through their integrated equation."
+    },
+    {
+     "code": "A1",
+     "for": "Gives $y = \\arctan\\left(2x^{3/2} + 2x^{1/2} - 3\\right)$.",
+     "notes": "cao, oe. Accept $\\tan^{-1}$ and $2x\\sqrt{x} + 2\\sqrt{x} - 3$. Stopping at $\\tan y = \\ldots$ doesn't earn this mark."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Separate the variables. Since $\\frac{1}{\\cos^2 y} = \\sec^2 y$: $$\\int \\sec^2 y\\,\\mathrm{d}y = \\int \\frac{3x+1}{\\sqrt{x}}\\,\\mathrm{d}x$$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "Integrate the left-hand side: $\\int \\sec^2 y\\,\\mathrm{d}y = \\tan y$.",
+     "mark": "B1"
+    },
+    {
+     "step": 3,
+     "working": "Write the right-hand side as powers of $x$: $\\frac{3x+1}{\\sqrt{x}} = 3x^{1/2} + x^{-1/2}$. Then $$\\int \\left(3x^{1/2} + x^{-1/2}\\right)\\mathrm{d}x = 3\\cdot\\tfrac{2}{3}x^{3/2} + 2x^{1/2}$$",
+     "mark": "M1"
+    },
+    {
+     "step": 4,
+     "working": "So $\\tan y = 2x^{3/2} + 2x^{1/2} + c$.",
+     "mark": "A1"
+    },
+    {
+     "step": 5,
+     "working": "When $x = 1$, $y = \\frac{\\pi}{4}$: $\\tan\\frac{\\pi}{4} = 1 = 2 + 2 + c$, so $c = -3$.",
+     "mark": "M1"
+    },
+    {
+     "step": 6,
+     "working": "So $\\tan y = 2x^{3/2} + 2x^{1/2} - 3$. Because $-\\frac{\\pi}{2} < y < \\frac{\\pi}{2}$, we can take arctan of both sides: $$y = \\arctan\\left(2x^{3/2} + 2x^{1/2} - 3\\right)$$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "y",
+     "expr": "arctan(2*x^(3/2) + 2*x^(1/2) - 3)",
+     "form": "exact",
+     "check": "tan(y) = 2*x^(3/2) + 2*x^(1/2) - 3"
+    }
+   ],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "(3x+1)/sqrt(x)",
+     "rhs": "3x^(1/2) + x^(-1/2)",
+     "domain": "positive"
+    },
+    {
+     "type": "integral",
+     "f": "3x^(1/2) + x^(-1/2)",
+     "var": "x",
+     "result": "2x^(3/2) + 2x^(1/2)"
+    },
+    {
+     "type": "integral",
+     "f": "sec(y)^2",
+     "var": "y",
+     "result": "tan(y)"
+    },
+    {
+     "type": "substitute",
+     "expr": "arctan(2x^(3/2) + 2x^(1/2) - 3)",
+     "at": {
+      "x": "1"
+     },
+     "result": "pi/4"
+    },
+    {
+     "type": "derivative",
+     "f": "arctan(2x^(3/2) + 2x^(1/2) - 3)",
+     "var": "x",
+     "result": "(3x+1)/(sqrt(x)*(1 + (2x^(3/2) + 2x^(1/2) - 3)^2))"
+    },
+    {
+     "type": "equals",
+     "lhs": "(3x+1)*cos(arctan(2x^(3/2) + 2x^(1/2) - 3))^2/sqrt(x)",
+     "rhs": "(3x+1)/(sqrt(x)*(1 + (2x^(3/2) + 2x^(1/2) - 3)^2))",
+     "domain": "positive"
+    }
+   ],
+   "hints": [
+    "Put every term involving $y$ with $\\mathrm{d}y$ and every term involving $x$ with $\\mathrm{d}x$. Which reciprocal trig function is $\\frac{1}{\\cos^2 y}$?",
+    "Before you integrate $\\frac{3x+1}{\\sqrt{x}}$, split it into two separate powers of $x$."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "step": 2,
+   "error_code": "reciprocal-trig-confused",
+   "text": "It's a common mistake to write $\\frac{1}{\\cos^2 y}$ as $\\operatorname{cosec}^2 y$ and then integrate it to $-\\cot y$. In fact $\\frac{1}{\\cos y} = \\sec y$, so the integral is $\\tan y$. If you use cosec, you lose the B1, and your final answer won't be in the arctan form.",
+   "says_common": true
+  },
+  {
+   "part": null,
+   "step": 3,
+   "error_code": "not-rewritten-as-powers",
+   "text": "A common error is to integrate $\\frac{3x+1}{\\sqrt{x}}$ without splitting it first, for example by integrating the top and bottom separately to get $\\frac{\\frac{3}{2}x^2 + x}{\\frac{2}{3}x^{3/2}}$. Rewrite it as $3x^{1/2} + x^{-1/2}$ first, and then integrate each term. Otherwise you lose the M1 for the $x$-side and the A1 after it.",
+   "says_common": true
+  },
+  {
+   "part": null,
+   "step": 5,
+   "error_code": "initial-conditions-not-used",
+   "text": "If you leave out $+c$, or never substitute $x = 1$, $y = \\frac{\\pi}{4}$, you can't find $c = -3$. You then lose the M1 for finding the constant and the final A1. Remember that $\\tan\\frac{\\pi}{4} = 1$, not $\\frac{\\pi}{4}$.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T16:17:41",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.3077
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 6
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.917 with question:IAL2018_WMA14_June2025_Q3"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.056,
+   "jaccard_source": "IAL2013_WMA02_Jan2016_Q9",
+   "shared_numbers": 0,
+   "max_cosine": 0.917,
+   "cosine_source": "question:IAL2018_WMA14_June2025_Q3"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 6,
+   "n_answers": 1,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.005,
+   "solver": {
+    "parts": [
+     {
+      "label": null,
+      "answers": [
+       "y = atan(2*x**(3/2) + 2*sqrt(x) - 3)",
+       "2*x**(3/2) + 2*sqrt(x) - 3"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "Separate variables: sec^2 y dy = (3x^(1/2) + x^(-1/2)) dx. Integrate: tan y = 2x^(3/2) + 2x^(1/2) + C. Using x=1, tan y = 1 gives C = -3. So f(x) = 2x^(3/2) + 2sqrt(x) - 3."
+     }
+    ],
+    "problems": []
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "n_responses": 5,
+   "agreed": [
+    "r1",
+    "r2",
+    "r3",
+    "r4",
+    "r5"
+   ],
+   "consistent": {},
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "r1",
+     "kind": "correct",
+     "work": "$\\int \\sec^2 y\\,dy=\\int \\frac{3x+1}{\\sqrt{x}}dx=\\int (3x^{1/2}+x^{-1/2})dx$\n$\\tan y = 2x^{3/2}+2x^{1/2}+c$\nWhen $x=1,y=\\pi/4$: $1=2+2+c$, so $c=-3$.\n$y=\\arctan\\left(2x^{3/2}+2x^{1/2}-3\\right)$",
+     "error_code": null,
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "B1",
+        "M1",
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "kind": "pitfall",
+     "work": "$\\int \\operatorname{cosec}^2 y\\,dy=\\int \\frac{3x+1}{\\sqrt{x}}dx$\n$-\\cot y = 2x^{3/2}+2x^{1/2}+c$\nSub $x=1,y=\\pi/4$: $-1=4+c$, $c=-5$.\n$-\\cot y=2x^{3/2}+2x^{1/2}-5$, so $y=\\operatorname{arccot}\\left(5-2x^{3/2}-2x^{1/2}\\right)$",
+     "error_code": "reciprocal-trig-confused",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "B0",
+        "M1",
+        "M1",
+        "A0",
+        "M1",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r3",
+     "kind": "pitfall",
+     "work": "$\\int \\sec^2 y\\,dy=\\int \\frac{3x+1}{\\sqrt{x}}dx$\n$\\tan y=\\frac{\\frac32x^2+x}{\\frac23x^{3/2}}+c$\nSub $x=1,y=\\pi/4$: $1=\\frac{5/2}{2/3}+c=\\frac{15}{4}+c$, $c=-\\frac{11}{4}$.\n$y=\\arctan\\left(\\frac{\\frac32x^2+x}{\\frac23x^{3/2}}-\\frac{11}{4}\\right)$",
+     "error_code": "not-rewritten-as-powers",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "B1",
+        "M1",
+        "M0",
+        "A0",
+        "M1",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r4",
+     "kind": "pitfall",
+     "work": "$\\int \\sec^2 y\\,dy=\\int (3x^{1/2}+x^{-1/2})dx$\n$\\tan y=2x^{3/2}+2x^{1/2}$ (forgot $+c$)\nSo $y=\\arctan\\left(2x^{3/2}+2x^{1/2}\\right)$, never using $y=\\pi/4$ at $x=1$.",
+     "error_code": "initial-conditions-not-used",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "B1",
+        "M1",
+        "M1",
+        "A0",
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r5",
+     "kind": "partial",
+     "work": "$\\int \\sec^2 y\\,dy=\\int \\frac{3x+1}{\\sqrt{x}}dx=\\int (3x^{1/2}+x^{-1/2})dx$\n$\\tan y=2x^{3/2}+2x^{1/2}+c$\n(stops here)",
+     "error_code": null,
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "B1",
+        "M1",
+        "M1",
+        "A1",
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "r1",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "B1",
+        "M1",
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "B0",
+        "M1",
+        "M1",
+        "A0",
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "B0: integrated cosec^2 y giving -cot y, not tan y",
+      "A0: tan y = ... not obtained",
+      "A0: final answer not y = arctan(2x^{3/2}+2x^{1/2}-3)"
+     ]
+    },
+    {
+     "id": "r3",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "B1",
+        "M1",
+        "M0",
+        "A0",
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "M0: integrated numerator and denominator separately",
+      "A0: incorrect integration, depends on the M1",
+      "A0: incorrect final answer"
+     ]
+    },
+    {
+     "id": "r4",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "B1",
+        "M1",
+        "M1",
+        "A0",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "A0: no constant of integration",
+      "M0: did not substitute x=1, y=π/4 into an equation with a constant",
+      "A0: incorrect final answer"
+     ]
+    },
+    {
+     "id": "r5",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "B1",
+        "M1",
+        "M1",
+        "A1",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "M0: did not use the initial condition to find c",
+      "A0: no final answer in the form y = arctan(...)"
+     ]
+    }
+   ],
+   "awarded_second": [],
+   "cost_usd": 0.0352
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "agreement": "1/1",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.01389,
+   "retagged": {
+    "-": [
+     "separate-variables-and-integrate",
+     "standard-integrals",
+     "find-constants-from-conditions",
+     "rearrange-solution-explicitly"
+    ]
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

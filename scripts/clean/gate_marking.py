@@ -24,8 +24,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts"))
 import claude_oneshot  # noqa: E402
+sys.path.insert(0, str(ROOT))
+from chatbot.text import latex_to_plain  # noqa: E402
 
 MODEL = "claude-sonnet-5-5"
+SECOND_MARKER = "claude-opus-5-5"  # only for scripts where the first marker and the design disagree
+WORDED_COMMANDS = {"explain", "state", "comment", "suggest", "interpret", "describe", "criticise", "write-down"}
 FREQUENT_NOTES = 10  # an error code may be called "common" at >= this many matched notes (calibrate: checklist §28)
 WRITER_SYSTEM = """You test a new A level Mathematics mark scheme. Given a question, its mark scheme, worked solution and
 list of pitfalls, write realistic student responses (as a student would write them: working lines, LaTeX in $...$)
@@ -98,27 +102,55 @@ def g4_marking(item: dict) -> dict:
     m = claude_oneshot.run(MARKER_SYSTEM, [claude_oneshot.text_block(
         f"# Question\n{question_text(item)}\n\n# Mark scheme\n{scheme_text(item)}\n\n# Student responses\n{body}")],
         schema=MARKER_SCHEMA, model=MODEL, max_usd=1.0, thinking_tokens=6000, step="clean-g4-mark", ref=item["id"])
-    out = score_g4(item, responses, m["result"]["results"])
-    out["cost_usd"] = round((w["cost_usd"] or 0) + (m["cost_usd"] or 0), 4)
+    first = m["result"]["results"]
+    out = score_g4(item, responses, first)
+    cost = (w["cost_usd"] or 0) + (m["cost_usd"] or 0)
+    mismatched = [r for r in responses if r["id"] in out["mismatched"]]
+    if mismatched:  # a second, different marker settles whether the scheme or the script's design is at fault
+        body2 = "\n\n".join(f"## Response {r['id']}\n{r['work']}" for r in mismatched)
+        m2 = claude_oneshot.run(MARKER_SYSTEM, [claude_oneshot.text_block(
+            f"# Question\n{question_text(item)}\n\n# Mark scheme\n{scheme_text(item)}\n\n# Student responses\n{body2}")],
+            schema=MARKER_SCHEMA, model=SECOND_MARKER, max_usd=1.0, thinking_tokens=6000, step="clean-g4-mark2",
+            ref=item["id"])
+        cost += m2["cost_usd"] or 0
+        out = score_g4(item, responses, first, second=m2["result"]["results"])
+    out["cost_usd"] = round(cost, 4)
     return out
 
 
-def score_g4(item: dict, responses: list[dict], results: list[dict]) -> dict:
-    """Compare designed and awarded vectors (no model calls: re-runnable on stored G4 output)."""
+def score_g4(item: dict, responses: list[dict], results: list[dict], second: list[dict] | None = None) -> dict:
+    """Compare designed and awarded vectors (no model calls: re-runnable on stored G4 output). With a second
+    marker's results for the mismatched responses: both markers agree -> the scheme is applied consistently and
+    the script's design was off (a flag, and the markers' vector is what the script earns); the second marker
+    agrees with the design -> first-marker noise (a flag); the markers disagree -> the scheme is ambiguous (fail)."""
     awarded = {r["id"]: r for r in results}
-    errors, agreed = [], []
+    again = {r["id"]: r for r in second or []}
+    errors, agreed, flags, mismatched, consistent = [], [], [], [], {}
     for r in responses:
         a = awarded.get(r["id"])
         if not a:
             errors.append(f"response {r['id']}: not marked")
             continue
         want, got = _norm(r["designed"]), _norm(a["awarded"])
-        if want != got:
-            diff = {k: (want.get(k), got.get(k)) for k in set(want) | set(got) if want.get(k) != got.get(k)}
-            errors.append(f"response {r['id']} ({r['kind']}{' ' + r['error_code'] if r.get('error_code') else ''}): "
-                          f"designed vs awarded {diff}; marker: {'; '.join(a.get('reasons') or [])[:300]}")
-        else:
+        tag = f"response {r['id']} ({r['kind']}{' ' + r['error_code'] if r.get('error_code') else ''})"
+        if want == got:
             agreed.append(r["id"])
+            continue
+        diff = {k: (want.get(k), got.get(k)) for k in set(want) | set(got) if want.get(k) != got.get(k)}
+        b2 = again.get(r["id"])
+        if b2 is None:
+            mismatched.append(r["id"])
+            errors.append(f"{tag}: designed vs awarded {diff}; marker: {'; '.join(a.get('reasons') or [])[:300]}")
+            continue
+        got2 = _norm(b2["awarded"])
+        if got2 == got:
+            consistent[r["id"]] = a["awarded"]
+            flags.append(f"{tag}: both markers award {got}, not the designed {want} (script design off; scheme consistent)")
+        elif got2 == want:
+            agreed.append(r["id"])
+            flags.append(f"{tag}: second marker agrees with the design; first marker gave {got}")
+        else:
+            errors.append(f"{tag}: markers disagree ({got} vs {got2}; designed {want}): the mark scheme is ambiguous here")
     # the designed vectors must follow the scheme (same codes in order, main scheme or an alternative) and the
     # correct / alternative responses must score full marks: otherwise agreement proves nothing
     schemes = {norm_label(p.get("label")): [[_mark(m["code"]) for m in p["mark_scheme"]]]
@@ -138,8 +170,9 @@ def score_g4(item: dict, responses: list[dict], results: list[dict]) -> dict:
     kinds = {r["kind"] for r in responses}
     if "correct" not in kinds:
         errors.append("no fully correct response was written")
-    return {"pass": not errors, "errors": errors, "n_responses": len(responses), "agreed": agreed, "model": MODEL,
-            "responses": responses, "awarded": results}
+    return {"pass": not errors, "errors": errors, "flags": flags, "flag": bool(flags), "n_responses": len(responses),
+            "agreed": agreed, "consistent": consistent, "mismatched": mismatched, "model": MODEL,
+            "responses": responses, "awarded": results, "awarded_second": second or []}
 
 
 def g5_pitfalls(item: dict, g4: dict, blueprint: dict | None) -> dict:
@@ -148,7 +181,6 @@ def g5_pitfalls(item: dict, g4: dict, blueprint: dict | None) -> dict:
     frequency = {e["code"]: max(e.get("n_notes", 0), 0) for p in (blueprint or {}).get("parts", [])
                  for e in p.get("error_codes", [])}
     text = " ".join([item.get("stem") or ""] + [p["text"] for p in item["parts"]])
-    numbers = set(re.findall(r"\d+(?:\.\d+)?", text)) - {"0", "1", "2"}
     by_code = {}
     for r in g4.get("responses", []):
         if r.get("kind") == "pitfall" and r.get("error_code"):
@@ -164,14 +196,14 @@ def g5_pitfalls(item: dict, g4: dict, blueprint: dict | None) -> dict:
             errors.append(f"{w}: step {pf['step']} is not a solution step")
         if allowed and pf.get("error_code") not in allowed:
             errors.append(f"{w}: error code not one of the blueprint's")
-        own = numbers | set(re.findall(r"\d+(?:\.\d+)?", " ".join(s["working"] for s in part.get("solution") or [])))
-        if part.get("answers"):  # numerical part: the pitfall must use this question's numbers
-            if own and not set(re.findall(r"\d+(?:\.\d+)?", pf["text"])) & own:
-                errors.append(f"{w}: doesn't use the question's own numbers")
-        else:  # explain / state / sketch: it must refer to this question's context (a word of 5+ letters from it)
+        nums = lambda t: set(re.findall(r"\d+(?:\.\d+)?", latex_to_plain(t or "")))
+        own = nums(text) | nums(" ".join(s["working"] for s in part.get("solution") or []))
+        if part.get("command") in WORDED_COMMANDS:  # explain / state ...: it must refer to this question's context
             context = {x.lower() for x in re.findall(r"[A-Za-z]{5,}", text)}
             if not {x.lower() for x in re.findall(r"[A-Za-z]{5,}", pf["text"])} & context:
                 errors.append(f"{w}: doesn't refer to this question's context")
+        elif own and not nums(pf["text"]) & own:  # otherwise it must use this question's own numbers
+            errors.append(f"{w}: doesn't use the question's own numbers")
         if re.search(r"\bcommon(ly)?\b|\bmany students\b|\boften\b", pf["text"], re.I) and not pf.get("says_common"):
             errors.append(f"{w}: says it's common without the frequency flag")
         if pf.get("says_common") and frequency.get(pf.get("error_code"), 0) < FREQUENT_NOTES:
@@ -180,9 +212,11 @@ def g5_pitfalls(item: dict, g4: dict, blueprint: dict | None) -> dict:
         r = by_code.get(pf.get("error_code"))
         if r is None:
             errors.append(f"{w}: no G4 response demonstrates it")
+        elif r["id"] in g4.get("consistent", {}):  # both markers agree on what it earns: use their vector
+            if not any(_mark(m).endswith("0") for v in g4["consistent"][r["id"]] for m in v["marks"]):
+                errors.append(f"{w}: its G4 response loses no marks (both markers)")
         else:
-            lost = any(_mark(m).endswith("0") for v in r["designed"] for m in v["marks"])
-            if not lost:
+            if not any(_mark(m).endswith("0") for v in r["designed"] for m in v["marks"]):
                 errors.append(f"{w}: its G4 response loses no marks")
             if r["id"] not in g4.get("agreed", []):
                 errors.append(f"{w}: the marker didn't score its response as designed")

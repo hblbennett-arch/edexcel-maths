@@ -1,0 +1,197 @@
+{
+ "id": "cr-quotient-rule-starter",
+ "blueprint_id": "dr-quotient-rule-starter",
+ "question_type": "differentiate-to-given-form",
+ "component": "pure",
+ "tier": "starter",
+ "kind": "drill",
+ "stem": null,
+ "parts": [
+  {
+   "label": null,
+   "marks": 3,
+   "text": "A curve has equation $y = \\dfrac{\\mathrm{e}^{5x}}{x^2 + 4}$, for all real $x$.\n\nFind $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}$. Write your result as a single fraction $\\dfrac{\\mathrm{e}^{5x}\\left(ax^2 + bx + c\\right)}{\\left(x^2 + 4\\right)^2}$ and state the integer values of $a$, $b$ and $c$. (3)",
+   "command": "find",
+   "skills": [
+    "quotient-rule"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Uses the quotient rule with $u = \\mathrm{e}^{5x}$ and $v = x^2 + 4$. The attempt has the form $\\dfrac{(x^2+4)\\cdot k\\mathrm{e}^{5x} - \\mathrm{e}^{5x}\\cdot 2x}{(x^2+4)^2}$, where $k$ is a non-zero constant",
+     "notes": "The numerator must be $vu' - uv'$ in that order, with a minus sign between the terms, and the denominator must be $(x^2+4)^2$. Allow $k = 1$ for this mark."
+    },
+    {
+     "code": "A1",
+     "for": "Correct derivative in any form, e.g. $\\dfrac{5\\mathrm{e}^{5x}(x^2+4) - 2x\\mathrm{e}^{5x}}{(x^2+4)^2}$",
+     "notes": "Does not need to be simplified. Needs $k = 5$."
+    },
+    {
+     "code": "A1",
+     "for": "Takes out the factor $\\mathrm{e}^{5x}$ to get $\\dfrac{\\mathrm{e}^{5x}(5x^2 - 2x + 20)}{(x^2+4)^2}$, so $a = 5$, $b = -2$, $c = 20$",
+     "notes": "cao. Accept the values stated or read off a correct final expression."
+    }
+   ],
+   "alternatives": [
+    {
+     "name": "Way 2 (product rule)",
+     "marks": [
+      {
+       "code": "M1",
+       "for": "Writes $y = \\mathrm{e}^{5x}(x^2+4)^{-1}$ and uses the product rule to get $k\\mathrm{e}^{5x}(x^2+4)^{-1} - \\mathrm{e}^{5x}\\cdot 2x(x^2+4)^{-2}$",
+       "notes": "The inner derivative $2x$ must be there in the second term."
+      },
+      {
+       "code": "A1",
+       "for": "$5\\mathrm{e}^{5x}(x^2+4)^{-1} - 2x\\mathrm{e}^{5x}(x^2+4)^{-2}$ oe"
+      },
+      {
+       "code": "A1",
+       "for": "Uses the common denominator $(x^2+4)^2$ to get $\\dfrac{\\mathrm{e}^{5x}(5x^2-2x+20)}{(x^2+4)^2}$, so $a=5$, $b=-2$, $c=20$",
+       "notes": "cao"
+      }
+     ]
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Let $u = \\mathrm{e}^{5x}$, so $u' = 5\\mathrm{e}^{5x}$. Let $v = x^2 + 4$, so $v' = 2x$.",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{vu' - uv'}{v^2} = \\dfrac{(x^2+4)\\cdot 5\\mathrm{e}^{5x} - \\mathrm{e}^{5x}\\cdot 2x}{(x^2+4)^2}$",
+     "mark": "M1 A1"
+    },
+    {
+     "step": 3,
+     "working": "Take out the factor $\\mathrm{e}^{5x}$: $\\dfrac{\\mathrm{e}^{5x}\\left(5x^2 + 20 - 2x\\right)}{(x^2+4)^2} = \\dfrac{\\mathrm{e}^{5x}\\left(5x^2 - 2x + 20\\right)}{(x^2+4)^2}$, so $a = 5$, $b = -2$, $c = 20$.",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "dydx",
+     "expr": "exp(5*x)*(5*x^2 - 2*x + 20)/(x^2 + 4)^2",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "derivative",
+     "f": "exp(5x)/(x^2 + 4)",
+     "var": "x",
+     "answer": "dydx"
+    },
+    {
+     "type": "equals",
+     "lhs": "((x^2+4)*5*exp(5x) - exp(5x)*2x)/(x^2+4)^2",
+     "rhs": "exp(5x)*(5x^2 - 2x + 20)/(x^2+4)^2"
+    }
+   ],
+   "hints": [
+    "Name the top of the fraction $u$ and the bottom $v$. Work out $u'$ and $v'$ on their own before you put them into the quotient rule.",
+    "Both terms in the numerator contain $\\mathrm{e}^{5x}$. Take it out as a factor, then collect what is left into a quadratic."
+   ],
+   "forms": []
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "error_code": "quotient-rule-error",
+   "step": 2,
+   "text": "If your numerator is $2x\\mathrm{e}^{5x} - 5\\mathrm{e}^{5x}(x^2+4)$, you have used $uv' - vu'$ and every sign is the wrong way round. Leaving the denominator as $x^2+4$ instead of $(x^2+4)^2$ is also wrong. Either mistake loses the M1, and both A marks with it.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "error_code": "exp-log-derivative-error",
+   "step": 1,
+   "text": "The derivative of $\\mathrm{e}^{5x}$ is $5\\mathrm{e}^{5x}$, not $\\mathrm{e}^{5x}$. Without the factor 5 you get $a = 1$ and $c = 4$, so both A marks are lost, although the M1 can still be earned.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "error_code": "chain-rule-inner-derivative-missing",
+   "step": 2,
+   "text": "If you use the product rule on $\\mathrm{e}^{5x}(x^2+4)^{-1}$, the derivative of $(x^2+4)^{-1}$ is $-2x(x^2+4)^{-2}$. If you leave out the $2x$ from inside the bracket, the method mark is lost.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T16:37:53",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.2108
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 3
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.888 with part:IAL2018_WMA11_Jan2024_Q3:a"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.052,
+   "jaccard_source": "P1_June2024_Q5",
+   "shared_numbers": 0,
+   "max_cosine": 0.888,
+   "cosine_source": "part:IAL2018_WMA11_Jan2024_Q3:a"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 2,
+   "n_answers": 1,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": false,
+   "errors": [
+    "part -: expected dydx = exp(5*x)*(5*x^2 - 2*x + 20)/(x^2 + 4)^2, solver got ['5', '-2', '20'] [judge: differs - no verdict]"
+   ],
+   "flags": [
+    "part -: solver also gave ['5', '-2', '20']"
+   ],
+   "flag": true,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0079,
+   "solver": {
+    "parts": [
+     {
+      "label": null,
+      "answers": [
+       "5",
+       "-2",
+       "20"
+      ],
+      "working_summary": "Quotient rule: dy/dx = [5e^{5x}(x^2+4) - 2x e^{5x}]/(x^2+4)^2 = e^{5x}(5x^2 - 2x + 20)/(x^2+4)^2, so a=5, b=-2, c=20.",
+      "printed_result_correct": null
+     }
+    ],
+    "problems": []
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

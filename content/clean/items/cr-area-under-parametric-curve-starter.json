@@ -1,0 +1,176 @@
+{
+ "id": "cr-area-under-parametric-curve-starter",
+ "blueprint_id": "dr-area-under-parametric-curve-starter",
+ "question_type": "parametric-area",
+ "component": "pure",
+ "tier": "starter",
+ "kind": "drill",
+ "stem": null,
+ "parts": [
+  {
+   "label": null,
+   "marks": 3,
+   "text": "A curve $C$ is given by the parametric equations $$x = 3 - 2\\cos t, \\qquad y = 5\\sin t, \\qquad 0 \\leqslant t \\leqslant \\frac{\\pi}{3}.$$ When $t = 0$, $C$ meets the $x$-axis at the point $(1, 0)$. The region $R$ is enclosed by $C$, the $x$-axis and the line $x = 2$. Find the exact area of $R$. (3)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "area-under-parametric-curve"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Gives $\\frac{\\mathrm{d}x}{\\mathrm{d}t} = 2\\sin t$ and identifies the parameter limits $t = 0$ and $t = \\frac{\\pi}{3}$ (from $x = 1$ and $x = 2$)",
+     "notes": "Both the derivative and the correct $t$-limits are needed for this mark. The limits may appear only on the integral."
+    },
+    {
+     "code": "M1",
+     "for": "Writes the area as $\\int 5\\sin t \\times 2\\sin t\\,\\mathrm{d}t$ and replaces $\\sin^2 t$ with $\\frac{1}{2}(1 - \\cos 2t)$, then integrates to get something of the form $\\alpha t + \\beta\\sin 2t$",
+     "notes": "Accept an integral of the form $k\\sin^2 t$, provided $\\frac{\\mathrm{d}x}{\\mathrm{d}t}$ has been included. No marks for integrating $5\\sin t$ with respect to $t$ alone."
+    },
+    {
+     "code": "A1",
+     "for": "Uses the limits $0$ and $\\frac{\\pi}{3}$ correctly and reaches $\\frac{5\\pi}{3} - \\frac{5\\sqrt{3}}{4}$",
+     "notes": "cso. Accept exact equivalents, e.g. $\\frac{20\\pi - 15\\sqrt{3}}{12}$. A decimal answer on its own (about 3.07) does not get this mark."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\frac{\\mathrm{d}x}{\\mathrm{d}t} = 2\\sin t$. At $x = 1$: $\\cos t = 1$, so $t = 0$. At $x = 2$: $\\cos t = \\frac{1}{2}$, so $t = \\frac{\\pi}{3}$.",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "Area $= \\int_0^{\\pi/3} 5\\sin t \\cdot 2\\sin t\\,\\mathrm{d}t = \\int_0^{\\pi/3} 10\\sin^2 t\\,\\mathrm{d}t = \\int_0^{\\pi/3} 5(1 - \\cos 2t)\\,\\mathrm{d}t = \\left[5t - \\frac{5}{2}\\sin 2t\\right]_0^{\\pi/3}$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$= \\frac{5\\pi}{3} - \\frac{5}{2}\\cdot\\frac{\\sqrt{3}}{2} - 0 = \\frac{5\\pi}{3} - \\frac{5\\sqrt{3}}{4}$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "area",
+     "expr": "5*pi/3 - 5*sqrt(3)/4",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "derivative",
+     "f": "3 - 2cos(t)",
+     "var": "t",
+     "result": "2sin(t)"
+    },
+    {
+     "type": "substitute",
+     "expr": "3 - 2cos(t)",
+     "at": {
+      "t": "pi/3"
+     },
+     "result": "2"
+    },
+    {
+     "type": "substitute",
+     "expr": "3 - 2cos(t)",
+     "at": {
+      "t": "0"
+     },
+     "result": "1"
+    },
+    {
+     "type": "integral",
+     "f": "5sin(t)*2sin(t)",
+     "var": "t",
+     "lower": "0",
+     "upper": "pi/3",
+     "answer": "area"
+    },
+    {
+     "type": "numeric",
+     "expr": "5*pi/3 - 5*sqrt(3)/4",
+     "result": "3.07",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "The area is $\\int y\\,\\frac{\\mathrm{d}x}{\\mathrm{d}t}\\,\\mathrm{d}t$. Work out which values of $t$ give $x = 1$ and $x = 2$.",
+    "You can't integrate $\\sin^2 t$ directly. Rewrite it using the double-angle formula for $\\cos 2t$."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "step": 2,
+   "error_code": "parametric-area-dx-dt-missing",
+   "text": "If you integrate $y = 5\\sin t$ with respect to $t$ and leave out $\\frac{\\mathrm{d}x}{\\mathrm{d}t} = 2\\sin t$, you get $\\frac{5}{2}$. That isn't the area, and you lose the M1. Using the $x$-values 1 and 2 as $t$-limits is a similar error and also loses the M1.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "step": 1,
+   "error_code": "area-between-wrong-subtraction",
+   "text": "The upper limit comes from $x = 2$, which gives $t = \\frac{\\pi}{3}$. It is not $\\frac{\\pi}{2}$, because that is where $x = 3$. If you use the wrong upper limit, you find the area of a different region and cannot get the A1.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "step": 3,
+   "error_code": "negative-area-taken",
+   "text": "If you put the limits the wrong way round (from $\\frac{\\pi}{3}$ down to $0$), you get $\\frac{5\\sqrt{3}}{4} - \\frac{5\\pi}{3}$, which is negative. An area can't be negative. If you give that value as your answer, you lose the A1.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T17:03:33",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.1945
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 3
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.907 with part:IAL2013_WMA02_Jan2018_Q11:b"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.06,
+   "jaccard_source": "GCE2008_6664_Jan2007_Q7",
+   "shared_numbers": 0,
+   "max_cosine": 0.907,
+   "cosine_source": "part:IAL2013_WMA02_Jan2018_Q11:b"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 5,
+   "n_answers": 1,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": false,
+   "errors": [
+    "parametric-area: total marks 3 outside 7-17 (seen 8-16, +-1)"
+   ],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

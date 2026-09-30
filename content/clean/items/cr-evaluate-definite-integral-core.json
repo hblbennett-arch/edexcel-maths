@@ -1,0 +1,481 @@
+{
+ "id": "cr-evaluate-definite-integral-core",
+ "blueprint_id": "dr-evaluate-definite-integral-core",
+ "question_type": "area-between-curve-and-line",
+ "component": "pure",
+ "tier": "core",
+ "kind": "drill",
+ "stem": null,
+ "parts": [
+  {
+   "label": null,
+   "marks": 5,
+   "text": "The curve $C$ has equation $y = \\sqrt{x} + \\dfrac{8}{x^2}$, $x > 0$. The curve lies entirely above the $x$-axis.\n\nThe finite region $R$ is enclosed by $C$, the $x$-axis and the two vertical lines $x = 1$ and $x = 4$.\n\nUse algebraic integration to show that the exact area of $R$ is $\\dfrac{32}{3}$. Show each stage of your integration and your substitution of the limits. (5)",
+   "command": "show-that",
+   "skills": [
+    "evaluate-definite-integral"
+   ],
+   "forms": [
+    "exact"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Integrates the $\\sqrt{x}$ term by raising the power: $x^{\\frac{1}{2}} \\to k\\,x^{\\frac{3}{2}}$ for some non-zero constant $k$",
+     "notes": "The index must become $\\frac{3}{2}$; the coefficient may be wrong for this mark"
+    },
+    {
+     "code": "M1",
+     "for": "Integrates the $\\frac{8}{x^2}$ term after writing it as $8x^{-2}$, obtaining $m\\,x^{-1}$ for some non-zero constant $m$",
+     "notes": "Getting $x^{-3}$ or $x^{-2}$ scores M0"
+    },
+    {
+     "code": "A1",
+     "for": "Fully correct integral $\\frac{2}{3}x^{\\frac{3}{2}} - 8x^{-1}$",
+     "notes": "oe, e.g. $\\frac{2}{3}x\\sqrt{x} - \\frac{8}{x}$; a $+c$ may be present or absent"
+    },
+    {
+     "code": "M1",
+     "for": "Puts $x = 4$ and $x = 1$ into their integrated expression and subtracts, value at 4 minus value at 1",
+     "depends_on": "An integrated expression with at least one power increased or reduced as above",
+     "notes": "Seeing $\\left(\\frac{16}{3} - 2\\right) - \\left(\\frac{2}{3} - 8\\right)$ or the equivalent from their integral is enough"
+    },
+    {
+     "code": "A1*",
+     "for": "Reaches $\\frac{10}{3} + \\frac{22}{3} = \\frac{32}{3}$ with no errors anywhere",
+     "notes": "cso. The value at each limit, or the bracketed subtraction, has to be shown before the final $\\frac{32}{3}$. Using a calculator's integration function on its own scores 0"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Write the integrand as powers of $x$: $y = x^{\\frac{1}{2}} + 8x^{-2}$, so the area is $\\displaystyle\\int_1^4 \\left(x^{\\frac{1}{2}} + 8x^{-2}\\right)\\mathrm{d}x$.",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "$\\displaystyle\\int x^{\\frac{1}{2}}\\,\\mathrm{d}x = \\frac{x^{\\frac{3}{2}}}{\\frac{3}{2}} = \\frac{2}{3}x^{\\frac{3}{2}}$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$\\displaystyle\\int 8x^{-2}\\,\\mathrm{d}x = \\frac{8x^{-1}}{-1} = -8x^{-1}$",
+     "mark": "M1"
+    },
+    {
+     "step": 4,
+     "working": "So $\\displaystyle\\int_1^4 \\left(x^{\\frac{1}{2}} + 8x^{-2}\\right)\\mathrm{d}x = \\left[\\frac{2}{3}x^{\\frac{3}{2}} - \\frac{8}{x}\\right]_1^4$",
+     "mark": "A1"
+    },
+    {
+     "step": 5,
+     "working": "$= \\left(\\frac{2}{3}(8) - \\frac{8}{4}\\right) - \\left(\\frac{2}{3}(1) - \\frac{8}{1}\\right) = \\left(\\frac{16}{3} - 2\\right) - \\left(\\frac{2}{3} - 8\\right)$",
+     "mark": "M1"
+    },
+    {
+     "step": 6,
+     "working": "$= \\frac{10}{3} - \\left(-\\frac{22}{3}\\right) = \\frac{32}{3}$. The region is above the $x$-axis, so the area of $R$ is $\\frac{32}{3}$, as required.",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [
+    {
+     "name": "area",
+     "expr": "32/3",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "integral",
+     "f": "sqrt(x) + 8/x^2",
+     "var": "x",
+     "result": "(2/3)x^(3/2) - 8/x"
+    },
+    {
+     "type": "integral",
+     "f": "sqrt(x) + 8/x^2",
+     "var": "x",
+     "lower": 1,
+     "upper": 4,
+     "answer": "area"
+    },
+    {
+     "type": "substitute",
+     "expr": "(2/3)x^(3/2) - 8/x",
+     "at": {
+      "x": 4
+     },
+     "result": "10/3"
+    },
+    {
+     "type": "substitute",
+     "expr": "(2/3)x^(3/2) - 8/x",
+     "at": {
+      "x": 1
+     },
+     "result": "-22/3"
+    }
+   ],
+   "hints": [
+    "Rewrite $\\sqrt{x}$ and $\\frac{8}{x^2}$ as powers of $x$ before you integrate anything.",
+    "When integrating, add 1 to the power and then divide by the new power. After that, put in $x = 4$, then $x = 1$, and subtract in that order."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "step": 5,
+   "error_code": "limits-substitution-error",
+   "text": "If you work out the value at $x = 1$ minus the value at $x = 4$, you get $-\\frac{22}{3} - \\frac{10}{3} = -\\frac{32}{3}$. Taking the modulus at the end does not fix a subtraction done in the wrong order, so you lose the limits M1 and the A1*. Watch the signs as well: $\\frac{2}{3} - 8 = -\\frac{22}{3}$, and subtracting it means adding $\\frac{22}{3}$.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "step": 4,
+   "error_code": "missing-constant-of-integration",
+   "text": "For a definite integral like this one, the constant of integration cancels, so you don't need $+c$. It goes wrong if you write $+c$ at $x = 4$ but forget to subtract it at $x = 1$ (or the other way round). You then end up with $\\frac{32}{3} + c$, which does not match the printed answer, and you lose the A1*. Whether you write $+c$ or leave it out, make sure it has gone before you give your final answer.",
+   "says_common": true
+  },
+  {
+   "part": null,
+   "step": 3,
+   "error_code": "integration-power-rule-error",
+   "text": "With the negative power, a common slip is to 'add 1' to $-2$ and get $-3$, giving $-\\frac{8}{3}x^{-3}$, or to divide by the old power, $-2$. The correct result is $\\frac{8x^{-1}}{-1} = -\\frac{8}{x}$. Either slip loses the second M1, and after that the A1 and A1* are lost too.",
+   "says_common": true
+  },
+  {
+   "part": null,
+   "step": 2,
+   "error_code": "integration-power-rule-error",
+   "text": "Dividing $x^{\\frac{3}{2}}$ by $\\frac{3}{2}$ means multiplying by $\\frac{2}{3}$. If you multiply by $\\frac{3}{2}$ instead, you get $\\frac{3}{2}x^{\\frac{3}{2}}$, so the $\\sqrt{x}$ part comes out as $\\frac{21}{2}$ instead of $\\frac{14}{3}$, and you lose the A1 and A1*.",
+   "says_common": true
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T16:36:42",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.2583
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 5
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.903 with part:P1_Oct2021_Q11:b"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.039,
+   "jaccard_source": "IAL2018_WMA14_Jan2021_Q7",
+   "shared_numbers": 1,
+   "max_cosine": 0.903,
+   "cosine_source": "part:P1_Oct2021_Q11:b"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 4,
+   "n_answers": 1,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.007859,
+   "solver": {
+    "parts": [
+     {
+      "label": null,
+      "answers": [
+       "32/3"
+      ],
+      "printed_result_correct": true,
+      "working_summary": "Area = ∫_1^4 (x^(1/2) + 8x^(-2)) dx = [(2/3)x^(3/2) - 8/x]_1^4. At x=4: 16/3 - 2 = 10/3. At x=1: 2/3 - 8 = -22/3. Difference = 10/3 + 22/3 = 32/3, so the printed result is correct."
+     }
+    ],
+    "problems": []
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "n_responses": 6,
+   "agreed": [
+    "correct",
+    "pit-limits-order",
+    "pit-constant",
+    "pit-neg-power",
+    "pit-32-coefficient",
+    "partial"
+   ],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "correct",
+     "kind": "correct",
+     "work": "Area $=\\int_1^4 (x^{\\frac12}+8x^{-2})\\,dx$\n$=\\left[\\frac23 x^{\\frac32} - 8x^{-1}\\right]_1^4$\n$=\\left(\\frac23(8)-\\frac84\\right)-\\left(\\frac23-8\\right)$\n$=\\left(\\frac{16}{3}-2\\right)-\\left(\\frac23-8\\right)=\\frac{10}{3}+\\frac{22}{3}=\\frac{32}{3}$",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "M1",
+        "A1*"
+       ]
+      }
+     ],
+     "error_code": null
+    },
+    {
+     "id": "pit-limits-order",
+     "kind": "pitfall",
+     "work": "$\\int_1^4 (x^{\\frac12}+8x^{-2})dx=\\left[\\frac23x^{\\frac32}-\\frac8x\\right]_1^4$\nValue at 1 minus value at 4:\n$\\left(\\frac23-8\\right)-\\left(\\frac{16}{3}-2\\right)=-\\frac{22}{3}-\\frac{10}{3}=-\\frac{32}{3}$\nTaking the modulus, area $=\\frac{32}{3}$.",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "error_code": "limits-substitution-error"
+    },
+    {
+     "id": "pit-constant",
+     "kind": "pitfall",
+     "work": "$\\int (x^{\\frac12}+8x^{-2})dx=\\frac23x^{\\frac32}-8x^{-1}+c$\nAt $x=4$: $\\frac{16}{3}-2+c=\\frac{10}{3}+c$\nAt $x=1$: $\\frac23-8=-\\frac{22}{3}$ (forgot the $c$)\nArea $=\\frac{10}{3}+c+\\frac{22}{3}=\\frac{32}{3}+c$",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "error_code": "missing-constant-of-integration"
+    },
+    {
+     "id": "pit-neg-power",
+     "kind": "pitfall",
+     "work": "$\\int (x^{\\frac12}+8x^{-2})dx=\\frac23x^{\\frac32}-\\frac83x^{-3}$\nAt $x=4$: $\\frac{16}{3}-\\frac{8}{3\\cdot64}=\\frac{16}{3}-\\frac1{24}=\\frac{127}{24}$\nAt $x=1$: $\\frac23-\\frac83=-2$\nArea $=\\frac{127}{24}+2=\\frac{175}{24}$, which is not $\\frac{32}{3}$.",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "M0",
+        "A0",
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "error_code": "integration-power-rule-error"
+    },
+    {
+     "id": "pit-32-coefficient",
+     "kind": "pitfall",
+     "work": "$\\int (x^{\\frac12}+8x^{-2})dx=\\frac32x^{\\frac32}-8x^{-1}$\nAt $x=4$: $\\frac32(8)-2=10$\nAt $x=1$: $\\frac32-8=-\\frac{13}{2}$\nArea $=10+\\frac{13}{2}=\\frac{33}{2}$",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "M1",
+        "A0",
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "error_code": "integration-power-rule-error"
+    },
+    {
+     "id": "partial",
+     "kind": "partial",
+     "work": "Area $=\\int_1^4 (x^{\\frac12}+8x^{-2})\\,dx=\\left[\\frac23x^{\\frac32}-8x^{-1}\\right]_1^4$\nI'm not sure how to carry on from here.",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "error_code": null
+    }
+   ],
+   "awarded": [
+    {
+     "id": "correct",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pit-limits-order",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "M0: subtracted value at 4 from value at 1 (wrong order).",
+      "A0: final step relies on the modulus after a negative result, so the required subtraction and cso are not met."
+     ]
+    },
+    {
+     "id": "pit-constant",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "A0: the answer is 32/3 + c, not 32/3, because c was omitted at x=1; the working contains an error."
+     ]
+    },
+    {
+     "id": "pit-neg-power",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "M0",
+        "A0",
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "M0: 8x^-2 integrated to x^-3, not x^-1.",
+      "A0: the integral is incorrect.",
+      "A0: the answer is not 32/3."
+     ]
+    },
+    {
+     "id": "pit-32-coefficient",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "M1",
+        "A0",
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "A0: the coefficient 3/2 is wrong, so the integral is incorrect.",
+      "A0: the answer is 33/2, not 32/3."
+     ]
+    },
+    {
+     "id": "partial",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "M0: no limits were substituted.",
+      "A0: the area was not evaluated or shown to be 32/3."
+     ]
+    }
+   ],
+   "cost_usd": 0.043
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "agreement": "1/1",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.013047,
+   "retagged": {
+    "-": [
+     "evaluate-definite-integral",
+     "integrate-powers-of-x",
+     "rewrite-using-index-laws"
+    ]
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

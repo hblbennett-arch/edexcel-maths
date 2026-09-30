@@ -1,0 +1,378 @@
+{
+ "id": "cr-pure-de-given-separable-002",
+ "blueprint_id": "bp-pure-de-given-separable-002",
+ "question_type": "de-given-separable",
+ "component": "pure",
+ "tier": "challenging",
+ "kind": "exam",
+ "stem": "Throughout this question, $0 < y < 3$.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 4,
+   "text": "The curve $C_1$ passes through the point $(0, 1)$. Every point $(x, y)$ on $C_1$ satisfies the differential equation\n$$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = y(3 - y)\\sin 2x.$$\nShow that an equation of $C_1$ is\n$$\\ln\\left(\\frac{2y}{3 - y}\\right) = 3\\sin^2 x.$$ (4)",
+   "command": "show-that",
+   "forms": [],
+   "skills": [
+    "separate-variables-and-integrate"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Writes $\\frac{1}{y(3-y)}$ in partial fractions as $\\frac{1/3}{y} + \\frac{1/3}{3-y}$",
+     "notes": "oe, e.g. $\\frac{1}{3}\\left(\\frac{1}{y} + \\frac{1}{3-y}\\right)$. The mark can be implied by correct integration of the $y$-side."
+    },
+    {
+     "code": "M1",
+     "for": "Puts every $y$ term with $\\mathrm{d}y$ and every $x$ term with $\\mathrm{d}x$, as $\\int \\frac{1}{y(3-y)}\\,\\mathrm{d}y = \\int \\sin 2x\\,\\mathrm{d}x$, then integrates to get $\\alpha\\ln y \\pm \\beta\\ln(3-y) = \\gamma\\cos 2x$",
+     "notes": "Integral signs may be implied. Accept an attempt at $\\ln(3-y)$ with either sign."
+    },
+    {
+     "code": "A1",
+     "for": "$\\frac{1}{3}\\ln y - \\frac{1}{3}\\ln(3-y) = -\\frac{1}{2}\\cos 2x + c$, which must include a constant of integration",
+     "notes": "oe, e.g. $\\ln\\frac{y}{3-y} = -\\frac{3}{2}\\cos 2x + k$. Accept modulus signs."
+    },
+    {
+     "code": "A1*",
+     "for": "Puts $x = 0$, $y = 1$ into the equation to get the constant (e.g. $k = \\frac{3}{2} - \\ln 2$), then uses $1 - \\cos 2x = 2\\sin^2 x$ and combines the logs to reach $\\ln\\left(\\frac{2y}{3-y}\\right) = 3\\sin^2 x$ with no errors",
+     "notes": "cso. The constant must come from the given point, and both the identity step and the log-combining step must be shown."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\frac{1}{y(3-y)} = \\frac{A}{y} + \\frac{B}{3-y} \\Rightarrow 1 = A(3-y) + By$. $y=0$: $A = \\frac{1}{3}$; $y = 3$: $B = \\frac{1}{3}$.",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "$\\int \\left(\\frac{1/3}{y} + \\frac{1/3}{3-y}\\right)\\mathrm{d}y = \\int \\sin 2x\\,\\mathrm{d}x$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$\\frac{1}{3}\\ln y - \\frac{1}{3}\\ln(3-y) = -\\frac{1}{2}\\cos 2x + c$, so $\\ln\\left(\\frac{y}{3-y}\\right) = -\\frac{3}{2}\\cos 2x + k$ where $k = 3c$.",
+     "mark": "A1"
+    },
+    {
+     "step": 4,
+     "working": "At $(0,1)$: $\\ln\\frac{1}{2} = -\\frac{3}{2} + k \\Rightarrow k = \\frac{3}{2} - \\ln 2$. Then $\\ln\\left(\\frac{y}{3-y}\\right) + \\ln 2 = \\frac{3}{2}(1 - \\cos 2x) = \\frac{3}{2}(2\\sin^2 x)$, which gives $\\ln\\left(\\frac{2y}{3-y}\\right) = 3\\sin^2 x$.",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "1/(y(3 - y))",
+     "rhs": "(1/3)/y + (1/3)/(3 - y)",
+     "domain": [
+      "0.1",
+      "2.9"
+     ]
+    },
+    {
+     "type": "integral",
+     "f": "1/(y(3 - y))",
+     "var": "y",
+     "result": "(1/3)(ln(y) - ln(3 - y))"
+    },
+    {
+     "type": "integral",
+     "f": "sin(2x)",
+     "var": "x",
+     "result": "-cos(2x)/2"
+    },
+    {
+     "type": "derivative",
+     "f": "3exp(3sin(x)^2)/(2 + exp(3sin(x)^2))",
+     "var": "x",
+     "result": "18exp(3sin(x)^2)sin(2x)/(2 + exp(3sin(x)^2))^2"
+    },
+    {
+     "type": "substitute",
+     "expr": "3exp(3sin(x)^2)/(2 + exp(3sin(x)^2))",
+     "at": {
+      "x": 0
+     },
+     "result": "1"
+    }
+   ],
+   "hints": [
+    "Get every $y$ term on the same side as $\\mathrm{d}y$. You will need partial fractions to integrate $\\frac{1}{y(3-y)}$.",
+    "Include a constant when you integrate, find it from the point $(0,1)$, and use a double-angle identity to change $\\cos 2x$ into $\\sin^2 x$."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 7,
+   "text": "The curve $C_2$ lies in the region $x \\geqslant 0$, $0 < y < 3$, and crosses the $y$-axis at $(0, 2)$. Every point on $C_2$ satisfies\n$$(x + 1)(x + 4)\\frac{\\mathrm{d}y}{\\mathrm{d}x} = y(3 - y).$$\nFind the equation of $C_2$, making use of your working from part (a). Give $y$ explicitly in the form $y = \\dfrac{p(x + 1)}{qx + r}$, where $p$, $q$ and $r$ are positive integers with no common factor other than 1. (7)",
+   "command": "find",
+   "forms": [
+    "in-the-form"
+   ],
+   "skills": [
+    "find-constants-from-conditions",
+    "separate-variables-and-integrate",
+    "use-hence-previous-result",
+    "rearrange-solution-explicitly"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Writes $\\frac{1}{(x+1)(x+4)}$ in partial fractions as $\\frac{1/3}{x+1} - \\frac{1/3}{x+4}$",
+     "notes": "oe. Can be implied by a correct $x$-side integral."
+    },
+    {
+     "code": "M1",
+     "for": "Separates correctly to get $\\int \\frac{1}{y(3-y)}\\,\\mathrm{d}y = \\int \\frac{1}{(x+1)(x+4)}\\,\\mathrm{d}x$, and integrates both sides to log terms",
+     "notes": "The $y$-side may be copied straight from part (a)."
+    },
+    {
+     "code": "A1ft",
+     "ft_of": "part (a) integral of $\\frac{1}{y(3-y)}$",
+     "for": "$y$-side equal to $\\frac{1}{3}\\ln y - \\frac{1}{3}\\ln(3-y)$, or their part (a) result",
+     "notes": "Follow through their partial fractions from (a), as long as it is of the form $\\alpha\\ln y + \\beta\\ln(3-y)$."
+    },
+    {
+     "code": "A1",
+     "for": "The full correct equation $\\frac{1}{3}\\ln\\frac{y}{3-y} = \\frac{1}{3}\\ln\\frac{x+1}{x+4} + c$ with a constant",
+     "notes": "oe, e.g. $\\ln\\frac{y}{3-y} = \\ln\\frac{x+1}{x+4} + k$."
+    },
+    {
+     "code": "M1",
+     "for": "Puts $x = 0$, $y = 2$ into their integrated equation (with its constant) to find the constant, e.g. $\\ln 2 = \\ln\\frac{1}{4} + k$ so $k = \\ln 8$",
+     "notes": "The constant must be found after integrating. $x = 2$, $y = 0$ is M0."
+    },
+    {
+     "code": "M1",
+     "for": "Takes exponentials correctly to get e.g. $\\frac{y}{3-y} = \\frac{8(x+1)}{x+4}$, then multiplies out, collects the $y$ terms and factorises to make $y$ the subject",
+     "notes": "Undoing each log term on its own (e.g. $\\mathrm{e}^{\\ln a + \\ln b} = a + b$) is M0."
+    },
+    {
+     "code": "A1",
+     "for": "$y = \\frac{8(x+1)}{3x+4}$",
+     "notes": "cao. Accept $p = 8$, $q = 3$, $r = 4$ stated clearly."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\frac{1}{(x+1)(x+4)} = \\frac{C}{x+1} + \\frac{D}{x+4}$: $x = -1$ gives $C = \\frac{1}{3}$ and $x = -4$ gives $D = -\\frac{1}{3}$.",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "$\\int \\frac{1}{y(3-y)}\\,\\mathrm{d}y = \\int \\frac{1}{(x+1)(x+4)}\\,\\mathrm{d}x$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "By part (a), the left side is $\\frac{1}{3}\\ln y - \\frac{1}{3}\\ln(3-y)$.",
+     "mark": "A1ft"
+    },
+    {
+     "step": 4,
+     "working": "$\\frac{1}{3}\\ln\\frac{y}{3-y} = \\frac{1}{3}\\ln(x+1) - \\frac{1}{3}\\ln(x+4) + c$, so $\\ln\\frac{y}{3-y} = \\ln\\frac{x+1}{x+4} + k$.",
+     "mark": "A1"
+    },
+    {
+     "step": 5,
+     "working": "At $(0, 2)$: $\\ln 2 = \\ln\\frac{1}{4} + k \\Rightarrow k = \\ln 8$.",
+     "mark": "M1"
+    },
+    {
+     "step": 6,
+     "working": "$\\frac{y}{3-y} = \\frac{8(x+1)}{x+4} \\Rightarrow y(x+4) = 24(x+1) - 8y(x+1) \\Rightarrow y(9x + 12) = 24(x+1)$",
+     "mark": "M1"
+    },
+    {
+     "step": 7,
+     "working": "$y = \\frac{24(x+1)}{9x+12} = \\frac{8(x+1)}{3x+4}$, so $p = 8$, $q = 3$, $r = 4$.",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "p",
+     "expr": "8",
+     "form": "exact"
+    },
+    {
+     "name": "q",
+     "expr": "3",
+     "form": "exact"
+    },
+    {
+     "name": "r",
+     "expr": "4",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "integral",
+     "f": "1/((x + 1)(x + 4))",
+     "var": "x",
+     "result": "(1/3)(ln(x + 1) - ln(x + 4))"
+    },
+    {
+     "type": "derivative",
+     "f": "8(x + 1)/(3x + 4)",
+     "var": "x",
+     "result": "8/(3x + 4)^2"
+    },
+    {
+     "type": "equals",
+     "lhs": "(8(x + 1)/(3x + 4))(3 - 8(x + 1)/(3x + 4))/((x + 1)(x + 4))",
+     "rhs": "8/(3x + 4)^2",
+     "domain": "positive"
+    },
+    {
+     "type": "substitute",
+     "expr": "8(x + 1)/(3x + 4)",
+     "at": {
+      "x": 0
+     },
+     "result": "2",
+     "answer": "p"
+    },
+    {
+     "type": "system",
+     "equations": [
+      "p(0 + 1)/(q*0 + r) = 2",
+      "p/q = 8/3",
+      "p = 8"
+     ],
+     "vars": [
+      "p",
+      "q",
+      "r"
+     ],
+     "result": {
+      "p": "8",
+      "q": "3",
+      "r": "4"
+     }
+    },
+    {
+     "type": "equals",
+     "lhs": "q",
+     "rhs": "3",
+     "answer": "q"
+    },
+    {
+     "type": "equals",
+     "lhs": "r",
+     "rhs": "4",
+     "answer": "r"
+    }
+   ],
+   "hints": [
+    "Divide both sides by $y(3-y)(x+1)(x+4)$. The $y$-integral is the same one you did in part (a).",
+    "Find the constant from $(0, 2)$ before you get rid of the logs. Then collect all the $y$ terms on one side and factorise."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "separation-error",
+   "text": "A common error is to write $\\frac{1}{y}\\,\\mathrm{d}y + \\frac{1}{3-y}\\,\\mathrm{d}y = \\sin 2x\\,\\mathrm{d}x$ as if $y(3-y)$ could be split into a sum, or to leave the $(3-y)$ on the $x$ side. Either way the separation is wrong, and you lose the M1 and every mark after it. Divide by the whole product $y(3-y)$.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 3,
+   "error_code": "missing-constant-of-integration",
+   "text": "A common slip is to integrate to $\\frac{1}{3}\\ln\\frac{y}{3-y} = -\\frac{1}{2}\\cos 2x$ without $+c$. With no constant you cannot use $(0,1)$ to produce the $\\ln 2$ in the printed answer, so you lose the A1 and the A1*.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 4,
+   "error_code": "initial-conditions-not-used",
+   "text": "If you find a constant but never substitute $x = 0$, $y = 1$, and just rewrite your equation to look like the printed one, the value $k = \\frac{3}{2} - \\ln 2$ is not justified and the A1* is lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "separation-error",
+   "text": "A common mistake is to write $\\frac{\\mathrm{d}y}{y(3-y)} = (x+1)(x+4)\\,\\mathrm{d}x$, multiplying by the $x$-factors when you should divide. The correct $x$-side is $\\frac{1}{(x+1)(x+4)}$. Getting this wrong loses the M1 and the accuracy marks that depend on it.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 5,
+   "error_code": "constant-not-found-from-point",
+   "text": "The curve crosses the $y$-axis at $(0, 2)$, so $x = 0$ and $y = 2$. If you swap these and use $x = 2$, $y = 0$, you get $\\ln 0$, which is undefined, and the M1 for the constant is lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 5,
+   "error_code": "initial-conditions-not-used",
+   "text": "If you exponentiate first and then leave out the constant, or treat it as 1, you get $\\frac{y}{3-y} = \\frac{x+1}{x+4}$. This curve does not pass through $(0, 2)$. You lose the M1 for the constant, and the final answer is wrong.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T16:58:16",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.5097
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 11
+  },
+  "G7": {
+   "pass": false,
+   "flag": true,
+   "reasons": [
+    "3 word 8-gram(s) also in the Pearson corpus (not whitelisted)"
+   ],
+   "flags": [
+    "cosine 0.893 with question:IAL2018_WMA11_June2021_Q1"
+   ],
+   "hit_fields": [
+    "part a hints",
+    "part b text",
+    "pitfalls"
+   ],
+   "n_8gram_hits": 3,
+   "max_jaccard": 0.016,
+   "jaccard_source": "IAL2018_WMA14_Jan2024_Q2",
+   "shared_numbers": 0,
+   "max_cosine": 0.893,
+   "cosine_source": "question:IAL2018_WMA11_June2021_Q1"
+  },
+  "G2": {
+   "pass": false,
+   "errors": [
+    "part b check 4 (substitute): result 2 differs from answer p = 8",
+    "part b check 6 (equals): q != 3",
+    "part b check 7 (equals): r != 4"
+   ],
+   "n_checks": 12,
+   "n_answers": 3,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

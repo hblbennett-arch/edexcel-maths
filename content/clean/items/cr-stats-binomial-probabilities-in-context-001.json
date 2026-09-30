@@ -1,0 +1,980 @@
+{
+ "id": "cr-stats-binomial-probabilities-in-context-001",
+ "blueprint_id": "bp-stats-binomial-probabilities-in-context-001",
+ "question_type": "binomial-probabilities-in-context",
+ "component": "stats",
+ "tier": "accessible",
+ "kind": "exam",
+ "stem": "A hospital sleep service lends patients a wrist-worn sensor to record their sleep at home. On any night, the probability that the sensor fails to make a complete recording is $0.12$.\n\nA patient wears the sensor for 14 nights. The random variable $X$ is the number of these 14 nights on which the sensor fails to make a complete recording.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 1,
+   "text": "State one assumption, in the context of this question, that is needed for $X$ to be modelled by the distribution $\\mathrm{B}(14, 0.12)$. (1)",
+   "command": "state",
+   "skills": [
+    "binomial-conditions"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "One correct assumption given in context, e.g. whether the sensor fails on one night is independent of whether it fails on any other night, OR the probability of the sensor failing is the same ($0.12$) on every night.",
+     "notes": "The answer must refer to the sensor/nights/recording. Reject answers with no context, such as 'the trials are independent' or 'there is a fixed number of trials'."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "The sensor failing on one night is independent of whether it fails on any other night (or: the probability of failure is $0.12$ on every one of the 14 nights).",
+     "mark": "B1"
+    }
+   ],
+   "answers": [],
+   "checks": [],
+   "hints": [
+    "Think about what has to be true about the 14 nights for a binomial model to work.",
+    "Write your assumption about the sensor and the nights, not about 'trials' in general."
+   ],
+   "forms": []
+  },
+  {
+   "label": "b",
+   "marks": 2,
+   "text": "Find\n\n(i) $\\mathrm{P}(X = 2)$,\n\n(ii) the probability that the sensor fails to make a complete recording on more than 3 of the 14 nights.\n\nGive each answer to 3 significant figures. (2)",
+   "command": "find",
+   "skills": [
+    "binomial-individual-probability",
+    "binomial-cumulative-probability",
+    "complement-and-addition-rules"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "(i) $\\mathrm{P}(X=2) = $ awrt $0.283$",
+     "notes": "From $\\binom{14}{2}(0.12)^2(0.88)^{12}$ or a calculator."
+    },
+    {
+     "code": "B1",
+     "for": "(ii) $\\mathrm{P}(X>3) = 1 - \\mathrm{P}(X \\leqslant 3) = $ awrt $0.0774$",
+     "notes": "Accept awrt $0.0774$ only."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\mathrm{P}(X=2) = \\binom{14}{2}(0.12)^2(0.88)^{12} = 91 \\times 0.0144 \\times 0.21567\\ldots = 0.2826\\ldots \\approx 0.283$",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "$\\mathrm{P}(X \\leqslant 3) = 0.16702 + 0.31885 + 0.28262 + 0.15415 = 0.92263\\ldots$",
+     "mark": "0"
+    },
+    {
+     "step": 3,
+     "working": "$\\mathrm{P}(X > 3) = 1 - \\mathrm{P}(X \\leqslant 3) = 1 - 0.92263\\ldots = 0.07737\\ldots \\approx 0.0774$",
+     "mark": "B1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "p_exactly_2",
+     "expr": "0.283",
+     "form": "sf-3"
+    },
+    {
+     "name": "p_more_than_3",
+     "expr": "0.0774",
+     "form": "sf-3"
+    }
+   ],
+   "checks": [
+    {
+     "type": "binomial_cdf",
+     "n": 14,
+     "p": "0.12",
+     "k": 2,
+     "tail": "eq",
+     "result": "0.283",
+     "form": "sf-3"
+    },
+    {
+     "type": "binomial_cdf",
+     "n": 14,
+     "p": "0.12",
+     "k": 3,
+     "tail": "gt",
+     "result": "0.0774",
+     "form": "sf-3"
+    },
+    {
+     "type": "numeric",
+     "expr": "91*0.12^2*0.88^12",
+     "result": "0.283",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "For (i), use the binomial probability function or your calculator's binomial pdf.",
+    "For (ii), 'more than 3' means 4 or more, so write it using $\\mathrm{P}(X \\leqslant 3)$."
+   ],
+   "forms": []
+  },
+  {
+   "label": "c",
+   "marks": 1,
+   "text": "A patient's recording is classed as usable if the sensor fails on at most 3 of the 14 nights. Six patients each wear a sensor for 14 nights, independently of one another.\n\nFind the probability that all six patients have usable recordings. Give your answer to 3 significant figures. (1)",
+   "command": "find",
+   "skills": [
+    "two-stage-binomial"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "$[\\mathrm{P}(X \\leqslant 3)]^6 = 0.92263\\ldots^6 = $ awrt $0.617$",
+     "notes": "Allow ft from their $1 - $ answer to (b)(ii), i.e. $(1 - \\text{their } 0.0774)^6$, provided their probability is between 0 and 1.",
+     "ft_of": "(b)(ii)"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\mathrm{P}(\\text{one recording usable}) = \\mathrm{P}(X \\leqslant 3) = 0.92263\\ldots$, so $\\mathrm{P}(\\text{all six usable}) = 0.92263\\ldots^6 = 0.6168\\ldots \\approx 0.617$",
+     "mark": "B1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "p_all_usable",
+     "expr": "0.617",
+     "form": "sf-3"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "(0.88^14 + 14*0.12*0.88^13 + 91*0.12^2*0.88^12 + 364*0.12^3*0.88^11)^6",
+     "result": "0.617",
+     "form": "sf-3"
+    },
+    {
+     "type": "binomial_cdf",
+     "n": 14,
+     "p": "0.12",
+     "k": 3,
+     "tail": "le",
+     "result": "0.923",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "First find the probability that one patient's recording is usable. Part (b)(ii) will help.",
+    "The six patients are independent, and each one has to have a usable recording."
+   ],
+   "forms": []
+  },
+  {
+   "label": "d",
+   "marks": 2,
+   "text": "After a software update, the manufacturer claims that the sensor now fails on a smaller proportion of nights. In a random sample of 60 nights with the updated sensor, it failed to make a complete recording on 3 nights.\n\nThe hypotheses $\\mathrm{H}_0: p = 0.12$ and $\\mathrm{H}_1: p < 0.12$ are used, where $p$ is the probability that the updated sensor fails on a night.\n\nUse a 5% level of significance to test whether there is evidence to support the manufacturer's claim. (2)",
+   "command": "use",
+   "skills": [
+    "binomial-test-probability",
+    "binomial-cumulative-probability",
+    "conclude-test-in-context"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Uses $Y \\sim \\mathrm{B}(60, 0.12)$ and finds $\\mathrm{P}(Y \\leqslant 3) = $ awrt $0.0601$, OR finds the critical region $Y \\leqslant 2$ (with $\\mathrm{P}(Y \\leqslant 2) = 0.0196$ and $\\mathrm{P}(Y \\leqslant 3) = 0.0601$).",
+     "notes": "M0 if $\\mathrm{P}(Y = 3) = 0.0405$ is compared with $0.05$."
+    },
+    {
+     "code": "A1",
+     "for": "States that $0.0601 > 0.05$ (or 3 is not in the critical region), so do not reject $\\mathrm{H}_0$, and concludes in context: there is insufficient evidence that the update has reduced the proportion of nights on which the sensor fails.",
+     "notes": "The conclusion must mention the sensor/failure rate/update. Reject over-definite wording such as 'this proves the failure rate has not changed'. Depends on M1."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Under $\\mathrm{H}_0$, $Y \\sim \\mathrm{B}(60, 0.12)$. $\\mathrm{P}(Y \\leqslant 3) = 0.00047 + 0.00382 + 0.01536 + 0.04049 = 0.0601$ (3 s.f.)",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$0.0601 > 0.05$, so the result is not significant and $\\mathrm{H}_0$ is not rejected. There is insufficient evidence at the 5% level to support the manufacturer's claim that the updated sensor fails on a smaller proportion of nights.",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "p_value",
+     "expr": "0.0601",
+     "form": "sf-3"
+    }
+   ],
+   "checks": [
+    {
+     "type": "binomial_cdf",
+     "n": 60,
+     "p": "0.12",
+     "k": 3,
+     "tail": "le",
+     "result": "0.0601",
+     "form": "sf-3"
+    },
+    {
+     "type": "binomial_cdf",
+     "n": 60,
+     "p": "0.12",
+     "k": 2,
+     "tail": "le",
+     "result": "0.0196",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "Assume $\\mathrm{H}_0$ is true, so the number of failed nights out of 60 follows $\\mathrm{B}(60, 0.12)$.",
+    "$\\mathrm{H}_1$ says $p < 0.12$, so work out the probability of getting 3 failures or fewer, then compare it with $0.05$."
+   ],
+   "forms": []
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "error_code": "binomial-conditions-generic",
+   "text": "If you just write 'the trials are independent' or 'the probability is constant' without saying what they refer to, you lose the B1. Say it about this situation: whether the sensor fails on one night doesn't affect any other night.",
+   "says_common": false,
+   "step": 1
+  },
+  {
+   "part": "b",
+   "error_code": "cumulative-individual-confused",
+   "text": "'More than 3' means $X \\geqslant 4$, so you need $1 - \\mathrm{P}(X \\leqslant 3)$. If you work out $1 - \\mathrm{P}(X \\leqslant 4)$, or $1 - \\mathrm{P}(X = 3)$, you get the wrong value and lose the second B1.",
+   "says_common": false,
+   "step": 3
+  },
+  {
+   "part": "c",
+   "error_code": "cumulative-individual-confused",
+   "text": "A recording is usable when there are at most 3 failures, so you need $\\mathrm{P}(X \\leqslant 3) = 0.9226$, not $\\mathrm{P}(X = 3) = 0.1542$. Using $0.1542^6$ loses the B1.",
+   "says_common": false,
+   "step": 1
+  },
+  {
+   "part": "d",
+   "error_code": "point-probability-compared",
+   "text": "If you compare $\\mathrm{P}(Y = 3) = 0.0405$ with $0.05$, you will wrongly reject $\\mathrm{H}_0$ and lose both marks. The test needs the tail probability $\\mathrm{P}(Y \\leqslant 3) = 0.0601$.",
+   "says_common": false,
+   "step": 1
+  },
+  {
+   "part": "d",
+   "error_code": "conclusion-too-definite-or-no-context",
+   "text": "Just writing 'do not reject $\\mathrm{H}_0$', or claiming the result 'proves the update made no difference', loses the A1. Say there is insufficient evidence that the update has reduced the proportion of nights on which the sensor fails.",
+   "says_common": false,
+   "step": 2
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T15:47:18",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.3917
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 6
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "3 rare words shared with P3_June2023_stats_Q6",
+    "cosine 0.790 with question:P3_June2025_stats_Q3"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.013,
+   "jaccard_source": "IAL2013_WMA02_Jan2018_Q14",
+   "shared_numbers": 1,
+   "max_cosine": 0.79,
+   "cosine_source": "question:P3_June2025_stats_Q3"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 7,
+   "n_answers": 4,
+   "unverified_parts": [
+    "a"
+   ]
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.017064000000000003,
+   "solver": {
+    "parts": [
+     {
+      "label": "a",
+      "answers": [
+       "Each night's sensor failure is independent of other nights (constant probability 0.12 each night)"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "Independence of nights (and constant probability of failure) is needed for a binomial model."
+     },
+     {
+      "label": "b(i)",
+      "answers": [
+       "0.283"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "C(14,2)(0.12)^2(0.88)^12 = 0.2826"
+     },
+     {
+      "label": "b(ii)",
+      "answers": [
+       "0.0774"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "P(X<=3)=0.92264, so P(X>3)=1-0.92264=0.07736"
+     },
+     {
+      "label": "c",
+      "answers": [
+       "0.617"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "0.92264^6 = 0.6169"
+     },
+     {
+      "label": "d",
+      "answers": [
+       "P(X<=3)=0.0601 > 0.05, so do not reject H0: insufficient evidence to support the manufacturer's claim"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "Under H0, X~B(60,0.12). P(X<=3)=0.0601 which exceeds 0.05, so not significant; no evidence the failure rate has decreased."
+     }
+    ],
+    "problems": []
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "n_responses": 8,
+   "agreed": [
+    "r1",
+    "r2",
+    "r3",
+    "r4",
+    "r5",
+    "r6",
+    "r7",
+    "r8"
+   ],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "r1",
+     "kind": "correct",
+     "work": "(a) Whether the sensor fails on one night is independent of whether it fails on any other night.\n(b)(i) P(X=2)=C(14,2)(0.12)^2(0.88)^12 = 0.283\n(ii) P(X>3)=1-P(X<=3)=1-0.92263=0.0774\n(c) P(usable)=P(X<=3)=0.92263, so 0.92263^6 = 0.617\n(d) Y~B(60,0.12). P(Y<=3)=0.0601. 0.0601>0.05 so not significant, do not reject H0. There is insufficient evidence at the 5% level that the update has reduced the proportion of nights on which the sensor fails.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "error_code": null
+    },
+    {
+     "id": "r2",
+     "kind": "pitfall",
+     "work": "(a) The trials are independent.\n(b)(i) P(X=2)=C(14,2)(0.12)^2(0.88)^12 = 0.283\n(ii) 1-P(X<=3)=1-0.92263=0.0774\n(c) 0.92263^6=0.617\n(d) Y~B(60,0.12), P(Y<=3)=0.0601>0.05, do not reject H0. Insufficient evidence that the update has reduced the proportion of nights the sensor fails.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "error_code": "binomial-conditions-generic"
+    },
+    {
+     "id": "r3",
+     "kind": "pitfall",
+     "work": "(a) Whether the sensor fails on one night is independent of the other nights.\n(b)(i) P(X=2)=0.283\n(ii) 'More than 3' so 1-P(X<=4)=1-(0.92263+0.05781)=1-0.98044=0.0196\n(c) P(usable)=P(X<=3)=0.92263, ^6 = 0.617\n(d) Y~B(60,0.12), P(Y<=3)=0.0601>0.05, do not reject H0. Insufficient evidence that the update reduced the failure rate of the sensor.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "error_code": "cumulative-individual-confused"
+    },
+    {
+     "id": "r4",
+     "kind": "pitfall",
+     "work": "(a) The probability of the sensor failing is 0.12 every night.\n(b)(i) 0.283\n(ii) 1-P(X<=3)=0.0774\n(c) Usable means 3 failures so P(X=3)=0.1542. All six: 0.1542^6 = 0.0000134\n(d) Y~B(60,0.12), P(Y<=3)=0.0601>0.05, do not reject H0. Insufficient evidence that the update reduced how often the sensor fails.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "error_code": "cumulative-individual-confused"
+    },
+    {
+     "id": "r5",
+     "kind": "pitfall",
+     "work": "(a) Nights are independent for the sensor failing.\n(b)(i) 0.283\n(ii) 0.0774\n(c) 0.92263^6=0.617\n(d) Y~B(60,0.12). P(Y=3)=0.0405. 0.0405<0.05 so reject H0. There is evidence that the updated sensor fails on a smaller proportion of nights.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "error_code": "point-probability-compared"
+    },
+    {
+     "id": "r6",
+     "kind": "pitfall",
+     "work": "(a) The chance of the sensor failing is the same each night.\n(b)(i) 0.283\n(ii) 0.0774\n(c) 0.617\n(d) Y~B(60,0.12), P(Y<=3)=0.0601>0.05. Do not reject H0. This proves the update made no difference.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "error_code": "conclusion-too-definite-or-no-context"
+    },
+    {
+     "id": "r7",
+     "kind": "alternative",
+     "work": "(a) Failure on one night is independent of failure on other nights.\n(b)(i) 0.283 (ii) 1-0.92263=0.0774\n(c) 0.92263^6=0.617\n(d) Y~B(60,0.12). P(Y<=2)=0.0196<0.05 and P(Y<=3)=0.0601>0.05, so critical region is Y<=2. Observed 3 is not in the critical region, so do not reject H0. Insufficient evidence that the update has reduced the proportion of nights the sensor fails.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "error_code": null
+    },
+    {
+     "id": "r8",
+     "kind": "partial",
+     "work": "(a) The probability that the sensor fails is constant at 0.12 on each night.\n(b)(i) P(X=2)=C(14,2)(0.12)^2(0.88)^12=0.283\n(ii) 1-P(X<=3) ... I'm not sure how to get this on my calculator.\n(c), (d) not attempted.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "error_code": null
+    }
+   ],
+   "awarded": [
+    {
+     "id": "r1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) No context: 'the trials are independent' is rejected."
+     ]
+    },
+    {
+     "id": "r3",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b)(ii) Used 1-P(X<=4) instead of 1-P(X<=3), giving 0.0196 rather than 0.0774."
+     ]
+    },
+    {
+     "id": "r4",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(c) Used P(X=3) instead of P(X<=3), so 0.1542^6 is wrong."
+     ]
+    },
+    {
+     "id": "r5",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(d) Compared P(Y=3)=0.0405 with 0.05 instead of P(Y<=3), so M0.",
+      "(d) A1 depends on M1, and the conclusion (reject H0) is wrong."
+     ]
+    },
+    {
+     "id": "r6",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(d) Over-definite conclusion ('proves the update made no difference')."
+     ]
+    },
+    {
+     "id": "r7",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r8",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b)(ii) No value found for P(X>3).",
+      "(c) Not attempted.",
+      "(d) Not attempted."
+     ]
+    }
+   ],
+   "cost_usd": 0.0587
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "part c: same topic, different skills: tagged ['two-stage-binomial'], retagged ['binomial-cumulative-probability', 'combine-independent-observations']"
+   ],
+   "flag": true,
+   "agreement": "3/4",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.024820999999999996,
+   "retagged": {
+    "a": [
+     "binomial-conditions"
+    ],
+    "bi": [
+     "binomial-individual-probability"
+    ],
+    "bii": [
+     "binomial-cumulative-probability"
+    ],
+    "c": [
+     "binomial-cumulative-probability",
+     "combine-independent-observations"
+    ],
+    "d": [
+     "binomial-test-probability",
+     "conclude-test-in-context"
+    ]
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

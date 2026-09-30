@@ -1,0 +1,158 @@
+{
+ "id": "cr-find-constants-from-conditions-starter",
+ "blueprint_id": "dr-find-constants-from-conditions-starter",
+ "question_type": "de-given-separable",
+ "component": "pure",
+ "tier": "starter",
+ "kind": "drill",
+ "stem": null,
+ "parts": [
+  {
+   "label": null,
+   "marks": 2,
+   "text": "The variables $x$ and $y$ satisfy the differential equation $$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 3x^2y, \\qquad y > 0.$$ Separating the variables and integrating gives $$\\ln y = x^3 + c,$$ where $c$ is a constant. Given that $y = 5$ when $x = 1$, find $y$ in terms of $x$. (2)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "find-constants-from-conditions"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Puts $x = 1$ and $y = 5$ into $\\ln y = x^3 + c$ (or into an exponential form that still has a constant, such as $y = Ae^{x^3}$) and solves for the constant, e.g. $c = \\ln 5 - 1$ or $A = 5e^{-1}$",
+     "notes": "The values must go into a form that contains a constant. Using $x = 5$, $y = 1$ the wrong way round scores M0."
+    },
+    {
+     "code": "A1",
+     "for": "$y = 5e^{x^3 - 1}$ oe, with $y$ as the subject",
+     "notes": "Accept $y = e^{x^3 + \\ln 5 - 1}$, $y = \\frac{5}{e}e^{x^3}$ or $y = 5e^{-1}e^{x^3}$. Leaving the answer as $\\ln y = x^3 + \\ln 5 - 1$ scores A0. Condone awrt $1.84e^{x^3}$ for $\\frac{5}{e}e^{x^3}$. Isw after a correct answer."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Put $x = 1$, $y = 5$ into $\\ln y = x^3 + c$: $\\ln 5 = 1 + c$, so $c = \\ln 5 - 1$.",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$\\ln y = x^3 + \\ln 5 - 1 \\Rightarrow y = e^{x^3 + \\ln 5 - 1} = e^{\\ln 5}\\,e^{x^3 - 1} = 5e^{x^3 - 1}$.",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "y",
+     "expr": "5*exp(x^3 - 1)",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "5*exp(x^3 - 1)",
+     "rhs": "exp(x^3 + log(5) - 1)"
+    },
+    {
+     "type": "substitute",
+     "expr": "5*exp(x^3 - 1)",
+     "at": {
+      "x": 1
+     },
+     "result": "5"
+    },
+    {
+     "type": "derivative",
+     "f": "5*exp(x^3 - 1)",
+     "var": "x",
+     "result": "3x^2*5*exp(x^3 - 1)"
+    },
+    {
+     "type": "substitute",
+     "expr": "log(5) - 1^3",
+     "at": {
+      "x": 1
+     },
+     "result": "log(5) - 1"
+    }
+   ],
+   "hints": [
+    "Put the given pair of values into $\\ln y = x^3 + c$ to work out $c$.",
+    "Then write both sides as powers of $e$, and use $e^{\\ln 5} = 5$ to tidy up."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "step": 1,
+   "error_code": "initial-conditions-not-used",
+   "text": "If you just rewrite the general solution as $y = e^{x^3 + c}$ and stop, you haven't used the condition $y = 5$ when $x = 1$. The constant stays unknown, so you lose the M1 and the A1.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "step": 1,
+   "error_code": "constant-not-found-from-point",
+   "text": "Take care to put $x = 1$ and $y = 5$ in the right places. If you swap them you get $\\ln 1 = 125 + c$, so $c = -125$, which is wrong, and you lose the M1.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "step": 2,
+   "error_code": "missing-constant-of-integration",
+   "text": "If you drop the constant while rearranging, for example going from $\\ln y = x^3 + c$ to $y = e^{x^3}$ and then trying to 'fit' the point, the curve can't pass through $(1, 5)$. Also, $y = e^{x^3} + k$ is not the same thing as $y = Ae^{x^3}$. Keep the constant as $c$ in the exponent, or as the multiplier $A = e^{c}$, or you lose the A1.",
+   "says_common": true
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T17:06:05",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.1907
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 2
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.855 with part:GCE2008_6666_June2011_Q8:b"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.058,
+   "jaccard_source": "GCE2008_6663_Jan2013_Q8",
+   "shared_numbers": 0,
+   "max_cosine": 0.855,
+   "cosine_source": "part:GCE2008_6666_June2011_Q8:b"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 4,
+   "n_answers": 1,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": false,
+   "errors": [
+    "de-given-separable: total marks 2 outside 4-16 (seen 5-15, +-1)",
+    "part - A1 notes: write 'Isw' in lowercase"
+   ],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

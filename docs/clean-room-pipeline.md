@@ -142,6 +142,21 @@ paper, with fresh blueprints adjusted to the exact marks. No single-source bluep
   phrases ("circular cylinder of radius r cm and height"). Derivative tokens and units count as maths tokens, and
   the stock phrases are on the whitelist. "Distinctive" numbers are those in at most 2% of real questions (14 and
   500 aren't); the numbers rule is a weak signal next to the 8-grams.
+- **Pilot round 1 (60 items, 2026-09-30): 10 passed everything; $2.14 per passing item.** Causes, in order:
+  - **G7, 26 items: stock exam phrasing.** Rubric wording ("giving your answer to 3 significant figures", "where
+    a and b are rational numbers") and set-up wording ("the finite region R is bounded by…"). Whitelisted for user
+    review, which took G7 from 34 to 46 of 60 passing, with copies and variants still 40/40 rejected. A few were
+    genuine mark-scheme idioms the model remembered; the prompt now forbids those, and a G7 retry is told which
+    fields overlapped, never the matched text.
+  - **G8, 18 items: command wording and answer forms.** The model paraphrased the blueprint's command ("Using your
+    answer…" for "Hence"), or listed a form the text never asks for. The prompt now gives the exact words to use.
+  - **G1, 8 items: marks and parts changed from the blueprint.** The prompt now says both are fixed.
+  - **G3/G4 on the rest: mostly format, not maths.** Units in the solver's answer, coefficients against a whole
+    expression, and 1-in-the-last-figure rounding. G3 now strips units, allows 1 unit in the last figure, and
+    sends mismatches to a judge call that sees both answer sets.
+  - **G4 script-versus-marker disagreements.** A second marker (Opus 5.5) marks the disputed scripts. If both
+    markers agree, the scheme is consistent and the script's design was off: a flag. If they disagree, the scheme
+    is ambiguous: a fail.
 - **Keep every model gate's raw output in the item** (the solver's answers, the scripted responses and awarded
   vectors), so a comparison fix can be re-scored offline without new calls.
 - **Checking an embedding-match threshold without reading the notes:** only look at score distributions,

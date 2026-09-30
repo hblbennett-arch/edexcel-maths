@@ -1,0 +1,1465 @@
+{
+ "id": "cr-stats-normal-conditional-probability-008",
+ "blueprint_id": "bp-stats-normal-conditional-probability-008",
+ "question_type": "normal-conditional-probability",
+ "component": "stats",
+ "tier": "standard",
+ "kind": "exam",
+ "stem": "In the mobile puzzle game *Tidepool Tiles*, the time taken, $T$ seconds, by a player on their first attempt at Level 12 is modelled by $T \\sim \\mathrm{N}(84, 11^2)$.\n\nA player who clears the level in under 70 seconds wins a gold badge. A player whose time is between 70 and 95 seconds wins a silver badge. Anyone slower wins no badge.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 2,
+   "text": "Find the probability that a randomly chosen player wins a gold badge on their first attempt at Level 12. (2)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "normal-probability-calculator"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Tries to find $\\mathrm{P}(T < 70)$ for $\\mathrm{N}(84, 11^2)$, e.g. uses the normal cdf on a calculator with upper limit 70, or standardises to get $z = \\frac{70-84}{11} = -1.27\\ldots$ and finds the area below it",
+     "notes": "Using $\\pm 1.27$ with $\\sigma = 11$ is enough. M0 if they divide by 121 or by $\\sqrt{11}$."
+    },
+    {
+     "code": "A1",
+     "for": "$0.102$",
+     "notes": "awrt 0.102. Accept 0.1016 or 0.1015 from tables."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\mathrm{P}(T<70) = \\mathrm{P}\\left(Z < \\frac{70-84}{11}\\right) = \\mathrm{P}(Z < -1.2727)$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$= 0.10156\\ldots \\approx 0.102$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "p_gold",
+     "expr": "0.102",
+     "form": "sf-3"
+    }
+   ],
+   "checks": [
+    {
+     "type": "normal",
+     "mean": 84,
+     "sd": 11,
+     "upper": 70,
+     "answer": "p_gold",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "A gold badge means $T < 70$. Enter mean 84 and standard deviation 11 in your calculator's normal cdf."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 3,
+   "text": "On one day, 400 players attempt Level 12 for the first time. Find the probability that a randomly chosen player wins a silver badge, and hence find the expected number of these 400 players who win a silver badge. (3)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "normal-probability-calculator"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Tries to find $\\mathrm{P}(70 < T < 95)$, e.g. normal cdf between 70 and 95, or $\\mathrm{P}(T<95) - \\mathrm{P}(T<70)$ with $\\mathrm{P}(T<95) = \\Phi(1)$",
+     "notes": "Can use their answer to (a) for $\\mathrm{P}(T<70)$."
+    },
+    {
+     "code": "A1",
+     "for": "$0.740$",
+     "notes": "awrt 0.740 (accept 0.7398)"
+    },
+    {
+     "code": "M1",
+     "for": "Multiplies their probability by 400",
+     "notes": "ft their probability. Accept 296 or 295.9. Reject a figure with no multiplication by 400 shown."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\mathrm{P}(70<T<95) = \\mathrm{P}(T<95) - \\mathrm{P}(T<70) = \\Phi(1) - 0.10156$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$= 0.84134 - 0.10156 = 0.73979 \\approx 0.740$",
+     "mark": "A1"
+    },
+    {
+     "step": 3,
+     "working": "Expected number $= 400 \\times 0.73979 = 295.9 \\approx 296$ players",
+     "mark": "M1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "p_silver",
+     "expr": "0.740",
+     "form": "sf-3"
+    },
+    {
+     "name": "n_silver",
+     "expr": "296",
+     "form": "sf-3"
+    }
+   ],
+   "checks": [
+    {
+     "type": "normal",
+     "mean": 84,
+     "sd": 11,
+     "lower": 70,
+     "upper": 95,
+     "answer": "p_silver",
+     "form": "sf-3"
+    },
+    {
+     "type": "numeric",
+     "expr": "400*0.739788",
+     "answer": "n_silver",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "Notice that 95 is exactly one standard deviation above the mean.",
+    "Expected number = number of players × probability."
+   ]
+  },
+  {
+   "label": "c",
+   "marks": 4,
+   "text": "Mira is one of these players. Her first-attempt time for Level 12 was more than 70 seconds, so she missed out on a gold badge. Using your answers to parts (a) and (b), find the probability that Mira won a silver badge. (4)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "normal-conditional-probability",
+    "conditional-probability-formula",
+    "use-hence-previous-result",
+    "normal-probability-calculator"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Writes the required probability as $\\frac{\\mathrm{P}(70<T<95)}{\\mathrm{P}(T>70)}$, i.e. the silver probability over the probability of the condition $T > 70$",
+     "notes": "M0 if the denominator is $\\mathrm{P}(70<T<95)$ or $\\mathrm{P}(T<95)$, or if probabilities are multiplied."
+    },
+    {
+     "code": "A1ft",
+     "for": "$\\mathrm{P}(T>70) = 1 - 0.10156 = 0.898$",
+     "ft_of": "a",
+     "notes": "ft 1 − their (a)"
+    },
+    {
+     "code": "dM1",
+     "for": "Divides their (b) probability by their $\\mathrm{P}(T>70)$",
+     "depends_on": "M1",
+     "notes": "Needs the first M1. Answer must be between 0 and 1."
+    },
+    {
+     "code": "A1",
+     "for": "$0.823$",
+     "notes": "awrt 0.823"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\mathrm{P}(70<T<95 \\mid T>70) = \\frac{\\mathrm{P}(70<T<95 \\,\\cap\\, T>70)}{\\mathrm{P}(T>70)} = \\frac{\\mathrm{P}(70<T<95)}{\\mathrm{P}(T>70)}$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$\\mathrm{P}(T>70) = 1 - 0.10156 = 0.89844$",
+     "mark": "A1ft"
+    },
+    {
+     "step": 3,
+     "working": "$\\frac{0.73979}{0.89844}$",
+     "mark": "dM1"
+    },
+    {
+     "step": 4,
+     "working": "$= 0.8234\\ldots \\approx 0.823$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "p_cond",
+     "expr": "0.823",
+     "form": "sf-3"
+    }
+   ],
+   "checks": [
+    {
+     "type": "normal",
+     "mean": 84,
+     "sd": 11,
+     "lower": 70,
+     "result": "0.898",
+     "form": "sf-3"
+    },
+    {
+     "type": "numeric",
+     "expr": "0.739788/0.898443",
+     "answer": "p_cond",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "What you know about Mira ($T > 70$) is the condition, so its probability goes in the denominator.",
+    "Every time between 70 and 95 is also more than 70, so the intersection is just the silver event."
+   ]
+  },
+  {
+   "label": "d",
+   "marks": 4,
+   "text": "After an update to Level 12, the developer thinks that first-attempt times have got shorter on average. A random sample of 25 new players gives a mean first-attempt time of 80.2 seconds. Assume that times are still normally distributed with standard deviation 11 seconds. Test, at the 5% significance level, whether this sample supports the developer's belief. Write your hypotheses in terms of $\\mu$, the mean first-attempt time in seconds after the update. (4)",
+   "command": "test",
+   "forms": [],
+   "skills": [
+    "state-hypotheses-normal-mean-test",
+    "sample-mean-distribution",
+    "conclude-test-in-context"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "$\\mathrm{H}_0: \\mu = 84$ and $\\mathrm{H}_1: \\mu < 84$",
+     "notes": "Both needed, in terms of $\\mu$. B0 for $\\bar{x}$ or for hypotheses written only in words."
+    },
+    {
+     "code": "M1",
+     "for": "Uses $\\bar{T} \\sim \\mathrm{N}\\left(84, \\frac{11^2}{25}\\right)$, i.e. standard deviation 2.2, to find $\\mathrm{P}(\\bar{T} \\leqslant 80.2)$ or $z = \\frac{80.2 - 84}{2.2}$",
+     "notes": "M0 if the standard deviation is 11 or $\\frac{11}{25}$."
+    },
+    {
+     "code": "A1",
+     "for": "$p = 0.0421$ (or $z = -1.727$ compared with critical value $-1.645$)",
+     "notes": "awrt 0.0421 or awrt $-1.73$. The critical-region route, $\\bar{T} < 80.38$, is also accepted."
+    },
+    {
+     "code": "A1",
+     "for": "Rejects $\\mathrm{H}_0$ and concludes in context that there is evidence the mean first-attempt time for Level 12 has gone down",
+     "notes": "Depends on M1 and a correct value. Must not claim the result is proved."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\mathrm{H}_0: \\mu = 84, \\quad \\mathrm{H}_1: \\mu < 84$",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "Under $\\mathrm{H}_0$, $\\bar{T} \\sim \\mathrm{N}(84, 2.2^2)$ because $\\frac{11}{\\sqrt{25}} = 2.2$. $\\mathrm{P}(\\bar{T} \\leqslant 80.2) = \\mathrm{P}\\left(Z \\leqslant \\frac{80.2-84}{2.2}\\right) = \\mathrm{P}(Z \\leqslant -1.727)$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$= 0.0421$",
+     "mark": "A1"
+    },
+    {
+     "step": 4,
+     "working": "$0.0421 < 0.05$, so reject $\\mathrm{H}_0$. There is evidence at the 5% level that the mean first-attempt time on Level 12 has decreased since the update, which supports the developer's belief.",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "p_value",
+     "expr": "0.0421",
+     "form": "sf-3"
+    }
+   ],
+   "checks": [
+    {
+     "type": "normal",
+     "mean": 84,
+     "sd": "2.2",
+     "upper": "80.2",
+     "answer": "p_value",
+     "form": "sf-3"
+    },
+    {
+     "type": "numeric",
+     "expr": "11/sqrt(25)",
+     "result": "2.2",
+     "form": "sf-2"
+    }
+   ],
+   "hints": [
+    "The developer expects times to go down, so this is a one-tailed test.",
+    "The sample mean of 25 players has standard deviation $\\frac{11}{\\sqrt{25}}$, not 11."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "error_code": "standardising-error",
+   "step": 1,
+   "text": "If you divide by the variance and write $z = \\frac{70-84}{121}$, you get a probability close to 0.45. The method is wrong, so you lose the M1 and the A1.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "error_code": "approximation-parameters-wrong",
+   "step": 1,
+   "text": "The model is $\\mathrm{N}(84, 11^2)$, so the standard deviation is 11. If you enter $\\sqrt{11}$ or 121 as the standard deviation in your calculator, you lose the M1.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "error_code": "standardising-error",
+   "step": 1,
+   "text": "If you work out $\\frac{84-95}{11} = -1$ and use $\\Phi(-1)$ for $\\mathrm{P}(T<95)$, you get the area on the wrong side of the mean. The silver probability comes out far too small and the M1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "error_code": "conditional-denominator-error",
+   "step": 3,
+   "text": "Part (b) is not conditional. The expected number is $400 \\times 0.740$. Don't divide by $\\mathrm{P}(T>70)$ here, or you lose the final M1.",
+   "says_common": true
+  },
+  {
+   "part": "c",
+   "error_code": "conditional-denominator-error",
+   "step": 1,
+   "text": "You know Mira took more than 70 seconds, so the denominator is $\\mathrm{P}(T>70) = 0.898$. If you divide by the silver probability 0.740, or by $\\mathrm{P}(T<95)$, you lose the M1 and every mark after it. Students often make this mistake.",
+   "says_common": true
+  },
+  {
+   "part": "c",
+   "error_code": "independence-assumed",
+   "step": 1,
+   "text": "Multiplying $0.898 \\times 0.740$ treats the two events as if they were independent. They are not, because the silver event sits inside $T>70$. This scores M0.",
+   "says_common": false
+  },
+  {
+   "part": "d",
+   "error_code": "sample-mean-sd-not-scaled",
+   "step": 2,
+   "text": "If you standardise the sample mean with 11 instead of $\\frac{11}{\\sqrt{25}} = 2.2$, you get $z = -0.345$ and wrongly keep $\\mathrm{H}_0$. You lose the M1 and both A marks.",
+   "says_common": false
+  },
+  {
+   "part": "d",
+   "error_code": "hypotheses-not-in-parameter",
+   "step": 1,
+   "text": "Writing 'the mean time has not changed' or '$\\bar{x} = 84$' does not state the hypotheses in terms of the population mean. You must write $\\mathrm{H}_0: \\mu = 84$ and $\\mathrm{H}_1: \\mu < 84$ to get the B1.",
+   "says_common": false
+  },
+  {
+   "part": "d",
+   "error_code": "conclusion-too-definite-or-no-context",
+   "step": 4,
+   "text": "Saying 'the update has proved that players are faster', or just 'reject $\\mathrm{H}_0$', loses the final A1. Say there is evidence that the mean first-attempt time on Level 12 has decreased.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T17:01:06",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.4383
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 13
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.811 with part:IAL2013_WST01_June2014_Q7:c"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.012,
+   "jaccard_source": "GCE2008_6683_June2012_Q6",
+   "shared_numbers": 2,
+   "max_cosine": 0.811,
+   "cosine_source": "part:IAL2013_WST01_June2014_Q7:c"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 7,
+   "n_answers": 5,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "part d: solver also gave ['z=-1.727']",
+    "part d: expected p_value = 0.0421, solver got ['z=-1.727', 'reject H0'] [judge: same - Solver's z = -1.727 gives p ≈ 0.042, which matches the setter's p-value of 0.0421. Both reject H0 at the 5% level. The setter's answer is only the p-value, and the solver's conclusion is consistent with it.]",
+    "ambiguity (part c): Mira's time being 'more than 70 seconds' is the condition; the phrase 'she is one of these players' is fine, but the answer depends on the rounded values from (a) and (b), giving about 0.823 either way. Not a real obstacle.",
+    "ambiguity (part d): The result is close to the critical value (z=-1.727 vs -1.645), so rounding intermediate values could matter slightly, but the conclusion is unchanged."
+   ],
+   "flag": true,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0227,
+   "solver": {
+    "parts": [
+     {
+      "label": "a",
+      "answers": [
+       "0.1016"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "P(T<70)=P(Z<-14/11=-1.273)=1-Φ(1.273)≈0.1016"
+     },
+     {
+      "label": "b",
+      "answers": [
+       "0.7398",
+       "296"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "P(70<T<95)=Φ(1)-0.1016=0.8413-0.1016=0.7398; expected 400×0.7398≈295.9≈296"
+     },
+     {
+      "label": "c",
+      "answers": [
+       "0.8234"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "P(silver | T>70)=0.7398/(1-0.1016)=0.7398/0.8984≈0.823"
+     },
+     {
+      "label": "d",
+      "answers": [
+       "z=-1.727",
+       "reject H0"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "H0: μ=84, H1: μ<84. z=(80.2-84)/(11/5)=-1.727 < -1.645 (p≈0.042<0.05), so reject H0: evidence at 5% level that mean time has decreased."
+     }
+    ],
+    "problems": [
+     {
+      "kind": "ambiguity",
+      "severity": "minor",
+      "part": "c",
+      "detail": "Mira's time being 'more than 70 seconds' is the condition; the phrase 'she is one of these players' is fine, but the answer depends on the rounded values from (a) and (b), giving about 0.823 either way. Not a real obstacle."
+     },
+     {
+      "kind": "ambiguity",
+      "severity": "minor",
+      "part": "d",
+      "detail": "The result is close to the critical value (z=-1.727 vs -1.645), so rounding intermediate values could matter slightly, but the conclusion is unchanged."
+     }
+    ]
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "n_responses": 11,
+   "agreed": [
+    "correct",
+    "p1",
+    "p2",
+    "p3",
+    "p4",
+    "p5",
+    "p6",
+    "p7",
+    "p8",
+    "p9",
+    "partial"
+   ],
+   "consistent": {},
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "correct",
+     "kind": "correct",
+     "error_code": null,
+     "work": "(a) P(T<70)=P(Z<(70-84)/11)=P(Z<-1.2727)=0.1016 ≈ 0.102\n(b) P(70<T<95)=P(T<95)-P(T<70)=Φ(1)-0.10156=0.8413-0.1016=0.740. Expected = 400×0.73979 = 296\n(c) P(silver | T>70)=P(70<T<95)/P(T>70). P(T>70)=1-0.10156=0.89844. =0.73979/0.89844=0.823\n(d) H0: μ=84, H1: μ<84. Under H0, mean T ~ N(84, 11²/25) so sd = 2.2. P(mean ≤ 80.2)=P(Z ≤ (80.2-84)/2.2)=P(Z ≤ -1.727)=0.0421. 0.0421<0.05 so reject H0. There is evidence at the 5% level that the mean first-attempt time on Level 12 has decreased, supporting the developer's belief.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "dM1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p1",
+     "kind": "pitfall",
+     "error_code": "standardising-error",
+     "work": "(a) z=(70-84)/121=-0.1157, P(Z<-0.1157)=0.454\n(b) P(70<T<95)=Φ(1)-0.454=0.8413-0.454=0.387. Expected = 400×0.387=154.8\n(c) P(T>70)=1-0.454=0.546. P = 0.387/0.546 = 0.709\n(d) H0: μ=84, H1: μ<84. Mean ~ N(84, 2.2²). z=(80.2-84)/2.2=-1.727, p=0.0421<0.05, reject H0. There is evidence the mean first-attempt time on Level 12 has decreased.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "dM1",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p2",
+     "kind": "pitfall",
+     "error_code": "approximation-parameters-wrong",
+     "work": "(a) Calculator normal cdf, lower -1E99, upper 70, σ=√11=3.317, μ=84: P=0.0000122\n(b) Calculator normal cdf 70 to 95 with σ=11: 0.740. Expected = 400×0.740=296\n(c) P(T>70)=1-0.0000122=0.99999. P = 0.740/0.99999 = 0.740\n(d) H0: μ=84, H1: μ<84. Mean ~ N(84, 2.2²). z=-1.727, p=0.0421<0.05, reject H0. There is evidence the mean first-attempt time on Level 12 has decreased.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "dM1",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p3",
+     "kind": "pitfall",
+     "error_code": "standardising-error",
+     "work": "(a) z=-14/11=-1.2727, P=0.1016 ≈ 0.102\n(b) P(T<95): z=(84-95)/11=-1, so Φ(-1)=0.1587. P(70<T<95)=0.1587-0.1016=0.0571. Expected = 400×0.0571=22.8\n(c) P(T>70)=1-0.1016=0.898. P = 0.0571/0.898 = 0.0636\n(d) H0: μ=84, H1: μ<84. Mean ~ N(84, 2.2²). z=-1.727, p=0.0421<0.05, reject H0. There is evidence the mean first-attempt time on Level 12 has decreased.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "dM1",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p4",
+     "kind": "pitfall",
+     "error_code": "conditional-denominator-error",
+     "work": "(a) P(T<70)=P(Z<-1.2727)=0.1016 ≈ 0.102\n(b) P(70<T<95)=0.8413-0.1016=0.740. Since they were over 70, divide by P(T>70): 0.740/0.898=0.823. Expected = 400×0.823=329.3\n(c) P(silver | T>70)=P(70<T<95)/P(T>70)=0.73979/0.89844=0.823\n(d) H0: μ=84, H1: μ<84. Mean ~ N(84, 2.2²). z=-1.727, p=0.0421<0.05, reject H0. There is evidence the mean first-attempt time on Level 12 has decreased.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "dM1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p5",
+     "kind": "pitfall",
+     "error_code": "conditional-denominator-error",
+     "work": "(a) P(T<70)=0.1016 ≈ 0.102\n(b) P(70<T<95)=0.8413-0.1016=0.740. Expected = 400×0.740=296\n(c) P(silver | T>70)=P(70<T<95)/P(T<95)=0.740/0.8413=0.879\n(d) H0: μ=84, H1: μ<84. Mean ~ N(84, 2.2²). z=-1.727, p=0.0421<0.05, reject H0. There is evidence the mean first-attempt time on Level 12 has decreased.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0ft",
+        "dM0",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p6",
+     "kind": "pitfall",
+     "error_code": "independence-assumed",
+     "work": "(a) P(T<70)=0.1016 ≈ 0.102\n(b) P(70<T<95)=0.8413-0.1016=0.740. Expected = 400×0.740=296\n(c) P(T>70)=0.898 and P(silver)=0.740, so P(both)=0.898×0.740=0.665\n(d) H0: μ=84, H1: μ<84. Mean ~ N(84, 2.2²). z=-1.727, p=0.0421<0.05, reject H0. There is evidence the mean first-attempt time on Level 12 has decreased.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0ft",
+        "dM0",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p7",
+     "kind": "pitfall",
+     "error_code": "sample-mean-sd-not-scaled",
+     "work": "(a) P(T<70)=0.1016 ≈ 0.102\n(b) P(70<T<95)=0.740. Expected = 400×0.740=296\n(c) P(T>70)=0.898. P = 0.740/0.898 = 0.823\n(d) H0: μ=84, H1: μ<84. z=(80.2-84)/11=-0.345, p=P(Z<-0.345)=0.365. 0.365>0.05 so do not reject H0. There is no evidence the mean first-attempt time on Level 12 has decreased.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "dM1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1",
+        "M0",
+        "A0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p8",
+     "kind": "pitfall",
+     "error_code": "hypotheses-not-in-parameter",
+     "work": "(a) P(T<70)=0.1016 ≈ 0.102\n(b) P(70<T<95)=0.740. Expected = 400×0.740=296\n(c) P(T>70)=0.898. P = 0.740/0.898 = 0.823\n(d) H0: x̄ = 84, H1: x̄ < 84. Mean ~ N(84, 2.2²). z=(80.2-84)/2.2=-1.727, p=0.0421<0.05, reject H0. There is evidence the mean first-attempt time on Level 12 has decreased.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "dM1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B0",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p9",
+     "kind": "pitfall",
+     "error_code": "conclusion-too-definite-or-no-context",
+     "work": "(a) P(T<70)=0.1016 ≈ 0.102\n(b) P(70<T<95)=0.740. Expected = 400×0.740=296\n(c) P(T>70)=0.898. P = 0.740/0.898 = 0.823\n(d) H0: μ=84, H1: μ<84. Mean ~ N(84, 2.2²). z=(80.2-84)/2.2=-1.727, p=0.0421<0.05. Reject H0.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "dM1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "partial",
+     "kind": "partial",
+     "error_code": null,
+     "work": "(a) P(T<70)=P(Z<(70-84)/11)=P(Z<-1.27)=0.102\n(b) P(70<T<95)=Φ(1)-0.102=0.8413-0.102=0.739 ≈ 0.74. I'm not sure how to do the rest.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0ft",
+        "dM0",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B0",
+        "M0",
+        "A0",
+        "A0"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "correct",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "dM1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "dM1",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) M0: divided by 121, not 11.",
+      "(a) A0: no M1, and 0.454 is wrong.",
+      "(b) A0: 0.387 is not 0.740.",
+      "(c) A0: 0.709 is not 0.823."
+     ]
+    },
+    {
+     "id": "p2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "dM1",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) M0: used σ=√11 instead of 11.",
+      "(a) A0: 0.0000122 is wrong.",
+      "(c) A0: 0.740 is not 0.823."
+     ]
+    },
+    {
+     "id": "p3",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "dM1",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) M0: P(T<95) was taken as Φ(-1)=0.1587, not Φ(1).",
+      "(b) A0: 0.0571 is wrong.",
+      "(c) A0: 0.0636 is not 0.823."
+     ]
+    },
+    {
+     "id": "p4",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "dM1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) M0: multiplied 0.823, not the silver probability 0.740, by 400."
+     ]
+    },
+    {
+     "id": "p5",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0",
+        "dM0",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(c) M0: the denominator is P(T<95), not P(T>70).",
+      "(c) A0: P(T>70) was not found.",
+      "(c) dM0: depends on the first M1.",
+      "(c) A0: 0.879 is wrong."
+     ]
+    },
+    {
+     "id": "p6",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0",
+        "dM0",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(c) M0: multiplied the probabilities instead of dividing.",
+      "(c) A0: depends on the M1.",
+      "(c) dM0: no division and no first M1.",
+      "(c) A0: 0.665 is wrong."
+     ]
+    },
+    {
+     "id": "p7",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "dM1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1",
+        "M0",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(d) M0: standard deviation 11 used instead of 2.2.",
+      "(d) A0: p=0.365 is wrong.",
+      "(d) A0: wrong conclusion and depends on the M1."
+     ]
+    },
+    {
+     "id": "p8",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "dM1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B0",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(d) B0: hypotheses are written in terms of x̄, not μ."
+     ]
+    },
+    {
+     "id": "p9",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "dM1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(d) A0: no conclusion in context about the mean time."
+     ]
+    },
+    {
+     "id": "partial",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0",
+        "dM0",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B0",
+        "M0",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) M0: no multiplication by 400.",
+      "(c) All marks 0: no attempt.",
+      "(d) All marks 0: no attempt."
+     ]
+    }
+   ],
+   "awarded_second": [],
+   "cost_usd": 0.1059
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "agreement": "4/4",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.010036,
+   "retagged": {
+    "a": [
+     "normal-probability-calculator"
+    ],
+    "b": [
+     "normal-probability-calculator",
+     "expected-frequency-and-value"
+    ],
+    "c": [
+     "conditional-probability-formula",
+     "normal-probability-calculator"
+    ],
+    "d": [
+     "state-hypotheses-normal-mean-test",
+     "sample-mean-distribution",
+     "standardise-to-find-mu-or-sigma",
+     "conclude-test-in-context"
+    ]
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

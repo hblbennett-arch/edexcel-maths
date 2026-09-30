@@ -1,0 +1,423 @@
+{
+ "id": "cr-stats-normal-unknown-parameters-010",
+ "blueprint_id": "bp-stats-normal-unknown-parameters-010",
+ "question_type": "normal-unknown-parameters",
+ "component": "stats",
+ "tier": "challenging",
+ "kind": "exam",
+ "stem": "A zero-waste refill shop sells cold-pressed rapeseed oil from a dispenser. A customer puts an empty bottle under the nozzle and presses the button marked '500 ml'. The volume, $V$ ml, of oil that comes out is modelled as $V \\sim \\mathrm{N}(503, 4^2)$.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 3,
+   "text": "One customer weighs her bottle at home and finds that she has received more than 500 ml of oil. Find the probability that she has actually received more than 506 ml. (3)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "normal-probability-calculator",
+    "accuracy-units-and-rounding",
+    "normal-shape-and-symmetry",
+    "complement-and-addition-rules"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Finds either $\\mathrm{P}(V > 500)$ or $\\mathrm{P}(V > 506)$ correctly from $\\mathrm{N}(503, 4^2)$, i.e. awrt $0.773$ or awrt $0.227$",
+     "notes": "Symmetry about $503$ may be used: $\\mathrm{P}(V > 506) = 1 - \\mathrm{P}(V > 500)$. Standardised values $\\pm 0.75$ seen with a correct probability also earn this mark."
+    },
+    {
+     "code": "M1",
+     "for": "Writes the conditional probability as $\\dfrac{\\mathrm{P}(V > 506)}{\\mathrm{P}(V > 500)}$ and substitutes their values",
+     "notes": "The numerator must be $\\mathrm{P}(V>506)$, because the event 'more than 506' lies inside 'more than 500'. The denominator must be $\\mathrm{P}(V>500)$."
+    },
+    {
+     "code": "A1",
+     "for": "awrt $0.293$",
+     "notes": "cao"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\mathrm{P}(V > 500) = \\mathrm{P}\\left(Z > \\frac{500-503}{4}\\right) = \\mathrm{P}(Z > -0.75) = 0.77337$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "By symmetry about the mean $503$: $\\mathrm{P}(V > 506) = \\mathrm{P}(Z > 0.75) = 1 - 0.77337 = 0.22663$",
+     "mark": "0"
+    },
+    {
+     "step": 3,
+     "working": "$\\{V > 506\\} \\subset \\{V > 500\\}$, so $\\mathrm{P}(V > 506 \\mid V > 500) = \\dfrac{\\mathrm{P}(V > 506)}{\\mathrm{P}(V > 500)} = \\dfrac{0.22663}{0.77337}$",
+     "mark": "M1"
+    },
+    {
+     "step": 4,
+     "working": "$= 0.293$ (3 s.f.)",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "P",
+     "expr": "0.293",
+     "form": "sf-3"
+    }
+   ],
+   "checks": [
+    {
+     "type": "normal",
+     "mean": 503,
+     "sd": 4,
+     "lower": 500,
+     "result": "0.773",
+     "form": "sf-3"
+    },
+    {
+     "type": "normal",
+     "mean": 503,
+     "sd": 4,
+     "lower": 506,
+     "result": "0.227",
+     "form": "sf-3"
+    },
+    {
+     "type": "numeric",
+     "expr": "0.2266274/0.7733726",
+     "answer": "P",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "Work out what the customer already knows. The event 'more than 506 ml' sits entirely inside 'more than 500 ml'.",
+    "Notice that 500 and 506 are the same distance from the mean, so one calculator value gives you both probabilities."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 4,
+   "text": "The dispenser is then serviced, and afterwards the volume, $W$ ml, it gives for the '500 ml' button is modelled as a normal distribution with unknown mean $\\mu$ and unknown standard deviation $\\sigma$. The shop's service log shows that 2% of fills since the service have fallen short of 495 ml, while 10% have gone beyond 515 ml. Find the value of $\\mu$ and the value of $\\sigma$. (4)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "inverse-normal",
+    "standardise-to-find-mu-or-sigma",
+    "normal-shape-and-symmetry",
+    "rearrange-to-make-subject"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Writes at least one standardised equation in the form $\\frac{\\text{value} - \\mu}{\\sigma} = z$, with $z$ being a value from the inverse normal distribution (not a probability), e.g. $\\frac{495-\\mu}{\\sigma} = \\pm 2.05\\ldots$",
+     "notes": "Dividing by $\\sigma^2$, or writing $\\frac{\\mu - 495}{\\sigma}$ without the matching change of sign, scores M0."
+    },
+    {
+     "code": "B1",
+     "for": "Uses both z-values with the correct signs: $-2.0537$ for 495 and $+1.2816$ for 515 (awrt $\\pm2.05$ and $1.28$)",
+     "notes": "Equivalent sign-consistent forms such as $\\mu - 495 = 2.0537\\sigma$ are fine."
+    },
+    {
+     "code": "M1",
+     "for": "Solves their two linear equations simultaneously to get a value for $\\sigma$ or for $\\mu$, e.g. $20 = 3.3353\\sigma$",
+     "notes": "Needs two equations with different z-values. Subtracting to remove $\\mu$ is the expected route."
+    },
+    {
+     "code": "A1",
+     "for": "$\\mu = $ awrt $507.3$ and $\\sigma = $ awrt $6.00$",
+     "notes": "Accept $\\mu$ in $[507.2, 507.4]$ and $\\sigma$ in $[5.99, 6.01]$. Both values needed."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\mathrm{P}(W < 495) = 0.02 \\Rightarrow \\frac{495 - \\mu}{\\sigma} = -2.0537$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$\\mathrm{P}(W > 515) = 0.10 \\Rightarrow \\mathrm{P}(W < 515) = 0.90 \\Rightarrow \\frac{515 - \\mu}{\\sigma} = 1.2816$. Both z-values have the correct sign.",
+     "mark": "B1"
+    },
+    {
+     "step": 3,
+     "working": "$495 - \\mu = -2.0537\\sigma$ and $515 - \\mu = 1.2816\\sigma$. Subtracting: $20 = 3.3353\\sigma \\Rightarrow \\sigma = 5.996\\ldots$",
+     "mark": "M1"
+    },
+    {
+     "step": 4,
+     "working": "$\\mu = 495 + 2.0537 \\times 5.996\\ldots = 507.3$, so $\\mu = 507.3$ and $\\sigma = 6.00$ (3 s.f.)",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "mu",
+     "expr": "507.3",
+     "form": "dp-1"
+    },
+    {
+     "name": "sigma",
+     "expr": "6.00",
+     "form": "sf-3"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "20/(2.053749+1.281552)",
+     "answer": "sigma",
+     "form": "sf-3"
+    },
+    {
+     "type": "numeric",
+     "expr": "495 + 2.053749*20/(2.053749+1.281552)",
+     "answer": "mu",
+     "form": "dp-1"
+    },
+    {
+     "type": "normal",
+     "mean": "507.3152",
+     "sd": "5.99646",
+     "prob": "0.02",
+     "tail": "le",
+     "result": "495.0",
+     "form": "dp-1"
+    },
+    {
+     "type": "normal",
+     "mean": "507.3152",
+     "sd": "5.99646",
+     "prob": "0.10",
+     "tail": "ge",
+     "result": "515.0",
+     "form": "dp-1"
+    }
+   ],
+   "hints": [
+    "Turn each percentage into a z-value, and think about which side of the mean 495 and 515 lie on.",
+    "Write each piece of information as (value − μ)/σ = z to get two linear equations in μ and σ."
+   ]
+  },
+  {
+   "label": "c",
+   "marks": 4,
+   "text": "After the service, the owner counts a fill as 'short' if it holds less than 500 ml. On each of two separate days she chooses 10 fills at random and measures them. You may assume that fills are independent of one another. Using your answers to part (b), find the probability that on at least one of the two days exactly 2 of the 10 fills she measures are short. (4)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "binomial-individual-probability",
+    "combine-independent-observations",
+    "complement-and-addition-rules",
+    "two-stage-binomial"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "$p = \\mathrm{P}(W < 500) = $ awrt $0.111$ or $0.112$ from their part (b) values",
+     "notes": "Accept $0.111$ to $0.112$. Using $\\mu = 507.3$, $\\sigma = 6$ gives $0.1119$, which is acceptable."
+    },
+    {
+     "code": "M1",
+     "for": "Uses $X \\sim \\mathrm{B}(10, p)$ with their $p$ to find $\\mathrm{P}(X = 2)$, e.g. $\\binom{10}{2}p^2(1-p)^8$",
+     "notes": "Needs $n = 10$ and an individual (not cumulative) probability."
+    },
+    {
+     "code": "A1ft",
+     "for": "$\\mathrm{P}(X = 2) = $ awrt $0.217$ (accept $0.216$ to $0.218$)",
+     "ft_of": "their $p$ from the B1 in part (c), which uses their $\\mu$ and $\\sigma$ from part (b)",
+     "notes": "Follow through correctly from their $p$."
+    },
+    {
+     "code": "A1",
+     "for": "$1 - (1 - q)^2 = $ awrt $0.387$ (accept $0.386$ to $0.389$)",
+     "notes": "Equivalent routes: $2q(1-q) + q^2$, or $2q - q^2$."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$p = \\mathrm{P}(W < 500) = \\mathrm{P}\\left(Z < \\frac{500 - 507.315}{5.996}\\right) = \\mathrm{P}(Z < -1.2199) = 0.1112$",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "Let $X$ = number of short fills out of 10 on one day, so $X \\sim \\mathrm{B}(10, 0.1112)$. Then $\\mathrm{P}(X = 2) = \\binom{10}{2}(0.1112)^2(0.8888)^8$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$q = \\mathrm{P}(X = 2) = 0.2168$",
+     "mark": "A1ft"
+    },
+    {
+     "step": 4,
+     "working": "The two days are independent, so $\\mathrm{P}(\\text{at least one day with exactly 2 short}) = 1 - (1 - q)^2 = 1 - 0.7832^2 = 0.387$ (3 s.f.)",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "p",
+     "expr": "0.111",
+     "form": "sf-3"
+    },
+    {
+     "name": "q",
+     "expr": "0.217",
+     "form": "sf-3"
+    },
+    {
+     "name": "final",
+     "expr": "0.387",
+     "form": "sf-3"
+    }
+   ],
+   "checks": [
+    {
+     "type": "normal",
+     "mean": "507.3152",
+     "sd": "5.99646",
+     "upper": 500,
+     "answer": "p",
+     "form": "sf-3"
+    },
+    {
+     "type": "binomial_cdf",
+     "n": 10,
+     "p": "0.11125",
+     "k": 2,
+     "tail": "eq",
+     "answer": "q",
+     "form": "sf-3"
+    },
+    {
+     "type": "numeric",
+     "expr": "1-(1-binomial(10,2)*0.11125^2*0.88875^8)^2",
+     "answer": "final",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "First find the probability that a single fill after the service is short. This is the p for a binomial model.",
+    "Find the probability for one day, then treat the two days as independent. The complement of 'at least one day' is 'neither day'."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 3,
+   "error_code": "conditional-denominator-error",
+   "text": "A common mistake is to divide by the wrong probability, for example $\\frac{0.227}{0.227}$ or $\\frac{0.773}{0.227}$, or to give $0.227$ as the answer without dividing at all. What you know is that the fill is more than 500 ml, so you must divide by $\\mathrm{P}(V>500) = 0.773$. Otherwise the second M1 and the A1 are lost.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "standardising-error",
+   "text": "If you standardise as $\\frac{503 - 506}{4}$ you get $-0.75$ and read off $0.773$ for $\\mathrm{P}(V>506)$. That is far too large, because 506 is above the mean. The result is a probability above 1 when you divide, and the first M1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "step": 3,
+   "error_code": "at-least-one-complement-error",
+   "text": "If you take the complement the wrong way round and use $1 - 0.773 = 0.227$ as the probability of 'more than 500 ml', your denominator is actually $\\mathrm{P}(V<500)$. The second M1 is then lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "standardising-error",
+   "text": "A common slip is to write $\\frac{\\mu - 495}{\\sigma} = -2.0537$, or to divide by $\\sigma^2$. This either swaps the sign or gives an equation in the variance, and the first M1 is lost.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "z-sign-error",
+   "text": "Many students use $+2.0537$ for 495. But 495 lies below the mean, so its z-value must be negative. With the wrong sign the equations give a nonsensical $\\sigma$ (subtracting gives $20 = -0.772\\sigma$), and the B1 and A1 are lost.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "inverse-normal-tail-error",
+   "text": "It is common to find the z-value for 10% above 515 by putting $0.10$ into the inverse normal as a left-tail probability. That gives $-1.2816$. You need the value with 90% below it, which is $+1.2816$, or else you lose the method marks.",
+   "says_common": true
+  },
+  {
+   "part": "c",
+   "step": 2,
+   "error_code": "cumulative-individual-confused",
+   "text": "If you use $\\mathrm{P}(X \\leqslant 2) \\approx 0.91$ instead of $\\mathrm{P}(X = 2)$, you are answering 'at most 2 short'. The M1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "step": 4,
+   "error_code": "at-least-one-complement-error",
+   "text": "Working out $1 - q^2$ gives the probability that NOT both days have exactly 2 short, which is not 'at least one day'. You need $1 - (1-q)^2 = 0.387$, otherwise the final A1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "step": 2,
+   "error_code": "binomial-parameters-wrong",
+   "text": "If you use $n = 20$ (both days combined), or the part (a) model $\\mathrm{N}(503, 4^2)$ for $p$, you are not modelling one day after the service. The M1 is lost. Each day is $\\mathrm{B}(10, 0.111)$.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T17:02:28",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.5482
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 11
+  },
+  "G7": {
+   "pass": false,
+   "flag": true,
+   "reasons": [
+    "3 word 8-gram(s) also in the Pearson corpus (not whitelisted)"
+   ],
+   "flags": [
+    "cosine 0.859 with part:IAL2018_WST01_June2022_Q6:c"
+   ],
+   "hit_fields": [
+    "part b text"
+   ],
+   "n_8gram_hits": 3,
+   "max_jaccard": 0.023,
+   "jaccard_source": "GCE2008_6683_Jan2010_Q7",
+   "shared_numbers": 1,
+   "max_cosine": 0.859,
+   "cosine_source": "part:IAL2018_WST01_June2022_Q6:c"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 10,
+   "n_answers": 6,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

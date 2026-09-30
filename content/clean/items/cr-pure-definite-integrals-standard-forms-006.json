@@ -1,0 +1,333 @@
+{
+ "id": "cr-pure-definite-integrals-standard-forms-006",
+ "blueprint_id": "bp-pure-definite-integrals-standard-forms-006",
+ "question_type": "definite-integrals-standard-forms",
+ "component": "pure",
+ "tier": "accessible",
+ "kind": "exam",
+ "stem": "Let $f(x) = \\dfrac{4}{2x+1} + \\sqrt{x}$ for $x > 0$, and let $C$ be the curve $y = f(x)$. $R$ is the finite region enclosed by $C$, the $x$-axis and the two vertical lines $x = 1$ and $x = 4$.\n\nA student works out $f(x)$ at seven $x$-values, going up in steps of equal size from $1$ to $4$, and rounds each value to 4 decimal places. One entry is still blank.\n\n| $x$ | 1 | 1.5 | 2 | 2.5 | 3 | 3.5 | 4 |\n|---|---|---|---|---|---|---|---|\n| $y$ | 2.3333 | 2.2247 | 2.2142 |  | 2.3035 | 2.3708 | 2.4444 |",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 1,
+   "command": "complete",
+   "text": "Complete the table by working out the blank $y$-value at $x = 2.5$. Give it to 4 decimal places. (1)",
+   "forms": [
+    "dp-4"
+   ],
+   "skills": [
+    "solve-quadratic-equation",
+    "accuracy-units-and-rounding"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "$y = 2.2478$ at $x = 2.5$",
+     "notes": "cao. Must be to 4 d.p. 2.248 or 2.24781 does not score."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$f(2.5) = \\dfrac{4}{2(2.5)+1} + \\sqrt{2.5} = \\dfrac{4}{6} + 1.581138\\ldots = 2.247805\\ldots$",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "To 4 decimal places, $y = 2.2478$",
+     "mark": "B1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "y",
+     "expr": "2.2478",
+     "form": "dp-4",
+     "exact": "2/3 + sqrt(5/2)"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "4/(2*2.5+1) + sqrt(2.5)",
+     "result": "2.2478",
+     "form": "dp-4"
+    }
+   ],
+   "hints": [
+    "Put $x = 2.5$ into both terms of $f(x)$. Work out the denominator $2x + 1$ first.",
+    "Keep your calculator's full value and round to 4 decimal places only at the very end."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 3,
+   "command": "estimate",
+   "text": "Use the trapezium rule, with every $x$-value in your completed table as an ordinate, to estimate the area of $R$. Estimate this area to 3 decimal places. (3)",
+   "forms": [
+    "dp-3"
+   ],
+   "skills": [
+    "trapezium-rule",
+    "accuracy-units-and-rounding"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Uses strip width $h = 0.5$ and the trapezium structure $\\frac{0.5}{2}\\left[(y_0 + y_6) + 2(y_1 + y_2 + y_3 + y_4 + y_5)\\right]$ with their table values",
+     "notes": "The bracket must have the two end values once and the five middle values doubled. One slip in copying a value is allowed. $h = 3/7$ or $h = 3/6$ written without the $\\tfrac12$ is M0."
+    },
+    {
+     "code": "A1",
+     "for": "Correct bracket with all values right, e.g. $0.25\\left[4.7777 + 2(11.3610)\\right]$ or $0.25 \\times 27.4997$",
+     "ft_of": "a",
+     "notes": "Follow through their value from (a) inside the bracket."
+    },
+    {
+     "code": "A1",
+     "for": "$6.875$",
+     "notes": "cao. Must be to 3 d.p."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "There are 6 strips from $x=1$ to $x=4$, so $h = \\dfrac{4-1}{6} = 0.5$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "Ends: $2.3333 + 2.4444 = 4.7777$. Middle: $2.2247 + 2.2142 + 2.2478 + 2.3035 + 2.3708 = 11.3610$",
+     "mark": "0"
+    },
+    {
+     "step": 3,
+     "working": "Area $\\approx \\dfrac{0.5}{2}\\left[4.7777 + 2(11.3610)\\right] = 0.25 \\times 27.4997$",
+     "mark": "A1"
+    },
+    {
+     "step": 4,
+     "working": "$= 6.874925 \\approx 6.875$ (3 d.p.)",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "T",
+     "expr": "6.875",
+     "form": "dp-3"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "0.25*(2.3333+2.4444+2*(2.2247+2.2142+2.2478+2.3035+2.3708))",
+     "answer": "T",
+     "form": "dp-3"
+    }
+   ],
+   "hints": [
+    "Count the strips, not the ordinates: seven $x$-values give six strips. Use that to find $h$.",
+    "Only the first and last $y$-values go in once. All the others are doubled."
+   ]
+  },
+  {
+   "label": "c",
+   "marks": 6,
+   "command": "find",
+   "text": "Find, by integration, the exact area of $R$. Write your answer in the form $p + \\ln q$, where $p$ and $q$ are rational numbers. (6)",
+   "forms": [
+    "exact"
+   ],
+   "skills": [
+    "integrate-powers-of-x",
+    "evaluate-definite-integral",
+    "area-under-curve",
+    "exact-form-answers",
+    "laws-of-logarithms"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Integrates $\\dfrac{4}{2x+1}$ to get $k\\ln(2x+1)$ for some non-zero constant $k$",
+     "notes": "Accept $k\\ln|2x+1|$. Getting a power of $(2x+1)$ is M0."
+    },
+    {
+     "code": "A1",
+     "for": "$2\\ln(2x+1)$",
+     "notes": "oe, e.g. $\\frac{4}{2}\\ln(2x+1)$"
+    },
+    {
+     "code": "B1",
+     "for": "$\\sqrt{x} = x^{1/2}$ integrated correctly to $\\frac{2}{3}x^{3/2}$",
+     "notes": "oe, e.g. $\\frac{x^{3/2}}{3/2}$"
+    },
+    {
+     "code": "M1",
+     "for": "Puts $x = 4$ and $x = 1$ into their integrated function and takes the value at 1 away from the value at 4",
+     "notes": "The integrated function must have at least one term changed by integration. A bracket such as $\\left(2\\ln 9 + \\tfrac{16}{3}\\right) - \\left(2\\ln 3 + \\tfrac{2}{3}\\right)$ shows the method."
+    },
+    {
+     "code": "M1",
+     "depends_on": "M1 (first)",
+     "for": "Uses a law of logarithms to combine their log terms into one logarithm, e.g. $2\\ln 9 - 2\\ln 3 = 2\\ln 3 = \\ln 9$",
+     "notes": "Needs the first M1. The combining must be correct for their coefficients."
+    },
+    {
+     "code": "A1",
+     "for": "$\\dfrac{14}{3} + \\ln 9$",
+     "notes": "cso. Accept $p = \\tfrac{14}{3}$, $q = 9$ stated. $4.667 + \\ln 9$ or $6.8639$ alone is A0."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\displaystyle\\int \\frac{4}{2x+1}\\,\\mathrm{d}x = \\frac{4}{2}\\ln(2x+1) = 2\\ln(2x+1)$",
+     "mark": "M1 A1"
+    },
+    {
+     "step": 2,
+     "working": "$\\displaystyle\\int x^{1/2}\\,\\mathrm{d}x = \\frac{x^{3/2}}{3/2} = \\frac{2}{3}x^{3/2}$",
+     "mark": "B1"
+    },
+    {
+     "step": 3,
+     "working": "Area $= \\left[2\\ln(2x+1) + \\tfrac{2}{3}x^{3/2}\\right]_1^4 = \\left(2\\ln 9 + \\tfrac{2}{3}(8)\\right) - \\left(2\\ln 3 + \\tfrac{2}{3}\\right)$",
+     "mark": "M1"
+    },
+    {
+     "step": 4,
+     "working": "$2\\ln 9 - 2\\ln 3 = 2\\ln\\tfrac{9}{3} = 2\\ln 3 = \\ln 9$",
+     "mark": "M1"
+    },
+    {
+     "step": 5,
+     "working": "$\\tfrac{16}{3} - \\tfrac{2}{3} = \\tfrac{14}{3}$, so Area $= \\dfrac{14}{3} + \\ln 9$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "A",
+     "expr": "14/3 + log(9)",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "integral",
+     "f": "4/(2x+1) + sqrt(x)",
+     "var": "x",
+     "lower": 1,
+     "upper": 4,
+     "answer": "A"
+    },
+    {
+     "type": "integral",
+     "f": "4/(2x+1) + sqrt(x)",
+     "var": "x",
+     "result": "2*log(2x+1) + (2/3)*x^(3/2)"
+    }
+   ],
+   "hints": [
+    "Write $\\sqrt{x}$ as $x^{1/2}$ before you integrate it. For $\\frac{4}{2x+1}$, think about what you get when you differentiate $\\ln(2x+1)$.",
+    "Once you have substituted the limits, use $\\ln a - \\ln b = \\ln\\frac{a}{b}$ and $n\\ln a = \\ln a^n$ to write the log terms as one logarithm."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "error_code": "quadratic-formula-error",
+   "text": "If you type $4/2x+1$ into your calculator without brackets, it works out $\\frac{4}{2}\\times 2.5 + 1$ and not $\\frac{4}{2(2.5)+1}$. You get the wrong value and lose the B1. Put brackets round the whole denominator.",
+   "says_common": false,
+   "step": 1
+  },
+  {
+   "part": "b",
+   "error_code": "trapezium-strip-width-error",
+   "text": "Seven $x$-values give six strips, not seven. So $h = \\frac{3}{6} = 0.5$, not $\\frac{3}{7}$. The wrong width loses the M1 and both A marks.",
+   "says_common": true,
+   "step": 1
+  },
+  {
+   "part": "b",
+   "error_code": "trapezium-bracket-error",
+   "text": "Doubling the end values $2.3333$ and $2.4444$ as well, or leaving out the factor $\\frac{h}{2} = 0.25$, breaks the trapezium structure. You lose the M1. Only the five middle values are doubled.",
+   "says_common": true,
+   "step": 3
+  },
+  {
+   "part": "c",
+   "error_code": "not-rewritten-as-powers",
+   "text": "If you try to integrate $\\sqrt{x}$ without first writing it as $x^{1/2}$, it is easy to end up with something like $\\frac{1}{2\\sqrt{x}}$ (which is a derivative) or $\\frac{\\sqrt{x^2}}{2}$. You lose the B1 and the correct values at the limits.",
+   "says_common": true,
+   "step": 2
+  },
+  {
+   "part": "c",
+   "error_code": "integration-power-rule-error",
+   "text": "Adding 1 to $\\frac12$ gives $\\frac32$, and then you divide by $\\frac32$, so you get $\\frac{2}{3}x^{3/2}$, not $\\frac{3}{2}x^{3/2}$. Also, do not treat $\\frac{4}{2x+1}$ as $(2x+1)^{-1}$ and raise the power to $0$: this integral gives a logarithm, and the power-rule attempt earns no marks for that term.",
+   "says_common": true,
+   "step": 1
+  },
+  {
+   "part": "c",
+   "error_code": "area-between-wrong-subtraction",
+   "text": "Take the value at $x = 1$ away from the value at $x = 4$. If you do it the other way round, you get $-\\frac{14}{3} - \\ln 9$, a negative area, and you lose the method mark for the limits.",
+   "says_common": false,
+   "step": 3
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T16:55:15",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.4359
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 10
+  },
+  "G7": {
+   "pass": false,
+   "flag": true,
+   "reasons": [
+    "1 word 8-gram(s) also in the Pearson corpus (not whitelisted)"
+   ],
+   "flags": [
+    "cosine 0.908 with question:GCE2008_6666R_June2013_Q5"
+   ],
+   "hit_fields": [
+    "part c text"
+   ],
+   "n_8gram_hits": 1,
+   "max_jaccard": 0.043,
+   "jaccard_source": "IAL2013_WMA02_Jan2014_Q3",
+   "shared_numbers": 2,
+   "max_cosine": 0.908,
+   "cosine_source": "question:GCE2008_6666R_June2013_Q5"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 4,
+   "n_answers": 3,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

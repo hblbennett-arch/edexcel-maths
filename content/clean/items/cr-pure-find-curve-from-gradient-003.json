@@ -1,0 +1,260 @@
+{
+ "id": "cr-pure-find-curve-from-gradient-003",
+ "blueprint_id": "bp-pure-find-curve-from-gradient-003",
+ "question_type": "find-curve-from-gradient",
+ "component": "pure",
+ "tier": "accessible",
+ "kind": "exam",
+ "stem": "The curve $C$ has equation $y = \\mathrm{f}(x)$, $x > 0$, and passes through the point $(4, 20)$. The gradient of $C$ is given by\n$$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\frac{5x^2 - 3}{2\\sqrt{x}}.$$",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 2,
+   "text": "Find the values of the constants $a$, $b$, $p$ and $q$, where $p > q$, such that the gradient of $C$ can be rewritten as $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = ax^{p} + bx^{q}$. (2)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "rewrite-using-index-laws"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Splits the fraction into two terms and divides each by $2x^{\\frac{1}{2}}$ by subtracting $\\frac{1}{2}$ from the index, so that at least one term is correct, e.g. $\\frac{5}{2}x^{\\frac{3}{2}}$ or $-\\frac{3}{2}x^{-\\frac{1}{2}}$",
+     "notes": "Writing $\\frac{1}{\\sqrt{x}}$ as $x^{\\frac{1}{2}}$ does not earn this mark."
+    },
+    {
+     "code": "A1",
+     "for": "$a = \\frac{5}{2}$, $p = \\frac{3}{2}$, $b = -\\frac{3}{2}$, $q = -\\frac{1}{2}$",
+     "depends_on": "M1",
+     "notes": "Accept $2.5$, $1.5$, $-1.5$, $-0.5$. Accept the answer written as $\\frac{5}{2}x^{\\frac{3}{2}} - \\frac{3}{2}x^{-\\frac{1}{2}}$ with the values implied. cao"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\frac{5x^2 - 3}{2\\sqrt{x}} = \\frac{5x^2}{2x^{\\frac{1}{2}}} - \\frac{3}{2x^{\\frac{1}{2}}}$",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "$= \\frac{5}{2}x^{2 - \\frac{1}{2}} - \\frac{3}{2}x^{-\\frac{1}{2}} = \\frac{5}{2}x^{\\frac{3}{2}} - \\frac{3}{2}x^{-\\frac{1}{2}}$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "So $a = \\frac{5}{2}$, $p = \\frac{3}{2}$, $b = -\\frac{3}{2}$, $q = -\\frac{1}{2}$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "a",
+     "expr": "5/2",
+     "form": "exact",
+     "check": "a*9^p + b*9^q = (5*81 - 3)/(2*3)"
+    },
+    {
+     "name": "p",
+     "expr": "3/2",
+     "form": "exact",
+     "check": "a*4^p + b*4^q = (5*16 - 3)/(2*2)"
+    },
+    {
+     "name": "b",
+     "expr": "-3/2",
+     "form": "exact",
+     "check": "a*1^p + b*1^q = (5 - 3)/2"
+    },
+    {
+     "name": "q",
+     "expr": "-1/2",
+     "form": "exact",
+     "check": "a*16^p + b*16^q = (5*256 - 3)/(2*4)"
+    }
+   ],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "(5*x^2 - 3)/(2*sqrt(x))",
+     "rhs": "(5/2)*x^(3/2) - (3/2)*x^(-1/2)",
+     "domain": "positive"
+    }
+   ],
+   "hints": [
+    "Split the fraction into two separate fractions, each with denominator $2\\sqrt{x}$.",
+    "Write $\\sqrt{x}$ as a power of $x$; dividing by it means subtracting that power."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 3,
+   "text": "Find $\\mathrm{f}(x)$, giving each term in its simplest form. (3)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "integrate-powers-of-x"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Integrates their answer to (a) with at least one power increased by 1, e.g. $x^{\\frac{3}{2}} \\to x^{\\frac{5}{2}}$ or $x^{-\\frac{1}{2}} \\to x^{\\frac{1}{2}}$",
+     "ft_of": "a",
+     "notes": "Integrating the numerator and denominator separately scores M0."
+    },
+    {
+     "code": "A1",
+     "for": "$x^{\\frac{5}{2}} - 3x^{\\frac{1}{2}}$ (+ c), which may be unsimplified, e.g. $\\frac{5}{2}\\cdot\\frac{2}{5}x^{\\frac{5}{2}} - \\frac{3}{2}\\cdot 2x^{\\frac{1}{2}}$",
+     "depends_on": "M1"
+    },
+    {
+     "code": "A1",
+     "for": "Substitutes $x = 4$, $y = 20$ into an integrated expression that includes $+c$, giving $c = -6$, so $\\mathrm{f}(x) = x^{\\frac{5}{2}} - 3x^{\\frac{1}{2}} - 6$",
+     "depends_on": "M1",
+     "notes": "Accept $x^{\\frac{5}{2}} - 3\\sqrt{x} - 6$ oe. There must be a full expression for $\\mathrm{f}(x)$, not just $c = -6$. cao"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$y = \\int \\left(\\frac{5}{2}x^{\\frac{3}{2}} - \\frac{3}{2}x^{-\\frac{1}{2}}\\right)\\mathrm{d}x = \\frac{5}{2}\\cdot\\frac{x^{\\frac{5}{2}}}{\\frac{5}{2}} - \\frac{3}{2}\\cdot\\frac{x^{\\frac{1}{2}}}{\\frac{1}{2}} + c$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$y = x^{\\frac{5}{2}} - 3x^{\\frac{1}{2}} + c$",
+     "mark": "A1"
+    },
+    {
+     "step": 3,
+     "working": "At $(4, 20)$: $20 = 4^{\\frac{5}{2}} - 3\\times 4^{\\frac{1}{2}} + c = 32 - 6 + c$, so $c = -6$. Hence $\\mathrm{f}(x) = x^{\\frac{5}{2}} - 3x^{\\frac{1}{2}} - 6$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "f",
+     "expr": "x^(5/2) - 3*x^(1/2) - 6",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "derivative",
+     "f": "x^(5/2) - 3*x^(1/2) - 6",
+     "var": "x",
+     "answer": "f",
+     "result": "(5*x^2 - 3)/(2*sqrt(x))"
+    },
+    {
+     "type": "integral",
+     "f": "(5/2)*x^(3/2) - (3/2)*x^(-1/2)",
+     "var": "x",
+     "result": "x^(5/2) - 3*x^(1/2) - 6"
+    },
+    {
+     "type": "substitute",
+     "expr": "x^(5/2) - 3*x^(1/2) - 6",
+     "at": {
+      "x": 4
+     },
+     "result": "20"
+    }
+   ],
+   "hints": [
+    "Integrate your answer to part (a) term by term: add 1 to each power, then divide by the new power.",
+    "Don't forget $+c$. Then use the fact that $C$ passes through $(4, 20)$ to find it."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "index-law-error",
+   "text": "If you write $\\frac{1}{\\sqrt{x}}$ as $x^{\\frac{1}{2}}$ instead of $x^{-\\frac{1}{2}}$, you end up with $\\frac{5}{2}x^{\\frac{5}{2}}$ and $-\\frac{3}{2}x^{\\frac{1}{2}}$. This mistake is common. Dividing by $x^{\\frac{1}{2}}$ means subtracting $\\frac{1}{2}$ from the power, so $x^2 \\div x^{\\frac{1}{2}} = x^{\\frac{3}{2}}$. With both powers wrong you lose the M1.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "surd-simplification-error",
+   "text": "Don't turn $2\\sqrt{x}$ into $\\sqrt{2x}$. The 2 sits outside the root, so it only divides the coefficients: $\\frac{5}{2}$ and $-\\frac{3}{2}$. If you move it under the root, your coefficients come out wrong and so do your powers of $x$, and the M1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "integration-power-rule-error",
+   "text": "When you integrate $-\\frac{3}{2}x^{-\\frac{1}{2}}$, the new power is $-\\frac{1}{2} + 1 = \\frac{1}{2}$, and you divide by $\\frac{1}{2}$, which gives $-3x^{\\frac{1}{2}}$. A common slip is to divide by the old power $-\\frac{1}{2}$, or to multiply by the new power. If neither of your terms has a correctly raised power, you lose the M1.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "missing-constant-of-integration",
+   "text": "Leaving out $+c$ is a common mistake. Without it you can't use the point $(4, 20)$, and $x^{\\frac{5}{2}} - 3x^{\\frac{1}{2}}$ doesn't even pass through that point: it gives 26, not 20. You would lose the final A1 for $\\mathrm{f}(x) = x^{\\frac{5}{2}} - 3x^{\\frac{1}{2}} - 6$.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "not-rewritten-as-powers",
+   "text": "You can't integrate $\\frac{5x^2 - 3}{2\\sqrt{x}}$ by integrating the top and the bottom separately. Rewrite it first as $\\frac{5}{2}x^{\\frac{3}{2}} - \\frac{3}{2}x^{-\\frac{1}{2}}$, as in part (a). If you don't, you get no credit for the method (M1).",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T16:59:05",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.2799
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 5
+  },
+  "G7": {
+   "pass": false,
+   "flag": true,
+   "reasons": [
+    "5 word 8-gram(s) also in the Pearson corpus (not whitelisted)"
+   ],
+   "flags": [
+    "cosine 0.909 with question:GCE2008_6663_June2008_Q11"
+   ],
+   "hit_fields": [
+    "part a text",
+    "part b text"
+   ],
+   "n_8gram_hits": 5,
+   "max_jaccard": 0.094,
+   "jaccard_source": "GCE2008_6663_June2017_Q7",
+   "shared_numbers": 1,
+   "max_cosine": 0.909,
+   "cosine_source": "question:GCE2008_6663_June2008_Q11"
+  },
+  "G2": {
+   "pass": false,
+   "errors": [
+    "part b check 1 (derivative): result (5*x^2 - 3)/(2*sqrt(x)) differs from answer f = x^(5/2) - 3*x^(1/2) - 6"
+   ],
+   "n_checks": 4,
+   "n_answers": 5,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

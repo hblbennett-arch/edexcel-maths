@@ -1,0 +1,1081 @@
+{
+ "id": "cr-stats-normal-unknown-parameters-009",
+ "blueprint_id": "bp-stats-normal-unknown-parameters-009",
+ "question_type": "normal-unknown-parameters",
+ "component": "stats",
+ "tier": "challenging",
+ "kind": "exam",
+ "stem": "A delicatessen cuts wedges of cheese by hand from large wheels. The mass, $X$ grams, of a wedge of its mature Comté is modelled by a normal distribution. The graph of the probability density function of $X$ has its points of inflection at $x = 212$ and $x = 248$.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 3,
+   "command": "find",
+   "skills": [
+    "normal-shape-and-symmetry",
+    "normal-probability-calculator",
+    "accuracy-units-and-rounding"
+   ],
+   "text": "A customer picks up one of the Comté wedges. Its price label shows that the wedge has a mass greater than $220$ g. Find the probability that this wedge has a mass greater than $260$ g. Give your answer to 3 significant figures. (3)",
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Gets $\\mu = 230$ and $\\sigma = 18$ from the points of inflection and uses them to find either $\\mathrm{P}(X > 260)$ or $\\mathrm{P}(X > 220)$",
+     "notes": "Seeing awrt $0.0478$ or awrt $0.711$ implies this mark. If $\\sigma = 36$ or the variance is used as the standard deviation, M0."
+    },
+    {
+     "code": "M1",
+     "for": "Writes the conditional probability as $\\dfrac{\\mathrm{P}(X > 260)}{\\mathrm{P}(X > 220)}$ and substitutes their two probabilities",
+     "notes": "The top must be $\\mathrm{P}(X>260)$ and the bottom $\\mathrm{P}(X>220)$. Dividing by $\\mathrm{P}(X<220)$ or by $\\mathrm{P}(X>260)$ scores M0."
+    },
+    {
+     "code": "A1",
+     "for": "awrt $0.0672$",
+     "notes": "cao to 3 s.f. Allow awrt 0.0672 found from correctly rounded intermediate values."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "The points of inflection are at $\\mu \\pm \\sigma$, so $\\mu = \\frac{212+248}{2} = 230$ and $\\sigma = 248 - 230 = 18$. So $X \\sim \\mathrm{N}(230, 18^2)$.",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "$\\mathrm{P}(X > 260) = \\mathrm{P}\\left(Z > \\frac{260-230}{18}\\right) = \\mathrm{P}(Z > 1.6667) = 0.047792$. Also $\\mathrm{P}(X > 220) = \\mathrm{P}(Z > -0.5556) = 0.710742$.",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "Being over $260$ g means the wedge is also over $220$ g, so $\\mathrm{P}(X > 260 \\mid X > 220) = \\dfrac{\\mathrm{P}(X > 260)}{\\mathrm{P}(X > 220)} = \\dfrac{0.047792}{0.710742}$",
+     "mark": "M1"
+    },
+    {
+     "step": 4,
+     "working": "$= 0.0672$ (3 s.f.)",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "P",
+     "expr": "0.0672",
+     "form": "sf-3"
+    }
+   ],
+   "checks": [
+    {
+     "type": "normal",
+     "mean": 230,
+     "sd": 18,
+     "lower": 260,
+     "result": "0.0478",
+     "form": "sf-3"
+    },
+    {
+     "type": "normal",
+     "mean": 230,
+     "sd": 18,
+     "lower": 220,
+     "result": "0.711",
+     "form": "sf-3"
+    },
+    {
+     "type": "numeric",
+     "expr": "0.047792/0.710742",
+     "answer": "P",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "The points of inflection of a normal curve are one standard deviation either side of the mean. What does that tell you about $\\mu$ and $\\sigma$?",
+    "You already know the wedge is over $220$ g, so the probabilities you work with must be restricted to that event."
+   ],
+   "forms": []
+  },
+  {
+   "label": "b",
+   "marks": 4,
+   "command": "find",
+   "skills": [
+    "inverse-normal",
+    "standardise-to-find-mu-or-sigma",
+    "normal-shape-and-symmetry",
+    "accuracy-units-and-rounding"
+   ],
+   "text": "The delicatessen also sells a Welsh blue cheese. The mass, $Y$ grams, of a wedge of this blue cheese is modelled as $Y \\sim \\mathrm{N}(\\mu, \\sigma^2)$. A stock check finds that one wedge in every five weighs under $180$ g, and one wedge in every twenty weighs over $270$ g. Find the values of $\\mu$ and $\\sigma$, giving each to 1 decimal place. (4)",
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Standardises one of the given masses using $\\mu$ and $\\sigma$ and sets it equal to a $z$-value, e.g. $\\dfrac{180-\\mu}{\\sigma} = z_1$ or $\\dfrac{270-\\mu}{\\sigma} = z_2$, with $|z| > 0.5$",
+     "notes": "Must use $\\sigma$, not $\\sigma^2$. Using a probability such as $0.2$ in place of a $z$-value scores M0."
+    },
+    {
+     "code": "B1",
+     "for": "Both $z$-values correct: $-0.8416$ for the $180$ g condition and $1.6449$ for the $270$ g condition",
+     "notes": "Accept awrt $\\pm 0.842$ and awrt $1.64$ or $1.645$, provided the signs are as given when they are used."
+    },
+    {
+     "code": "M1",
+     "for": "Writes both equations, $180 - \\mu = -0.8416\\sigma$ and $270 - \\mu = 1.6449\\sigma$, with the $z$-values having opposite signs, and eliminates one unknown, e.g. $90 = 2.4865\\sigma$",
+     "notes": "Both $z$-values must be of the form $\\pm$ an inverse-normal value; allow slips in the $z$-value magnitudes."
+    },
+    {
+     "code": "M1",
+     "for": "Solves their simultaneous equations to get values of both $\\sigma$ and $\\mu$",
+     "notes": "Correct values are $\\sigma = 36.2$ and $\\mu = 210.5$ (awrt). Values rounded to 1 d.p. are expected."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\mathrm{P}(Y < 180) = 0.2$ gives $\\dfrac{180 - \\mu}{\\sigma} = z_1$, where $\\mathrm{P}(Z < z_1) = 0.2$.",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "From the inverse normal, $z_1 = -0.84162$. Also $\\mathrm{P}(Y > 270) = 0.05$ gives $\\dfrac{270-\\mu}{\\sigma} = 1.64485$.",
+     "mark": "B1"
+    },
+    {
+     "step": 3,
+     "working": "$180 - \\mu = -0.84162\\sigma$ and $270 - \\mu = 1.64485\\sigma$. Subtracting the first from the second gives $90 = 2.48647\\sigma$.",
+     "mark": "M1"
+    },
+    {
+     "step": 4,
+     "working": "$\\sigma = \\dfrac{90}{2.48647} = 36.196 \\approx 36.2$ and $\\mu = 180 + 0.84162 \\times 36.196 = 210.46 \\approx 210.5$.",
+     "mark": "M1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "mu",
+     "expr": "210.5",
+     "form": "dp-1"
+    },
+    {
+     "name": "sigma",
+     "expr": "36.2",
+     "form": "dp-1"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "90/(0.841621+1.644854)",
+     "answer": "sigma",
+     "form": "dp-1"
+    },
+    {
+     "type": "numeric",
+     "expr": "180 + 0.841621*90/(0.841621+1.644854)",
+     "answer": "mu",
+     "form": "dp-1"
+    },
+    {
+     "type": "normal",
+     "mean": "210.463",
+     "sd": "36.1958",
+     "prob": "0.2",
+     "tail": "le",
+     "result": "180",
+     "form": "sf-3"
+    },
+    {
+     "type": "normal",
+     "mean": "210.463",
+     "sd": "36.1958",
+     "prob": "0.05",
+     "tail": "ge",
+     "result": "270",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "Turn each piece of information into a probability statement, then find the $z$-value that has that probability, using the correct tail.",
+    "Think about which side of the mean $180$ g must be on. That tells you the sign of its $z$-value."
+   ],
+   "forms": []
+  },
+  {
+   "label": "c",
+   "marks": 3,
+   "command": "find",
+   "skills": [
+    "accuracy-units-and-rounding",
+    "normal-probability-calculator",
+    "combine-independent-observations",
+    "binomial-individual-probability"
+   ],
+   "text": "Every blue cheese wedge with a mass above $250$ g gets a 'party size' sticker. On a Saturday, and then again on the following Sunday, the delicatessen cuts $10$ wedges of the blue cheese. You may assume that the masses of all the wedges are independent. Using your values from part (b), find the probability that on both days exactly $2$ of that day's $10$ wedges get a sticker. Give your answer to 3 significant figures. (3)",
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Uses their $\\mu$ and $\\sigma$ from (b) to find $p = \\mathrm{P}(Y > 250)$",
+     "notes": "awrt $0.137$ using the correct parameters. ft their $\\mu$ and $\\sigma$.",
+     "ft_of": "b"
+    },
+    {
+     "code": "M1",
+     "for": "Models the number of stickered wedges on one day as $\\mathrm{B}(10, p)$ with their $p$ and finds $\\mathrm{P}(W = 2) = \\binom{10}{2}p^2(1-p)^8$",
+     "notes": "awrt $0.260$ using the correct $p$. Using a cumulative probability such as $\\mathrm{P}(W \\leqslant 2)$ scores M0."
+    },
+    {
+     "code": "M1",
+     "for": "Squares their $\\mathrm{P}(W = 2)$ to combine the two independent days",
+     "notes": "Correct answer is awrt $0.0678$; accept $0.0675$ to $0.0680$ from rounded $p$. Using $\\mathrm{B}(20, p)$ with $\\mathrm{P}(=4)$ scores M0 for this mark."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$p = \\mathrm{P}(Y > 250) = \\mathrm{P}\\left(Z > \\frac{250 - 210.46}{36.196}\\right) = \\mathrm{P}(Z > 1.0923) = 0.13735$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "Let $W$ be the number of stickered wedges on one day, so $W \\sim \\mathrm{B}(10, 0.13735)$. Then $\\mathrm{P}(W = 2) = 45 \\times 0.13735^2 \\times 0.86265^8 = 0.26035$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "The two days are independent, so the probability is $0.26035^2 = 0.0678$ (3 s.f.).",
+     "mark": "M1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "Q",
+     "expr": "0.0678",
+     "form": "sf-3"
+    }
+   ],
+   "checks": [
+    {
+     "type": "normal",
+     "mean": "210.463",
+     "sd": "36.1958",
+     "lower": 250,
+     "result": "0.137",
+     "form": "sf-3"
+    },
+    {
+     "type": "binomial_cdf",
+     "n": 10,
+     "p": "0.13735",
+     "k": 2,
+     "tail": "eq",
+     "result": "0.260",
+     "form": "sf-3"
+    },
+    {
+     "type": "numeric",
+     "expr": "(45*0.13735^2*0.86265^8)^2",
+     "answer": "Q",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "Start by finding the probability that a single wedge gets a sticker, then decide what distribution the number of stickered wedges in a day follows.",
+    "The event is 'exactly 2 on Saturday AND exactly 2 on Sunday', and the two days are independent."
+   ],
+   "forms": []
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 3,
+   "error_code": "conditional-denominator-error",
+   "text": "You know the wedge is over $220$ g, so you must divide by $\\mathrm{P}(X > 220) = 0.711$. If you divide by $\\mathrm{P}(X > 260)$, or by $\\mathrm{P}(X < 220)$, or just give $\\mathrm{P}(X > 260) = 0.0478$ on its own, you lose the second M1 and the A1. This is a common mistake.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "standardising-error",
+   "text": "The gap between the points of inflection is $36$, but that is $2\\sigma$, not $\\sigma$. If you use $36$, or the variance $324$, as the divisor when you standardise $260$ and $220$, all your probabilities are wrong and you lose the first M1.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "standardising-error",
+   "text": "Standardise as $\\frac{180-\\mu}{\\sigma}$, not $\\frac{\\mu - 180}{\\sigma}$, and don't divide by $\\sigma^2$. If you get either of these wrong, your equations don't describe the model and you lose the first M1. This is a common mistake.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "z-sign-error",
+   "text": "Only $20\\%$ of wedges are under $180$ g, so $180$ g is below the mean and its $z$-value is $-0.8416$. If you use $+0.8416$ you get $90 = 0.8033\\sigma$, which gives a wrong $\\sigma$ of about $112$. The simultaneous-equation method then fails and your final values are wrong. This is a common mistake.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "inverse-normal-tail-error",
+   "text": "'One in twenty over $270$ g' means $\\mathrm{P}(Y < 270) = 0.95$, so $z = 1.6449$. If you put $0.05$ into the inverse normal as a lower-tail probability, you get $-1.6449$. If you use $0.9$ instead, you get $1.2816$. Either way the B1 and the later method marks are lost. This is a common mistake.",
+   "says_common": true
+  },
+  {
+   "part": "c",
+   "step": 2,
+   "error_code": "cumulative-individual-confused",
+   "text": "'Exactly 2' needs $\\mathrm{P}(W = 2) \\approx 0.260$, not the cumulative $\\mathrm{P}(W \\leqslant 2) \\approx 0.84$. If you use the cumulative value, you lose the second M1 and your final answer is far too big.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "step": 3,
+   "error_code": "binomial-parameters-wrong",
+   "text": "Don't combine the two days into $\\mathrm{B}(20, 0.137)$ and find $\\mathrm{P}(=4)$. That also counts cases such as $3$ on Saturday and $1$ on Sunday. You need exactly $2$ on each day, so square the one-day probability. Also check that $p$ is $\\mathrm{P}(Y > 250)$, not $\\mathrm{P}(Y < 250)$. Using the wrong $n$ or $p$ loses these method marks.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T16:30:52",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.5429
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 10
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.807 with part:IAL2018_WST01_June2025_Q6:d"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.013,
+   "jaccard_source": "GCE2008_6664_Jan2007_Q4",
+   "shared_numbers": 2,
+   "max_cosine": 0.807,
+   "cosine_source": "part:IAL2018_WST01_June2025_Q6:d"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 10,
+   "n_answers": 4,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "ambiguity (part c): 'Using your values from part (b)' does not say whether to use the rounded values (210.5, 36.2) or the unrounded ones. The 3 s.f. answer differs: about 0.0680 with rounded values and about 0.0677 with unrounded values. The mark scheme should accept both."
+   ],
+   "flag": true,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0153,
+   "solver": {
+    "parts": [
+     {
+      "label": "a",
+      "answers": [
+       "0.0672"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "Inflection points are at μ±σ, so μ=230 and σ=18. Then P(X>260 | X>220) = P(X>260)/P(X>220) = 0.04779/0.71076 ≈ 0.0672."
+     },
+     {
+      "label": "b",
+      "answers": [
+       "210.5",
+       "36.2"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "(180−μ)/σ = −0.8416 and (270−μ)/σ = 1.6449. Subtracting gives σ = 90/2.4865 ≈ 36.2, and then μ ≈ 210.5."
+     },
+     {
+      "label": "c",
+      "answers": [
+       "0.0677"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "p = P(Y>250) ≈ 0.1373 using unrounded μ and σ. P(exactly 2 of 10) = 45p²(1−p)⁸ ≈ 0.2603. Both days: 0.2603² ≈ 0.0677. Using the rounded values 210.5 and 36.2 gives p ≈ 0.1376 and an answer of about 0.0680."
+     }
+    ],
+    "problems": [
+     {
+      "kind": "ambiguity",
+      "severity": "minor",
+      "part": "c",
+      "detail": "'Using your values from part (b)' does not say whether to use the rounded values (210.5, 36.2) or the unrounded ones. The 3 s.f. answer differs: about 0.0680 with rounded values and about 0.0677 with unrounded values. The mark scheme should accept both."
+     }
+    ]
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "n_responses": 9,
+   "agreed": [
+    "r1",
+    "r2",
+    "r3",
+    "r4",
+    "r5",
+    "r6",
+    "r7",
+    "r8",
+    "r9"
+   ],
+   "consistent": {},
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "r1",
+     "kind": "correct",
+     "error_code": null,
+     "work": "(a) Inflection points at mu±sigma so mu=230, sigma=18.\nP(X>260)=P(Z>1.6667)=0.04779, P(X>220)=P(Z>-0.5556)=0.71074\nP(X>260|X>220)=0.04779/0.71074=0.0672\n(b) (180-mu)/sigma=-0.8416, (270-mu)/sigma=1.6449\n180-mu=-0.8416sigma, 270-mu=1.6449sigma\nSubtract: 90=2.4865sigma, sigma=36.2, mu=180+0.8416*36.196=210.5\n(c) p=P(Y>250)=P(Z>(250-210.5)/36.2)=0.1374\nW~B(10,0.1374), P(W=2)=45*0.1374^2*0.8626^8=0.2603\nBoth days: 0.2603^2=0.0678",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "B1",
+        "M1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "M1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "kind": "pitfall",
+     "error_code": "conditional-denominator-error",
+     "work": "(a) mu=230, sigma=18. P(X>260)=P(Z>1.667)=0.0478. So the answer is 0.0478.\n(b) 180-mu=-0.8416sigma, 270-mu=1.6449sigma, 90=2.4865sigma, sigma=36.2, mu=210.5\n(c) p=P(Y>250)=0.1374, P(W=2)=45*0.1374^2*0.8626^8=0.2603, squared = 0.0678",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "B1",
+        "M1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "M1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r3",
+     "kind": "pitfall",
+     "error_code": "standardising-error",
+     "work": "(a) Points of inflection 36 apart so mu=230, sigma=36.\nP(X>260)=P(Z>30/36=0.8333)=0.2023\nP(X>220)=P(Z>-10/36=-0.2778)=0.6093\nP=0.2023/0.6093=0.332\n(b) 180-mu=-0.8416sigma, 270-mu=1.6449sigma, 90=2.4865sigma, sigma=36.2, mu=210.5\n(c) p=P(Y>250)=0.1374, P(W=2)=0.2603, squared=0.0678",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "B1",
+        "M1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "M1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r4",
+     "kind": "pitfall",
+     "error_code": "standardising-error",
+     "work": "(a) mu=230, sigma=18, 0.04779/0.71074=0.0672\n(b) Standardising with the variance: (180-mu)/sigma^2=-0.8416, (270-mu)/sigma^2=1.6449\n180-mu=-0.8416 sigma^2, 270-mu=1.6449 sigma^2\n90=2.4865 sigma^2, sigma^2=36.2, so sigma=6.0, mu=180+0.8416*36.2=210.5\n(c) p=P(Y>250)=P(Z>(250-210.5)/6.0)=P(Z>6.56)=approx 0.00000003\nP(W=2)=45p^2(1-p)^8 approx 0 , squared approx 0",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "B1",
+        "M1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "M1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r5",
+     "kind": "pitfall",
+     "error_code": "z-sign-error",
+     "work": "(a) mu=230, sigma=18, 0.04779/0.71074=0.0672\n(b) (180-mu)/sigma=0.8416, (270-mu)/sigma=1.6449\n180-mu=0.8416sigma, 270-mu=1.6449sigma\nSubtract: 90=0.8033sigma, sigma=112.0, mu=180-0.8416*112=85.7\n(c) p=P(Y>250)=P(Z>(250-85.7)/112.0=1.4670)=0.0712\nW~B(10,0.0712), P(W=2)=45*0.0712^2*0.9288^8=0.1266\nSquared: 0.0160",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "B0",
+        "M0",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "M1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r6",
+     "kind": "pitfall",
+     "error_code": "inverse-normal-tail-error",
+     "work": "(a) mu=230, sigma=18, 0.04779/0.71074=0.0672\n(b) P(Y>270)=0.05 -> I used P(Z<z)=0.9, z=1.2816\n(180-mu)/sigma=-0.8416, (270-mu)/sigma=1.2816\n180-mu=-0.8416sigma, 270-mu=1.2816sigma\n90=2.1232sigma, sigma=42.4, mu=180+0.8416*42.4=215.7\n(c) p=P(Y>250)=P(Z>(250-215.7)/42.4=0.809)=0.2093\nP(W=2)=45*0.2093^2*0.7907^8=0.3012\nSquared: 0.0907",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "B0",
+        "M1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "M1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r7",
+     "kind": "pitfall",
+     "error_code": "cumulative-individual-confused",
+     "work": "(a) 0.0672 (mu=230, sigma=18, ratio 0.04779/0.71074)\n(b) sigma=36.2, mu=210.5 (from 90=2.4865sigma)\n(c) p=P(Y>250)=0.1374. W~B(10,0.1374).\n'Exactly 2' so I use P(W<=2)=0.8457\nBoth days: 0.8457^2=0.715",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "B1",
+        "M1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M0",
+        "M1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r8",
+     "kind": "pitfall",
+     "error_code": "binomial-parameters-wrong",
+     "work": "(a) 0.0672 (mu=230, sigma=18)\n(b) sigma=36.2, mu=210.5\n(c) p=P(Y>250)=0.1374\nOver both days 20 wedges: X~B(20,0.1374), need 4 stickers.\nP(X=4)=C(20,4)*0.1374^4*0.8626^16=4845*0.000356*0.0940=0.162",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "B1",
+        "M1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M0",
+        "M0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r9",
+     "kind": "partial",
+     "error_code": null,
+     "work": "(a) mu=230, sigma=18. P(X>260)=0.0478, P(X>220)=0.711. Conditional = 0.0478/0.711=0.0672\n(b) (180-mu)/sigma=-0.8416 and (270-mu)/sigma=1.6449\nI'm not sure how to go on from here.\n(c) not attempted",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "B1",
+        "M0",
+        "M0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "M0",
+        "M0"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "r1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "B1",
+        "M1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "M1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "B1",
+        "M1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "M1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) Did not divide by P(X>220); gave P(X>260) only, so no conditional probability."
+     ]
+    },
+    {
+     "id": "r3",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "B1",
+        "M1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "M1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) Used sigma=36 (the distance between the inflection points), not 18, so the first M and the A are lost."
+     ]
+    },
+    {
+     "id": "r4",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "B1",
+        "M1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "M1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) Standardised with sigma^2 instead of sigma, so the first M is lost."
+     ]
+    },
+    {
+     "id": "r5",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "B0",
+        "M0",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "M1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) Used +0.8416 for the 180 g condition, so the sign is wrong and B0.",
+      "(b) The two z-values do not have opposite signs, so the elimination M is lost."
+     ]
+    },
+    {
+     "id": "r6",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "B0",
+        "M1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "M1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) Used z=1.2816 (P(Z<z)=0.9) instead of 1.6449 for the 270 g condition, so B0."
+     ]
+    },
+    {
+     "id": "r7",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "B1",
+        "M1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M0",
+        "M1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(c) Used the cumulative P(W<=2) instead of P(W=2), so the binomial M is lost."
+     ]
+    },
+    {
+     "id": "r8",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "B1",
+        "M1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M0",
+        "M0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(c) Used B(20,p) with P(=4) instead of B(10,p) with P(W=2), so the binomial M is lost.",
+      "(c) Did not square P(W=2) to combine the two days, so the final M is lost."
+     ]
+    },
+    {
+     "id": "r9",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "B1",
+        "M0",
+        "M0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "M0",
+        "M0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) Did not form or solve simultaneous equations, so both later M marks are lost.",
+      "(c) Not attempted."
+     ]
+    }
+   ],
+   "awarded_second": [],
+   "cost_usd": 0.0991
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "agreement": "3/3",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.016388,
+   "retagged": {
+    "a": [
+     "normal-probability-calculator",
+     "standardise-to-find-mu-or-sigma",
+     "conditional-probability-formula"
+    ],
+    "b": [
+     "normal-simultaneous-mu-sigma",
+     "inverse-normal"
+    ],
+    "c": [
+     "normal-probability-calculator",
+     "binomial-individual-probability",
+     "combine-independent-observations"
+    ]
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

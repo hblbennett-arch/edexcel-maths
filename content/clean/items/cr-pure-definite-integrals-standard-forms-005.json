@@ -1,0 +1,512 @@
+{
+ "id": "cr-pure-definite-integrals-standard-forms-005",
+ "blueprint_id": "bp-pure-definite-integrals-standard-forms-005",
+ "question_type": "definite-integrals-standard-forms",
+ "component": "pure",
+ "tier": "standard",
+ "kind": "exam",
+ "stem": "For positive values of $x$, the curve $C$ is given by\n$$y = 4\\sqrt{x} + \\frac{16}{x}.$$",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 5,
+   "command": "find",
+   "text": "There is exactly one point on $C$ at which $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ is zero. Find its $x$- and $y$-coordinates, showing how you obtain them. (5)",
+   "skills": [
+    "differentiate-polynomials",
+    "accuracy-units-and-rounding"
+   ],
+   "forms": [],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Writes the terms as powers, $4x^{\\frac12} + 16x^{-1}$, and differentiates, with at least one power correctly lowered by 1 (giving $x^{-\\frac12}$ or $x^{-2}$)"
+    },
+    {
+     "code": "dM1",
+     "depends_on": "M1",
+     "for": "Sets their $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ equal to 0 and rearranges to $x^{k} = c$ (e.g. $x^{\\frac32} = 8$), then solves for $x$",
+     "notes": "Multiplying through by $x^2$ to get $2x^{\\frac32} = 16$ is a common valid route"
+    },
+    {
+     "code": "A1",
+     "for": "$x = 4$",
+     "notes": "cao; ignore a rejected negative or zero value"
+    },
+    {
+     "code": "dM1",
+     "depends_on": "M1",
+     "for": "Puts their positive $x$ back into $y = 4\\sqrt{x} + \\frac{16}{x}$ (the original equation, not the derivative)"
+    },
+    {
+     "code": "A1",
+     "for": "$y = 12$, so the point is $(4, 12)$",
+     "notes": "cao"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$y = 4x^{\\frac12} + 16x^{-1}$, so $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 2x^{-\\frac12} - 16x^{-2}$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$2x^{-\\frac12} - 16x^{-2} = 0 \\Rightarrow 2x^{-\\frac12} = 16x^{-2} \\Rightarrow x^{\\frac32} = 8 \\Rightarrow x = 8^{\\frac23}$",
+     "mark": "dM1"
+    },
+    {
+     "step": 3,
+     "working": "$x = 4$",
+     "mark": "A1"
+    },
+    {
+     "step": 4,
+     "working": "$y = 4\\sqrt{4} + \\frac{16}{4} = 8 + 4$",
+     "mark": "dM1"
+    },
+    {
+     "step": 5,
+     "working": "$y = 12$, so the point is $(4, 12)$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "x",
+     "expr": "4",
+     "form": "exact"
+    },
+    {
+     "name": "y",
+     "expr": "12",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "derivative",
+     "f": "4*sqrt(x) + 16/x",
+     "var": "x",
+     "result": "2/sqrt(x) - 16/x^2"
+    },
+    {
+     "type": "solutions",
+     "equation": "2/sqrt(x) - 16/x^2 = 0",
+     "var": "x",
+     "interval": [
+      "0.01",
+      100
+     ],
+     "result": [
+      "4"
+     ],
+     "answer": "x"
+    },
+    {
+     "type": "substitute",
+     "expr": "4*sqrt(x) + 16/x",
+     "at": {
+      "x": "4"
+     },
+     "result": "12",
+     "answer": "y"
+    }
+   ],
+   "hints": [
+    "Write $\\sqrt{x}$ as $x^{\\frac12}$ and $\\frac{16}{x}$ as $16x^{-1}$ before you differentiate.",
+    "Once the gradient is zero, collect the powers of $x$ on one side so you get a single power of $x$ equal to a number."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 4,
+   "command": "show-that",
+   "text": "The interval from $x = 1$ to $x = 16$ is split into five strips, each 3 units wide. Using the values of $y$ at the edges of these strips in the trapezium rule, show that $\\int_{1}^{16} \\left(4\\sqrt{x} + \\frac{16}{x}\\right) \\mathrm{d}x \\approx 219.8$, correct to 4 significant figures. (4)",
+   "skills": [
+    "trapezium-rule"
+   ],
+   "forms": [],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Correct $y$-values at $x = 1, 4, 7, 10, 13, 16$: $20,\\ 12,\\ 12.87,\\ 14.25,\\ 15.65,\\ 17$ (awrt, or exact forms such as $4\\sqrt{7} + \\frac{16}{7}$)",
+     "notes": "Allow if these appear inside the trapezium rule calculation"
+    },
+    {
+     "code": "M1",
+     "for": "Uses $\\frac{3}{2}\\left[(y_0 + y_5) + 2(y_1 + y_2 + y_3 + y_4)\\right]$ with $h = 3$, six ordinates and the right bracket structure",
+     "notes": "Only the end ordinates are counted once; one ordinate missing or repeated in the bracket may still get M1 if the structure is otherwise correct"
+    },
+    {
+     "code": "A1ft",
+     "ft_of": "their ordinates in B1",
+     "for": "Correct bracket value from their ordinates, e.g. $37 + 2(54.77) = 146.54$",
+     "notes": "Follow through on their $y$-values"
+    },
+    {
+     "code": "A1*",
+     "for": "Reaches $\\frac32 \\times 146.54\\ldots = 219.81\\ldots$ and states $\\approx 219.8$ (4 s.f.)",
+     "notes": "cso; needs correct ordinates to at least 3 d.p. and no errors"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$h = 3$, $x = 1, 4, 7, 10, 13, 16$ give $y = 20,\\ 12,\\ 12.8687,\\ 14.2491,\\ 15.6530,\\ 17$",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "$\\int_1^{16} y\\,\\mathrm{d}x \\approx \\frac{3}{2}\\left[(20 + 17) + 2(12 + 12.8687 + 14.2491 + 15.6530)\\right]$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$= \\frac32\\left[37 + 109.5416\\right] = \\frac32 \\times 146.5416$",
+     "mark": "A1ft"
+    },
+    {
+     "step": 4,
+     "working": "$= 219.812\\ldots \\approx 219.8$ (4 s.f.)",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [
+    {
+     "name": "T",
+     "expr": "219.8",
+     "form": "sf-4",
+     "exact": "3/2*(20 + 17 + 2*(12 + 4*sqrt(7) + 16/7 + 4*sqrt(10) + 8/5 + 4*sqrt(13) + 16/13))"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "3/2*(20 + 17 + 2*(12 + 4*sqrt(7) + 16/7 + 4*sqrt(10) + 8/5 + 4*sqrt(13) + 16/13))",
+     "result": "219.8",
+     "form": "sf-4",
+     "answer": "T"
+    },
+    {
+     "type": "substitute",
+     "expr": "4*sqrt(x) + 16/x",
+     "at": {
+      "x": "7"
+     },
+     "result": "12.87",
+     "form": "dp-2"
+    },
+    {
+     "type": "substitute",
+     "expr": "4*sqrt(x) + 16/x",
+     "at": {
+      "x": "13"
+     },
+     "result": "15.65",
+     "form": "dp-2"
+    }
+   ],
+   "hints": [
+    "Five strips means six $x$-values, starting at 1 and going up in steps of 3.",
+    "Only the first and last $y$-values appear once in the bracket; each of the others is doubled."
+   ]
+  },
+  {
+   "label": "c",
+   "marks": 8,
+   "command": "find",
+   "text": "The straight line $L$ joins the point of $C$ where $x = 1$ to the point of $C$ where $x = 16$. For $1 < x < 16$, $C$ lies below $L$. Find the exact area of the finite region enclosed by $C$ and $L$. Give your answer in the form $p + q\\ln 2$, where $p$ and $q$ are rational numbers. (8)",
+   "skills": [
+    "integrate-powers-of-x",
+    "evaluate-definite-integral",
+    "area-under-curve",
+    "exact-form-answers",
+    "area-between-curve-and-line"
+   ],
+   "forms": [
+    "exact"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Integrates $4x^{\\frac12}$ to $kx^{\\frac32}$ (power raised by 1)"
+    },
+    {
+     "code": "M1",
+     "for": "Integrates $\\frac{16}{x}$ to $k\\ln x$"
+    },
+    {
+     "code": "A1",
+     "for": "Fully correct $\\frac{8}{3}x^{\\frac32} + 16\\ln x$",
+     "notes": "Allow unsimplified coefficient such as $\\frac{4x^{3/2}}{3/2}$"
+    },
+    {
+     "code": "M1",
+     "for": "Substitutes $x = 16$ and $x = 1$ into their integral and subtracts (upper minus lower)",
+     "notes": "Implied by $168 + 16\\ln 16$ or $168 + 64\\ln 2$ from correct integral"
+    },
+    {
+     "code": "M1",
+     "for": "Correct method for the area under $L$ from $x = 1$ to $x = 16$, e.g. $\\frac12(20 + 17)\\times 15$ or integrating $y = \\frac{101 - x}{5}$ between 1 and 16"
+    },
+    {
+     "code": "A1",
+     "for": "Area under $L$ is $\\frac{555}{2}$ (or 277.5)"
+    },
+    {
+     "code": "M1",
+     "for": "Area under $L$ minus their area under $C$ (this way round), both over $1 \\leqslant x \\leqslant 16$"
+    },
+    {
+     "code": "A1",
+     "for": "$\\frac{219}{2} - 64\\ln 2$",
+     "notes": "cso; accept $109.5 - 64\\ln 2$ oe with $\\ln 16$ turned into $4\\ln 2$; a decimal answer alone scores A0"
+    }
+   ],
+   "alternatives": [
+    {
+     "name": "Way 2: integrate line minus curve directly",
+     "marks": [
+      {
+       "code": "M1",
+       "for": "Finds equation of $L$, $y = \\frac{101 - x}{5}$ oe, and sets up $\\int_1^{16}\\left(\\frac{101 - x}{5} - 4x^{\\frac12} - 16x^{-1}\\right)\\mathrm{d}x$, integrating $x^{\\frac12}$ to $kx^{\\frac32}$"
+      },
+      {
+       "code": "M1",
+       "for": "Integrates $16x^{-1}$ to $k\\ln x$"
+      },
+      {
+       "code": "A1",
+       "for": "Correct $\\frac{101x}{5} - \\frac{x^2}{10} - \\frac83 x^{\\frac32} - 16\\ln x$"
+      },
+      {
+       "code": "M1",
+       "for": "Substitutes 16 and 1 and subtracts"
+      },
+      {
+       "code": "M1",
+       "for": "Evaluates the line terms: $\\frac{1616}{5} - \\frac{256}{10} - \\left(\\frac{101}{5} - \\frac1{10}\\right)$"
+      },
+      {
+       "code": "A1",
+       "for": "Line terms give $\\frac{555}{2}$"
+      },
+      {
+       "code": "M1",
+       "for": "Combines with curve terms $-(168 + 16\\ln 16)$, turning $\\ln 16$ into a multiple of $\\ln 2$"
+      },
+      {
+       "code": "A1",
+       "for": "$\\frac{219}{2} - 64\\ln 2$",
+       "notes": "cso"
+      }
+     ]
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\int 4x^{\\frac12}\\,\\mathrm{d}x = \\frac{4x^{\\frac32}}{\\frac32} = \\frac83 x^{\\frac32}$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$\\int 16x^{-1}\\,\\mathrm{d}x = 16\\ln x$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$\\int\\left(4\\sqrt{x} + \\frac{16}{x}\\right)\\mathrm{d}x = \\frac83x^{\\frac32} + 16\\ln x$",
+     "mark": "A1"
+    },
+    {
+     "step": 4,
+     "working": "$\\left[\\frac83x^{\\frac32} + 16\\ln x\\right]_1^{16} = \\left(\\frac83(64) + 16\\ln 16\\right) - \\left(\\frac83 + 0\\right) = 168 + 64\\ln 2$",
+     "mark": "M1"
+    },
+    {
+     "step": 5,
+     "working": "$L$ joins $(1, 20)$ and $(16, 17)$. The area under $L$ is a trapezium: $\\frac12(20 + 17)(16 - 1)$",
+     "mark": "M1"
+    },
+    {
+     "step": 6,
+     "working": "$= \\frac{555}{2}$",
+     "mark": "A1"
+    },
+    {
+     "step": 7,
+     "working": "Area between them $= \\frac{555}{2} - (168 + 64\\ln 2)$",
+     "mark": "M1"
+    },
+    {
+     "step": 8,
+     "working": "$= \\frac{219}{2} - 64\\ln 2$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "A",
+     "expr": "219/2 - 64*log(2)",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "integral",
+     "f": "4*sqrt(x) + 16/x",
+     "var": "x",
+     "lower": "1",
+     "upper": "16",
+     "result": "168 + 64*log(2)"
+    },
+    {
+     "type": "integral",
+     "f": "(101 - x)/5",
+     "var": "x",
+     "lower": "1",
+     "upper": "16",
+     "result": "555/2"
+    },
+    {
+     "type": "integral",
+     "f": "(101 - x)/5 - 4*sqrt(x) - 16/x",
+     "var": "x",
+     "lower": "1",
+     "upper": "16",
+     "result": "219/2 - 64*log(2)",
+     "answer": "A"
+    },
+    {
+     "type": "integral",
+     "f": "4*sqrt(x) + 16/x",
+     "var": "x",
+     "result": "8/3*x^(3/2) + 16*log(x)"
+    }
+   ],
+   "hints": [
+    "The area you want is the area under $L$ take away the area under $C$, both between $x = 1$ and $x = 16$.",
+    "The area under $L$ is a trapezium, so you don't need to integrate for it. For the curve, write each term as a power of $x$ first. Remember $\\frac{1}{x}$ is the one power where the rule $\\frac{x^{n+1}}{n+1}$ fails."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "sign-error-differentiating-negative-power",
+   "text": "$16x^{-1}$ differentiates to $-16x^{-2}$. If you write $+16x^{-2}$ or $-16x^{0}$, the gradient never becomes zero for positive $x$ (or you get the wrong equation), so the A marks for $x = 4$ and $y = 12$ are lost.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "not-rewritten-as-powers",
+   "text": "If you try to differentiate $4\\sqrt{x}$ or $\\frac{16}{x}$ as they stand, for example turning $\\frac{16}{x}$ into $\\frac{16}{1}$ or $\\sqrt{x}$ into $\\sqrt{1}$, the power rule hasn't been used and the first M1 is lost. Rewrite as $4x^{\\frac12} + 16x^{-1}$ first.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "exp-log-derivative-error",
+   "text": "Don't mix up $\\frac{16}{x}$ with logarithms. It is $\\ln x$ that differentiates to $\\frac1x$; $\\frac{16}{x}$ itself differentiates to $-\\frac{16}{x^2}$, not $16\\ln x$. Writing a log term here gives the wrong gradient and loses the A marks.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "trapezium-strip-width-error",
+   "text": "There are five strips, so $h = \\frac{16 - 1}{5} = 3$ and there are six $y$-values. If you use $h = \\frac{15}{6} = 2.5$ because you counted six ordinates as six strips, the M1 is lost.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "trapezium-bracket-error",
+   "text": "Only $y_0 = 20$ and $y_5 = 17$ appear once. If you double them as well, or forget the $\\frac{3}{2}$ in front, you won't reach $219.8$ and the M1 is lost.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 4,
+   "error_code": "trapezium-estimate-reason-wrong",
+   "text": "If you go on to compare $219.8$ with the exact value from part (c), $168 + 64\\ln 2 \\approx 212.4$, don't say the estimate is too big just because the curve is increasing. What matters is whether the curve bends above or below the chords of the strips, which depends on its concavity.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "step": 1,
+   "error_code": "not-rewritten-as-powers",
+   "text": "Many students integrate $4\\sqrt{x}$ as $4\\cdot\\frac{x^{2}}{2}$, or $\\frac{16}{x}$ as $\\frac{16x^{2}}{2}$, without rewriting them as powers first. Write $4x^{\\frac12}$ and $16x^{-1}$, otherwise the integration method marks are lost.",
+   "says_common": true
+  },
+  {
+   "part": "c",
+   "step": 1,
+   "error_code": "integration-power-rule-error",
+   "text": "A common slip is to raise $x^{\\frac12}$ to $x^{\\frac32}$ but then multiply by $\\frac32$ instead of dividing, which gives $6x^{\\frac32}$ rather than $\\frac83x^{\\frac32}$. Another is to apply $\\frac{x^{n+1}}{n+1}$ to $x^{-1}$, which means dividing by zero. Either one loses the M1 for that term.",
+   "says_common": true
+  },
+  {
+   "part": "c",
+   "step": 7,
+   "error_code": "area-between-wrong-subtraction",
+   "text": "$C$ is below $L$, so the region is (area under $L$) minus (area under $C$). Working out $168 + 64\\ln 2 - \\frac{555}{2}$ gives a negative number, and using limits other than $1$ and $16$ also loses the M1. This is a common mistake.",
+   "says_common": true
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T16:54:31",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.5741
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 17
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.881 with part:IAL2018_WMA12_Oct2024_Q4:a"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.052,
+   "jaccard_source": "IAL2018_WMA14_Jan2021_Q5",
+   "shared_numbers": 0,
+   "max_cosine": 0.881,
+   "cosine_source": "part:IAL2018_WMA12_Oct2024_Q4:a"
+  },
+  "G2": {
+   "pass": false,
+   "errors": [
+    "part a check 2 (solutions): result ['4'] differs from answer x = 4"
+   ],
+   "n_checks": 10,
+   "n_answers": 4,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": false,
+   "errors": [
+    "definite-integrals-standard-forms: part c marks 8 outside 0-6 (seen 1-5, +-1)",
+    "definite-integrals-standard-forms: total marks 17 outside 2-13 (seen 3-12, +-1)"
+   ],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

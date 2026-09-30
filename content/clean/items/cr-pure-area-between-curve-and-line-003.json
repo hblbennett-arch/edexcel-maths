@@ -1,0 +1,539 @@
+{
+ "id": "cr-pure-area-between-curve-and-line-003",
+ "blueprint_id": "bp-pure-area-between-curve-and-line-003",
+ "question_type": "area-between-curve-and-line",
+ "component": "pure",
+ "tier": "accessible",
+ "kind": "exam",
+ "stem": "The curve $C$ has equation $y = 8\\sqrt{x} - x$, $x \\geqslant 0$.\n\nThe line $l$ has equation $y = x$.\n\n$C$ and $l$ meet at the origin $O$ and at a second point $P$. The finite region $R$ is bounded by the curve $C$ and the line $l$, and lies between $O$ and $P$.",
+ "parts": [
+  {
+   "label": null,
+   "marks": 5,
+   "text": "Find the exact area of $R$. Show your working clearly. (5)",
+   "command": "find",
+   "skills": [
+    "area-between-curve-and-line",
+    "integrate-powers-of-x",
+    "evaluate-definite-integral",
+    "area-under-curve",
+    "exact-form-answers"
+   ],
+   "forms": [
+    "exact"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Sets $8\\sqrt{x} - x = x$ and solves to get a non-zero $x$-coordinate for $P$, e.g. $8\\sqrt{x} = 2x \\Rightarrow \\sqrt{x} = 4 \\Rightarrow x = 16$",
+     "notes": "Accept squaring to get $64x = 4x^2$ and then $x = 16$. The value $x = 16$ may be implied by its use as the upper limit."
+    },
+    {
+     "code": "M1",
+     "for": "Writes $\\sqrt{x}$ as $x^{\\frac{1}{2}}$ and integrates, with at least one of $x^{\\frac{1}{2}} \\to x^{\\frac{3}{2}}$ or $x \\to x^2$",
+     "notes": "Can be earned when integrating $8x^{\\frac{1}{2}} - 2x$, or $8x^{\\frac{1}{2}} - x$ on its own (the area under the curve)."
+    },
+    {
+     "code": "A1",
+     "for": "Correct integral: $\\frac{16}{3}x^{\\frac{3}{2}} - x^2$ (or $\\frac{16}{3}x^{\\frac{3}{2}} - \\frac{1}{2}x^2$ if taking the area under $C$ only)",
+     "notes": "oe, e.g. $\\frac{8x^{3/2}}{3/2}$ left unsimplified. Ignore any $+c$."
+    },
+    {
+     "code": "M1",
+     "for": "Substitutes limits $16$ and $0$ (their non-zero $x$) into the integral of (curve $-$ line) and subtracts. Alternatively finds the area under $C$ from $0$ to their $16$ and subtracts the triangle area $\\frac{1}{2}\\times 16 \\times 16 = 128$",
+     "notes": "The upper limit must be their $x$-coordinate of $P$, not the value of $\\sqrt{x}$."
+    },
+    {
+     "code": "A1",
+     "for": "Area $= \\frac{256}{3}$",
+     "notes": "cao. Accept $85\\frac{1}{3}$. A decimal answer on its own ($85.3$) does not earn this mark. Do not accept $-\\frac{256}{3}$ unless it is correctly turned into a positive area."
+    }
+   ],
+   "alternatives": [
+    {
+     "name": "Way 2: area under curve minus triangle",
+     "marks": [
+      {
+       "code": "M1",
+       "for": "Solves $8\\sqrt{x} - x = x$ and gets $x = 16$ for $P$"
+      },
+      {
+       "code": "M1",
+       "for": "Integrates $8x^{\\frac{1}{2}} - x$, with at least one power increased by 1"
+      },
+      {
+       "code": "A1",
+       "for": "$\\frac{16}{3}x^{\\frac{3}{2}} - \\frac{1}{2}x^2$"
+      },
+      {
+       "code": "M1",
+       "for": "Evaluates between $0$ and their $16$ to get $\\frac{640}{3}$ and subtracts the triangle $\\frac{1}{2}(16)(16) = 128$, with $P = (16, 16)$"
+      },
+      {
+       "code": "A1",
+       "for": "$\\frac{256}{3}$ cao"
+      }
+     ]
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "At the intersections, $8\\sqrt{x} - x = x \\Rightarrow 8\\sqrt{x} = 2x \\Rightarrow \\sqrt{x}(\\sqrt{x} - 4) = 0$, so $\\sqrt{x} = 0$ or $\\sqrt{x} = 4$. So $P$ has $x = 16$ (and $P = (16, 16)$).",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "On $0 < x < 16$ the curve lies above the line (e.g. at $x = 4$: curve $y = 12$, line $y = 4$). So Area $= \\int_0^{16} \\left(8x^{\\frac{1}{2}} - x - x\\right)\\,\\mathrm{d}x = \\int_0^{16} \\left(8x^{\\frac{1}{2}} - 2x\\right)\\,\\mathrm{d}x$.",
+     "mark": "0"
+    },
+    {
+     "step": 3,
+     "working": "Integrating: $\\int \\left(8x^{\\frac{1}{2}} - 2x\\right)\\mathrm{d}x = \\frac{8x^{\\frac{3}{2}}}{\\frac{3}{2}} - x^2 = \\frac{16}{3}x^{\\frac{3}{2}} - x^2$.",
+     "mark": "M1 A1"
+    },
+    {
+     "step": 4,
+     "working": "$\\left[\\frac{16}{3}x^{\\frac{3}{2}} - x^2\\right]_0^{16} = \\left(\\frac{16}{3}\\times 64 - 256\\right) - 0 = \\frac{1024}{3} - \\frac{768}{3}$.",
+     "mark": "M1"
+    },
+    {
+     "step": 5,
+     "working": "Area of $R = \\frac{256}{3}$.",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "area",
+     "expr": "256/3",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "solutions",
+     "equation": "8*sqrt(x) - x = x",
+     "var": "x",
+     "interval": [
+      0,
+      100
+     ],
+     "closed": [
+      true,
+      true
+     ],
+     "result": [
+      "0",
+      "16"
+     ]
+    },
+    {
+     "type": "derivative",
+     "f": "16/3*x^(3/2) - x^2",
+     "var": "x",
+     "result": "8*sqrt(x) - 2x"
+    },
+    {
+     "type": "integral",
+     "f": "8*sqrt(x) - 2x",
+     "var": "x",
+     "lower": "0",
+     "upper": "16",
+     "answer": "area"
+    },
+    {
+     "type": "integral",
+     "f": "8*sqrt(x) - x",
+     "var": "x",
+     "lower": "0",
+     "upper": "16",
+     "result": "640/3"
+    },
+    {
+     "type": "numeric",
+     "expr": "640/3 - (1/2)*16*16",
+     "result": "256/3"
+    }
+   ],
+   "hints": [
+    "Start by finding where the curve and the line meet. Set $8\\sqrt{x} - x = x$ and solve for $x$. It may help to factorise out $\\sqrt{x}$.",
+    "Before you integrate, rewrite $\\sqrt{x}$ as $x^{\\frac{1}{2}}$. Then integrate (upper graph $-$ lower graph) between the two $x$-values."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "step": 3,
+   "error_code": "not-rewritten-as-powers",
+   "text": "A common mistake is to integrate $8\\sqrt{x}$ without first writing it as $8x^{\\frac{1}{2}}$. This gives wrong results such as $4x$ or $8x\\sqrt{x}$. Always write $\\sqrt{x} = x^{\\frac{1}{2}}$ before you integrate. If you don't, and neither term is integrated correctly, you lose the integration M1 and the A1 after it.",
+   "says_common": true
+  },
+  {
+   "part": null,
+   "step": 3,
+   "error_code": "integration-power-rule-error",
+   "text": "A common slip with $x^{\\frac{1}{2}}$ is to divide by the old power $\\frac{1}{2}$ instead of the new power $\\frac{3}{2}$. That gives $16x^{\\frac{3}{2}}$ instead of $\\frac{16}{3}x^{\\frac{3}{2}}$. Multiplying by $\\frac{3}{2}$ to get $12x^{\\frac{3}{2}}$ is also wrong. Raise the power by 1 to get $\\frac{3}{2}$, then divide by that new power. Otherwise the integral is wrong and you lose the A1 and the final A1.",
+   "says_common": true
+  },
+  {
+   "part": null,
+   "step": 1,
+   "error_code": "area-between-wrong-subtraction",
+   "text": "A common mistake is to stop at $\\sqrt{x} = 4$ and use $4$ as the upper limit. The limit must be the $x$-coordinate, $x = 16$. Another common mistake is to integrate line $-$ curve, which gives $-\\frac{256}{3}$. The curve is above the line for $0 < x < 16$, so integrate curve $-$ line. With the wrong limit you lose the M1 for using the limits and the final A1.",
+   "says_common": true
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T16:13:03",
+ "generation": {
+  "attempts": 1,
+  "cost_usd": 0.1336
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 5
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.891 with question:GCE2008_6664_Jan2008_Q7"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.067,
+   "jaccard_source": "GCE2008_6664_Jan2008_Q7",
+   "shared_numbers": 0,
+   "max_cosine": 0.891,
+   "cosine_source": "question:GCE2008_6664_Jan2008_Q7"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 5,
+   "n_answers": 1,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0041,
+   "solver": {
+    "parts": [
+     {
+      "label": null,
+      "answers": [
+       "256/3"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "Set 8√x - x = x, so √x = 4 and x = 16, giving P(16,16). Area = ∫0^16 (8√x - 2x) dx = [16x^{3/2}/3 - x^2] from 0 to 16 = 1024/3 - 256 = 256/3."
+     }
+    ],
+    "problems": []
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "response pitfall-1 (pitfall not-rewritten-as-powers): second marker agrees with the design; first marker gave {'-': ['M1', 'M0', 'A0', 'M1', 'A0']}"
+   ],
+   "flag": true,
+   "n_responses": 6,
+   "agreed": [
+    "correct",
+    "pitfall-1",
+    "pitfall-2",
+    "pitfall-3",
+    "alternative",
+    "partial"
+   ],
+   "consistent": {},
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "correct",
+     "kind": "correct",
+     "work": "$8\\sqrt{x}=x+x \\Rightarrow 8\\sqrt{x}=2x \\Rightarrow \\sqrt{x}=4 \\Rightarrow x=16$.\nArea $=\\int_0^{16}(8x^{1/2}-2x)\\,dx=\\left[\\frac{16}{3}x^{3/2}-x^2\\right]_0^{16}=\\frac{16}{3}(64)-256=\\frac{1024}{3}-\\frac{768}{3}=\\frac{256}{3}$",
+     "error_code": null,
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pitfall-1",
+     "kind": "pitfall",
+     "work": "$8\\sqrt{x}=2x \\Rightarrow \\sqrt{x}=4 \\Rightarrow x=16$.\nArea $=\\int_0^{16}(8\\sqrt{x}-2x)\\,dx=\\left[8x\\sqrt{x}-x^2\\right]_0^{16}$ (integrating $\\sqrt{x}$ as $x\\sqrt{x}$ without writing as a power)\n$=8(16)(4)-256=512-256=256$",
+     "error_code": "not-rewritten-as-powers",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "M1",
+        "A0",
+        "M1",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pitfall-2",
+     "kind": "pitfall",
+     "work": "$8\\sqrt{x}=2x \\Rightarrow \\sqrt{x}=4 \\Rightarrow x=16$.\nArea $=\\int_0^{16}(8x^{1/2}-2x)\\,dx=\\left[\\frac{8x^{3/2}}{1/2}-x^2\\right]_0^{16}=\\left[16x^{3/2}-x^2\\right]_0^{16}$\n$=16(64)-256=1024-256=768$",
+     "error_code": "integration-power-rule-error",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "M1",
+        "A0",
+        "M1",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pitfall-3",
+     "kind": "pitfall",
+     "work": "$8\\sqrt{x}=2x \\Rightarrow \\sqrt{x}=4$, so $P$ is at $x=4$.\nArea $=\\int_0^{4}(8x^{1/2}-2x)\\,dx=\\left[\\frac{16}{3}x^{3/2}-x^2\\right]_0^{4}=\\frac{16}{3}(8)-16=\\frac{128}{3}-\\frac{48}{3}=\\frac{80}{3}$",
+     "error_code": "area-between-wrong-subtraction",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M0",
+        "M1",
+        "A1",
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "alternative",
+     "kind": "alternative",
+     "work": "$8\\sqrt{x}=x \\cdot 2 \\Rightarrow x=16$, so $P=(16,16)$.\nArea under $C$: $\\int_0^{16}(8x^{1/2}-x)\\,dx=\\left[\\frac{16}{3}x^{3/2}-\\frac{1}{2}x^2\\right]_0^{16}=\\frac{1024}{3}-128=\\frac{640}{3}$.\nTriangle $=\\frac12(16)(16)=128$.\nArea $R=\\frac{640}{3}-128=\\frac{256}{3}$",
+     "error_code": null,
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "partial",
+     "kind": "partial",
+     "work": "$8\\sqrt{x}=2x \\Rightarrow \\sqrt{x}=4 \\Rightarrow x=16$.\nArea $=\\int_0^{16}(8x^{1/2}-2x)\\,dx=\\frac{16}{3}x^{3/2}-x^2$ and I'm not sure what to do next.",
+     "error_code": null,
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "correct",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pitfall-1",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "M0",
+        "A0",
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "M0: sqrt(x) not written as a power x^(1/2) before integrating",
+      "A0: integral 8x√x - x^2 is incorrect (coefficient should be 16/3)",
+      "A0: final answer 256 is incorrect"
+     ]
+    },
+    {
+     "id": "pitfall-2",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "M1",
+        "A0",
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "A0: integral 16x^(3/2) is incorrect (dividing by 1/2 instead of 3/2)",
+      "A0: final answer 768 is incorrect"
+     ]
+    },
+    {
+     "id": "pitfall-3",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M0",
+        "M1",
+        "A1",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "M0: gives x=4 (the value of √x) instead of x=16 for P",
+      "M0: upper limit 4 is not the correct x-coordinate of P (it is the value of √x)",
+      "A0: final answer 80/3 is incorrect"
+     ]
+    },
+    {
+     "id": "alternative",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "partial",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "M0: no substitution of limits 16 and 0",
+      "A0: no final area given"
+     ]
+    }
+   ],
+   "awarded_second": [
+    {
+     "id": "pitfall-1",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "M1",
+        "A0",
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "A0: The integral is wrong. 8√x was integrated as 8x√x instead of (16/3)x^{3/2}.",
+      "A0: The final answer is 256, not 256/3."
+     ]
+    }
+   ],
+   "cost_usd": 0.0757
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "agreement": "1/1",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.01497,
+   "retagged": {
+    "-": [
+     "area-between-curve-and-line",
+     "substitute-to-find-intersections",
+     "solve-hidden-quadratic",
+     "integrate-powers-of-x"
+    ]
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

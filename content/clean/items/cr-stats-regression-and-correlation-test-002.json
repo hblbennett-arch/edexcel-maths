@@ -1,0 +1,388 @@
+{
+ "id": "cr-stats-regression-and-correlation-test-002",
+ "blueprint_id": "bp-stats-regression-and-correlation-test-002",
+ "question_type": "regression-and-correlation-test",
+ "component": "stats",
+ "tier": "challenging",
+ "kind": "exam",
+ "stem": "A city runs an electric-bike hire scheme. An operations analyst takes a random sample of 15 docking stations. For each station she records $x$, the straight-line distance in km from the station to the city's main railway station, and $y$, the mean number of bikes hired per day from that station during March. In the sample, the values of $x$ range from $0.4$ to $6.8$.\n\nThe product moment correlation coefficient between $x$ and $y$ is $r = -0.472$.\n\nThe regression line of $y$ on $x$ is $y = 41.6 - 3.85x$.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 1,
+   "text": "Describe what the value $-3.85$ in the regression equation tells you about the e-bike hire scheme. (1)",
+   "command": "describe",
+   "forms": [],
+   "skills": [
+    "interpret-regression-coefficients",
+    "describe-correlation"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Gives the gradient's meaning in context, with its rate per km: for each extra 1 km from the main railway station, the mean number of hires per day goes down by about 3.85 (oe).",
+     "notes": "Must say 'per km' (or 'for every km'), must say it is a decrease, and must refer to hires/bikes. Reject answers that only say 'negative correlation'. Reject causal wording such as 'being further away causes 3.85 fewer hires'."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "The gradient of $y = 41.6 - 3.85x$ is $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = -3.85$, so $y$ drops by $3.85$ for each increase of $1$ in $x$.",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "In context: for each extra kilometre between a docking station and the main railway station, the mean number of bikes hired per day falls by about $3.85$.",
+     "mark": "B1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "gradient",
+     "expr": "-3.85",
+     "form": "dp-2",
+     "exact": "-77/20"
+    }
+   ],
+   "checks": [
+    {
+     "type": "derivative",
+     "f": "41.6 - 3.85x",
+     "var": "x",
+     "result": "-3.85",
+     "answer": "gradient"
+    },
+    {
+     "type": "substitute",
+     "expr": "(41.6 - 3.85*(x+1)) - (41.6 - 3.85*x)",
+     "at": {
+      "x": 2
+     },
+     "result": "-77/20"
+    }
+   ],
+   "hints": [
+    "$-3.85$ is the gradient of the line. What happens to $y$ when $x$ goes up by 1?",
+    "Say what $x$ and $y$ measure, and give their units."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 2,
+   "text": "The analyst believes that stations further from the main railway station tend to have fewer hires per day. State suitable hypotheses, in terms of the population correlation coefficient $\\rho$, for a test of her belief. Using a 5% significance level, state the critical value you use and the conclusion of the test in context. (2)",
+   "command": "state",
+   "forms": [],
+   "skills": [
+    "state-hypotheses-correlation-test",
+    "correlation-test-critical-value",
+    "conclude-test-in-context",
+    "large-data-set-knowledge"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Both hypotheses written with $\\rho$: $\\mathrm{H_0}: \\rho = 0$, $\\mathrm{H_1}: \\rho < 0$.",
+     "notes": "Hypotheses written in words only, or using $r$ in place of $\\rho$, score B0."
+    },
+    {
+     "code": "B1ft",
+     "for": "Critical value $-0.4409$ (for $n = 15$, one-tailed 5%). Since $-0.472 < -0.4409$, $r$ is in the critical region, so reject $\\mathrm{H_0}$. There is evidence that daily hires tend to fall as the distance from the railway station increases (negative correlation between distance and hires).",
+     "ft_of": "part b hypotheses",
+     "notes": "ft: if $\\mathrm{H_1}: \\rho \\neq 0$ was used, allow critical value $\\pm 0.5140$ with the conclusion 'do not reject $\\mathrm{H_0}$; not enough evidence of correlation between distance and hires'. The conclusion must be in context. Reject 'proves' or other over-definite wording."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\mathrm{H_0}: \\rho = 0$, $\\quad \\mathrm{H_1}: \\rho < 0$",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "From the table, for $n = 15$ at 5% one-tailed the critical value is $0.4409$, so the critical region is $r \\leqslant -0.4409$.",
+     "mark": "0"
+    },
+    {
+     "step": 3,
+     "working": "$-0.472 < -0.4409$, so reject $\\mathrm{H_0}$. There is evidence of negative correlation: stations further from the main railway station tend to have fewer hires per day.",
+     "mark": "B1ft"
+    }
+   ],
+   "answers": [
+    {
+     "name": "cv",
+     "expr": "-0.4409",
+     "form": "dp-4",
+     "exact": "-4409/10000"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "-4409/10000",
+     "result": "-0.4409",
+     "form": "dp-4",
+     "answer": "cv"
+    },
+    {
+     "type": "numeric",
+     "expr": "-0.472 - (-0.4409)",
+     "result": "-0.0311",
+     "form": "dp-4"
+    }
+   ],
+   "hints": [
+    "The belief is about one direction only, so decide which one-tailed alternative matches 'further away means fewer hires'.",
+    "Use the PMCC table with $n = 15$ and the correct tail."
+   ]
+  },
+  {
+   "label": "c",
+   "marks": 1,
+   "text": "A colleague uses the same data to test instead for correlation in either direction, positive or negative, between $x$ and $y$, again at the 5% level. State, with a reason, whether the colleague reaches the same conclusion as the analyst did in part (b). (1)",
+   "command": "state",
+   "forms": [],
+   "skills": [
+    "assess-linear-model-fit",
+    "explain-with-reason",
+    "state-hypotheses-correlation-test",
+    "correlation-test-critical-value"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "No, the conclusion is different. For $\\mathrm{H_1}: \\rho \\neq 0$ the 5% two-tailed critical value is $\\pm 0.5140$, and $|-0.472| = 0.472 < 0.5140$, so the colleague does not reject $\\mathrm{H_0}$ (not significant).",
+     "notes": "Needs the value $0.5140$ (or $-0.5140$), a correct comparison and the statement that the conclusion changes or that $\\mathrm{H_0}$ is not rejected. Using $0.4409$ again scores B0."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "The colleague's hypotheses are $\\mathrm{H_0}: \\rho = 0$ and $\\mathrm{H_1}: \\rho \\neq 0$, so 2.5% goes in each tail.",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "For $n = 15$ the critical values are $\\pm 0.5140$. Since $0.472 < 0.5140$, $r$ is not in the critical region, so the colleague does not reject $\\mathrm{H_0}$. This is not the same conclusion as in part (b).",
+     "mark": "B1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "cv2",
+     "expr": "0.5140",
+     "form": "dp-4",
+     "exact": "257/500"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "257/500",
+     "result": "0.5140",
+     "form": "dp-4",
+     "answer": "cv2"
+    },
+    {
+     "type": "numeric",
+     "expr": "abs(-0.472)",
+     "result": "0.472",
+     "form": "dp-3"
+    }
+   ],
+   "hints": [
+    "A test for correlation 'in either direction' is two-tailed. How does that change the tail probability you look up?"
+   ]
+  },
+  {
+   "label": "d",
+   "marks": 1,
+   "text": "For the same 15 docking stations the analyst also records $w$, the number of bus stops within 400 m of each station. The product moment correlation coefficient between $w$ and $y$ is $0.391$. For the hypotheses $\\mathrm{H_0}: \\rho = 0$ and $\\mathrm{H_1}: \\rho \\neq 0$, her software gives a p-value of $0.148$. Test these hypotheses at the 10% significance level, and give your conclusion in terms of bus stops and bike hires. (1)",
+   "command": "test",
+   "forms": [],
+   "skills": [
+    "assess-linear-model-fit",
+    "translate-context-into-model",
+    "describe-correlation",
+    "explain-with-reason"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Compares $0.148$ with $0.10$: since $0.148 > 0.10$, do not reject $\\mathrm{H_0}$. There is insufficient evidence of any correlation between the number of bus stops near a docking station and its mean daily bike hires.",
+     "notes": "The comparison and a conclusion in context are both needed. Reject 'there is no correlation' (too definite) and any causal claim."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "p-value $= 0.148 > 0.10$, so the result is not significant at the 10% level and $\\mathrm{H_0}$ is not rejected.",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "There is not enough evidence to suggest that the number of bus stops within 400 m of a docking station is correlated with the mean number of bikes hired per day there.",
+     "mark": "B1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "p",
+     "expr": "0.148",
+     "form": "sf-3",
+     "exact": "37/250"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "37/250",
+     "result": "0.148",
+     "form": "sf-3",
+     "answer": "p"
+    },
+    {
+     "type": "numeric",
+     "expr": "37/250 - 1/10",
+     "result": "0.048",
+     "form": "sf-2"
+    }
+   ],
+   "hints": [
+    "Since the test is already two-tailed, compare the p-value directly with the significance level.",
+    "Say what 'not rejecting $\\mathrm{H_0}$' means for bus stops and bike hires, without being too definite."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "error_code": "regression-interpretation-error",
+   "text": "If you only write 'hires decrease by 3.85' and don't say 'for each extra km from the railway station' and 'per day', you haven't given the rate in context, so you lose the B1.",
+   "says_common": false,
+   "step": 2
+  },
+  {
+   "part": "a",
+   "error_code": "correlation-as-causation",
+   "text": "Don't write that being 1 km further away causes 3.85 fewer hires. The regression line describes a trend in the sample, not a cause, and causal wording loses the B1.",
+   "says_common": false,
+   "step": 2
+  },
+  {
+   "part": "a",
+   "error_code": "log-linear-constants-confused",
+   "text": "Don't confuse the gradient $-3.85$ with the intercept $41.6$. The $41.6$ is the predicted daily hires at distance $0$. The rate of change per km is the $-3.85$.",
+   "says_common": false,
+   "step": 1
+  },
+  {
+   "part": "b",
+   "error_code": "hypotheses-not-in-parameter",
+   "text": "If you write the hypotheses in words, or as $r = 0$ and $r < 0$, you lose the first B1. The hypotheses are about the population, so they must use $\\rho$.",
+   "says_common": false,
+   "step": 1
+  },
+  {
+   "part": "b",
+   "error_code": "pmcc-critical-value-error",
+   "text": "The analyst's belief is one-directional, so use the one-tailed 5% value for $n = 15$, which is $0.4409$. Reading the column for another sample size or for 2.5% gives the wrong critical region.",
+   "says_common": false,
+   "step": 2
+  },
+  {
+   "part": "b",
+   "error_code": "conclusion-too-definite-or-no-context",
+   "text": "Don't say the test 'proves' that distance reduces hires, and don't just write 'reject $\\mathrm{H_0}$'. Say there is evidence that stations further from the railway station tend to have fewer daily hires.",
+   "says_common": false,
+   "step": 3
+  },
+  {
+   "part": "c",
+   "error_code": "pmcc-critical-value-error",
+   "text": "If you use $0.4409$ again for the colleague's test, you will wrongly say the conclusion is the same. A two-tailed 5% test puts 2.5% in each tail, which gives $0.5140$ for $n = 15$.",
+   "says_common": false,
+   "step": 2
+  },
+  {
+   "part": "c",
+   "error_code": "hypotheses-not-in-parameter",
+   "text": "The colleague's alternative is $\\mathrm{H_1}: \\rho \\neq 0$. If you write it as 'there is correlation' you can't clearly see that the test is two-tailed.",
+   "says_common": false,
+   "step": 1
+  },
+  {
+   "part": "c",
+   "error_code": "point-probability-compared",
+   "text": "Compare the size of $r$, $0.472$, with the critical value $0.5140$. Don't compare $r$ with the significance level $0.05$, which is a probability, not a correlation coefficient.",
+   "says_common": false,
+   "step": 2
+  },
+  {
+   "part": "d",
+   "error_code": "parameter-meaning-no-context",
+   "text": "Writing only '$0.148 > 0.10$ so accept $\\mathrm{H_0}$' leaves out the context. You need to talk about bus stops near the docking station and daily bike hires to earn the B1.",
+   "says_common": false,
+   "step": 2
+  },
+  {
+   "part": "d",
+   "error_code": "correlation-as-causation",
+   "text": "Don't conclude that bus stops have no effect on bike hires, or that they cause more hires. A correlation test can only give evidence about association, and here there isn't enough evidence even of that.",
+   "says_common": false,
+   "step": 2
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T17:03:56",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.5725
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 5
+  },
+  "G7": {
+   "pass": false,
+   "flag": true,
+   "reasons": [
+    "5 word 8-gram(s) also in the Pearson corpus (not whitelisted)"
+   ],
+   "flags": [
+    "cosine 0.831 with part:P3_June2018_Q2:a"
+   ],
+   "hit_fields": [
+    "part b solution",
+    "stem"
+   ],
+   "n_8gram_hits": 5,
+   "max_jaccard": 0.021,
+   "jaccard_source": "P3_June2022_stats_Q6",
+   "shared_numbers": 2,
+   "max_cosine": 0.831,
+   "cosine_source": "part:P3_June2018_Q2:a"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 8,
+   "n_answers": 4,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

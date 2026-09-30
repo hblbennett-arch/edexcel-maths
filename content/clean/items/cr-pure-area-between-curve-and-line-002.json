@@ -1,0 +1,421 @@
+{
+ "id": "cr-pure-area-between-curve-and-line-002",
+ "blueprint_id": "bp-pure-area-between-curve-and-line-002",
+ "question_type": "area-between-curve-and-line",
+ "component": "pure",
+ "tier": "standard",
+ "kind": "exam",
+ "stem": "The curve $C$ has equation $y = 6\\sqrt{x} - x$, $x \\geqslant 0$. The point $P$ lies on $C$ and has $x$-coordinate $4$. The straight line $T$ is the tangent to $C$ at $P$.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 8,
+   "command": "write-down",
+   "forms": [],
+   "skills": [
+    "substitute-to-find-intersections"
+   ],
+   "text": "Obtain the equation of $T$ in the form $y = mx + c$. Write down the coordinates of the point where $T$ cuts the $y$-axis. Then replace $y$ in the equation of $C$ with your expression for $T$ and use the resulting equation to demonstrate that $P$ is the only point shared by $T$ and $C$. (8)",
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Differentiates $6x^{\\frac{1}{2}} - x$ with at least one power of $x$ reduced by 1 (e.g. a term in $x^{-\\frac{1}{2}}$ appears)",
+     "notes": "The root must be treated as a power $x^{\\frac12}$ for the method to count"
+    },
+    {
+     "code": "A1",
+     "for": "$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 3x^{-\\frac{1}{2}} - 1$ oe, e.g. $\\frac{3}{\\sqrt{x}} - 1$"
+    },
+    {
+     "code": "A1",
+     "for": "Gradient of $T$ at $x = 4$ is $\\frac{1}{2}$",
+     "notes": "cao"
+    },
+    {
+     "code": "M1",
+     "for": "Finds $y = 8$ at $P$ and uses $(4, 8)$ with their gradient to write a straight-line equation, e.g. $y - 8 = \\frac{1}{2}(x - 4)$",
+     "notes": "Their gradient must come from their derivative, not the normal gradient"
+    },
+    {
+     "code": "B1",
+     "for": "$T$ cuts the $y$-axis at $(0, 6)$, following from $y = \\frac{1}{2}x + 6$",
+     "notes": "cao; accept $y = \\frac12 x + 6$ stated together with $(0,6)$"
+    },
+    {
+     "code": "M1",
+     "for": "Replaces $y$ in $y = 6\\sqrt{x} - x$ by their linear expression to form one equation in $x$ only, e.g. $6\\sqrt{x} - x = \\frac{1}{2}x + 6$"
+    },
+    {
+     "code": "M1",
+     "for": "Collects terms into a 3-term quadratic in $\\sqrt{x}$ (e.g. $x - 4\\sqrt{x} + 4 = 0$) and tries to solve it by factorising, formula or completing the square",
+     "notes": "Accept substitution $u = \\sqrt{x}$ giving $u^2 - 4u + 4 = 0$"
+    },
+    {
+     "code": "A1",
+     "for": "$(\\sqrt{x} - 2)^2 = 0$ so $\\sqrt{x} = 2$, $x = 4$ is the only (repeated) solution, with a conclusion that $T$ and $C$ meet only at $P$",
+     "notes": "cso; the conclusion must be stated"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$y = 6x^{\\frac12} - x \\Rightarrow \\frac{\\mathrm{d}y}{\\mathrm{d}x} = 3x^{-\\frac12} - 1$",
+     "mark": "M1 A1"
+    },
+    {
+     "step": 2,
+     "working": "At $x = 4$: $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\frac{3}{2} - 1 = \\frac{1}{2}$",
+     "mark": "A1"
+    },
+    {
+     "step": 3,
+     "working": "At $x = 4$: $y = 6(2) - 4 = 8$. Tangent: $y - 8 = \\frac{1}{2}(x - 4) \\Rightarrow y = \\frac{1}{2}x + 6$",
+     "mark": "M1"
+    },
+    {
+     "step": 4,
+     "working": "When $x = 0$, $y = 6$, so $T$ cuts the $y$-axis at $(0, 6)$",
+     "mark": "B1"
+    },
+    {
+     "step": 5,
+     "working": "Substitute: $6\\sqrt{x} - x = \\frac{1}{2}x + 6$",
+     "mark": "M1"
+    },
+    {
+     "step": 6,
+     "working": "Multiply by 2: $12\\sqrt{x} - 2x = x + 12 \\Rightarrow 3x - 12\\sqrt{x} + 12 = 0 \\Rightarrow x - 4\\sqrt{x} + 4 = 0$",
+     "mark": "M1"
+    },
+    {
+     "step": 7,
+     "working": "$(\\sqrt{x} - 2)^2 = 0 \\Rightarrow \\sqrt{x} = 2 \\Rightarrow x = 4$ only. This is a repeated root, so $T$ and $C$ meet only at $P(4, 8)$.",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "m",
+     "expr": "1/2",
+     "form": "exact"
+    },
+    {
+     "name": "c",
+     "expr": "6",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "derivative",
+     "f": "6*sqrt(x) - x",
+     "var": "x",
+     "result": "3/sqrt(x) - 1"
+    },
+    {
+     "type": "substitute",
+     "expr": "3/sqrt(x) - 1",
+     "at": {
+      "x": 4
+     },
+     "answer": "m"
+    },
+    {
+     "type": "substitute",
+     "expr": "(6*sqrt(x) - x) - (3/sqrt(x) - 1)*x",
+     "at": {
+      "x": 4
+     },
+     "answer": "c"
+    },
+    {
+     "type": "solutions",
+     "equation": "6*sqrt(x) - x = x/2 + 6",
+     "var": "x",
+     "interval": [
+      0,
+      100
+     ],
+     "result": [
+      "4"
+     ]
+    }
+   ],
+   "hints": [
+    "Rewrite $\\sqrt{x}$ as $x^{\\frac12}$ before you differentiate, then evaluate the gradient at $x = 4$.",
+    "After substituting, treat the equation as a quadratic in $\\sqrt{x}$. What does a repeated root tell you about the line and the curve?"
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 7,
+   "command": "use",
+   "forms": [],
+   "skills": [
+    "integrate-powers-of-x",
+    "evaluate-definite-integral",
+    "exact-form-answers"
+   ],
+   "text": "The finite region $R$ is bounded by the curve $C$, the line $T$ and the $y$-axis. Use integration to find the exact area of $R$. (7)",
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Area under $T$ between $x = 0$ and $x = 4$ is $28$ (trapezium with parallel sides $6$ and $8$ and width $4$, or $\\int_0^4 (\\frac12 x + 6)\\,\\mathrm{d}x$)"
+    },
+    {
+     "code": "M1",
+     "for": "Integrates $6x^{\\frac12} - x$ with at least one power of $x$ raised by 1",
+     "notes": "$\\sqrt{x}$ must be treated as $x^{\\frac12}$"
+    },
+    {
+     "code": "A1ft",
+     "for": "$4x^{\\frac32} - \\frac{1}{2}x^2$ correct",
+     "ft_of": "a",
+     "notes": "ft only if they integrate a combined expression using their tangent from (a)"
+    },
+    {
+     "code": "dM1",
+     "depends_on": "M1",
+     "for": "Substitutes $x = 4$ and $x = 0$ into their integral and subtracts (upper minus lower)"
+    },
+    {
+     "code": "A1",
+     "for": "Area under $C$ from $0$ to $4$ is $24$",
+     "notes": "cao"
+    },
+    {
+     "code": "dM1",
+     "depends_on": "M1",
+     "for": "Subtracts area under $C$ from area under $T$: their $28 - $ their $24$",
+     "notes": "Must be the tangent area minus the curve area"
+    },
+    {
+     "code": "A1",
+     "for": "Area of $R = 4$",
+     "notes": "cao"
+    }
+   ],
+   "alternatives": [
+    {
+     "name": "Way 2: single integral of (line minus curve)",
+     "marks": [
+      {
+       "code": "B1",
+       "for": "Uses limits $0$ and $4$"
+      },
+      {
+       "code": "M1",
+       "for": "Takes line minus curve: $\\left(\\frac12 x + 6\\right) - \\left(6\\sqrt{x} - x\\right)$"
+      },
+      {
+       "code": "A1ft",
+       "for": "Integrand simplified to $\\frac32 x + 6 - 6x^{\\frac12}$",
+       "ft_of": "a"
+      },
+      {
+       "code": "dM1",
+       "depends_on": "M1",
+       "for": "Integrates, with at least one power of $x$ raised by 1"
+      },
+      {
+       "code": "A1",
+       "for": "$\\frac34 x^2 + 6x - 4x^{\\frac32}$"
+      },
+      {
+       "code": "dM1",
+       "depends_on": "M1",
+       "for": "Substitutes $4$ and $0$ and subtracts: $(12 + 24 - 32) - 0$"
+      },
+      {
+       "code": "A1",
+       "for": "Area $= 4$",
+       "notes": "cao"
+      }
+     ]
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Area under $T$ from $0$ to $4$: $\\frac{1}{2}(6 + 8)(4) = 28$",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "$\\int (6x^{\\frac12} - x)\\,\\mathrm{d}x = 4x^{\\frac32} - \\frac12 x^2$",
+     "mark": "M1 A1ft"
+    },
+    {
+     "step": 3,
+     "working": "$\\left[4x^{\\frac32} - \\frac12 x^2\\right]_0^4 = (4 \\times 8 - 8) - 0 = 24$",
+     "mark": "dM1 A1"
+    },
+    {
+     "step": 4,
+     "working": "Area of $R = 28 - 24 = 4$",
+     "mark": "dM1 A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "area",
+     "expr": "4",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "integral",
+     "f": "6*sqrt(x) - x",
+     "var": "x",
+     "lower": "0",
+     "upper": "4",
+     "result": "24"
+    },
+    {
+     "type": "integral",
+     "f": "x/2 + 6",
+     "var": "x",
+     "lower": "0",
+     "upper": "4",
+     "result": "28"
+    },
+    {
+     "type": "integral",
+     "f": "x/2 + 6 - (6*sqrt(x) - x)",
+     "var": "x",
+     "lower": "0",
+     "upper": "4",
+     "answer": "area"
+    },
+    {
+     "type": "integral",
+     "f": "6*sqrt(x) - x",
+     "var": "x",
+     "result": "4*x^(3/2) - x^2/2"
+    }
+   ],
+   "hints": [
+    "Between $x = 0$ and $x = 4$, $T$ lies above $C$. Find the area under each and subtract, or integrate (line minus curve).",
+    "Write $6\\sqrt{x}$ as $6x^{\\frac12}$ before integrating."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 5,
+   "error_code": "simultaneous-elimination-error",
+   "text": "When you move everything to one side of $6\\sqrt{x} - x = \\frac12 x + 6$, change the sign of every term you move. Writing $6\\sqrt{x} - x - \\frac12 x + 6 = 0$ (adding the 6 when you should subtract it) gives the wrong quadratic, so you lose the M1 for forming and solving it and the final A1.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "step": 6,
+   "error_code": "rearranging-inverse-operation-error",
+   "text": "If you isolate the root and square, $12\\sqrt{x} = 3x + 12$ becomes $144x = (3x + 12)^2 = 9x^2 + 72x + 144$. Squaring each term on its own to get $9x^2 + 144$ drops the cross term, and you lose the method mark. Treating the equation as a quadratic in $\\sqrt{x}$ avoids squaring altogether.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "not-rewritten-as-powers",
+   "text": "Write $6\\sqrt{x}$ as $6x^{\\frac12}$ before you integrate. If you integrate the root directly, e.g. to $6 \\times \\frac{x^2}{2}$, the M1 is lost and every later mark goes with it.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "integration-power-rule-error",
+   "text": "To integrate $6x^{\\frac12}$, raise the power to $\\frac32$ and divide by $\\frac32$, which gives $4x^{\\frac32}$. Multiplying by the old power instead gives $3x^{\\frac32}$, which is wrong and costs you the A1. It also changes the value 24.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 3,
+   "error_code": "limits-substitution-error",
+   "text": "Work out the value at the upper limit minus the value at the lower limit: $F(4) - F(0) = 24$. If you do $F(0) - F(4)$ you get $-24$, and then $28 - (-24) = 52$ is wrong for the area of $R$, so you lose both A1 marks.",
+   "says_common": true
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T16:57:47",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.6267
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 15
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.925 with part:GCE2008_6663_June2017_Q7:a"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.059,
+   "jaccard_source": "GCE2008_6665_Jan2013_Q1",
+   "shared_numbers": 0,
+   "max_cosine": 0.925,
+   "cosine_source": "part:GCE2008_6663_June2017_Q7:a"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 8,
+   "n_answers": 3,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": false,
+   "errors": [
+    "part a: expected m = 1/2, solver got ['y = x/2 + 6', '(0, 6)'] [judge: differs - no verdict]",
+    "part a: expected c = 6, solver got ['y = x/2 + 6', '(0, 6)'] [judge: differs - no verdict]"
+   ],
+   "flags": [],
+   "flag": false,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.018,
+   "solver": {
+    "parts": [
+     {
+      "label": "(a)",
+      "answers": [
+       "y = x/2 + 6",
+       "(0, 6)"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "P=(4,8). dy/dx = 3/sqrt(x) - 1 = 1/2 at x=4. T: y = x/2 + 6, cutting the y-axis at (0,6). Setting 6sqrt(x) - x = x/2 + 6 gives x - 4sqrt(x) + 4 = 0, i.e. (sqrt(x)-2)^2 = 0. So sqrt(x)=2, x=4 is the only solution (repeated root), so P is the only common point."
+     },
+     {
+      "label": "(b)",
+      "answers": [
+       "4"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "T lies above C on 0<=x<=4. Area = integral from 0 to 4 of (x/2 + 6 - 6sqrt(x) + x) dx = [3x^2/4 + 6x - 4x^(3/2)] from 0 to 4 = 12 + 24 - 32 = 4."
+     }
+    ],
+    "problems": []
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

@@ -1,0 +1,1295 @@
+{
+ "id": "cr-stats-normal-conditional-probability-009",
+ "blueprint_id": "bp-stats-normal-conditional-probability-009",
+ "question_type": "normal-conditional-probability",
+ "component": "stats",
+ "tier": "standard",
+ "kind": "exam",
+ "stem": "A hill farmer shears every sheep in her flock once a year. The mass, $F$ kg, of a fleece from a randomly chosen sheep is modelled by $F \\sim \\mathrm{N}(2.6,\\ 0.45^2)$.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 1,
+   "text": "Find $\\mathrm{P}(F > 3)$. (1)",
+   "command": "find",
+   "skills": [
+    "normal-probability-calculator"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "$\\mathrm{P}(F>3) = 0.187$",
+     "notes": "awrt 0.187. Accept 0.1870 or more figures."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Using the normal distribution function on a calculator with $\\mu = 2.6$ and $\\sigma = 0.45$: $\\mathrm{P}(F>3) = 0.18703\\ldots \\approx 0.187$",
+     "mark": "B1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "pa",
+     "expr": "0.187",
+     "form": "sf-3"
+    }
+   ],
+   "checks": [
+    {
+     "type": "normal",
+     "mean": "2.6",
+     "sd": "0.45",
+     "lower": 3,
+     "answer": "pa",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "Put the mean 2.6 and the standard deviation 0.45 (not the variance) into your calculator's normal distribution function, with 3 as the lower limit."
+   ],
+   "forms": []
+  },
+  {
+   "label": "b",
+   "marks": 1,
+   "text": "Fleeces with a mass below 2 kg are rejected by the wool cooperative that buys her wool. Find the probability that a randomly chosen fleece is accepted by the cooperative. (1)",
+   "command": "find",
+   "skills": [
+    "normal-probability-calculator"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "$\\mathrm{P}(F \\geqslant 2) = 0.909$",
+     "notes": "awrt 0.909."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "A fleece is accepted if $F \\geqslant 2$. $\\mathrm{P}(F \\geqslant 2) = 0.90878\\ldots \\approx 0.909$",
+     "mark": "B1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "pb",
+     "expr": "0.909",
+     "form": "sf-3"
+    }
+   ],
+   "checks": [
+    {
+     "type": "normal",
+     "mean": "2.6",
+     "sd": "0.45",
+     "lower": 2,
+     "answer": "pb",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "Accepted means the mass is at least 2 kg, so you want the upper tail."
+   ],
+   "forms": []
+  },
+  {
+   "label": "c",
+   "marks": 3,
+   "text": "The cooperative pays a premium for any fleece with a mass above 3 kg. One of the fleeces accepted by the cooperative is chosen at random. Using your answers to parts (a) and (b), find the probability that it earns the premium. (3)",
+   "command": "find",
+   "skills": [
+    "normal-conditional-probability",
+    "conditional-probability-formula",
+    "use-hence-previous-result",
+    "normal-probability-calculator"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Recognises that the probability needed is $\\mathrm{P}(F>3 \\mid F \\geqslant 2)$ and writes it as $\\dfrac{\\mathrm{P}(F>3 \\text{ and } F\\geqslant 2)}{\\mathrm{P}(F \\geqslant 2)}$, or as $\\dfrac{\\mathrm{P}(F>3)}{\\mathrm{P}(F\\geqslant 2)}$",
+     "notes": "The denominator has to be the probability of being accepted. A fraction with $\\mathrm{P}(F>3)$ as the denominator scores M0."
+    },
+    {
+     "code": "A1ft",
+     "for": "Replaces the numerator by $\\mathrm{P}(F>3)$ and puts in their values, e.g. $\\dfrac{0.187}{0.909}$",
+     "ft_of": "answers to (a) and (b)",
+     "notes": "Follow through their values from (a) and (b), provided the (a) value is less than the (b) value."
+    },
+    {
+     "code": "A1cso",
+     "for": "$0.206$",
+     "notes": "awrt 0.206. Needs a correct conditional method throughout; if the correct value is reached by multiplying probabilities, score A0."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "We need $\\mathrm{P}(F>3 \\mid F\\geqslant 2) = \\dfrac{\\mathrm{P}(F>3 \\cap F\\geqslant 2)}{\\mathrm{P}(F\\geqslant 2)}$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "Every fleece heavier than 3 kg is also at least 2 kg, so $\\mathrm{P}(F>3 \\cap F\\geqslant 2) = \\mathrm{P}(F>3)$. This gives $\\dfrac{0.18703\\ldots}{0.90878\\ldots}$",
+     "mark": "A1ft"
+    },
+    {
+     "step": 3,
+     "working": "$= 0.20580\\ldots \\approx 0.206$",
+     "mark": "A1cso"
+    }
+   ],
+   "answers": [
+    {
+     "name": "pc",
+     "expr": "0.206",
+     "form": "sf-3"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "0.187032/0.908789",
+     "answer": "pc",
+     "form": "sf-3"
+    },
+    {
+     "type": "normal",
+     "mean": "2.6",
+     "sd": "0.45",
+     "lower": 3,
+     "result": "0.18703",
+     "form": "sf-5"
+    },
+    {
+     "type": "normal",
+     "mean": "2.6",
+     "sd": "0.45",
+     "lower": 2,
+     "result": "0.90879",
+     "form": "sf-5"
+    }
+   ],
+   "hints": [
+    "You already know the fleece was accepted, so you are working only with accepted fleeces. Which probability belongs in the denominator?",
+    "Think about which fleeces are both over 3 kg and accepted."
+   ],
+   "forms": []
+  },
+  {
+   "label": "d",
+   "marks": 3,
+   "text": "For the following year the farmer puts seaweed-based mineral licks out on the pasture. When the flock is next shorn, she weighs the fleeces of 20 sheep chosen at random and finds that their mean mass is 2.78 kg. You may assume that fleece masses are still normally distributed with standard deviation 0.45 kg. At the 5% significance level, test whether the mineral licks have raised the mean fleece mass. Write down the hypotheses you are testing. (3)",
+   "command": "test",
+   "skills": [
+    "state-hypotheses-normal-mean-test",
+    "sample-mean-distribution",
+    "conclude-test-in-context"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Uses $\\bar{F} \\sim \\mathrm{N}\\left(2.6,\\ \\dfrac{0.45^2}{20}\\right)$, i.e. a standard deviation of $\\dfrac{0.45}{\\sqrt{20}} \\approx 0.1006$, to set up the sample mean distribution under the null hypothesis",
+     "notes": "The distribution can be implied by a correct $z = \\dfrac{2.78-2.6}{0.45/\\sqrt{20}}$. Using a standard deviation of 0.45 scores M0."
+    },
+    {
+     "code": "M1",
+     "for": "Calculates $\\mathrm{P}(\\bar{F} \\geqslant 2.78) \\approx 0.0368$ and compares it with 0.05, or finds $z \\approx 1.79$ and compares it with 1.6449, or finds the critical value $2.766$ and compares it with 2.78",
+     "notes": "Accept awrt 0.0368, awrt 1.79 or awrt 2.77."
+    },
+    {
+     "code": "A1",
+     "for": "Hypotheses $\\mathrm{H_0}: \\mu = 2.6$, $\\mathrm{H_1}: \\mu > 2.6$ stated, and the conclusion that there is sufficient evidence that the mineral licks have increased the mean fleece mass",
+     "notes": "The hypotheses must use $\\mu$. The conclusion must mention the licks or the fleece mass and must not say the increase is proved."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\mathrm{H_0}: \\mu = 2.6$, $\\mathrm{H_1}: \\mu > 2.6$, where $\\mu$ kg is the mean fleece mass after the licks were introduced.",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "Under $\\mathrm{H_0}$, $\\bar{F} \\sim \\mathrm{N}\\left(2.6,\\ \\dfrac{0.45^2}{20}\\right) = \\mathrm{N}(2.6,\\ 0.010125)$, so the standard deviation is $0.1006\\ldots$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$\\mathrm{P}(\\bar{F} \\geqslant 2.78) = 0.03681\\ldots \\approx 0.0368$, and $0.0368 < 0.05$",
+     "mark": "M1"
+    },
+    {
+     "step": 4,
+     "working": "The result is significant, so reject $\\mathrm{H_0}$. There is sufficient evidence at the 5% level that the mineral licks have increased the mean fleece mass.",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "pd",
+     "expr": "0.0368",
+     "form": "sf-3"
+    }
+   ],
+   "checks": [
+    {
+     "type": "normal",
+     "mean": "2.6",
+     "var": "0.010125",
+     "lower": "2.78",
+     "answer": "pd",
+     "form": "sf-3"
+    },
+    {
+     "type": "normal",
+     "mean": "2.6",
+     "var": "0.010125",
+     "prob": "0.05",
+     "tail": "ge",
+     "result": "2.77",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "The test is about a mean of 20 fleeces, so first work out the standard deviation of that sample mean.",
+    "The farmer wants to know whether the mean has gone up. Does that make the test one-tailed or two-tailed?"
+   ],
+   "forms": []
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "error_code": "standardising-error",
+   "step": 1,
+   "text": "If you standardise by hand, work out $z = \\frac{3-2.6}{0.45}$. If you divide by the variance $0.2025$ you get the wrong $z$, and if you calculate $2.6-3$ you end up in the wrong tail. Either way the B1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "error_code": "approximation-parameters-wrong",
+   "step": 1,
+   "text": "Your calculator needs the standard deviation $0.45$, not the variance $0.45^2$. If you enter $0.2025$ you get the wrong probability and the B1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "error_code": "conditional-denominator-error",
+   "step": 1,
+   "text": "This part asks for an unconditional probability. You don't divide by anything; you just find $\\mathrm{P}(F \\geqslant 2)$. Mixing this up with part (c) loses the B1.",
+   "says_common": true
+  },
+  {
+   "part": "c",
+   "error_code": "conditional-denominator-error",
+   "step": 1,
+   "text": "It's a common mistake to divide by $\\mathrm{P}(F>3)$. You are told the fleece was accepted, so the denominator must be $\\mathrm{P}(F\\geqslant 2) = 0.909$. Putting the wrong probability on the bottom loses the M1 and both A marks.",
+   "says_common": true
+  },
+  {
+   "part": "c",
+   "error_code": "independence-assumed",
+   "step": 2,
+   "text": "Being over 3 kg and being accepted are not independent events, because the first guarantees the second. If you multiply $0.187 \\times 0.909$ you lose the M1.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "error_code": "standardising-error",
+   "step": 2,
+   "text": "If you recalculate the probabilities, use $z = \\frac{2-2.6}{0.45} = -1.33$ for the 2 kg boundary. Writing $\\frac{2.6-2}{0.45}$ and then taking the upper tail gives about $0.091$, which makes your ratio wrong.",
+   "says_common": false
+  },
+  {
+   "part": "d",
+   "error_code": "sample-mean-sd-not-scaled",
+   "step": 2,
+   "text": "The mean of 20 fleeces varies much less than a single fleece does. If you use $0.45$ rather than $\\frac{0.45}{\\sqrt{20}}$, you get $\\mathrm{P} \\approx 0.345$, which leads to the wrong conclusion and loses both method marks.",
+   "says_common": false
+  },
+  {
+   "part": "d",
+   "error_code": "hypotheses-not-in-parameter",
+   "step": 1,
+   "text": "Hypotheses written only in words, or using $\\bar{F}$ or $x$ in place of $\\mu$, mean you lose the final A1. Write $\\mathrm{H_0}: \\mu = 2.6$ and $\\mathrm{H_1}: \\mu > 2.6$.",
+   "says_common": false
+  },
+  {
+   "part": "d",
+   "error_code": "conclusion-too-definite-or-no-context",
+   "step": 4,
+   "text": "Writing only \"reject $\\mathrm{H_0}$\", or saying the licks \"definitely\" increase fleece mass, loses the A1. Say there is sufficient evidence that the mean fleece mass has increased.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T16:29:15",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.3756
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 8
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.802 with part:IAL2018_WST01_Jan2025_Q7:d"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.014,
+   "jaccard_source": "GCE2008_6683_Jan2007_Q2",
+   "shared_numbers": 1,
+   "max_cosine": 0.802,
+   "cosine_source": "part:IAL2018_WST01_Jan2025_Q7:d"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 7,
+   "n_answers": 4,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part c: write A1cso as A1 with 'cso' in its notes"
+   ]
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "part d: solver also gave ['H0: mu=2.6, H1: mu>2.6', 'z=1.79']",
+    "ambiguity (part d): Assumes the original mean 2.6 kg still applies as the null value and that the 20 sheep are a random sample; this is implied but not stated. One-tailed test is justified by 'raised'. Otherwise fine.",
+    "ambiguity (part c): 'Using your answers to (a) and (b)' means rounded values may cause a small difference in the third significant figure (0.206 vs 0.2058); acceptable."
+   ],
+   "flag": true,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0163215,
+   "solver": {
+    "parts": [
+     {
+      "label": "a",
+      "answers": [
+       "0.187"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "z=0.4/0.45=0.889; P(F>3)=1-0.8130=0.1870"
+     },
+     {
+      "label": "b",
+      "answers": [
+       "0.909"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "P(F>=2)=Φ(1.333)=0.9088"
+     },
+     {
+      "label": "c",
+      "answers": [
+       "0.206"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "P(F>3 | F>2)=P(F>3)/P(F>2)=0.1870/0.9088=0.2058"
+     },
+     {
+      "label": "d",
+      "answers": [
+       "H0: mu=2.6, H1: mu>2.6",
+       "z=1.79",
+       "p-value=0.0368",
+       "Reject H0: significant evidence that mean fleece mass has increased"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "Xbar~N(2.6,0.45^2/20), SE=0.1006; z=0.18/0.1006=1.789 > 1.645 (p≈0.037<0.05). Reject H0 in favour of an increase."
+     }
+    ],
+    "problems": [
+     {
+      "kind": "ambiguity",
+      "severity": "minor",
+      "part": "d",
+      "detail": "Assumes the original mean 2.6 kg still applies as the null value and that the 20 sheep are a random sample; this is implied but not stated. One-tailed test is justified by 'raised'. Otherwise fine."
+     },
+     {
+      "kind": "ambiguity",
+      "severity": "minor",
+      "part": "c",
+      "detail": "'Using your answers to (a) and (b)' means rounded values may cause a small difference in the third significant figure (0.206 vs 0.2058); acceptable."
+     }
+    ]
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "n_responses": 11,
+   "agreed": [
+    "correct",
+    "p1",
+    "p2",
+    "p3",
+    "p4",
+    "p5",
+    "p6",
+    "p7",
+    "p8",
+    "p9",
+    "partial"
+   ],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "correct",
+     "kind": "correct",
+     "error_code": null,
+     "work": "(a) P(F>3)=0.187\n(b) P(F≥2)=0.909\n(c) P(F>3 | F≥2) = P(F>3 ∩ F≥2)/P(F≥2) = P(F>3)/P(F≥2) = 0.187/0.909 = 0.206\n(d) H0: μ=2.6, H1: μ>2.6. Under H0, F̄ ~ N(2.6, 0.45²/20), sd = 0.1006. P(F̄≥2.78)=0.0368 < 0.05, so reject H0. There is sufficient evidence at the 5% level that the mineral licks have increased the mean fleece mass.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "A1cso"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p1",
+     "kind": "pitfall",
+     "error_code": "standardising-error",
+     "work": "(a) z=(2.6-3)/0.45=-0.889, so P(F>3)=P(Z>-0.889)=0.813\n(b) P(F≥2)=0.909\n(c) P(F>3|F≥2)=P(F>3)/P(F≥2)=0.813/0.909=0.894\n(d) H0: μ=2.6, H1: μ>2.6. F̄ ~ N(2.6, 0.45²/20). P(F̄≥2.78)=0.0368<0.05 so reject H0. There is sufficient evidence that the mineral licks have increased the mean fleece mass.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p2",
+     "kind": "pitfall",
+     "error_code": "approximation-parameters-wrong",
+     "work": "(a) Entering N(2.6, 0.2025) into calculator as the sd: P(F>3)=0.0241\n(b) P(F≥2)=0.909\n(c) P(F>3|F≥2)=P(F>3)/P(F≥2)=0.0241/0.909=0.0265\n(d) H0: μ=2.6, H1: μ>2.6. F̄ ~ N(2.6, 0.45²/20), P(F̄≥2.78)=0.0368<0.05, reject H0. There is sufficient evidence that the mineral licks have increased mean fleece mass.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p3",
+     "kind": "pitfall",
+     "error_code": "conditional-denominator-error",
+     "work": "(a) P(F>3)=0.187\n(b) Treating it like a conditional: P(2≤F≤3)/P(F≥2)=(0.909-0.187)/0.909=0.794\n(c) P(F>3|F≥2)=P(F>3)/P(F≥2)=0.187/0.794=0.236\n(d) H0: μ=2.6, H1: μ>2.6. F̄ ~ N(2.6, 0.45²/20), P(F̄≥2.78)=0.0368<0.05, reject H0. There is sufficient evidence that the mineral licks have increased the mean fleece mass.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p4",
+     "kind": "pitfall",
+     "error_code": "conditional-denominator-error",
+     "work": "(a) 0.187\n(b) 0.909\n(c) P(F>3|F≥2)=P(F>3 ∩ F≥2)/P(F>3)=0.187/0.187=1\n(d) H0: μ=2.6, H1: μ>2.6. F̄ ~ N(2.6, 0.45²/20), P(F̄≥2.78)=0.0368<0.05, reject H0. There is sufficient evidence that the mineral licks have increased the mean fleece mass.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p5",
+     "kind": "pitfall",
+     "error_code": "independence-assumed",
+     "work": "(a) 0.187\n(b) 0.909\n(c) Multiply the probabilities: 0.187 × 0.909 = 0.170\n(d) H0: μ=2.6, H1: μ>2.6. F̄ ~ N(2.6, 0.45²/20), P(F̄≥2.78)=0.0368<0.05, reject H0. There is sufficient evidence that the mineral licks have increased the mean fleece mass.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p6",
+     "kind": "pitfall",
+     "error_code": "standardising-error",
+     "work": "(a) 0.187\n(b) 0.909\n(c) Recalculating: P(F>3|F≥2)=P(F>3)/P(F≥2). For 2 kg I used z=(2.6-2)/0.45=1.33 and took the upper tail, giving 0.091. So 0.187/0.091=2.05\n(d) H0: μ=2.6, H1: μ>2.6. F̄ ~ N(2.6, 0.45²/20), P(F̄≥2.78)=0.0368<0.05, reject H0. There is sufficient evidence that the mineral licks have increased the mean fleece mass.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A0",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p7",
+     "kind": "pitfall",
+     "error_code": "sample-mean-sd-not-scaled",
+     "work": "(a) 0.187\n(b) 0.909\n(c) 0.187/0.909=0.206\n(d) H0: μ=2.6, H1: μ>2.6. Using N(2.6, 0.45²): P(F̄≥2.78)=0.345 > 0.05, so do not reject H0. There is insufficient evidence that the licks have increased the mean fleece mass.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "A1cso"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M0",
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p8",
+     "kind": "pitfall",
+     "error_code": "hypotheses-not-in-parameter",
+     "work": "(a) 0.187\n(b) 0.909\n(c) 0.187/0.909=0.206\n(d) H0: F̄=2.6, H1: F̄>2.6. F̄ ~ N(2.6, 0.45²/20), P(F̄≥2.78)=0.0368<0.05, reject H0. There is sufficient evidence that the mineral licks have increased the mean fleece mass.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "A1cso"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p9",
+     "kind": "pitfall",
+     "error_code": "conclusion-too-definite-or-no-context",
+     "work": "(a) 0.187\n(b) 0.909\n(c) 0.187/0.909=0.206\n(d) H0: μ=2.6, H1: μ>2.6. F̄ ~ N(2.6, 0.45²/20), sd 0.1006. P(F̄≥2.78)=0.0368<0.05. Reject H0. The licks definitely increase fleece mass.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "A1cso"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "partial",
+     "kind": "partial",
+     "error_code": null,
+     "work": "(a) P(F>3)=0.187\n(b) P(F≥2)=0.909\n(c) I need P(F>3 | F≥2) = P(F>3)/P(F≥2) ... (stops here)\n(d) H0: μ=2.6, H1: μ>2.6 ... not attempted further.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A0",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M0",
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "correct",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "A1cso"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "A0cso"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) 0.813 is the wrong tail, not awrt 0.187",
+      "(c) 0.894 is not 0.206"
+     ]
+    },
+    {
+     "id": "p2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "A0cso"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) used variance as sd, giving 0.0241, not 0.187",
+      "(c) 0.0265 is not 0.206"
+     ]
+    },
+    {
+     "id": "p3",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "A0cso"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) 0.794 is not awrt 0.909",
+      "(c) 0.236 is not 0.206"
+     ]
+    },
+    {
+     "id": "p4",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0ft",
+        "A0cso"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(c) denominator is P(F>3), not the probability of acceptance, so M0",
+      "A marks need the M mark"
+     ]
+    },
+    {
+     "id": "p5",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0ft",
+        "A0cso"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(c) multiplied probabilities, not a conditional method",
+      "A marks need the M mark"
+     ]
+    },
+    {
+     "id": "p6",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A0ft",
+        "A0cso"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(c) substituted 0.091 rather than their part (b) value, so no ft",
+      "(c) 2.05 is not 0.206"
+     ]
+    },
+    {
+     "id": "p7",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "A1cso"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M0",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(d) used sd 0.45 instead of 0.45/√20",
+      "(d) probability 0.345 is not awrt 0.0368",
+      "(d) conclusion is wrong"
+     ]
+    },
+    {
+     "id": "p8",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "A1cso"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(d) hypotheses are in terms of F̄, not μ"
+     ]
+    },
+    {
+     "id": "p9",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "A1cso"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(d) conclusion says 'definitely', which claims proof"
+     ]
+    },
+    {
+     "id": "partial",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A0ft",
+        "A0cso"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M0",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(c) no values substituted and no answer",
+      "(d) no sample mean distribution used",
+      "(d) no test or conclusion"
+     ]
+    }
+   ],
+   "cost_usd": 0.0956
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "agreement": "4/4",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.009614,
+   "retagged": {
+    "a": [
+     "normal-probability-calculator"
+    ],
+    "b": [
+     "normal-probability-calculator"
+    ],
+    "c": [
+     "conditional-probability-formula",
+     "normal-probability-calculator"
+    ],
+    "d": [
+     "state-hypotheses-normal-mean-test",
+     "sample-mean-distribution",
+     "standardise-to-find-mu-or-sigma"
+    ]
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

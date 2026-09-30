@@ -1,0 +1,485 @@
+{
+ "id": "cr-pure-find-curve-from-gradient-001",
+ "blueprint_id": "bp-pure-find-curve-from-gradient-001",
+ "question_type": "find-curve-from-gradient",
+ "component": "pure",
+ "tier": "accessible",
+ "kind": "exam",
+ "stem": null,
+ "parts": [
+  {
+   "label": null,
+   "marks": 5,
+   "text": "A curve $C$ is defined for $x > 0$. At every point $(x, y)$ on $C$,\n$$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 3\\sqrt{x} + \\frac{32}{x^3} - 2.$$\nThe point $(4, 10)$ lies on $C$.\n\nFind an equation for $C$, giving $y$ in terms of $x$ with each term in its simplest form. (5)",
+   "command": "find",
+   "skills": [
+    "integrate-powers-of-x"
+   ],
+   "forms": [
+    "simplest-form"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Rewrites the root and the fraction as powers of $x$ ($3x^{\\frac{1}{2}}$ and $32x^{-3}$) and integrates, so that the index of at least one of these two terms goes up by 1: $x^{\\frac{1}{2}} \\to x^{\\frac{3}{2}}$ or $x^{-3} \\to x^{-2}$",
+     "notes": "The coefficient may be wrong for this mark. Treating $\\frac{32}{x^3}$ as $32x^{3}$, or integrating $\\frac{1}{x^3}$ to $\\ln$-type or $\\frac{1}{x^4}$-type terms, does not earn it."
+    },
+    {
+     "code": "A1",
+     "for": "$2x^{\\frac{3}{2}}$ correct for the integral of $3\\sqrt{x}$",
+     "depends_on": "M1",
+     "notes": "Accept $\\frac{3}{\\frac{3}{2}}x^{\\frac{3}{2}}$ or $2\\sqrt{x^3}$ unsimplified here."
+    },
+    {
+     "code": "A1",
+     "for": "$-16x^{-2} - 2x$ correct for the integral of the remaining two terms",
+     "depends_on": "M1",
+     "notes": "Accept $-\\frac{16}{x^2}$ or $\\frac{32}{-2}x^{-2}$ unsimplified here."
+    },
+    {
+     "code": "A1",
+     "for": "Uses $x = 4,\\ y = 10$ in an integrated expression that includes a constant $c$, and obtains $c = 3$",
+     "depends_on": "M1",
+     "notes": "Requires $2(8) - 16(\\tfrac{1}{16}) - 8 + c = 10$ or equivalent. A value of $c$ obtained without a constant appearing in the integration scores A0."
+    },
+    {
+     "code": "A1",
+     "for": "$y = 2x^{\\frac{3}{2}} - \\frac{16}{x^2} - 2x + 3$ with every term simplified",
+     "depends_on": "M1",
+     "notes": "cao. Accept $-16x^{-2}$ and $2\\sqrt{x^3}$ or $2x\\sqrt{x}$. The answer must begin \"$y =$\" or equivalent; isw after a correct equation."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Write each term as a power of $x$: $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 3x^{\\frac{1}{2}} + 32x^{-3} - 2$.",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "Integrate term by term, adding 1 to each index and dividing by the new index: $y = \\frac{3x^{\\frac{3}{2}}}{\\frac{3}{2}} + \\frac{32x^{-2}}{-2} - 2x + c$.",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$\\frac{3}{\\frac{3}{2}} = 2$, so the first term is $2x^{\\frac{3}{2}}$.",
+     "mark": "A1"
+    },
+    {
+     "step": 4,
+     "working": "$\\frac{32}{-2} = -16$, so $y = 2x^{\\frac{3}{2}} - 16x^{-2} - 2x + c$.",
+     "mark": "A1"
+    },
+    {
+     "step": 5,
+     "working": "At $(4, 10)$: $4^{\\frac{3}{2}} = 8$ and $4^{-2} = \\frac{1}{16}$, so $10 = 16 - 1 - 8 + c = 7 + c$, giving $c = 3$.",
+     "mark": "A1"
+    },
+    {
+     "step": 6,
+     "working": "$y = 2x^{\\frac{3}{2}} - \\dfrac{16}{x^2} - 2x + 3$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "y",
+     "expr": "2x^(3/2) - 16/x^2 - 2x + 3",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "integral",
+     "f": "3sqrt(x) + 32/x^3 - 2",
+     "var": "x",
+     "answer": "y"
+    },
+    {
+     "type": "derivative",
+     "f": "2x^(3/2) - 16/x^2 - 2x + 3",
+     "var": "x",
+     "result": "3sqrt(x) + 32/x^3 - 2"
+    },
+    {
+     "type": "substitute",
+     "expr": "2x^(3/2) - 16/x^2 - 2x + 3",
+     "at": {
+      "x": "4"
+     },
+     "result": "10"
+    },
+    {
+     "type": "solutions",
+     "equation": "2*4^(3/2) - 16/4^2 - 2*4 + c = 10",
+     "var": "c",
+     "result": [
+      "3"
+     ]
+    }
+   ],
+   "hints": [
+    "Before you integrate, write $\\sqrt{x}$ and $\\frac{32}{x^3}$ as $x^{\\frac{1}{2}}$ and $32x^{-3}$.",
+    "Include a constant when you integrate, then put $x = 4$ and $y = 10$ into your result to find it."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "step": 1,
+   "error_code": "not-rewritten-as-powers",
+   "text": "If you try to integrate $\\frac{32}{x^3}$ straight from the fraction, for example by writing $\\frac{32}{x^4/4}$ or $\\frac{8}{x^4}$, you get a wrong power, and the M1 is lost unless the $\\sqrt{x}$ term was done correctly. Write it as $32x^{-3}$ first.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "step": 2,
+   "error_code": "integration-power-rule-error",
+   "text": "For negative powers, $x^{-3}$ becomes $x^{-2}$, not $x^{-4}$. You divide by the new index $-2$, which gives $-16x^{-2}$. Going to $x^{-4}$, or dividing by $-3$ or $-4$, means the second A1 is lost, and $c$ and the final equation will be wrong too.",
+   "says_common": true
+  },
+  {
+   "part": null,
+   "step": 2,
+   "error_code": "integration-power-rule-error",
+   "text": "For $3x^{\\frac{1}{2}}$ you divide by $\\frac{3}{2}$, which is the same as multiplying by $\\frac{2}{3}$, so you get $2x^{\\frac{3}{2}}$. If you multiply by $\\frac{3}{2}$ you get $\\frac{9}{2}x^{\\frac{3}{2}}$, and the first A1 is lost.",
+   "says_common": true
+  },
+  {
+   "part": null,
+   "step": 5,
+   "error_code": "missing-constant-of-integration",
+   "text": "If you leave out $+c$, then $(4, 10)$ can't be used to fix the curve. Your expression gives $7$ at $x = 4$, not $10$, so the A1 for $c = 3$ and the final A1 are both lost.",
+   "says_common": true
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T16:25:09",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.2192
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 5
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.921 with question:IAL2018_WMA11_June2021_Q1"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.049,
+   "jaccard_source": "GCE2008_6663_Jan2011_Q2",
+   "shared_numbers": 1,
+   "max_cosine": 0.921,
+   "cosine_source": "question:IAL2018_WMA11_June2021_Q1"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 4,
+   "n_answers": 1,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.007469,
+   "solver": {
+    "parts": [
+     {
+      "label": null,
+      "answers": [
+       "y = 2*x**(3/2) - 16/x**2 - 2*x + 3"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "Integrate term by term: 3x^(1/2) -> 2x^(3/2); 32x^-3 -> -16x^-2; -2 -> -2x; add c. Substitute (4,10): 16 - 1 - 8 + c = 10, so c = 3."
+     }
+    ],
+    "problems": []
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "n_responses": 6,
+   "agreed": [
+    "correct",
+    "pitfall-not-rewritten",
+    "pitfall-neg-power",
+    "pitfall-sqrt-coeff",
+    "pitfall-no-constant",
+    "partial"
+   ],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "correct",
+     "kind": "correct",
+     "work": "$\\frac{dy}{dx}=3x^{1/2}+32x^{-3}-2$\n$y=\\frac{3x^{3/2}}{3/2}+\\frac{32x^{-2}}{-2}-2x+c=2x^{3/2}-16x^{-2}-2x+c$\nSub $(4,10)$: $10=2(8)-16(\\tfrac1{16})-8+c=7+c$, so $c=3$\n$y=2x^{3/2}-\\frac{16}{x^2}-2x+3$",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "A1",
+        "A1",
+        "A1"
+       ]
+      }
+     ],
+     "error_code": null
+    },
+    {
+     "id": "pitfall-not-rewritten",
+     "kind": "pitfall",
+     "work": "$\\frac{dy}{dx}=3x^{1/2}+\\frac{32}{x^3}-2$\n$y=2x^{3/2}+\\frac{32}{x^4/4}-2x+c=2x^{3/2}+\\frac{8}{x^4}-2x+c$\nSub $(4,10)$: $10=16+\\frac{8}{256}-8+c$, so $c=2-\\frac1{32}=\\frac{63}{32}$\n$y=2x^{3/2}+\\frac{8}{x^4}-2x+\\frac{63}{32}$",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "A0",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "error_code": "not-rewritten-as-powers"
+    },
+    {
+     "id": "pitfall-neg-power",
+     "kind": "pitfall",
+     "work": "$\\frac{dy}{dx}=3x^{1/2}+32x^{-3}-2$\n$y=2x^{3/2}+\\frac{32x^{-4}}{-4}-2x+c=2x^{3/2}-8x^{-4}-2x+c$\nSub $(4,10)$: $10=16-\\frac{8}{256}-8+c$, so $c=2+\\frac1{32}=\\frac{65}{32}$\n$y=2x^{3/2}-\\frac{8}{x^4}-2x+\\frac{65}{32}$",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "A0",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "error_code": "integration-power-rule-error"
+    },
+    {
+     "id": "pitfall-sqrt-coeff",
+     "kind": "pitfall",
+     "work": "$\\frac{dy}{dx}=3x^{1/2}+32x^{-3}-2$\n$y=3\\times\\frac32 x^{3/2}-16x^{-2}-2x+c=\\frac92x^{3/2}-16x^{-2}-2x+c$\nSub $(4,10)$: $10=\\frac92(8)-1-8+c=27+c$, so $c=-17$\n$y=\\frac92x^{3/2}-\\frac{16}{x^2}-2x-17$",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A0",
+        "A1",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "error_code": "integration-power-rule-error"
+    },
+    {
+     "id": "pitfall-no-constant",
+     "kind": "pitfall",
+     "work": "$\\frac{dy}{dx}=3x^{1/2}+32x^{-3}-2$\n$y=2x^{3/2}-16x^{-2}-2x$\nAt $x=4$ this gives $7$, not $10$; I can't fix it so I leave it.\n$y=2x^{3/2}-\\frac{16}{x^2}-2x$",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "A1",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "error_code": "missing-constant-of-integration"
+    },
+    {
+     "id": "partial",
+     "kind": "partial",
+     "work": "$\\frac{dy}{dx}=3x^{1/2}+32x^{-3}-2$\nIntegrating $3x^{1/2}$ gives $2x^{3/2}$, so $y=2x^{3/2}+\\dots$ and I'm not sure about the rest.",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "A0",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "error_code": null
+    }
+   ],
+   "awarded": [
+    {
+     "id": "correct",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "A1",
+        "A1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pitfall-not-rewritten",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "A0",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "A0: 1/x^3 term integrated wrongly (x^4/4 in denominator, +8/x^4) instead of -16x^-2",
+      "A0: c is 63/32, not 3",
+      "A0: final equation incorrect"
+     ]
+    },
+    {
+     "id": "pitfall-neg-power",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "A0",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "A0: -8x^-4 wrong; index should go to -2 giving -16x^-2",
+      "A0: c is 65/32, not 3",
+      "A0: final equation incorrect"
+     ]
+    },
+    {
+     "id": "pitfall-sqrt-coeff",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A0",
+        "A1",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "A0: 3√x integrated to 9/2 x^{3/2}, should be 2x^{3/2}",
+      "A0: c = -17, not 3",
+      "A0: final equation incorrect"
+     ]
+    },
+    {
+     "id": "pitfall-no-constant",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "A1",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "A0: no constant c introduced, so no c = 3 found",
+      "A0: final equation lacks +3"
+     ]
+    },
+    {
+     "id": "partial",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "A0",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "A0: remaining terms not integrated",
+      "A0: no constant found",
+      "A0: no complete equation"
+     ]
+    }
+   ],
+   "cost_usd": 0.0484
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "agreement": "1/1",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.013260000000000001,
+   "retagged": {
+    "-": [
+     "integrate-powers-of-x",
+     "constant-of-integration-from-point"
+    ]
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

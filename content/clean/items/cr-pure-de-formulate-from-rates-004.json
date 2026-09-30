@@ -1,0 +1,519 @@
+{
+ "id": "cr-pure-de-formulate-from-rates-004",
+ "blueprint_id": "bp-pure-de-formulate-from-rates-004",
+ "question_type": "de-formulate-from-rates",
+ "component": "pure",
+ "tier": "standard",
+ "kind": "exam",
+ "stem": "A solid is made by joining a cylinder and a hemisphere. The cylinder has radius $r$ cm and the hemisphere has radius $r$ cm. The flat face of the hemisphere fits exactly over one circular end of the cylinder. The solid is expanding, and at all times the height of the cylinder is three times its radius. The volume of the solid is $V\\,\\mathrm{cm^3}$.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 3,
+   "text": "Find $\\frac{\\mathrm{d}V}{\\mathrm{d}r}$ in terms of $r$ and $\\pi$. (3)",
+   "command": "find",
+   "skills": [
+    "mensuration-formulae",
+    "differentiate-polynomials"
+   ],
+   "forms": [
+    "in-terms-of"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Finds the volume of the cylinder using $\\pi r^2 h$ with $h = 3r$, giving $3\\pi r^3$",
+     "notes": "Accept $\\pi r^2(3r)$. The height must be written in terms of $r$."
+    },
+    {
+     "code": "B1",
+     "for": "Correct volume of the hemisphere: $\\frac{2}{3}\\pi r^3$",
+     "notes": "This can be seen inside a total such as $V = 3\\pi r^3 + \\frac{2}{3}\\pi r^3 = \\frac{11}{3}\\pi r^3$."
+    },
+    {
+     "code": "M1",
+     "for": "Differentiates their $V = kr^3$ (a sum of $r^3$ terms) to get $3kr^2$, leading to $\\frac{\\mathrm{d}V}{\\mathrm{d}r} = 11\\pi r^2$",
+     "notes": "The method mark can be awarded for correctly differentiating their cubic expression in $r$. For full credit the answer $11\\pi r^2$ is expected, oe, e.g. $9\\pi r^2 + 2\\pi r^2$. Accept awrt $34.6r^2$."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Cylinder: $\\pi r^2 \\times 3r = 3\\pi r^3$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "Hemisphere: $\\frac{1}{2}\\times\\frac{4}{3}\\pi r^3 = \\frac{2}{3}\\pi r^3$",
+     "mark": "B1"
+    },
+    {
+     "step": 3,
+     "working": "$V = 3\\pi r^3 + \\frac{2}{3}\\pi r^3 = \\frac{11}{3}\\pi r^3$, so $\\frac{\\mathrm{d}V}{\\mathrm{d}r} = 3\\times\\frac{11}{3}\\pi r^2 = 11\\pi r^2$",
+     "mark": "M1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "dVdr",
+     "expr": "11*pi*r^2",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "pi*r^2*(3r) + (2/3)*pi*r^3",
+     "rhs": "(11/3)*pi*r^3"
+    },
+    {
+     "type": "derivative",
+     "f": "(11/3)*pi*r^3",
+     "var": "r",
+     "result": "11*pi*r^2"
+    }
+   ],
+   "hints": [
+    "Write the height of the cylinder in terms of $r$. Then add the cylinder's volume to the hemisphere's volume, so that $V$ is a function of $r$ alone.",
+    "A hemisphere is half a sphere, and a sphere has volume $\\frac{4}{3}\\pi r^3$."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 2,
+   "text": "The volume of the solid increases at a constant rate of $40\\,\\mathrm{cm^3\\,s^{-1}}$.\n\nHence find the rate at which $r$ is increasing at the instant when $r = 2$. Give your answer to 3 significant figures, with units. (2)",
+   "command": "find",
+   "skills": [
+    "connected-rates-of-change",
+    "use-hence-previous-result",
+    "accuracy-units-and-rounding"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Uses $\\frac{\\mathrm{d}r}{\\mathrm{d}t} = \\frac{\\mathrm{d}V}{\\mathrm{d}t} \\div \\frac{\\mathrm{d}V}{\\mathrm{d}r}$ with $\\frac{\\mathrm{d}V}{\\mathrm{d}t} = 40$ and their $\\frac{\\mathrm{d}V}{\\mathrm{d}r}$ from part (a) evaluated at $r = 2$",
+     "ft_of": "a",
+     "notes": "For example, $\\frac{40}{11\\pi \\times 2^2} = \\frac{40}{44\\pi}$. Multiplying the rates, or dividing $\\frac{\\mathrm{d}V}{\\mathrm{d}r}$ by $\\frac{\\mathrm{d}V}{\\mathrm{d}t}$, is M0."
+    },
+    {
+     "code": "A1",
+     "for": "awrt $0.289\\,\\mathrm{cm\\,s^{-1}}$",
+     "depends_on": "M1",
+     "notes": "Units are required. Accept the exact value $\\frac{10}{11\\pi}$ if it is followed by 0.289, and ignore subsequent working (isw)."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\frac{\\mathrm{d}V}{\\mathrm{d}t} = 40$, so $\\frac{\\mathrm{d}r}{\\mathrm{d}t} = \\frac{\\mathrm{d}V}{\\mathrm{d}t}\\times\\frac{\\mathrm{d}r}{\\mathrm{d}V} = \\frac{40}{11\\pi r^2}$. When $r = 2$: $\\frac{\\mathrm{d}r}{\\mathrm{d}t} = \\frac{40}{44\\pi} = \\frac{10}{11\\pi}$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$\\frac{\\mathrm{d}r}{\\mathrm{d}t} = 0.289\\,\\mathrm{cm\\,s^{-1}}$ (3 s.f.)",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "drdt",
+     "expr": "0.289",
+     "form": "sf-3",
+     "exact": "10/(11*pi)"
+    }
+   ],
+   "checks": [
+    {
+     "type": "substitute",
+     "expr": "40/(11*pi*r^2)",
+     "at": {
+      "r": 2
+     },
+     "result": "10/(11*pi)"
+    },
+    {
+     "type": "numeric",
+     "expr": "10/(11*pi)",
+     "result": "0.289",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "Turn the sentence into an equation: the constant rate tells you that $\\frac{\\mathrm{d}V}{\\mathrm{d}t} = 40$.",
+    "Use the chain rule to connect $\\frac{\\mathrm{d}r}{\\mathrm{d}t}$, $\\frac{\\mathrm{d}V}{\\mathrm{d}t}$ and your answer to part (a)."
+   ],
+   "forms": []
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 3,
+   "error_code": "not-rewritten-as-powers",
+   "text": "Simplify the cylinder's volume $\\pi r^2 \\times 3r$ to the single power $3\\pi r^3$ before you differentiate. If you differentiate each factor separately and multiply, for example $2\\pi r \\times 3 = 6\\pi r$, the method is invalid and you lose the final M1.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "connected-rates-chain-error",
+   "text": "If you multiply the two rates instead of dividing, you get $40 \\times 44\\pi \\approx 5530$. The chain rule gives $\\frac{\\mathrm{d}r}{\\mathrm{d}t} = \\frac{\\mathrm{d}V}{\\mathrm{d}t} \\times \\frac{\\mathrm{d}r}{\\mathrm{d}V}$, and $\\frac{\\mathrm{d}r}{\\mathrm{d}V}$ is $\\frac{1}{44\\pi}$ when $r = 2$. Combining the rates the wrong way loses the M1, and so the A1 as well.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "parametric-derivative-inverted",
+   "text": "If you divide $\\frac{\\mathrm{d}V}{\\mathrm{d}r}$ by $\\frac{\\mathrm{d}V}{\\mathrm{d}t}$, you get $\\frac{44\\pi}{40} \\approx 3.46$, which is the fraction the wrong way up. The units show the mistake: this gives seconds per cm, not cm per second. It loses the M1 and the A1.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T16:00:04",
+ "generation": {
+  "attempts": 1,
+  "cost_usd": 0.1355
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 5
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.833 with question:IAL2013_WMA02_June2014_Q8"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.022,
+   "jaccard_source": "IAL2013_6666A_Jan2014_Q6",
+   "shared_numbers": 0,
+   "max_cosine": 0.833,
+   "cosine_source": "question:IAL2013_WMA02_June2014_Q8"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 4,
+   "n_answers": 2,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0089365,
+   "solver": {
+    "parts": [
+     {
+      "label": "a",
+      "answers": [
+       "11*pi*r**2"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "V = pi r^2 (3r) + (2/3) pi r^3 = (11/3) pi r^3, so dV/dr = 11 pi r^2."
+     },
+     {
+      "label": "b",
+      "answers": [
+       "0.289 cm/s"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "dr/dt = (dV/dt)/(dV/dr) = 40/(44 pi) = 10/(11 pi) ≈ 0.289 cm/s at r = 2."
+     }
+    ],
+    "problems": []
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "n_responses": 5,
+   "agreed": [
+    "r1",
+    "r2",
+    "r3",
+    "r4",
+    "r5"
+   ],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "r1",
+     "kind": "correct",
+     "work": "(a) Cylinder: $h=3r$ so $V_c=\\pi r^2(3r)=3\\pi r^3$. Hemisphere: $V_h=\\frac{2}{3}\\pi r^3$. $V=3\\pi r^3+\\frac{2}{3}\\pi r^3=\\frac{11}{3}\\pi r^3$. $\\frac{dV}{dr}=11\\pi r^2$.\n(b) $\\frac{dr}{dt}=\\frac{dV}{dt}\\div\\frac{dV}{dr}=\\frac{40}{11\\pi r^2}$. At $r=2$: $\\frac{40}{44\\pi}=\\frac{10}{11\\pi}=0.289\\,\\mathrm{cm\\,s^{-1}}$.",
+     "error_code": null,
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "B1",
+        "M1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "kind": "pitfall",
+     "work": "(a) Cylinder volume $=\\pi r^2\\times 3r$. Hemisphere $=\\frac{2}{3}\\pi r^3$. Differentiating the cylinder factor by factor: $2\\pi r\\times 3=6\\pi r$. Hemisphere: $2\\pi r^2$. So $\\frac{dV}{dr}=6\\pi r+2\\pi r^2$.\n(b) At $r=2$: $\\frac{dV}{dr}=12\\pi+8\\pi=20\\pi$. $\\frac{dr}{dt}=\\frac{40}{20\\pi}=\\frac{2}{\\pi}=0.637\\,\\mathrm{cm\\,s^{-1}}$.",
+     "error_code": "not-rewritten-as-powers",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "B1",
+        "M0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r3",
+     "kind": "pitfall",
+     "work": "(a) $V=3\\pi r^3+\\frac{2}{3}\\pi r^3=\\frac{11}{3}\\pi r^3$, so $\\frac{dV}{dr}=11\\pi r^2$.\n(b) $\\frac{dr}{dt}=\\frac{dV}{dt}\\times\\frac{dV}{dr}=40\\times 11\\pi(2)^2=40\\times 44\\pi\\approx 5530\\,\\mathrm{cm\\,s^{-1}}$.",
+     "error_code": "connected-rates-chain-error",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "B1",
+        "M1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r4",
+     "kind": "pitfall",
+     "work": "(a) $V=3\\pi r^3+\\frac{2}{3}\\pi r^3=\\frac{11}{3}\\pi r^3$, so $\\frac{dV}{dr}=11\\pi r^2$.\n(b) $\\frac{dr}{dt}=\\frac{dV}{dr}\\div\\frac{dV}{dt}=\\frac{11\\pi(2)^2}{40}=\\frac{44\\pi}{40}=3.46\\,\\mathrm{cm\\,s^{-1}}$.",
+     "error_code": "parametric-derivative-inverted",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "B1",
+        "M1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r5",
+     "kind": "partial",
+     "work": "(a) Cylinder: $\\pi r^2\\times 3r=3\\pi r^3$. Hemisphere: $\\frac{2}{3}\\pi r^3$. $V=\\frac{11}{3}\\pi r^3$, $\\frac{dV}{dr}=11\\pi r^2$.\n(b) I know $\\frac{dV}{dt}=40$ but I'm not sure how to link it to $\\frac{dr}{dt}$. (stops)",
+     "error_code": null,
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "B1",
+        "M1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "r1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "B1",
+        "M1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "B1",
+        "M0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "Part a M0: differentiated the cylinder factor by factor (product rule misuse) instead of differentiating 3πr^3 to 9πr^2; hemisphere term also wrong, so the derivative is not correct.",
+      "Part b A0: 0.637 is not awrt 0.289, because it follows from the incorrect dV/dr."
+     ]
+    },
+    {
+     "id": "r3",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "B1",
+        "M1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "Part b M0: multiplied the rates instead of dividing dV/dt by dV/dr.",
+      "Part b A0: 5530 is not awrt 0.289."
+     ]
+    },
+    {
+     "id": "r4",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "B1",
+        "M1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "Part b M0: divided dV/dr by dV/dt, which is the wrong way round.",
+      "Part b A0: 3.46 is not awrt 0.289."
+     ]
+    },
+    {
+     "id": "r5",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "B1",
+        "M1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "Part b M0: no attempt to link dr/dt to dV/dt and dV/dr.",
+      "Part b A0: no answer given."
+     ]
+    }
+   ],
+   "cost_usd": 0.044
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "agreement": "2/2",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.012338749999999999,
+   "retagged": {
+    "a": [
+     "mensuration-formulae",
+     "integrate-powers-of-x",
+     "differentiate-polynomials"
+    ],
+    "b": [
+     "connected-rates-of-change"
+    ]
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

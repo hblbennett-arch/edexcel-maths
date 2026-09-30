@@ -1,0 +1,157 @@
+{
+ "id": "cr-conclude-test-in-context-core",
+ "blueprint_id": "dr-conclude-test-in-context-core",
+ "question_type": "regression-and-correlation-test",
+ "component": "stats",
+ "tier": "core",
+ "kind": "drill",
+ "stem": "A designer of a mobile puzzle game looks at 12 levels of the game. For each level she records $x$, the number of moves a player is allowed, and $y$, the percentage of players who complete the level at their first attempt.\n\nThe product moment correlation coefficient between $x$ and $y$ for these 12 levels is $r = 0.5412$.\n\nFor a sample of size 12, the critical values of the product moment correlation coefficient are:\n\n| One-tail significance level | 5% | 2.5% | 1% |\n|---|---|---|---|\n| Critical value | 0.4973 | 0.5760 | 0.6581 |",
+ "parts": [
+  {
+   "label": null,
+   "marks": 3,
+   "text": "Test, at the 5% level of significance, whether there is evidence of correlation between the number of moves allowed and the percentage of players who complete a level at their first attempt. State your hypotheses clearly. (3)",
+   "command": "test",
+   "forms": [],
+   "skills": [
+    "conclude-test-in-context"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Both hypotheses written using $\\rho$: $\\mathrm{H}_0: \\rho = 0$, $\\mathrm{H}_1: \\rho \\neq 0$",
+     "notes": "The hypotheses must use $\\rho$, not $r$ and not words alone. A one-tailed $\\mathrm{H}_1$ ($\\rho > 0$) gets B0."
+    },
+    {
+     "code": "M1",
+     "for": "Uses the two-tailed critical value 0.5760 (2.5% in each tail) and compares $0.5412$ with it, e.g. writes $0.5412 < 0.5760$, or gives the critical region $r > 0.5760$ (or $|r| > 0.5760$)",
+     "notes": "M0 if you compare with 0.4973, because that uses the full 5% in one tail."
+    },
+    {
+     "code": "A1",
+     "for": "Does not reject $\\mathrm{H}_0$ and concludes in context: there is not enough evidence of correlation between the number of moves allowed and the percentage of players who complete the level at their first attempt",
+     "depends_on": "M1",
+     "notes": "The conclusion must mention both moves allowed and completion percentage, and must not be too definite. Reject 'this proves there is no correlation'."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\mathrm{H}_0: \\rho = 0$, $\\quad \\mathrm{H}_1: \\rho \\neq 0$. The test is two-tailed because we are testing for correlation in either direction.",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "5% two-tailed means $\\frac{0.05}{2} = 0.025$ in each tail, so the critical value is $0.5760$. The critical region is $r > 0.5760$ or $r < -0.5760$. Since $0.5412 < 0.5760$, $r$ is not in the critical region.",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "Do not reject $\\mathrm{H}_0$. There is not enough evidence, at the 5% level, of correlation between the number of moves allowed on a level and the percentage of players who complete it at their first attempt.",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "tail_level",
+     "expr": "1/40",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "0.05/2",
+     "rhs": "1/40"
+    },
+    {
+     "type": "numeric",
+     "expr": "0.5760 - 0.5412",
+     "result": "0.0348",
+     "form": "dp-4"
+    }
+   ],
+   "hints": [
+    "The question asks about correlation with no direction given, so decide whether your alternative hypothesis should be one-tailed or two-tailed.",
+    "Work out how much of the 5% goes in each tail before you pick a critical value from the table."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "step": 1,
+   "error_code": "hypotheses-not-in-parameter",
+   "text": "If you write the hypotheses in words, such as 'H0: no correlation', or use $r$ instead of $\\rho$, you lose the B1. The hypotheses are about the population, so they must use $\\rho$: $\\mathrm{H}_0: \\rho = 0$, $\\mathrm{H}_1: \\rho \\neq 0$.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "step": 2,
+   "error_code": "two-tailed-level-not-halved",
+   "text": "If you use 0.4973 as your critical value, you have put the whole 5% in one tail. You would then wrongly find $0.5412 > 0.4973$ and reject $\\mathrm{H}_0$. This test is two-tailed, so each tail has 2.5% and the critical value is 0.5760. Using the wrong one loses the M1 and the A1.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "step": 3,
+   "error_code": "conclusion-too-definite-or-no-context",
+   "text": "Saying 'this proves there is no correlation', or just 'accept H0' without mentioning moves allowed and the completion percentage, loses the A1. Say there is not enough evidence of correlation between the number of moves allowed and the percentage of players who complete the level at their first attempt.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T17:05:42",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.198
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 3
+  },
+  "G7": {
+   "pass": false,
+   "flag": true,
+   "reasons": [
+    "5 word 8-gram(s) also in the Pearson corpus (not whitelisted)"
+   ],
+   "flags": [
+    "cosine 0.864 with part:P3_June2022_stats_Q6:b"
+   ],
+   "hit_fields": [
+    "part - text",
+    "stem"
+   ],
+   "n_8gram_hits": 5,
+   "max_jaccard": 0.026,
+   "jaccard_source": "P3_Oct2021_stats_Q2",
+   "shared_numbers": 1,
+   "max_cosine": 0.864,
+   "cosine_source": "part:P3_June2022_stats_Q6:b"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 2,
+   "n_answers": 1,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": false,
+   "errors": [
+    "regression-and-correlation-test: total marks 3 outside 5-10 (seen 6-9, +-1)"
+   ],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

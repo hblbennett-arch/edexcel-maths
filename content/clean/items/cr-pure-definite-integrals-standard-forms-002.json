@@ -1,0 +1,246 @@
+{
+ "id": "cr-pure-definite-integrals-standard-forms-002",
+ "blueprint_id": "bp-pure-definite-integrals-standard-forms-002",
+ "question_type": "definite-integrals-standard-forms",
+ "component": "pure",
+ "tier": "accessible",
+ "kind": "exam",
+ "stem": null,
+ "parts": [
+  {
+   "label": "a",
+   "marks": 2,
+   "text": "Find, as a fraction in its lowest terms, the value of $\\displaystyle\\int_{1}^{2} \\frac{1}{(5x-2)^{2}}\\,\\mathrm{d}x$. (2)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "reverse-chain-rule"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Writes the integrand as $(5x-2)^{-2}$ and integrates it to $k(5x-2)^{-1}$ for some constant $k \\neq 0$, then substitutes both $x = 2$ and $x = 1$ and subtracts (top limit minus bottom limit)",
+     "notes": "The correct integral is $-\\frac{1}{5}(5x-2)^{-1}$. A $\\ln$ form, or a power other than $-1$, gets M0."
+    },
+    {
+     "code": "A1",
+     "for": "$\\frac{1}{24}$",
+     "notes": "cao. Accept $0.041\\dot{6}$ only if $\\frac{1}{24}$ is also seen. The fraction must be in lowest terms."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\displaystyle\\int (5x-2)^{-2}\\,\\mathrm{d}x = \\frac{(5x-2)^{-1}}{(-1)(5)} = -\\frac{1}{5(5x-2)}$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$\\left[-\\frac{1}{5(5x-2)}\\right]_{1}^{2} = -\\frac{1}{40} - \\left(-\\frac{1}{15}\\right) = \\frac{-3+8}{120} = \\frac{5}{120} = \\frac{1}{24}$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "I_a",
+     "expr": "1/24",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "integral",
+     "f": "1/(5x-2)^2",
+     "var": "x",
+     "lower": 1,
+     "upper": 2,
+     "answer": "I_a"
+    },
+    {
+     "type": "integral",
+     "f": "(5x-2)^(-2)",
+     "var": "x",
+     "result": "-1/(5(5x-2))"
+    }
+   ],
+   "hints": [
+    "Write $\\frac{1}{(5x-2)^2}$ as $(5x-2)^{-2}$ first, then add 1 to the power.",
+    "Think about which constant you need so that differentiating your answer by the chain rule gives back exactly $(5x-2)^{-2}$."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 3,
+   "text": "Find $\\displaystyle\\int_{1}^{6} \\frac{9}{3x+2}\\,\\mathrm{d}x$, writing your answer in the form $k\\ln 2$, where $k$ is an integer to be determined. (3)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "reverse-chain-rule"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Integrates to $p\\ln(3x+2)$ for some constant $p \\neq 0$",
+     "notes": "Accept $p\\ln|3x+2|$. Using the power rule on $(3x+2)^{-1}$ gets M0."
+    },
+    {
+     "code": "A1",
+     "for": "The correct integral $3\\ln(3x+2)$",
+     "notes": "oe, e.g. $\\frac{9}{3}\\ln(3x+2)$."
+    },
+    {
+     "code": "A1",
+     "for": "Substitutes the limits and simplifies $3\\ln 20 - 3\\ln 5$ to reach $6\\ln 2$",
+     "notes": "cso. The answer must be written as $6\\ln 2$. $3\\ln 4$ on its own gets A0."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\displaystyle\\int \\frac{9}{3x+2}\\,\\mathrm{d}x = p\\ln(3x+2)$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$p = \\frac{9}{3} = 3$, so the integral is $3\\ln(3x+2)$",
+     "mark": "A1"
+    },
+    {
+     "step": 3,
+     "working": "$\\left[3\\ln(3x+2)\\right]_{1}^{6} = 3\\ln 20 - 3\\ln 5 = 3\\ln\\frac{20}{5} = 3\\ln 4 = 6\\ln 2$, so $k = 6$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "k",
+     "expr": "6",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "integral",
+     "f": "9/(3x+2)",
+     "var": "x",
+     "lower": 1,
+     "upper": 6,
+     "result": "6*ln(2)"
+    },
+    {
+     "type": "integral",
+     "f": "9/(3x+2)",
+     "var": "x",
+     "result": "3*ln(3x+2)"
+    },
+    {
+     "type": "equals",
+     "lhs": "k*ln(2)",
+     "rhs": "3*ln(20) - 3*ln(5)",
+     "answer": "k"
+    }
+   ],
+   "hints": [
+    "When the integrand is a constant over a linear expression, the integral is a logarithm. The power rule can't be used for a power of $-1$.",
+    "Once you have substituted the limits, combine the two logarithms using a law of logs, then write $4$ as a power of $2$."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "reverse-chain-coefficient-error",
+   "text": "If you multiply by 5 instead of dividing by 5, you get $-5(5x-2)^{-1}$ and then $\\frac{25}{24}$. The M1 still stands, but you lose the A1. You can check by differentiating your answer: the chain rule should give back exactly $(5x-2)^{-2}$.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "not-rewritten-as-powers",
+   "text": "If you treat $\\frac{1}{(5x-2)^2}$ as though it were $\\frac{1}{5x-2}$ and write down a $\\ln$ answer, you haven't used the power rule at all, so you lose the M1. Rewrite it as $(5x-2)^{-2}$ before you integrate.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "integration-power-rule-error",
+   "text": "With a negative power, adding 1 takes $-2$ up to $-1$, not down to $-3$. If you write $\\frac{(5x-2)^{-3}}{-3}$ or divide by the old power $-2$, the method is wrong and you lose the M1.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "reverse-chain-coefficient-error",
+   "text": "If you multiply by 3 instead of dividing, you get $27\\ln(3x+2)$ and then $54\\ln 2$. That keeps the M1 but loses both A marks.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "integration-power-rule-error",
+   "text": "If you write $9(3x+2)^{-1}$ and add 1 to the power, you get $(3x+2)^{0}$ divided by $0$, which is meaningless. A power of $-1$ integrates to a logarithm, so using the power rule here loses the M1.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "not-rewritten-as-powers",
+   "text": "Don't split $\\frac{9}{3x+2}$ into $\\frac{9}{3x}+\\frac{9}{2}$ before integrating. A fraction can't be split over a sum in its denominator, and the result isn't a correct $p\\ln(3x+2)$ form, so the M1 is lost.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T16:56:50",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.2189
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 5
+  },
+  "G7": {
+   "pass": false,
+   "flag": true,
+   "reasons": [
+    "1 word 8-gram(s) also in the Pearson corpus (not whitelisted)"
+   ],
+   "flags": [
+    "cosine 0.852 with question:IAL2018_WMA13_June2022_Q3"
+   ],
+   "hit_fields": [
+    "part b text"
+   ],
+   "n_8gram_hits": 1,
+   "max_jaccard": 0.032,
+   "jaccard_source": "GCE2008_6663_Jan2008_Q4",
+   "shared_numbers": 0,
+   "max_cosine": 0.852,
+   "cosine_source": "question:IAL2018_WMA13_June2022_Q3"
+  },
+  "G2": {
+   "pass": false,
+   "errors": [
+    "part b check 3 (equals): k*ln(2) != 3*ln(20) - 3*ln(5)"
+   ],
+   "n_checks": 5,
+   "n_answers": 2,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

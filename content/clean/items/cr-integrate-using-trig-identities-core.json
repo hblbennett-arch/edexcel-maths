@@ -1,0 +1,419 @@
+{
+ "id": "cr-integrate-using-trig-identities-core",
+ "blueprint_id": "dr-integrate-using-trig-identities-core",
+ "question_type": "integration-by-substitution",
+ "component": "pure",
+ "tier": "core",
+ "kind": "drill",
+ "stem": null,
+ "parts": [
+  {
+   "label": null,
+   "marks": 4,
+   "command": "show-that",
+   "forms": [],
+   "skills": [
+    "integrate-using-trig-identities"
+   ],
+   "text": "Use the substitution $x = 3\\sin\\theta$ to show that\n$$\\int_{\\frac{3}{2}}^{\\frac{3\\sqrt{3}}{2}} \\frac{x^2}{\\sqrt{9 - x^2}}\\,\\mathrm{d}x = \\frac{3\\pi}{4}.$$ (4)",
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Puts $x = 3\\sin\\theta$ and $\\mathrm{d}x = 3\\cos\\theta\\,\\mathrm{d}\\theta$ into the integral and writes $\\sqrt{9 - 9\\sin^2\\theta}$ as $3\\cos\\theta$, so the integrand becomes a multiple of $\\sin^2\\theta$ on its own.",
+     "notes": "The $\\mathrm{d}x$ must be swapped for a multiple of $\\cos\\theta\\,\\mathrm{d}\\theta$. If $\\mathrm{d}x$ is simply replaced by $\\mathrm{d}\\theta$, this mark is not earned."
+    },
+    {
+     "code": "A1",
+     "for": "Gets $\\displaystyle\\int_{\\pi/6}^{\\pi/3} 9\\sin^2\\theta\\,\\mathrm{d}\\theta$, with the correct integrand and with the new limits $\\frac{\\pi}{6}$ and $\\frac{\\pi}{3}$ in radians.",
+     "notes": "The limits can appear here or when they are substituted later, but they must be in radians. Limits in degrees ($30$ and $60$) earn A0."
+    },
+    {
+     "code": "dM1",
+     "depends_on": "M1",
+     "for": "Replaces $\\sin^2\\theta$ with $\\frac{1}{2}(1 - \\cos 2\\theta)$ and then integrates, getting something of the form $p\\theta + q\\sin 2\\theta$ with $p$ and $q$ both non-zero.",
+     "notes": "The identity used must be the $\\cos 2\\theta$ one. Writing $\\sin^2\\theta = \\frac{1}{2}(1 + \\cos 2\\theta)$ with the wrong sign can still earn this mark if it is integrated to the correct form. Integrating $\\sin^2\\theta$ as $\\frac{1}{3}\\sin^3\\theta$ scores dM0."
+    },
+    {
+     "code": "A1*",
+     "for": "Gets the correct antiderivative $\\frac{9}{2}\\theta - \\frac{9}{4}\\sin 2\\theta$, puts in both limits, shows that the sine terms cancel because $\\sin\\frac{2\\pi}{3} = \\sin\\frac{\\pi}{3} = \\frac{\\sqrt{3}}{2}$, and ends with $\\frac{3\\pi}{4}$.",
+     "notes": "cso. Give this mark only if the working has no errors anywhere. The cancellation of the $\\sin 2\\theta$ terms has to be shown, not just stated."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$x = 3\\sin\\theta \\Rightarrow \\mathrm{d}x = 3\\cos\\theta\\,\\mathrm{d}\\theta$, and $\\sqrt{9 - x^2} = \\sqrt{9(1 - \\sin^2\\theta)} = 3\\cos\\theta$ (since $\\cos\\theta > 0$ for these values of $\\theta$). The integrand becomes $\\dfrac{9\\sin^2\\theta}{3\\cos\\theta}\\cdot 3\\cos\\theta = 9\\sin^2\\theta$.",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "Limits: $x = \\frac{3}{2} \\Rightarrow \\sin\\theta = \\frac{1}{2} \\Rightarrow \\theta = \\frac{\\pi}{6}$, and $x = \\frac{3\\sqrt{3}}{2} \\Rightarrow \\sin\\theta = \\frac{\\sqrt{3}}{2} \\Rightarrow \\theta = \\frac{\\pi}{3}$. So the integral is $\\displaystyle\\int_{\\pi/6}^{\\pi/3} 9\\sin^2\\theta\\,\\mathrm{d}\\theta$.",
+     "mark": "A1"
+    },
+    {
+     "step": 3,
+     "working": "$9\\sin^2\\theta = \\frac{9}{2}(1 - \\cos 2\\theta)$, so the integral is $\\left[\\frac{9}{2}\\theta - \\frac{9}{4}\\sin 2\\theta\\right]_{\\pi/6}^{\\pi/3}$.",
+     "mark": "dM1"
+    },
+    {
+     "step": 4,
+     "working": "$= \\left(\\frac{9}{2}\\cdot\\frac{\\pi}{3} - \\frac{9}{4}\\cdot\\frac{\\sqrt{3}}{2}\\right) - \\left(\\frac{9}{2}\\cdot\\frac{\\pi}{6} - \\frac{9}{4}\\cdot\\frac{\\sqrt{3}}{2}\\right) = \\frac{3\\pi}{2} - \\frac{3\\pi}{4} = \\frac{3\\pi}{4}$, as required.",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [
+    {
+     "name": "I",
+     "expr": "3*pi/4",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "integral",
+     "f": "x^2/sqrt(9 - x^2)",
+     "var": "x",
+     "lower": "3/2",
+     "upper": "3*sqrt(3)/2",
+     "answer": "I"
+    },
+    {
+     "type": "integral",
+     "f": "9*sin(t)^2",
+     "var": "t",
+     "lower": "pi/6",
+     "upper": "pi/3",
+     "result": "3*pi/4"
+    },
+    {
+     "type": "equals",
+     "lhs": "9*sin(t)^2",
+     "rhs": "9/2*(1 - cos(2*t))"
+    },
+    {
+     "type": "integral",
+     "f": "9*sin(t)^2",
+     "var": "t",
+     "result": "9/2*t - 9/4*sin(2*t)"
+    },
+    {
+     "type": "substitute",
+     "expr": "asin(x/3)",
+     "at": {
+      "x": "3*sqrt(3)/2"
+     },
+     "result": "pi/3"
+    }
+   ],
+   "hints": [
+    "Write $\\mathrm{d}x$ in terms of $\\mathrm{d}\\theta$, and use $1 - \\sin^2\\theta = \\cos^2\\theta$ to simplify the square root. Remember to turn both $x$-limits into $\\theta$-limits in radians.",
+    "You can't integrate $\\sin^2\\theta$ as it stands. Rewrite it using a double-angle formula for $\\cos 2\\theta$ first."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "step": 3,
+   "error_code": "trig-power-integrated-directly",
+   "text": "If you treat $9\\sin^2\\theta$ like a power of $x$ and write $3\\sin^3\\theta$, your answer is wrong. Differentiating $3\\sin^3\\theta$ gives $9\\sin^2\\theta\\cos\\theta$, not $9\\sin^2\\theta$. You must rewrite it as $\\frac{9}{2}(1 - \\cos 2\\theta)$ first, or you lose the dM1 mark and the A1* that follows.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "step": 3,
+   "error_code": "trig-integral-sign-error",
+   "text": "The integral of $-\\cos 2\\theta$ is $-\\frac{1}{2}\\sin 2\\theta$. If you write $+\\frac{1}{2}\\sin 2\\theta$, or leave out the factor $\\frac{1}{2}$, your antiderivative is wrong. In this question the sine terms happen to cancel between the limits, so you may still get $\\frac{3\\pi}{4}$, but the working contains an error and the A1* is lost.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "step": 3,
+   "error_code": "double-angle-error",
+   "text": "Use $\\cos 2\\theta = 1 - 2\\sin^2\\theta$, which rearranges to $\\sin^2\\theta = \\frac{1}{2}(1 - \\cos 2\\theta)$. Writing $\\cos 2\\theta = 2\\cos\\theta$, or picking the form $2\\cos^2\\theta - 1$, still leaves you with something you can't integrate directly, so you lose the dM1 mark.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T17:06:36",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.2464
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 4
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.893 with question:IAL2013_WMA02_Oct2018_Q8"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.018,
+   "jaccard_source": "GCE2008_6666_June2015_Q6",
+   "shared_numbers": 0,
+   "max_cosine": 0.893,
+   "cosine_source": "question:IAL2013_WMA02_Oct2018_Q8"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 5,
+   "n_answers": 1,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0092,
+   "solver": {
+    "parts": [
+     {
+      "label": null,
+      "answers": [
+       "3*pi/4"
+      ],
+      "printed_result_correct": true,
+      "working_summary": "With x=3sinθ, dx=3cosθ dθ and sqrt(9-x^2)=3cosθ (cosθ>0 on the range). The integrand becomes 9sin^2θ dθ. The limits x=3/2 and x=3√3/2 give θ=π/6 and θ=π/3. Using sin^2θ=(1-cos2θ)/2, the integral is (9/2)[θ - (sin2θ)/2] from π/6 to π/3. Since sin(2π/3)=sin(π/3), the sine terms cancel. This leaves (9/2)(π/6)=3π/4, as printed."
+     }
+    ],
+    "problems": []
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "n_responses": 5,
+   "agreed": [
+    "r1",
+    "r2",
+    "r3",
+    "r4",
+    "r5"
+   ],
+   "consistent": {},
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "r1",
+     "kind": "correct",
+     "error_code": null,
+     "work": "$x=3\\sin\\theta$, $dx=3\\cos\\theta\\,d\\theta$. $\\sqrt{9-9\\sin^2\\theta}=3\\cos\\theta$. Integrand: $\\frac{9\\sin^2\\theta}{3\\cos\\theta}\\cdot3\\cos\\theta=9\\sin^2\\theta$. Limits: $\\sin\\theta=\\frac12\\Rightarrow\\theta=\\frac{\\pi}{6}$, $\\sin\\theta=\\frac{\\sqrt3}{2}\\Rightarrow\\theta=\\frac{\\pi}{3}$. So $\\int_{\\pi/6}^{\\pi/3}9\\sin^2\\theta\\,d\\theta=\\int\\frac92(1-\\cos2\\theta)d\\theta=\\left[\\frac92\\theta-\\frac94\\sin2\\theta\\right]_{\\pi/6}^{\\pi/3}$ $=\\left(\\frac{3\\pi}{2}-\\frac94\\sin\\frac{2\\pi}{3}\\right)-\\left(\\frac{3\\pi}{4}-\\frac94\\sin\\frac{\\pi}{3}\\right)$. Since $\\sin\\frac{2\\pi}{3}=\\sin\\frac{\\pi}{3}=\\frac{\\sqrt3}{2}$ the sine terms cancel, giving $\\frac{3\\pi}{2}-\\frac{3\\pi}{4}=\\frac{3\\pi}{4}$.",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "dM1",
+        "A1*"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "kind": "pitfall",
+     "error_code": "trig-power-integrated-directly",
+     "work": "$x=3\\sin\\theta$, $dx=3\\cos\\theta\\,d\\theta$, $\\sqrt{9-x^2}=3\\cos\\theta$, so integrand is $9\\sin^2\\theta$. Limits $\\frac{\\pi}{6}$ to $\\frac{\\pi}{3}$. $\\int_{\\pi/6}^{\\pi/3}9\\sin^2\\theta\\,d\\theta=[3\\sin^3\\theta]_{\\pi/6}^{\\pi/3}=3\\left(\\frac{\\sqrt3}{2}\\right)^3-3\\left(\\frac12\\right)^3=\\frac{9\\sqrt3}{8}-\\frac38$. This is not $\\frac{3\\pi}{4}$ but that's what I get.",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "dM0",
+        "A0*"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r3",
+     "kind": "pitfall",
+     "error_code": "trig-integral-sign-error",
+     "work": "$x=3\\sin\\theta$, $dx=3\\cos\\theta\\,d\\theta$, integrand becomes $9\\sin^2\\theta$, limits $\\frac{\\pi}{6}$ to $\\frac{\\pi}{3}$. $9\\sin^2\\theta=\\frac92(1-\\cos2\\theta)$. Integrating: $\\left[\\frac92\\theta+\\frac94\\sin2\\theta\\right]_{\\pi/6}^{\\pi/3}$. $=\\left(\\frac{3\\pi}{2}+\\frac94\\cdot\\frac{\\sqrt3}{2}\\right)-\\left(\\frac{3\\pi}{4}+\\frac94\\cdot\\frac{\\sqrt3}{2}\\right)=\\frac{3\\pi}{4}$.",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "dM1",
+        "A0*"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r4",
+     "kind": "pitfall",
+     "error_code": "double-angle-error",
+     "work": "$x=3\\sin\\theta$, $dx=3\\cos\\theta\\,d\\theta$, integrand $9\\sin^2\\theta$, limits $\\frac{\\pi}{6}$ to $\\frac{\\pi}{3}$. Now use $\\cos2\\theta=2\\cos\\theta$ so $\\sin^2\\theta=1-\\cos^2\\theta$, and $\\cos\\theta=\\frac12\\cos2\\theta$, giving $9\\sin^2\\theta=9-\\frac94\\cos^22\\theta$. I can't integrate this, so I can't finish the proof.",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "dM0",
+        "A0*"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r5",
+     "kind": "partial",
+     "error_code": null,
+     "work": "$x=3\\sin\\theta$, so $dx=3\\cos\\theta\\,d\\theta$. $\\sqrt{9-9\\sin^2\\theta}=3\\cos\\theta$. The integral becomes $\\int9\\sin^2\\theta\\,d\\theta$. Limits: $\\theta=\\frac{\\pi}{6}$ to $\\frac{\\pi}{3}$. Stopped here.",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "dM0",
+        "A0*"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "r1",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "dM1",
+        "A1*"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "dM0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "dM0: sin^2θ integrated as a cube (sin^3θ), not via the cos2θ identity.",
+      "A0: no correct antiderivative and no valid route to 3π/4."
+     ]
+    },
+    {
+     "id": "r3",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "dM1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "A0: antiderivative has the wrong sign on the sin2θ term (+9/4 sin2θ instead of -9/4 sin2θ), and the cancellation of the sine terms isn't justified by showing sin(2π/3)=sin(π/3)."
+     ]
+    },
+    {
+     "id": "r4",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "dM0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "dM0: the double-angle identity is invalid (cos2θ=2cosθ), so sin^2θ is not correctly replaced and no integration of the required form.",
+      "A0: the proof isn't completed."
+     ]
+    },
+    {
+     "id": "r5",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "dM0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "dM0: no identity used and no integration.",
+      "A0: no antiderivative or evaluation."
+     ]
+    }
+   ],
+   "awarded_second": [],
+   "cost_usd": 0.0444
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "agreement": "1/1",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.012816,
+   "retagged": {
+    "-": [
+     "integration-by-substitution",
+     "change-limits-in-substitution",
+     "integrate-using-trig-identities",
+     "standard-integrals"
+    ]
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

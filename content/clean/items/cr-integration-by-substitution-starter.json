@@ -1,0 +1,173 @@
+{
+ "id": "cr-integration-by-substitution-starter",
+ "blueprint_id": "dr-integration-by-substitution-starter",
+ "question_type": "integration-by-substitution",
+ "component": "pure",
+ "tier": "starter",
+ "kind": "drill",
+ "stem": null,
+ "parts": [
+  {
+   "label": null,
+   "marks": 3,
+   "text": "Let $I = \\displaystyle\\int_{0}^{2} \\frac{9x^{2}}{\\sqrt{x^{3}+1}}\\,\\mathrm{d}x$.\n\nWrite $I$ as an integral with respect to $u$, where $u = x^{3} + 1$, making sure the limits are in terms of $u$. Find the exact value of $I$. (3)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "integration-by-substitution"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Gets the whole integral in terms of $u$ with the correct $u$-limits: $\\int_{1}^{9} 3u^{-\\frac{1}{2}}\\,\\mathrm{d}u$ (from $\\mathrm{d}u = 3x^{2}\\,\\mathrm{d}x$, $x=0 \\Rightarrow u=1$, $x=2 \\Rightarrow u=9$)",
+     "notes": "Accept $3\\int_1^9 \\frac{1}{\\sqrt{u}}\\,\\mathrm{d}u$ oe. The limits 1 and 9 must be shown, or the student can change back to $x$ correctly later."
+    },
+    {
+     "code": "M1",
+     "for": "Integrates $k u^{-\\frac{1}{2}}$ to $c\\,u^{\\frac{1}{2}}$ and puts in the limits 9 and 1, subtracting",
+     "notes": "Allow for any nonzero constant $k$. If $x$-limits 0 and 2 are used in a $u$-expression, M0."
+    },
+    {
+     "code": "A1",
+     "for": "$I = 12$",
+     "notes": "cao. Answer only, with no substitution shown, scores 0."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$u = x^{3}+1 \\Rightarrow \\frac{\\mathrm{d}u}{\\mathrm{d}x} = 3x^{2}$, so $9x^{2}\\,\\mathrm{d}x = 3\\,\\mathrm{d}u$.",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "When $x = 0$, $u = 1$. When $x = 2$, $u = 9$. So $I = \\displaystyle\\int_{1}^{9} 3u^{-\\frac{1}{2}}\\,\\mathrm{d}u$.",
+     "mark": "B1"
+    },
+    {
+     "step": 3,
+     "working": "$I = \\left[6u^{\\frac{1}{2}}\\right]_{1}^{9} = 6\\sqrt{9} - 6\\sqrt{1}$",
+     "mark": "M1"
+    },
+    {
+     "step": 4,
+     "working": "$I = 18 - 6 = 12$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "I",
+     "expr": "12",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "integral",
+     "f": "9x^2/sqrt(x^3+1)",
+     "var": "x",
+     "lower": 0,
+     "upper": 2,
+     "answer": "I"
+    },
+    {
+     "type": "integral",
+     "f": "3u^(-1/2)",
+     "var": "u",
+     "lower": 1,
+     "upper": 9,
+     "result": "12"
+    },
+    {
+     "type": "derivative",
+     "f": "x^3 + 1",
+     "var": "x",
+     "result": "3x^2"
+    },
+    {
+     "type": "integral",
+     "f": "3u^(-1/2)",
+     "var": "u",
+     "result": "6sqrt(u)"
+    }
+   ],
+   "hints": [
+    "Differentiate $u = x^{3}+1$ to find $\\mathrm{d}u$ in terms of $\\mathrm{d}x$. Then see how $9x^{2}\\,\\mathrm{d}x$ can be written using $\\mathrm{d}u$.",
+    "Put $x = 0$ and $x = 2$ into $u = x^{3}+1$ to get the new limits."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "error_code": "substitution-dx-not-replaced",
+   "step": 1,
+   "text": "If you only replace $x^{3}+1$ with $u$ and leave $9x^{2}\\,\\mathrm{d}x$ as it is, you end up with $x$ and $u$ mixed together and you can't integrate properly. Use $\\mathrm{d}u = 3x^{2}\\,\\mathrm{d}x$ to turn $9x^{2}\\,\\mathrm{d}x$ into $3\\,\\mathrm{d}u$, or you lose the B1 and the M1.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "error_code": "wrong-limits-after-substitution",
+   "step": 3,
+   "text": "If you put $0$ and $2$ into $6u^{\\frac{1}{2}}$ you get $6\\sqrt{2}$, which is wrong. The limits need to change to $u = 1$ and $u = 9$. Using the $x$-limits in a $u$-expression loses the M1.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "error_code": "by-parts-poor-choice",
+   "step": 2,
+   "text": "It is common to try integration by parts here, for example with $9x^{2}$ as one factor. That gives a harder integral than the one you started with. The question gives you the substitution $u = x^{3}+1$, so use it. Integration by parts leads nowhere useful and scores no method mark.",
+   "says_common": true
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T17:06:28",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.1937
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 3
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.854 with question:GCE2008_6666_June2013_Q5"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.019,
+   "jaccard_source": "IAL2013_WMA01_Jan2020_Q16",
+   "shared_numbers": 0,
+   "max_cosine": 0.854,
+   "cosine_source": "question:GCE2008_6666_June2013_Q5"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 4,
+   "n_answers": 1,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": false,
+   "errors": [
+    "integration-by-substitution: total marks 3 outside 4-16 (seen 5-15, +-1)"
+   ],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

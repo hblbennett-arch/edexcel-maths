@@ -1,0 +1,734 @@
+{
+ "id": "cr-pure-de-formulate-from-rates-007",
+ "blueprint_id": "bp-pure-de-formulate-from-rates-007",
+ "question_type": "de-formulate-from-rates",
+ "component": "pure",
+ "tier": "standard",
+ "kind": "exam",
+ "stem": "A sphere is expanding. At time $t$ seconds its radius is $r$ cm and its volume is $V\\,\\mathrm{cm^3}$.\n\nThe rate of increase of $V$ is inversely proportional to $r$. When $r = 2$, the volume is increasing at a rate of $8\\pi\\,\\mathrm{cm^3\\,s^{-1}}$.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 3,
+   "text": "Show that $$\\frac{\\mathrm{d}r}{\\mathrm{d}t} = \\frac{4}{r^3}$$ (3)",
+   "command": "show-that",
+   "skills": [
+    "mensuration-formulae",
+    "show-that-given-answer"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Turns the rate statement into $\\frac{\\mathrm{d}V}{\\mathrm{d}t} = \\frac{k}{r}$ and uses $r = 2$, $\\frac{\\mathrm{d}V}{\\mathrm{d}t} = 8\\pi$ to find $k = 16\\pi$",
+     "notes": "Allow any letter for the constant. The statement must be $k/r$ (inverse proportion). $\\frac{\\mathrm{d}V}{\\mathrm{d}t} = kr$ earns M0."
+    },
+    {
+     "code": "B1",
+     "for": "States $V = \\frac{4}{3}\\pi r^3$ and differentiates to get $\\frac{\\mathrm{d}V}{\\mathrm{d}r} = 4\\pi r^2$",
+     "notes": "Can be awarded on its own. Accept $\\frac{\\mathrm{d}r}{\\mathrm{d}V} = \\frac{1}{4\\pi r^2}$."
+    },
+    {
+     "code": "M1",
+     "for": "Links the rates with the chain rule, $\\frac{\\mathrm{d}r}{\\mathrm{d}t} = \\frac{\\mathrm{d}V}{\\mathrm{d}t} \\div \\frac{\\mathrm{d}V}{\\mathrm{d}r} = \\frac{16\\pi/r}{4\\pi r^2}$, and simplifies to exactly $\\frac{4}{r^3}$",
+     "notes": "This is a printed answer, so the chain-rule line with $16\\pi/r$ and $4\\pi r^2$ substituted must be written down. There must be no incorrect working. If the value of $k$ is wrong, or $k$ is only fixed at the end to force the answer, give M0."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\frac{\\mathrm{d}V}{\\mathrm{d}t} = \\frac{k}{r}$. When $r = 2$: $\\frac{k}{2} = 8\\pi \\Rightarrow k = 16\\pi$, so $\\frac{\\mathrm{d}V}{\\mathrm{d}t} = \\frac{16\\pi}{r}$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$V = \\frac{4}{3}\\pi r^3 \\Rightarrow \\frac{\\mathrm{d}V}{\\mathrm{d}r} = 4\\pi r^2$",
+     "mark": "B1"
+    },
+    {
+     "step": 3,
+     "working": "$\\frac{\\mathrm{d}r}{\\mathrm{d}t} = \\frac{\\mathrm{d}V}{\\mathrm{d}t} \\times \\frac{\\mathrm{d}r}{\\mathrm{d}V} = \\frac{16\\pi}{r} \\times \\frac{1}{4\\pi r^2} = \\frac{4}{r^3}$ as required",
+     "mark": "M1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "k",
+     "expr": "16*pi",
+     "form": "exact",
+     "check": "k/2 = 8*pi"
+    }
+   ],
+   "checks": [
+    {
+     "type": "derivative",
+     "f": "4/3*pi*r^3",
+     "var": "r",
+     "result": "4*pi*r^2"
+    },
+    {
+     "type": "equals",
+     "lhs": "(16*pi/r)/(4*pi*r^2)",
+     "rhs": "4/r^3",
+     "domain": "positive"
+    },
+    {
+     "type": "substitute",
+     "expr": "16*pi/r",
+     "at": {
+      "r": 2
+     },
+     "result": "8*pi"
+    }
+   ],
+   "hints": [
+    "Write the rate statement as an equation for $\\frac{\\mathrm{d}V}{\\mathrm{d}t}$ with a constant of proportionality, then use the given values to find that constant.",
+    "You also need $\\frac{\\mathrm{d}V}{\\mathrm{d}r}$ from the volume formula for a sphere. Then use the chain rule to connect the three rates."
+   ],
+   "forms": []
+  },
+  {
+   "label": "b",
+   "marks": 3,
+   "text": "Given that $r = 1$ when $t = 0$, find the exact value of $r$ when $t = 3$. (3)",
+   "command": "find",
+   "skills": [
+    "exact-form-answers",
+    "solve-power-equation"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Separates the variables as $\\int r^3\\,\\mathrm{d}r = \\int 4\\,\\mathrm{d}t$ and integrates to get $\\frac{r^4}{4} = 4t\\,(+c)$",
+     "notes": "Accept the equivalent $r^4 = 16t\\,(+c)$. Some power of $r$ must go up by 1, giving $r^4$."
+    },
+    {
+     "code": "dM1",
+     "for": "Uses $t = 0$, $r = 1$ to find the constant ($c = \\frac{1}{4}$), then puts in $t = 3$ and rearranges to $r^4 = k$, where $k$ is a number (correct value $49$)",
+     "notes": "Depends on the first M1. Definite integration with the limits $1 \\to r$ and $0 \\to 3$ is also acceptable."
+    },
+    {
+     "code": "A1",
+     "for": "$r = \\sqrt{7}$",
+     "notes": "cao. The answer must be exact, so a decimal such as $2.6457...$ scores A0. Accept $7^{1/2}$ or $49^{1/4}$ only if it is simplified to $\\sqrt{7}$. If a negative value is also given, it must be rejected."
+    }
+   ],
+   "alternatives": [
+    {
+     "name": "Way 2: definite integration",
+     "marks": [
+      {
+       "code": "M1",
+       "for": "$\\int_1^{r} r^3\\,\\mathrm{d}r = \\int_0^{3} 4\\,\\mathrm{d}t$, with the $r$ side integrated to $\\left[\\frac{r^4}{4}\\right]$"
+      },
+      {
+       "code": "dM1",
+       "for": "Puts in the limits to get $\\frac{r^4 - 1}{4} = 12$ and so $r^4 = 49$ (or their equivalent)"
+      },
+      {
+       "code": "A1",
+       "for": "$r = \\sqrt{7}$",
+       "notes": "cao"
+      }
+     ]
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\int r^3\\,\\mathrm{d}r = \\int 4\\,\\mathrm{d}t \\Rightarrow \\frac{r^4}{4} = 4t + c$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$t = 0, r = 1$: $\\frac{1}{4} = c$, so $r^4 = 16t + 1$. When $t = 3$: $r^4 = 49$",
+     "mark": "dM1"
+    },
+    {
+     "step": 3,
+     "working": "$r^2 = 7$ ($r^2 = -7$ is impossible), and $r > 0$, so $r = \\sqrt{7}$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "r",
+     "expr": "sqrt(7)",
+     "form": "exact",
+     "check": "r^4 = 16*3 + 1"
+    }
+   ],
+   "checks": [
+    {
+     "type": "solutions",
+     "equation": "r^4 = 49",
+     "var": "r",
+     "interval": [
+      0,
+      10
+     ],
+     "result": [
+      "sqrt(7)"
+     ]
+    },
+    {
+     "type": "integral",
+     "f": "r^3",
+     "var": "r",
+     "lower": "1",
+     "upper": "sqrt(7)",
+     "result": "12"
+    },
+    {
+     "type": "derivative",
+     "f": "(16t+1)^(1/4)",
+     "var": "t",
+     "result": "4/(16t+1)^(3/4)"
+    }
+   ],
+   "hints": [
+    "Separate the variables: put all the $r$ terms on one side with $\\mathrm{d}r$ and the $t$ terms on the other side with $\\mathrm{d}t$, then integrate both sides.",
+    "Find the constant from the initial condition before you substitute $t = 3$. You will end up with an equation of the form $r^4 = k$."
+   ],
+   "forms": []
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "mensuration-formula-error",
+   "text": "A common slip is using the wrong sphere formula, for example the surface area $4\\pi r^2$ as the volume, or $V = \\frac{4}{3}\\pi r^2$. Then $\\frac{\\mathrm{d}V}{\\mathrm{d}r}$ comes out as $8\\pi r$ or $\\frac{8}{3}\\pi r$ instead of $4\\pi r^2$. You lose the B1, and you cannot reach $\\frac{4}{r^3}$ honestly, so the final M1 goes as well.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 3,
+   "error_code": "constraint-not-substituted",
+   "text": "If you try to work straight from $\\frac{\\mathrm{d}V}{\\mathrm{d}t} = \\frac{16\\pi}{r}$, you are dealing with two linked variables, $V$ and $r$. You must use $V = \\frac{4}{3}\\pi r^3$ (through $\\frac{\\mathrm{d}V}{\\mathrm{d}r}$ and the chain rule) to turn this into an equation in $r$ and $t$ only. Without that link you cannot reach the printed result and the final M1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "index-law-error",
+   "text": "Integrating $r^3$ means raising the power by 1 and dividing by the new power, which gives $\\frac{r^4}{4}$. Differentiating by mistake to get $3r^2$, or writing $\\frac{r^4}{3}$, gives the wrong equation, and the M1 (and so the dM1) is lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 3,
+   "error_code": "index-law-error",
+   "text": "From $r^4 = 49$ you need the fourth root, $r = 49^{1/4} = \\sqrt{7}$. Taking a single square root gives $r = 7$, and dividing gives $r = \\frac{49}{4}$. Both are wrong and lose the A1.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T16:22:19",
+ "generation": {
+  "attempts": 1,
+  "cost_usd": 0.1855
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 6
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.912 with question:GCE2008_6666R_June2014_Q5"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.018,
+   "jaccard_source": "IAL2013_WMA02_June2015_Q5",
+   "shared_numbers": 0,
+   "max_cosine": 0.912,
+   "cosine_source": "question:GCE2008_6666R_June2014_Q5"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 6,
+   "n_answers": 2,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "part a: expected k = 16*pi, solver got ['dr/dt = 4/r^3 (printed result correct)'] [judge: same - Solver found k=16π (dV/dt = 16π/r), which matches the setter's k=16π, and then correctly derived dr/dt = 4/r^3.]"
+   ],
+   "flag": true,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0107,
+   "solver": {
+    "parts": [
+     {
+      "label": "a",
+      "answers": [
+       "dr/dt = 4/r^3 (printed result correct)"
+      ],
+      "printed_result_correct": true,
+      "working_summary": "dV/dt = k/r. At r=2, dV/dt=8π, so k=16π. V=(4/3)πr^3 gives dV/dr=4πr^2. dr/dt = (dV/dt)/(dV/dr) = (16π/r)/(4πr^2) = 4/r^3."
+     },
+     {
+      "label": "b",
+      "answers": [
+       "sqrt(7)"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "Separate the variables: ∫r^3 dr = ∫4 dt, so r^4/4 = 4t + c. With r=1 at t=0, c=1/4, so r^4 = 16t+1. At t=3, r^4=49, so r=√7 (taking the positive root)."
+     }
+    ],
+    "problems": []
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "response p3 (pitfall index-law-error): both markers award {'a': ['M1', 'B1', 'M1'], 'b': ['M1', 'dM1', 'A0']}, not the designed {'a': ['M1', 'B1', 'M1'], 'b': ['M0', 'dM0', 'A0']} (script design off; scheme consistent)"
+   ],
+   "flag": true,
+   "n_responses": 7,
+   "agreed": [
+    "correct",
+    "p1",
+    "p2",
+    "p4",
+    "alt",
+    "partial"
+   ],
+   "consistent": {
+    "p3": [
+     {
+      "part": "a",
+      "marks": [
+       "M1",
+       "B1",
+       "M1"
+      ]
+     },
+     {
+      "part": "b",
+      "marks": [
+       "M1",
+       "dM1",
+       "A0"
+      ]
+     }
+    ]
+   },
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "correct",
+     "kind": "correct",
+     "work": "(a) $\\frac{dV}{dt}=\\frac{k}{r}$. When $r=2$, $\\frac{k}{2}=8\\pi$ so $k=16\\pi$.\n$V=\\frac43\\pi r^3$ so $\\frac{dV}{dr}=4\\pi r^2$.\n$\\frac{dr}{dt}=\\frac{dV}{dt}\\div\\frac{dV}{dr}=\\frac{16\\pi}{r}\\times\\frac{1}{4\\pi r^2}=\\frac{4}{r^3}$ as required.\n(b) $\\int r^3\\,dr=\\int 4\\,dt$ so $\\frac{r^4}{4}=4t+c$. $t=0,r=1$: $c=\\frac14$. So $r^4=16t+1$. At $t=3$: $r^4=49$, so $r^2=7$, $r=\\sqrt7$ (r>0).",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "B1",
+        "M1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p1",
+     "kind": "pitfall",
+     "error_code": "mensuration-formula-error",
+     "work": "(a) $\\frac{dV}{dt}=\\frac{k}{r}$, $r=2$: $k=16\\pi$.\n$V=4\\pi r^2$ so $\\frac{dV}{dr}=8\\pi r$.\n$\\frac{dr}{dt}=\\frac{16\\pi}{r}\\times\\frac{1}{8\\pi r}=\\frac{2}{r^2}$. This isn't the given answer but I'll go with the given $\\frac{4}{r^3}$.\n(b) $\\int r^3\\,dr=\\int4\\,dt$, $\\frac{r^4}{4}=4t+c$, $c=\\frac14$, $r^4=16t+1$. $t=3$: $r^4=49$, $r=\\sqrt7$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "B0",
+        "M0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p2",
+     "kind": "pitfall",
+     "error_code": "constraint-not-substituted",
+     "work": "(a) $\\frac{dV}{dt}=\\frac{k}{r}$, $\\frac{k}{2}=8\\pi$, $k=16\\pi$.\nSo $\\frac{dr}{dt}=\\frac{16\\pi}{r}$, then dividing by $4\\pi$ (not using a volume formula) gives $\\frac{dr}{dt}=\\frac{4}{r^3}$ as required.\n(b) $\\int r^3\\,dr=\\int4\\,dt$, $\\frac{r^4}{4}=4t+c$, $c=\\frac14$, $r^4=16t+1=49$, $r=\\sqrt7$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "B0",
+        "M0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p3",
+     "kind": "pitfall",
+     "error_code": "index-law-error",
+     "work": "(a) $\\frac{dV}{dt}=\\frac{k}{r}$, $k=16\\pi$. $V=\\frac43\\pi r^3$, $\\frac{dV}{dr}=4\\pi r^2$. $\\frac{dr}{dt}=\\frac{16\\pi}{r}\\times\\frac{1}{4\\pi r^2}=\\frac{4}{r^3}$.\n(b) $\\int r^3\\,dr=\\int4\\,dt$ gives $\\frac{r^4}{3}=4t+c$. $t=0,r=1$: $c=\\frac13$. $r^4=12t+1$. At $t=3$: $r^4=37$, $r=37^{1/4}$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "B1",
+        "M1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "dM0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p4",
+     "kind": "pitfall",
+     "error_code": "index-law-error",
+     "work": "(a) $\\frac{dV}{dt}=\\frac{k}{r}$, $k=16\\pi$. $V=\\frac43\\pi r^3$, $\\frac{dV}{dr}=4\\pi r^2$. $\\frac{dr}{dt}=\\frac{16\\pi}{r}\\times\\frac{1}{4\\pi r^2}=\\frac{4}{r^3}$.\n(b) $\\frac{r^4}{4}=4t+c$, $c=\\frac14$, $r^4=16t+1$. $t=3$: $r^4=49$, so $r=7$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "B1",
+        "M1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "alt",
+     "kind": "alternative",
+     "work": "(a) $\\frac{dV}{dt}=\\frac{k}{r}$, $k=16\\pi$. $\\frac{dV}{dr}=4\\pi r^2$ from $V=\\frac43\\pi r^3$. $\\frac{dr}{dt}=\\frac{16\\pi}{r}\\div4\\pi r^2=\\frac{4}{r^3}$.\n(b) $\\int_1^r r^3\\,dr=\\int_0^3 4\\,dt$, so $\\left[\\frac{r^4}{4}\\right]_1^r=[4t]_0^3$, $\\frac{r^4-1}{4}=12$, $r^4=49$, $r=\\sqrt7$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "B1",
+        "M1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "partial",
+     "kind": "partial",
+     "work": "(a) $\\frac{dV}{dt}=\\frac{k}{r}$, $r=2$: $8\\pi=\\frac{k}{2}$, $k=16\\pi$. $V=\\frac43\\pi r^3$, $\\frac{dV}{dr}=4\\pi r^2$. I'm not sure how to link these so I stop here.\n(b) $\\int r^3\\,dr=\\int4\\,dt$ so $\\frac{r^4}{4}=4t+c$. Stopped.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "B1",
+        "M0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM0",
+        "A0"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "correct",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "B1",
+        "M1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "B0",
+        "M0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "B0: used V=4πr^2, wrong volume formula and dV/dr",
+      "M0: chain rule result 2/r^2 is wrong and answer forced to the given one"
+     ]
+    },
+    {
+     "id": "p2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "B0",
+        "M0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "B0: no volume formula or dV/dr",
+      "M0: no chain rule with 4πr^2; division by 4π is unjustified"
+     ]
+    },
+    {
+     "id": "p3",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "B1",
+        "M1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "A0: r^4=37 is wrong because of the r^4/3 integration error, so r=37^(1/4) is not √7"
+     ]
+    },
+    {
+     "id": "p4",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "B1",
+        "M1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "A0: r=7 is wrong; r^4=49 gives r=√7"
+     ]
+    },
+    {
+     "id": "alt",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "B1",
+        "M1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "partial",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "B1",
+        "M0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "M0: chain rule not used and 4/r^3 not derived",
+      "dM0: constant not found and t=3 not used",
+      "A0: no value of r found"
+     ]
+    }
+   ],
+   "awarded_second": [
+    {
+     "id": "p3",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "B1",
+        "M1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "b A0: integration error r^4/3 (should be r^4/4) leads to r = 37^(1/4) instead of the correct r = sqrt(7)"
+     ]
+    }
+   ],
+   "cost_usd": 0.0897
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": false,
+   "errors": [
+    "part a: tagged ['mensuration-formulae'], retagged ['form-differential-equation', 'chain-rule', 'find-constants-from-conditions', 'simplify-derivative-to-given-form']",
+    "part b: tagged ['solve-power-equation'], retagged ['separate-variables-and-integrate', 'integrate-powers-of-x', 'find-constants-from-conditions', 'rearrange-solution-explicitly']"
+   ],
+   "flags": [],
+   "flag": false,
+   "agreement": "0/2",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.01392625,
+   "retagged": {
+    "a": [
+     "form-differential-equation",
+     "chain-rule",
+     "find-constants-from-conditions",
+     "simplify-derivative-to-given-form"
+    ],
+    "b": [
+     "separate-variables-and-integrate",
+     "integrate-powers-of-x",
+     "find-constants-from-conditions",
+     "rearrange-solution-explicitly"
+    ]
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

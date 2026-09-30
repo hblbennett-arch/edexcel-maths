@@ -1,0 +1,377 @@
+{
+ "id": "cr-pure-first-principles-001",
+ "blueprint_id": "bp-pure-first-principles-001",
+ "question_type": "first-principles",
+ "component": "pure",
+ "tier": "accessible",
+ "kind": "exam",
+ "stem": null,
+ "parts": [
+  {
+   "label": null,
+   "marks": 3,
+   "text": "The curve $C$ has equation $y = 5x^2 - 7x$.\n\nShow that $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 10x - 7$, using differentiation from first principles. (3)",
+   "command": "show-that",
+   "forms": [],
+   "skills": [
+    "differentiate-from-first-principles",
+    "show-that-given-answer"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Writes the gradient of a chord in terms of $h$, with $5(x+h)^2 - 7(x+h)$ and $5x^2 - 7x$ subtracted over $h$, and expands $(x+h)^2$ to get $x^2 + 2xh + h^2$.",
+     "notes": "Accept $\\delta x$ in place of $h$. The expansion may have a sign or coefficient slip. Using a chord between two specific numerical points is M0."
+    },
+    {
+     "code": "A1",
+     "depends_on": "M1",
+     "for": "Simplifies the numerator correctly to $10xh + 5h^2 - 7h$, then divides by $h$ to get $10x + 5h - 7$.",
+     "notes": "The $\\frac{10xh + 5h^2 - 7h}{h}$ line or the $10x + 5h - 7$ line must be seen."
+    },
+    {
+     "code": "A1*",
+     "depends_on": "A1",
+     "for": "Takes the limit as $h \\to 0$ with correct notation, e.g. $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\lim_{h \\to 0}(10x + 5h - 7) = 10x - 7$, and makes no errors anywhere.",
+     "notes": "cso. The limit must appear in at least one line, e.g. 'as $h \\to 0$, $10x + 5h - 7 \\to 10x - 7$'. Writing $h = 0$ in place of a limit, or putting $h = 0$ before dividing by $h$, is A0*."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Gradient of the chord from $(x,\\ 5x^2 - 7x)$ to $(x+h,\\ 5(x+h)^2 - 7(x+h))$: $\\dfrac{5(x+h)^2 - 7(x+h) - (5x^2 - 7x)}{h}$",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "$= \\dfrac{5x^2 + 10xh + 5h^2 - 7x - 7h - 5x^2 + 7x}{h}$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$= \\dfrac{10xh + 5h^2 - 7h}{h} = 10x + 5h - 7$",
+     "mark": "A1"
+    },
+    {
+     "step": 4,
+     "working": "$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\lim_{h \\to 0}\\,(10x + 5h - 7) = 10x - 7$ as required.",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [
+    {
+     "name": "dydx",
+     "expr": "10x - 7",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "(5(x+h)^2 - 7(x+h) - (5x^2 - 7x))/h",
+     "rhs": "10x + 5h - 7",
+     "domain": "positive"
+    },
+    {
+     "type": "derivative",
+     "f": "5x^2 - 7x",
+     "var": "x",
+     "answer": "dydx"
+    },
+    {
+     "type": "substitute",
+     "expr": "10x + 5h - 7",
+     "at": {
+      "h": 0
+     },
+     "result": "10x - 7"
+    }
+   ],
+   "hints": [
+    "Start by writing the gradient of the chord between the points on $C$ where the $x$-coordinates are $x$ and $x + h$. It is $\\frac{f(x+h) - f(x)}{h}$ with $f(x) = 5x^2 - 7x$.",
+    "Expand and simplify the numerator until every term has a factor of $h$. Divide by $h$, and only after that think about what happens as $h \\to 0$."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "error_code": "first-principles-incomplete",
+   "step": 4,
+   "text": "If you write '$h = 0$' in place of taking a limit, you lose the final A1*. The same happens if you put $h = 0$ into $\\frac{10xh + 5h^2 - 7h}{h}$ before dividing by $h$, because that gives $\\frac{0}{0}$. Divide by $h$ first to get $10x + 5h - 7$. Then write $\\lim_{h \\to 0}$, or say 'as $h \\to 0$'.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "error_code": "first-principles-incomplete",
+   "step": 2,
+   "text": "When you subtract $f(x)$, keep the whole of $5x^2 - 7x$ in brackets. If you write $-5x^2 - 7x$, the $x$ terms don't cancel and you can't reach $10x - 7$, so you lose both A marks. Also expand $5(x+h)^2$ in full as $5x^2 + 10xh + 5h^2$. It is not $5x^2 + 5h^2$.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T16:58:25",
+ "generation": {
+  "attempts": 1,
+  "cost_usd": 0.0822
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 3
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.862 with part:IAL2018_WMA11_Oct2022_Q1:a"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.053,
+   "jaccard_source": "IAL2018_WMA11_Jan2024_Q3",
+   "shared_numbers": 0,
+   "max_cosine": 0.862,
+   "cosine_source": "part:IAL2018_WMA11_Oct2022_Q1:a"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 3,
+   "n_answers": 1,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0061,
+   "solver": {
+    "parts": [
+     {
+      "label": null,
+      "answers": [
+       "10*x - 7"
+      ],
+      "printed_result_correct": true,
+      "working_summary": "f(x+h)-f(x) = 5(x+h)^2 - 7(x+h) - 5x^2 + 7x = 10xh + 5h^2 - 7h. Divide by h: 10x + 5h - 7. As h->0, this tends to 10x - 7. So dy/dx = 10x - 7, matching the printed result."
+     }
+    ],
+    "problems": []
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "n_responses": 5,
+   "agreed": [
+    "r1",
+    "r2",
+    "r3",
+    "r4",
+    "r5"
+   ],
+   "consistent": {},
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "r1",
+     "kind": "correct",
+     "work": "$\\frac{dy}{dx}=\\lim_{h\\to0}\\frac{5(x+h)^2-7(x+h)-(5x^2-7x)}{h}$\n$=\\lim_{h\\to0}\\frac{5x^2+10xh+5h^2-7x-7h-5x^2+7x}{h}$\n$=\\lim_{h\\to0}\\frac{10xh+5h^2-7h}{h}=\\lim_{h\\to0}(10x+5h-7)$\nAs $h\\to0$, $\\frac{dy}{dx}=10x-7$.",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "A1*"
+       ]
+      }
+     ],
+     "error_code": null
+    },
+    {
+     "id": "r2",
+     "kind": "pitfall",
+     "work": "$\\frac{5(x+h)^2-7(x+h)-(5x^2-7x)}{h}=\\frac{5x^2+10xh+5h^2-7x-7h-5x^2+7x}{h}$\n$=\\frac{10xh+5h^2-7h}{h}=10x+5h-7$\nLet $h=0$: $\\frac{dy}{dx}=10x-7$.",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "A0*"
+       ]
+      }
+     ],
+     "error_code": "first-principles-incomplete"
+    },
+    {
+     "id": "r3",
+     "kind": "pitfall",
+     "work": "$\\frac{5(x+h)^2-7(x+h)-5x^2-7x}{h}=\\frac{5x^2+10xh+5h^2-7x-7h-5x^2-7x}{h}$\n$=\\frac{10xh+5h^2-14x-7h}{h}$\nThis doesn't simplify nicely, so as $h\\to0$ I get $10x-7$ (fudged).",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A0",
+        "A0*"
+       ]
+      }
+     ],
+     "error_code": "first-principles-incomplete"
+    },
+    {
+     "id": "r4",
+     "kind": "alternative",
+     "work": "Using $\\delta x$: $\\frac{\\delta y}{\\delta x}=\\frac{5(x+\\delta x)^2-7(x+\\delta x)-(5x^2-7x)}{\\delta x}=\\frac{10x\\delta x+5(\\delta x)^2-7\\delta x}{\\delta x}=10x+5\\delta x-7$. As $\\delta x\\to0$, $\\frac{dy}{dx}=10x-7$.",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "A1*"
+       ]
+      }
+     ],
+     "error_code": null
+    },
+    {
+     "id": "r5",
+     "kind": "partial",
+     "work": "$\\frac{5(x+h)^2-7(x+h)-(5x^2-7x)}{h}=\\frac{5x^2+10xh+5h^2-7x-7h-5x^2+7x}{h}$",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A0",
+        "A0*"
+       ]
+      }
+     ],
+     "error_code": null
+    }
+   ],
+   "awarded": [
+    {
+     "id": "r1",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "A1*"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "A0*"
+       ]
+      }
+     ],
+     "reasons": [
+      "A1*: used h=0 instead of a limit, so no limit notation."
+     ]
+    },
+    {
+     "id": "r3",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A0",
+        "A0*"
+       ]
+      }
+     ],
+     "reasons": [
+      "A1: sign error in the numerator (-14x rather than 10xh+5h^2-7h), and no correct simplification.",
+      "A1*: fudged conclusion, with errors present."
+     ]
+    },
+    {
+     "id": "r4",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "A1*"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r5",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A0",
+        "A0*"
+       ]
+      }
+     ],
+     "reasons": [
+      "A1: numerator not simplified to 10xh+5h^2-7h and not divided by h.",
+      "A1*: no limit taken and no conclusion."
+     ]
+    }
+   ],
+   "awarded_second": [],
+   "cost_usd": 0.027
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "agreement": "1/1",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.008067999999999999,
+   "retagged": {
+    "-": [
+     "differentiate-from-first-principles"
+    ]
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

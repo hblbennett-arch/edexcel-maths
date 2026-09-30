@@ -1,0 +1,799 @@
+{
+ "id": "cr-pure-de-given-separable-003",
+ "blueprint_id": "bp-pure-de-given-separable-003",
+ "question_type": "de-given-separable",
+ "component": "pure",
+ "tier": "challenging",
+ "kind": "exam",
+ "stem": "For $x > 0$ the variables $x$ and $y$, where $0 < y < 6$, satisfy the differential equation\n$$x\\,\\frac{\\mathrm{d}y}{\\mathrm{d}x} = k\\,y(6 - y),$$\nwhere $k$ is a positive constant.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 3,
+   "command": "show-that",
+   "text": "Show that the general solution of this differential equation satisfies\n$$\\ln\\left(\\frac{y}{6-y}\\right) = 6k\\ln x + c,$$\nwhere $c$ is an arbitrary constant. (3)",
+   "skills": [
+    "separate-variables-and-integrate"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Writes $\\frac{1}{y(6-y)}$ as $\\frac{1}{6y} + \\frac{1}{6(6-y)}$ (or an equivalent split of the fraction into two log-integrable terms)",
+     "notes": "Accept $\\frac{1}{6}\\left(\\frac{1}{y} + \\frac{1}{6-y}\\right)$. The mark can be given if the split appears later inside an integral."
+    },
+    {
+     "code": "M1",
+     "for": "Gets every $y$ term with $\\mathrm{d}y$ and every $x$ term with $\\mathrm{d}x$, i.e. $\\int \\frac{1}{y(6-y)}\\,\\mathrm{d}y = \\int \\frac{k}{x}\\,\\mathrm{d}x$, then integrates, reaching $\\alpha\\ln y \\pm \\beta\\ln(6-y) = k\\ln x$ (with or without a constant)",
+     "notes": "Integrals in the form $\\ln y$ and $\\ln(6-y)$ are enough, whatever their coefficients. The sign on $\\ln(6-y)$ may be wrong at this point."
+    },
+    {
+     "code": "A1*",
+     "for": "Gets $\\frac{1}{6}\\ln y - \\frac{1}{6}\\ln(6-y) = k\\ln x + c_1$ with a constant included, then combines the logs and multiplies through by 6 to reach the printed equation, with $6c_1$ renamed $c$",
+     "notes": "cso. The constant has to be present before the final line. Modulus signs may be left out because $0<y<6$ and $x>0$."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Split into partial fractions: $\\dfrac{1}{y(6-y)} = \\dfrac{P}{y} + \\dfrac{Q}{6-y}$, so $1 = P(6-y) + Qy$. Putting $y=0$ gives $P = \\tfrac16$ and putting $y=6$ gives $Q = \\tfrac16$.",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "Separate: $\\displaystyle\\int \\frac{1}{6}\\left(\\frac{1}{y} + \\frac{1}{6-y}\\right)\\mathrm{d}y = \\int \\frac{k}{x}\\,\\mathrm{d}x$, which gives $\\tfrac16\\ln y - \\tfrac16\\ln(6-y) = k\\ln x + c_1$.",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "Multiply by 6 and use $\\ln a - \\ln b = \\ln\\frac{a}{b}$: $\\ln\\left(\\dfrac{y}{6-y}\\right) = 6k\\ln x + 6c_1$. Write $c = 6c_1$ to get $\\ln\\left(\\dfrac{y}{6-y}\\right) = 6k\\ln x + c$, as required.",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "1/(y(6-y))",
+     "rhs": "1/(6y) + 1/(6(6-y))",
+     "domain": [
+      "0.5",
+      "5.5"
+     ]
+    },
+    {
+     "type": "integral",
+     "f": "1/(y(6-y))",
+     "var": "y",
+     "result": "(1/6)*log(y/(6-y))"
+    }
+   ],
+   "hints": [
+    "Divide both sides by $y(6-y)$ and by $x$, so that $y$ appears only on the $\\mathrm{d}y$ side.",
+    "You can't integrate $\\frac{1}{y(6-y)}$ directly. Split it into partial fractions first."
+   ],
+   "forms": []
+  },
+  {
+   "label": "b",
+   "marks": 6,
+   "command": "find",
+   "text": "You are given that $y = 1$ when $x = 1$, and that $y = 3$ when $x = 25$.\n\nFind the value of $k$. Hence express $y$ in terms of $x$ in the form\n$$y = \\frac{A\\,x^{n}}{B + x^{n}},$$\nwhere $A$, $B$ and $n$ are constants to be found. (6)",
+   "skills": [
+    "find-constants-from-conditions",
+    "separate-variables-and-integrate",
+    "use-hence-previous-result",
+    "rearrange-solution-explicitly"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Puts $x=1$, $y=1$ into the result from part (a) and gets $c = \\ln\\frac{1}{5}$, i.e. $c = -\\ln 5$",
+     "notes": "oe, e.g. $c = \\ln 0.2$."
+    },
+    {
+     "code": "M1",
+     "for": "Puts $x = 25$, $y = 3$ into $\\ln\\left(\\frac{y}{6-y}\\right) = 6k\\ln x + c$ with their value of $c$, giving an equation in $k$ only, e.g. $0 = 6k\\ln 25 - \\ln 5$",
+     "notes": "The substitution may be made before $c$ is found, as long as two equations are formed and $c$ is eliminated."
+    },
+    {
+     "code": "M1",
+     "for": "Solves their linear equation for $k$, using $\\ln 25 = 2\\ln 5$ or dividing the logs to get $k = \\frac{\\ln 5}{6\\ln 25}$",
+     "notes": "A decimal value for $\\ln 5/\\ln 25$ that is then simplified correctly is acceptable."
+    },
+    {
+     "code": "A1",
+     "for": "$k = \\frac{1}{12}$",
+     "notes": "cao. Accept 0.0833 only if it is later used as exactly $\\frac{1}{12}$."
+    },
+    {
+     "code": "M1",
+     "for": "Exponentiates their equation correctly to get $\\frac{y}{6-y} = \\frac{1}{5}x^{6k}$ (with their $k$), clears the fraction and collects the $y$ terms to make $y$ the subject",
+     "notes": "The step from $6k\\ln x$ to $x^{6k}$ has to be correct. Reject $e^{6k\\ln x} + e^{c}$."
+    },
+    {
+     "code": "A1",
+     "for": "$y = \\dfrac{6\\sqrt{x}}{5 + \\sqrt{x}}$, i.e. $A = 6$, $B = 5$, $n = \\frac{1}{2}$",
+     "notes": "cso. Accept $y = \\frac{6x^{1/2}}{5 + x^{1/2}}$. An equivalent form such as $\\frac{30x^{1/2}}{25+5x^{1/2}}$ scores only once simplified to the required form."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "When $x = 1$ and $y = 1$: $\\ln\\left(\\tfrac{1}{5}\\right) = 6k\\ln 1 + c = c$, so $c = -\\ln 5$.",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "When $x = 25$ and $y = 3$: $\\ln\\left(\\tfrac{3}{3}\\right) = 6k\\ln 25 - \\ln 5$, so $0 = 6k\\ln 25 - \\ln 5$.",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$\\ln 25 = 2\\ln 5$, so $12k\\ln 5 = \\ln 5$.",
+     "mark": "M1"
+    },
+    {
+     "step": 4,
+     "working": "$k = \\dfrac{1}{12}$.",
+     "mark": "A1"
+    },
+    {
+     "step": 5,
+     "working": "Then $6k = \\tfrac12$ and $\\ln\\left(\\dfrac{y}{6-y}\\right) = \\tfrac12\\ln x - \\ln 5 = \\ln\\left(\\dfrac{\\sqrt{x}}{5}\\right)$, so $\\dfrac{y}{6-y} = \\dfrac{\\sqrt{x}}{5}$. This gives $5y = 6\\sqrt{x} - y\\sqrt{x}$, so $y(5 + \\sqrt{x}) = 6\\sqrt{x}$.",
+     "mark": "M1"
+    },
+    {
+     "step": 6,
+     "working": "$y = \\dfrac{6x^{1/2}}{5 + x^{1/2}}$, so $A = 6$, $B = 5$, $n = \\tfrac12$.",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "k",
+     "expr": "1/12",
+     "form": "exact",
+     "check": "0 = 6*k*log(25) - log(5)"
+    },
+    {
+     "name": "c",
+     "expr": "-log(5)",
+     "form": "exact",
+     "check": "c = log(1/5)"
+    },
+    {
+     "name": "A",
+     "expr": "6",
+     "form": "exact",
+     "check": "A/(B + 1) = 1"
+    },
+    {
+     "name": "B",
+     "expr": "5",
+     "form": "exact",
+     "check": "A*5/(B + 5) = 3"
+    },
+    {
+     "name": "n",
+     "expr": "1/2",
+     "form": "exact",
+     "check": "A*25^n/(B + 25^n) = 3"
+    }
+   ],
+   "checks": [
+    {
+     "type": "solutions",
+     "equation": "log(1/5) = c",
+     "var": "c",
+     "result": [
+      "-log(5)"
+     ]
+    },
+    {
+     "type": "solutions",
+     "equation": "6k*log(25) - log(5) = 0",
+     "var": "k",
+     "result": [
+      "1/12"
+     ]
+    },
+    {
+     "type": "substitute",
+     "expr": "6sqrt(x)/(5 + sqrt(x))",
+     "at": {
+      "x": 1
+     },
+     "result": "1"
+    },
+    {
+     "type": "substitute",
+     "expr": "6sqrt(x)/(5 + sqrt(x))",
+     "at": {
+      "x": 25
+     },
+     "result": "3"
+    },
+    {
+     "type": "derivative",
+     "f": "6sqrt(x)/(5 + sqrt(x))",
+     "var": "x",
+     "result": "(1/12)*(6sqrt(x)/(5 + sqrt(x)))*(6 - 6sqrt(x)/(5 + sqrt(x)))/x"
+    },
+    {
+     "type": "equals",
+     "lhs": "log((6sqrt(x)/(5 + sqrt(x)))/(6 - 6sqrt(x)/(5 + sqrt(x))))",
+     "rhs": "(1/2)*log(x) - log(5)",
+     "domain": "positive"
+    }
+   ],
+   "hints": [
+    "Use each pair of values in turn in your answer to part (a). Pick the pair that makes $\\ln x$ disappear first.",
+    "To make $y$ the subject, write the right-hand side as a single logarithm, exponentiate, then collect the $y$ terms on one side."
+   ],
+   "forms": [
+    "in-the-form"
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "separation-error",
+   "text": "If you write $\\int \\frac{1}{y}\\,\\mathrm{d}y + \\int \\frac{1}{6-y}\\,\\mathrm{d}y = \\int kx\\,\\mathrm{d}x$, or leave the $x$ from $x\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ on the wrong side, you haven't separated the variables. You must divide by both $y(6-y)$ and $x$, so the right-hand side is $\\int\\frac{k}{x}\\,\\mathrm{d}x$. If you don't, the M1 and A1* are lost.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 3,
+   "error_code": "missing-constant-of-integration",
+   "text": "This is a common slip: you integrate both sides and write $\\ln\\left(\\frac{y}{6-y}\\right) = 6k\\ln x$, then add $+c$ only on the last line to match the printed answer. The constant has to appear when you integrate, as $c_1$, which becomes $c = 6c_1$ after you multiply by 6. If it doesn't, the A1* is lost.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "separation-error",
+   "text": "Watch the sign when you integrate $\\frac{1}{6-y}$: the result is $-\\ln(6-y)$, not $+\\ln(6-y)$. With the wrong sign the logs don't combine into $\\ln\\frac{y}{6-y}$, and the A1* is lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "initial-conditions-not-used",
+   "text": "If you use only the point $(25, 3)$ and set $c = 0$, you get $k = 0$, which is impossible. You need both conditions: $(1,1)$ gives $c = -\\ln 5$ and $(25,3)$ then gives $k$. If you skip the first condition, the B1 and the marks that follow are lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "constant-not-found-from-point",
+   "text": "If you swap the coordinates and substitute $x = 3$, $y = 25$, you get $\\ln\\frac{25}{-19}$, which is undefined. Keep $x = 25$ and $y = 3$, which gives $\\ln 1 = 0$ on the left. If you swap them, the M1 for forming the equation in $k$ is lost.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T16:25:44",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.6264
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 9
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.872 with question:IAL2013_WMA01_June2018_Q4"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.025,
+   "jaccard_source": "GCE2008_6663_Jan2005_Q3",
+   "shared_numbers": 0,
+   "max_cosine": 0.872,
+   "cosine_source": "question:IAL2013_WMA01_June2018_Q4"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 8,
+   "n_answers": 5,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "part b: expected c = -log(5), solver got ['1/12', '6', '5', '1/2'] [judge: same - The solver's k = 1/12, A = 6, B = 5 and n = 1/2 match the setter's. The solver's working also gives c = -ln 5, which matches the setter's c, even though c is missing from the solver's answer list.]",
+    "marks (part a): Only 3 marks for a standard separation of variables with partial fractions. This is fine, but the modulus signs are dropped, so the mark scheme should accept that because 0<y<6."
+   ],
+   "flag": true,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0168,
+   "solver": {
+    "parts": [
+     {
+      "label": "a",
+      "answers": [
+       "ln(y/(6-y)) = 6*k*ln(x) + c"
+      ],
+      "printed_result_correct": true,
+      "working_summary": "Separate variables: 1/(y(6-y)) dy = k/x dx. Partial fractions give 1/(y(6-y)) = (1/6)(1/y + 1/(6-y)). Integrating gives (1/6)[ln y - ln(6-y)] = k ln x + C. Modulus signs are not needed because 0<y<6 and x>0. Multiplying by 6 gives ln(y/(6-y)) = 6k ln x + c, with c = 6C."
+     },
+     {
+      "label": "b",
+      "answers": [
+       "1/12",
+       "6",
+       "5",
+       "1/2"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "Using (1,1): ln(1/5) = c, so c = -ln5. Using (25,3): ln1 = 0 = 6k ln25 - ln5 = 12k ln5 - ln5, so k = 1/12. Then y/(6-y) = x^(1/2)/5, so 5y = 6x^(1/2) - y x^(1/2). Hence y = 6x^(1/2)/(5 + x^(1/2)), so A=6, B=5, n=1/2."
+     }
+    ],
+    "problems": [
+     {
+      "kind": "marks",
+      "severity": "minor",
+      "part": "a",
+      "detail": "Only 3 marks for a standard separation of variables with partial fractions. This is fine, but the modulus signs are dropped, so the mark scheme should accept that because 0<y<6."
+     }
+    ]
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "n_responses": 7,
+   "agreed": [
+    "r1",
+    "r2",
+    "r3",
+    "r4",
+    "r5",
+    "r6",
+    "r7"
+   ],
+   "consistent": {},
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "r1",
+     "kind": "correct",
+     "error_code": null,
+     "work": "(a) $\\frac{1}{y(6-y)}=\\frac{1}{6}\\left(\\frac1y+\\frac1{6-y}\\right)$. Separate: $\\int\\frac{1}{6}\\left(\\frac1y+\\frac1{6-y}\\right)dy=\\int\\frac kx dx$. So $\\frac16\\ln y-\\frac16\\ln(6-y)=k\\ln x+c_1$. Multiply by 6: $\\ln\\frac{y}{6-y}=6k\\ln x+c$ with $c=6c_1$.\n(b) $x=1,y=1$: $\\ln\\frac15=c$, so $c=-\\ln5$. $x=25,y=3$: $0=6k\\ln25-\\ln5=12k\\ln5-\\ln5$, so $k=\\frac1{12}$. Then $\\ln\\frac{y}{6-y}=\\frac12\\ln x-\\ln5$, so $\\frac{y}{6-y}=\\frac{\\sqrt x}{5}$. $5y=6\\sqrt x-y\\sqrt x$, $y=\\frac{6x^{1/2}}{5+x^{1/2}}$. $A=6,B=5,n=\\frac12$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "kind": "pitfall",
+     "error_code": "separation-error",
+     "work": "(a) $\\frac{1}{y(6-y)}=\\frac16\\left(\\frac1y+\\frac1{6-y}\\right)$. Then $\\int\\frac1y dy+\\int\\frac1{6-y}dy=\\int kx\\,dx$ (I left the $x$ on the wrong side). This gives $\\ln y-\\ln(6-y)=\\frac{kx^2}{2}+c$... which doesn't match, but I'll write $\\ln\\frac{y}{6-y}=6k\\ln x+c$ as required.\n(b) Using the printed result: $x=1,y=1$: $c=\\ln\\frac15=-\\ln5$. $x=25,y=3$: $0=6k\\ln25-\\ln5=12k\\ln5-\\ln5$, so $k=\\frac1{12}$. $\\frac{y}{6-y}=\\frac{x^{1/2}}5$, so $y(5+x^{1/2})=6x^{1/2}$, $y=\\frac{6x^{1/2}}{5+x^{1/2}}$; $A=6,B=5,n=\\frac12$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r3",
+     "kind": "pitfall",
+     "error_code": "missing-constant-of-integration",
+     "work": "(a) $\\frac1{y(6-y)}=\\frac16\\left(\\frac1y+\\frac1{6-y}\\right)$. $\\int\\frac16\\left(\\frac1y+\\frac1{6-y}\\right)dy=\\int\\frac kx dx$ gives $\\frac16\\ln y-\\frac16\\ln(6-y)=k\\ln x$. Multiply by 6: $\\ln\\frac{y}{6-y}=6k\\ln x$, so $\\ln\\frac{y}{6-y}=6k\\ln x+c$.\n(b) $x=1,y=1$: $c=\\ln\\frac15=-\\ln5$. $x=25,y=3$: $0=12k\\ln5-\\ln5$, $k=\\frac1{12}$. $\\frac{y}{6-y}=\\frac{\\sqrt x}5$, $y=\\frac{6x^{1/2}}{5+x^{1/2}}$, $A=6,B=5,n=\\frac12$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r4",
+     "kind": "pitfall",
+     "error_code": "separation-error",
+     "work": "(a) $\\frac1{y(6-y)}=\\frac16\\left(\\frac1y+\\frac1{6-y}\\right)$. $\\int$ gives $\\frac16\\ln y+\\frac16\\ln(6-y)=k\\ln x+c_1$ (integrating $\\frac1{6-y}$ as $+\\ln(6-y)$). Multiply by 6 and combine: $\\ln(y(6-y))=6k\\ln x+c$. This is not the printed form, but I'll state $\\ln\\frac{y}{6-y}=6k\\ln x+c$.\n(b) Using the printed result: $c=\\ln\\frac15=-\\ln5$; $0=12k\\ln5-\\ln5$, $k=\\frac1{12}$. $\\frac{y}{6-y}=\\frac{\\sqrt x}5$, $y=\\frac{6x^{1/2}}{5+x^{1/2}}$, $A=6,B=5,n=\\frac12$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r5",
+     "kind": "pitfall",
+     "error_code": "initial-conditions-not-used",
+     "work": "(a) $\\frac1{y(6-y)}=\\frac16\\left(\\frac1y+\\frac1{6-y}\\right)$; $\\frac16\\ln y-\\frac16\\ln(6-y)=k\\ln x+c_1$; times 6: $\\ln\\frac{y}{6-y}=6k\\ln x+c$.\n(b) Use only $x=25,y=3$ and take $c=0$: $\\ln1=6k\\ln25$, so $0=6k\\ln25$, $k=0$. Then $\\ln\\frac{y}{6-y}=0$, so $\\frac{y}{6-y}=1$, $y=3$. This can't be put into the required form.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B0",
+        "M1",
+        "M1",
+        "A0",
+        "M1",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r6",
+     "kind": "pitfall",
+     "error_code": "constant-not-found-from-point",
+     "work": "(a) $\\frac1{y(6-y)}=\\frac16\\left(\\frac1y+\\frac1{6-y}\\right)$; $\\frac16\\ln y-\\frac16\\ln(6-y)=k\\ln x+c_1$; times 6: $\\ln\\frac{y}{6-y}=6k\\ln x+c$.\n(b) $x=1,y=1$: $c=\\ln\\frac15=-\\ln5$. Now I put $x=3,y=25$: $\\ln\\frac{25}{6-25}=\\ln\\frac{25}{-19}$, which is undefined. I can't find $k$, so I'm stuck.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M0",
+        "M0",
+        "A0",
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r7",
+     "kind": "partial",
+     "error_code": null,
+     "work": "(a) $\\frac1{y(6-y)}=\\frac16\\left(\\frac1y+\\frac1{6-y}\\right)$; $\\frac16\\ln y-\\frac16\\ln(6-y)=k\\ln x+c_1$; times 6: $\\ln\\frac{y}{6-y}=6k\\ln x+c$.\n(b) $x=1,y=1$: $c=-\\ln5$. $x=25,y=3$: $0=6k\\ln25-\\ln5$. I'm not sure how to go on.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "M0",
+        "A0",
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "r1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "M0: x term integrated as kx dx, not k/x dx, so the required log form isn't reached.",
+      "A0: needs M1; the printed result is just asserted."
+     ]
+    },
+    {
+     "id": "r3",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "A0: no constant of integration before the final line; c is added at the end."
+     ]
+    },
+    {
+     "id": "r4",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "A0: wrong sign on ln(6-y) gives ln(y(6-y)), and the printed result is just asserted."
+     ]
+    },
+    {
+     "id": "r5",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B0",
+        "M1",
+        "M1",
+        "A0",
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "B0: c not found from x=1, y=1; c=0 was assumed.",
+      "A0: k=0, not 1/12.",
+      "A0: y=3 is not in the required form."
+     ]
+    },
+    {
+     "id": "r6",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M0",
+        "M0",
+        "A0",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "M0: x and y values swapped (x=3, y=25).",
+      "M0: no equation for k is solved.",
+      "A0: k not found.",
+      "M0: y not found.",
+      "A0: y not found."
+     ]
+    },
+    {
+     "id": "r7",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "M0",
+        "A0",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "M0: the equation for k is not solved.",
+      "A0: k not found.",
+      "M0: no exponentiation or rearrangement for y.",
+      "A0: y not found."
+     ]
+    }
+   ],
+   "awarded_second": [],
+   "cost_usd": 0.075
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "agreement": "2/2",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.022495,
+   "retagged": {
+    "a": [
+     "separate-variables-and-integrate",
+     "partial-fractions",
+     "laws-of-logarithms"
+    ],
+    "b": [
+     "find-constants-from-conditions",
+     "rearrange-solution-explicitly",
+     "remove-logarithms"
+    ]
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

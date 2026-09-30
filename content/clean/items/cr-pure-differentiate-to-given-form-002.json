@@ -1,0 +1,407 @@
+{
+ "id": "cr-pure-differentiate-to-given-form-002",
+ "blueprint_id": "bp-pure-differentiate-to-given-form-002",
+ "question_type": "differentiate-to-given-form",
+ "component": "pure",
+ "tier": "challenging",
+ "kind": "exam",
+ "stem": null,
+ "parts": [
+  {
+   "label": null,
+   "marks": 4,
+   "command": "find",
+   "skills": [
+    "differentiate-negative-and-fractional-powers"
+   ],
+   "text": "A curve $C$ has equation\n$$y = \\frac{\\left(x\\sqrt{x} - 4\\right)^2}{x^3}, \\qquad x > 0.$$\nFind $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$, writing your answer so that every term is a rational constant multiplied by a single power of $x$. Then work out the exact gradient of $C$ where $x = 4$. (4)",
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Expands $(x\\sqrt{x}-4)^2$ and divides each term by $x^3$ to get $y$ as a sum of powers of $x$ (e.g. $1 - 8x^{-\\frac{3}{2}} + 16x^{-3}$, allowing slips in the coefficients), then differentiates, reducing at least one of the powers $-\\tfrac{3}{2}$ or $-3$ by 1",
+     "notes": "No marks for applying $nx^{n-1}$ to the numerator and denominator separately. A correct quotient rule attempt on the original fraction also earns M1"
+    },
+    {
+     "code": "A1",
+     "for": "One of $12x^{-\\frac{5}{2}}$ or $-48x^{-4}$ correct, simplified or not",
+     "depends_on": "M1"
+    },
+    {
+     "code": "A1",
+     "for": "$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 12x^{-\\frac{5}{2}} - 48x^{-4}$ fully correct, with no constant term remaining",
+     "depends_on": "M1",
+     "notes": "Accept $\\frac{12}{x^{5/2}} - \\frac{48}{x^4}$ oe; isw after a correct answer"
+    },
+    {
+     "code": "B1",
+     "for": "Gradient at $x = 4$ is $\\frac{3}{16}$",
+     "notes": "cao; accept 0.1875"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$(x\\sqrt{x}-4)^2 = x^3 - 8x^{\\frac{3}{2}} + 16$, so $y = 1 - 8x^{-\\frac{3}{2}} + 16x^{-3}$",
+     "mark": "M1 (in part)"
+    },
+    {
+     "step": 2,
+     "working": "Differentiate each term: the constant $1$ gives $0$, $-8x^{-\\frac{3}{2}}$ gives $-8\\times(-\\tfrac{3}{2})x^{-\\frac{5}{2}} = 12x^{-\\frac{5}{2}}$",
+     "mark": "M1 A1"
+    },
+    {
+     "step": 3,
+     "working": "$16x^{-3}$ gives $-48x^{-4}$, so $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 12x^{-\\frac{5}{2}} - 48x^{-4}$",
+     "mark": "A1"
+    },
+    {
+     "step": 4,
+     "working": "At $x=4$: $\\frac{12}{4^{5/2}} - \\frac{48}{4^4} = \\frac{12}{32} - \\frac{48}{256} = \\frac{3}{8} - \\frac{3}{16} = \\frac{3}{16}$",
+     "mark": "B1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "dydx",
+     "expr": "12x^(-5/2) - 48x^(-4)",
+     "form": "exact"
+    },
+    {
+     "name": "gradient",
+     "expr": "3/16",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "derivative",
+     "f": "(x*sqrt(x) - 4)^2/x^3",
+     "var": "x",
+     "answer": "dydx"
+    },
+    {
+     "type": "equals",
+     "lhs": "(x*sqrt(x) - 4)^2/x^3",
+     "rhs": "1 - 8x^(-3/2) + 16x^(-3)",
+     "domain": "positive"
+    },
+    {
+     "type": "substitute",
+     "expr": "12x^(-5/2) - 48x^(-4)",
+     "at": {
+      "x": 4
+     },
+     "answer": "gradient"
+    }
+   ],
+   "hints": [
+    "Before differentiating, expand the bracket and divide every term by $x^3$, so that $y$ is a sum of terms like $kx^n$. Remember that $x\\sqrt{x} = x^{\\frac{3}{2}}$.",
+    "When you differentiate $x^n$ with $n$ negative, the new power is $n-1$, which is even more negative."
+   ],
+   "forms": []
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "error_code": "not-rewritten-as-powers",
+   "step": 1,
+   "text": "If you differentiate the top and the bottom of the fraction separately, or differentiate $\\sqrt{x}$ without writing it as $x^{\\frac{1}{2}}$ first, you do not have a valid method and lose the M1 and the marks after it. Expand to get $1 - 8x^{-\\frac{3}{2}} + 16x^{-3}$ first.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "error_code": "sign-error-differentiating-negative-power",
+   "step": 2,
+   "text": "When you differentiate $-8x^{-\\frac{3}{2}}$, the new power is $-\\tfrac{5}{2}$, not $-\\tfrac{1}{2}$, and $(-8)\\times(-\\tfrac{3}{2})$ is $+12$. If you get $-12x^{-\\frac{1}{2}}$ or $-12x^{-\\frac{5}{2}}$, you lose an A mark and the gradient at $x=4$ will be wrong.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "error_code": "constant-not-differentiated-to-zero",
+   "step": 2,
+   "text": "When you divide $x^3$ by $x^3$ you get the constant $1$, and its derivative is $0$. If you leave a $1$ in $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$, you lose the second A1 and your gradient at $x=4$ becomes $\\frac{19}{16}$ rather than $\\frac{3}{16}$.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T16:25:13",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.2619
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 4
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.920 with part:IAL2013_WMA01_June2017_Q4:a"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.026,
+   "jaccard_source": "IAL2018_WMA12_Oct2019_Q1",
+   "shared_numbers": 0,
+   "max_cosine": 0.92,
+   "cosine_source": "part:IAL2013_WMA01_June2017_Q4:a"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 3,
+   "n_answers": 2,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.008213999999999999,
+   "solver": {
+    "parts": [
+     {
+      "label": null,
+      "answers": [
+       "12*x**(-5/2) - 48*x**(-4)",
+       "3/16"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "y = 1 - 8x^(-3/2) + 16x^(-3). dy/dx = 12x^(-5/2) - 48x^(-4). At x=4: 12/32 - 48/256 = 3/8 - 3/16 = 3/16."
+     }
+    ],
+    "problems": []
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "n_responses": 5,
+   "agreed": [
+    "correct",
+    "pitfall-not-rewritten",
+    "pitfall-sign-error",
+    "pitfall-constant",
+    "partial"
+   ],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "correct",
+     "kind": "correct",
+     "work": "$(x\\sqrt{x}-4)^2 = x^3 - 8x^{3/2} + 16$, so $y = 1 - 8x^{-3/2} + 16x^{-3}$.\n$\\frac{dy}{dx} = 12x^{-5/2} - 48x^{-4}$.\nAt $x=4$: $\\frac{12}{32} - \\frac{48}{256} = \\frac{3}{8} - \\frac{3}{16} = \\frac{3}{16}$.",
+     "error_code": null,
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "A1",
+        "B1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pitfall-not-rewritten",
+     "kind": "pitfall",
+     "work": "Top: $(x\\sqrt{x}-4)^2$, derivative $= 2(x\\sqrt{x}-4)\\times\\frac{1}{2\\sqrt{x}}$. Bottom: $x^3$, derivative $3x^2$.\nSo $\\frac{dy}{dx} = \\frac{(x\\sqrt{x}-4)/\\sqrt{x}}{3x^2}$.\nAt $x=4$: $\\frac{(8-4)/2}{48} = \\frac{2}{48} = \\frac{1}{24}$.",
+     "error_code": "not-rewritten-as-powers",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M0",
+        "A0",
+        "A0",
+        "B0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pitfall-sign-error",
+     "kind": "pitfall",
+     "work": "$y = 1 - 8x^{-3/2} + 16x^{-3}$.\n$\\frac{dy}{dx} = -12x^{-5/2} - 48x^{-4}$ (I did $-8 \\times -\\frac32$ as $-12$).\nAt $x=4$: $-\\frac{12}{32} - \\frac{48}{256} = -\\frac{3}{8} - \\frac{3}{16} = -\\frac{9}{16}$.",
+     "error_code": "sign-error-differentiating-negative-power",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "A0",
+        "B0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pitfall-constant",
+     "kind": "pitfall",
+     "work": "$y = 1 - 8x^{-3/2} + 16x^{-3}$.\n$\\frac{dy}{dx} = 1 + 12x^{-5/2} - 48x^{-4}$.\nAt $x=4$: $1 + \\frac{3}{8} - \\frac{3}{16} = \\frac{19}{16}$.",
+     "error_code": "constant-not-differentiated-to-zero",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "A0",
+        "B0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "partial",
+     "kind": "partial",
+     "work": "$(x\\sqrt{x}-4)^2 = x^3 - 8x^{3/2}+16$, so $y = 1 - 8x^{-3/2} + 16x^{-3}$.\nDifferentiating: $-8x^{-3/2}$ gives $12x^{-5/2}$. I'm not sure about the rest so I'll stop here: $\\frac{dy}{dx} = 12x^{-5/2}$.",
+     "error_code": null,
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "A0",
+        "B0"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "correct",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "A1",
+        "B1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pitfall-not-rewritten",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M0",
+        "A0",
+        "A0",
+        "B0"
+       ]
+      }
+     ],
+     "reasons": [
+      "M0: differentiated numerator and denominator separately, not expanded or quotient rule",
+      "A0: no correct term, M0",
+      "A0: derivative incorrect",
+      "B0: gradient 1/24, not 3/16"
+     ]
+    },
+    {
+     "id": "pitfall-sign-error",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "A0",
+        "B0"
+       ]
+      }
+     ],
+     "reasons": [
+      "A0: the -12x^{-5/2} term is wrong so the derivative is not fully correct",
+      "B0: gradient -9/16, not 3/16"
+     ]
+    },
+    {
+     "id": "pitfall-constant",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "A0",
+        "B0"
+       ]
+      }
+     ],
+     "reasons": [
+      "A0: a constant term 1 remains in the derivative",
+      "B0: gradient 19/16, not 3/16"
+     ]
+    },
+    {
+     "id": "partial",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "A0",
+        "B0"
+       ]
+      }
+     ],
+     "reasons": [
+      "A0: the -48x^{-4} term is missing so the derivative is incomplete",
+      "B0: no gradient at x=4 given"
+     ]
+    }
+   ],
+   "cost_usd": 0.0372
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "agreement": "1/1",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.014898000000000002,
+   "retagged": {
+    "finddy/dxandevaluateatx=4": [
+     "rewrite-using-index-laws",
+     "simplify-algebraic-fractions",
+     "differentiate-negative-and-fractional-powers"
+    ]
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

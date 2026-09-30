@@ -1,0 +1,473 @@
+{
+ "id": "cr-sample-mean-distribution-core",
+ "blueprint_id": "dr-sample-mean-distribution-core",
+ "question_type": "normal-conditional-probability",
+ "component": "stats",
+ "tier": "core",
+ "kind": "drill",
+ "stem": null,
+ "parts": [
+  {
+   "label": null,
+   "marks": 4,
+   "command": "test",
+   "skills": [
+    "sample-mean-distribution"
+   ],
+   "text": "Junior members of a rowing club regularly time themselves over 500 m on an indoor rowing machine. Records from several seasons show that these times, $T$ seconds, can be modelled by $T \\sim \\mathrm{N}(98.0,\\ 3.2^2)$. The head coach brings in a new interval-training plan. Six weeks later, 16 juniors are picked at random and each rows one 500 m trial. Their mean time is 96.5 seconds. Assume the standard deviation of the times has not changed. Carry out a test at the 5% significance level to decide whether the plan has lowered the mean 500 m time. Write down your hypotheses, and give the probability your decision is based on to 3 significant figures. (4)",
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Both hypotheses stated using the population mean: $\\mathrm{H}_0: \\mu = 98$ and $\\mathrm{H}_1: \\mu < 98$",
+     "notes": "Must use $\\mu$ (or clearly the population mean). Using $\\bar{x}$ or $T$ in the hypotheses scores B0. A two-tailed $\\mathrm{H}_1$ scores B0."
+    },
+    {
+     "code": "M1",
+     "for": "Uses $\\bar{T} \\sim \\mathrm{N}\\left(98, \\frac{3.2^2}{16}\\right)$, so standard deviation $0.8$, and standardises 96.5 to get $\\pm\\frac{96.5-98}{0.8}$, or finds $\\mathrm{P}(\\bar{T} < 96.5)$ directly on a calculator with this distribution",
+     "notes": "The spread must be $\\frac{3.2}{\\sqrt{16}}$. Using 3.2 or 10.24 as the divisor scores M0."
+    },
+    {
+     "code": "A1",
+     "for": "$\\mathrm{P}(\\bar{T} < 96.5) = $ awrt $0.0304$ (or $z = -1.875$ compared with $-1.645$)",
+     "notes": "Accept $0.03$ only if a more accurate value is seen first. For the critical value route, see Way 2."
+    },
+    {
+     "code": "A1",
+     "for": "Compares correctly with 0.05, rejects $\\mathrm{H}_0$, and concludes in context: there is evidence that the new plan has lowered the juniors' mean 500 m time",
+     "notes": "Depends on the M1 and the first A1. The conclusion must mention the time or the training plan and must not be stated as certain (e.g. reject 'proves the plan works')."
+    }
+   ],
+   "alternatives": [
+    {
+     "name": "Way 2 (critical region)",
+     "marks": [
+      {
+       "code": "B1",
+       "for": "$\\mathrm{H}_0: \\mu = 98$, $\\mathrm{H}_1: \\mu < 98$"
+      },
+      {
+       "code": "M1",
+       "for": "Finds the critical value from $98 - 1.6449 \\times \\frac{3.2}{\\sqrt{16}}$",
+       "notes": "Must use $0.8$ as the standard deviation of the mean. Accept $1.645$ or better."
+      },
+      {
+       "code": "A1",
+       "for": "Critical region $\\bar{T} < 96.68$ (awrt 96.7), with 96.5 shown to lie inside it"
+      },
+      {
+       "code": "A1",
+       "for": "Rejects $\\mathrm{H}_0$: there is evidence that the new plan has lowered the juniors' mean 500 m time"
+      }
+     ]
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\mathrm{H}_0: \\mu = 98$, $\\mathrm{H}_1: \\mu < 98$, where $\\mu$ is the mean 500 m time in seconds after the new plan.",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "Under $\\mathrm{H}_0$, $\\bar{T} \\sim \\mathrm{N}\\left(98, \\frac{3.2^2}{16}\\right)$, i.e. standard deviation $\\frac{3.2}{4} = 0.8$. Then $z = \\frac{96.5 - 98}{0.8} = -1.875$.",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$\\mathrm{P}(\\bar{T} < 96.5) = \\mathrm{P}(Z < -1.875) = 0.0304$ (3 s.f.)",
+     "mark": "A1"
+    },
+    {
+     "step": 4,
+     "working": "$0.0304 < 0.05$, so the result is significant and we reject $\\mathrm{H}_0$. There is evidence at the 5% level that the new interval-training plan has lowered the juniors' mean 500 m time.",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "p",
+     "expr": "0.0304",
+     "form": "sf-3"
+    }
+   ],
+   "checks": [
+    {
+     "type": "normal",
+     "mean": 98,
+     "sd": "0.8",
+     "upper": "96.5",
+     "answer": "p",
+     "form": "sf-3"
+    },
+    {
+     "type": "numeric",
+     "expr": "(96.5 - 98)/(3.2/sqrt(16))",
+     "result": "-1.875"
+    },
+    {
+     "type": "normal",
+     "mean": 98,
+     "sd": "0.8",
+     "prob": "0.05",
+     "tail": "le",
+     "result": "96.7",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "Decide which tail you need. A lower mean time means $\\mathrm{H}_1$ uses '<'.",
+    "The sample mean of 16 times has a smaller spread than a single time: its standard deviation is $\\frac{\\sigma}{\\sqrt{n}}$."
+   ],
+   "forms": []
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "step": 2,
+   "error_code": "sample-mean-sd-not-scaled",
+   "text": "If you work with $\\mathrm{N}(98, 3.2^2)$ and find $\\mathrm{P}(T < 96.5) \\approx 0.320$, you are treating 96.5 as one rower's time rather than the mean of 16 times. The standard deviation of the mean is $\\frac{3.2}{\\sqrt{16}} = 0.8$. Without it you lose the M1, and your conclusion is also wrong.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "step": 2,
+   "error_code": "standardising-error",
+   "text": "If you divide by the variance $0.64$ instead of the standard deviation $0.8$, you get $z \\approx -2.34$ and the M1 is lost. Writing $\\frac{98 - 96.5}{0.8}$ and then using the upper tail $\\mathrm{P}(Z > 1.875)$ happens to give the same value, but you have to be consistent about which tail you use.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "step": 3,
+   "error_code": "actual-significance-level-error",
+   "text": "If you just write down 0.05 as 'the probability' without working out $\\mathrm{P}(\\bar{T} < 96.5) = 0.0304$, you have no evidence to compare with the 5% level, so the A1 for the probability is lost. The 0.05 is only the threshold you compare against.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T16:38:22",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.2151
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 4
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.842 with part:P3_June2024_stats_Q5:b"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.009,
+   "jaccard_source": "GCE2008_6683_Jan2011_Q5",
+   "shared_numbers": 1,
+   "max_cosine": 0.842,
+   "cosine_source": "part:P3_June2024_stats_Q5:b"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 3,
+   "n_answers": 1,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "part -: solver also gave ['H0: mu = 98']",
+    "ambiguity (part -): The question doesn't say the times after the plan are still normally distributed. It also doesn't say whether the 16 juniors are independent of each other. Students must assume both. The normality assumption is reasonable, since the original times are modelled as normal."
+   ],
+   "flag": true,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.010614,
+   "solver": {
+    "parts": [
+     {
+      "label": null,
+      "answers": [
+       "H0: mu = 98",
+       "H1: mu < 98",
+       "0.0304",
+       "Reject H0 (0.0304 < 0.05): evidence that the mean time has decreased"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "Under H0, sample mean ~ N(98, 3.2^2/16), so its standard deviation is 0.8. z = (96.5 - 98)/0.8 = -1.875. One-tailed p-value = P(Xbar <= 96.5) = Phi(-1.875) ≈ 0.0304. This is below 0.05, so reject H0. There is sufficient evidence at the 5% level that the plan has lowered the mean 500 m time."
+     }
+    ],
+    "problems": [
+     {
+      "kind": "ambiguity",
+      "severity": "minor",
+      "detail": "The question doesn't say the times after the plan are still normally distributed. It also doesn't say whether the 16 juniors are independent of each other. Students must assume both. The normality assumption is reasonable, since the original times are modelled as normal.",
+      "part": null
+     }
+    ]
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "n_responses": 6,
+   "agreed": [
+    "r1",
+    "r2",
+    "r3",
+    "r4",
+    "r5",
+    "r6"
+   ],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "r1",
+     "kind": "correct",
+     "work": "$H_0: \\mu = 98$, $H_1: \\mu < 98$ where $\\mu$ is the mean 500 m time.\nUnder $H_0$, $\\bar T \\sim N(98, 3.2^2/16)$, sd $=0.8$.\n$z = (96.5-98)/0.8 = -1.875$\n$P(\\bar T<96.5)=P(Z<-1.875)=0.0304$\n$0.0304<0.05$ so reject $H_0$. There is evidence that the new plan has lowered the juniors' mean 500 m time.",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ],
+     "error_code": null
+    },
+    {
+     "id": "r2",
+     "kind": "pitfall",
+     "work": "$H_0: \\mu = 98$, $H_1: \\mu < 98$.\nUsing $T\\sim N(98,3.2^2)$: $P(T<96.5)=P(Z<(96.5-98)/3.2)=P(Z<-0.469)=0.320$.\n$0.320>0.05$ so do not reject $H_0$. There is insufficient evidence that the plan has lowered the mean time.",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "B1",
+        "M0",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "error_code": "sample-mean-sd-not-scaled"
+    },
+    {
+     "id": "r3",
+     "kind": "pitfall",
+     "work": "$H_0: \\mu = 98$, $H_1: \\mu < 98$.\n$\\bar T\\sim N(98, 0.64)$. $z=(96.5-98)/0.64=-2.34$\n$P(Z<-2.34)=0.0096$\n$0.0096<0.05$ so reject $H_0$. There is evidence the plan has lowered the mean 500 m time.",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "B1",
+        "M0",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "error_code": "standardising-error"
+    },
+    {
+     "id": "r4",
+     "kind": "pitfall",
+     "work": "$H_0: \\mu = 98$, $H_1: \\mu < 98$.\nUnder $H_0$, $\\bar T\\sim N(98, 0.8^2)$. The significance level is 5%, so the probability is 0.05.\nThe sample mean 96.5 is below 98, so reject $H_0$. There is evidence the plan lowered the mean time.",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "B1",
+        "M0",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "error_code": "actual-significance-level-error"
+    },
+    {
+     "id": "r5",
+     "kind": "alternative",
+     "work": "$H_0: \\mu = 98$, $H_1: \\mu < 98$.\nUnder $H_0$, $\\bar T\\sim N(98, 0.8^2)$. Critical value: $98-1.6449\\times 0.8=96.68$.\nCritical region: $\\bar T<96.68$. Since $96.5<96.68$ it lies in the critical region, so reject $H_0$. There is evidence the new plan has lowered the juniors' mean 500 m time.",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ],
+     "error_code": null
+    },
+    {
+     "id": "r6",
+     "kind": "partial",
+     "work": "$H_0: \\mu = 98$, $H_1: \\mu < 98$.\nUnder $H_0$, $\\bar T\\sim N(98, 3.2^2/16)$, so sd $=0.8$.\n$z=(96.5-98)/0.8=-1.875$.",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "B1",
+        "M1",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "error_code": null
+    }
+   ],
+   "awarded": [
+    {
+     "id": "r1",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "B1",
+        "M0",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "M0: used the distribution of a single T with sd 3.2, not the sample mean with sd 0.8",
+      "A0: 0.320 is not 0.0304",
+      "A0: depends on the earlier M1 and A1; the conclusion is wrong"
+     ]
+    },
+    {
+     "id": "r3",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "B1",
+        "M0",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "M0: standardised by dividing by 0.64 (the variance) instead of 0.8",
+      "A0: 0.0096 is not 0.0304",
+      "A0: depends on the earlier M1 and A1"
+     ]
+    },
+    {
+     "id": "r4",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "B1",
+        "M0",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "M0: stated the distribution but never standardised 96.5 or found P(T̄<96.5)",
+      "A0: no probability of 0.0304 or z = -1.875 is given; 0.05 is only the significance level",
+      "A0: no valid comparison; the decision rests only on 96.5<98"
+     ]
+    },
+    {
+     "id": "r5",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r6",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "B1",
+        "M1",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "A0: z = -1.875 is found but not compared with -1.645, and no probability of 0.0304 is given",
+      "A0: no comparison, decision or conclusion in context"
+     ]
+    }
+   ],
+   "cost_usd": 0.0369
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "agreement": "1/1",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.010435,
+   "retagged": {
+    "-all4marks": [
+     "state-hypotheses-normal-mean-test",
+     "sample-mean-distribution",
+     "two-tailed-test-and-p-value",
+     "conclude-test-in-context"
+    ]
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

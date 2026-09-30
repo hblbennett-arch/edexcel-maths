@@ -7,7 +7,8 @@ One `claude -p` call per item on Sonnet 5.5 (the generator is Opus 5.5). The sol
 part texts: no mark scheme, solution or answers. It returns its final answers per part as sympy-style
 expressions, whether each printed ("show that") result is correct, and any ambiguity or error it finds.
 Pass rule: every part's expected answers are matched by one of the solver's (numerically, allowing the
-stated rounding), no show-that result is disputed, and no "blocker" problem is reported ("minor" ones are
+stated rounding or 1 in the last figure; when they don't line up, a judge call decides whether it's the same
+mathematics in another form), no show-that result is disputed, and no "blocker" problem is reported ("minor" ones are
 flags for the reviewer).
 Stores the result under gate_results.G3 (so the item file is rewritten unless --dry).
 """
@@ -55,6 +56,9 @@ def solver_expr(answer: str):
     "P(X<=3)=0.0601 > 0.05, so do not reject H0" gives the value after the last "=" (0.0601)."""
     text = str(answer or "").strip()
     cands = [text]
+    m = re.match(r"^\s*(-?\d+(?:\.\d+)?(?:e-?\d+)?)\s*[a-zA-Z%°][\w/^%°\s-]*$", text)  # "0.0278 cm/s" -> 0.0278
+    if m:
+        cands.append(m.group(1))
     if "=" in text:
         cands.append(re.split(r"[<>,;]|\bso\b|\band\b|\bwhich\b", text.rsplit("=", 1)[1])[0])
     for c in cands:
@@ -66,9 +70,11 @@ def solver_expr(answer: str):
 
 
 def _half_ulp(lit: str) -> float:
-    """Half a unit in the last written decimal place of a literal (0 if it isn't a decimal)."""
+    """One unit in the last written decimal place of a literal (0 if it isn't a decimal). A full unit, not
+    half: a calculator value and one worked from rounded intermediate values can differ by 1 in the last figure
+    (0.0677 vs 0.0678), and both would score as "awrt"."""
     m = re.fullmatch(r"\s*-?\d+\.(\d+)\s*", str(lit))
-    return 0.5 * 10 ** -len(m.group(1)) if m else 0.0
+    return 1.0 * 10 ** -len(m.group(1)) if m else 0.0
 
 
 def matches(want_expr: str, form: str | None, got_expr, got_lit: str) -> bool:
@@ -90,6 +96,31 @@ def matches(want_expr: str, form: str | None, got_expr, got_lit: str) -> bool:
     return abs(a - b) <= tol * 1.01
 
 
+JUDGE_MODEL = "claude-sonnet-5-5"
+JUDGE_SYSTEM = """You compare two sets of answers to the same A level Mathematics question part: the question
+setter's and an independent solver's. Decide whether they give the same mathematical results, allowing for
+equivalent forms (factorised or expanded, exact or decimal to sensible accuracy, constants named differently,
+the solver giving a coefficient where the setter gives the whole expression, units written or not). They
+disagree if any value or conclusion actually differs, or if the solver missed or added a solution. Reply in JSON."""
+JUDGE_SCHEMA = {"type": "object", "properties": {"parts": {"type": "array", "items": {"type": "object", "properties": {
+    "label": {"type": ["string", "null"]}, "same": {"type": "boolean"}, "reason": {"type": "string"}},
+    "required": ["label", "same", "reason"]}}}, "required": ["parts"]}
+
+
+def judge(item: dict, disputed: dict, res: dict) -> tuple[dict, float]:
+    """One call for all disputed parts: {label: (same, reason)}. Not blind: it sees both sets of answers."""
+    body = [f"# Question\n{question_text(item)}"]
+    for lab, p in disputed.items():
+        solver = [x for x in res.get("parts", []) if norm_label(x.get("label")).startswith(norm_label(lab))]
+        body.append(f"# Part {lab}\nSetter's answers: {[(a.get('name'), a.get('expr')) for a in p.get('answers') or []]}\n"
+                    f"Solver's answers: {[a for x in solver for a in x.get('answers', [])]}\n"
+                    f"Solver's working: {' | '.join(x.get('working_summary', '') for x in solver)[:1500]}")
+    out = claude_oneshot.run(JUDGE_SYSTEM, [claude_oneshot.text_block("\n\n".join(body))], schema=JUDGE_SCHEMA,
+                             model=JUDGE_MODEL, max_usd=0.3, thinking_tokens=3000, step="clean-g3-judge", ref=item["id"])
+    verdicts = {norm_label(v.get("label")): (bool(v["same"]), v.get("reason", "")) for v in out["result"]["parts"]}
+    return verdicts, out["cost_usd"] or 0
+
+
 def question_text(item: dict) -> str:
     lines = [item.get("stem") or ""]
     for p in item["parts"]:
@@ -101,7 +132,7 @@ def g3_blind_solve(item: dict) -> dict:
     out = claude_oneshot.run(SYSTEM, [claude_oneshot.text_block(question_text(item))], schema=SCHEMA, model=MODEL,
                              max_usd=1.0, thinking_tokens=8000, step="clean-g3", ref=item["id"], timeout=900)
     res = out["result"]
-    errors, flags = [], []
+    errors, flags, disputed, pending = [], [], {}, []
     for p in item["parts"]:
         # the solver may split a part into sub-parts: (b) collects "b(i)", "b(ii)", but (a)(i) never collects (a)(ii)
         lab = norm_label(p.get("label"))
@@ -123,18 +154,26 @@ def g3_blind_solve(item: dict) -> dict:
                 errors.append(f"part {p.get('label') or '-'}: our answer {a.get('name')} = {a.get('expr')!r} doesn't parse")
                 continue
             if not hit:
-                errors.append(f"part {p.get('label') or '-'}: expected {a.get('name')} = {a.get('expr')}, solver got {answers}")
+                disputed.setdefault(p.get("label") or "-", p)
+                pending.append((p.get("label") or "-",
+                                f"part {p.get('label') or '-'}: expected {a.get('name')} = {a.get('expr')}, solver got {answers}"))
             used.update(hit)
         # the other direction: a value the solver found that we don't have (e.g. a missing root) is a flag
         if p.get("answers"):
             extra = [lit for i, (e, lit) in enumerate(got) if i not in used and not e.free_symbols]
             if extra:
                 flags.append(f"part {p.get('label') or '-'}: solver also gave {extra}")
+    judge_cost = 0.0
+    if pending:  # numbers didn't line up: a judge decides whether it's the same mathematics in another form
+        verdicts, judge_cost = judge(item, disputed, res)
+        for lab, msg in pending:
+            same, reason = verdicts.get(norm_label(lab), (False, "no verdict"))
+            (flags if same else errors).append(msg + (f" [judge: same - {reason}]" if same else f" [judge: differs - {reason}]"))
     for pr in res.get("problems", []):
         (errors if pr.get("severity") != "minor" else flags).append(
             f"{pr['kind']} (part {pr.get('part') or '-'}): {pr['detail']}")
     return {"pass": not errors, "errors": errors, "flags": flags, "flag": bool(flags), "model": MODEL,
-            "cost_usd": out["cost_usd"], "solver": res}
+            "cost_usd": round((out["cost_usd"] or 0) + judge_cost, 4), "solver": res}
 
 
 def main() -> int:

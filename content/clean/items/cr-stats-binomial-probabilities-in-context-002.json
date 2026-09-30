@@ -1,0 +1,1155 @@
+{
+ "id": "cr-stats-binomial-probabilities-in-context-002",
+ "blueprint_id": "bp-stats-binomial-probabilities-in-context-002",
+ "question_type": "binomial-probabilities-in-context",
+ "component": "stats",
+ "tier": "accessible",
+ "kind": "exam",
+ "stem": "At a blood donation centre, every volunteer has a finger-prick test of their haemoglobin level before donating. A volunteer whose level is too low is *deferred*, which means they are sent home without giving blood. The centre's records show that 12% of volunteers are deferred.\n\nEach donation session has 20 volunteers. The random variable $X$ is the number of volunteers deferred in one session, and $X$ is modelled as $\\mathrm{B}(20, 0.12)$.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 1,
+   "text": "State, in context, one assumption needed for this binomial model to be valid. (1)",
+   "command": "state",
+   "skills": [
+    "binomial-conditions"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Gives one assumption that refers to volunteers and deferral, e.g. 'whether one volunteer is deferred is independent of whether any other volunteer is deferred' or 'every volunteer has the same probability, 0.12, of being deferred'.",
+     "notes": "The statement must mention volunteers, deferral or the haemoglobin test. Do not award a generic statement such as 'trials are independent' or 'p is constant'. Do not award 'fixed number of trials' on its own, because $n = 20$ is given."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Whether one volunteer is deferred is independent of whether any other volunteer in the session is deferred. (Or: each volunteer has the same probability, $0.12$, of being deferred.)",
+     "mark": "B1"
+    }
+   ],
+   "answers": [],
+   "checks": [],
+   "hints": [
+    "Think about what could make one volunteer's result affect another's, for example two members of the same family who eat similar diets."
+   ],
+   "forms": []
+  },
+  {
+   "label": "b",
+   "marks": 3,
+   "text": "Find the probability that, in a randomly chosen session, more than 2 but at most 5 volunteers are deferred. (3)",
+   "command": "find",
+   "skills": [
+    "binomial-cumulative-probability",
+    "binomial-individual-probability"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Writes the event as $\\mathrm{P}(3 \\leqslant X \\leqslant 5)$ in a form that can be evaluated: $\\mathrm{P}(X \\leqslant 5) - \\mathrm{P}(X \\leqslant 2)$ or $\\mathrm{P}(X=3)+\\mathrm{P}(X=4)+\\mathrm{P}(X=5)$.",
+     "notes": "Using $\\mathrm{P}(X \\leqslant 5) - \\mathrm{P}(X \\leqslant 3)$ or $\\mathrm{P}(X \\leqslant 6) - \\mathrm{P}(X \\leqslant 2)$ scores M0."
+    },
+    {
+     "code": "M1",
+     "for": "Evaluates at least one of the probabilities they need correctly for $\\mathrm{B}(20, 0.12)$, e.g. $\\mathrm{P}(X \\leqslant 5) = 0.9740$, $\\mathrm{P}(X \\leqslant 2) = 0.5631$, or $\\mathrm{P}(X=3) = \\binom{20}{3}(0.12)^3(0.88)^{17} = 0.2242$.",
+     "notes": "Values correct to 3 sf are enough for this mark."
+    },
+    {
+     "code": "A1",
+     "for": "awrt $0.411$",
+     "notes": "cao"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "More than 2 but at most 5 means $X = 3, 4$ or $5$: $\\mathrm{P}(3 \\leqslant X \\leqslant 5) = \\mathrm{P}(X \\leqslant 5) - \\mathrm{P}(X \\leqslant 2)$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "Using $\\mathrm{B}(20, 0.12)$: $\\mathrm{P}(X \\leqslant 5) = 0.97398\\ldots$ and $\\mathrm{P}(X \\leqslant 2) = 0.56313\\ldots$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$0.97398 - 0.56313 = 0.41085\\ldots \\approx 0.411$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "p",
+     "expr": "0.411",
+     "form": "sf-3",
+     "exact": "binomial(20,3)*0.12^3*0.88^17 + binomial(20,4)*0.12^4*0.88^16 + binomial(20,5)*0.12^5*0.88^15"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "binomial(20,3)*0.12^3*0.88^17 + binomial(20,4)*0.12^4*0.88^16 + binomial(20,5)*0.12^5*0.88^15",
+     "answer": "p",
+     "form": "sf-3"
+    },
+    {
+     "type": "binomial_cdf",
+     "n": 20,
+     "p": "0.12",
+     "k": 5,
+     "tail": "le",
+     "result": "0.974",
+     "form": "sf-3"
+    },
+    {
+     "type": "binomial_cdf",
+     "n": 20,
+     "p": "0.12",
+     "k": 2,
+     "tail": "le",
+     "result": "0.563",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "List the values of $X$ that fit 'more than 2 but at most 5'.",
+    "Write the event as the difference of two cumulative probabilities, and check which values each one includes."
+   ],
+   "forms": []
+  },
+  {
+   "label": "c",
+   "marks": 1,
+   "text": "The centre runs 25 sessions in a month, each with 20 volunteers. Find the expected number of these sessions in which more than 2 but at most 5 volunteers are deferred. (1)",
+   "command": "find",
+   "skills": [
+    "two-stage-binomial",
+    "binomial-expected-value"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "awrt $10.3$ (from $25 \\times 0.41085$)",
+     "ft_of": "b",
+     "notes": "Follow through $25 \\times$ their answer to (b), provided that answer is between 0 and 1."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "The number of such sessions is $Y \\sim \\mathrm{B}(25, 0.41085)$, so $\\mathrm{E}(Y) = 25 \\times 0.41085 = 10.27\\ldots \\approx 10.3$",
+     "mark": "B1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "E",
+     "expr": "10.3",
+     "form": "sf-3",
+     "exact": "25*(binomial(20,3)*0.12^3*0.88^17 + binomial(20,4)*0.12^4*0.88^16 + binomial(20,5)*0.12^5*0.88^15)"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "25*(binomial(20,3)*0.12^3*0.88^17 + binomial(20,4)*0.12^4*0.88^16 + binomial(20,5)*0.12^5*0.88^15)",
+     "answer": "E",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "Each session either does or does not meet the condition in part (b). What is the probability that it does?",
+    "Use $np$ for a binomial expectation."
+   ],
+   "forms": []
+  },
+  {
+   "label": "d",
+   "marks": 4,
+   "text": "The centre starts giving volunteers diet advice a week before their appointment. The manager believes this has reduced the proportion of volunteers who are deferred. In a random sample of 40 volunteers who were given the advice, 1 was deferred.\n\nUse a suitable test, at the 5% level of significance, to decide whether this sample supports the manager's belief. State your hypotheses clearly. (4)",
+   "command": "use",
+   "skills": [
+    "state-hypotheses-binomial-test",
+    "binomial-test-probability",
+    "binomial-cumulative-probability",
+    "conclude-test-in-context"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Both hypotheses are correct and written in terms of $p$: $\\mathrm{H}_0: p = 0.12$, $\\mathrm{H}_1: p < 0.12$.",
+     "notes": "$p$ may be replaced by $\\pi$. Hypotheses written in terms of $X$ or $\\lambda$ score B0."
+    },
+    {
+     "code": "M1",
+     "for": "Uses $\\mathrm{B}(40, 0.12)$ to find the lower-tail probability $\\mathrm{P}(X \\leqslant 1)$, or attempts a critical region for the lower tail, e.g. finds $\\mathrm{P}(X \\leqslant 1)$ and $\\mathrm{P}(X \\leqslant 2)$.",
+     "notes": "Comparing $\\mathrm{P}(X = 1)$ with 0.05 scores M0."
+    },
+    {
+     "code": "A1",
+     "for": "$\\mathrm{P}(X \\leqslant 1) = $ awrt $0.0388$, or the critical region $X \\leqslant 1$ (with $\\mathrm{P}(X \\leqslant 1) = 0.0388$ and $\\mathrm{P}(X \\leqslant 2) = 0.126$ seen)."
+    },
+    {
+     "code": "A1",
+     "for": "Correct conclusion in context, based on $0.0388 < 0.05$ (or on 1 lying in the critical region): there is evidence that the proportion of volunteers who are deferred has decreased, which supports the manager's belief.",
+     "depends_on": "M1",
+     "notes": "The conclusion must mention deferral or volunteers. A conclusion that is too definite, such as 'this proves the advice works', scores A0."
+    }
+   ],
+   "alternatives": [
+    {
+     "name": "Way 2 (critical region)",
+     "marks": [
+      {
+       "code": "B1",
+       "for": "$\\mathrm{H}_0: p = 0.12$, $\\mathrm{H}_1: p < 0.12$"
+      },
+      {
+       "code": "M1",
+       "for": "Under $\\mathrm{B}(40, 0.12)$, finds the lower-tail cumulative probabilities that bracket 0.05: $\\mathrm{P}(X \\leqslant 1)$ and $\\mathrm{P}(X \\leqslant 2)$."
+      },
+      {
+       "code": "A1",
+       "for": "Critical region $X \\leqslant 1$, supported by $\\mathrm{P}(X \\leqslant 1) = 0.0388$ and $\\mathrm{P}(X \\leqslant 2) = 0.126$."
+      },
+      {
+       "code": "A1",
+       "for": "Since 1 lies in the critical region, $\\mathrm{H}_0$ is rejected: there is evidence that the proportion of volunteers deferred has decreased.",
+       "depends_on": "M1"
+      }
+     ]
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\mathrm{H}_0: p = 0.12$, $\\mathrm{H}_1: p < 0.12$, where $p$ is the proportion of volunteers given the advice who are deferred.",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "Under $\\mathrm{H}_0$, $X \\sim \\mathrm{B}(40, 0.12)$. Find $\\mathrm{P}(X \\leqslant 1) = (0.88)^{40} + 40(0.12)(0.88)^{39}$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$= 0.006016 + 0.032815 = 0.03883\\ldots \\approx 0.0388$",
+     "mark": "A1"
+    },
+    {
+     "step": 4,
+     "working": "$0.0388 < 0.05$, so reject $\\mathrm{H}_0$. There is evidence at the 5% level that the proportion of volunteers who are deferred has decreased, which supports the manager's belief.",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "pval",
+     "expr": "0.0388",
+     "form": "sf-3",
+     "exact": "0.88^40 + 40*0.12*0.88^39"
+    }
+   ],
+   "checks": [
+    {
+     "type": "binomial_cdf",
+     "n": 40,
+     "p": "0.12",
+     "k": 1,
+     "tail": "le",
+     "answer": "pval",
+     "form": "sf-3"
+    },
+    {
+     "type": "binomial_cdf",
+     "n": 40,
+     "p": "0.12",
+     "k": 2,
+     "tail": "le",
+     "result": "0.126",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "The manager believes the proportion has gone down. Which direction does that make $\\mathrm{H}_1$?",
+    "Find the probability, assuming $\\mathrm{H}_0$ is true, of a result as extreme as the one observed or more extreme."
+   ],
+   "forms": []
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "error_code": "binomial-conditions-generic",
+   "text": "If you write only 'the trials are independent' or 'the probability of success is constant', you haven't said what a trial or a success is here, so the B1 is lost. Say that whether one volunteer is deferred does not affect whether another is deferred.",
+   "says_common": false,
+   "step": 1
+  },
+  {
+   "part": "b",
+   "error_code": "cumulative-individual-confused",
+   "text": "'More than 2' starts at $X = 3$. If you work out $\\mathrm{P}(X \\leqslant 5) - \\mathrm{P}(X \\leqslant 3)$ you remove $X = 3$ as well, and get $0.187$ instead of $0.411$. The first M1 and the A1 are lost.",
+   "says_common": false,
+   "step": 1
+  },
+  {
+   "part": "b",
+   "error_code": "cumulative-individual-confused",
+   "text": "If you find only $\\mathrm{P}(X = 5)$, or only $\\mathrm{P}(X \\leqslant 5)$, you have not included exactly the values 3, 4 and 5, so no marks can be earned.",
+   "says_common": false,
+   "step": 1
+  },
+  {
+   "part": "c",
+   "error_code": "cumulative-individual-confused",
+   "text": "The probability for one session is the range probability from (b), $0.411$, not a single value such as $\\mathrm{P}(X = 3)$ or a cumulative value such as $\\mathrm{P}(X \\leqslant 5)$. Using the wrong one gives a wrong expected number and loses the B1.",
+   "says_common": false,
+   "step": 1
+  },
+  {
+   "part": "d",
+   "error_code": "point-probability-compared",
+   "text": "If you compare $\\mathrm{P}(X = 1) = 0.0328$ with 0.05, you are ignoring the more extreme outcome $X = 0$. You need the tail probability $\\mathrm{P}(X \\leqslant 1) = 0.0388$, so the M1 and both A marks are lost.",
+   "says_common": false,
+   "step": 2
+  },
+  {
+   "part": "d",
+   "error_code": "conclusion-too-definite-or-no-context",
+   "text": "Writing 'reject $\\mathrm{H}_0$' on its own, or 'this proves the diet advice reduces deferrals', loses the final A1. Say that there is evidence the proportion of volunteers deferred has decreased.",
+   "says_common": false,
+   "step": 4
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T16:27:15",
+ "generation": {
+  "attempts": 1,
+  "cost_usd": 0.2137
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 9
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.780 with note:P3_June2025_stats_Q3_n4"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.01,
+   "jaccard_source": "P3_June2025_stats_Q3",
+   "shared_numbers": 1,
+   "max_cosine": 0.78,
+   "cosine_source": "note:P3_June2025_stats_Q3_n4"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 6,
+   "n_answers": 3,
+   "unverified_parts": [
+    "a"
+   ]
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "ambiguity (part d): Test needs the sample to be random/independent and the same model assumptions as in (a); the p-value 0.0388 is close to 0.05 so rounding in tables matters little (table value 0.0388 is fine). No real blocker."
+   ],
+   "flag": true,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0127,
+   "solver": {
+    "parts": [
+     {
+      "label": "a",
+      "answers": [
+       "Volunteers are deferred independently of each other (e.g. no related volunteers/shared factors); or the probability of deferral is constant at 0.12 for each volunteer"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "Fixed n=20, two outcomes, constant p, independence. Any one in context."
+     },
+     {
+      "label": "b",
+      "answers": [
+       "0.4109"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "P(3≤X≤5)=P(X≤5)-P(X≤2)= 0.2242+0.1299+0.0567 ≈ 0.4109"
+     },
+     {
+      "label": "c",
+      "answers": [
+       "10.27"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "Y~B(25,0.4109), E(Y)=25×0.4109≈10.27 (10.3)"
+     },
+     {
+      "label": "d",
+      "answers": [
+       "0.0388",
+       "Reject H0; sample supports the manager's belief"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "H0: p=0.12, H1: p<0.12 (one-tailed). Under H0, X~B(40,0.12): P(X≤1)=0.88^40+40(0.12)(0.88^39)=0.0060+0.0328≈0.0388 <0.05, so reject H0. Evidence at 5% level that the proportion deferred has reduced."
+     }
+    ],
+    "problems": [
+     {
+      "kind": "ambiguity",
+      "severity": "minor",
+      "part": "d",
+      "detail": "Test needs the sample to be random/independent and the same model assumptions as in (a); the p-value 0.0388 is close to 0.05 so rounding in tables matters little (table value 0.0388 is fine). No real blocker."
+     }
+    ]
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "n_responses": 9,
+   "agreed": [
+    "r1",
+    "r2",
+    "r3",
+    "r4",
+    "r5",
+    "r6",
+    "r7",
+    "r8",
+    "r9"
+   ],
+   "consistent": {},
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "r1",
+     "kind": "correct",
+     "work": "(a) Whether one volunteer is deferred is independent of whether any other volunteer is deferred.\n(b) P(2<X≤5)=P(X≤5)-P(X≤2)=0.9740-0.5631=0.411\n(c) 25×0.41085=10.3\n(d) H0: p=0.12, H1: p<0.12. Under H0, X~B(40,0.12). P(X≤1)=0.88^40+40(0.12)(0.88)^39=0.0388. 0.0388<0.05 so reject H0. There is evidence at 5% level that the proportion of volunteers deferred has decreased, supporting the manager's belief.",
+     "error_code": null,
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "kind": "pitfall",
+     "work": "(a) The trials are independent.\n(b) P(3≤X≤5)=P(X≤5)-P(X≤2)=0.9740-0.5631=0.411\n(c) 25×0.411=10.3\n(d) H0: p=0.12, H1: p<0.12. X~B(40,0.12). P(X≤1)=0.0388<0.05, reject H0. Evidence that the proportion of volunteers deferred has decreased, supporting the manager.",
+     "error_code": "binomial-conditions-generic",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r3",
+     "kind": "pitfall",
+     "work": "(a) Whether one volunteer is deferred is independent of whether any other is deferred.\n(b) P(X≤5)-P(X≤3)=0.9740-0.7873=0.187\n(c) 25×0.187=4.68\n(d) H0: p=0.12, H1: p<0.12. X~B(40,0.12). P(X≤1)=0.0388<0.05, reject H0. Evidence that the proportion of volunteers deferred has decreased, supporting the manager's belief.",
+     "error_code": "cumulative-individual-confused",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r4",
+     "kind": "pitfall",
+     "work": "(a) Each volunteer has the same probability 0.12 of being deferred.\n(b) P(X=5)=C(20,5)(0.12)^5(0.88)^15=0.0567\n(c) 25×0.0567=1.42\n(d) H0: p=0.12, H1: p<0.12. X~B(40,0.12). P(X≤1)=0.0388<0.05, reject H0. Evidence that the proportion of volunteers deferred has decreased.",
+     "error_code": "cumulative-individual-confused",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r5",
+     "kind": "pitfall",
+     "work": "(a) Whether one volunteer is deferred is independent of other volunteers.\n(b) P(3≤X≤5)=P(X≤5)-P(X≤2)=0.9740-0.5631=0.411\n(c) Probability for a session is P(X≤5)=0.974, so 25×0.974=24.35\n(d) H0: p=0.12, H1: p<0.12. X~B(40,0.12). P(X≤1)=0.0388<0.05, reject H0. Evidence that the proportion of volunteers deferred has decreased, supporting the manager.",
+     "error_code": "cumulative-individual-confused",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r6",
+     "kind": "pitfall",
+     "work": "(a) Whether one volunteer is deferred is independent of other volunteers.\n(b) 0.9740-0.5631=0.411\n(c) 25×0.411=10.3\n(d) H0: p=0.12, H1: p<0.12. X~B(40,0.12). P(X=1)=40(0.12)(0.88)^39=0.0328. 0.0328<0.05 so reject H0. There is evidence the proportion of volunteers deferred has decreased.",
+     "error_code": "point-probability-compared",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1",
+        "M0",
+        "A0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r7",
+     "kind": "pitfall",
+     "work": "(a) Each volunteer has the same probability 0.12 of being deferred.\n(b) P(X≤5)-P(X≤2)=0.9740-0.5631=0.411\n(c) 25×0.411=10.3\n(d) H0: p=0.12, H1: p<0.12. X~B(40,0.12). P(X≤1)=0.0388<0.05. Reject H0. This proves the diet advice reduces deferrals.",
+     "error_code": "conclusion-too-definite-or-no-context",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r8",
+     "kind": "alternative",
+     "work": "(a) Whether one volunteer is deferred is independent of whether any other volunteer is deferred.\n(b) P(X=3)+P(X=4)+P(X=5)=0.2242+0.1250+0.0567... =0.411\n(c) 25×0.411=10.3\n(d) H0: p=0.12, H1: p<0.12. Under H0 X~B(40,0.12). P(X≤1)=0.0388 and P(X≤2)=0.126. Critical region is X≤1. Observed 1 lies in the critical region so reject H0. There is evidence that the proportion of volunteers deferred has decreased.",
+     "error_code": null,
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r9",
+     "kind": "partial",
+     "work": "(a) Each volunteer has the same probability 0.12 of being deferred.\n(b) P(3≤X≤5)=P(X=3)+P(X=4)+P(X=5). P(X=3)=C(20,3)(0.12)^3(0.88)^17=0.2242 ... not sure how to finish.",
+     "error_code": null,
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B0",
+        "M0",
+        "A0",
+        "A0"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "r1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) 'trials are independent' is generic and does not mention volunteers or deferral."
+     ]
+    },
+    {
+     "id": "r3",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) P(X≤5)-P(X≤3) is the wrong event, so the first M is not earned.",
+      "(b) The answer 0.187 is not 0.411."
+     ]
+    },
+    {
+     "id": "r4",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) Only P(X=5) was used, so the event P(3≤X≤5) was never formed.",
+      "(b) No evaluation of a probability needed for the required event was given, and the answer is wrong."
+     ]
+    },
+    {
+     "id": "r5",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(c) 25×0.974 uses P(X≤5), not their (b) answer, so it does not follow through."
+     ]
+    },
+    {
+     "id": "r6",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1",
+        "M0",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(d) Used P(X=1) rather than P(X≤1), which scores M0.",
+      "(d) The value 0.0328 is not 0.0388, so A0.",
+      "(d) The conclusion rests on an incorrect test, so A0."
+     ]
+    },
+    {
+     "id": "r7",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(d) 'This proves the diet advice reduces deferrals' is too definite."
+     ]
+    },
+    {
+     "id": "r8",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r9",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B0",
+        "M0",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) The student did not finish, so there is no final answer of 0.411.",
+      "(c) Not attempted.",
+      "(d) Not attempted."
+     ]
+    }
+   ],
+   "awarded_second": [],
+   "cost_usd": 0.0726
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": false,
+   "errors": [
+    "part c: tagged ['two-stage-binomial', 'binomial-expected-value'], retagged ['expected-frequency-and-value']"
+   ],
+   "flags": [],
+   "flag": false,
+   "agreement": "3/4",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.008144,
+   "retagged": {
+    "a": [
+     "binomial-conditions"
+    ],
+    "b": [
+     "binomial-cumulative-probability",
+     "binomial-individual-probability"
+    ],
+    "c": [
+     "expected-frequency-and-value"
+    ],
+    "d": [
+     "state-hypotheses-binomial-test",
+     "binomial-test-probability",
+     "conclude-test-in-context"
+    ]
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

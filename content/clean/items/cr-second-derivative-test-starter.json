@@ -1,0 +1,169 @@
+{
+ "id": "cr-second-derivative-test-starter",
+ "blueprint_id": "dr-second-derivative-test-starter",
+ "question_type": "optimisation-constrained-shape",
+ "component": "pure",
+ "tier": "starter",
+ "kind": "drill",
+ "stem": "A solid cuboid has a rectangular base that is $x$ cm wide and $2x$ cm long. Its volume is fixed at $576\\,\\mathrm{cm}^3$. The total area of its six faces, $S\\,\\mathrm{cm}^2$, is given by\n$$S = 4x^2 + \\frac{1728}{x}, \\qquad x > 0.$$\nYou may assume that $\\frac{\\mathrm{d}S}{\\mathrm{d}x} = 8x - \\frac{1728}{x^2}$, and that $S$ has exactly one stationary point, where $x = 6$.",
+ "parts": [
+  {
+   "label": null,
+   "marks": 2,
+   "text": "Find the value of $\\frac{\\mathrm{d}^2S}{\\mathrm{d}x^2}$ when $x = 6$. Use your answer to decide whether the stationary value of $S$ is a minimum or a maximum, giving a reason. (2)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "second-derivative-test"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Differentiates $8x - 1728x^{-2}$ again to get an expression of the form $a + \\frac{b}{x^3}$ (with $a$ and $b$ both non-zero), then substitutes $x = 6$",
+     "notes": "Allow a slip in the value of $b$, e.g. $8 + \\frac{1728}{x^3}$ or $8 - \\frac{3456}{x^3}$, as long as the power of $x$ has gone down by 1 and $x = 6$ is substituted."
+    },
+    {
+     "code": "A1",
+     "for": "$\\frac{\\mathrm{d}^2S}{\\mathrm{d}x^2} = 24$ at $x = 6$, with the statement that $24 > 0$, so $S$ is a minimum",
+     "notes": "cso. The reason must refer to the second derivative being positive; accept 'positive, so minimum'. Writing 'minimum' with no reason, or with the wrong value, gets A0."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\frac{\\mathrm{d}S}{\\mathrm{d}x} = 8x - 1728x^{-2}$, so $\\frac{\\mathrm{d}^2S}{\\mathrm{d}x^2} = 8 + 3456x^{-3} = 8 + \\frac{3456}{x^3}$",
+     "mark": "M1 (part)"
+    },
+    {
+     "step": 2,
+     "working": "At $x = 6$: $\\frac{\\mathrm{d}^2S}{\\mathrm{d}x^2} = 8 + \\frac{3456}{216} = 8 + 16 = 24$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$24 > 0$, so the stationary value of $S$ (which is $S = 144 + 288 = 432$) is a minimum.",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "d2S",
+     "expr": "24",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "derivative",
+     "f": "4x^2 + 1728/x",
+     "var": "x",
+     "order": 2,
+     "result": "8 + 3456/x^3"
+    },
+    {
+     "type": "derivative",
+     "f": "4x^2 + 1728/x",
+     "var": "x",
+     "result": "8x - 1728/x^2"
+    },
+    {
+     "type": "substitute",
+     "expr": "8 + 3456/x^3",
+     "at": {
+      "x": 6
+     },
+     "answer": "d2S"
+    },
+    {
+     "type": "solutions",
+     "equation": "8x - 1728/x^2 = 0",
+     "var": "x",
+     "interval": [
+      "0.1",
+      100
+     ],
+     "result": [
+      "6"
+     ]
+    }
+   ],
+   "hints": [
+    "Rewrite $\\frac{1728}{x^2}$ as $1728x^{-2}$ before you differentiate $\\frac{\\mathrm{d}S}{\\mathrm{d}x}$ again.",
+    "Once you have a number for the second derivative at $x = 6$, its sign tells you what kind of stationary point it is."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "error_code": "sets-y-zero-not-derivative",
+   "step": 1,
+   "text": "The stationary point comes from $\\frac{\\mathrm{d}S}{\\mathrm{d}x} = 0$, not from $S = 0$. The area $S$ is never zero for $x > 0$. If you work from $S$ rather than its derivatives, you never get a valid $\\frac{\\mathrm{d}^2S}{\\mathrm{d}x^2}$ and you lose the M1.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "error_code": "zero-second-derivative-misread",
+   "step": 2,
+   "text": "If you make a slip and get $\\frac{\\mathrm{d}^2S}{\\mathrm{d}x^2} = 0$ at $x = 6$, don't jump to 'point of inflection'. A zero second derivative tells you nothing on its own. Here the correct value is $24$, and calling it an inflection loses the A1.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "error_code": "inflection-sign-change-not-shown",
+   "step": 3,
+   "text": "You can only claim a point of inflection if you show that the second derivative changes sign there. $8 + \\frac{3456}{x^3}$ is positive for every $x > 0$, so it never changes sign and $x = 6$ cannot be an inflection. Saying it is loses the A1.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T17:07:05",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.1814
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 2
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.862 with part:IAL2018_WMA12_Jan2023_Q2:d"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.022,
+   "jaccard_source": "IAL2018_WMA12_Jan2023_Q2",
+   "shared_numbers": 1,
+   "max_cosine": 0.862,
+   "cosine_source": "part:IAL2018_WMA12_Jan2023_Q2:d"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 4,
+   "n_answers": 1,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": false,
+   "errors": [
+    "optimisation-constrained-shape: total marks 2 outside 8-17 (seen 9-16, +-1)",
+    "optimisation-constrained-shape: number of parts 1 outside 2-6 (seen 3-5, +-1)"
+   ],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

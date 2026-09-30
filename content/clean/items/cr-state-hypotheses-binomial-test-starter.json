@@ -1,0 +1,348 @@
+{
+ "id": "cr-state-hypotheses-binomial-test-starter",
+ "blueprint_id": "dr-state-hypotheses-binomial-test-starter",
+ "question_type": "binomial-critical-region-test",
+ "component": "stats",
+ "tier": "starter",
+ "kind": "drill",
+ "stem": "A factory fires ceramic floor tiles in a kiln. Over a long period, $12\\%$ of the tiles leaving the kiln have a hairline crack. A new temperature controller is fitted to the kiln. The production engineer believes that the new controller has changed the proportion of cracked tiles, but she does not know whether it will have increased or decreased. She will take a random sample of 40 tiles fired with the new controller and use a $10\\%$ level of significance. Let $p$ be the proportion of tiles fired with the new controller that have a hairline crack.",
+ "parts": [
+  {
+   "label": null,
+   "marks": 1,
+   "text": "Test the engineer's belief by first setting it up as a hypothesis test: write down suitable null and alternative hypotheses in terms of $p$. You do not need to carry out the rest of the test. (1)",
+   "command": "test",
+   "forms": [],
+   "skills": [
+    "state-hypotheses-binomial-test"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Both hypotheses correct and written with the parameter $p$: $\\mathrm{H}_0: p = 0.12$ and $\\mathrm{H}_1: p \\neq 0.12$",
+     "notes": "Accept $\\frac{3}{25}$ or $12\\%$ as equivalent to $0.12$. Any letter is fine if it is clearly defined as the population proportion (here $p$ is given). Give B0 for a one-tailed $\\mathrm{H}_1$ ($p > 0.12$ or $p < 0.12$), for hypotheses written in words only, or for hypotheses in terms of $X$ or the sample proportion."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "The engineer thinks the proportion has changed but does not say in which direction, so the alternative hypothesis must be two-tailed.",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "$\\mathrm{H}_0: p = 0.12 \\qquad \\mathrm{H}_1: p \\neq 0.12$",
+     "mark": "B1"
+    },
+    {
+     "step": 3,
+     "working": "(For later reference: because the test is two-tailed, the $10\\%$ significance level would be split into $5\\%$ in each tail when finding the critical region for $X \\sim \\mathrm{B}(40, 0.12)$.)",
+     "mark": "0"
+    }
+   ],
+   "answers": [
+    {
+     "name": "p0",
+     "expr": "3/25",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "substitute",
+     "expr": "k/100",
+     "at": {
+      "k": 12
+     },
+     "answer": "p0"
+    }
+   ],
+   "hints": [
+    "The null hypothesis says nothing has changed. Use the long-run proportion of cracked tiles for it.",
+    "Read the engineer's belief carefully: does she say which way the proportion has moved? That tells you whether $\\mathrm{H}_1$ uses $<$, $>$ or $\\neq$."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "error_code": "tail-choice-error",
+   "step": 2,
+   "text": "The engineer only says the proportion has changed, not that it has gone up or down. If you write $\\mathrm{H}_1: p > 0.12$ or $\\mathrm{H}_1: p < 0.12$, you have made a one-tailed test out of a two-tailed claim, and you lose the B1. You need $\\mathrm{H}_1: p \\neq 0.12$.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "error_code": "hypotheses-not-in-parameter",
+   "step": 2,
+   "text": "Writing something like \"H$_0$: the controller makes no difference\" or \"H$_0$: $X = 0.12$\" does not score. The hypotheses must be about the population proportion $p$, for example $\\mathrm{H}_0: p = 0.12$. Without the parameter you lose the B1.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "error_code": "two-tailed-level-not-halved",
+   "step": 3,
+   "text": "This does not cost you anything here, but when you go on to find the critical region you must put $5\\%$ in each tail, not $10\\%$ in each tail. Using the full $10\\%$ in each tail would give a critical region that is too large, and you would lose the method mark for it.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T17:06:58",
+ "generation": {
+  "attempts": 1,
+  "cost_usd": 0.0872
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 1
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "3 rare words shared with P3_June2022_stats_Q4",
+    "cosine 0.839 with part:P3_June2025_stats_Q3:b"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.013,
+   "jaccard_source": "P1_June2018_Q9",
+   "shared_numbers": 0,
+   "max_cosine": 0.839,
+   "cosine_source": "part:P3_June2025_stats_Q3:b"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 1,
+   "n_answers": 1,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "binomial-critical-region-test: total marks 1 outside 5-7 (seen 6-6, +-1) (only 2 real questions of this type)",
+    "binomial-critical-region-test: number of parts 1 outside 2-5 (seen 3-4, +-1) (only 2 real questions of this type)"
+   ]
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "marks (part -): Only 1 mark for stating both hypotheses. This is fine. Standard for this type of question. The context (n=40, 10% level) is not needed for this part."
+   ],
+   "flag": true,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0069,
+   "solver": {
+    "parts": [
+     {
+      "label": null,
+      "answers": [
+       "H0: p = 0.12",
+       "H1: p != 0.12"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "Engineer believes the proportion has changed, direction unknown, so two-tailed test. H0: p = 0.12, H1: p ≠ 0.12 (10% significance, 5% in each tail)."
+     }
+    ],
+    "problems": [
+     {
+      "kind": "marks",
+      "severity": "minor",
+      "part": null,
+      "detail": "Only 1 mark for stating both hypotheses. This is fine. Standard for this type of question. The context (n=40, 10% level) is not needed for this part."
+     }
+    ]
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "n_responses": 5,
+   "agreed": [
+    "correct",
+    "pitfall-tail",
+    "pitfall-param",
+    "pitfall-level",
+    "partial"
+   ],
+   "consistent": {},
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "correct",
+     "kind": "correct",
+     "work": "$\\mathrm{H}_0: p = 0.12$\n$\\mathrm{H}_1: p \\neq 0.12$",
+     "error_code": null,
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "B1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pitfall-tail",
+     "kind": "pitfall",
+     "work": "$\\mathrm{H}_0: p = 0.12$\n$\\mathrm{H}_1: p > 0.12$",
+     "error_code": "tail-choice-error",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "B0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pitfall-param",
+     "kind": "pitfall",
+     "work": "$\\mathrm{H}_0: X = 0.12$\n$\\mathrm{H}_1: X \\neq 0.12$",
+     "error_code": "hypotheses-not-in-parameter",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "B0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pitfall-level",
+     "kind": "pitfall",
+     "work": "$\\mathrm{H}_0: p = 0.12$\n$\\mathrm{H}_1: p \\neq 0.12$\nThis is a two-tailed test, so I would use 10% in each tail for the critical region, with $X \\sim \\mathrm{B}(40, 0.12)$.",
+     "error_code": "two-tailed-level-not-halved",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "B1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "partial",
+     "kind": "partial",
+     "work": "$\\mathrm{H}_0: p = 0.12$\nThe engineer thinks the proportion has changed, so the alternative is different from this.",
+     "error_code": null,
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "B0"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "correct",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "B1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pitfall-tail",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "B0"
+       ]
+      }
+     ],
+     "reasons": [
+      "H1 is one-tailed (p > 0.12), but a two-tailed alternative is required."
+     ]
+    },
+    {
+     "id": "pitfall-param",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "B0"
+       ]
+      }
+     ],
+     "reasons": [
+      "Hypotheses are in terms of X, not the population proportion p."
+     ]
+    },
+    {
+     "id": "pitfall-level",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "B1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "partial",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "B0"
+       ]
+      }
+     ],
+     "reasons": [
+      "H1 is given only in words, with no p ≠ 0.12 stated."
+     ]
+    }
+   ],
+   "awarded_second": [],
+   "cost_usd": 0.021
+  },
+  "G5": {
+   "pass": false,
+   "errors": [
+    "pitfall [two-tailed-level-not-halved] part -: its G4 response loses no marks"
+   ]
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "agreement": "1/1",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.005535,
+   "retagged": {
+    "-": [
+     "state-hypotheses-binomial-test"
+    ]
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

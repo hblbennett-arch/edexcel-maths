@@ -1,0 +1,481 @@
+{
+ "id": "cr-gradient-conditions-on-curves-core",
+ "blueprint_id": "dr-gradient-conditions-on-curves-core",
+ "question_type": "implicit-differentiation-tangents",
+ "component": "pure",
+ "tier": "core",
+ "kind": "drill",
+ "stem": null,
+ "parts": [
+  {
+   "label": null,
+   "marks": 5,
+   "command": "show-that",
+   "skills": [
+    "gradient-conditions-on-curves"
+   ],
+   "text": "The curve $C$ has equation\n$$y^3 + 3xy - x^2 = 27.$$\nThe point $P$ lies on $C$, and the tangent to $C$ at $P$ is parallel to the $x$-axis.\n\nShow that the $y$-coordinate of $P$ satisfies\n$$4y^3 + 9y^2 - 108 = 0.$$ (5)",
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Differentiates the equation of $C$ implicitly with respect to $x$: $y^3 \\to 3y^2\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ and $x^2 \\to 2x$, and the constant $27 \\to 0$",
+     "notes": "Allow a sign slip or a wrong coefficient, as long as $y^3$ picks up a factor of $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$"
+    },
+    {
+     "code": "M1",
+     "for": "Uses the product rule on $3xy$ to get two terms, $3y + 3x\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ oe",
+     "notes": "Needs both terms, one containing $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ and one not; allow a slip in the coefficient"
+    },
+    {
+     "code": "A1",
+     "for": "Fully correct differentiated equation $3y^2\\frac{\\mathrm{d}y}{\\mathrm{d}x} + 3y + 3x\\frac{\\mathrm{d}y}{\\mathrm{d}x} - 2x = 0$, or $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\frac{2x - 3y}{3y^2 + 3x}$ oe",
+     "notes": "You do not have to make $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ the subject if you go on to substitute $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 0$"
+    },
+    {
+     "code": "M1",
+     "for": "Sets $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 0$ to get a linear relation between $x$ and $y$ (their $2x - 3y = 0$) and substitutes it into the equation of $C$ to remove $x$",
+     "notes": "Must substitute into the curve's equation, not into the derivative. Setting the denominator equal to zero does not earn this mark"
+    },
+    {
+     "code": "A1*",
+     "for": "Substitutes $x = \\frac{3y}{2}$ correctly, simplifies to $y^3 + \\frac{9}{4}y^2 = 27$ and reaches $4y^3 + 9y^2 - 108 = 0$ with no errors",
+     "notes": "cso. The $\\frac{9}{2}y^2$ and $-\\frac{9}{4}y^2$ terms must be shown combining before you multiply by 4"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Differentiate each term with respect to $x$: $\\frac{\\mathrm{d}}{\\mathrm{d}x}(y^3) = 3y^2\\frac{\\mathrm{d}y}{\\mathrm{d}x}$, $\\frac{\\mathrm{d}}{\\mathrm{d}x}(x^2) = 2x$, $\\frac{\\mathrm{d}}{\\mathrm{d}x}(27) = 0$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "Product rule: $\\frac{\\mathrm{d}}{\\mathrm{d}x}(3xy) = 3y + 3x\\frac{\\mathrm{d}y}{\\mathrm{d}x}$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$3y^2\\frac{\\mathrm{d}y}{\\mathrm{d}x} + 3y + 3x\\frac{\\mathrm{d}y}{\\mathrm{d}x} - 2x = 0 \\;\\Rightarrow\\; \\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\frac{2x - 3y}{3y^2 + 3x}$",
+     "mark": "A1"
+    },
+    {
+     "step": 4,
+     "working": "The tangent at $P$ is horizontal, so $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 0$ there: $2x - 3y = 0$, so $x = \\frac{3y}{2}$ at $P$. $P$ lies on $C$, so substitute into the curve: $y^3 + 3\\left(\\frac{3y}{2}\\right)y - \\left(\\frac{3y}{2}\\right)^2 = 27$",
+     "mark": "M1"
+    },
+    {
+     "step": 5,
+     "working": "$y^3 + \\frac{9}{2}y^2 - \\frac{9}{4}y^2 = 27 \\Rightarrow y^3 + \\frac{9}{4}y^2 = 27 \\Rightarrow 4y^3 + 9y^2 - 108 = 0$ as required.",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [],
+   "checks": [
+    {
+     "type": "derivative",
+     "f": "y^3 + 3x*y - x^2",
+     "var": "x",
+     "result": "3y - 2x"
+    },
+    {
+     "type": "derivative",
+     "f": "y^3 + 3x*y - x^2",
+     "var": "y",
+     "result": "3y^2 + 3x"
+    },
+    {
+     "type": "equals",
+     "lhs": "4*(y^3 + 3*(3y/2)*y - (3y/2)^2 - 27)",
+     "rhs": "4y^3 + 9y^2 - 108"
+    }
+   ],
+   "hints": [
+    "Differentiate every term with respect to $x$. Remember that $3xy$ is a product, and any term in $y$ picks up a factor of $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$.",
+    "A tangent parallel to the $x$-axis has gradient $0$. That gives you a link between $x$ and $y$ at $P$. Which other equation must the coordinates of $P$ satisfy?"
+   ],
+   "alternatives": [
+    {
+     "name": "Way 2: put the gradient equal to 0 before rearranging",
+     "marks": [
+      {
+       "code": "M1",
+       "for": "Implicit differentiation with $y^3 \\to 3y^2\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ and $x^2 \\to 2x$"
+      },
+      {
+       "code": "M1",
+       "for": "Product rule on $3xy$ giving $3y + 3x\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ oe"
+      },
+      {
+       "code": "A1",
+       "for": "Substitutes $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 0$ into a fully correct differentiated equation to get $3y - 2x = 0$",
+       "notes": "This needs the differentiated equation to be correct"
+      },
+      {
+       "code": "M1",
+       "for": "Uses their linear relation, e.g. $x = \\frac{3y}{2}$, in the equation of $C$ to get an equation in $y$ only"
+      },
+      {
+       "code": "A1*",
+       "for": "Simplifies correctly to $4y^3 + 9y^2 - 108 = 0$",
+       "notes": "cso"
+      }
+     ]
+    }
+   ],
+   "forms": []
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "error_code": "gradient-not-evaluated-at-point",
+   "step": 4,
+   "text": "$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\frac{2x - 3y}{3y^2 + 3x}$ is a general formula, and the condition $2x = 3y$ holds only at the point $P$. It is a common mistake to stop at $2x = 3y$, or to substitute it back into the derivative. To pin down $P$ you have to use the fact that $P$ is on $C$, so substitute $x = \\frac{3y}{2}$ into $y^3 + 3xy - x^2 = 27$. If you don't, you lose the final M1 and the A1*.",
+   "says_common": true
+  },
+  {
+   "part": null,
+   "error_code": "normal-uses-tangent-gradient",
+   "step": 4,
+   "text": "The line that is parallel to the $x$-axis is the tangent, so the tangent's gradient is $0$. If you mix this up with the normal being horizontal, you end up with a vertical tangent and set the denominator to zero: $3y^2 + 3x = 0$. That answers a different question, so you lose the final M1 and the A1*.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "error_code": "parametric-derivative-inverted",
+   "step": 3,
+   "text": "When you collect terms, $\\frac{\\mathrm{d}y}{\\mathrm{d}x}(3y^2 + 3x) = 2x - 3y$, so the $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ bracket goes in the denominator. If you flip it and write $\\frac{3y^2 + 3x}{2x - 3y}$, you have found $\\frac{\\mathrm{d}x}{\\mathrm{d}y}$. Setting that equal to $0$ gives the wrong condition, so you lose the A1 and the final M1.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T16:36:31",
+ "generation": {
+  "attempts": 1,
+  "cost_usd": 0.152
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 5
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.920 with question:IAL2013_6663A_Jan2014_Q10"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.069,
+   "jaccard_source": "GCE2008_6665_Jan2013_Q1",
+   "shared_numbers": 1,
+   "max_cosine": 0.92,
+   "cosine_source": "question:IAL2013_6663A_Jan2014_Q10"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 3,
+   "n_answers": 0,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0097,
+   "solver": {
+    "parts": [
+     {
+      "label": null,
+      "answers": [
+       "4*y**3 + 9*y**2 - 108 = 0"
+      ],
+      "printed_result_correct": true,
+      "working_summary": "Implicit differentiation gives dy/dx = (2x-3y)/(3y^2+3x). Setting dy/dx = 0 gives x = 3y/2. Substituting into the curve gives y^3 + 9y^2/4 = 27, so 4y^3 + 9y^2 - 108 = 0. The denominator is non-zero at the roots of the cubic."
+     }
+    ],
+    "problems": []
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "n_responses": 6,
+   "agreed": [
+    "correct",
+    "way2",
+    "pit1",
+    "pit2",
+    "pit3",
+    "partial"
+   ],
+   "consistent": {},
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "correct",
+     "kind": "correct",
+     "work": "Differentiate implicitly: $3y^2\\frac{dy}{dx} + 3y + 3x\\frac{dy}{dx} - 2x = 0$\n$\\frac{dy}{dx}(3y^2+3x) = 2x-3y$, so $\\frac{dy}{dx} = \\frac{2x-3y}{3y^2+3x}$.\nTangent parallel to x-axis so $\\frac{dy}{dx}=0$: $2x-3y=0$, $x=\\frac{3y}{2}$.\nSubstitute into C: $y^3 + 3\\left(\\frac{3y}{2}\\right)y - \\left(\\frac{3y}{2}\\right)^2 = 27$\n$y^3 + \\frac{9}{2}y^2 - \\frac{9}{4}y^2 = 27$\n$y^3 + \\frac{9}{4}y^2 = 27$\n$4y^3 + 9y^2 - 108 = 0$ as required.",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "M1",
+        "A1*"
+       ]
+      }
+     ],
+     "error_code": null
+    },
+    {
+     "id": "way2",
+     "kind": "alternative",
+     "work": "Differentiating: $3y^2\\frac{dy}{dx} + 3y + 3x\\frac{dy}{dx} - 2x = 0$.\nAt P, $\\frac{dy}{dx}=0$, so $3y - 2x = 0$, giving $x=\\frac{3y}{2}$.\nSub into C: $y^3 + 3\\cdot\\frac{3y}{2}\\cdot y - \\frac{9y^2}{4} = 27$\n$y^3 + \\frac{18y^2}{4} - \\frac{9y^2}{4} = 27$\n$y^3 + \\frac{9y^2}{4} = 27$\nMultiply by 4: $4y^3 + 9y^2 - 108 = 0$.",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "M1",
+        "A1*"
+       ]
+      }
+     ],
+     "error_code": null
+    },
+    {
+     "id": "pit1",
+     "kind": "pitfall",
+     "work": "$3y^2\\frac{dy}{dx} + 3y + 3x\\frac{dy}{dx} - 2x = 0$\n$\\frac{dy}{dx} = \\frac{2x-3y}{3y^2+3x}$\nParallel to x-axis so $\\frac{dy}{dx}=0$, so $2x-3y=0$, i.e. $2x=3y$.\nSubstituting back into the derivative gives $\\frac{0}{3y^2+3x}=0$, which is true, so the condition is $2x = 3y$ at P. I can't see how to get the cubic from this, so I'll stop here.",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "error_code": "gradient-not-evaluated-at-point"
+    },
+    {
+     "id": "pit2",
+     "kind": "pitfall",
+     "work": "Differentiating: $3y^2\\frac{dy}{dx} + 3y + 3x\\frac{dy}{dx} - 2x = 0$\n$\\frac{dy}{dx} = \\frac{2x-3y}{3y^2+3x}$\nI'll take the line to be horizontal for the normal, so set the denominator to 0: $3y^2+3x=0$, so $x=-y^2$.\nSub into C: $y^3 + 3(-y^2)y - y^4 = 27$\n$y^3 - 3y^3 - y^4 = 27$\n$-y^4 - 2y^3 - 27 = 0$, i.e. $y^4+2y^3+27=0$.\nThis doesn't match the required equation, so I can't complete the proof.",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "error_code": "normal-uses-tangent-gradient"
+    },
+    {
+     "id": "pit3",
+     "kind": "pitfall",
+     "work": "Differentiating: $3y^2\\frac{dy}{dx} + 3y + 3x\\frac{dy}{dx} - 2x = 0$\n$\\frac{dy}{dx}(3y^2+3x) = 2x - 3y$\n$\\frac{dy}{dx} = \\frac{3y^2+3x}{2x-3y}$\nSet $\\frac{dy}{dx}=0$: $3y^2+3x=0$, so $x=-y^2$.\nSub into C: $y^3 - 3y^3 - y^4 = 27$, so $y^4 + 2y^3 + 27 = 0$.\nThis is not the required equation, so I can't finish.",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "M1",
+        "A0",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "error_code": "parametric-derivative-inverted"
+    },
+    {
+     "id": "partial",
+     "kind": "partial",
+     "work": "Differentiate with respect to x:\n$3y^2\\frac{dy}{dx} + 3y + 3x\\frac{dy}{dx} + 2x = 0$\n(Not sure what to do next, so I'll stop here.)",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "M1",
+        "A0",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "error_code": null
+    }
+   ],
+   "awarded": [
+    {
+     "id": "correct",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "way2",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pit1",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "M0: substituted into the derivative, not into the equation of C",
+      "A0: cubic not reached"
+     ]
+    },
+    {
+     "id": "pit2",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "M0: set denominator to zero, not the numerator, so no valid linear relation from dy/dx=0",
+      "A0: required cubic not reached"
+     ]
+    },
+    {
+     "id": "pit3",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "M1",
+        "A0",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "A0: dy/dx rearranged incorrectly (inverted), so not fully correct",
+      "M0: dy/dx=0 gave 3y^2+3x=0, not the required linear relation 2x-3y=0",
+      "A0: required cubic not reached"
+     ]
+    },
+    {
+     "id": "partial",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "M1",
+        "A0",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "A0: sign error on 2x, differentiated equation not fully correct",
+      "M0: no dy/dx=0 or substitution into C",
+      "A0: proof not reached"
+     ]
+    }
+   ],
+   "awarded_second": [],
+   "cost_usd": 0.0391
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": false,
+   "errors": [
+    "part -: tagged ['gradient-conditions-on-curves'], retagged ['implicit-differentiation', 'set-derivative-zero-and-solve', 'substitute-to-find-intersections']"
+   ],
+   "flags": [],
+   "flag": false,
+   "agreement": "0/1",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.01469,
+   "retagged": {
+    "showthatthey-coordinateofpsatisfies4y³+9y²-108=0": [
+     "implicit-differentiation",
+     "set-derivative-zero-and-solve",
+     "substitute-to-find-intersections"
+    ]
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

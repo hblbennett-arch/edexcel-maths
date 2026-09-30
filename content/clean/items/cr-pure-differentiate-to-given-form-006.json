@@ -1,0 +1,1251 @@
+{
+ "id": "cr-pure-differentiate-to-given-form-006",
+ "blueprint_id": "bp-pure-differentiate-to-given-form-006",
+ "question_type": "differentiate-to-given-form",
+ "component": "pure",
+ "tier": "standard",
+ "kind": "exam",
+ "stem": "The curve $C$ has equation\n$$y = \\frac{1}{\\sqrt{\\cos 2x}}, \\qquad 0 < x < \\frac{\\pi}{4},$$\nwhere $x$ is in radians.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 3,
+   "text": "Find $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$. (3)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "rewrite-using-index-laws",
+    "differentiate-negative-and-fractional-powers",
+    "differentiate-trig-functions",
+    "chain-rule"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Writes $y$ as a power of $\\cos 2x$: $y = (\\cos 2x)^{-\\frac{1}{2}}$",
+     "notes": "Can be implied by a correct derivative. Accept $y = (\\sec 2x)^{\\frac{1}{2}}$ oe. Writing $(\\cos 2x)^{\\frac{1}{2}}$ scores B0."
+    },
+    {
+     "code": "M1",
+     "for": "Uses the chain rule on their power of $\\cos 2x$ to get the form $k\\sin 2x\\,(\\cos 2x)^{-\\frac{3}{2}}$, where $k$ is a non-zero constant",
+     "notes": "The power must go down by 1 from their index, and there must be a factor of $\\sin 2x$ from differentiating $\\cos 2x$. Via $\\sec^{\\frac12} 2x$: accept the form $k\\sec^{\\frac12}2x\\tan 2x$."
+    },
+    {
+     "code": "A1",
+     "for": "$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\sin 2x\\,(\\cos 2x)^{-\\frac{3}{2}}$ oe",
+     "notes": "Accept $\\frac{\\sin 2x}{(\\cos 2x)^{3/2}}$, $\\tan 2x\\sqrt{\\sec 2x}$ or any equivalent. isw. $k = 1$ needs the correct sign and the factor 2 from the inner derivative."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$y = (\\cos 2x)^{-\\frac{1}{2}}$",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = -\\frac{1}{2}(\\cos 2x)^{-\\frac{3}{2}} \\times (-2\\sin 2x)$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\sin 2x\\,(\\cos 2x)^{-\\frac{3}{2}}$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "dydx",
+     "expr": "sin(2*x)*cos(2*x)^(-3/2)",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "derivative",
+     "f": "1/sqrt(cos(2x))",
+     "var": "x",
+     "answer": "dydx"
+    },
+    {
+     "type": "equals",
+     "lhs": "sin(2x)*cos(2x)^(-3/2)",
+     "rhs": "tan(2x)*sqrt(sec(2x))",
+     "domain": [
+      "0.05",
+      "0.75"
+     ]
+    }
+   ],
+   "hints": [
+    "Write the square root in the denominator as a negative power of $\\cos 2x$ before you differentiate.",
+    "The inside function is $\\cos 2x$. What is its derivative?"
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 3,
+   "text": "Show that\n$$\\left(\\frac{\\mathrm{d}y}{\\mathrm{d}x}\\right)^2 = \\sec^3 2x - \\sec 2x.$$ (3)",
+   "command": "show-that",
+   "forms": [],
+   "skills": [
+    "show-that-given-answer",
+    "rewrite-using-index-laws",
+    "pythagorean-identities"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Squares their $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ from (a) and applies the index law correctly to get $\\frac{\\sin^2 2x}{\\cos^3 2x}$ (or $\\sin^2 2x\\,(\\cos 2x)^{-3}$)",
+     "notes": "Their derivative must be of the form $k\\sin 2x(\\cos 2x)^{-3/2}$. Via tan: $\\tan^2 2x\\,\\sec 2x$ is fine."
+    },
+    {
+     "code": "dM1",
+     "depends_on": "M1",
+     "for": "Uses $\\sin^2 2x = 1 - \\cos^2 2x$ correctly to get $\\frac{1 - \\cos^2 2x}{\\cos^3 2x}$",
+     "notes": "Via tan: uses $\\tan^2 2x = \\sec^2 2x - 1$. A wrong identity, e.g. $\\sin^2 2x = \\cos^2 2x - 1$, scores dM0."
+    },
+    {
+     "code": "M1",
+     "for": "Splits the fraction into $\\frac{1}{\\cos^3 2x} - \\frac{1}{\\cos 2x}$ and uses $\\sec 2x = \\frac{1}{\\cos 2x}$ to reach $\\sec^3 2x - \\sec 2x$, with every step correct",
+     "notes": "This is a printed answer, so the working must be complete and error-free, including the $2x$ in every term. Using $\\sec 2x = \\frac{1}{\\sin 2x}$ scores M0."
+    }
+   ],
+   "alternatives": [
+    {
+     "name": "Way 2 (via tan and sec)",
+     "marks": [
+      {
+       "code": "M1",
+       "for": "Writes $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\tan 2x\\,(\\sec 2x)^{\\frac{1}{2}}$ and squares it to get $\\tan^2 2x\\,\\sec 2x$"
+      },
+      {
+       "code": "dM1",
+       "depends_on": "M1",
+       "for": "Uses $\\tan^2 2x = \\sec^2 2x - 1$ to get $(\\sec^2 2x - 1)\\sec 2x$"
+      },
+      {
+       "code": "M1",
+       "for": "Expands to reach $\\sec^3 2x - \\sec 2x$, with every step correct"
+      }
+     ]
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\left(\\frac{\\mathrm{d}y}{\\mathrm{d}x}\\right)^2 = \\sin^2 2x\\,\\left((\\cos 2x)^{-\\frac{3}{2}}\\right)^2 = \\frac{\\sin^2 2x}{\\cos^3 2x}$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$= \\frac{1 - \\cos^2 2x}{\\cos^3 2x}$",
+     "mark": "dM1"
+    },
+    {
+     "step": 3,
+     "working": "$= \\frac{1}{\\cos^3 2x} - \\frac{\\cos^2 2x}{\\cos^3 2x} = \\frac{1}{\\cos^3 2x} - \\frac{1}{\\cos 2x} = \\sec^3 2x - \\sec 2x$",
+     "mark": "M1"
+    }
+   ],
+   "answers": [],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "(sin(2x)*cos(2x)^(-3/2))^2",
+     "rhs": "sec(2x)^3 - sec(2x)",
+     "domain": [
+      "0.05",
+      "0.75"
+     ]
+    },
+    {
+     "type": "equals",
+     "lhs": "sin(2x)^2/cos(2x)^3",
+     "rhs": "(1 - cos(2x)^2)/cos(2x)^3",
+     "domain": [
+      "0.05",
+      "0.75"
+     ]
+    }
+   ],
+   "hints": [
+    "Square your answer to part (a). When you square a power of $\\cos 2x$, multiply the index by 2.",
+    "The answer contains only $\\sec 2x$, so replace $\\sin^2 2x$ with something in terms of $\\cos 2x$."
+   ]
+  },
+  {
+   "label": "c",
+   "marks": 4,
+   "text": "Using your answer to part (b), or otherwise, find $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2}$ in terms of $y$. (4)",
+   "command": "find",
+   "forms": [
+    "in-terms-of"
+   ],
+   "skills": [
+    "chain-rule"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Differentiates both sides of the result in (b) with respect to $x$ using the chain rule: the left side becomes $2\\frac{\\mathrm{d}y}{\\mathrm{d}x}\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2}$ and the right side has the form $\\alpha\\sec^3 2x\\tan 2x - \\beta\\sec 2x\\tan 2x$",
+     "notes": "Correct right side: $6\\sec^3 2x\\tan 2x - 2\\sec 2x\\tan 2x$. For M1 allow slips in the constants $\\alpha, \\beta$, but both terms must come from the chain rule."
+    },
+    {
+     "code": "dM1",
+     "depends_on": "M1",
+     "for": "Substitutes their $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ (written as $\\tan 2x\\sec^{\\frac{1}{2}} 2x$ or equivalent) and divides by $2\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ to make $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2}$ the subject",
+     "notes": "Dividing is valid because $\\frac{\\mathrm{d}y}{\\mathrm{d}x} > 0$ for $0 < x < \\frac{\\pi}{4}$."
+    },
+    {
+     "code": "A1",
+     "for": "$\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} = 3\\sec^{\\frac{5}{2}} 2x - \\sec^{\\frac{1}{2}} 2x$ oe",
+     "notes": "Accept $3(\\cos 2x)^{-\\frac{5}{2}} - (\\cos 2x)^{-\\frac{1}{2}}$."
+    },
+    {
+     "code": "A1",
+     "for": "$\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} = 3y^5 - y$",
+     "notes": "cao. Accept $y(3y^4 - 1)$."
+    }
+   ],
+   "alternatives": [
+    {
+     "name": "Way 2 (differentiate part (a) directly)",
+     "marks": [
+      {
+       "code": "M1",
+       "for": "Uses the product rule on $\\sin 2x\\,(\\cos 2x)^{-\\frac{3}{2}}$, with the chain rule on each factor, to get the form $a(\\cos 2x)^{-\\frac{1}{2}} + b\\sin^2 2x\\,(\\cos 2x)^{-\\frac{5}{2}}$",
+       "notes": "Correct: $2(\\cos 2x)^{-\\frac12} + 3\\sin^2 2x(\\cos 2x)^{-\\frac52}$."
+      },
+      {
+       "code": "dM1",
+       "depends_on": "M1",
+       "for": "Replaces $\\sin^2 2x$ with $1 - \\cos^2 2x$ and collects the powers of $\\cos 2x$"
+      },
+      {
+       "code": "A1",
+       "for": "$3(\\cos 2x)^{-\\frac{5}{2}} - (\\cos 2x)^{-\\frac{1}{2}}$ oe"
+      },
+      {
+       "code": "A1",
+       "for": "$3y^5 - y$",
+       "notes": "cao"
+      }
+     ]
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Differentiate $\\left(\\frac{\\mathrm{d}y}{\\mathrm{d}x}\\right)^2 = \\sec^3 2x - \\sec 2x$ with respect to $x$: $\\;2\\frac{\\mathrm{d}y}{\\mathrm{d}x}\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} = 3\\sec^2 2x\\,(2\\sec 2x\\tan 2x) - 2\\sec 2x\\tan 2x = 6\\sec^3 2x\\tan 2x - 2\\sec 2x\\tan 2x$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "From (a), $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\frac{\\sin 2x}{\\cos 2x}\\cdot(\\cos 2x)^{-\\frac12} = \\tan 2x\\,\\sec^{\\frac{1}{2}} 2x$, so $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} = \\frac{6\\sec^3 2x\\tan 2x - 2\\sec 2x\\tan 2x}{2\\tan 2x\\,\\sec^{\\frac{1}{2}} 2x}$",
+     "mark": "dM1"
+    },
+    {
+     "step": 3,
+     "working": "$\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} = 3\\sec^{\\frac{5}{2}} 2x - \\sec^{\\frac{1}{2}} 2x$",
+     "mark": "A1"
+    },
+    {
+     "step": 4,
+     "working": "Since $y = (\\cos 2x)^{-\\frac12} = \\sec^{\\frac{1}{2}} 2x$, $\\;\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} = 3y^5 - y$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "d2ydx2",
+     "expr": "3*cos(2*x)^(-5/2) - cos(2*x)^(-1/2)",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "derivative",
+     "f": "1/sqrt(cos(2x))",
+     "var": "x",
+     "order": 2,
+     "answer": "d2ydx2"
+    },
+    {
+     "type": "equals",
+     "lhs": "3*cos(2x)^(-5/2) - cos(2x)^(-1/2)",
+     "rhs": "3*(1/sqrt(cos(2x)))^5 - 1/sqrt(cos(2x))",
+     "domain": [
+      "0.05",
+      "0.75"
+     ]
+    },
+    {
+     "type": "derivative",
+     "f": "sec(2x)^3 - sec(2x)",
+     "var": "x",
+     "result": "6 sec(2x)^3 tan(2x) - 2 sec(2x) tan(2x)"
+    }
+   ],
+   "hints": [
+    "Differentiate both sides of the identity in (b). The left side is a function of $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$, so use the chain rule there too.",
+    "Notice that $y = \\sec^{\\frac12} 2x$. Write everything as powers of $\\sec 2x$ at the end."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "trig-derivative-sign-error",
+   "text": "A common mistake is to differentiate $\\cos 2x$ as $2\\sin 2x$ rather than $-2\\sin 2x$. That gives $-\\sin 2x(\\cos 2x)^{-3/2}$, which is the wrong sign, so you lose the A1.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "index-law-error",
+   "text": "Many students write $\\frac{1}{\\sqrt{\\cos 2x}}$ as $(\\cos 2x)^{\\frac12}$ and forget that the reciprocal makes the index negative. It should be $(\\cos 2x)^{-\\frac12}$. Getting this wrong loses the B1, and the rest of the derivative is wrong as well.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "not-rewritten-as-powers",
+   "text": "If you try to differentiate the square root in the denominator without first writing $y$ as $(\\cos 2x)^{-1/2}$, it is easy to get the power rule wrong, and the M1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "pythagorean-identity-error",
+   "text": "Many students replace $\\sin^2 2x$ with $\\cos^2 2x - 1$ or $1 + \\cos^2 2x$. The correct identity gives $\\sin^2 2x = 1 - \\cos^2 2x$. With the wrong one you lose the dM1 and cannot reach the printed answer.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "index-law-error",
+   "text": "A common slip when squaring $(\\cos 2x)^{-3/2}$ is to add the indices and write $(\\cos 2x)^{1/2}$ instead of multiplying them to get $(\\cos 2x)^{-3}$. That loses the first M1.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 3,
+   "error_code": "reciprocal-trig-confused",
+   "text": "Mixing up $\\sec 2x$ with $\\frac{1}{\\sin 2x}$ is common. Here $\\frac{1}{\\cos^3 2x}$ must become $\\sec^3 2x$, not $\\operatorname{cosec}^3 2x$. If you confuse them, you lose the final M1.",
+   "says_common": true
+  },
+  {
+   "part": "c",
+   "step": 1,
+   "error_code": "chain-rule-inner-derivative-missing",
+   "text": "When you differentiate $\\left(\\frac{\\mathrm{d}y}{\\mathrm{d}x}\\right)^2$ you must multiply by $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2}$, and when you differentiate $\\sec 2x$ you must multiply by 2. If you leave out either factor, your expression does not have the right form and you lose the M1.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "step": 1,
+   "error_code": "trig-derivative-sign-error",
+   "text": "Students often write the derivative of $\\sec 2x$ as $-2\\sec 2x\\tan 2x$. It is $+2\\sec 2x\\tan 2x$. A sign error here gives the wrong coefficients, so you lose both A1 marks.",
+   "says_common": true
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T16:54:04",
+ "generation": {
+  "attempts": 1,
+  "cost_usd": 0.253
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 10
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.888 with part:IAL2013_6664A_Jan2014_Q3:a"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.038,
+   "jaccard_source": "GCE2008_6665_June2013_Q5",
+   "shared_numbers": 0,
+   "max_cosine": 0.888,
+   "cosine_source": "part:IAL2013_6664A_Jan2014_Q3:a"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 7,
+   "n_answers": 2,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "part c: expected d2ydx2 = 3*cos(2*x)^(-5/2) - cos(2*x)^(-1/2), solver got ['3*y**5 - y'] [judge: same - With y = cos(2x)^(-1/2), y^5 = cos(2x)^(-5/2), so 3y^5 − y equals the setter's 3cos(2x)^(-5/2) − cos(2x)^(-1/2).]"
+   ],
+   "flag": true,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0202,
+   "solver": {
+    "parts": [
+     {
+      "label": "a",
+      "answers": [
+       "sin(2*x)/(cos(2*x))**(3/2)"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "Chain rule on (cos2x)^(-1/2): dy/dx = sin2x (cos2x)^(-3/2)."
+     },
+     {
+      "label": "b",
+      "answers": [
+       "sec(2x)^3 - sec(2x)"
+      ],
+      "printed_result_correct": true,
+      "working_summary": "Square: sin^2 2x/cos^3 2x = (1-cos^2 2x)/cos^3 2x = sec^3 2x - sec 2x."
+     },
+     {
+      "label": "c",
+      "answers": [
+       "3*y**5 - y"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "sec2x = y^2, so (y')^2 = y^6 - y^2. Differentiate: 2y'y'' = (6y^5 - 2y)y'; y' is nonzero on the interval, so y'' = 3y^5 - y."
+     }
+    ],
+    "problems": []
+   }
+  },
+  "G4": {
+   "pass": false,
+   "errors": [
+    "response R8 (pitfall chain-rule-inner-derivative-missing): markers disagree ({'a': ['B1', 'M1', 'A1'], 'b': ['M1', 'dM1', 'M1'], 'c': ['M1', 'dM1', 'A0', 'A0']} vs {'a': ['B1', 'M1', 'A1'], 'b': ['M1', 'dM1', 'M0'], 'c': ['M1', 'dM1', 'A0', 'A0']}; designed {'a': ['B1', 'M1', 'A1'], 'b': ['M1', 'dM1', 'M1'], 'c': ['M0', 'dM0', 'A0', 'A0']}): the mark scheme is ambiguous here"
+   ],
+   "flags": [],
+   "flag": false,
+   "n_responses": 11,
+   "agreed": [
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "R7",
+    "R9",
+    "R10",
+    "R11"
+   ],
+   "consistent": {},
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "R1",
+     "kind": "correct",
+     "error_code": null,
+     "work": "(a) $y=(\\cos 2x)^{-1/2}$, so $\\frac{dy}{dx}=-\\frac12(\\cos2x)^{-3/2}\\times(-2\\sin2x)=\\sin2x(\\cos2x)^{-3/2}$.\n(b) $(dy/dx)^2=\\frac{\\sin^22x}{\\cos^32x}=\\frac{1-\\cos^22x}{\\cos^32x}=\\frac1{\\cos^32x}-\\frac{\\cos^22x}{\\cos^32x}=\\sec^32x-\\sec2x$.\n(c) $2\\frac{dy}{dx}\\frac{d^2y}{dx^2}=6\\sec^32x\\tan2x-2\\sec2x\\tan2x$. $\\frac{dy}{dx}=\\tan2x\\sec^{1/2}2x$, so $\\frac{d^2y}{dx^2}=\\frac{6\\sec^32x\\tan2x-2\\sec2x\\tan2x}{2\\tan2x\\sec^{1/2}2x}=3\\sec^{5/2}2x-\\sec^{1/2}2x$. Since $y=\\sec^{1/2}2x$, $\\frac{d^2y}{dx^2}=3y^5-y$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "dM1",
+        "A1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "R2",
+     "kind": "pitfall",
+     "error_code": "trig-derivative-sign-error",
+     "work": "(a) $y=(\\cos2x)^{-1/2}$. $\\frac{dy}{dx}=-\\frac12(\\cos2x)^{-3/2}\\times 2\\sin2x=-\\sin2x(\\cos2x)^{-3/2}$.\n(b) $(dy/dx)^2=\\frac{\\sin^22x}{\\cos^32x}=\\frac{1-\\cos^22x}{\\cos^32x}=\\frac1{\\cos^32x}-\\frac1{\\cos2x}=\\sec^32x-\\sec2x$.\n(c) $2\\frac{dy}{dx}\\frac{d^2y}{dx^2}=6\\sec^32x\\tan2x-2\\sec2x\\tan2x$. Using my $\\frac{dy}{dx}=-\\tan2x\\sec^{1/2}2x$: $\\frac{d^2y}{dx^2}=\\frac{6\\sec^32x\\tan2x-2\\sec2x\\tan2x}{-2\\tan2x\\sec^{1/2}2x}=-3\\sec^{5/2}2x+\\sec^{1/2}2x=-3y^5+y$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "dM1",
+        "A0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "R3",
+     "kind": "pitfall",
+     "error_code": "index-law-error",
+     "work": "(a) $y=(\\cos2x)^{1/2}$. $\\frac{dy}{dx}=\\frac12(\\cos2x)^{-1/2}\\times(-2\\sin2x)=-\\sin2x(\\cos2x)^{-1/2}$.\n(b) $(dy/dx)^2=\\sin^22x(\\cos2x)^{-1}=\\frac{1-\\cos^22x}{\\cos2x}=\\sec2x-\\cos2x$. This isn't the required result, so I can't complete the show that.\n(c) Differentiating the printed result: $2\\frac{dy}{dx}\\frac{d^2y}{dx^2}=6\\sec^32x\\tan2x-2\\sec2x\\tan2x$. I can't see how to finish.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B0",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "dM0",
+        "M0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "dM0",
+        "A0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "R4",
+     "kind": "pitfall",
+     "error_code": "not-rewritten-as-powers",
+     "work": "(a) $y=\\frac1{\\sqrt{\\cos2x}}$. Differentiating the square root: $\\frac{dy}{dx}=-\\frac{1}{2\\sqrt{\\cos2x}}\\times(-2\\sin2x)=\\frac{\\sin2x}{\\sqrt{\\cos2x}}$.\n(b) $(dy/dx)^2=\\frac{\\sin^22x}{\\cos2x}=\\frac{1-\\cos^22x}{\\cos2x}=\\sec2x-\\cos2x$. This doesn't match, so I can't show it.\n(c) Differentiating the printed result: $2\\frac{dy}{dx}\\frac{d^2y}{dx^2}=6\\sec^32x\\tan2x-2\\sec2x\\tan2x$. I can't get further.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B0",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "dM0",
+        "M0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "dM0",
+        "A0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "R5",
+     "kind": "pitfall",
+     "error_code": "pythagorean-identity-error",
+     "work": "(a) $y=(\\cos2x)^{-1/2}$, $\\frac{dy}{dx}=\\sin2x(\\cos2x)^{-3/2}$.\n(b) $(dy/dx)^2=\\frac{\\sin^22x}{\\cos^32x}$. Using $\\sin^22x=\\cos^22x-1$: $=\\frac{\\cos^22x-1}{\\cos^32x}=\\frac1{\\cos2x}-\\frac1{\\cos^32x}=\\sec2x-\\sec^32x$. So I get the negative of the printed answer, and I'll write $\\sec^32x-\\sec2x$.\n(c) $2\\frac{dy}{dx}\\frac{d^2y}{dx^2}=6\\sec^32x\\tan2x-2\\sec2x\\tan2x$. With $\\frac{dy}{dx}=\\tan2x\\sec^{1/2}2x$, $\\frac{d^2y}{dx^2}=3\\sec^{5/2}2x-\\sec^{1/2}2x=3y^5-y$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM0",
+        "M0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "dM1",
+        "A1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "R6",
+     "kind": "pitfall",
+     "error_code": "index-law-error",
+     "work": "(a) $y=(\\cos2x)^{-1/2}$, $\\frac{dy}{dx}=\\sin2x(\\cos2x)^{-3/2}$.\n(b) Squaring, I add the indices: $(dy/dx)^2=\\sin^22x(\\cos2x)^{1/2}=(1-\\cos^22x)(\\cos2x)^{1/2}$. This doesn't lead to $\\sec^32x-\\sec2x$, so I can't show it.\n(c) $2\\frac{dy}{dx}\\frac{d^2y}{dx^2}=6\\sec^32x\\tan2x-2\\sec2x\\tan2x$, with $\\frac{dy}{dx}=\\tan2x\\sec^{1/2}2x$. Dividing gives $\\frac{d^2y}{dx^2}=3\\sec^{5/2}2x-\\sec^{1/2}2x=3y^5-y$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "dM0",
+        "M0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "dM1",
+        "A1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "R7",
+     "kind": "pitfall",
+     "error_code": "reciprocal-trig-confused",
+     "work": "(a) $y=(\\cos2x)^{-1/2}$, $\\frac{dy}{dx}=\\sin2x(\\cos2x)^{-3/2}$.\n(b) $(dy/dx)^2=\\frac{\\sin^22x}{\\cos^32x}=\\frac{1-\\cos^22x}{\\cos^32x}=\\frac1{\\cos^32x}-\\frac1{\\cos2x}=\\operatorname{cosec}^32x-\\operatorname{cosec}2x$, which I take to be the required $\\sec$ form.\n(c) $2\\frac{dy}{dx}\\frac{d^2y}{dx^2}=6\\sec^32x\\tan2x-2\\sec2x\\tan2x$. With $\\frac{dy}{dx}=\\tan2x\\sec^{1/2}2x$: $\\frac{d^2y}{dx^2}=3\\sec^{5/2}2x-\\sec^{1/2}2x=3y^5-y$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "M0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "dM1",
+        "A1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "R8",
+     "kind": "pitfall",
+     "error_code": "chain-rule-inner-derivative-missing",
+     "work": "(a) $\\frac{dy}{dx}=\\sin2x(\\cos2x)^{-3/2}$.\n(b) $(dy/dx)^2=\\frac{\\sin^22x}{\\cos^32x}=\\frac{1-\\cos^22x}{\\cos^32x}=\\sec^32x-\\sec2x$.\n(c) Differentiating: $2\\frac{dy}{dx}\\frac{d^2y}{dx^2}=3\\sec^22x\\sec2x\\tan2x-\\sec2x\\tan2x$, forgetting the 2 from the chain rule. Then $\\frac{d^2y}{dx^2}=\\frac{3\\sec^32x\\tan2x-\\sec2x\\tan2x}{2\\tan2x\\sec^{1/2}2x}=\\frac32\\sec^{5/2}2x-\\frac12\\sec^{1/2}2x=\\frac32y^5-\\frac12y$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "dM0",
+        "A0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "R9",
+     "kind": "pitfall",
+     "error_code": "trig-derivative-sign-error",
+     "work": "(a) $\\frac{dy}{dx}=\\sin2x(\\cos2x)^{-3/2}$.\n(b) $(dy/dx)^2=\\frac{\\sin^22x}{\\cos^32x}=\\frac{1-\\cos^22x}{\\cos^32x}=\\sec^32x-\\sec2x$.\n(c) Differentiating, using $\\frac{d}{dx}(\\sec2x)=-2\\sec2x\\tan2x$: $2\\frac{dy}{dx}\\frac{d^2y}{dx^2}=-6\\sec^32x\\tan2x+2\\sec2x\\tan2x$. With $\\frac{dy}{dx}=\\tan2x\\sec^{1/2}2x$, $\\frac{d^2y}{dx^2}=-3\\sec^{5/2}2x+\\sec^{1/2}2x=-3y^5+y$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "dM1",
+        "A0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "R10",
+     "kind": "alternative",
+     "error_code": null,
+     "work": "(a) $y=(\\cos2x)^{-1/2}$, $\\frac{dy}{dx}=\\sin2x(\\cos2x)^{-3/2}$.\n(b) $\\frac{dy}{dx}=\\frac{\\sin2x}{\\cos2x}(\\cos2x)^{-1/2}=\\tan2x\\sec^{1/2}2x$. Squaring: $\\tan^22x\\sec2x=(\\sec^22x-1)\\sec2x=\\sec^32x-\\sec2x$.\n(c) Product rule on $\\sin2x(\\cos2x)^{-3/2}$: $\\frac{d^2y}{dx^2}=2\\cos2x(\\cos2x)^{-3/2}+\\sin2x\\cdot(-\\tfrac32)(\\cos2x)^{-5/2}(-2\\sin2x)=2(\\cos2x)^{-1/2}+3\\sin^22x(\\cos2x)^{-5/2}$. Using $\\sin^22x=1-\\cos^22x$: $=2(\\cos2x)^{-1/2}+3(\\cos2x)^{-5/2}-3(\\cos2x)^{-1/2}=3(\\cos2x)^{-5/2}-(\\cos2x)^{-1/2}$. Since $y=(\\cos2x)^{-1/2}$, $\\frac{d^2y}{dx^2}=3y^5-y$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "dM1",
+        "A1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "R11",
+     "kind": "partial",
+     "error_code": null,
+     "work": "(a) $y=(\\cos2x)^{-1/2}$, $\\frac{dy}{dx}=-\\frac12(\\cos2x)^{-3/2}\\times(-2\\sin2x)=\\sin2x(\\cos2x)^{-3/2}$.\n(b) $(dy/dx)^2=\\frac{\\sin^22x}{\\cos^32x}$. I'm not sure how to go on.\n(c) Not attempted.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM0",
+        "M0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "dM0",
+        "A0",
+        "A0"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "R1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "dM1",
+        "A1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "R2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "dM1",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "a A0: sign wrong, gave -sin2x(cos2x)^(-3/2).",
+      "c A0: result is negative of the correct 3sec^(5/2)2x - sec^(1/2)2x.",
+      "c A0: gives -3y^5+y, not 3y^5-y."
+     ]
+    },
+    {
+     "id": "R3",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B0",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "dM0",
+        "M0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "dM0",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "a B0: wrote y as (cos2x)^(1/2), not the -1/2 power.",
+      "a A0: derivative incorrect.",
+      "b M0: their derivative isn't of the form k sin2x(cos2x)^(-3/2), and they got sec2x - cos2x.",
+      "b dM0, M0: depend on the previous M mark and the required result isn't reached.",
+      "c dM0: didn't substitute dy/dx or divide to get d²y/dx².",
+      "c A0, A0: no d²y/dx² found."
+     ]
+    },
+    {
+     "id": "R4",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B0",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "dM0",
+        "M0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "dM0",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "a B0: no power form of y, and the derivative is not correct.",
+      "a M0: result has (cos2x)^(-1/2), not the -3/2 power.",
+      "a A0: derivative incorrect.",
+      "b M0: their derivative is not of the required form and gives sec2x - cos2x.",
+      "b dM0, M0: depend on the previous M mark and the required result isn't reached.",
+      "c dM0: didn't substitute dy/dx or divide to get d²y/dx².",
+      "c A0, A0: no d²y/dx² found."
+     ]
+    },
+    {
+     "id": "R5",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM0",
+        "M0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "dM1",
+        "A1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "b dM0: wrong identity sin²2x = cos²2x - 1.",
+      "b M0: working doesn't reach the printed answer and the sign was fudged."
+     ]
+    },
+    {
+     "id": "R6",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "dM0",
+        "M0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "dM1",
+        "A1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "b M0: index law misapplied, added the indices, giving (cos2x)^(1/2) instead of dividing by cos³2x.",
+      "b dM0, M0: depend on the previous M mark and the required result isn't reached."
+     ]
+    },
+    {
+     "id": "R7",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "M0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "dM1",
+        "A1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "b M0: converted 1/cos2x to cosec2x, not sec2x."
+     ]
+    },
+    {
+     "id": "R8",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "dM1",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "c A0: constants wrong because the factor 2 was omitted, giving (3/2)sec^(5/2)2x - (1/2)sec^(1/2)2x.",
+      "c A0: gives (3/2)y^5 - (1/2)y, not 3y^5 - y."
+     ]
+    },
+    {
+     "id": "R9",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "dM1",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "c A0: sign error, gives -3sec^(5/2)2x + sec^(1/2)2x.",
+      "c A0: gives -3y^5 + y, not 3y^5 - y."
+     ]
+    },
+    {
+     "id": "R10",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "M1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "dM1",
+        "A1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "R11",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM0",
+        "M0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "dM0",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "b dM0: didn't use the identity sin²2x = 1 - cos²2x.",
+      "b M0: didn't reach sec³2x - sec2x.",
+      "c: not attempted, so no marks."
+     ]
+    }
+   ],
+   "awarded_second": [
+    {
+     "id": "R8",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "M0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "dM1",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) M0: printed answer; the split into 1/cos^3 2x - 1/cos 2x and the use of sec 2x = 1/cos 2x are not shown, the student jumps straight to sec^3 2x - sec 2x.",
+      "(c) A0: missing chain-rule factor 2 gives (3/2)sec^{5/2}2x - (1/2)sec^{1/2}2x instead of 3sec^{5/2}2x - sec^{1/2}2x.",
+      "(c) A0: final answer (3/2)y^5 - (1/2)y is not 3y^5 - y (cao)."
+     ]
+    }
+   ],
+   "cost_usd": 0.1757
+  },
+  "G5": {
+   "pass": false,
+   "errors": [
+    "pitfall [chain-rule-inner-derivative-missing] part c: the marker didn't score its response as designed"
+   ]
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

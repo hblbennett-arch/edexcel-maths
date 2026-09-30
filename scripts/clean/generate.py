@@ -112,6 +112,28 @@ def select_pilot(bps: dict[str, dict]) -> list[str]:
     return chosen
 
 
+COMMAND_WORDS = {"find": "Find", "show-that": "Show that", "hence": "Hence", "hence-or-otherwise": "Hence, or otherwise,",
+                 "use": "Use", "state": "State", "solve": "Solve", "sketch": "Sketch", "calculate": "Calculate",
+                 "write-down": "Write down", "estimate": "Estimate", "simplify": "Simplify", "express": "Express",
+                 "prove": "Prove", "explain": "Explain", "determine": "Determine", "test": "Test", "deduce": "Deduce",
+                 "comment": "Comment", "evaluate": "Evaluate", "verify": "Verify", "suggest": "Suggest",
+                 "interpret": "Interpret", "criticise": "Criticise", "differentiate": "Differentiate",
+                 "integrate": "Integrate", "expand": "Expand", "factorise": "Factorise", "describe": "Describe",
+                 "draw": "Draw", "complete": "Complete", "label": "Label"}
+
+
+def form_words(form: str) -> str:
+    """How the part text must ask for an answer form (G8 checks the text really asks for it)."""
+    if form.startswith(("dp-", "sf-")):
+        n = form.split("-")[1]
+        return f'"to {n} {"decimal places" if form.startswith("dp") else "significant figures"}"'
+    return {"exact": '"exact" (e.g. "Find the exact value of ...")', "in-the-form": '"in the form ..."',
+            "simplest-form": '"in its simplest form"', "in-terms-of": '"in terms of ..."',
+            "degrees": "degrees", "radians": "radians", "nearest": '"to the nearest ..."',
+            "no-calc-tech": "our calculator sentence (see the rules)", "surd": "a surd form",
+            "fraction": '"as a fraction"'}.get(form, form)
+
+
 def render(bp: dict, tags: dict, codes: dict, checks_language: str) -> str:
     skills = {s["id"]: s for s in tags["skills"]}
     qtypes = {t["id"]: t for t in tags["question_types"]}
@@ -124,10 +146,16 @@ def render(bp: dict, tags: dict, codes: dict, checks_language: str) -> str:
              f"- Calculator: allowed" + ("; one or more parts must say that a calculator answer alone won't earn the marks"
                                           if bp.get("no_calc_tech") else ""),
              f"- Kind: {'a short single-skill practice question' if bp['kind'] == 'drill' else 'an exam-style question'}",
-             "", "## Parts"]
+             "", "## Parts",
+             f"Write exactly {len(bp['parts'])} part(s), with these labels and these marks (both are fixed). Each part's "
+             "text must contain its command word exactly as given, and must ask for every answer form listed, in "
+             "those words. List in `forms` only the forms the text asks for."]
     for p in bp["parts"]:
         lines += ["", f"### Part {p['label'] or '(single part, label null)'}: {p['marks']} marks",
-                  f"- Command word: {p['command']}" + (f"; answer form: {', '.join(p['forms'])}" if p["forms"] else ""),
+                  f"- Command word (use these exact words; `command` = `{p['command']}`): "
+                  f"\"{COMMAND_WORDS.get(p['command'], p['command'])}\"",
+                  f"- Answer form(s) the text must ask for: {'; '.join(form_words(f) for f in p['forms'])} "
+                  f"(`forms` = {p['forms']})" if p["forms"] else "- Answer form: as the mathematics needs (`forms` = [])",
                   f"- Target mark codes: {p['codes']}",
                   "- Skills (use these ids in `skills`):"]
         lines += [f"  - `{s}`: {skills[s]['title']}. {skills[s].get('description') or ''}" for s in p["skills"]]

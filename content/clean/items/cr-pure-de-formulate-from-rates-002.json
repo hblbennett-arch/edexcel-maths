@@ -1,0 +1,310 @@
+{
+ "id": "cr-pure-de-formulate-from-rates-002",
+ "blueprint_id": "bp-pure-de-formulate-from-rates-002",
+ "question_type": "de-formulate-from-rates",
+ "component": "pure",
+ "tier": "standard",
+ "kind": "exam",
+ "stem": "A solid rod has the shape of a right circular cylinder and is dissolving in a solvent. As it dissolves, the rod's height always stays equal to three times its radius. At time $t$ hours after the rod is put into the solvent, its radius is $r$ cm. Model the volume of the rod as decreasing at a rate proportional to the square root of the rod's total surface area (the curved surface plus both circular ends).\n\nAt $t = 0$ the radius is $4$ cm. When $t = 10$ the radius is $3$ cm.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 7,
+   "command": "show-that",
+   "forms": [],
+   "skills": [
+    "mensuration-formulae",
+    "show-that-given-answer"
+   ],
+   "text": "Show that $r^2 = 16 - \\frac{7}{10}t$. Then write down the value of $t$ at which the model predicts that the rod has completely dissolved. (7)",
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Writes the volume and total surface area in terms of $r$ only by using $h = 3r$: $V = 3\\pi r^3$ and $S = 2\\pi r^2 + 2\\pi r(3r) = 8\\pi r^2$",
+     "notes": "Both expressions must be in $r$ only. The surface area has to include both circular ends: $S = 6\\pi r^2$ or $S = 7\\pi r^2$ gets M0."
+    },
+    {
+     "code": "M1",
+     "for": "Forms the differential equation by linking $\\frac{\\mathrm{d}V}{\\mathrm{d}t} = 9\\pi r^2\\frac{\\mathrm{d}r}{\\mathrm{d}t}$ (chain rule) with $\\frac{\\mathrm{d}V}{\\mathrm{d}t} = -k\\sqrt{S}$, using their $V$ and $S$",
+     "notes": "Allow $+k$ if the sign is dealt with later. Their $\\frac{\\mathrm{d}V}{\\mathrm{d}r}$ must come from differentiating their $V$."
+    },
+    {
+     "code": "A1",
+     "for": "Gets a correct simplified equation in $r$ and $t$, e.g. $9\\pi r^2 \\frac{\\mathrm{d}r}{\\mathrm{d}t} = -k\\sqrt{8\\pi}\\,r$, leading to $\\frac{\\mathrm{d}r}{\\mathrm{d}t} = -\\frac{\\lambda}{r}$ with $\\lambda$ a positive constant",
+     "notes": "oe, e.g. $r\\frac{\\mathrm{d}r}{\\mathrm{d}t} = -c$. The constants may be combined into one."
+    },
+    {
+     "code": "M1",
+     "for": "Separates the variables and integrates both sides: $\\int r\\,\\mathrm{d}r = -\\int \\lambda\\,\\mathrm{d}t \\Rightarrow \\frac{1}{2}r^2 = -\\lambda t + C$",
+     "notes": "Needs $r^2$ on one side and a term linear in $t$ on the other. The constant of integration may be shown here or come from definite limits."
+    },
+    {
+     "code": "dM1",
+     "for": "Substitutes both pairs of values, $(t, r) = (0, 4)$ and $(10, 3)$, to find the constant of integration and the rate constant",
+     "notes": "Depends on the previous M. For example $C = 8$, then $4.5 = 8 - 10\\lambda$."
+    },
+    {
+     "code": "A1*",
+     "for": "Gets $\\lambda = 0.35$ and reaches $r^2 = 16 - \\frac{7}{10}t$ with every step shown and correct",
+     "notes": "cso. No sign errors or missing constants anywhere in part (a)."
+    },
+    {
+     "code": "B1",
+     "for": "$t = \\frac{160}{7}$ (awrt $22.9$ hours)",
+     "notes": "Can be earned from the printed result even if the show-that is incomplete."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$h = 3r$ gives $V = \\pi r^2(3r) = 3\\pi r^3$ and $S = 2\\pi r^2 + 2\\pi r(3r) = 8\\pi r^2$.",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$\\frac{\\mathrm{d}V}{\\mathrm{d}t} = -k\\sqrt{S} = -k\\sqrt{8\\pi}\\,r$ and $\\frac{\\mathrm{d}V}{\\mathrm{d}t} = \\frac{\\mathrm{d}V}{\\mathrm{d}r}\\cdot\\frac{\\mathrm{d}r}{\\mathrm{d}t} = 9\\pi r^2\\frac{\\mathrm{d}r}{\\mathrm{d}t}$.",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "So $9\\pi r^2\\frac{\\mathrm{d}r}{\\mathrm{d}t} = -k\\sqrt{8\\pi}\\,r$, which gives $\\frac{\\mathrm{d}r}{\\mathrm{d}t} = -\\frac{\\lambda}{r}$, where $\\lambda = \\frac{k\\sqrt{8\\pi}}{9\\pi} > 0$.",
+     "mark": "A1"
+    },
+    {
+     "step": 4,
+     "working": "$\\int r\\,\\mathrm{d}r = \\int -\\lambda\\,\\mathrm{d}t \\Rightarrow \\frac{1}{2}r^2 = -\\lambda t + C$.",
+     "mark": "M1"
+    },
+    {
+     "step": 5,
+     "working": "$t = 0, r = 4$: $C = 8$. $t = 10, r = 3$: $4.5 = 8 - 10\\lambda$, so $\\lambda = 0.35$.",
+     "mark": "dM1"
+    },
+    {
+     "step": 6,
+     "working": "$\\frac{1}{2}r^2 = 8 - 0.35t \\Rightarrow r^2 = 16 - \\frac{7}{10}t$, as required.",
+     "mark": "A1*"
+    },
+    {
+     "step": 7,
+     "working": "The rod has completely dissolved when $r = 0$: $16 - \\frac{7}{10}t = 0 \\Rightarrow t = \\frac{160}{7} \\approx 22.9$ hours.",
+     "mark": "B1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "T",
+     "expr": "160/7",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "2*pi*r^2 + 2*pi*r*(3*r)",
+     "rhs": "8*pi*r^2"
+    },
+    {
+     "type": "derivative",
+     "f": "3*pi*r^3",
+     "var": "r",
+     "result": "9*pi*r^2"
+    },
+    {
+     "type": "derivative",
+     "f": "sqrt(16 - 7*t/10)",
+     "var": "t",
+     "result": "-7/(20*sqrt(16 - 7*t/10))"
+    },
+    {
+     "type": "substitute",
+     "expr": "16 - 7*t/10",
+     "at": {
+      "t": "10"
+     },
+     "result": "9"
+    },
+    {
+     "type": "solutions",
+     "equation": "16 - 7*t/10 = 0",
+     "var": "t",
+     "answer": "T"
+    }
+   ],
+   "hints": [
+    "Replace $h$ with $3r$ in both the volume and the total surface area before you do anything else. Remember that there are two circular ends.",
+    "Use $\\frac{\\mathrm{d}V}{\\mathrm{d}t} = \\frac{\\mathrm{d}V}{\\mathrm{d}r}\\times\\frac{\\mathrm{d}r}{\\mathrm{d}t}$, and remember that the volume is decreasing."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 4,
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "exact-form-answers",
+    "solve-power-equation"
+   ],
+   "text": "Find the exact value of $t$ at which the volume of the rod is one quarter of its volume at $t = 0$. (4)",
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Initial volume $3\\pi(4)^3 = 192\\pi$, so the required volume is $48\\pi$, which gives $3\\pi r^3 = 48\\pi$ (or $r^3 = 16$)",
+     "notes": "Allow $r^3 = \\frac{64}{4}$ written straight down."
+    },
+    {
+     "code": "M1",
+     "for": "Solves their $r^3 = k$ by taking the cube root: $r = \\sqrt[3]{16}$ ($= 2\\sqrt[3]{2}$), or goes directly to $r^2 = 16^{2/3}$",
+     "notes": "M0 if the student simply quarters the radius ($r = 1$)."
+    },
+    {
+     "code": "dM1",
+     "for": "Puts their $r^2$ into $r^2 = 16 - \\frac{7}{10}t$ and rearranges to make $t$ the subject: $t = \\frac{10}{7}\\left(16 - 16^{2/3}\\right)$",
+     "notes": "Depends on the previous M."
+    },
+    {
+     "code": "A1",
+     "for": "$t = \\frac{160 - 40\\sqrt[3]{4}}{7}$",
+     "notes": "oe exact, e.g. $\\frac{10}{7}(16 - 4\\sqrt[3]{4})$ or $\\frac{10}{7}(16 - 16^{2/3})$. Decimal answer alone ($13.8$) gets A0."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "At $t = 0$, $V = 3\\pi(4^3) = 192\\pi$. One quarter of this is $48\\pi$, so $3\\pi r^3 = 48\\pi \\Rightarrow r^3 = 16$.",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "$r = 16^{1/3}$, so $r^2 = 16^{2/3} = (2^4)^{2/3} = 2^{8/3} = 4\\sqrt[3]{4}$.",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$4\\sqrt[3]{4} = 16 - \\frac{7}{10}t \\Rightarrow t = \\frac{10}{7}\\left(16 - 4\\sqrt[3]{4}\\right)$.",
+     "mark": "dM1"
+    },
+    {
+     "step": 4,
+     "working": "$t = \\frac{160 - 40\\sqrt[3]{4}}{7}$ hours ($\\approx 13.8$ hours).",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "t",
+     "expr": "(160 - 40*4^(1/3))/7",
+     "form": "exact",
+     "check": "3*pi*(16 - 7*t/10)^(3/2) = 48*pi"
+    },
+    {
+     "name": "t_approx",
+     "expr": "13.8",
+     "form": "sf-3",
+     "exact": "(160 - 40*4^(1/3))/7"
+    }
+   ],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "16^(2/3)",
+     "rhs": "4*4^(1/3)"
+    },
+    {
+     "type": "substitute",
+     "expr": "16 - 7*t/10",
+     "at": {
+      "t": "(160 - 40*4^(1/3))/7"
+     },
+     "result": "4*4^(1/3)"
+    },
+    {
+     "type": "numeric",
+     "expr": "(160 - 40*4^(1/3))/7",
+     "result": "13.8",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "Work out the volume at $t = 0$ first. Then write the volume as $3\\pi r^3$ and set it equal to one quarter of that value.",
+    "Once you know $r^3$, you need $r^2$ for the result from part (a). Think about how the index $\\frac{1}{3}$ turns into $\\frac{2}{3}$."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "mensuration-formula-error",
+   "text": "You need the total surface area here, so both circular ends count: $S = 2\\pi r^2 + 2\\pi r h = 8\\pi r^2$. Using only the curved surface ($6\\pi r^2$), or only one end ($7\\pi r^2$), is a common slip. It gives the wrong expression for $\\sqrt{S}$ and loses the first M1.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "constraint-not-substituted",
+   "text": "If you differentiate $V = \\pi r^2 h$ as if $h$ were a constant, you get $\\frac{\\mathrm{d}V}{\\mathrm{d}r} = 2\\pi r h$ and ignore the fact that $h$ changes with $r$. Substitute $h = 3r$ first to get $V = 3\\pi r^3$, then differentiate to get $9\\pi r^2$. Otherwise the second M1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "index-law-error",
+   "text": "Squaring $r = 16^{1/3}$ gives $16^{2/3}$, because $(x^a)^b = x^{ab}$. It does not give $16^{1/3 + 2}$ or $16^{1/6}$. If you get the index wrong, $r^2$ is wrong and the M1 for solving the power equation is lost.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T16:58:01",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.5
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 11
+  },
+  "G7": {
+   "pass": false,
+   "flag": true,
+   "reasons": [
+    "3 word 8-gram(s) also in the Pearson corpus (not whitelisted)"
+   ],
+   "flags": [
+    "cosine 0.842 with part:IAL2013_WMA02_Oct2020_Q10:a"
+   ],
+   "hit_fields": [
+    "stem"
+   ],
+   "n_8gram_hits": 3,
+   "max_jaccard": 0.022,
+   "jaccard_source": "GCE2008_6666_Jan2008_Q8",
+   "shared_numbers": 0,
+   "max_cosine": 0.842,
+   "cosine_source": "part:IAL2013_WMA02_Oct2020_Q10:a"
+  },
+  "G2": {
+   "pass": false,
+   "errors": [
+    "part a check 5 (solutions): result must be a list of solutions"
+   ],
+   "n_checks": 8,
+   "n_answers": 3,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

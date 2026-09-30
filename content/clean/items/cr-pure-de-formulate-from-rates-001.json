@@ -1,0 +1,802 @@
+{
+ "id": "cr-pure-de-formulate-from-rates-001",
+ "blueprint_id": "bp-pure-de-formulate-from-rates-001",
+ "question_type": "de-formulate-from-rates",
+ "component": "pure",
+ "tier": "standard",
+ "kind": "exam",
+ "stem": "A solid $P$ is made from a solid right circular cylinder of radius $r$ cm and height $3r$ cm. A hemisphere of radius $r$ is removed from one end of the cylinder. The plane face of the removed hemisphere lies exactly on that end of the cylinder, so the rim of the hemispherical hollow is the circular edge of that end. The volume of $P$ is $V\\,\\mathrm{cm^3}$. The total surface area of $P$, including the inside surface of the hollow, is $S\\,\\mathrm{cm^2}$.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 4,
+   "text": "Show that $V = \\frac{7}{3}\\pi r^3$ and $S = 9\\pi r^2$. (4)",
+   "command": "show-that",
+   "skills": [
+    "mensuration-formulae",
+    "show-that-given-answer"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Volume of cylinder minus volume of hemisphere, with height $3r$ substituted: $\\pi r^2(3r) - \\frac{2}{3}\\pi r^3$",
+     "notes": "The hemisphere volume must be of the form $k\\pi r^3$ with $k = \\frac{2}{3}$. Do not award if $h$ is left in the expression."
+    },
+    {
+     "code": "A1",
+     "for": "$V = 3\\pi r^3 - \\frac{2}{3}\\pi r^3 = \\frac{7}{3}\\pi r^3$",
+     "depends_on": "M1",
+     "notes": "Printed answer, so cso. The intermediate line $3\\pi r^3 - \\frac{2}{3}\\pi r^3$ must be seen."
+    },
+    {
+     "code": "M1",
+     "for": "Adds the three surfaces: one flat circular end $\\pi r^2$, the curved surface of the cylinder $2\\pi r(3r)$, and the curved surface of the hemispherical hollow $2\\pi r^2$",
+     "notes": "Must include exactly these three parts. Do not award if a flat face is included at the hollowed end, or if $4\\pi r^2$ is used for the hollow."
+    },
+    {
+     "code": "A1*",
+     "for": "$S = \\pi r^2 + 6\\pi r^2 + 2\\pi r^2 = 9\\pi r^2$",
+     "depends_on": "M1",
+     "notes": "cso. The three terms must be seen before the printed answer."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Volume of the cylinder $= \\pi r^2 \\times 3r = 3\\pi r^3$. Volume of the removed hemisphere $= \\frac{1}{2} \\times \\frac{4}{3}\\pi r^3 = \\frac{2}{3}\\pi r^3$.",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$V = 3\\pi r^3 - \\frac{2}{3}\\pi r^3 = \\frac{9 - 2}{3}\\pi r^3 = \\frac{7}{3}\\pi r^3$",
+     "mark": "A1"
+    },
+    {
+     "step": 3,
+     "working": "The surfaces are the complete flat end $\\pi r^2$, the curved surface of the cylinder $2\\pi r \\times 3r = 6\\pi r^2$, and the inside of the hollow, which is half of a sphere's surface: $\\frac{1}{2} \\times 4\\pi r^2 = 2\\pi r^2$. No flat face is left at the hollowed end.",
+     "mark": "M1"
+    },
+    {
+     "step": 4,
+     "working": "$S = \\pi r^2 + 6\\pi r^2 + 2\\pi r^2 = 9\\pi r^2$",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [
+    {
+     "name": "V",
+     "expr": "7*pi*r^3/3",
+     "form": "exact"
+    },
+    {
+     "name": "S",
+     "expr": "9*pi*r^2",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "pi*r^2*(3r) - (1/2)*(4/3)*pi*r^3",
+     "rhs": "7*pi*r^3/3"
+    },
+    {
+     "type": "equals",
+     "lhs": "pi*r^2 + 2*pi*r*(3r) + (1/2)*4*pi*r^2",
+     "rhs": "9*pi*r^2"
+    }
+   ],
+   "hints": [
+    "Write the height as $3r$ at the start so that each expression involves only $r$.",
+    "List every surface you could touch on $P$. Is any flat face left at the end where the hemisphere was removed?"
+   ],
+   "forms": []
+  },
+  {
+   "label": "b",
+   "marks": 4,
+   "text": "The solid $P$ is heated and expands. It keeps the same shape, so its height stays equal to $3r$ cm and the hollow stays a hemisphere of radius $r$ cm. The volume of $P$ increases at a constant rate of $14\\,\\mathrm{cm^3\\,s^{-1}}$.\n\nFind the rate at which $S$ is increasing at the instant when $V = 500$. Give your answer to 3 significant figures, with units. (4)",
+   "command": "find",
+   "skills": [
+    "connected-rates-of-change",
+    "accuracy-units-and-rounding"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "$\\frac{\\mathrm{d}V}{\\mathrm{d}r} = 7\\pi r^2$ and $\\frac{\\mathrm{d}S}{\\mathrm{d}r} = 18\\pi r$",
+     "notes": "Both are needed."
+    },
+    {
+     "code": "M1",
+     "for": "Uses the chain rule the right way round, e.g. $\\frac{\\mathrm{d}S}{\\mathrm{d}t} = \\frac{\\mathrm{d}S}{\\mathrm{d}r} \\times \\frac{\\mathrm{d}V}{\\mathrm{d}t} \\div \\frac{\\mathrm{d}V}{\\mathrm{d}r}$, giving $\\frac{\\mathrm{d}S}{\\mathrm{d}t} = \\frac{18\\pi r \\times 14}{7\\pi r^2} = \\frac{36}{r}$",
+     "ft_of": "their derivatives from B1",
+     "notes": "Follow through on their derivatives. The expression does not need to be simplified."
+    },
+    {
+     "code": "dM1",
+     "for": "Solves $\\frac{7}{3}\\pi r^3 = 500$ to get $r = \\sqrt[3]{\\frac{1500}{7\\pi}}$ (awrt 4.09) and substitutes into their $\\frac{\\mathrm{d}S}{\\mathrm{d}t}$",
+     "depends_on": "M1"
+    },
+    {
+     "code": "A1",
+     "for": "awrt $8.81\\,\\mathrm{cm^2\\,s^{-1}}$",
+     "depends_on": "dM1",
+     "notes": "Units are required. A value of 8.80 or 8.82 that comes from rounding $r$ too early loses this mark."
+    }
+   ],
+   "alternatives": [
+    {
+     "name": "Way 2: write S in terms of V",
+     "marks": [
+      {
+       "code": "B1",
+       "for": "$r = \\left(\\frac{3V}{7\\pi}\\right)^{1/3}$, so $S = 9\\pi\\left(\\frac{3V}{7\\pi}\\right)^{2/3}$"
+      },
+      {
+       "code": "M1",
+       "for": "Differentiates to get $\\frac{\\mathrm{d}S}{\\mathrm{d}V} = 6\\pi\\left(\\frac{3}{7\\pi}\\right)^{2/3}V^{-1/3}$ (oe) and multiplies by $14$"
+      },
+      {
+       "code": "dM1",
+       "for": "Substitutes $V = 500$",
+       "depends_on": "M1"
+      },
+      {
+       "code": "A1",
+       "for": "awrt $8.81\\,\\mathrm{cm^2\\,s^{-1}}$",
+       "depends_on": "dM1"
+      }
+     ]
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "From part (a), $\\frac{\\mathrm{d}V}{\\mathrm{d}r} = 7\\pi r^2$ and $\\frac{\\mathrm{d}S}{\\mathrm{d}r} = 18\\pi r$.",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "$\\frac{\\mathrm{d}r}{\\mathrm{d}t} = \\frac{\\mathrm{d}V}{\\mathrm{d}t} \\div \\frac{\\mathrm{d}V}{\\mathrm{d}r} = \\frac{14}{7\\pi r^2} = \\frac{2}{\\pi r^2}$, so $\\frac{\\mathrm{d}S}{\\mathrm{d}t} = \\frac{\\mathrm{d}S}{\\mathrm{d}r} \\times \\frac{\\mathrm{d}r}{\\mathrm{d}t} = 18\\pi r \\times \\frac{2}{\\pi r^2} = \\frac{36}{r}$.",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "When $V = 500$: $\\frac{7}{3}\\pi r^3 = 500$, so $r^3 = \\frac{1500}{7\\pi} = 68.209\\ldots$ and $r = 4.08583\\ldots$. Then $\\frac{\\mathrm{d}S}{\\mathrm{d}t} = \\frac{36}{4.08583\\ldots}$.",
+     "mark": "dM1"
+    },
+    {
+     "step": 4,
+     "working": "$\\frac{\\mathrm{d}S}{\\mathrm{d}t} = 8.8109\\ldots \\approx 8.81\\,\\mathrm{cm^2\\,s^{-1}}$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "dSdt",
+     "expr": "8.81",
+     "form": "sf-3",
+     "exact": "36/(1500/(7*pi))^(1/3)"
+    }
+   ],
+   "checks": [
+    {
+     "type": "derivative",
+     "f": "7*pi*r^3/3",
+     "var": "r",
+     "result": "7*pi*r^2"
+    },
+    {
+     "type": "derivative",
+     "f": "9*pi*r^2",
+     "var": "r",
+     "result": "18*pi*r"
+    },
+    {
+     "type": "equals",
+     "lhs": "18*pi*r*14/(7*pi*r^2)",
+     "rhs": "36/r",
+     "domain": "positive"
+    },
+    {
+     "type": "numeric",
+     "expr": "(1500/(7*pi))^(1/3)",
+     "result": "4.09",
+     "form": "sf-3"
+    },
+    {
+     "type": "numeric",
+     "expr": "36/(1500/(7*pi))^(1/3)",
+     "result": "8.81",
+     "form": "sf-3"
+    },
+    {
+     "type": "numeric",
+     "expr": "14*6*pi*(3/(7*pi))^(2/3)*500^(-1/3)",
+     "result": "8.81",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "Both $V$ and $S$ depend on $r$, so find $\\frac{\\mathrm{d}r}{\\mathrm{d}t}$ from the volume rate first.",
+    "You need the value of $r$ when $V = 500$. Keep it to full calculator accuracy until the end."
+   ],
+   "forms": []
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 3,
+   "error_code": "mensuration-formula-error",
+   "text": "A common mistake is to use $4\\pi r^2$ for the inside of the hollow, or to add a flat circle $\\pi r^2$ at the hollowed end. That end has no flat face left, and the hollow is only half a sphere, so its area is $2\\pi r^2$. Either error gives $S = 11\\pi r^2$ or $10\\pi r^2$ and you lose the second M1.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "mensuration-formula-error",
+   "text": "A common mistake is to take away a whole sphere, $\\frac{4}{3}\\pi r^3$, instead of a hemisphere, $\\frac{2}{3}\\pi r^3$. This gives $V = \\frac{5}{3}\\pi r^3$, which doesn't match the printed result, and you lose the first M1.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "constraint-not-substituted",
+   "text": "If you write $V = \\pi r^2 h - \\frac{2}{3}\\pi r^3$ and never replace $h$ with $3r$, you have not reached an expression in $r$ alone, so you cannot show the printed result and the method mark is lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "connected-rates-chain-error",
+   "text": "If you multiply $\\frac{\\mathrm{d}V}{\\mathrm{d}t} = 14$ by $\\frac{\\mathrm{d}V}{\\mathrm{d}r} = 7\\pi r^2$ instead of dividing, you get $\\frac{\\mathrm{d}r}{\\mathrm{d}t} = 98\\pi r^2$. That is not a correct chain rule, so you lose the M1 and the dM1 that depends on it.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "parametric-derivative-inverted",
+   "text": "If you write $\\frac{\\mathrm{d}S}{\\mathrm{d}V}$ as $\\frac{\\mathrm{d}V}{\\mathrm{d}r} \\div \\frac{\\mathrm{d}S}{\\mathrm{d}r} = \\frac{7r}{18}$, the fraction is upside down. The correct result is $\\frac{\\mathrm{d}S}{\\mathrm{d}V} = \\frac{18\\pi r}{7\\pi r^2}$, and the inverted version loses the M1.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T15:47:21",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.4027
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 8
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.845 with part:GCE2008_6664_Jan2009_Q10:a"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.025,
+   "jaccard_source": "IAL2013_WMA02_Jan2015_Q6",
+   "shared_numbers": 1,
+   "max_cosine": 0.845,
+   "cosine_source": "part:GCE2008_6664_Jan2009_Q10:a"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 8,
+   "n_answers": 3,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.012974,
+   "solver": {
+    "parts": [
+     {
+      "label": "(a)",
+      "answers": [
+       "V = 7*pi*r**3/3",
+       "S = 9*pi*r**2"
+      ],
+      "printed_result_correct": true,
+      "working_summary": "V = pi r^2(3r) - (2/3)pi r^3 = (7/3)pi r^3. Surface: curved cylinder 6 pi r^2 + base pi r^2 + hemispherical hollow 2 pi r^2 = 9 pi r^2. The hollow's rim is the whole end edge, so no flat annulus remains on top."
+     },
+     {
+      "label": "(b)",
+      "answers": [
+       "8.81"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "V=500 gives r^3=1500/(7pi), r≈4.0859. dV/dt=7 pi r^2 dr/dt=14, so dr/dt=2/(pi r^2). dS/dt=18 pi r dr/dt=36/r≈8.81 cm^2/s."
+     }
+    ],
+    "problems": []
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "n_responses": 8,
+   "agreed": [
+    "correct",
+    "pit_hollow_area",
+    "pit_whole_sphere",
+    "pit_h_not_substituted",
+    "pit_chain_multiply",
+    "pit_inverted_derivative",
+    "alt_way2",
+    "partial_stop"
+   ],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "correct",
+     "kind": "correct",
+     "error_code": null,
+     "work": "(a) Cylinder volume = $\\pi r^2(3r)=3\\pi r^3$. Hemisphere = $\\frac{2}{3}\\pi r^3$.\n$V=3\\pi r^3-\\frac23\\pi r^3=\\frac73\\pi r^3$.\nSurfaces: flat end $\\pi r^2$, curved cylinder $2\\pi r(3r)=6\\pi r^2$, hollow $2\\pi r^2$.\n$S=\\pi r^2+6\\pi r^2+2\\pi r^2=9\\pi r^2$.\n(b) $dV/dr=7\\pi r^2$, $dS/dr=18\\pi r$.\n$dS/dt=\\frac{18\\pi r\\times14}{7\\pi r^2}=\\frac{36}{r}$.\n$\\frac73\\pi r^3=500\\Rightarrow r=\\sqrt[3]{1500/(7\\pi)}=4.0858...$\n$dS/dt=36/4.0858...=8.81\\ \\mathrm{cm^2\\,s^{-1}}$",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pit_hollow_area",
+     "kind": "pitfall",
+     "error_code": "mensuration-formula-error",
+     "work": "(a) $V=\\pi r^2(3r)-\\frac23\\pi r^3=3\\pi r^3-\\frac23\\pi r^3=\\frac73\\pi r^3$.\nSurface: end $\\pi r^2$, curved $6\\pi r^2$, hollow as a sphere $4\\pi r^2$.\n$S=\\pi r^2+6\\pi r^2+4\\pi r^2=11\\pi r^2$. This doesn't match the question, but I'll use the printed $9\\pi r^2$ below.\n(b) $dV/dr=7\\pi r^2$, $dS/dr=18\\pi r$.\n$dS/dt=\\frac{18\\pi r}{7\\pi r^2}\\times14=\\frac{36}{r}$.\n$r^3=1500/(7\\pi)$, $r=4.0858...$\n$dS/dt=8.81\\ \\mathrm{cm^2\\,s^{-1}}$",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pit_whole_sphere",
+     "kind": "pitfall",
+     "error_code": "mensuration-formula-error",
+     "work": "(a) $V=\\pi r^2(3r)-\\frac43\\pi r^3=3\\pi r^3-\\frac43\\pi r^3=\\frac53\\pi r^3$. This isn't the printed answer, but I can't see my error.\n$S=\\pi r^2+2\\pi r(3r)+2\\pi r^2=\\pi r^2+6\\pi r^2+2\\pi r^2=9\\pi r^2$.\n(b) Using the printed $V=\\frac73\\pi r^3$: $dV/dr=7\\pi r^2$, $dS/dr=18\\pi r$.\n$dS/dt=\\frac{18\\pi r\\times14}{7\\pi r^2}=\\frac{36}{r}$.\n$\\frac73\\pi r^3=500$, $r=4.0858...$\n$dS/dt=8.81\\ \\mathrm{cm^2\\,s^{-1}}$",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "A0",
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pit_h_not_substituted",
+     "kind": "pitfall",
+     "error_code": "constraint-not-substituted",
+     "work": "(a) $V=\\pi r^2h-\\frac23\\pi r^3$. I can't get to $\\frac73\\pi r^3$ from this, so I'll leave it.\n$S=\\pi r^2+6\\pi r^2+2\\pi r^2=9\\pi r^2$ (curved surface $2\\pi r\\times3r=6\\pi r^2$, hollow $2\\pi r^2$).\n(b) Using the printed results: $dV/dr=7\\pi r^2$, $dS/dr=18\\pi r$.\n$dS/dt=\\frac{18\\pi r\\times14}{7\\pi r^2}=\\frac{36}{r}$.\n$r=\\sqrt[3]{1500/(7\\pi)}=4.0858...$\n$dS/dt=8.81\\ \\mathrm{cm^2\\,s^{-1}}$",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "A0",
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pit_chain_multiply",
+     "kind": "pitfall",
+     "error_code": "connected-rates-chain-error",
+     "work": "(a) $V=3\\pi r^3-\\frac23\\pi r^3=\\frac73\\pi r^3$. $S=\\pi r^2+6\\pi r^2+2\\pi r^2=9\\pi r^2$.\n(b) $dV/dr=7\\pi r^2$, $dS/dr=18\\pi r$.\n$dr/dt=14\\times7\\pi r^2=98\\pi r^2$.\n$dS/dt=18\\pi r\\times98\\pi r^2=1764\\pi^2r^3$.\n$r=4.0858...$, so $dS/dt=1764\\pi^2\\times68.209...=1.19\\times10^6\\ \\mathrm{cm^2\\,s^{-1}}$",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M0",
+        "dM0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pit_inverted_derivative",
+     "kind": "pitfall",
+     "error_code": "parametric-derivative-inverted",
+     "work": "(a) $V=3\\pi r^3-\\frac23\\pi r^3=\\frac73\\pi r^3$. $S=\\pi r^2+6\\pi r^2+2\\pi r^2=9\\pi r^2$.\n(b) $dV/dr=7\\pi r^2$, $dS/dr=18\\pi r$.\n$dS/dV=\\frac{dV/dr}{dS/dr}=\\frac{7\\pi r^2}{18\\pi r}=\\frac{7r}{18}$.\n$dS/dt=\\frac{7r}{18}\\times14=\\frac{49r}{9}$.\n$r=4.0858...$, so $dS/dt=22.2\\ \\mathrm{cm^2\\,s^{-1}}$",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M0",
+        "dM0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "alt_way2",
+     "kind": "alternative",
+     "error_code": null,
+     "work": "(a) $V=3\\pi r^3-\\frac23\\pi r^3=\\frac73\\pi r^3$. $S=\\pi r^2+6\\pi r^2+2\\pi r^2=9\\pi r^2$.\n(b) $r=\\left(\\frac{3V}{7\\pi}\\right)^{1/3}$, so $S=9\\pi\\left(\\frac{3V}{7\\pi}\\right)^{2/3}$.\n$\\frac{dS}{dV}=6\\pi\\left(\\frac{3}{7\\pi}\\right)^{2/3}V^{-1/3}$.\n$\\frac{dS}{dt}=14\\times6\\pi\\left(\\frac{3}{7\\pi}\\right)^{2/3}V^{-1/3}$.\nWhen $V=500$: $\\frac{dS}{dt}=8.81\\ \\mathrm{cm^2\\,s^{-1}}$",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "partial_stop",
+     "kind": "partial",
+     "error_code": null,
+     "work": "(a) $V=\\pi r^2(3r)-\\frac23\\pi r^3=3\\pi r^3-\\frac23\\pi r^3=\\frac73\\pi r^3$.\n$S=\\pi r^2+6\\pi r^2+2\\pi r^2=9\\pi r^2$.\n(b) $dV/dr=7\\pi r^2$ and $dS/dr=18\\pi r$. I'm not sure how to link these to the rate, so I'll stop here.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M0",
+        "dM0",
+        "A0"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "correct",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pit_hollow_area",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "Used 4πr² for the hollow instead of 2πr².",
+      "A1 not awarded: 11πr² is not 9πr², so the printed result is not reached."
+     ]
+    },
+    {
+     "id": "pit_whole_sphere",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "A0",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "Used a whole sphere 4/3πr³ instead of a hemisphere.",
+      "A1 not awarded: the result 5/3πr³ is not the printed one."
+     ]
+    },
+    {
+     "id": "pit_h_not_substituted",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "A0",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "h was left in the volume expression and 3r was not substituted.",
+      "A1 not awarded: the printed V was not reached."
+     ]
+    },
+    {
+     "id": "pit_chain_multiply",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M0",
+        "dM0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "The chain rule is used incorrectly: dV/dr is multiplied instead of dividing, giving dr/dt = 14 × 7πr².",
+      "dM1 is not awarded because it depends on the M1.",
+      "A1 not awarded: the answer is wrong."
+     ]
+    },
+    {
+     "id": "pit_inverted_derivative",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M0",
+        "dM0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "dS/dV is inverted: (dV/dr)/(dS/dr) was used, which is the chain rule the wrong way round.",
+      "dM1 is not awarded because it depends on the M1.",
+      "A1 not awarded: the answer 22.2 is wrong."
+     ]
+    },
+    {
+     "id": "alt_way2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "partial_stop",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M0",
+        "dM0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "The chain rule is not used to link the rates.",
+      "dM1 is not awarded because it depends on the M1 and no solving for r is shown.",
+      "A1 not awarded: no final answer is given."
+     ]
+    }
+   ],
+   "cost_usd": 0.076
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "agreement": "2/2",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.011387,
+   "retagged": {
+    "a": [
+     "mensuration-formulae"
+    ],
+    "b": [
+     "connected-rates-of-change",
+     "eliminate-variable-using-constraint"
+    ]
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}
