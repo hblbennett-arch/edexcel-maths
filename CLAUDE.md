@@ -1,7 +1,7 @@
 # Edexcel Maths Revision Site
 
 > **Branch `commercial-clean-room`:** building the copyright-clean product to sell. Read
-> `docs/handoff-clean-room.md` first. The Pearson-based tutor stays on `main`. No Pearson text may
+> `docs/handover-product.md` first (current state, how to carry on), then `docs/handoff-clean-room.md`. The Pearson-based tutor stays on `main`. No Pearson text may
 > enter prompts, the product or its content packs (see the abstraction firewall, §3 of the handoff).
 
 ## Project Overview

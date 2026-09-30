@@ -1,5 +1,7 @@
 # Handoff: build the copyright-clean, sellable version of the tutor (written 2026-09-29)
 
+> **Current state and next steps: `docs/handover-product.md` (30 Sept 2026).** This file remains the design and legal rulebook. One part of it no longer applies: the user's own API account (§2 Model backend was updated). Everything runs on the Enterprise login.
+
 **For:** a fresh Claude Code session on branch **`commercial-clean-room`** in `~/edexcel-maths`.
 
 **Read in this order:**
