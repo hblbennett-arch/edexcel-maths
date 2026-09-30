@@ -20,10 +20,14 @@ and rerun this script.
 """
 import json
 import sqlite3
+import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from chatbot import pack  # noqa: E402
+
 PROCESSED_DIR = Path(__file__).resolve().parent.parent / "data" / "processed"
-SCHEMA_PATH = PROCESSED_DIR / "schema.sql"
+SCHEMA_PATH = pack.SCHEMA_PATH  # base schema (check_tags.py, check_examiner_notes.py use it)
 TAGS_PATH = PROCESSED_DIR / "tags.json"
 QUESTIONS_DIR = PROCESSED_DIR / "questions"
 TOPICS_DIR = PROCESSED_DIR / "topics"
@@ -40,9 +44,9 @@ def load_valid_tags() -> set[str]:
     return {t["id"] for t in tags["topics"]} | {t["id"] for t in tags["techniques"]}
 
 
-def load_vocabulary(conn: sqlite3.Connection) -> tuple[set[str], set[str]]:
+def load_vocabulary(conn: sqlite3.Connection, tags_path: Path = TAGS_PATH) -> tuple[set[str], set[str]]:
     """Insert question types, skill groups and skills from tags.json; return (type ids, skill ids)."""
-    tags = json.loads(TAGS_PATH.read_text())
+    tags = json.loads(tags_path.read_text())
     groups = {g["id"] for g in tags.get("skill_groups", [])}
     conn.executemany("INSERT INTO skill_groups (id, title) VALUES (?, ?)",
                      [(g["id"], g["title"]) for g in tags.get("skill_groups", [])])
@@ -270,7 +274,8 @@ def main() -> None:
 
     DB_PATH.unlink(missing_ok=True)
     conn = sqlite3.connect(DB_PATH)
-    conn.executescript(SCHEMA_PATH.read_text())
+    # content/schema.sql + provenance columns (chatbot/pack.py); every row here is Pearson-derived.
+    pack.create_schema(conn, provenance="pearson-private")
 
     # --- questions: one file per paper, content only ---------------------
     n_questions = 0

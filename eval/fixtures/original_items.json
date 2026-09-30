@@ -1,0 +1,78 @@
+{
+ "about": "Original items written from scratch on 2026-09-29 (no source question) as controls for eval/gates_selftest.py and as examples of the item format in docs/clean-room-pipeline.md.",
+ "items": [
+  {
+   "id": "fixture-stationary-cubic",
+   "question_type": "stationary-points-and-nature",
+   "component": "pure",
+   "tier": "core",
+   "stem": "The curve $C$ has equation $y = 2x^3 - 15x^2 + 36x - 20$.",
+   "parts": [
+    {"label": "a", "marks": 2, "text": "Find $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$. (2)", "command": "find",
+     "skills": ["differentiate-polynomials"],
+     "mark_scheme": [
+      {"code": "M1", "for": "Reduces at least one power by one, e.g. $x^3 \\to x^2$"},
+      {"code": "A1", "for": "$6x^2 - 30x + 36$ (any equivalent form)"}]},
+    {"label": "b", "marks": 4, "text": "Hence find the coordinates of the two stationary points of $C$. (4)", "command": "hence",
+     "skills": ["set-derivative-zero-and-solve", "use-hence-previous-result"],
+     "mark_scheme": [
+      {"code": "M1", "for": "Sets their derivative equal to zero and solves a three-term quadratic", "depends_on": "a"},
+      {"code": "A1", "for": "$x = 2$ and $x = 3$"},
+      {"code": "dM1", "for": "Substitutes at least one of their $x$ values into the equation of $C$"},
+      {"code": "A1", "for": "$(2, 8)$ and $(3, 7)$"}]},
+    {"label": "c", "marks": 2, "text": "Use the second derivative to decide whether each stationary point is a maximum or a minimum. (2)", "command": "use",
+     "skills": ["second-derivative-test"],
+     "mark_scheme": [
+      {"code": "M1", "for": "Finds $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} = 12x - 30$ and substitutes one of their $x$ values"},
+      {"code": "A1ft", "for": "$-6 < 0$ so $(2, 8)$ is a maximum; $6 > 0$ so $(3, 7)$ is a minimum", "ft_of": "b"}]}
+   ],
+   "pitfalls": [
+    {"part": "b", "step": 1, "error_code": "sets-y-zero-not-derivative", "text": "Setting $y = 0$ finds where $C$ crosses the $x$-axis, not where it is flat: put $6x^2 - 30x + 36 = 0$."},
+    {"part": "b", "step": 3, "error_code": "stationary-y-missing", "text": "The question asks for coordinates, so $x = 2$ and $x = 3$ alone lose the last mark: you need $y = 8$ and $y = 7$ too."}
+   ],
+   "provenance": "original"
+  },
+  {
+   "id": "fixture-binomial-lower-tail",
+   "question_type": "binomial-critical-region-test",
+   "component": "stats",
+   "tier": "core",
+   "stem": "A bakery says that $30\\%$ of its loyalty-card holders buy a cake on every visit. The new manager suspects the true proportion is lower. She picks $25$ card holders at random and finds that $3$ of them bought a cake on every visit last month.",
+   "parts": [
+    {"label": "a", "marks": 1, "text": "Write down hypotheses for a test of the manager's suspicion. (1)", "command": "write-down",
+     "skills": ["state-hypotheses-binomial-test"],
+     "mark_scheme": [{"code": "B1", "for": "$\\mathrm{H}_0: p = 0.3$, $\\mathrm{H}_1: p < 0.3$"}]},
+    {"label": "b", "marks": 3, "text": "Test, at the $5\\%$ significance level, whether the manager is right. State your conclusion in context. (3)", "command": "test",
+     "skills": ["binomial-test-probability", "conclude-test-in-context"],
+     "mark_scheme": [
+      {"code": "M1", "for": "Uses $X \\sim \\mathrm{B}(25, 0.3)$ and attempts $\\mathrm{P}(X \\leqslant 3)$"},
+      {"code": "A1", "for": "$0.0332$ (awrt), or a critical region $X \\leqslant 3$"},
+      {"code": "A1", "for": "Rejects $\\mathrm{H}_0$: there is evidence that fewer than $30\\%$ of card holders buy a cake on every visit"}]}
+   ],
+   "provenance": "original"
+  },
+  {
+   "id": "fixture-table-pulley",
+   "question_type": "connected-particles-pulley",
+   "component": "mech",
+   "tier": "core",
+   "stem": "A box $A$ of mass $3\\,\\mathrm{kg}$ lies on a rough horizontal shelf. It is tied to a light inextensible cord that runs over a small smooth pulley at the edge of the shelf to a weight $B$ of mass $2\\,\\mathrm{kg}$, which hangs clear of the floor. The coefficient of friction between $A$ and the shelf is $0.25$. The boxes are let go from rest with the cord taut.",
+   "parts": [
+    {"label": "a", "marks": 5, "text": "Find the acceleration of $B$. (5)", "command": "find",
+     "skills": ["connected-particles-equations", "friction-f-equals-mu-r", "newtons-second-law-equation"],
+     "mark_scheme": [
+      {"code": "B1", "for": "Normal reaction on $A$ is $3g$"},
+      {"code": "M1", "for": "Uses friction $= 0.25 \\times$ their reaction"},
+      {"code": "M1", "for": "Equation of motion for $A$: $T - 0.75g = 3a$"},
+      {"code": "M1", "for": "Equation of motion for $B$ (or the whole system): $2g - T = 2a$"},
+      {"code": "A1", "for": "$a = 2.45\\,\\mathrm{m\\,s^{-2}}$ (or $0.25g$)"}]},
+    {"label": "b", "marks": 2, "text": "Find the tension in the cord. (2)", "command": "find",
+     "skills": ["connected-particles-equations"],
+     "mark_scheme": [
+      {"code": "M1", "for": "Substitutes their $a$ into an equation of motion"},
+      {"code": "A1", "for": "$T = 14.7\\,\\mathrm{N}$"}]}
+   ],
+   "provenance": "original"
+  }
+ ]
+}

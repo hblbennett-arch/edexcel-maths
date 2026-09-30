@@ -92,7 +92,8 @@ These docs cover patterns that transfer directly to any similar revision site (e
 
 ## DO NOTs
 - Do NOT commit files from `data/` (PDFs are large, text extracts are working files)
-- Do NOT use any work/corporate MCP servers or credentials
+- Do NOT use any work/corporate MCP servers (GitLab, Verisk data servers, etc.). The Claude Code Enterprise login is this project's model backend and is fine to use.
+- GitHub only, never GitLab: no GitLab remotes, pushes or tools for this project
 - Do NOT add build tooling — the site is intentionally zero-build static HTML
 
 ## GitHub

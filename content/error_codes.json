@@ -1,0 +1,2288 @@
+{
+ "version": "seed-2026-09-29",
+ "status": "draft: written from general maths-teaching knowledge (no examiner-report text); awaiting user review",
+ "fields": {
+  "id": "kebab-case code",
+  "loses": "mark type usually lost: M method, A accuracy, B independent",
+  "groups": "skill groups it applies to ('*' = any skill)",
+  "definition": "one line, our own words"
+ },
+ "codes": [
+  {
+   "id": "premature-rounding",
+   "loses": "A",
+   "groups": [
+    "*"
+   ],
+   "definition": "Rounds an intermediate value, so the final answer drifts outside the accuracy accepted."
+  },
+  {
+   "id": "wrong-final-accuracy",
+   "loses": "A",
+   "groups": [
+    "*"
+   ],
+   "definition": "Gives the final answer to the wrong number of decimal places or significant figures."
+  },
+  {
+   "id": "decimal-not-exact",
+   "loses": "A",
+   "groups": [
+    "*"
+   ],
+   "definition": "Gives a decimal when an exact answer (surd, fraction, pi, ln) was asked for."
+  },
+  {
+   "id": "not-in-required-form",
+   "loses": "A",
+   "groups": [
+    "*"
+   ],
+   "definition": "Has the right value but not in the form the question specifies, e.g. constants not identified."
+  },
+  {
+   "id": "show-that-missing-step",
+   "loses": "A",
+   "groups": [
+    "*"
+   ],
+   "definition": "In a show-that, jumps to the printed answer without the step that justifies it."
+  },
+  {
+   "id": "show-that-assumes-result",
+   "loses": "M",
+   "groups": [
+    "*"
+   ],
+   "definition": "Starts from the printed result, or uses it as if true, instead of deriving it."
+  },
+  {
+   "id": "calculator-only-no-working",
+   "loses": "M",
+   "groups": [
+    "*"
+   ],
+   "definition": "Writes only a calculator answer where the question requires working, so method marks cannot be given."
+  },
+  {
+   "id": "ignores-hence",
+   "loses": "M",
+   "groups": [
+    "*"
+   ],
+   "definition": "Uses a fresh method when 'hence' requires the previous result."
+  },
+  {
+   "id": "units-missing-or-wrong",
+   "loses": "A",
+   "groups": [
+    "*"
+   ],
+   "definition": "Leaves out or misstates units on a contextual answer."
+  },
+  {
+   "id": "arithmetic-slip",
+   "loses": "A",
+   "groups": [
+    "*"
+   ],
+   "definition": "Makes a numerical slip in an otherwise correct method."
+  },
+  {
+   "id": "sign-error-expanding-brackets",
+   "loses": "A",
+   "groups": [
+    "*"
+   ],
+   "definition": "Loses a minus sign when expanding or removing brackets, especially -(a - b)."
+  },
+  {
+   "id": "miscopied-value",
+   "loses": "A",
+   "groups": [
+    "*"
+   ],
+   "definition": "Copies a number or expression wrongly from the question or from earlier working."
+  },
+  {
+   "id": "fails-to-reject-invalid-root",
+   "loses": "A",
+   "groups": [
+    "*"
+   ],
+   "definition": "Keeps a solution that is impossible in the context or domain, e.g. a negative length."
+  },
+  {
+   "id": "rejects-valid-root",
+   "loses": "A",
+   "groups": [
+    "*"
+   ],
+   "definition": "Throws away a solution that is actually valid."
+  },
+  {
+   "id": "no-final-conclusion",
+   "loses": "A",
+   "groups": [
+    "*"
+   ],
+   "definition": "Does the working but never states the answer or the conclusion the question asks for."
+  },
+  {
+   "id": "answer-not-in-context",
+   "loses": "B",
+   "groups": [
+    "*"
+   ],
+   "definition": "Gives a bare number where an interpretation in the context is needed."
+  },
+  {
+   "id": "set-notation-misused",
+   "loses": "A",
+   "groups": [
+    "exam-technique",
+    "quadratics",
+    "graphs-and-transformations"
+   ],
+   "definition": "Writes a solution set wrongly, e.g. an intersection sign where the regions are joined by 'or'."
+  },
+  {
+   "id": "answers-different-quantity",
+   "loses": "M",
+   "groups": [
+    "*"
+   ],
+   "definition": "Finds a different quantity from the one asked, e.g. x when the question wants y."
+  },
+  {
+   "id": "reason-not-specific",
+   "loses": "B",
+   "groups": [
+    "*"
+   ],
+   "definition": "Gives a reason that does not name the specific feature or value the explanation depends on."
+  },
+  {
+   "id": "ft-value-not-carried",
+   "loses": "A",
+   "groups": [
+    "*"
+   ],
+   "definition": "Uses a correct method on an earlier answer but then changes or ignores that earlier value, losing the follow-through."
+  },
+  {
+   "id": "index-law-error",
+   "loses": "M",
+   "groups": [
+    "algebraic-manipulation",
+    "basic-differentiation",
+    "basic-integration"
+   ],
+   "definition": "Misapplies index laws, e.g. (x^a)^b as x^(a+b), or 1/sqrt(x) as x^(1/2)."
+  },
+  {
+   "id": "splits-fraction-over-sum",
+   "loses": "M",
+   "groups": [
+    "algebraic-manipulation",
+    "partial-fractions"
+   ],
+   "definition": "Splits a fraction over a sum in the denominator: 1/(a + b) as 1/a + 1/b."
+  },
+  {
+   "id": "cancels-terms-not-factors",
+   "loses": "M",
+   "groups": [
+    "algebraic-manipulation",
+    "partial-fractions"
+   ],
+   "definition": "Cancels individual terms of a sum instead of common factors."
+  },
+  {
+   "id": "rearranging-inverse-operation-error",
+   "loses": "M",
+   "groups": [
+    "algebraic-manipulation"
+   ],
+   "definition": "Undoes an operation wrongly when changing the subject, or applies it to only one term."
+  },
+  {
+   "id": "rationalising-error",
+   "loses": "M",
+   "groups": [
+    "algebraic-manipulation"
+   ],
+   "definition": "Multiplies by the wrong conjugate, or only multiplies the numerator, when rationalising a denominator."
+  },
+  {
+   "id": "surd-simplification-error",
+   "loses": "M",
+   "groups": [
+    "algebraic-manipulation"
+   ],
+   "definition": "Treats sqrt(a + b) as sqrt(a) + sqrt(b), or combines unlike surds."
+  },
+  {
+   "id": "simultaneous-elimination-error",
+   "loses": "M",
+   "groups": [
+    "algebraic-manipulation",
+    "straight-lines-coordinates",
+    "circles"
+   ],
+   "definition": "Adds when it should subtract (or the reverse), or scales only part of an equation, when eliminating."
+  },
+  {
+   "id": "second-unknown-not-found",
+   "loses": "A",
+   "groups": [
+    "*"
+   ],
+   "definition": "Finds one unknown or coordinate but not the matching second one."
+  },
+  {
+   "id": "even-power-negative-root-missed",
+   "loses": "A",
+   "groups": [
+    "algebraic-manipulation",
+    "quadratics"
+   ],
+   "definition": "Solving x^n = k for even n, keeps only the positive root."
+  },
+  {
+   "id": "quadratic-formula-error",
+   "loses": "M",
+   "groups": [
+    "quadratics"
+   ],
+   "definition": "Misremembers the quadratic formula, e.g. +b, or divides only the square root by 2a."
+  },
+  {
+   "id": "factorising-sign-error",
+   "loses": "M",
+   "groups": [
+    "quadratics",
+    "polynomials"
+   ],
+   "definition": "Factorises with the wrong signs, giving roots of the wrong sign."
+  },
+  {
+   "id": "divides-by-variable-loses-root",
+   "loses": "A",
+   "groups": [
+    "quadratics",
+    "trig-equations-and-models",
+    "exponentials-and-logarithms"
+   ],
+   "definition": "Divides both sides by x or by a factor and loses the solution where it is zero."
+  },
+  {
+   "id": "completing-square-error",
+   "loses": "M",
+   "groups": [
+    "quadratics",
+    "circles"
+   ],
+   "definition": "Doesn't take out the x^2 coefficient first, halves wrongly, or gets the constant wrong."
+  },
+  {
+   "id": "discriminant-wrong-condition",
+   "loses": "M",
+   "groups": [
+    "quadratics",
+    "graphs-and-transformations"
+   ],
+   "definition": "Uses the wrong discriminant condition for the number of roots, e.g. > 0 for equal roots, or > for >=."
+  },
+  {
+   "id": "discriminant-before-rearranging",
+   "loses": "M",
+   "groups": [
+    "quadratics",
+    "graphs-and-transformations"
+   ],
+   "definition": "Reads a, b, c before rearranging the equation to equal zero."
+  },
+  {
+   "id": "quadratic-inequality-wrong-region",
+   "loses": "A",
+   "groups": [
+    "quadratics"
+   ],
+   "definition": "Finds the critical values correctly, then chooses the region inside when it should be outside, or the reverse."
+  },
+  {
+   "id": "inequality-not-reversed",
+   "loses": "A",
+   "groups": [
+    "quadratics",
+    "sequences-and-series",
+    "exponentials-and-logarithms"
+   ],
+   "definition": "Multiplies or divides an inequality by a negative number without reversing the sign."
+  },
+  {
+   "id": "hidden-quadratic-not-converted-back",
+   "loses": "A",
+   "groups": [
+    "quadratics",
+    "exponentials-and-logarithms",
+    "trig-equations-and-models"
+   ],
+   "definition": "Solves for the substituted variable but never converts back, e.g. stops at e^x = 3 or keeps e^x = -2."
+  },
+  {
+   "id": "factor-theorem-sign-error",
+   "loses": "M",
+   "groups": [
+    "polynomials"
+   ],
+   "definition": "Evaluates f(a) for the factor (x + a) instead of f(-a)."
+  },
+  {
+   "id": "factor-condition-not-set",
+   "loses": "M",
+   "groups": [
+    "polynomials"
+   ],
+   "definition": "Evaluates f at the root but never sets it equal to zero (or to the remainder)."
+  },
+  {
+   "id": "polynomial-division-error",
+   "loses": "M",
+   "groups": [
+    "polynomials",
+    "partial-fractions"
+   ],
+   "definition": "Makes a subtraction sign error in long division, or leaves out a zero term."
+  },
+  {
+   "id": "incomplete-factorisation",
+   "loses": "A",
+   "groups": [
+    "polynomials",
+    "quadratics"
+   ],
+   "definition": "Stops at a quadratic factor that still factorises."
+  },
+  {
+   "id": "graph-features-misread",
+   "loses": "M",
+   "groups": [
+    "polynomials",
+    "graphs-and-transformations"
+   ],
+   "definition": "Treats a touching root as a single root, or reads the sign of the leading coefficient wrongly from the graph."
+  },
+  {
+   "id": "transformation-direction-error",
+   "loses": "M",
+   "groups": [
+    "graphs-and-transformations",
+    "trig-equations-and-models"
+   ],
+   "definition": "Moves f(x + a) to the right instead of the left, or stretches f(ax) by a instead of 1/a."
+  },
+  {
+   "id": "transformation-order-error",
+   "loses": "M",
+   "groups": [
+    "graphs-and-transformations"
+   ],
+   "definition": "Applies a combination of transformations in the wrong order."
+  },
+  {
+   "id": "sketch-missing-coordinates",
+   "loses": "B",
+   "groups": [
+    "graphs-and-transformations",
+    "polynomials",
+    "functions",
+    "trig-equations-and-models"
+   ],
+   "definition": "Leaves out or misplaces the intercepts, turning points or asymptote values the sketch must show."
+  },
+  {
+   "id": "sketch-wrong-shape-or-asymptote",
+   "loses": "B",
+   "groups": [
+    "graphs-and-transformations",
+    "polynomials",
+    "exponentials-and-logarithms"
+   ],
+   "definition": "Draws the wrong shape: crosses an asymptote, wrong end behaviour, or a cusp where the curve is smooth."
+  },
+  {
+   "id": "modulus-reflection-wrong",
+   "loses": "B",
+   "groups": [
+    "graphs-and-transformations"
+   ],
+   "definition": "Confuses y = |f(x)| with y = f(|x|), reflecting the wrong part of the graph."
+  },
+  {
+   "id": "modulus-case-missing",
+   "loses": "A",
+   "groups": [
+    "graphs-and-transformations"
+   ],
+   "definition": "Solves only the positive case of a modulus equation or inequality."
+  },
+  {
+   "id": "modulus-extra-solution-kept",
+   "loses": "A",
+   "groups": [
+    "graphs-and-transformations"
+   ],
+   "definition": "Keeps a solution that does not satisfy the original modulus equation."
+  },
+  {
+   "id": "tangency-condition-error",
+   "loses": "M",
+   "groups": [
+    "graphs-and-transformations",
+    "circles",
+    "quadratics"
+   ],
+   "definition": "Sets up the wrong condition for a line to touch, meet or miss a curve."
+  },
+  {
+   "id": "composite-order-error",
+   "loses": "M",
+   "groups": [
+    "functions"
+   ],
+   "definition": "Applies the functions in the wrong order: works out fg(x) when gf(x) is asked, or the reverse."
+  },
+  {
+   "id": "inverse-function-error",
+   "loses": "M",
+   "groups": [
+    "functions"
+   ],
+   "definition": "Gives 1/f(x) as the inverse, or doesn't swap x and y."
+  },
+  {
+   "id": "domain-range-confused",
+   "loses": "B",
+   "groups": [
+    "functions"
+   ],
+   "definition": "Gives the domain when the range is asked, or writes the range in terms of x instead of f(x)."
+  },
+  {
+   "id": "range-endpoint-error",
+   "loses": "B",
+   "groups": [
+    "functions",
+    "trig-identities"
+   ],
+   "definition": "Includes or excludes an endpoint wrongly, or misses the turning-point value that bounds the range."
+  },
+  {
+   "id": "inverse-domain-not-range",
+   "loses": "B",
+   "groups": [
+    "functions"
+   ],
+   "definition": "States a domain for the inverse that is not the range of the original function."
+  },
+  {
+   "id": "perpendicular-gradient-error",
+   "loses": "M",
+   "groups": [
+    "straight-lines-coordinates",
+    "tangents-and-normals",
+    "circles"
+   ],
+   "definition": "Uses -m or 1/m instead of -1/m for a perpendicular gradient."
+  },
+  {
+   "id": "line-through-point-error",
+   "loses": "M",
+   "groups": [
+    "straight-lines-coordinates",
+    "tangents-and-normals"
+   ],
+   "definition": "Puts the coordinates into y - y1 = m(x - x1) the wrong way round."
+  },
+  {
+   "id": "gradient-inverted",
+   "loses": "M",
+   "groups": [
+    "straight-lines-coordinates"
+   ],
+   "definition": "Works out the gradient as change in x over change in y."
+  },
+  {
+   "id": "distance-formula-error",
+   "loses": "M",
+   "groups": [
+    "straight-lines-coordinates",
+    "circles",
+    "vectors"
+   ],
+   "definition": "Forgets the square root, or adds coordinates instead of subtracting them."
+  },
+  {
+   "id": "circle-centre-sign-error",
+   "loses": "B",
+   "groups": [
+    "circles"
+   ],
+   "definition": "Reads the centre of (x + a)^2 + (y + b)^2 = r^2 with the wrong signs."
+  },
+  {
+   "id": "circle-radius-error",
+   "loses": "B",
+   "groups": [
+    "circles"
+   ],
+   "definition": "Gives r^2 as the radius, or forgets to adjust the constant after completing the square."
+  },
+  {
+   "id": "tangent-radius-property-missed",
+   "loses": "M",
+   "groups": [
+    "circles"
+   ],
+   "definition": "Doesn't use the fact that a tangent is perpendicular to the radius at the point of contact."
+  },
+  {
+   "id": "radius-not-subtracted",
+   "loses": "M",
+   "groups": [
+    "circles"
+   ],
+   "definition": "Gives the distance to the centre when the distance to the circle itself is needed."
+  },
+  {
+   "id": "nth-term-index-error",
+   "loses": "M",
+   "groups": [
+    "sequences-and-series"
+   ],
+   "definition": "Uses a + nd or ar^n where the formula needs n - 1."
+  },
+  {
+   "id": "series-formula-error",
+   "loses": "M",
+   "groups": [
+    "sequences-and-series"
+   ],
+   "definition": "Misremembers the arithmetic or geometric sum formula."
+  },
+  {
+   "id": "common-ratio-inverted",
+   "loses": "M",
+   "groups": [
+    "sequences-and-series"
+   ],
+   "definition": "Divides an earlier term by a later one to get the common ratio."
+  },
+  {
+   "id": "sum-to-infinity-condition-ignored",
+   "loses": "B",
+   "groups": [
+    "sequences-and-series"
+   ],
+   "definition": "Uses a sum to infinity without |r| < 1, or doesn't state the condition when asked."
+  },
+  {
+   "id": "integer-n-rounded-wrong-way",
+   "loses": "A",
+   "groups": [
+    "sequences-and-series",
+    "exponential-modelling"
+   ],
+   "definition": "Solving for n, rounds the wrong way, or leaves a non-integer where a whole number of terms is needed."
+  },
+  {
+   "id": "log-of-ratio-less-than-one-inequality",
+   "loses": "A",
+   "groups": [
+    "sequences-and-series"
+   ],
+   "definition": "Divides by ln r with 0 < r < 1 (a negative number) without reversing the inequality."
+  },
+  {
+   "id": "recurrence-term-offset",
+   "loses": "A",
+   "groups": [
+    "sequences-and-series"
+   ],
+   "definition": "Starts a recurrence at the wrong term, or miscounts which term is which."
+  },
+  {
+   "id": "sigma-term-count-error",
+   "loses": "M",
+   "groups": [
+    "sequences-and-series"
+   ],
+   "definition": "Counts the terms from r = a to r = b as b - a instead of b - a + 1."
+  },
+  {
+   "id": "period-block-miscount",
+   "loses": "M",
+   "groups": [
+    "sequences-and-series"
+   ],
+   "definition": "Miscounts the complete periods, or the terms left over, when summing a periodic sequence."
+  },
+  {
+   "id": "series-proof-incomplete",
+   "loses": "M",
+   "groups": [
+    "sequences-and-series",
+    "proof"
+   ],
+   "definition": "In a sum-formula proof, doesn't write the series both ways round, or skips the adding step."
+  },
+  {
+   "id": "binomial-inner-coefficient-not-powered",
+   "loses": "M",
+   "groups": [
+    "binomial-expansion"
+   ],
+   "definition": "Doesn't raise the coefficient inside the bracket to the power, e.g. writes (2x)^3 as 2x^3."
+  },
+  {
+   "id": "binomial-factor-not-taken-out",
+   "loses": "M",
+   "groups": [
+    "binomial-expansion"
+   ],
+   "definition": "Doesn't rewrite (a + bx)^n as a^n(1 + bx/a)^n first, or forgets to raise a to the power n."
+  },
+  {
+   "id": "binomial-coefficient-error",
+   "loses": "M",
+   "groups": [
+    "binomial-expansion",
+    "binomial-distribution"
+   ],
+   "definition": "Gets nCr wrong, or the product-over-factorial coefficient for a non-integer power."
+  },
+  {
+   "id": "binomial-negative-term-sign-error",
+   "loses": "A",
+   "groups": [
+    "binomial-expansion"
+   ],
+   "definition": "Loses the alternating signs when expanding (1 - x)^n."
+  },
+  {
+   "id": "validity-range-error",
+   "loses": "B",
+   "groups": [
+    "binomial-expansion"
+   ],
+   "definition": "Gives |x| < 1 when the condition is |bx/a| < 1, or rearranges the condition wrongly."
+  },
+  {
+   "id": "approximation-wrong-x",
+   "loses": "M",
+   "groups": [
+    "binomial-expansion"
+   ],
+   "definition": "Substitutes an x that doesn't give the target number, or lies outside the range of validity."
+  },
+  {
+   "id": "truncation-error",
+   "loses": "A",
+   "groups": [
+    "binomial-expansion"
+   ],
+   "definition": "Keeps terms beyond the required power, or drops needed ones, when multiplying series."
+  },
+  {
+   "id": "log-law-misapplied",
+   "loses": "M",
+   "groups": [
+    "exponentials-and-logarithms",
+    "exponential-modelling"
+   ],
+   "definition": "Uses a false log law, e.g. log(a + b) = log a + log b, or log a / log b = log(a/b)."
+  },
+  {
+   "id": "log-power-law-misapplied",
+   "loses": "M",
+   "groups": [
+    "exponentials-and-logarithms"
+   ],
+   "definition": "Brings a power down wrongly, e.g. 2 log x = log 2x, or ln(3^(2x)) = 2 ln(3x)."
+  },
+  {
+   "id": "logs-taken-term-by-term",
+   "loses": "M",
+   "groups": [
+    "exponentials-and-logarithms",
+    "differential-equations"
+   ],
+   "definition": "Takes logs of each term of a sum separately, e.g. from e^x + 1 = y."
+  },
+  {
+   "id": "log-argument-not-positive",
+   "loses": "A",
+   "groups": [
+    "exponentials-and-logarithms"
+   ],
+   "definition": "Accepts a solution that makes a log argument zero or negative."
+  },
+  {
+   "id": "log-base-confusion",
+   "loses": "A",
+   "groups": [
+    "exponentials-and-logarithms",
+    "exponential-modelling"
+   ],
+   "definition": "Mixes up log base 10 and ln, or changes base wrongly."
+  },
+  {
+   "id": "initial-value-misidentified",
+   "loses": "M",
+   "groups": [
+    "exponential-modelling",
+    "modelling-in-context",
+    "differential-equations"
+   ],
+   "definition": "Uses t = 1 as the start, or confuses the initial value with a later one."
+  },
+  {
+   "id": "decay-sign-error",
+   "loses": "A",
+   "groups": [
+    "exponential-modelling",
+    "differential-equations"
+   ],
+   "definition": "Uses the wrong sign of k, so a decaying quantity grows."
+  },
+  {
+   "id": "log-linear-constants-confused",
+   "loses": "M",
+   "groups": [
+    "exponential-modelling",
+    "bivariate-data"
+   ],
+   "definition": "Mixes up gradient and intercept of the log-linear line, or forgets to undo the log (a = 10^c)."
+  },
+  {
+   "id": "rate-not-derivative",
+   "loses": "M",
+   "groups": [
+    "exponential-modelling",
+    "modelling-in-context",
+    "differential-equations"
+   ],
+   "definition": "Gives the value of the model when its rate of change (the derivative) is asked."
+  },
+  {
+   "id": "time-origin-error",
+   "loses": "A",
+   "groups": [
+    "exponential-modelling",
+    "modelling-in-context",
+    "trig-equations-and-models"
+   ],
+   "definition": "Uses the wrong time origin or unit, e.g. the calendar year instead of years since the start."
+  },
+  {
+   "id": "limitation-too-generic",
+   "loses": "B",
+   "groups": [
+    "modelling-in-context",
+    "mechanics-modelling"
+   ],
+   "definition": "States a limitation that could apply to any model, not one tied to this model or context."
+  },
+  {
+   "id": "extrapolation-not-flagged",
+   "loses": "B",
+   "groups": [
+    "modelling-in-context",
+    "bivariate-data"
+   ],
+   "definition": "Uses a model well outside the data range without saying the prediction may be unreliable."
+  },
+  {
+   "id": "parameter-meaning-no-context",
+   "loses": "B",
+   "groups": [
+    "modelling-in-context",
+    "exponential-modelling",
+    "bivariate-data"
+   ],
+   "definition": "Explains a constant in the model without its context or units."
+  },
+  {
+   "id": "long-term-limit-error",
+   "loses": "B",
+   "groups": [
+    "modelling-in-context",
+    "exponential-modelling"
+   ],
+   "definition": "Gets the limiting value as t grows wrong, e.g. forgets that e^(-kt) tends to 0."
+  },
+  {
+   "id": "model-judged-without-comparison",
+   "loses": "B",
+   "groups": [
+    "modelling-in-context"
+   ],
+   "definition": "Calls the model good or bad without comparing a predicted value with the data."
+  },
+  {
+   "id": "degrees-not-radians",
+   "loses": "M",
+   "groups": [
+    "radians-and-circular-measure",
+    "trig-equations-and-models",
+    "basic-differentiation",
+    "integration-techniques",
+    "trig-identities"
+   ],
+   "definition": "Works in degrees (or calculator in degree mode) where radians are required, e.g. arc length, calculus, small angles."
+  },
+  {
+   "id": "sector-formula-error",
+   "loses": "M",
+   "groups": [
+    "radians-and-circular-measure"
+   ],
+   "definition": "Uses r theta or r^2 theta for a sector area, or mixes the arc and area formulas."
+  },
+  {
+   "id": "segment-triangle-area-error",
+   "loses": "M",
+   "groups": [
+    "radians-and-circular-measure"
+   ],
+   "definition": "Subtracts the wrong triangle area when finding a segment."
+  },
+  {
+   "id": "sine-cosine-rule-misapplied",
+   "loses": "M",
+   "groups": [
+    "radians-and-circular-measure",
+    "vectors"
+   ],
+   "definition": "Uses the wrong rule, or pairs a side with an angle that is not opposite it."
+  },
+  {
+   "id": "obtuse-sine-rule-case-missed",
+   "loses": "A",
+   "groups": [
+    "radians-and-circular-measure"
+   ],
+   "definition": "Misses the obtuse angle that also satisfies the sine rule."
+  },
+  {
+   "id": "exact-trig-value-error",
+   "loses": "A",
+   "groups": [
+    "radians-and-circular-measure",
+    "trig-identities",
+    "trig-equations-and-models"
+   ],
+   "definition": "Uses a wrong exact value, e.g. sin 60 degrees = 1/2."
+  },
+  {
+   "id": "small-angle-approximation-error",
+   "loses": "M",
+   "groups": [
+    "radians-and-circular-measure"
+   ],
+   "definition": "Uses the wrong small-angle form, e.g. cos x ~ 1 - x, or forgets that x must be in radians."
+  },
+  {
+   "id": "pythagorean-identity-error",
+   "loses": "M",
+   "groups": [
+    "trig-identities",
+    "trig-equations-and-models",
+    "integration-techniques"
+   ],
+   "definition": "Misremembers a Pythagorean identity, e.g. cos^2 x = 1 + sin^2 x, or sec^2 x = 1 - tan^2 x."
+  },
+  {
+   "id": "double-angle-error",
+   "loses": "M",
+   "groups": [
+    "trig-identities",
+    "trig-equations-and-models",
+    "integration-techniques"
+   ],
+   "definition": "Writes sin 2x as 2 sin x, or picks a form of cos 2x that doesn't help."
+  },
+  {
+   "id": "compound-angle-sign-error",
+   "loses": "M",
+   "groups": [
+    "trig-identities"
+   ],
+   "definition": "Gets the signs wrong in cos(A +/- B) or tan(A +/- B)."
+  },
+  {
+   "id": "harmonic-form-error",
+   "loses": "A",
+   "groups": [
+    "trig-identities",
+    "trig-equations-and-models"
+   ],
+   "definition": "Gets R wrong (not sqrt(a^2 + b^2)), inverts tan alpha, or puts alpha in the wrong quadrant or units."
+  },
+  {
+   "id": "identity-proof-unclear-logic",
+   "loses": "M",
+   "groups": [
+    "trig-identities",
+    "proof"
+   ],
+   "definition": "Works on both sides at once, or starts from the identity being proved, without a clear chain."
+  },
+  {
+   "id": "reciprocal-trig-confused",
+   "loses": "M",
+   "groups": [
+    "trig-identities"
+   ],
+   "definition": "Confuses sec with 1/sin, or cosec with 1/cos."
+  },
+  {
+   "id": "trig-ratio-quadrant-sign-error",
+   "loses": "A",
+   "groups": [
+    "trig-identities"
+   ],
+   "definition": "Gets the sign of sin or cos wrong for the given quadrant when working from tan."
+  },
+  {
+   "id": "missing-solutions-in-interval",
+   "loses": "A",
+   "groups": [
+    "trig-equations-and-models"
+   ],
+   "definition": "Gives only the calculator value and misses the other solutions in the interval."
+  },
+  {
+   "id": "solutions-outside-interval",
+   "loses": "A",
+   "groups": [
+    "trig-equations-and-models"
+   ],
+   "definition": "Lists solutions outside the given interval."
+  },
+  {
+   "id": "transformed-interval-not-adjusted",
+   "loses": "M",
+   "groups": [
+    "trig-equations-and-models"
+   ],
+   "definition": "Doesn't change the interval for 2x + c before solving sin(2x + c) = k, so solutions are missed."
+  },
+  {
+   "id": "impossible-trig-value-kept",
+   "loses": "A",
+   "groups": [
+    "trig-equations-and-models"
+   ],
+   "definition": "Keeps an impossible value such as sin x = 2 instead of rejecting it."
+  },
+  {
+   "id": "trig-model-extreme-misread",
+   "loses": "A",
+   "groups": [
+    "trig-equations-and-models"
+   ],
+   "definition": "Takes the maximum where the trig term is -1 (or the reverse), or gives the wrong time for it."
+  },
+  {
+   "id": "sign-error-differentiating-negative-power",
+   "loses": "A",
+   "groups": [
+    "basic-differentiation",
+    "chain-product-quotient-rules"
+   ],
+   "definition": "Gets the sign or the new power wrong when differentiating x^(-n)."
+  },
+  {
+   "id": "constant-not-differentiated-to-zero",
+   "loses": "A",
+   "groups": [
+    "basic-differentiation",
+    "implicit-and-parametric-differentiation"
+   ],
+   "definition": "Keeps a constant term after differentiating."
+  },
+  {
+   "id": "not-rewritten-as-powers",
+   "loses": "M",
+   "groups": [
+    "basic-differentiation",
+    "basic-integration"
+   ],
+   "definition": "Differentiates or integrates 1/x^n or a root term before rewriting it as a power."
+  },
+  {
+   "id": "exp-log-derivative-error",
+   "loses": "A",
+   "groups": [
+    "basic-differentiation",
+    "chain-product-quotient-rules"
+   ],
+   "definition": "Differentiates e^(kx) as e^(kx) (missing k), or ln(kx) as k/x."
+  },
+  {
+   "id": "trig-derivative-sign-error",
+   "loses": "A",
+   "groups": [
+    "basic-differentiation",
+    "chain-product-quotient-rules",
+    "kinematics-calculus"
+   ],
+   "definition": "Differentiates cos x as sin x, or makes a similar sign error."
+  },
+  {
+   "id": "first-principles-incomplete",
+   "loses": "M",
+   "groups": [
+    "basic-differentiation"
+   ],
+   "definition": "In first principles, doesn't expand f(x + h), divide by h, or take the limit (or sets h = 0 too early)."
+  },
+  {
+   "id": "second-derivative-error",
+   "loses": "A",
+   "groups": [
+    "basic-differentiation",
+    "stationary-points"
+   ],
+   "definition": "Makes an error when differentiating the first derivative again."
+  },
+  {
+   "id": "chain-rule-inner-derivative-missing",
+   "loses": "M",
+   "groups": [
+    "chain-product-quotient-rules",
+    "basic-differentiation",
+    "implicit-and-parametric-differentiation"
+   ],
+   "definition": "Forgets to multiply by the derivative of the inside function."
+  },
+  {
+   "id": "product-rule-not-used",
+   "loses": "M",
+   "groups": [
+    "chain-product-quotient-rules",
+    "implicit-and-parametric-differentiation"
+   ],
+   "definition": "Differentiates each factor of a product and multiplies the results."
+  },
+  {
+   "id": "quotient-rule-error",
+   "loses": "M",
+   "groups": [
+    "chain-product-quotient-rules"
+   ],
+   "definition": "Swaps the order in the quotient-rule numerator, or forgets to square the denominator."
+  },
+  {
+   "id": "derivative-not-simplified-to-form",
+   "loses": "A",
+   "groups": [
+    "chain-product-quotient-rules"
+   ],
+   "definition": "Leaves the derivative unsimplified when the question asks for a given form."
+  },
+  {
+   "id": "implicit-dy-dx-missing",
+   "loses": "M",
+   "groups": [
+    "implicit-and-parametric-differentiation"
+   ],
+   "definition": "Doesn't attach dy/dx when differentiating terms in y."
+  },
+  {
+   "id": "parametric-derivative-inverted",
+   "loses": "M",
+   "groups": [
+    "implicit-and-parametric-differentiation",
+    "tangents-and-normals"
+   ],
+   "definition": "Divides dx/dt by dy/dt instead of dy/dt by dx/dt."
+  },
+  {
+   "id": "x-value-used-as-parameter",
+   "loses": "M",
+   "groups": [
+    "implicit-and-parametric-differentiation",
+    "parametric-equations"
+   ],
+   "definition": "Substitutes an x-coordinate as t without finding the parameter at the point first."
+  },
+  {
+   "id": "connected-rates-chain-error",
+   "loses": "M",
+   "groups": [
+    "implicit-and-parametric-differentiation"
+   ],
+   "definition": "Combines rates the wrong way, e.g. divides where the chain rule multiplies."
+  },
+  {
+   "id": "normal-uses-tangent-gradient",
+   "loses": "M",
+   "groups": [
+    "tangents-and-normals"
+   ],
+   "definition": "Uses the tangent's gradient for the normal, or the reverse."
+  },
+  {
+   "id": "gradient-not-evaluated-at-point",
+   "loses": "M",
+   "groups": [
+    "tangents-and-normals"
+   ],
+   "definition": "Uses the derivative expression, still in x, as the gradient of the line."
+  },
+  {
+   "id": "point-coordinate-wrong",
+   "loses": "M",
+   "groups": [
+    "tangents-and-normals"
+   ],
+   "definition": "Uses the wrong y-coordinate for the point, e.g. not found from the curve."
+  },
+  {
+   "id": "sets-y-zero-not-derivative",
+   "loses": "M",
+   "groups": [
+    "stationary-points",
+    "optimisation"
+   ],
+   "definition": "Sets y = 0 instead of dy/dx = 0 to find stationary points."
+  },
+  {
+   "id": "stationary-y-missing",
+   "loses": "A",
+   "groups": [
+    "stationary-points"
+   ],
+   "definition": "Finds the x-coordinate of a stationary point but not the y-coordinate."
+  },
+  {
+   "id": "nature-not-justified",
+   "loses": "A",
+   "groups": [
+    "stationary-points",
+    "optimisation"
+   ],
+   "definition": "States maximum or minimum without the second-derivative sign or a gradient check, or without the conclusion."
+  },
+  {
+   "id": "zero-second-derivative-misread",
+   "loses": "B",
+   "groups": [
+    "stationary-points"
+   ],
+   "definition": "Concludes a point of inflection just because the second derivative is zero."
+  },
+  {
+   "id": "increasing-condition-wrong",
+   "loses": "M",
+   "groups": [
+    "stationary-points"
+   ],
+   "definition": "Uses the wrong inequality for increasing or decreasing, or the wrong boundary."
+  },
+  {
+   "id": "inflection-sign-change-not-shown",
+   "loses": "B",
+   "groups": [
+    "stationary-points"
+   ],
+   "definition": "Claims a point of inflection without showing the second derivative changes sign."
+  },
+  {
+   "id": "constraint-not-substituted",
+   "loses": "M",
+   "groups": [
+    "optimisation"
+   ],
+   "definition": "Differentiates an expression in two variables without eliminating one using the constraint."
+  },
+  {
+   "id": "mensuration-formula-error",
+   "loses": "M",
+   "groups": [
+    "optimisation",
+    "radians-and-circular-measure"
+   ],
+   "definition": "Uses a wrong area or volume formula, e.g. misses faces or confuses curved surface area with pi r^2."
+  },
+  {
+   "id": "optimum-wrong-quantity",
+   "loses": "A",
+   "groups": [
+    "optimisation"
+   ],
+   "definition": "Gives the value of x at the optimum when the optimal quantity itself was asked, or the reverse."
+  },
+  {
+   "id": "integration-power-rule-error",
+   "loses": "M",
+   "groups": [
+    "basic-integration",
+    "areas-by-integration"
+   ],
+   "definition": "Divides by the old power, multiplies instead, or adds 1 wrongly with negative or fractional powers."
+  },
+  {
+   "id": "missing-constant-of-integration",
+   "loses": "A",
+   "groups": [
+    "basic-integration",
+    "integration-techniques",
+    "differential-equations",
+    "kinematics-calculus"
+   ],
+   "definition": "Leaves out + c in an indefinite integral."
+  },
+  {
+   "id": "constant-not-found-from-point",
+   "loses": "M",
+   "groups": [
+    "basic-integration",
+    "differential-equations"
+   ],
+   "definition": "Doesn't use the given point to find c, or substitutes the wrong coordinate."
+  },
+  {
+   "id": "limits-substitution-error",
+   "loses": "M",
+   "groups": [
+    "basic-integration",
+    "areas-by-integration",
+    "integration-techniques"
+   ],
+   "definition": "Works out F(lower) - F(upper), or makes sign errors substituting a negative limit."
+  },
+  {
+   "id": "product-integrated-as-product",
+   "loses": "M",
+   "groups": [
+    "basic-integration",
+    "integration-techniques"
+   ],
+   "definition": "Integrates a product or quotient as a product of integrals instead of expanding or using a method."
+  },
+  {
+   "id": "reverse-chain-coefficient-error",
+   "loses": "A",
+   "groups": [
+    "basic-integration",
+    "integration-techniques",
+    "partial-fractions"
+   ],
+   "definition": "Multiplies by k instead of dividing when integrating (ax + b)^n, e^(kx) or 1/(ax + b)."
+  },
+  {
+   "id": "negative-area-taken",
+   "loses": "A",
+   "groups": [
+    "areas-by-integration"
+   ],
+   "definition": "Takes a negative integral as the area, or lets regions above and below the axis cancel."
+  },
+  {
+   "id": "area-between-wrong-subtraction",
+   "loses": "M",
+   "groups": [
+    "areas-by-integration"
+   ],
+   "definition": "Subtracts the curves the wrong way round, or integrates between the wrong limits."
+  },
+  {
+   "id": "region-limits-wrong",
+   "loses": "M",
+   "groups": [
+    "areas-by-integration"
+   ],
+   "definition": "Uses limits that are not the intersections or intercepts that bound the region."
+  },
+  {
+   "id": "parametric-area-dx-dt-missing",
+   "loses": "M",
+   "groups": [
+    "areas-by-integration",
+    "parametric-equations"
+   ],
+   "definition": "Integrates y with respect to t without the dx/dt factor, or uses x-limits for t."
+  },
+  {
+   "id": "region-part-missed",
+   "loses": "M",
+   "groups": [
+    "areas-by-integration"
+   ],
+   "definition": "Forgets to add or subtract the triangle or rectangle that makes up part of the region."
+  },
+  {
+   "id": "by-parts-poor-choice",
+   "loses": "M",
+   "groups": [
+    "integration-techniques"
+   ],
+   "definition": "Chooses u and dv/dx so that the new integral is harder than the original."
+  },
+  {
+   "id": "by-parts-sign-error",
+   "loses": "A",
+   "groups": [
+    "integration-techniques"
+   ],
+   "definition": "Makes a sign error in uv minus the integral of v du/dx."
+  },
+  {
+   "id": "substitution-dx-not-replaced",
+   "loses": "M",
+   "groups": [
+    "integration-techniques"
+   ],
+   "definition": "Doesn't replace dx with the matching expression in du."
+  },
+  {
+   "id": "wrong-limits-after-substitution",
+   "loses": "M",
+   "groups": [
+    "integration-techniques"
+   ],
+   "definition": "Keeps the x-limits after substituting u, or doesn't substitute back before using them."
+  },
+  {
+   "id": "trig-power-integrated-directly",
+   "loses": "M",
+   "groups": [
+    "integration-techniques"
+   ],
+   "definition": "Integrates sin^2 x or cos^2 x directly instead of using a double-angle identity."
+  },
+  {
+   "id": "trig-integral-sign-error",
+   "loses": "A",
+   "groups": [
+    "integration-techniques",
+    "basic-integration",
+    "kinematics-calculus"
+   ],
+   "definition": "Integrates sin x as cos x, or makes a similar sign error."
+  },
+  {
+   "id": "logs-not-combined-to-form",
+   "loses": "A",
+   "groups": [
+    "integration-techniques",
+    "partial-fractions",
+    "differential-equations"
+   ],
+   "definition": "Doesn't combine the log terms into the single ln form the question asks for."
+  },
+  {
+   "id": "partial-fraction-wrong-form",
+   "loses": "M",
+   "groups": [
+    "partial-fractions"
+   ],
+   "definition": "Sets up the wrong form, e.g. misses a term for a repeated factor."
+  },
+  {
+   "id": "partial-fraction-constant-error",
+   "loses": "A",
+   "groups": [
+    "partial-fractions"
+   ],
+   "definition": "Makes an error finding a constant by substituting values or comparing coefficients."
+  },
+  {
+   "id": "improper-fraction-not-divided",
+   "loses": "M",
+   "groups": [
+    "partial-fractions"
+   ],
+   "definition": "Tries partial fractions without dividing first, when the numerator's degree is at least the denominator's."
+  },
+  {
+   "id": "separation-error",
+   "loses": "M",
+   "groups": [
+    "differential-equations"
+   ],
+   "definition": "Separates the variables wrongly, e.g. leaves a y term on the x side, or splits by adding."
+  },
+  {
+   "id": "exponentiating-sum-error",
+   "loses": "M",
+   "groups": [
+    "differential-equations",
+    "exponentials-and-logarithms"
+   ],
+   "definition": "Turns ln y = f(x) + c into y = e^f(x) + c instead of y = A e^f(x)."
+  },
+  {
+   "id": "proportionality-constant-missing",
+   "loses": "B",
+   "groups": [
+    "differential-equations"
+   ],
+   "definition": "Forms a rate equation without a constant of proportionality, or with the wrong sign."
+  },
+  {
+   "id": "solution-not-made-explicit",
+   "loses": "A",
+   "groups": [
+    "differential-equations"
+   ],
+   "definition": "Leaves the solution implicit when the question asks for y in terms of x."
+  },
+  {
+   "id": "sign-change-no-conclusion",
+   "loses": "A",
+   "groups": [
+    "numerical-methods"
+   ],
+   "definition": "Shows a change of sign but not the continuity condition or the conclusion about the root."
+  },
+  {
+   "id": "sign-change-interval-too-wide",
+   "loses": "M",
+   "groups": [
+    "numerical-methods"
+   ],
+   "definition": "Tests an interval too wide to confirm the accuracy asked, e.g. not a +/- 0.005."
+  },
+  {
+   "id": "iteration-evaluation-error",
+   "loses": "A",
+   "groups": [
+    "numerical-methods"
+   ],
+   "definition": "Uses the wrong starting value, or evaluates the iteration wrongly."
+  },
+  {
+   "id": "newton-raphson-formula-error",
+   "loses": "M",
+   "groups": [
+    "numerical-methods"
+   ],
+   "definition": "Gets f'(x) wrong, or uses x - f'(x)/f(x) instead of x - f(x)/f'(x)."
+  },
+  {
+   "id": "newton-raphson-failure-not-explained",
+   "loses": "B",
+   "groups": [
+    "numerical-methods"
+   ],
+   "definition": "Doesn't say that the method fails because f'(x0) = 0 (the tangent is horizontal)."
+  },
+  {
+   "id": "iterative-rearrangement-not-shown",
+   "loses": "M",
+   "groups": [
+    "numerical-methods"
+   ],
+   "definition": "Doesn't show the algebra that turns the equation into the given iterative form."
+  },
+  {
+   "id": "trapezium-strip-width-error",
+   "loses": "M",
+   "groups": [
+    "numerical-methods"
+   ],
+   "definition": "Gets the strip width h wrong, e.g. confuses the number of ordinates with the number of strips."
+  },
+  {
+   "id": "trapezium-bracket-error",
+   "loses": "M",
+   "groups": [
+    "numerical-methods"
+   ],
+   "definition": "Gets the bracket structure wrong: doubles the end ordinates, or leaves out h/2."
+  },
+  {
+   "id": "trapezium-estimate-reason-wrong",
+   "loses": "B",
+   "groups": [
+    "numerical-methods"
+   ],
+   "definition": "Gives the wrong reason for an over- or under-estimate (it depends on the curve's concavity)."
+  },
+  {
+   "id": "iteration-diagram-misdescribed",
+   "loses": "B",
+   "groups": [
+    "numerical-methods"
+   ],
+   "definition": "Confuses cobweb and staircase diagrams, or misdescribes whether the iteration converges."
+  },
+  {
+   "id": "parameter-not-eliminated",
+   "loses": "M",
+   "groups": [
+    "parametric-equations"
+   ],
+   "definition": "Leaves t in the Cartesian equation, or eliminates it with the wrong identity."
+  },
+  {
+   "id": "cartesian-domain-missing",
+   "loses": "B",
+   "groups": [
+    "parametric-equations"
+   ],
+   "definition": "Doesn't give the domain or range of the Cartesian equation that follows from the range of t."
+  },
+  {
+   "id": "vector-direction-reversed",
+   "loses": "M",
+   "groups": [
+    "vectors",
+    "kinematics-constant-acceleration"
+   ],
+   "definition": "Works out AB as OA - OB instead of OB - OA."
+  },
+  {
+   "id": "magnitude-error",
+   "loses": "M",
+   "groups": [
+    "vectors",
+    "kinematics-constant-acceleration",
+    "forces-and-newtons-laws"
+   ],
+   "definition": "Forgets to square the components or take the square root when finding a magnitude."
+  },
+  {
+   "id": "parallel-not-shown",
+   "loses": "B",
+   "groups": [
+    "vectors"
+   ],
+   "definition": "Claims vectors are parallel or points collinear without showing a scalar multiple and a common point."
+  },
+  {
+   "id": "ratio-split-error",
+   "loses": "M",
+   "groups": [
+    "vectors"
+   ],
+   "definition": "Divides a line in the ratio m:n using m/n instead of m/(m + n)."
+  },
+  {
+   "id": "contradiction-assumption-wrong",
+   "loses": "B",
+   "groups": [
+    "proof"
+   ],
+   "definition": "Assumes the wrong statement at the start of a proof by contradiction."
+  },
+  {
+   "id": "proof-by-examples",
+   "loses": "M",
+   "groups": [
+    "proof"
+   ],
+   "definition": "Checks a few examples instead of giving a general argument."
+  },
+  {
+   "id": "proof-no-concluding-statement",
+   "loses": "A",
+   "groups": [
+    "proof",
+    "trig-identities",
+    "sequences-and-series"
+   ],
+   "definition": "Finishes the algebra but doesn't write the concluding statement of the proof."
+  },
+  {
+   "id": "exhaustion-case-missed",
+   "loses": "M",
+   "groups": [
+    "proof"
+   ],
+   "definition": "Leaves out a case in a proof by exhaustion."
+  },
+  {
+   "id": "counterexample-not-verified",
+   "loses": "B",
+   "groups": [
+    "proof"
+   ],
+   "definition": "States a counterexample without showing that it breaks the statement."
+  },
+  {
+   "id": "same-letter-for-different-numbers",
+   "loses": "M",
+   "groups": [
+    "proof"
+   ],
+   "definition": "Uses the same letter for two different numbers, e.g. 2n and 2n + 1 for 'any two odd numbers'."
+  },
+  {
+   "id": "sampling-method-misnamed",
+   "loses": "B",
+   "groups": [
+    "sampling"
+   ],
+   "definition": "Names the wrong sampling method, e.g. calls a quota sample stratified."
+  },
+  {
+   "id": "sampling-description-vague",
+   "loses": "B",
+   "groups": [
+    "sampling"
+   ],
+   "definition": "Describes a sampling method without its key step, e.g. how units are numbered and chosen at random."
+  },
+  {
+   "id": "sampling-reason-generic",
+   "loses": "B",
+   "groups": [
+    "sampling"
+   ],
+   "definition": "Gives a generic advantage such as 'it is easy' instead of one tied to the method and context."
+  },
+  {
+   "id": "population-sample-confused",
+   "loses": "B",
+   "groups": [
+    "sampling"
+   ],
+   "definition": "Confuses the population, the sampling frame and the sample."
+  },
+  {
+   "id": "standard-deviation-formula-error",
+   "loses": "M",
+   "groups": [
+    "summary-statistics"
+   ],
+   "definition": "Forgets to square the mean in the variance formula, or divides by the wrong n."
+  },
+  {
+   "id": "variance-given-as-sd",
+   "loses": "A",
+   "groups": [
+    "summary-statistics",
+    "normal-distribution"
+   ],
+   "definition": "Gives the variance when the standard deviation is asked, or the reverse."
+  },
+  {
+   "id": "coding-applied-to-spread",
+   "loses": "M",
+   "groups": [
+    "summary-statistics"
+   ],
+   "definition": "Adds the coding constant to the standard deviation, or doesn't scale it."
+  },
+  {
+   "id": "median-position-error",
+   "loses": "M",
+   "groups": [
+    "summary-statistics",
+    "data-presentation-and-cleaning"
+   ],
+   "definition": "Finds the wrong position for the median or quartile, or interpolates within the wrong class."
+  },
+  {
+   "id": "class-boundary-error",
+   "loses": "M",
+   "groups": [
+    "summary-statistics",
+    "data-presentation-and-cleaning"
+   ],
+   "definition": "Uses class limits instead of class boundaries, or wrong class widths."
+  },
+  {
+   "id": "comparison-without-context",
+   "loses": "B",
+   "groups": [
+    "summary-statistics",
+    "data-presentation-and-cleaning"
+   ],
+   "definition": "Compares distributions without the context, or without both a location and a spread measure."
+  },
+  {
+   "id": "histogram-height-as-frequency",
+   "loses": "M",
+   "groups": [
+    "data-presentation-and-cleaning"
+   ],
+   "definition": "Reads bar height as frequency instead of using area (frequency density times width)."
+  },
+  {
+   "id": "histogram-scale-error",
+   "loses": "M",
+   "groups": [
+    "data-presentation-and-cleaning"
+   ],
+   "definition": "Gets the scale factor between area and frequency wrong."
+  },
+  {
+   "id": "outlier-fence-error",
+   "loses": "M",
+   "groups": [
+    "data-presentation-and-cleaning"
+   ],
+   "definition": "Uses the wrong multiple of the IQR, or the median instead of a quartile, for the outlier limits."
+  },
+  {
+   "id": "whisker-to-outlier",
+   "loses": "B",
+   "groups": [
+    "data-presentation-and-cleaning"
+   ],
+   "definition": "Extends a box-plot whisker to an outlier."
+  },
+  {
+   "id": "correlation-as-causation",
+   "loses": "B",
+   "groups": [
+    "bivariate-data"
+   ],
+   "definition": "Says one variable causes changes in the other because they are correlated."
+  },
+  {
+   "id": "regression-interpretation-error",
+   "loses": "B",
+   "groups": [
+    "bivariate-data"
+   ],
+   "definition": "Interprets a regression coefficient without context or units, or reads meaning into an intercept outside the data."
+  },
+  {
+   "id": "variables-swapped",
+   "loses": "B",
+   "groups": [
+    "bivariate-data"
+   ],
+   "definition": "Swaps the explanatory and response variables."
+  },
+  {
+   "id": "log-coding-conversion-error",
+   "loses": "M",
+   "groups": [
+    "bivariate-data"
+   ],
+   "definition": "Converts back from the log-coded line wrongly, e.g. forgets that b = 10^m."
+  },
+  {
+   "id": "independence-assumed",
+   "loses": "M",
+   "groups": [
+    "probability",
+    "discrete-distributions"
+   ],
+   "definition": "Multiplies probabilities without independence being given or shown."
+  },
+  {
+   "id": "exclusive-independent-confused",
+   "loses": "B",
+   "groups": [
+    "probability"
+   ],
+   "definition": "Confuses mutually exclusive events with independent ones."
+  },
+  {
+   "id": "conditional-denominator-error",
+   "loses": "M",
+   "groups": [
+    "probability",
+    "normal-distribution"
+   ],
+   "definition": "Divides by the wrong probability, e.g. uses P(A and B)/P(A) for P(A|B)."
+  },
+  {
+   "id": "without-replacement-not-updated",
+   "loses": "M",
+   "groups": [
+    "probability"
+   ],
+   "definition": "Keeps the second-branch probabilities unchanged when selection is without replacement."
+  },
+  {
+   "id": "venn-intersection-double-counted",
+   "loses": "M",
+   "groups": [
+    "probability"
+   ],
+   "definition": "Counts the intersection twice when filling in or adding Venn regions."
+  },
+  {
+   "id": "at-least-one-complement-error",
+   "loses": "M",
+   "groups": [
+    "probability",
+    "binomial-distribution",
+    "discrete-distributions"
+   ],
+   "definition": "Gets 'at least one' wrong, e.g. works out 1 - P(all) instead of 1 - P(none)."
+  },
+  {
+   "id": "table-total-error",
+   "loses": "M",
+   "groups": [
+    "probability"
+   ],
+   "definition": "Uses the grand total where a row or column total is needed, or the reverse."
+  },
+  {
+   "id": "probabilities-not-summed-to-one",
+   "loses": "M",
+   "groups": [
+    "discrete-distributions"
+   ],
+   "definition": "Doesn't use the fact that the probabilities sum to 1 to find an unknown."
+  },
+  {
+   "id": "cumulative-individual-confused",
+   "loses": "M",
+   "groups": [
+    "discrete-distributions",
+    "binomial-distribution",
+    "hypothesis-testing"
+   ],
+   "definition": "Uses P(X <= x) where P(X = x) is needed, or the reverse."
+  },
+  {
+   "id": "discrete-inequality-boundary-error",
+   "loses": "M",
+   "groups": [
+    "discrete-distributions",
+    "binomial-distribution",
+    "hypothesis-testing"
+   ],
+   "definition": "Treats P(X < k) as P(X <= k) for a discrete variable, e.g. P(X >= k) = 1 - P(X <= k)."
+  },
+  {
+   "id": "arrangements-missed",
+   "loses": "M",
+   "groups": [
+    "discrete-distributions",
+    "binomial-distribution"
+   ],
+   "definition": "Counts only one order when combining independent outcomes that can happen in several orders."
+  },
+  {
+   "id": "binomial-conditions-generic",
+   "loses": "B",
+   "groups": [
+    "binomial-distribution"
+   ],
+   "definition": "States the binomial conditions without referring to the context."
+  },
+  {
+   "id": "binomial-parameters-wrong",
+   "loses": "M",
+   "groups": [
+    "binomial-distribution",
+    "hypothesis-testing"
+   ],
+   "definition": "Uses the wrong n or p."
+  },
+  {
+   "id": "standardising-error",
+   "loses": "M",
+   "groups": [
+    "normal-distribution",
+    "hypothesis-testing"
+   ],
+   "definition": "Standardises as (mu - x)/sigma, or divides by the variance."
+  },
+  {
+   "id": "inverse-normal-tail-error",
+   "loses": "M",
+   "groups": [
+    "normal-distribution"
+   ],
+   "definition": "Uses the wrong tail or the wrong sign of z for a given percentage."
+  },
+  {
+   "id": "z-sign-error",
+   "loses": "A",
+   "groups": [
+    "normal-distribution"
+   ],
+   "definition": "Uses a positive z for a value below the mean when setting up simultaneous equations."
+  },
+  {
+   "id": "continuity-correction-error",
+   "loses": "M",
+   "groups": [
+    "normal-distribution"
+   ],
+   "definition": "Leaves out the continuity correction, or applies it in the wrong direction."
+  },
+  {
+   "id": "approximation-parameters-wrong",
+   "loses": "M",
+   "groups": [
+    "normal-distribution"
+   ],
+   "definition": "Uses np as the variance, or the wrong standard deviation, in the normal approximation."
+  },
+  {
+   "id": "wrong-distribution-chosen",
+   "loses": "M",
+   "groups": [
+    "normal-distribution",
+    "binomial-distribution"
+   ],
+   "definition": "Models the situation with an unsuitable distribution for the conditions given."
+  },
+  {
+   "id": "hypotheses-not-in-parameter",
+   "loses": "B",
+   "groups": [
+    "hypothesis-testing"
+   ],
+   "definition": "Writes the hypotheses in words, or without the parameter (p, rho or mu)."
+  },
+  {
+   "id": "tail-choice-error",
+   "loses": "B",
+   "groups": [
+    "hypothesis-testing"
+   ],
+   "definition": "Picks a one-tailed test when the claim is two-tailed, or the reverse, or the wrong direction."
+  },
+  {
+   "id": "critical-region-probabilities-not-shown",
+   "loses": "M",
+   "groups": [
+    "hypothesis-testing"
+   ],
+   "definition": "Doesn't show the probabilities on either side of the critical value."
+  },
+  {
+   "id": "critical-region-off-by-one",
+   "loses": "A",
+   "groups": [
+    "hypothesis-testing"
+   ],
+   "definition": "Takes the critical region one value too far, so its probability exceeds the significance level."
+  },
+  {
+   "id": "two-tailed-level-not-halved",
+   "loses": "M",
+   "groups": [
+    "hypothesis-testing"
+   ],
+   "definition": "Uses the full significance level in each tail of a two-tailed test."
+  },
+  {
+   "id": "point-probability-compared",
+   "loses": "M",
+   "groups": [
+    "hypothesis-testing"
+   ],
+   "definition": "Compares P(X = x) with the significance level instead of the tail probability."
+  },
+  {
+   "id": "conclusion-too-definite-or-no-context",
+   "loses": "A",
+   "groups": [
+    "hypothesis-testing"
+   ],
+   "definition": "Says the test 'proves' something, or concludes without the context."
+  },
+  {
+   "id": "sample-mean-sd-not-scaled",
+   "loses": "M",
+   "groups": [
+    "hypothesis-testing"
+   ],
+   "definition": "Uses sigma instead of sigma/sqrt(n) for the distribution of the sample mean."
+  },
+  {
+   "id": "pmcc-critical-value-error",
+   "loses": "M",
+   "groups": [
+    "hypothesis-testing"
+   ],
+   "definition": "Reads the PMCC critical value for the wrong sample size or tail."
+  },
+  {
+   "id": "actual-significance-level-error",
+   "loses": "A",
+   "groups": [
+    "hypothesis-testing"
+   ],
+   "definition": "Gives the nominal significance level when the actual probability of the critical region is asked."
+  },
+  {
+   "id": "sign-convention-inconsistent",
+   "loses": "M",
+   "groups": [
+    "kinematics-constant-acceleration",
+    "projectiles",
+    "forces-and-newtons-laws"
+   ],
+   "definition": "Changes which direction is positive partway through, e.g. g positive both up and down."
+  },
+  {
+   "id": "starts-from-rest-assumed",
+   "loses": "M",
+   "groups": [
+    "kinematics-constant-acceleration"
+   ],
+   "definition": "Takes u = 0 when the particle is not starting from rest."
+  },
+  {
+   "id": "unit-conversion-error",
+   "loses": "B",
+   "groups": [
+    "kinematics-constant-acceleration"
+   ],
+   "definition": "Doesn't convert to SI units, e.g. leaves km/h or grams."
+  },
+  {
+   "id": "vt-gradient-area-confused",
+   "loses": "M",
+   "groups": [
+    "kinematics-constant-acceleration"
+   ],
+   "definition": "Uses the area under a velocity-time graph for acceleration, or its gradient for distance."
+  },
+  {
+   "id": "displacement-distance-confused",
+   "loses": "A",
+   "groups": [
+    "kinematics-constant-acceleration",
+    "kinematics-calculus"
+   ],
+   "definition": "Gives displacement when total distance is asked, or the reverse, when the particle changes direction."
+  },
+  {
+   "id": "velocity-given-for-speed",
+   "loses": "A",
+   "groups": [
+    "kinematics-constant-acceleration",
+    "kinematics-calculus",
+    "projectiles"
+   ],
+   "definition": "Gives a velocity vector or one component when the speed (a magnitude) is asked."
+  },
+  {
+   "id": "direction-angle-reference-error",
+   "loses": "A",
+   "groups": [
+    "kinematics-constant-acceleration",
+    "forces-and-newtons-laws",
+    "projectiles"
+   ],
+   "definition": "Measures the direction from the wrong axis or reference line."
+  },
+  {
+   "id": "suvat-with-variable-acceleration",
+   "loses": "M",
+   "groups": [
+    "kinematics-calculus"
+   ],
+   "definition": "Uses constant-acceleration formulas when the acceleration varies with time."
+  },
+  {
+   "id": "initial-conditions-not-used",
+   "loses": "M",
+   "groups": [
+    "kinematics-calculus",
+    "differential-equations"
+   ],
+   "definition": "Doesn't use the initial position or velocity to find the constant of integration."
+  },
+  {
+   "id": "projectile-components-swapped",
+   "loses": "M",
+   "groups": [
+    "projectiles"
+   ],
+   "definition": "Uses sin for the horizontal and cos for the vertical component (or the reverse) against the diagram."
+  },
+  {
+   "id": "gravity-applied-horizontally",
+   "loses": "M",
+   "groups": [
+    "projectiles"
+   ],
+   "definition": "Includes acceleration due to gravity in the horizontal motion."
+  },
+  {
+   "id": "time-not-shared",
+   "loses": "M",
+   "groups": [
+    "projectiles"
+   ],
+   "definition": "Uses different times for the horizontal and vertical motion of the same flight."
+  },
+  {
+   "id": "greatest-height-condition-error",
+   "loses": "M",
+   "groups": [
+    "projectiles"
+   ],
+   "definition": "Sets the whole velocity to zero at the top instead of just the vertical component."
+  },
+  {
+   "id": "force-omitted-from-diagram",
+   "loses": "M",
+   "groups": [
+    "forces-and-newtons-laws",
+    "friction",
+    "moments"
+   ],
+   "definition": "Leaves out a force such as the normal reaction, friction or tension."
+  },
+  {
+   "id": "resolving-sin-cos-swapped",
+   "loses": "M",
+   "groups": [
+    "forces-and-newtons-laws",
+    "friction",
+    "moments",
+    "projectiles"
+   ],
+   "definition": "Uses sin where cos is needed when resolving, or the reverse."
+  },
+  {
+   "id": "mass-for-weight",
+   "loses": "M",
+   "groups": [
+    "forces-and-newtons-laws",
+    "friction",
+    "moments"
+   ],
+   "definition": "Uses m instead of mg for the weight."
+  },
+  {
+   "id": "resultant-force-error",
+   "loses": "M",
+   "groups": [
+    "forces-and-newtons-laws"
+   ],
+   "definition": "Doesn't set resultant force equal to ma: treats ma as an extra force, or gets the direction wrong."
+  },
+  {
+   "id": "connected-particles-tension-error",
+   "loses": "M",
+   "groups": [
+    "forces-and-newtons-laws"
+   ],
+   "definition": "Includes internal tension in the whole-system equation, or uses different tensions for a light inextensible string."
+  },
+  {
+   "id": "slope-weight-component-error",
+   "loses": "M",
+   "groups": [
+    "forces-and-newtons-laws",
+    "friction"
+   ],
+   "definition": "Uses mg rather than mg sin(theta) along the slope, or swaps the components."
+  },
+  {
+   "id": "g-accuracy-overstated",
+   "loses": "A",
+   "groups": [
+    "forces-and-newtons-laws",
+    "friction",
+    "projectiles",
+    "kinematics-constant-acceleration"
+   ],
+   "definition": "Gives a final answer to more significant figures than the value of g used justifies."
+  },
+  {
+   "id": "friction-uses-weight",
+   "loses": "M",
+   "groups": [
+    "friction"
+   ],
+   "definition": "Uses mu times mg for friction when the normal reaction is not mg, e.g. on a slope or with an angled pull."
+  },
+  {
+   "id": "friction-wrong-direction",
+   "loses": "M",
+   "groups": [
+    "friction"
+   ],
+   "definition": "Points friction the wrong way, not opposing the motion or the likely motion."
+  },
+  {
+   "id": "friction-limiting-assumed",
+   "loses": "M",
+   "groups": [
+    "friction"
+   ],
+   "definition": "Uses F = mu R when the friction is not at its limit."
+  },
+  {
+   "id": "motion-check-missing",
+   "loses": "M",
+   "groups": [
+    "friction"
+   ],
+   "definition": "Decides whether an object moves without comparing the driving force with the maximum friction."
+  },
+  {
+   "id": "moment-distance-not-perpendicular",
+   "loses": "M",
+   "groups": [
+    "moments"
+   ],
+   "definition": "Uses the distance along the rod instead of the perpendicular distance, or forgets the sin(theta)."
+  },
+  {
+   "id": "moment-omitted",
+   "loses": "M",
+   "groups": [
+    "moments"
+   ],
+   "definition": "Leaves out the moment of one force, or gives a moment to a force acting through the pivot."
+  },
+  {
+   "id": "moment-direction-inconsistent",
+   "loses": "M",
+   "groups": [
+    "moments"
+   ],
+   "definition": "Mixes clockwise and anticlockwise moments in the same equation."
+  },
+  {
+   "id": "smooth-reaction-direction-error",
+   "loses": "B",
+   "groups": [
+    "moments"
+   ],
+   "definition": "Draws the reaction at a smooth contact in the wrong direction, i.e. not perpendicular to the surface."
+  },
+  {
+   "id": "centre-of-mass-misplaced",
+   "loses": "M",
+   "groups": [
+    "moments"
+   ],
+   "definition": "Puts the weight at the wrong point, e.g. at the midpoint of a non-uniform rod."
+  },
+  {
+   "id": "assumption-not-relevant",
+   "loses": "B",
+   "groups": [
+    "mechanics-modelling",
+    "modelling-in-context"
+   ],
+   "definition": "Gives a modelling assumption that doesn't affect this problem, e.g. air resistance in a statics question."
+  },
+  {
+   "id": "assumption-effect-not-stated",
+   "loses": "B",
+   "groups": [
+    "mechanics-modelling"
+   ],
+   "definition": "Names an assumption or refinement without saying how it changes the answer."
+  }
+ ]
+}

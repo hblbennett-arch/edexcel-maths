@@ -13,7 +13,7 @@ import json
 import time
 from dataclasses import dataclass, field
 
-from . import config, db
+from . import config, db, pack
 from .prompts import FOLLOW_UP_SYSTEM_SUFFIX, SYSTEM_PROMPT, TUTOR_SCHEMA, schema_for
 from .retrieve import figure_images, generic_bundle, question_bundle
 from .validate import validate
@@ -268,7 +268,7 @@ def explain(question_id: str | None = None, text: str | None = None, detail: str
 def booklet_facts(question_id: str) -> str:
     """One line per skill in the question: is its key formula printed in the 9MA0 booklet?"""
     notes = {sk["id"]: sk.get("formula_booklet_note") for sk in
-             json.loads((config.ROOT / "data" / "processed" / "tags.json").read_text())["skills"]}
+             json.loads(pack.current().tags.read_text())["skills"]}
     rows = db.rows("SELECT DISTINCT s.id, s.title, s.formula_booklet FROM question_tags t JOIN skills s ON s.id = t.tag_value "
                    "WHERE t.question_id = ? AND t.tag_type = 'skill' AND s.group_id != 'exam-technique'", (question_id,))
     lines = []

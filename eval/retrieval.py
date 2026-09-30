@@ -156,4 +156,6 @@ def main() -> None:
 
 
 if __name__ == "__main__":
+    from eval import licence_gate
+    licence_gate()
     main()

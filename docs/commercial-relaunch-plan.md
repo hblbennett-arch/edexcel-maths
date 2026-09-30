@@ -99,13 +99,13 @@ Size and cost (estimates):
 
 | Content | Amount |
 |---|---|
-| Short single-skill items (about 5 per skill, starter/core/stretch) | ~1,200 |
-| Multi-part exam-style questions (the "differentiation + partial fractions + stationary points" kind) | ~300 |
+| Exam-style questions combining skills in the 9MA0 mix (two-thirds of real 9MA0 questions combine topics; see the handoff §5.3) | ~600 |
 | Full mock sets | 6 (2 × P1/P2/P3) |
-| Pitfall notes | ~250 skills × 3–5 |
+| Single-skill drills (starter/core) | ~490 |
+| Pitfall notes | per question, from the error codes |
 
-- Model cost: ~$0.10–0.30 per item including the blind solve, so **~$300–600** in total.
-- **Your review time is the real cost: ~3–6 minutes per item, 80–150 hours.**
+- Model usage: ~$0.40 per drill and ~$0.80 per exam-style question, including the blind solve and the mark-scheme tests, so **~$500–1,100** in total (on the Enterprise login).
+- **Your review time is the real cost: ~3 minutes per drill and ~6–8 per exam-style question, about 90–130 hours.**
 - Start with 2 skill groups to measure pass rates before scaling.
 
 ## 6. Changes to this codebase
@@ -114,7 +114,7 @@ Size and cost (estimates):
 - **Deterministic licence check** (`scripts/check_provenance.py`), run in the build. A commercial build **fails** if any row isn't `original`/`ogl`, if any examiner notes are present, or if any text matches the novelty fingerprints.
 - **Prompts** (`chatbot/prompts.py`): replace "official mark scheme" and "verbatim examiner-report notes" with "our mark scheme" and "our pitfall notes". Keep the "likely M1" behaviour for bring-your-own-question.
 - **Past-paper map:** a table of references, tags, marks and question type, plus a link to Pearson's official PDF page, and no text. Remove every PMT link.
-- **Model backend:** switch to your own Anthropic API account under the Commercial Terms, which say you own the outputs. Don't use the Claude Code Enterprise login; that belongs to your employer.
+- **Model backend:** the Claude Code Enterprise login (`claude -p`), the project's only account, for the tutor and for content generation.
 - **Evals:** keep them all, re-pointed at the clean pack. `practice_eval` and `practice_search_eval` work unchanged on any pack.
 
 ## 7. Other compliance before launch
@@ -151,7 +151,7 @@ Size and cost (estimates):
 
 | Phase | What | Time | Cost |
 |---|---|---|---|
-| 0 | Make the repo private and purge history (§2); check your employment contract; open an Anthropic API account | this week | £0 |
+| 0 | Make the repo private and purge history (§2); check your employment contract | this week | £0 |
 | 1 | Engine/content split, provenance check, clean prompts; pipeline prototype on 2 skill groups; measure pass rates and review time | 2–3 weeks part-time | ~$20 |
 | 2 | Build the bank (§5) and write the pitfall library | 8–12 weeks part-time | ~$300–600 + your review time |
 | 3 | Solicitor review; Children's Code DPIA; terms and privacy notice; ICO fee; free pilot with ~100 students | 4 weeks | ~£500–2,000 legal (estimate) + £52 |

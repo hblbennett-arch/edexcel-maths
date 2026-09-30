@@ -10,6 +10,23 @@
 
 The current Pearson-based chatbot is preserved on **`main`** (last commit `49d7e1c`). This branch is where the commercial product is built.
 
+**Status (2026-09-29, second session):**
+- **Phase 0 not started, by the user's choice:** no purge yet, the repo is still public, and they'll make it private later.
+- **Phase 1 partly done** (uncommitted):
+  - content packs;
+  - provenance columns and the licence gate;
+  - the fact layer and its check;
+  - a seed error taxonomy (267 codes) and error-frequency matching;
+  - gates G1 and G7 with a self-test.
+- **All engine evals are identical** before and after the pack abstraction.
+- **Details, commands and lessons:** `docs/clean-room-pipeline.md`. **Open decisions:** `docs/review-checklist.md` §28.
+- **Still to do in Phase 1:** G2, G8, clean prompts and the blueprint builder.
+- **New firewall rule:** clean-side sessions never print Pearson text into their own context. Work with ids, counts and codes.
+- **User decisions, 2026-09-30:**
+  - build everything on the Claude Code Enterprise login (§2, Model backend);
+  - the bank focuses on problem-solving exam-style questions in the measured 9MA0 mix (§5.3, `mix_9ma0`), with drills alongside;
+  - GitHub only, never GitLab.
+
 ---
 
 ## 0. What the user wants (keep this in front of you)
@@ -24,8 +41,9 @@ The user is building **a product to sell for profit**. It merges AI with their e
    - by description;
    - by weakness ("the part I found hardest");
    and build practice ladders from easy to exam-level.
-4. **Be faithful to the Edexcel 9MA0 style** (question wording, part structure, mark allocation, mark-scheme conventions), so it's a genuinely effective revision resource for Pearson Edexcel A Level Maths students.
-5. **Be legally sellable in the UK without Pearson's permission.** The product must contain **no Pearson expression**: no Pearson question, mark-scheme or examiner-report text, and no close paraphrase of any. **Heavy inspiration** from the existing Pearson bank is wanted, but only through the **abstraction firewall** in §3. Nothing Pearson-written crosses it.
+4. **Focus on problem solving.** Most of the bank is exam-style questions that combine skills in the same proportions as current 9MA0 papers (§5.3), with single-skill drills alongside for targeted practice.
+5. **Be faithful to the Edexcel 9MA0 style** (question wording, part structure, mark allocation, mark-scheme conventions), so it's a genuinely effective revision resource for Pearson Edexcel A Level Maths students.
+6. **Be legally sellable in the UK without Pearson's permission.** The product must contain **no Pearson expression**: no Pearson question, mark-scheme or examiner-report text, and no close paraphrase of any. **Heavy inspiration** from the existing Pearson bank is wanted, but only through the **abstraction firewall** in §3. Nothing Pearson-written crosses it.
 
 Commercial context (researched; details in `docs/commercial-relaunch-plan.md`):
 - **The market gap:** no competitor explains A Level method marking step by step. Save My Exams' "Smart Mark" marks answers but doesn't teach the marking.
@@ -40,7 +58,7 @@ Commercial context (researched; details in `docs/commercial-relaunch-plan.md`):
 
 **Git:**
 - **Never commit or push unless the user asks in that session.**
-- When pushing: GitHub only (never GitLab); remote `origin` = github.com/hblbennett-arch/edexcel-maths; identity `hblbennett-arch <hblbennett@gmail.com>`.
+- **GitHub only, never GitLab**: no GitLab remotes, pushes or GitLab tools in this project. When pushing: remote `origin` = github.com/hblbennett-arch/edexcel-maths; identity `hblbennett-arch <hblbennett@gmail.com>`.
 - Never store a token the user gives you. Use it for one push with `git -c credential.helper= -c "http.https://github.com/.extraheader=AUTHORIZATION: basic <base64 of x-access-token:TOKEN>" push origin <branch>`, then remind them to revoke it.
 - **Do not push this branch while the repo is public** (§2).
 
@@ -109,7 +127,7 @@ All of these must keep working on the clean content pack.
 - Latency is about 37 s per explanation: ~3 s `claude -p` start-up plus ~33 s generating ~5,000 tokens, ~3,000 of them thinking.
 - Speed backlog (see `docs/rag-chatbot-plan.md` Phase 7): cache explanations; A/B test a lower thinking budget; generate part-by-part.
 
-**Model backend:** today `TUTOR_BACKEND=claude-code` runs on the user's **employer's Claude Code Enterprise login**. **Commercial content generation and the product must use the user's own Anthropic API account** under the Commercial Terms, which say the customer owns its outputs. Get the key before Phase 2 (§9). Load the `claude-api` skill before writing API code, and use current models (Opus 5.5 `claude-opus-5-5`, Sonnet 5 `claude-sonnet-5`, Fable 5.1 `claude-fable-5-1`, Haiku 4.5).
+**Model backend:** everything is built on the user's **Claude Code Enterprise login** (`TUTOR_BACKEND=claude-code`, i.e. `claude -p`): the tutor, content generation (§5.4) and every model-based gate. It is the project's only account (user decision, 2026-09-30); don't plan around any other. Use current models: Opus 5.5 `claude-opus-5-5` to generate, Sonnet 5.5 `claude-sonnet-5-5` for the blind solve and the marker (G3/G4), Haiku 4.5 `claude-haiku-4-5` for retagging (G6).
 
 **Known bug:** `--dry-run` mode crashes when opening a multi-part question with no part chosen (`recommend.ladder` gets a part key that doesn't exist). This predates this work; see review-checklist §26.
 
@@ -214,15 +232,24 @@ A blueprint is an abstract design, stored as JSON in `content/blueprints/`. It h
 - the error codes to target;
 - `source_fact_ids`: the ≥3 real questions whose facts shaped it.
 
-Coverage targets (these drive the bank size):
+**The bank's focus is problem solving: exam-style questions that combine skills the way current 9MA0 papers do** (user decision, 2026-09-30). Measured on all 298 current-spec 9MA0 questions (`content/facts/aggregates.json` → `mix_9ma0`). "Topics" are skill groups, not counting the supporting ones (algebraic manipulation, quadratics, exam technique, modelling):
 
-| Content | Target |
-|---|---|
-| Single-skill items per skill (starter/core/stretch) | about 5, so ~1,200 in total |
-| Multi-part exam-style questions | ~300, built from real skill co-occurrence, e.g. "differentiation + partial fractions + stationary points" |
-| Full mock papers | 6: 2 × (P1, P2, P3), matching the paper-level facts |
+| 9MA0 question kind | Pure (210) | Stats (45) | Mech (43) | All (298) |
+|---|---|---|---|---|
+| One topic, ≤ 5 marks | 24% | 2% | 2% | 18% of questions, 10% of marks |
+| One topic, 6+ marks | 18% | 9% | 7% | 15%, 16% of marks |
+| Two topics | 25% | 40% | 35% | 29%, 28% of marks |
+| Three or more topics | 32% | 49% | 56% | 38%, 47% of marks |
 
-### 5.4 Generation (the user's own Anthropic API account)
+About two-thirds of real questions (three-quarters of the marks) combine topics. So the bank is:
+
+| Content | Target | How it is built |
+|---|---|---|
+| **Exam-style questions** | **~600**: pure ~420, stats ~90, mech ~90 (the 9MA0 component shares) | Blueprints sampled so each component matches the table above, plus the 9MA0 distributions of marks per question, parts per question and hence/show-that chains. Topic combinations are drawn from real skill co-occurrence. G8 checks the bank-level mix (total variation distance < 0.15 per component). |
+| **Mock papers** | 6: 2 × (P1, P2, P3), fresh questions not in the bank | Each paper copies a real paper's shape (`papers.json`: number of questions, marks each, types), not its questions |
+| **Skill drills** | ~2 per skill (starter, core), ~490 | Targeted practice and the lower rungs of practice ladders; exam-style questions are the top rungs |
+
+### 5.4 Generation (Claude Code Enterprise login, `claude -p`)
 
 One call per blueprint. The model sees the blueprint, the relevant **DfE/own** skill descriptions, the fact-layer style targets and the error codes. **It never sees Pearson text.**
 
@@ -234,7 +261,7 @@ Outputs, all structured JSON:
 - how-to-start hints;
 - the answer-check data for sympy (final answers and key intermediate values, as expressions).
 
-Use a **different model** for the blind solve in G3. Pilot with 2 skill groups (e.g. differentiation and the binomial distribution) before scaling, and report the cost per accepted item.
+Use a **different model** for the blind solve in G3. Pilot before scaling (about 60 items: ~40 exam-style questions in the 9MA0 mix, built around calculus in pure and the binomial distribution / hypothesis testing in stats, plus ~20 drills), and report the cost per accepted item.
 
 ## 6. Validation plan: every question, mark scheme and pitfall must pass
 
@@ -272,11 +299,11 @@ Store every gate result in `gate_results`. Nothing enters the `clean` pack witho
 
 | Phase | Work | Done when | Cost |
 |---|---|---|---|
-| **0 Clean-up** (needs user approval) | Repo private; back up; `git filter-repo` purge (§2); fix `.gitignore`; take the real-question topic pages off GitHub Pages; check the Verisk employment contract (IP and side-business clauses); open an Anthropic API account and put the key in `.env` | Repo private; no Pearson or AQA files in any commit; API key works | £0 |
+| **0 Clean-up** (needs user approval) | Repo private; back up; `git filter-repo` purge (§2); fix `.gitignore`; take the real-question topic pages off GitHub Pages; check the Verisk employment contract (IP and side-business clauses) | Repo private; no Pearson or AQA files in any commit | £0 |
 | **1 Foundations** | Content-pack abstraction plus provenance columns; `check_provenance.py`; fact layer (§5.1) plus `check_facts.py`; seed error taxonomy for user review (§5.2); frequency matching; blueprint schema; gate scripts G1, G2, G7, G8; clean prompts | All existing evals pass on the `pearson-private` pack through the new abstraction (no regressions); fact layer passes its check | ~£0 |
-| **2 Pilot** | Blueprints and generation for 2 skill groups (~60 items, including 10 multi-part); G3–G6; review UI; `clean_gates_report.py` | Pass rates, cost per accepted item and review minutes per item measured; the user signs off on style and quality | ~$20–40 |
-| **3 Scale** | Full bank (§5.3 targets) in batches of ≤5 parallel agents; pitfall notes; mock papers; G10 audits | Coverage targets met; audit ≤1% errors; engine evals re-baselined on the clean pack | ~$300–600 + ~80–150 h of review |
-| **4 Product** | "Mark my working", weakness tracking, mock mode, caching; own API backend; new brand name and disclaimers; terms, privacy notice, Children's Code DPIA; ICO fee (£52); solicitor review | Solicitor sign-off; compliance items done | ~£500–2,000 legal (estimate) |
+| **2 Pilot** | Blueprints and generation for 2 skill groups (~60 items, including 10 multi-part); G3–G6; review UI; `clean_gates_report.py` | Pass rates, cost per accepted item and review minutes per item measured; the user signs off on style and quality | ~$30–50 of usage |
+| **3 Scale** | Full bank (§5.3 targets) in batches of ≤5 parallel agents; pitfall notes; mock papers; G10 audits | Coverage targets met; the bank's question mix matches 9MA0 (G8); audit ≤1% errors; engine evals re-baselined on the clean pack | ~$500–1,100 of usage + ~90–130 h of review |
+| **4 Product** | "Mark my working", weakness tracking, mock mode, caching; production model backend; new brand name and disclaimers; terms, privacy notice, Children's Code DPIA; ICO fee (£52); solicitor review | Solicitor sign-off; compliance items done | ~£500–2,000 legal (estimate) |
 | **5 Pilot and launch** | ~100 free pilot students (G11), then a paid annual "exam pass"; 3–5 school trials | G11 targets met | — |
 
 ## 9. Compliance checklist (details and sources in `commercial-relaunch-plan.md` §7)
@@ -302,6 +329,6 @@ Store every gate result in `gate_results`. Nothing enters the `clean` pack witho
 ## 11. First actions for the next session
 
 1. Read the files listed at the top. Summarise the plan back to the user in plain words.
-2. Ask the user to approve Phase 0: make the repo private (step-by-step instructions), the backup and history purge (explain that it rewrites history), the employment-contract check and the API key. Don't rewrite history without explicit approval.
+2. Ask the user to approve Phase 0: make the repo private (step-by-step instructions), the backup and history purge (explain that it rewrites history) and the employment-contract check. Don't rewrite history without explicit approval.
 3. Start Phase 1 with the content-pack abstraction and the fact layer. Measure: all existing evals must pass unchanged on `pearson-private` through the new abstraction.
 4. Draft the seed error taxonomy for the user to review. Add it as a review item in `docs/review-checklist.md` §28.

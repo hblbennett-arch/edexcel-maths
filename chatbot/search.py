@@ -9,7 +9,7 @@ Documents (one per row, `kind` in brackets):
 
 Maths symbols embed poorly, so keyword (BM25) and semantic rankings are merged
 with reciprocal-rank fusion (RRF). Vectors are built by scripts/build_embeddings.py
-into data/processed/embeddings_<model>.npz (gitignored; rebuild after build_db.py).
+into <pack embeddings_dir>/embeddings_<model>.npz (gitignored; rebuild after build_db.py).
 """
 import json
 import re
@@ -20,7 +20,7 @@ from pathlib import Path
 import numpy as np
 from rank_bm25 import BM25Okapi
 
-from . import db
+from . import db, pack
 from .text import latex_to_plain, tokens
 
 DEFAULT_MODEL = "BAAI/bge-small-en-v1.5"
@@ -37,7 +37,7 @@ DEFAULT_MODE = {"question": "bm25", "skill": "semantic"}
 
 def embeddings_path(model: str) -> Path:
     slug = re.sub(r"[^a-z0-9]+", "-", model.lower()).strip("-")
-    return db.ROOT / "data" / "processed" / f"embeddings_{slug}.npz"
+    return pack.current().embeddings_dir / f"embeddings_{slug}.npz"
 
 
 def documents() -> list[tuple[str, str, str]]:
