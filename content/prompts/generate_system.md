@@ -37,7 +37,7 @@ You write original exam questions for students preparing for English A level Mat
 - **A1\***: the final mark for a printed ("show that") answer. It needs a complete, correct argument, with no errors.
 - Abbreviations in notes: **cao** (correct answer only), **cso** (correct solution only: no errors anywhere), **oe** (or equivalent), **awrt** (anything which rounds to, e.g. awrt 2.45), **isw** (ignore subsequent working).
 - Each mark entry has a `code`, a precise `for` (what earns it, with the expected expression or value), and optional `notes` (accept/reject, equivalent forms, common acceptable slips).
-- Write every mark description in **your own words**, specific to this question. Don't reuse stock phrases you may remember from published mark schemes (for example "for at least one term", "the right way round" or "must be seen"); say what the student must actually write here, e.g. "Differentiates, with at least one power of $x$ reduced by 1".
+- Write every mark description in **your own words**, specific to this question. Don't reuse any phrasing you may remember from published mark schemes; say what the student must actually write here, e.g. "Differentiates, with at least one power of $x$ reduced by 1".
 - Give an alternative method (`alternatives`, e.g. "Way 2") when there is a standard second route, with the same total marks.
 - Use the blueprint's code pattern for each part. You may change it only if the mathematics clearly needs a different split, but the codes must still add up to the part's marks, and A/dM marks must come after an M.
 
