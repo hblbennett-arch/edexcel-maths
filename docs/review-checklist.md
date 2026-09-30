@@ -294,6 +294,7 @@ What was built and how to run it: `docs/clean-room-pipeline.md`.
   All 40 copies and 40 number-changed variants are still rejected.
 - [ ] **When can a pitfall say "common"?** Only when its error code has ≥ 10 matched examiner-report notes for the skill (`FREQUENT_NOTES`). Set this after you've marked the match samples (item 2 above).
 - [ ] **Style check (G8), small question types:** for the 6 question types with fewer than 5 real questions, marks outside the observed range only give a warning, since the range from so few questions isn't reliable.
+- [ ] **Pilot result: 25 of 60 items pass all eight automatic checks** (18 exam-style, 7 drills). They cost $39.96 across three rounds, including $9.80 on rounds whose fixes then changed, so **about $1.60 per passing item** so far. Please review the 25 in the review screen before I scale up. Your acceptance rate and minutes per item decide whether we go ahead. Scaling the ~1,130 remaining items at today's pass rate would cost roughly **$1,200–1,800** of Enterprise usage; I expect less as the pass rate rises.
 - [ ] **Review screen ready:** `.venv/bin/python scripts/clean/review_server.py` opens http://127.0.0.1:8766.
   - Items are queued by risk (copy-check flags first).
   - Keys: `a` accept, `r` reject (with a reason), `e` edit.

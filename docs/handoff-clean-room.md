@@ -22,6 +22,7 @@ The current Pearson-based chatbot is preserved on **`main`** (last commit `49d7e
 - **Details, commands and lessons:** `docs/clean-room-pipeline.md`. **Open decisions:** `docs/review-checklist.md` §28.
 - **Still to do in Phase 1:** G2, G8, clean prompts and the blueprint builder.
 - **New firewall rule:** clean-side sessions never print Pearson text into their own context. Work with ids, counts and codes.
+- **Phase 2 pilot, 2026-09-30:** 60 items generated (40 exam-style in the 9MA0 mix, 20 drills). 25 pass G1–G8, which awaits the user's review (G9). Spend $39.96, about $1.60 per passing item. Blueprints for the full bank (601 exam-style, 452 drills, 6 mocks) are ready. Next: the user reviews, then scale in batches. See `docs/clean-room-pipeline.md` (Lessons) and checklist §28.
 - **User decisions, 2026-09-30:**
   - build everything on the Claude Code Enterprise login (§2, Model backend);
   - the bank focuses on problem-solving exam-style questions in the measured 9MA0 mix (§5.3, `mix_9ma0`), with drills alongside;
