@@ -1,0 +1,138 @@
+{
+ "id": "parametric-area",
+ "question_type": "parametric-area",
+ "component": "pure",
+ "title": "Area under a parametric curve",
+ "what_it_asks": "You are given a curve defined by $x = x(t)$ and $y = y(t)$, with a diagram showing a shaded region. You must find its area, usually as an exact value. The idea is that area is $\\int y\\,\\mathrm{d}x$, which becomes $\\int y\\frac{\\mathrm{d}x}{\\mathrm{d}t}\\,\\mathrm{d}t$ with the limits written as values of $t$.",
+ "typical_structure": "Usually three parts, sometimes two or four. An early part is often short: find a parameter value at a point, or a coordinate where the curve meets an axis. A middle part is often a \"show that\" which turns the area into an integral in $t$ with a printed form. The last and largest part usually says \"hence\" and asks you to simplify with a trig identity and evaluate exactly. Most of the marks sit in the last one or two parts.",
+ "mark_pattern": "Short parts are usually M1 A1, or B1 M1 A1 where a stated value comes first. A 4-mark part is often M1 A1 dM1 A1. In the setup, the first M1 is for forming $y\\frac{\\mathrm{d}x}{\\mathrm{d}t}$ with a real attempt at differentiating $x$. The A1 is for the correct integrand. A later M1 or dM1 is for using an identity, such as a double angle formula, to make the integrand integrable. Another is for integrating and then substituting the $t$ limits. The final A1 is for the exact value. In show-that parts the last mark is starred (A1*) and needs a complete argument with no errors.",
+ "where_marks_leak": [
+  {
+   "error_code": "parametric-area-dx-dt-missing",
+   "mark_family": "method",
+   "text": "You integrate $y$ with respect to $t$ without the factor $\\frac{\\mathrm{d}x}{\\mathrm{d}t}$, or you keep the $x$-values as limits. The first M1 goes, and the A1 and any dM1 that depend on it go too."
+  },
+  {
+   "error_code": "second-derivative-error",
+   "mark_family": "accuracy",
+   "text": "You slip when differentiating a derivative again, for example when finding $\\frac{\\mathrm{d}x}{\\mathrm{d}t}$ from a product or trig term. The A1 for the integrand is lost, and the printed result in a show-that part cannot be reached cleanly."
+  },
+  {
+   "error_code": "trig-integral-sign-error",
+   "mark_family": "accuracy",
+   "text": "You integrate $\\sin$ as $\\cos$, or drop a minus sign. The method mark is safe, but the A1 for the integrated expression and the final exact answer are lost."
+  },
+  {
+   "error_code": "reverse-chain-coefficient-error",
+   "mark_family": "accuracy",
+   "text": "After using a double angle form you integrate something like $\\cos 2t$ and multiply by 2 instead of dividing. The A1 is lost, and the final A1 with it."
+  },
+  {
+   "error_code": "arithmetic-slip",
+   "mark_family": "accuracy",
+   "text": "You make a numerical slip when substituting exact trig values into the limits. The method marks stay, but the final A1 for the exact value goes."
+  }
+ ],
+ "write_to_earn": [
+  "Write $\\text{Area} = \\int y\\frac{\\mathrm{d}x}{\\mathrm{d}t}\\,\\mathrm{d}t$ before substituting anything, and find $\\frac{\\mathrm{d}x}{\\mathrm{d}t}$ on its own line.",
+  "Convert the limits by solving $x(t)$ or $y(t)$ for the given points, and check the other coordinate too.",
+  "In a show-that part, write the line just before the printed integral, then the printed result, with no skipped steps.",
+  "Name the identity you use, such as $\\cos 2t = 2\\cos^2 t - 1$, and write the rewritten integrand before integrating.",
+  "Put in the limits as upper minus lower using exact values, and give the answer in the form asked without rounding."
+ ],
+ "check_before_you_leave": [
+  "dx/dt included?",
+  "Limits in t, not x?",
+  "Upper minus lower?",
+  "Exact form given?",
+  "Printed result reached honestly?"
+ ],
+ "skills": [
+  "area-under-parametric-curve",
+  "show-that-given-answer",
+  "evaluate-definite-integral",
+  "exact-trig-values",
+  "double-angle-formulae",
+  "find-parameter-at-point",
+  "use-hence-previous-result"
+ ],
+ "related_types": [
+  "parametric-differentiation-tangents",
+  "parametric-to-cartesian-and-intersections",
+  "integration-by-substitution",
+  "definite-integrals-standard-forms"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:06:12",
+ "cost_usd": 0.063,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 15,
+  "codes_listed": {
+   "parametric-area-dx-dt-missing": 4,
+   "second-derivative-error": 3,
+   "by-parts-poor-choice": 2,
+   "reverse-chain-coefficient-error": 2,
+   "trig-integral-sign-error": 2,
+   "arithmetic-slip": 2,
+   "integration-power-rule-error": 2,
+   "wrong-final-accuracy": 2
+  },
+  "frequent_codes": [],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.877 with part:GCE2008_6666_June2005_Q5:a"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.003,
+   "shared_numbers": 0,
+   "max_cosine": 0.877,
+   "cosine_source": "part:GCE2008_6666_June2005_Q5:a"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 22
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.877 with part:GCE2008_6666_June2005_Q5:a"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

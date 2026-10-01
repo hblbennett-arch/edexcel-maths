@@ -121,7 +121,196 @@
    "hints": [
     "Before you integrate, write $\\sqrt{x}$ and $\\frac{32}{x^3}$ as $x^{\\frac{1}{2}}$ and $32x^{-3}$.",
     "Include a constant when you integrate, then put $x = 4$ and $y = 10$ into your result to find it."
-   ]
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$y = \\dfrac{3x^{3/2}}{3/2} + \\dfrac{32x^{-2}}{-2} - 2x + c$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$2x^{3/2}$",
+      "secures": [
+       "A1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$-16x^{-2} - 2x$",
+      "secures": [
+       "A1"
+      ]
+     },
+     {
+      "step": 4,
+      "working": "$10 = 2(8) - 16\\left(\\tfrac{1}{16}\\right) - 8 + c \\Rightarrow c = 3$",
+      "secures": [
+       "A1"
+      ]
+     },
+     {
+      "step": 5,
+      "working": "$y = 2x^{3/2} - \\dfrac{16}{x^2} - 2x + 3$",
+      "secures": [
+       "A1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$3\\sqrt{x} = 3x^{\\frac{1}{2}}$",
+      "why": "You can only integrate using the power rule once the root is written as a power of $x$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$\\dfrac{32}{x^3} = 32x^{-3}$",
+      "why": "A fraction with $x$ on the bottom becomes a negative power, so the power rule applies to it too.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 3x^{\\frac{1}{2}} + 32x^{-3} - 2$",
+      "why": "This collects the rewritten terms into one line ready to integrate.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$y = \\int \\left(3x^{\\frac{1}{2}} + 32x^{-3} - 2\\right)\\mathrm{d}x$",
+      "why": "Integrating undoes differentiating, so it takes you from the gradient back to $y$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$\\int 3x^{\\frac{1}{2}}\\,\\mathrm{d}x = \\dfrac{3x^{\\frac{3}{2}}}{\\frac{3}{2}}$",
+      "why": "You add 1 to the index, $\\frac12+1=\\frac32$, and divide by the new index.",
+      "secures": "M1",
+      "check": "Differentiating $x^{3/2}$ brings the $\\frac32$ down and gives back $x^{1/2}$."
+     },
+     {
+      "step": 6,
+      "working": "$\\int 32x^{-3}\\,\\mathrm{d}x = \\dfrac{32x^{-2}}{-2}$",
+      "why": "Here $-3+1=-2$, and you divide by $-2$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "$\\int -2\\,\\mathrm{d}x = -2x$",
+      "why": "The integral of a constant is that constant times $x$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$y = \\dfrac{3x^{\\frac{3}{2}}}{\\frac{3}{2}} + \\dfrac{32x^{-2}}{-2} - 2x + c$",
+      "why": "You add the constant $c$ because integration loses any constant term.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "$\\dfrac{3}{\\frac{3}{2}} = 3\\times\\dfrac{2}{3} = 2$",
+      "why": "Dividing by a fraction means multiplying by its flip.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "First term: $2x^{\\frac{3}{2}}$",
+      "why": "This is the simplified integral of $3\\sqrt{x}$.",
+      "secures": "A1",
+      "check": null
+     },
+     {
+      "step": 11,
+      "working": "$\\dfrac{32}{-2} = -16$",
+      "why": "Dividing 32 by $-2$ gives a negative coefficient.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 12,
+      "working": "$y = 2x^{\\frac{3}{2}} - 16x^{-2} - 2x + c$",
+      "why": "This puts the simplified terms together, with the $-2x$ from the constant.",
+      "secures": "A1",
+      "check": "Differentiate: $-16\\times(-2)x^{-3}=32x^{-3}$."
+     },
+     {
+      "step": 13,
+      "working": "$x=4,\\ y=10:\\ 10 = 2(4)^{\\frac{3}{2}} - 16(4)^{-2} - 2(4) + c$",
+      "why": "The curve passes through $(4,10)$, so these values must fit the equation and let you find $c$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 14,
+      "working": "$4^{\\frac{3}{2}} = (\\sqrt{4})^3 = 2^3 = 8$",
+      "why": "Take the square root first, then cube.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 15,
+      "working": "$4^{-2} = \\dfrac{1}{4^2} = \\dfrac{1}{16}$",
+      "why": "A negative power means the reciprocal.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 16,
+      "working": "$10 = 2(8) - 16\\left(\\tfrac{1}{16}\\right) - 8 + c$",
+      "why": "You replace the powers with their values.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 17,
+      "working": "$10 = 16 - 1 - 8 + c$",
+      "why": "Evaluate each product: $2\\times8=16$ and $16\\times\\frac1{16}=1$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 18,
+      "working": "$10 = 7 + c$",
+      "why": "Combine the numbers: $16-1-8=7$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 19,
+      "working": "$c = 10 - 7 = 3$",
+      "why": "Subtract 7 from both sides to isolate $c$.",
+      "secures": "A1",
+      "check": "Put $c=3$ back: $7+3=10$."
+     },
+     {
+      "step": 20,
+      "working": "$y = 2x^{\\frac{3}{2}} - \\dfrac{16}{x^2} - 2x + 3$",
+      "why": "Substitute $c=3$ and write $-16x^{-2}$ as a fraction, giving the equation of $C$.",
+      "secures": "A1",
+      "check": null
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:50:18+00:00",
+    "cost_usd": 0.0302,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
   }
  ],
  "pitfalls": [
@@ -474,6 +663,14 @@
      "constant-of-integration-from-point"
     ]
    }
+  },
+  "GL": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part -: copy check flag: cosine 0.861 with part:GCE2008_6663_June2005_Q7:b"
+   ],
+   "parts_checked": 1
   }
  },
  "review": {

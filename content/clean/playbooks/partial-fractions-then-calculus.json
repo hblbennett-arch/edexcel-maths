@@ -1,0 +1,141 @@
+{
+ "id": "partial-fractions-then-calculus",
+ "question_type": "partial-fractions-then-calculus",
+ "component": "pure",
+ "title": "Partial fractions, then integrate or differentiate",
+ "what_it_asks": "You are given a rational function, sometimes improper, and asked to split it into partial fractions, often in a stated form. You then use that form to integrate exactly or to differentiate. The idea is that simple pieces such as $\\frac{A}{ax+b}$ integrate to logarithms, which a single fraction does not.",
+ "typical_structure": "Most questions have one or two parts, and some have three or four. The first part usually asks you to express the fraction in partial fractions, often with a stated form, and takes three or four marks. A later part usually says \"hence\" and asks for an exact integral, often a definite one, where you integrate and then combine logarithms. Improper fractions need algebraic division first, which adds a mark or two.",
+ "mark_pattern": "A partial fractions part is usually B1 M1 A1 A1 or M1 A1 A1. A B1 is often for a correct stated form or a constant found directly. M1 is for multiplying through and substituting values or comparing coefficients. The A1 marks are for the constants, and A1ft can follow your own values. The integration part is typically M1 A1ft dM1 A1. M1 is for integrating to logarithms, A1ft is for correct terms, dM1 is for using limits and A1 is for the single exact simplified value. Division of an improper fraction is usually a method mark for the quotient and an accuracy mark for the remainder.",
+ "where_marks_leak": [
+  {
+   "error_code": "partial-fraction-wrong-form",
+   "mark_family": "method",
+   "text": "You set up the wrong form, for example with no term for a repeated factor, or with a constant numerator where a linear one is needed. The M1 is lost, and the A1 marks and any later dM1 that rely on it go too."
+  },
+  {
+   "error_code": "rationalising-error",
+   "mark_family": "method",
+   "text": "You multiply by the wrong conjugate, or only the numerator, when tidying a surd in an exact answer. The method mark for that step is lost, and the final exact A1 goes with it."
+  },
+  {
+   "error_code": "arithmetic-slip",
+   "mark_family": "accuracy",
+   "text": "Your method is right, but a slip in a constant gives a wrong value. The A1 is lost. An A1ft can still be earned if you use your wrong constants correctly in the integration."
+  },
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You give a decimal when an exact form was asked for, or round to the wrong accuracy. The final A1 is lost even when all the working is right."
+  },
+  {
+   "error_code": "polynomial-division-error",
+   "mark_family": "method",
+   "text": "You make a sign error in long division or leave out a zero term in an improper fraction. The quotient and remainder are then wrong, so the M1 and the A1 marks that follow are lost."
+  }
+ ],
+ "write_to_earn": [
+  "Write the partial fraction form with unknown constants before you find them, so the method mark is secure.",
+  "Multiply through by the full denominator and show the identity, then substitute values or compare coefficients.",
+  "If the numerator's degree is at least the denominator's, divide first and state the quotient and remainder.",
+  "Integrate each term to a logarithm with the correct factor, such as $\\frac{A}{a}\\ln|ax+b|$, before you put in limits.",
+  "Put in the limits, combine the logs with the log laws, and give one exact simplified value."
+ ],
+ "check_before_you_leave": [
+  "Constants checked by substitution",
+  "Improper fraction divided first?",
+  "Factor $\\frac{1}{a}$ in each log",
+  "Logs combined, exact form",
+  "$+c$ for indefinite integrals"
+ ],
+ "skills": [
+  "partial-fractions",
+  "algebraic-division-improper",
+  "integrate-partial-fractions-to-logs",
+  "use-hence-previous-result",
+  "laws-of-logarithms",
+  "evaluate-definite-integral",
+  "exact-form-answers"
+ ],
+ "related_types": [
+  "definite-integrals-standard-forms",
+  "log-laws-and-equations",
+  "integration-by-substitution",
+  "integration-by-parts"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:06:18",
+ "cost_usd": 0.0805,
+ "attempts": 2,
+ "facts": {
+  "n_questions": 42,
+  "codes_listed": {
+   "partial-fraction-wrong-form": 14,
+   "rationalising-error": 12,
+   "arithmetic-slip": 7,
+   "wrong-final-accuracy": 7,
+   "polynomial-division-error": 6,
+   "integration-power-rule-error": 5,
+   "sign-error-expanding-brackets": 4,
+   "missing-constant-of-integration": 4
+  },
+  "frequent_codes": [
+   "partial-fraction-wrong-form",
+   "rationalising-error"
+  ],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.848 with note:GCE2008_6664_June2016_Q4_n3"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.0,
+   "shared_numbers": 0,
+   "max_cosine": 0.848,
+   "cosine_source": "note:GCE2008_6664_June2016_Q4_n3"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 4
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.848 with note:GCE2008_6664_June2016_Q4_n3"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

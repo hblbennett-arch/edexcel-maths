@@ -1,0 +1,816 @@
+{
+ "id": "cr-1-p1-q15",
+ "blueprint_id": "mk-1-p1-q15",
+ "question_type": "proof-by-contradiction",
+ "component": "pure",
+ "tier": "standard",
+ "kind": "mock",
+ "stem": "Let $n$ be an integer. Point $A$ has position vector $\\overrightarrow{OA} = (2 - n)\\mathbf{i} + (n + 5)\\mathbf{j} - 3\\mathbf{k}$ and point $B$ has position vector $\\overrightarrow{OB} = 3\\mathbf{i} + (2n + 5)\\mathbf{j} - \\mathbf{k}$, where $O$ is the origin.",
+ "paper": "mock-1-P1",
+ "set": "mock-1",
+ "q_num": 15,
+ "parts": [
+  {
+   "label": "a",
+   "marks": 2,
+   "text": "Show that $\\overrightarrow{AB} = (n+1)\\mathbf{i} + n\\mathbf{j} + 2\\mathbf{k}$, and hence that $|\\overrightarrow{AB}|^2 = 2n^2 + 2n + 5$. (2)",
+   "command": "show-that",
+   "forms": [],
+   "skills": [
+    "vector-between-points",
+    "explain-with-reason"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Uses $\\overrightarrow{AB} = \\overrightarrow{OB} - \\overrightarrow{OA}$, subtracting component by component in that order, with at least two components correct: $(3-(2-n))\\mathbf{i} + ((2n+5)-(n+5))\\mathbf{j} + (-1-(-3))\\mathbf{k}$",
+     "notes": "Using $\\overrightarrow{OA} - \\overrightarrow{OB}$ is M0."
+    },
+    {
+     "code": "A1*",
+     "for": "Gets $\\overrightarrow{AB} = (n+1)\\mathbf{i} + n\\mathbf{j} + 2\\mathbf{k}$, then writes $|\\overrightarrow{AB}|^2 = (n+1)^2 + n^2 + 2^2$ and expands it to $n^2 + 2n + 1 + n^2 + 4 = 2n^2 + 2n + 5$",
+     "depends_on": "M1",
+     "notes": "cso. The squared-components line and the expansion must both be shown, because the answer is printed."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\overrightarrow{AB} = \\overrightarrow{OB} - \\overrightarrow{OA} = \\big(3-(2-n)\\big)\\mathbf{i} + \\big((2n+5)-(n+5)\\big)\\mathbf{j} + \\big(-1-(-3)\\big)\\mathbf{k}$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$= (n+1)\\mathbf{i} + n\\mathbf{j} + 2\\mathbf{k}$",
+     "mark": "0"
+    },
+    {
+     "step": 3,
+     "working": "$|\\overrightarrow{AB}|^2 = (n+1)^2 + n^2 + 2^2 = n^2 + 2n + 1 + n^2 + 4 = 2n^2 + 2n + 5$",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "3 - (2 - n)",
+     "rhs": "n + 1"
+    },
+    {
+     "type": "equals",
+     "lhs": "(2n + 5) - (n + 5)",
+     "rhs": "n"
+    },
+    {
+     "type": "equals",
+     "lhs": "(3 - (2 - n))^2 + ((2n + 5) - (n + 5))^2 + (-1 - (-3))^2",
+     "rhs": "2n^2 + 2n + 5"
+    }
+   ],
+   "hints": [
+    "The vector that goes from $A$ to $B$ is 'end minus start', so start with $\\overrightarrow{OB} - \\overrightarrow{OA}$.",
+    "Squaring the magnitude means adding the squares of the three components. Don't take a square root here."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 4,
+   "text": "Prove by contradiction that there is no integer $n$ for which $|\\overrightarrow{AB}|$ is an even integer. (4)",
+   "command": "prove",
+   "forms": [],
+   "skills": [
+    "proof-by-contradiction",
+    "algebraic-proof-odd-even-multiples",
+    "explain-with-reason",
+    "proof-by-exhaustion-or-counterexample"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Starts by assuming the opposite: there is an integer $n$ for which $|\\overrightarrow{AB}| = 2m$ for some integer $m$",
+     "notes": "Assuming that $|\\overrightarrow{AB}|$ is odd, or that it is not an even integer, is B0."
+    },
+    {
+     "code": "M1",
+     "for": "Uses part (a) to write $2n^2 + 2n + 5 = 4m^2$, then rearranges so that one side has a factor of 2, e.g. $5 = 2(2m^2 - n^2 - n)$ or $2n^2 + 2n + 5 = 2(n^2 + n + 2) + 1$",
+     "ft_of": "a"
+    },
+    {
+     "code": "A1",
+     "for": "Says that $2m^2 - n^2 - n$ is an integer, so the right-hand side is even while $5$ is odd, and that this is a contradiction",
+     "depends_on": "M1",
+     "notes": "Any equivalent statement that an odd number has been shown to equal an even number is accepted."
+    },
+    {
+     "code": "A1",
+     "for": "Ends by concluding that the assumption is false, so there is no integer $n$ for which $|\\overrightarrow{AB}|$ is an even integer",
+     "depends_on": "M1",
+     "notes": "cso. The B1 and both earlier marks must have been earned."
+    }
+   ],
+   "alternatives": [
+    {
+     "name": "Way 2 (parity cases)",
+     "marks": [
+      {
+       "code": "B1",
+       "for": "Assumes there is an integer $n$ with $|\\overrightarrow{AB}| = 2m$, where $m$ is an integer, so $|\\overrightarrow{AB}|^2 = 4m^2$, which is even"
+      },
+      {
+       "code": "M1",
+       "for": "Shows that $2n^2 + 2n + 5$ is odd for every integer $n$ by covering both cases. For $n = 2k$: $8k^2 + 4k + 5 = 2(4k^2 + 2k + 2) + 1$. For $n = 2k+1$: $8k^2 + 12k + 9 = 2(4k^2 + 6k + 4) + 1$",
+       "notes": "Both cases are needed. One case alone, or numerical examples, is M0."
+      },
+      {
+       "code": "A1",
+       "for": "Says that an odd number $2n^2 + 2n + 5$ cannot equal the even number $4m^2$, which is a contradiction",
+       "depends_on": "M1"
+      },
+      {
+       "code": "A1",
+       "for": "Concludes that the assumption is false, so $|\\overrightarrow{AB}|$ is never an even integer",
+       "depends_on": "M1",
+       "notes": "cso"
+      }
+     ]
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Assume the opposite: there is an integer $n$ for which $|\\overrightarrow{AB}| = 2m$, where $m$ is an integer.",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "By part (a), $2n^2 + 2n + 5 = (2m)^2 = 4m^2$, so $5 = 4m^2 - 2n^2 - 2n = 2(2m^2 - n^2 - n)$.",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "Since $m$ and $n$ are integers, $2m^2 - n^2 - n$ is an integer, so the right-hand side is even. But $5$ is odd. This is a contradiction.",
+     "mark": "A1"
+    },
+    {
+     "step": 4,
+     "working": "So the assumption is false, and there is no integer $n$ for which $|\\overrightarrow{AB}|$ is an even integer.",
+     "mark": "A1"
+    }
+   ],
+   "answers": [],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "4m^2 - 2n^2 - 2n",
+     "rhs": "2(2m^2 - n^2 - n)"
+    },
+    {
+     "type": "equals",
+     "lhs": "2n^2 + 2n + 5",
+     "rhs": "2(n^2 + n + 2) + 1"
+    },
+    {
+     "type": "equals",
+     "lhs": "2(2k)^2 + 2(2k) + 5",
+     "rhs": "2(4k^2 + 2k + 2) + 1"
+    },
+    {
+     "type": "equals",
+     "lhs": "2(2k+1)^2 + 2(2k+1) + 5",
+     "rhs": "2(4k^2 + 6k + 4) + 1"
+    }
+   ],
+   "hints": [
+    "Begin by supposing the statement is false: write $|\\overrightarrow{AB}| = 2m$ for some integer $m$, and square it.",
+    "Set this equal to your expression from part (a) and ask whether each side is odd or even."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "error_code": "vector-direction-reversed",
+   "step": 1,
+   "text": "If you work out $\\overrightarrow{OA} - \\overrightarrow{OB}$, you get $-(n+1)\\mathbf{i} - n\\mathbf{j} - 2\\mathbf{k}$. That is $\\overrightarrow{BA}$, not the printed $\\overrightarrow{AB}$, so the M1 is lost. The magnitude comes out the same, but that doesn't fix the vector.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "error_code": "distance-formula-error",
+   "step": 3,
+   "text": "The question asks for $|\\overrightarrow{AB}|^2$, so add the squares $(n+1)^2 + n^2 + 4$ with no square root. Also, don't add the coordinates of $A$ and $B$, such as $(2-n) + 3$. Subtract them. If you add them, you won't reach $2n^2 + 2n + 5$ and the A1* is lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "error_code": "contradiction-assumption-wrong",
+   "step": 1,
+   "text": "The statement you are disproving is 'there is an integer $n$ with $|\\overrightarrow{AB}|$ an even integer', so assume exactly that: $|\\overrightarrow{AB}| = 2m$. If you assume $|\\overrightarrow{AB}|$ is odd, or assume $|\\overrightarrow{AB}|^2$ is odd, you have assumed the wrong thing and lose the B1.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "error_code": "proof-by-examples",
+   "step": 2,
+   "text": "Working out $|\\overrightarrow{AB}|^2$ for $n = 0, 1, 2$ (getting $5, 9, 17$) and noticing that none is the square of an even number doesn't prove anything for all $n$. You need the general step $5 = 2(2m^2 - n^2 - n)$. Without it the M1 and all later marks are lost.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "error_code": "exhaustion-case-missed",
+   "step": 2,
+   "text": "If you split into cases, you must cover both $n = 2k$ and $n = 2k + 1$. Showing only that $2n^2 + 2n + 5$ is odd when $n$ is even leaves half the integers unchecked, and the M1 is lost.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:49:38",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.3861
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 6
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.901 with question:IAL2018_WMA14_Oct2020_Q1"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "hits8": [],
+   "max_jaccard": 0.039,
+   "jaccard_source": "IAL2018_WMA14_Jan2021_Q3",
+   "shared_numbers": 0,
+   "max_cosine": 0.901,
+   "cosine_source": "question:IAL2018_WMA14_Oct2020_Q1"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 7,
+   "n_answers": 0,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0105,
+   "solver": {
+    "parts": [
+     {
+      "label": "a",
+      "answers": [
+       "(n+1)*i + n*j + 2*k",
+       "2*n**2 + 2*n + 5"
+      ],
+      "printed_result_correct": true,
+      "working_summary": "AB = OB - OA = (3-(2-n))i + ((2n+5)-(n+5))j + (-1-(-3))k = (n+1)i + nj + 2k. Then |AB|^2 = (n+1)^2 + n^2 + 4 = 2n^2+2n+5."
+     },
+     {
+      "label": "b",
+      "answers": [
+       "No such integer n exists (proof by contradiction)"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "Assume |AB| = 2k for some integer k. Then |AB|^2 = 4k^2, so 2n^2+2n+5 = 4k^2. The left side is 2(n^2+n)+5, which is odd, while 4k^2 is even. This is a contradiction, so |AB| is never an even integer. (Alternatively, n(n+1) is even, so the left side is 4m+5, which is 1 mod 4, but 4k^2 is 0 mod 4.)"
+     }
+    ],
+    "problems": []
+   }
+  },
+  "G4": {
+   "pass": false,
+   "errors": [
+    "response r3 (pitfall distance-formula-error): markers disagree ({'a': ['M0', 'A0'], 'b': ['B1', 'M1', 'A1', 'A0']} vs {'a': ['M0', 'A0'], 'b': ['B0', 'M1', 'A1', 'A0']}; designed {'a': ['M0', 'A0'], 'b': ['B1', 'M1', 'A1', 'A1']}): the mark scheme is ambiguous here",
+    "response r6 (pitfall exhaustion-case-missed): markers disagree ({'a': ['M1', 'A0'], 'b': ['B1', 'M0', 'A1', 'A1']} vs {'a': ['M1', 'A0'], 'b': ['B1', 'M0', 'A0', 'A0']}; designed {'a': ['M1', 'A1'], 'b': ['B1', 'M0', 'A0', 'A0']}): the mark scheme is ambiguous here"
+   ],
+   "flags": [
+    "response r4 (pitfall contradiction-assumption-wrong): both markers award {'a': ['M1', 'A0'], 'b': ['B0', 'M0', 'A0', 'A0']}, not the designed {'a': ['M1', 'A1'], 'b': ['B0', 'M0', 'A0', 'A0']} (script design off; scheme consistent)"
+   ],
+   "flag": true,
+   "n_responses": 8,
+   "agreed": [
+    "r1",
+    "r2",
+    "r5",
+    "r7",
+    "r8"
+   ],
+   "consistent": {
+    "r4": [
+     {
+      "part": "a",
+      "marks": [
+       "M1",
+       "A0"
+      ]
+     },
+     {
+      "part": "b",
+      "marks": [
+       "B0",
+       "M0",
+       "A0",
+       "A0"
+      ]
+     }
+    ]
+   },
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "r1",
+     "kind": "correct",
+     "work": "(a) $\\overrightarrow{AB}=\\overrightarrow{OB}-\\overrightarrow{OA}=(3-(2-n))\\mathbf{i}+((2n+5)-(n+5))\\mathbf{j}+(-1-(-3))\\mathbf{k}=(n+1)\\mathbf{i}+n\\mathbf{j}+2\\mathbf{k}$\n$|\\overrightarrow{AB}|^2=(n+1)^2+n^2+2^2=n^2+2n+1+n^2+4=2n^2+2n+5$\n(b) Assume there is an integer $n$ with $|\\overrightarrow{AB}|=2m$, $m$ an integer. Then $2n^2+2n+5=4m^2$, so $5=4m^2-2n^2-2n=2(2m^2-n^2-n)$. Since $m,n$ are integers, $2m^2-n^2-n$ is an integer so RHS is even, but 5 is odd. Contradiction. So the assumption is false and there is no integer $n$ for which $|\\overrightarrow{AB}|$ is even.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ],
+     "error_code": null
+    },
+    {
+     "id": "r2",
+     "kind": "pitfall",
+     "work": "(a) $\\overrightarrow{OA}-\\overrightarrow{OB}=((2-n)-3)\\mathbf{i}+((n+5)-(2n+5))\\mathbf{j}+(-3-(-1))\\mathbf{k}=(-n-1)\\mathbf{i}-n\\mathbf{j}-2\\mathbf{k}$\nSo $|\\overrightarrow{AB}|^2=(-n-1)^2+(-n)^2+(-2)^2=n^2+2n+1+n^2+4=2n^2+2n+5$\n(b) Assume there is an integer $n$ with $|\\overrightarrow{AB}|=2m$. Then $2n^2+2n+5=4m^2$, so $5=2(2m^2-n^2-n)$. RHS is even as $2m^2-n^2-n$ is an integer, but 5 is odd. Contradiction, so no integer $n$ gives an even $|\\overrightarrow{AB}|$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ],
+     "error_code": "vector-direction-reversed"
+    },
+    {
+     "id": "r3",
+     "kind": "pitfall",
+     "work": "(a) Adding coordinates: $\\overrightarrow{AB}=((2-n)+3)\\mathbf{i}+((n+5)+(2n+5))\\mathbf{j}+(-3-1)\\mathbf{k}=(5-n)\\mathbf{i}+(3n+10)\\mathbf{j}-4\\mathbf{k}$\n$|\\overrightarrow{AB}|^2=(5-n)^2+(3n+10)^2+16=10n^2+50n+141$, which isn't the printed answer, but I'll state $|\\overrightarrow{AB}|^2=2n^2+2n+5$.\n(b) Assume $|\\overrightarrow{AB}|=2m$. Then $2n^2+2n+5=4m^2$, so $5=2(2m^2-n^2-n)$. RHS even, 5 odd, contradiction. So the assumption is false.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ],
+     "error_code": "distance-formula-error"
+    },
+    {
+     "id": "r4",
+     "kind": "pitfall",
+     "work": "(a) $\\overrightarrow{AB}=\\overrightarrow{OB}-\\overrightarrow{OA}=(n+1)\\mathbf{i}+n\\mathbf{j}+2\\mathbf{k}$, with $(3-(2-n))$, $((2n+5)-(n+5))$, $(-1+3)$.\n$|\\overrightarrow{AB}|^2=(n+1)^2+n^2+2^2=2n^2+2n+5$\n(b) Assume $|\\overrightarrow{AB}|$ is odd, so $|\\overrightarrow{AB}|=2m+1$. Then $2n^2+2n+5=4m^2+4m+1$, so $2n^2+2n+4=4m^2+4m$, so $n^2+n+2=2m^2+2m$. $n^2+n$ is always even, so LHS is even and RHS is even: no contradiction. So the assumption is wrong and $|\\overrightarrow{AB}|$ is not odd, hence it's even.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B0",
+        "M0",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "error_code": "contradiction-assumption-wrong"
+    },
+    {
+     "id": "r5",
+     "kind": "pitfall",
+     "work": "(a) $\\overrightarrow{AB}=\\overrightarrow{OB}-\\overrightarrow{OA}=(n+1)\\mathbf{i}+n\\mathbf{j}+2\\mathbf{k}$; $|\\overrightarrow{AB}|^2=(n+1)^2+n^2+4=n^2+2n+1+n^2+4=2n^2+2n+5$\n(b) Try $n=0$: $5$. $n=1$: $9$. $n=2$: $17$. $n=3$: $29$. None of these are squares of even numbers ($4,16,36,\\dots$). So $|\\overrightarrow{AB}|$ is never an even integer.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B0",
+        "M0",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "error_code": "proof-by-examples"
+    },
+    {
+     "id": "r6",
+     "kind": "pitfall",
+     "work": "(a) $\\overrightarrow{AB}=\\overrightarrow{OB}-\\overrightarrow{OA}=(n+1)\\mathbf{i}+n\\mathbf{j}+2\\mathbf{k}$; $|\\overrightarrow{AB}|^2=(n+1)^2+n^2+4=2n^2+2n+5$ after expanding.\n(b) Assume $|\\overrightarrow{AB}|=2m$ for an integer $m$, so $|\\overrightarrow{AB}|^2=4m^2$, which is even. Let $n=2k$: $2n^2+2n+5=8k^2+4k+5=2(4k^2+2k+2)+1$, which is odd. So it can't equal $4m^2$, which is even. Contradiction, so $|\\overrightarrow{AB}|$ is never an even integer.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M0",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "error_code": "exhaustion-case-missed"
+    },
+    {
+     "id": "r7",
+     "kind": "alternative",
+     "work": "(a) $\\overrightarrow{AB}=\\overrightarrow{OB}-\\overrightarrow{OA}=(3-(2-n))\\mathbf{i}+((2n+5)-(n+5))\\mathbf{j}+(-1+3)\\mathbf{k}=(n+1)\\mathbf{i}+n\\mathbf{j}+2\\mathbf{k}$\n$|\\overrightarrow{AB}|^2=(n+1)^2+n^2+2^2=n^2+2n+1+n^2+4=2n^2+2n+5$\n(b) Assume $|\\overrightarrow{AB}|=2m$, $m$ an integer, so $|\\overrightarrow{AB}|^2=4m^2$, which is even. If $n=2k$: $8k^2+4k+5=2(4k^2+2k+2)+1$, odd. If $n=2k+1$: $2(2k+1)^2+2(2k+1)+5=8k^2+12k+9=2(4k^2+6k+4)+1$, odd. So $2n^2+2n+5$ is always odd and cannot equal the even number $4m^2$. Contradiction. So the assumption is false and $|\\overrightarrow{AB}|$ is never an even integer.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ],
+     "error_code": null
+    },
+    {
+     "id": "r8",
+     "kind": "partial",
+     "work": "(a) $\\overrightarrow{AB}=\\overrightarrow{OB}-\\overrightarrow{OA}=(3-(2-n))\\mathbf{i}+((2n+5)-(n+5))\\mathbf{j}+(-1-(-3))\\mathbf{k}=(n+1)\\mathbf{i}+n\\mathbf{j}+2\\mathbf{k}$\nSo $|\\overrightarrow{AB}|^2=2n^2+2n+5$.\n(b) Assume there is an integer $n$ with $|\\overrightarrow{AB}|=2m$ for an integer $m$. Then $2n^2+2n+5=4m^2$. I'm not sure what to do next.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M0",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "error_code": null
+    }
+   ],
+   "awarded": [
+    {
+     "id": "r1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "Used OA - OB, which is M0.",
+      "A1 needs the M1; also the vector AB was not obtained as printed.",
+      "Part b: all marks earned; conclusion given."
+     ]
+    },
+    {
+     "id": "r3",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "Added the position vectors instead of subtracting.",
+      "Answer was fudged and does not follow from the working.",
+      "Part b: conclusion says the assumption is false but does not state that no integer n gives an even |AB|, so the final A1 is withheld."
+     ]
+    },
+    {
+     "id": "r4",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B0",
+        "M0",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "Expansion line not shown, so the printed answer is not fully justified.",
+      "Assumed |AB| is odd, not even, so B0.",
+      "No rearrangement that gives a contradiction (it found none).",
+      "No valid contradiction reached.",
+      "Conclusion is invalid."
+     ]
+    },
+    {
+     "id": "r5",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B0",
+        "M0",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "No proof by contradiction; only numerical examples.",
+      "Numerical examples are not a general argument.",
+      "No contradiction derived.",
+      "No valid conclusion."
+     ]
+    },
+    {
+     "id": "r6",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M0",
+        "A1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "Part a: the expansion was not shown, so A0.",
+      "Part b: only the case n = 2k was covered, so M0. The A1 and final A1 are awarded for the contradiction and conclusion, though the missing M1 may mean they are not earned under strict dependency."
+     ]
+    },
+    {
+     "id": "r7",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r8",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M0",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "Part a: the squared-components line and the expansion were not shown.",
+      "Part b: no rearrangement to show a parity factor.",
+      "No contradiction stated.",
+      "No conclusion."
+     ]
+    }
+   ],
+   "awarded_second": [
+    {
+     "id": "r3",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B0",
+        "M1",
+        "A1",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r4",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B0",
+        "M0",
+        "A0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r6",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M0",
+        "A0",
+        "A0"
+       ]
+      }
+     ]
+    }
+   ],
+   "cost_usd": 0.109
+  },
+  "G5": {
+   "pass": false,
+   "errors": [
+    "pitfall [distance-formula-error] part a: the marker didn't score its response as designed",
+    "pitfall [exhaustion-case-missed] part b: the marker didn't score its response as designed"
+   ]
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

@@ -1,0 +1,142 @@
+{
+ "id": "polynomial-factorise-and-solve",
+ "question_type": "polynomial-factorise-and-solve",
+ "component": "pure",
+ "title": "Factorise a polynomial and solve",
+ "what_it_asks": "You are given a cubic and usually a factor, a root, or an unknown constant to find. You factorise the cubic fully, then use the factors to solve an equation exactly, find where curves meet, or decide how many real roots a related equation has. The idea is that a known root lets you reduce a cubic to a linear factor times a quadratic.",
+ "typical_structure": "Usually two or three parts, sometimes just one, rarely more than four. Part (a) is often short: use the factor theorem to show something or find a constant. A later part then says \"hence\" and asks you to factorise fully and solve. The last part may link to a graph, an intersection, a substitution such as $u = \\mathrm{e}^x$, or a count of real roots. Total marks typically sit around six to eight.",
+ "mark_pattern": "The most usual part pattern is a short M1 A1. A show-that part is often M1 A1*: the M1 is for evaluating $\\mathrm{f}(a)$ or dividing, and the starred A1 is for reaching the printed result with the key line shown. Longer factorising parts run M1 A1 M1 A1, or M1 A1 dM1 A1. The first M1 is for division or inspection to get a quadratic factor, the first A1 is for that quadratic, the next method mark is for factorising or solving the quadratic (dependent on the first in the dM1 version), and the last A1 is for all correct roots or factors. Some parts open with a B1 for a stated value, then M1 A1. A lone B1 is usually a stated fact or a sketch feature.",
+ "where_marks_leak": [
+  {
+   "error_code": "incomplete-factorisation",
+   "mark_family": "accuracy",
+   "text": "You find a quadratic factor and stop, although it still factorises. The final A1 is lost, because the full set of linear factors or roots is not given."
+  },
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You give roots or coordinates to the wrong number of decimal places or significant figures, or round when an exact value was wanted. The final A1 is lost even though the method is right."
+  },
+  {
+   "error_code": "polynomial-division-error",
+   "mark_family": "method",
+   "text": "You slip a sign when subtracting in long division, or leave out a zero term such as $0x^2$. The quadratic is wrong, so the A1 goes, and any dM1 that depends on it is at risk."
+  },
+  {
+   "error_code": "factor-theorem-sign-error",
+   "mark_family": "method",
+   "text": "For a factor $(x + a)$ you work out $\\mathrm{f}(a)$ instead of $\\mathrm{f}(-a)$. The M1 is lost, and the A1 that follows goes with it."
+  },
+  {
+   "error_code": "hidden-quadratic-not-converted-back",
+   "mark_family": "accuracy",
+   "text": "You solve a quadratic in a substituted variable but stop there, for example at $\\mathrm{e}^x = 3$, or keep a negative value. The final A1 is lost because $x$ is never found or the invalid value is not rejected."
+  }
+ ],
+ "write_to_earn": [
+  "Write $\\mathrm{f}(a)$ with the substitution shown, and state $\\mathrm{f}(a) = 0$ with a conclusion, before using the factor.",
+  "Show the division or the matching of coefficients clearly, so the quadratic factor is visible and the M1 is secure.",
+  "Factorise the quadratic, then write the cubic as a product of all its linear factors before solving.",
+  "In a show-that part, write the line just before the printed result, then the result itself.",
+  "Give the roots in the form asked, exact if requested, and reject any invalid value with a reason."
+ ],
+ "check_before_you_leave": [
+  "Does the quadratic factorise further?",
+  "Sign right in the factor theorem?",
+  "All roots listed, not just one?",
+  "Answer in the form asked?",
+  "Invalid solutions rejected?"
+ ],
+ "skills": [
+  "factorise-polynomial-by-division",
+  "factor-theorem",
+  "solve-quadratic-equation",
+  "use-hence-previous-result",
+  "show-that-given-answer",
+  "reject-invalid-solutions"
+ ],
+ "related_types": [
+  "factor-theorem-find-constant",
+  "quadratic-and-polynomial-graphs",
+  "log-laws-and-equations",
+  "differentiate-to-given-form"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:09:24",
+ "cost_usd": 0.0663,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 51,
+  "codes_listed": {
+   "incomplete-factorisation": 15,
+   "wrong-final-accuracy": 13,
+   "polynomial-division-error": 8,
+   "factor-theorem-sign-error": 6,
+   "hidden-quadratic-not-converted-back": 5,
+   "rationalising-error": 5,
+   "quadratic-formula-error": 5,
+   "arithmetic-slip": 5
+  },
+  "frequent_codes": [
+   "incomplete-factorisation",
+   "wrong-final-accuracy"
+  ],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "4 rare words shared with P1_June2019_Q4",
+    "cosine 0.864 with part:GCE2008_6664_June2005_Q3:b"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.003,
+   "shared_numbers": 0,
+   "max_cosine": 0.864,
+   "cosine_source": "part:GCE2008_6664_June2005_Q3:b"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 10
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: 4 rare words shared with P1_June2019_Q4",
+   "copy: cosine 0.864 with part:GCE2008_6664_June2005_Q3:b"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

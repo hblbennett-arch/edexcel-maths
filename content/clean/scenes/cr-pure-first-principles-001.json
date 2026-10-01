@@ -1,0 +1,207 @@
+{
+ "item_id": "cr-pure-first-principles-001",
+ "applicable": true,
+ "reason": "A chord tending to a tangent shows why the limit as h goes to 0 gives the gradient.",
+ "scenes": [
+  {
+   "id": "cr-pure-first-principles-001::-::1",
+   "part": null,
+   "title": "The chord turns into the tangent as h shrinks",
+   "purpose": "See the chord gradient 10x + 5h - 7 settle on the tangent gradient as h tends to 0, using x = 1 as a worked point.",
+   "approach": "graphical",
+   "board": {
+    "x": [
+     -1,
+     3.5
+    ],
+    "y": [
+     -6,
+     26
+    ],
+    "axis": true,
+    "grid": true,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "h",
+     "label": "step h",
+     "min": 0.05,
+     "max": 2,
+     "step": 0.05,
+     "value": 2
+    }
+   ],
+   "elements": [
+    {
+     "type": "function",
+     "id": "C",
+     "expr": "5*x^2 - 7*x",
+     "color": "primary",
+     "label": "C"
+    },
+    {
+     "type": "point",
+     "id": "P",
+     "x": "1",
+     "y": "5*1^2 - 7*1",
+     "label": "P (x = 1)"
+    },
+    {
+     "type": "point",
+     "id": "Q",
+     "x": "1+h",
+     "y": "5*(1+h)^2 - 7*(1+h)",
+     "label": "Q (x = 1 + h)",
+     "color": "secondary"
+    },
+    {
+     "type": "line",
+     "id": "chord",
+     "from": "P",
+     "to": "Q",
+     "color": "secondary",
+     "label": "chord"
+    },
+    {
+     "type": "function",
+     "id": "tan",
+     "expr": "3*x - 5",
+     "color": "success",
+     "dash": true,
+     "label": "tangent"
+    },
+    {
+     "type": "text",
+     "id": "grad",
+     "x": "-0.8",
+     "y": "22",
+     "value": "Chord gradient $10x + 5h - 7$ at $x=1$: $3 + 5h$ = {3+5*h}"
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "$P$ is at $x=1$ and $Q$ is at $x=1+h$. The chord $PQ$ has gradient $\\frac{5(x+h)^2 - 7(x+h) - (5x^2 - 7x)}{h}$. Writing this with the whole of $5x^2-7x$ in brackets is the M1 set-up.",
+     "set": {
+      "h": 2
+     },
+     "highlight": [
+      "chord"
+     ]
+    },
+    {
+     "n": 2,
+     "text": "Expanding gives numerator $10xh + 5h^2 - 7h$, and dividing by $h$ gives $10x + 5h - 7$. At $x=1$ this is $3+5h$, which the label shows as you drag $h$. This is the A1.",
+     "set": {
+      "h": 1
+     },
+     "highlight": [
+      "grad"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "Drag $h$ down to $0.05$. $Q$ slides towards $P$, the chord lines up with the dashed tangent, and the gradient reads about $3.25$. The $5h$ term is the only part that depends on $h$.",
+     "set": {
+      "h": 0.05
+     },
+     "highlight": [
+      "Q",
+      "tan"
+     ]
+    },
+    {
+     "n": 4,
+     "text": "So $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\lim_{h \\to 0}(10x + 5h - 7) = 10x - 7$, which is $3$ at $x=1$. Writing the limit after dividing by $h$ is the A1*. Setting $h=0$ earlier would give $\\frac{0}{0}$, and the chord would not exist.",
+     "set": {
+      "h": 0.05
+     },
+     "highlight": [
+      "tan"
+     ]
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "marks": [
+     "M1",
+     "A1",
+     "A1*"
+    ],
+    "pitfalls": [
+     "first-principles-incomplete"
+    ]
+   },
+   "guide": {
+    "what_you_see": "The curve $C$ with equation $y=5x^2-7x$, a fixed point $P$ at $x=1$, a second point $Q$ at $x=1+h$ joined to $P$ by a chord, and the dashed tangent to $C$ at $P$.",
+    "legend": [
+     {
+      "id": "C",
+      "meaning": "The curve $y=5x^2-7x$ from the question."
+     },
+     {
+      "id": "P",
+      "meaning": "The fixed point on $C$ where $x=1$, so $P=(1,-2)$. It is the worked point for the general $x$ in the first-principles argument."
+     },
+     {
+      "id": "Q",
+      "meaning": "The moving point on $C$ where $x=1+h$, with $y=5(1+h)^2-7(1+h)$. It moves along $C$ as the slider $h$ changes."
+     },
+     {
+      "id": "chord",
+      "meaning": "The straight line through $P$ and $Q$. Its gradient is $\\frac{5(1+h)^2-7(1+h)-(5-7)}{h}=3+5h$."
+     },
+     {
+      "id": "tan",
+      "meaning": "The dashed tangent to $C$ at $P$, the line $y=3x-5$, with gradient $3$. This is the value of $10x-7$ at $x=1$."
+     }
+    ],
+    "interact": [
+     {
+      "control": "h",
+      "kind": "slider",
+      "do": "Start at $h=2$ and drag the slider down in steps of $0.05$ to $h=0.05$.",
+      "watch": "$Q$ slides along $C$ towards $P$ and the chord swings round to lie almost on the dashed tangent. The gradient reading falls from $13$ at $h=2$ to $3.25$ at $h=0.05$, getting closer to $3$ as $h$ tends to $0$."
+     }
+    ],
+    "question_link": {
+     "part": null,
+     "marks": [
+      "M1",
+      "A1",
+      "A1*"
+     ],
+     "text": "The chord $PQ$ is the chord whose gradient $\\frac{5(x+h)^2-7(x+h)-(5x^2-7x)}{h}$ you write for the M1. The reading $3+5h$ is the simplified $10x+5h-7$ at $x=1$ from the A1. The chord settling on the tangent $tan$ as $h\\to 0$ shows the limit $10x-7$ taken in the A1*."
+    },
+    "read_off": [
+     "The live label 'Chord gradient' gives the gradient of $PQ$ at $x=1$, which is $10x+5h-7$ with $x=1$, so $3+5h$. At $h=2$ it reads $13$, and as $h$ shrinks it approaches the tangent gradient $3$, matching $10(1)-7$."
+    ]
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0215,
+    "attempts": 1,
+    "gate": {
+     "pass": true,
+     "errors": []
+    },
+    "generated_at": "2026-09-30T23:12:50"
+   }
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:49:00",
+ "cost_usd": 0.0355,
+ "attempts": 1,
+ "checks": {
+  "pass": true,
+  "errors": [],
+  "n_scenes": 1
+ }
+}

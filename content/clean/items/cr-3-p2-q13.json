@@ -1,0 +1,1123 @@
+{
+ "id": "cr-3-p2-q13",
+ "blueprint_id": "mk-3-p2-q13",
+ "question_type": "log-linear-graph-model",
+ "component": "pure",
+ "tier": "standard",
+ "kind": "mock",
+ "stem": "A patient is given a single intravenous injection of an antibiotic. The concentration of the antibiotic in the patient's blood, $C$ milligrams per litre, $t$ hours after the injection is modelled by\n$$C = ab^{t},$$\nwhere $a$ and $b$ are constants. Blood samples were taken at times between $t = 1$ and $t = 16$. A graph of $\\log_{10} C$ against $t$ for these samples is a straight line that passes through the points $(2,\\ 1.8)$ and $(10,\\ 1.0)$.",
+ "paper": "mock-3-P2",
+ "set": "mock-3",
+ "q_num": 13,
+ "parts": [
+  {
+   "label": "a",
+   "marks": 3,
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "log-linear-graph-model",
+    "remove-logarithms"
+   ],
+   "text": "Find the value of $a$. (3)",
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Takes base-10 logs of the model to get $\\log_{10} C = \\log_{10} a + t\\log_{10} b$ (or states that the line is $\\log_{10} C = mt + c$ with intercept $\\log_{10} a$) and uses both points to find the gradient $\\frac{1.0 - 1.8}{10 - 2}$ and then the vertical intercept",
+     "notes": "A correct method for the line's intercept is enough, e.g. $1.8 = 2m + c$ and $1.0 = 10m + c$ solved together. A slip in the arithmetic of the gradient still earns M1."
+    },
+    {
+     "code": "A1",
+     "for": "Vertical intercept $= 2$, i.e. $\\log_{10} a = 2$",
+     "notes": "Accept $\\log_{10} C = 2 - 0.1t$ seen, with intercept identified as $\\log_{10} a$."
+    },
+    {
+     "code": "B1",
+     "for": "$a = 10^{2} = 100$",
+     "notes": "cao. $a = 2$ gets B0."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "mark": "M1",
+     "working": "$\\log_{10} C = \\log_{10}(ab^{t}) = \\log_{10} a + t\\log_{10} b$, a straight line with gradient $\\log_{10} b$ and intercept $\\log_{10} a$. Gradient $= \\frac{1.0 - 1.8}{10 - 2} = -0.1$, so $1.8 = -0.1(2) + c$."
+    },
+    {
+     "step": 2,
+     "mark": "A1",
+     "working": "$c = 2$, so $\\log_{10} a = 2$."
+    },
+    {
+     "step": 3,
+     "mark": "B1",
+     "working": "$a = 10^{2} = 100$"
+    }
+   ],
+   "answers": [
+    {
+     "name": "a",
+     "expr": "100",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "substitute",
+     "expr": "10^(9/5 - 2*m)",
+     "at": {
+      "m": "(1 - 9/5)/(10 - 2)"
+     },
+     "answer": "a"
+    },
+    {
+     "type": "system",
+     "equations": [
+      "9/5 = 2*m + c",
+      "1 = 10*m + c"
+     ],
+     "vars": [
+      "m",
+      "c"
+     ],
+     "result": {
+      "m": "-1/10",
+      "c": "2"
+     }
+    }
+   ],
+   "hints": [
+    "Take $\\log_{10}$ of both sides of $C = ab^{t}$ and compare what you get with $Y = mX + c$.",
+    "Which part of the line is $\\log_{10} a$: the gradient or the intercept? Find it from the two points."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 3,
+   "command": "find",
+   "forms": [
+    "sf-3"
+   ],
+   "skills": [
+    "accuracy-units-and-rounding",
+    "log-linear-graph-model",
+    "laws-of-logarithms"
+   ],
+   "text": "The model can also be written in the form $C = a\\mathrm{e}^{-kt}$, where $k$ is a constant.\n\nFind the value of $k$, giving your answer to 3 significant figures. (3)",
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Identifies the gradient $-0.1$ as $\\log_{10} b$, so $b = 10^{-0.1}$ (awrt $0.794$)",
+     "notes": "May be seen in part (a) and credited here if used."
+    },
+    {
+     "code": "M1",
+     "for": "Sets $\\mathrm{e}^{-k} = b$ (or $\\mathrm{e}^{-kt} = b^{t}$) and uses natural logs correctly to get $k = -\\ln b$, e.g. $k = -\\ln(10^{-0.1}) = 0.1\\ln 10$",
+     "notes": "Also accept a correct change-of-base approach: $\\ln C = \\ln a - kt$ and $\\log_{10} C = \\frac{\\ln C}{\\ln 10}$, so $-\\frac{k}{\\ln 10} = -0.1$. Using $k = 0.1$ (treating $\\log_{10}$ as $\\ln$) is M0."
+    },
+    {
+     "code": "A1",
+     "for": "$k = 0.230$",
+     "notes": "awrt $0.230$. Exact $\\frac{\\ln 10}{10}$ followed by $0.230$ is fine."
+    }
+   ],
+   "alternatives": [
+    {
+     "name": "Way 2 (change of base)",
+     "marks": [
+      {
+       "code": "B1",
+       "for": "States gradient of the line $= -0.1$, from $\\frac{1.0-1.8}{10-2}$"
+      },
+      {
+       "code": "M1",
+       "for": "Takes natural logs: $\\ln C = \\ln a - kt$, and converts using $\\log_{10} C = \\frac{\\ln C}{\\ln 10}$ to get $-\\frac{k}{\\ln 10} = -0.1$"
+      },
+      {
+       "code": "A1",
+       "for": "$k = 0.1\\ln 10 = 0.230$",
+       "notes": "awrt $0.230$"
+      }
+     ]
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "mark": "B1",
+     "working": "The gradient of the line is $\\log_{10} b = -0.1$, so $b = 10^{-0.1} = 0.7943\\ldots$"
+    },
+    {
+     "step": 2,
+     "mark": "M1",
+     "working": "$a\\mathrm{e}^{-kt} = ab^{t}$ for all $t$, so $\\mathrm{e}^{-k} = b = 10^{-0.1}$. Taking natural logs: $-k = \\ln(10^{-0.1}) = -0.1\\ln 10$."
+    },
+    {
+     "step": 3,
+     "mark": "A1",
+     "working": "$k = 0.1\\ln 10 = 0.23025\\ldots = 0.230$ (3 s.f.)"
+    }
+   ],
+   "answers": [
+    {
+     "name": "k",
+     "expr": "0.230",
+     "form": "sf-3",
+     "exact": "log(10)/10"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "-log(10^(-1/10))",
+     "answer": "k",
+     "form": "sf-3"
+    },
+    {
+     "type": "numeric",
+     "expr": "10^(-1/10)",
+     "result": "0.794",
+     "form": "sf-3"
+    },
+    {
+     "type": "equals",
+     "lhs": "exp(-log(10)/10 * t)",
+     "rhs": "10^(-t/10)",
+     "domain": [
+      0,
+      16
+     ]
+    }
+   ],
+   "hints": [
+    "The gradient of the line tells you $\\log_{10} b$. Find $b$ first.",
+    "If $ab^{t} = a\\mathrm{e}^{-kt}$ for every $t$, how are $b$ and $\\mathrm{e}^{-k}$ related? Take natural logs of that."
+   ]
+  },
+  {
+   "label": "c",
+   "marks": 3,
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "use-model-to-predict",
+    "accuracy-units-and-rounding"
+   ],
+   "text": "The antibiotic is effective only while its concentration in the blood is at least $4$ milligrams per litre.\n\nUsing the model, find the length of time after the injection for which the antibiotic is effective. Give your answer in hours and minutes. (3)",
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Sets their model equal to $4$, e.g. $100\\mathrm{e}^{-kt} = 4$, $100(10^{-0.1})^{t} = 4$ or $\\log_{10} 4 = 2 - 0.1t$",
+     "notes": "Accept an inequality $\\geqslant 4$ or $>4$ used in the same way."
+    },
+    {
+     "code": "M1",
+     "for": "Uses logs correctly to make $t$ the subject, e.g. $t = \\frac{\\ln 25}{k}$ or $t = \\frac{2 - \\log_{10} 4}{0.1}$",
+     "notes": "Needs the power brought down correctly, i.e. $\\ln(\\mathrm{e}^{-kt}) = -kt$ or $\\log_{10}(b^{t}) = t\\log_{10} b$."
+    },
+    {
+     "code": "A1ft",
+     "ft_of": "a, b or k from parts (a) and (b)",
+     "for": "$t = 13.98$ hours, i.e. $13$ hours $59$ minutes",
+     "notes": "Follow through their $a$ and $k$ (or $b$). Must be given in hours and minutes. Accept $13$ h $58$ min or $13$ h $59$ min from a slightly rounded $k$. $13$ h $98$ min is A0."
+    }
+   ],
+   "alternatives": [
+    {
+     "name": "Way 2 (use the straight line directly)",
+     "marks": [
+      {
+       "code": "M1",
+       "for": "Substitutes $C = 4$ into the line: $\\log_{10} 4 = 2 - 0.1t$"
+      },
+      {
+       "code": "M1",
+       "for": "Rearranges to $t = \\frac{2 - \\log_{10} 4}{0.1} = 10\\log_{10} 25$"
+      },
+      {
+       "code": "A1ft",
+       "ft_of": "the line equation from part (a)",
+       "for": "$13.98$ hours $= 13$ hours $59$ minutes"
+      }
+     ]
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "mark": "M1",
+     "working": "$C$ decreases from $100$, so the antibiotic is effective until $C = 4$: $100\\mathrm{e}^{-kt} = 4 \\Rightarrow \\mathrm{e}^{-kt} = 0.04$"
+    },
+    {
+     "step": 2,
+     "mark": "M1",
+     "working": "$-kt = \\ln 0.04 \\Rightarrow t = \\frac{\\ln 25}{k} = \\frac{\\ln 25}{0.1\\ln 10} = 10\\log_{10} 25$"
+    },
+    {
+     "step": 3,
+     "mark": "A1ft",
+     "working": "$t = 13.979\\ldots$ hours. $0.979\\ldots \\times 60 = 58.8$ minutes, so the antibiotic is effective for about $13$ hours $59$ minutes."
+    }
+   ],
+   "answers": [
+    {
+     "name": "t",
+     "expr": "13.98",
+     "form": "dp-2",
+     "exact": "10*log(25, 10)"
+    }
+   ],
+   "checks": [
+    {
+     "type": "solutions",
+     "equation": "100*10^(-t/10) = 4",
+     "var": "t",
+     "result": [
+      "10*log(25, 10)"
+     ]
+    },
+    {
+     "type": "numeric",
+     "expr": "log(25)/(log(10)/10)",
+     "answer": "t",
+     "form": "dp-2"
+    },
+    {
+     "type": "numeric",
+     "expr": "(10*log(25, 10) - 13)*60",
+     "result": "59",
+     "form": "sf-2"
+    }
+   ],
+   "hints": [
+    "Set $C = 4$ in your model and solve for $t$ with logarithms.",
+    "Turn the decimal part of the hours into minutes by multiplying by $60$."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "error_code": "log-linear-constants-confused",
+   "step": 2,
+   "text": "The intercept of the line is $\\log_{10} a$, not $a$. If you write $a = 2$ you haven't undone the log. You need $a = 10^{2} = 100$, otherwise the B1 is lost. Don't take the gradient $-0.1$ as $a$ either: the gradient belongs to $b$.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "error_code": "log-power-law-misapplied",
+   "step": 1,
+   "text": "$\\log_{10}(ab^{t})$ is $\\log_{10} a + t\\log_{10} b$. It is not $t\\log_{10}(ab)$ or $\\log_{10} a + \\log_{10}(bt)$. If the power $t$ is brought down wrongly, you can't match the line to the model, so the M1 is lost.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "error_code": "log-law-misapplied",
+   "step": 2,
+   "text": "The line uses $\\log_{10}$ but $k$ comes from natural logs. If you just say $k = 0.1$ because the gradient is $-0.1$, you are treating $\\log_{10}$ and $\\ln$ as the same thing, so the M1 is lost. You need $\\mathrm{e}^{-k} = 10^{-0.1}$, which gives $k = 0.1\\ln 10$.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "error_code": "log-power-law-misapplied",
+   "step": 2,
+   "text": "$\\ln(10^{-0.1}) = -0.1\\ln 10$, not $\\ln(-0.1 \\times 10) = \\ln(-1)$ or $-0.1\\ln 1$. If you bring the power down to the wrong place, $k$ comes out wrong and the M1 and A1 are lost.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "error_code": "log-linear-constants-confused",
+   "step": 1,
+   "text": "The gradient $-0.1$ is $\\log_{10} b$, not $b$. Writing $b = -0.1$ (or $\\mathrm{e}^{-k} = -0.1$, which has no solution) loses the B1. Undo the log first: $b = 10^{-0.1} \\approx 0.794$.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "error_code": "parameter-meaning-no-context",
+   "step": 3,
+   "text": "The value $13.979\\ldots$ is in hours. Writing it as '13 hours 98 minutes', or leaving a bare $13.98$ with no units, doesn't answer the question in context. Convert $0.979 \\times 60 \\approx 59$ minutes to get 13 hours 59 minutes, otherwise the A1ft is lost.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "error_code": "extrapolation-not-flagged",
+   "step": 3,
+   "text": "Here $t \\approx 14$ lies inside the sampling range $1 \\leqslant t \\leqslant 16$, so the model can reasonably be used. If a question sends you well beyond $t = 16$, for example asking when $C$ falls to $0.1$ (about $t = 30$), you should say the prediction may be unreliable because it lies outside the data.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-10-01T00:06:11",
+ "generation": {
+  "attempts": 1,
+  "cost_usd": 0.2356
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 9
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.879 with part:GCE2008_6665_June2016_Q9:c"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "hits8": [],
+   "max_jaccard": 0.034,
+   "jaccard_source": "IAL2018_WMA13_June2025_Q6",
+   "shared_numbers": 2,
+   "max_cosine": 0.879,
+   "cosine_source": "part:GCE2008_6665_June2016_Q9:c"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 8,
+   "n_answers": 3,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "part c: expected t = 13.98, solver got ['13 hours 59 minutes', '13.98 hours'] [judge: same - Both give 13.98 hours (10·log10(25) ≈ 13.979). The solver also converts this to 13 h 59 min, which is correct to the nearest minute.]",
+    "ambiguity (part c): The model is only validated for samples taken between t=1 and t=16. Part (c) implicitly assumes the antibiotic is effective from t=0, which extrapolates the model. The endpoint t≈13.98 is inside the range. The intended answer is the time from t=0 to t≈13.98 h, and the question should say so explicitly.",
+    "ambiguity (part c): 'Hours and minutes' does not say how to round. 13.979 h is 13 h 58.76 min, so the answer is 13 h 59 min to the nearest minute. Truncating would give 13 h 58 min."
+   ],
+   "flag": true,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.022,
+   "solver": {
+    "parts": [
+     {
+      "label": "a",
+      "answers": [
+       "100"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "log10 C = log10 a + t log10 b. The gradient is (1.0-1.8)/(10-2) = -0.1, so log10 b = -0.1. The intercept is 1.8 + 0.2 = 2.0, so a = 10^2 = 100. Also b = 10^-0.1 ≈ 0.794."
+     },
+     {
+      "label": "b",
+      "answers": [
+       "0.230"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "e^{-k} = 10^{-0.1}, so k = 0.1 ln 10 = 0.230258..., which is 0.230 to 3 s.f."
+     },
+     {
+      "label": "c",
+      "answers": [
+       "13 hours 59 minutes",
+       "13.98 hours"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "Solve 100·10^{-0.1t} ≥ 4. Then 10^{-0.1t} ≥ 0.04, so t ≤ 10·log10(25) = 13.979 h. Starting from t = 0 (an intravenous injection acts immediately, C = 100 at t = 0), the antibiotic is effective for about 13.98 h, which is 13 h 59 min to the nearest minute."
+     }
+    ],
+    "problems": [
+     {
+      "kind": "ambiguity",
+      "severity": "minor",
+      "detail": "The model is only validated for samples taken between t=1 and t=16. Part (c) implicitly assumes the antibiotic is effective from t=0, which extrapolates the model. The endpoint t≈13.98 is inside the range. The intended answer is the time from t=0 to t≈13.98 h, and the question should say so explicitly.",
+      "part": "c"
+     },
+     {
+      "kind": "ambiguity",
+      "severity": "minor",
+      "detail": "'Hours and minutes' does not say how to round. 13.979 h is 13 h 58.76 min, so the answer is 13 h 59 min to the nearest minute. Truncating would give 13 h 58 min.",
+      "part": "c"
+     }
+    ]
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "response r2 (pitfall log-linear-constants-confused): second marker agrees with the design; first marker gave {'a': ['M1', 'A0', 'B0'], 'b': ['B1', 'M1', 'A1'], 'c': ['M1', 'M1', 'A0']}"
+   ],
+   "flag": true,
+   "n_responses": 9,
+   "agreed": [
+    "r1",
+    "r2",
+    "r3",
+    "r4",
+    "r5",
+    "r6",
+    "r7",
+    "r8",
+    "r9"
+   ],
+   "consistent": {},
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "r1",
+     "kind": "correct",
+     "error_code": null,
+     "work": "(a) $\\log_{10}C=\\log_{10}a+t\\log_{10}b$. Gradient $=\\frac{1.0-1.8}{10-2}=-0.1$. $1.8=-0.1(2)+c$ so $c=2$. $\\log_{10}a=2$ so $a=100$.\n(b) $\\log_{10}b=-0.1$, $b=10^{-0.1}$. $e^{-k}=10^{-0.1}$, $-k=-0.1\\ln10$, $k=0.1\\ln 10=0.230$.\n(c) $100e^{-kt}=4$, $e^{-kt}=0.04$, $t=\\frac{\\ln25}{k}=13.98$ hours. $0.98\\times60=58.8$, so 13 hours 59 minutes.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "kind": "pitfall",
+     "error_code": "log-linear-constants-confused",
+     "work": "(a) $\\log_{10}C=\\log_{10}a+t\\log_{10}b$. Gradient $=-0.1$. $1.8=-0.1(2)+c$, $c=2$. The intercept is $a$, so $a=2$.\n(b) $\\log_{10}b=-0.1$ so $b=10^{-0.1}$. $e^{-k}=10^{-0.1}$, $k=0.1\\ln10=0.230$.\n(c) $2e^{-0.230t}=4$, $e^{-0.230t}=2$, $-0.230t=\\ln2$, $t=-3.01$. A negative time makes no sense, so I give $-3$ hours.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r3",
+     "kind": "pitfall",
+     "error_code": "log-power-law-misapplied",
+     "work": "(a) $\\log_{10}(ab^t)=t\\log_{10}(ab)$, so the gradient is $\\log_{10}(ab)$. Gradient $=-0.1$, so $\\log_{10}(ab)=-0.1$, $ab=10^{-0.1}$. I can't separate $a$ and $b$ from this, so I can't find $a$.\n(b) I can't find $k$ without $a$ and $b$.\n(c) I can't do this part.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "A0",
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B0",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "M0",
+        "A0ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r4",
+     "kind": "pitfall",
+     "error_code": "log-law-misapplied",
+     "work": "(a) Gradient $=-0.1$, intercept $2$, so $\\log_{10}a=2$ and $a=100$.\n(b) $\\log_{10}b=-0.1$, so $b=10^{-0.1}$. The model is $Ce^{-kt}$ and the gradient is $-0.1$, so $k=0.1$.\n(c) $100e^{-0.1t}=4$, $e^{-0.1t}=0.04$, $t=\\frac{\\ln25}{0.1}=32.19$ hours. $0.19\\times60=11.3$, so 32 hours 11 minutes.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r5",
+     "kind": "pitfall",
+     "error_code": "log-power-law-misapplied",
+     "work": "(a) Gradient $=-0.1$, $c=2$, $\\log_{10}a=2$, $a=100$.\n(b) $b=10^{-0.1}$. $e^{-k}=10^{-0.1}$, so $-k=\\ln(10^{-0.1})=\\ln(-0.1\\times10)=\\ln(-1)=-1$. So $k=1$.\n(c) $100e^{-t}=4$, $e^{-t}=0.04$, $t=\\ln25=3.22$ hours. $0.22\\times60=13.1$, so 3 hours 13 minutes.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r6",
+     "kind": "pitfall",
+     "error_code": "log-linear-constants-confused",
+     "work": "(a) Gradient $=-0.1$, $c=2$, $a=10^2=100$.\n(b) The gradient is $b$, so $b=-0.1$ and $e^{-k}=-0.1$. I can't take the log of a negative number, so I ignore the sign and take $k=-\\ln0.1=2.30$.\n(c) $100e^{-2.30t}=4$, $e^{-2.30t}=0.04$, $t=\\frac{\\ln25}{2.30}=1.40$ hours. $0.40\\times60=24$, so 1 hour 24 minutes.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B0",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r7",
+     "kind": "pitfall",
+     "error_code": "parameter-meaning-no-context",
+     "work": "(a) Gradient $=-0.1$, $c=2$, $a=100$.\n(b) $b=10^{-0.1}$, $e^{-k}=10^{-0.1}$, $k=0.1\\ln10=0.230$.\n(c) $100e^{-kt}=4$, $t=\\frac{\\ln25}{0.230}=13.98$. So 13 hours 98 minutes.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r8",
+     "kind": "alternative",
+     "error_code": null,
+     "work": "(a) Gradient $=\\frac{1.0-1.8}{8}=-0.1$. Using $\\log_{10}C=mt+c$ with $1.8=2m+c$ and $1.0=10m+c$ gives $m=-0.1$, $c=2$. $\\log_{10}a=2$, so $a=100$.\n(b) Change of base: $\\ln C=\\ln a-kt$ and $\\log_{10}C=\\frac{\\ln C}{\\ln10}$. The gradient is $-0.1$ from $\\frac{1.0-1.8}{10-2}$, so $-\\frac{k}{\\ln10}=-0.1$. So $k=0.1\\ln10=0.230$.\n(c) Use the line directly: $\\log_{10}4=2-0.1t$. $t=\\frac{2-\\log_{10}4}{0.1}=10\\log_{10}25=13.98$ hours, which is 13 hours 59 minutes.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r9",
+     "kind": "partial",
+     "error_code": null,
+     "work": "(a) $\\log_{10}C=\\log_{10}a+t\\log_{10}b$. Gradient $=\\frac{1.0-1.8}{10-2}=-0.1$. $1.8=-0.2+c$, so $c=2=\\log_{10}a$, so $a=100$.\n(b) and (c): I ran out of time.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B0",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "M0",
+        "A0ft"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "r1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A0",
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "a: A0 - intercept 2 identified as a rather than log10 a",
+      "a: B0 - a=2 given",
+      "c: A0 - negative time, not given in hours and minutes"
+     ]
+    },
+    {
+     "id": "r3",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "A0",
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B0",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "a: log10(ab^t) wrongly simplified; no intercept found",
+      "b: nothing creditable",
+      "c: no attempt"
+     ]
+    },
+    {
+     "id": "r4",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1ft"
+       ]
+      }
+     ],
+     "reasons": [
+      "b: M0 - treated log10 gradient as k (k=0.1)",
+      "b: A0 - k wrong"
+     ]
+    },
+    {
+     "id": "r5",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1ft"
+       ]
+      }
+     ],
+     "reasons": [
+      "b: M0 - invalid log manipulation ln(-0.1×10)",
+      "b: A0 - k=1 wrong"
+     ]
+    },
+    {
+     "id": "r6",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B0",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1ft"
+       ]
+      }
+     ],
+     "reasons": [
+      "b: B0 - gradient wrongly taken as b",
+      "b: M0 - invalid method, ignoring sign",
+      "b: A0 - k=2.30 wrong"
+     ]
+    },
+    {
+     "id": "r7",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "c: A0 - 13 hours 98 minutes is not valid"
+     ]
+    },
+    {
+     "id": "r8",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r9",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B0",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "b: not attempted",
+      "c: not attempted"
+     ]
+    }
+   ],
+   "awarded_second": [
+    {
+     "id": "r2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) B0: student gives a = 2 instead of a = 10^2 = 100; scheme says a = 2 gets B0.",
+      "(c) A0: final answer is a negative time (-3 hours), which is impossible in context and not given in hours and minutes."
+     ]
+    }
+   ],
+   "cost_usd": 0.1295
+  },
+  "G5": {
+   "pass": false,
+   "errors": [
+    "pitfall [extrapolation-not-flagged] part c: no G4 response demonstrates it"
+   ]
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "agreement": "3/3",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.017625,
+   "retagged": {
+    "a": [
+     "log-linear-graph-model",
+     "solve-exponential-equation"
+    ],
+    "b": [
+     "form-exponential-model",
+     "laws-of-logarithms"
+    ],
+    "c": [
+     "solve-exponential-equation",
+     "use-model-to-predict"
+    ]
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

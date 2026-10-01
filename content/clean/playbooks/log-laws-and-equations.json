@@ -1,0 +1,139 @@
+{
+ "id": "log-laws-and-equations",
+ "question_type": "log-laws-and-equations",
+ "component": "pure",
+ "title": "Log laws and log equations",
+ "what_it_asks": "You are given an equation or expression involving logarithms. You combine or split logs using the laws, remove the logs, and solve the resulting equation. You then check each root against the original equation and reject any that put a log of a negative number or zero.",
+ "typical_structure": "Most questions have two parts, sometimes one or three, and about seven marks in total. A common shape is a first part that simplifies or shows a result using the log laws, then a later part that solves an equation, often a quadratic once the logs are gone. Later parts often build on the earlier one, sometimes with \"hence\". Show-that parts give a printed result and ask you to reach it.",
+ "mark_pattern": "Short parts are usually M1 A1: a method mark for applying a log law or removing the logs correctly, then an accuracy mark for the correct expression or value. Parts with an independent mark, B1 M1 A1, start with a stated value or a correct use of a law such as the power law, then the method and accuracy. Longer solving parts run M1 A1 dM1 A1. The first M1 combines the logs into a single log and the first A1 gives the correct equation. The dM1 solves the resulting equation, for example a quadratic, and needs the first M1. The last A1 is the valid root or roots after rejection. Show-that parts end with a starred accuracy mark for a fully justified route to the printed answer.",
+ "where_marks_leak": [
+  {
+   "error_code": "log-power-law-misapplied",
+   "mark_family": "method",
+   "text": "You write $2\\log x$ as $\\log 2x$, or bring a power down onto the wrong part, such as $\\ln(3^{2x}) = 2\\ln(3x)$. The M1 for using the power law is lost, and the A1 and any dM1 after it go too."
+  },
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You give the final value to the wrong number of decimal places or significant figures, or round too early. The last A1 is lost even though the method is right."
+  },
+  {
+   "error_code": "log-law-misapplied",
+   "mark_family": "method",
+   "text": "You use a false law, such as $\\log(a+b) = \\log a + \\log b$ or $\\frac{\\log a}{\\log b} = \\log\\frac{a}{b}$. The M1 for combining the logs is lost, and the accuracy and dependent marks that rely on it are lost too."
+  },
+  {
+   "error_code": "hidden-quadratic-not-converted-back",
+   "mark_family": "accuracy",
+   "text": "You solve for a substituted variable such as $u = \\mathrm{e}^x$ and stop there, or keep a negative value of $\\mathrm{e}^x$. The final A1 is lost because $x$ is never found."
+  }
+ ],
+ "write_to_earn": [
+  "Write the law you are using, such as $n\\log a = \\log a^n$, before you apply it, so the method mark is secure even if a slip follows.",
+  "Combine everything into a single log on each side before you write the equation without logs, using $\\log_a x = b \\Leftrightarrow x = a^b$ where needed.",
+  "Write the equation you get after removing the logs as its own line, then solve it, factorising or using the formula with the signs shown.",
+  "Test each root in the original equation and write down why you reject any root that gives a log of a negative number.",
+  "In a show-that part, write the line just before the printed result, then the printed result, with no steps skipped."
+ ],
+ "check_before_you_leave": [
+  "Every root tested in the original",
+  "Log of negative rejected, with reason",
+  "Answer in the asked form",
+  "Rounded only at the end",
+  "Substituted variable converted back"
+ ],
+ "skills": [
+  "laws-of-logarithms",
+  "remove-logarithms",
+  "solve-quadratic-equation",
+  "reject-invalid-solutions",
+  "simplify-algebraic-fractions",
+  "exact-form-answers",
+  "show-that-given-answer"
+ ],
+ "related_types": [
+  "exponential-equations",
+  "exponential-model-in-context",
+  "log-linear-graph-model",
+  "polynomial-factorise-and-solve"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:05:37",
+ "cost_usd": 0.0945,
+ "attempts": 2,
+ "facts": {
+  "n_questions": 59,
+  "codes_listed": {
+   "log-power-law-misapplied": 20,
+   "wrong-final-accuracy": 16,
+   "log-law-misapplied": 11,
+   "hidden-quadratic-not-converted-back": 5,
+   "completing-square-error": 5,
+   "quadratic-formula-error": 4,
+   "factorising-sign-error": 4,
+   "rationalising-error": 4
+  },
+  "frequent_codes": [
+   "log-law-misapplied",
+   "log-power-law-misapplied",
+   "wrong-final-accuracy"
+  ],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "3 rare words shared with P1_June2019_Q4",
+    "cosine 0.855 with part:IAL2018_WMA12_Jan2022_Q4:"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.005,
+   "shared_numbers": 0,
+   "max_cosine": 0.855,
+   "cosine_source": "part:IAL2018_WMA12_Jan2022_Q4:"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 10
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: 3 rare words shared with P1_June2019_Q4",
+   "copy: cosine 0.855 with part:IAL2018_WMA12_Jan2022_Q4:"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

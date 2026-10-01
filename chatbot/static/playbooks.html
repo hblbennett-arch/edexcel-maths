@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Question playbooks</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<style>
+  :root {
+    --primary: #1a365d; --accent: #2b6cb0; --success: #276749; --warning: #c05621; --danger: #c53030;
+    --bg: #f7fafc; --card: #ffffff; --border: #e2e8f0; --text: #2d3748; --muted: #718096; --mark: #805ad5;
+    --hint-bg: #f0fff4; --warn-bg: #fffaf0; --user-bg: #ebf4ff; --ok-bg: #f0fff4; --miss-bg: #fffaf0; --code-bg: #edf2f7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --primary: #90cdf4; --accent: #63b3ed; --success: #68d391; --warning: #f6ad55; --danger: #fc8181;
+      --bg: #171923; --card: #1f2330; --border: #2d3748; --text: #e2e8f0; --muted: #a0aec0; --mark: #b794f4;
+      --hint-bg: #1c2e25; --warn-bg: #2e2518; --user-bg: #1e2a3d; --ok-bg: #1c2e25; --miss-bg: #2e2518; --code-bg: #2a2f3d;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  header { position: sticky; top: 0; z-index: 2; background: var(--primary); color: #fff; padding: 12px 16px;
+           display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) header { background: #102a43; } }
+  header h1 { margin: 0; font-size: 18px; font-weight: 600; }
+  header h1 span { font-weight: 400; opacity: .8; }
+  header h1 a { color: inherit; text-decoration: none; }
+  header nav { display: flex; flex-wrap: wrap; gap: 0 6px; margin: 0 -8px; }
+  header nav a { color: #fff; opacity: .85; font-size: 14px; margin: 0; padding: 10px 8px; min-height: 40px; box-sizing: border-box; display: inline-flex; align-items: center; }
+  main { max-width: 900px; margin: 0 auto; padding: 16px 16px 40px; }
+  a { color: var(--accent); }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin: 12px 0; }
+  .card h3 { margin: 0 0 8px; font-size: 16px; color: var(--primary); }
+  .card h3 small { color: var(--muted); font-weight: 400; font-size: 13px; }
+  .lead { border-left: 4px solid var(--accent); }
+  .muted { color: var(--muted); }
+  .hint { color: var(--muted); font-size: 14px; margin: 4px 0 8px; }
+  .hint a.back { display: inline-block; padding: 8px 0; }
+  .warning { background: var(--warn-bg); border: 1px solid var(--warning); border-radius: 8px; padding: 10px 14px; margin: 12px 0; }
+  input[type=search] { width: 100%; font: inherit; color: var(--text); background: var(--card); border: 1px solid var(--border);
+                       border-radius: 8px; padding: 9px 12px; }
+  input[type=search]:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+  h2.topic { font-size: 15px; color: var(--muted); margin: 22px 0 6px; letter-spacing: .02em; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; }
+  .tile { display: block; text-decoration: none; color: inherit; background: var(--card); border: 1px solid var(--border);
+          border-radius: 10px; padding: 12px 14px; transition: border-color .15s; }
+  .tile:hover { border-color: var(--accent); }
+  .tile b { color: var(--primary); display: block; margin-bottom: 4px; font-size: 15px; }
+  .tile .meta { color: var(--muted); font-size: 13px; }
+  .badge { display: inline-block; font-size: 11.5px; border-radius: 10px; padding: 1px 8px; margin-left: 6px; vertical-align: middle;
+           border: 1px solid var(--border); color: var(--muted); font-weight: 600; }
+  .badge.indicative { border-color: var(--warning); color: var(--warning); }
+  .badge.items { border-color: var(--success); color: var(--success); }
+  .chip { display: inline-block; color: #fff; border-radius: 12px; font-size: 12.5px; padding: 2px 10px; text-align: center;
+          font-weight: 600; background: var(--mark); margin: 2px 4px 2px 0; white-space: nowrap; }
+  .chip.err { background: var(--warning); font-weight: 500; }
+  .chip.fam { background: var(--code-bg); color: var(--muted); font-weight: 500; }
+  .chip.skill { background: var(--code-bg); color: var(--text); font-weight: 500; }
+  .leak { border-left: 4px solid var(--warning); background: var(--warn-bg); border-radius: 8px; padding: 10px 12px; margin: 8px 0; }
+  .leak .def { color: var(--muted); font-size: 14px; margin-top: 4px; }
+  ul.earn { margin: 4px 0 0; padding-left: 22px; }
+  ul.earn li { padding: 3px 0; }
+  .check label { display: flex; gap: 10px; align-items: flex-start; padding: 6px 0; border-bottom: 1px dashed var(--border); cursor: pointer; }
+  .check label:last-child { border-bottom: 0; }
+  .check input { margin-top: 5px; flex: none; width: 18px; height: 18px; accent-color: var(--success); }
+  .check label.done span { color: var(--muted); text-decoration: line-through; }
+  .check .reset { font-size: 14px; margin-top: 4px; display: inline-block; padding: 8px 0; }
+  .links a { display: inline-block; margin: 0 8px 0 0; padding: 7px 0; }
+  footer { max-width: 900px; margin: 0 auto; padding: 8px 16px 32px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); }
+  .katex-display { overflow-x: auto; overflow-y: hidden; }
+  .katex { font-size: 1.05em; }
+</style>
+</head>
+<body>
+<header>
+  <h1><a href="/playbooks">Playbooks</a> <span id="subtitle">· what each question type asks, and where its marks leak</span></h1>
+  <nav><a href="/learn">Learn</a><a href="/examiner">Be the examiner</a><a href="/mark">Mark my working</a></nav>
+</header>
+<main id="app"><div class="muted">Loading…</div></main>
+<footer id="foot"></footer>
+<script>
+const app = document.getElementById("app");
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+function typeset(el) {
+  if (window.renderMathInElement) renderMathInElement(el, {
+    delimiters: [{left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false}],
+    throwOnError: false,
+  });
+}
+function store(key, fallback) { try { const v = localStorage.getItem(key); return v === null ? fallback : JSON.parse(v); } catch { return fallback; } }
+function save(key, val) { try { localStorage.setItem(key, JSON.stringify(val)); } catch {} }
+function plural(n, w) { return `${n} ${w}${n === 1 ? "" : "s"}`; }
+const indicative = `<span class="badge indicative" title="Built from few source questions; treat as indicative">indicative</span>`;
+
+// ------------------------------------------------------------------------------------------------ index
+let index = null;
+function renderIndexList(filter) {
+  const q = (filter || "").trim().toLowerCase();
+  const rows = index.filter(p => !q || p.title.toLowerCase().includes(q) || p.topic_title.toLowerCase().includes(q));
+  if (!rows.length) { $("list").innerHTML = `<div class="hint">No playbook matches "${esc(filter)}".</div>`; return; }
+  const groups = {};
+  rows.forEach(p => (groups[p.topic_title] = groups[p.topic_title] || []).push(p));
+  $("list").innerHTML = Object.entries(groups).map(([topic, ps]) => `<h2 class="topic">${esc(topic)}</h2><div class="grid">` + ps.map(p => `
+    <a class="tile" href="/playbooks?type=${encodeURIComponent(p.id)}">
+      <b>${esc(p.title)}</b>
+      <span class="meta">${plural(p.n_leaks, "leak")}${p.component ? ` · ${esc(p.component)}` : ""}
+        ${p.has_items ? `<span class="badge items">${plural(p.n_items, "practice question")}</span>` : ""}${p.thin ? indicative : ""}</span>
+    </a>`).join("") + `</div>`).join("");
+}
+
+async function renderIndex() {
+  document.title = "Question playbooks";
+  let d;
+  try { d = await (await fetch("/api/playbooks")).json(); }
+  catch (e) { app.innerHTML = `<div class="warning">Couldn't load the playbooks (${esc(e.message || e)}). Is the server still running?</div>`; return; }
+  index = d.playbooks; $("foot").textContent = d.disclaimer || "";
+  app.innerHTML = `<div class="card lead"><h3>${plural(index.length, "question type")} <small>· grouped by topic</small></h3>
+      <input type="search" id="q" placeholder="Search by title or topic…" autocomplete="off"></div><div id="list"></div>`;
+  const q = $("q");
+  q.value = store("pb-search", "");
+  q.oninput = () => { save("pb-search", q.value); renderIndexList(q.value); };
+  renderIndexList(q.value);
+}
+
+// --------------------------------------------------------------------------------------------- playbook
+async function renderPlaybook(id) {
+  let pb;
+  try {
+    const r = await fetch(`/api/playbook?id=${encodeURIComponent(id)}`);
+    pb = await r.json();
+    if (!r.ok) throw new Error(pb.error || r.statusText);
+  } catch (e) {
+    app.innerHTML = `<div class="warning">Couldn't load this playbook (${esc(e.message || e)}). <a href="/playbooks">All playbooks</a></div>`; return;
+  }
+  document.title = `Playbook · ${pb.title}`;
+  $("subtitle").textContent = `· ${pb.title}`;
+  $("foot").textContent = pb.disclaimer || "";
+  const key = `pb-check-${pb.id}`;
+  const ticked = store(key, {});
+  const section = (title, body, extra) => body ? `<div class="card"><h3>${title}${extra || ""}</h3>${body}</div>` : "";
+  app.innerHTML = `<div class="hint"><a class="back" href="/playbooks">← All playbooks</a></div>
+    <div class="card lead"><h3>${esc(pb.title)}${pb.thin ? indicative : ""} <small>· ${esc(pb.topic_title || "")}${pb.component ? ` · ${esc(pb.component)}` : ""}${pb.n_questions ? ` · built from ${plural(pb.n_questions, "question")}` : ""}</small></h3>
+      ${pb.definition ? `<div class="hint">${esc(pb.definition)}</div>` : ""}
+      <div>${esc(pb.what_it_asks)}</div></div>` +
+    section("Typical structure", pb.typical_structure ? `<div>${esc(pb.typical_structure)}</div>` : "") +
+    section("Mark pattern", pb.mark_pattern ? `<div>${esc(pb.mark_pattern)}</div>` : "") +
+    section("Where marks leak", pb.where_marks_leak.length ? pb.where_marks_leak.map(l => `<div class="leak">
+        ${l.error_code ? `<span class="chip err">${esc(l.error_code)}</span>` : ""}${l.mark_family ? `<span class="chip fam">${esc(l.mark_family)} mark</span>` : ""}
+        <div style="margin-top:6px">${esc(l.text)}</div>${l.definition ? `<div class="def">${esc(l.definition)}</div>` : ""}</div>`).join("") : "") +
+    section("Write this to earn it", pb.write_to_earn.length ? `<ul class="earn">${pb.write_to_earn.map(t => `<li>${esc(t)}</li>`).join("")}</ul>` : "") +
+    section("Check before you leave", pb.check_before_you_leave.length ? `<div class="check">${pb.check_before_you_leave.map((t, i) =>
+        `<label class="${ticked[i] ? "done" : ""}"><input type="checkbox" data-i="${i}" ${ticked[i] ? "checked" : ""}><span>${esc(t)}</span></label>`).join("")}
+        <a href="#" class="reset" id="reset">Clear ticks</a></div>` : "", ` <small>· ticks are kept in this browser</small>`) +
+    section("Skills", pb.skills.length ? pb.skills.map(s => `<span class="chip skill">${esc(s.title)}</span>`).join("") : "") +
+    section("Related question types", pb.related_types.length ? `<div class="links">${pb.related_types.map(r =>
+        r.has_playbook ? `<a href="/playbooks?type=${encodeURIComponent(r.id)}">${esc(r.title)}</a>` : `<span class="muted">${esc(r.title)}</span>`).join("")}</div>` : "") +
+    `<div class="card"><h3>Practise</h3>${pb.practice_items.length
+        ? `<div class="links">${pb.practice_items.map(it => `<a href="/learn?item=${encodeURIComponent(it.item_id)}">${esc(it.title)} · ${plural(it.marks, "mark")}${it.tier ? ` · ${esc(it.tier)}` : ""}</a>`).join("")}</div>`
+        : `<div class="hint">No practice questions of this type in the bank yet. <a href="/learn">Browse all questions</a>.</div>`}</div>`;
+  typeset(app);
+  app.querySelectorAll(".check input").forEach(cb => cb.onchange = () => {
+    const t = store(key, {}); t[cb.dataset.i] = cb.checked; save(key, t);
+    cb.parentElement.classList.toggle("done", cb.checked);
+  });
+  const reset = $("reset");
+  if (reset) reset.onclick = e => { e.preventDefault(); save(key, {}); app.querySelectorAll(".check input").forEach(cb => { cb.checked = false; cb.parentElement.classList.remove("done"); }); };
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  const type = new URLSearchParams(location.search).get("type");
+  if (type) renderPlaybook(type); else renderIndex();
+});
+</script>
+</body>
+</html>

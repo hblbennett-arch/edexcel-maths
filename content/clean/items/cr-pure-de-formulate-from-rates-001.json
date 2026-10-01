@@ -90,7 +90,173 @@
     "Write the height as $3r$ at the start so that each expression involves only $r$.",
     "List every surface you could touch on $P$. Is any flat face left at the end where the hemisphere was removed?"
    ],
-   "forms": []
+   "forms": [],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$V = \\pi r^2(3r) - \\frac{2}{3}\\pi r^3$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$V = 3\\pi r^3 - \\frac{2}{3}\\pi r^3 = \\frac{7}{3}\\pi r^3$",
+      "secures": [
+       "A1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$S = \\pi r^2 + 2\\pi r(3r) + 2\\pi r^2$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 4,
+      "working": "$S = \\pi r^2 + 6\\pi r^2 + 2\\pi r^2 = 9\\pi r^2$, so $V = \\frac{7}{3}\\pi r^3$ and $S = 9\\pi r^2$",
+      "secures": [
+       "A1*"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "Cylinder: $V_{\\text{cyl}} = \\pi r^2 h$ with $h = 3r$",
+      "why": "The volume of a cylinder is base area times height, and you are told the height is $3r$, so you use that.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$V_{\\text{cyl}} = \\pi r^2 \\times 3r$",
+      "why": "You replace $h$ by $3r$ so that only $r$ is left in the expression.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$V_{\\text{cyl}} = 3\\pi r^3$",
+      "why": "You multiply $r^2 \\times r$ to get $r^3$ and keep the factor 3.",
+      "secures": null,
+      "check": "Units: cm² × cm = cm³, matching $r^3$."
+     },
+     {
+      "step": 4,
+      "working": "Sphere: $\\frac{4}{3}\\pi r^3$, so hemisphere $= \\frac{1}{2}\\times\\frac{4}{3}\\pi r^3$",
+      "why": "A hemisphere is half a sphere, so you halve the sphere volume formula.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$V_{\\text{hem}} = \\frac{2}{3}\\pi r^3$",
+      "why": "You multiply $\\frac12 \\times \\frac43$ to get $\\frac23$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$V = 3\\pi r^3 - \\frac{2}{3}\\pi r^3$",
+      "why": "The hemisphere is removed, so you subtract its volume from the cylinder's volume.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "$V = \\left(\\frac{9}{3} - \\frac{2}{3}\\right)\\pi r^3$",
+      "why": "You write 3 as $\\frac{9}{3}$ so both terms have the same denominator and you can combine them.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$V = \\frac{7}{3}\\pi r^3$",
+      "why": "You subtract the fractions $\\frac{9}{3} - \\frac{2}{3} = \\frac{7}{3}$, which gives the printed result.",
+      "secures": "A1",
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "Surfaces of $P$: one flat circular end, the curved side of the cylinder, the inside of the hollow",
+      "why": "The hollow takes away the whole flat face at that end, so only the other end is flat. The hollow's curved inside surface replaces it.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "Flat end: $\\pi r^2$",
+      "why": "This is the area of a circle of radius $r$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 11,
+      "working": "Curved side: $2\\pi r \\times 3r$",
+      "why": "The curved side unrolls into a rectangle of width equal to the circumference $2\\pi r$ and height $3r$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 12,
+      "working": "Curved side $= 6\\pi r^2$",
+      "why": "You multiply $2 \\times 3 = 6$ and $r \\times r = r^2$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 13,
+      "working": "Hollow: $\\frac{1}{2}\\times 4\\pi r^2 = 2\\pi r^2$",
+      "why": "The hollow is half a sphere, so you take half of the sphere's surface area $4\\pi r^2$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 14,
+      "working": "$S = \\pi r^2 + 6\\pi r^2 + 2\\pi r^2$",
+      "why": "You add the three surface areas together.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 15,
+      "working": "$S = (1 + 6 + 2)\\pi r^2$",
+      "why": "All three terms contain $\\pi r^2$, so you factor it out.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 16,
+      "working": "$S = 9\\pi r^2$",
+      "why": "You add $1+6+2 = 9$, which gives the printed result for $S$.",
+      "secures": "A1*",
+      "check": null
+     },
+     {
+      "step": 17,
+      "working": "$V = \\frac{7}{3}\\pi r^3$ and $S = 9\\pi r^2$",
+      "why": "You state both printed results together, now that each has been reached.",
+      "secures": null,
+      "check": null
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:49:32+00:00",
+    "cost_usd": 0.059,
+    "attempts": 2,
+    "errors": [],
+    "attempt_errors": [
+     [
+      "part a: brisk: last working does not contain a value equal to answer V = 7*pi*r^3/3 (to exact)",
+      "part a: every_step: last working does not contain a value equal to answer V = 7*pi*r^3/3 (to exact)"
+     ]
+    ]
+   }
   },
   {
    "label": "b",
@@ -222,7 +388,208 @@
     "Both $V$ and $S$ depend on $r$, so find $\\frac{\\mathrm{d}r}{\\mathrm{d}t}$ from the volume rate first.",
     "You need the value of $r$ when $V = 500$. Keep it to full calculator accuracy until the end."
    ],
-   "forms": []
+   "forms": [],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$\\frac{\\mathrm{d}V}{\\mathrm{d}r}=7\\pi r^2,\\quad \\frac{\\mathrm{d}S}{\\mathrm{d}r}=18\\pi r$",
+      "secures": [
+       "B1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$\\frac{\\mathrm{d}S}{\\mathrm{d}t}=\\frac{\\mathrm{d}S}{\\mathrm{d}r}\\times\\frac{\\mathrm{d}V}{\\mathrm{d}t}\\div\\frac{\\mathrm{d}V}{\\mathrm{d}r}=\\frac{18\\pi r\\times 14}{7\\pi r^2}=\\frac{36}{r}$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$V=500$: $\\frac{7}{3}\\pi r^3=500$, so $r=\\sqrt[3]{\\frac{1500}{7\\pi}}=4.0858\\ldots$, giving $\\frac{\\mathrm{d}S}{\\mathrm{d}t}=\\frac{36}{4.0858\\ldots}$",
+      "secures": [
+       "dM1"
+      ]
+     },
+     {
+      "step": 4,
+      "working": "$\\frac{\\mathrm{d}S}{\\mathrm{d}t}=8.81$ square centimetres per second",
+      "secures": [
+       "A1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$V=\\frac{7}{3}\\pi r^3$",
+      "why": "You start from the volume formula given in part (a), since the rate of change of $V$ is linked to the radius $r$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$\\frac{\\mathrm{d}V}{\\mathrm{d}r}=\\frac{7}{3}\\pi\\times 3r^2$",
+      "why": "You differentiate with respect to $r$: multiply by the power 3 and reduce the power by one.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$\\frac{\\mathrm{d}V}{\\mathrm{d}r}=7\\pi r^2$",
+      "why": "The $\\frac{7}{3}$ and the 3 cancel.",
+      "secures": null,
+      "check": "Integrating $7\\pi r^2$ gives back $\\frac{7}{3}\\pi r^3$."
+     },
+     {
+      "step": 4,
+      "working": "$S=9\\pi r^2$",
+      "why": "You take the surface area formula from part (a).",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$\\frac{\\mathrm{d}S}{\\mathrm{d}r}=9\\pi\\times 2r$",
+      "why": "You differentiate with respect to $r$: multiply by the power 2 and reduce the power by one.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$\\frac{\\mathrm{d}S}{\\mathrm{d}r}=18\\pi r$",
+      "why": "You multiply $9\\pi$ by 2. Now both derivatives are known.",
+      "secures": "B1",
+      "check": "Integrating $18\\pi r$ gives back $9\\pi r^2$."
+     },
+     {
+      "step": 7,
+      "working": "$\\frac{\\mathrm{d}V}{\\mathrm{d}t}=14$",
+      "why": "This is the given constant rate at which the volume grows.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$\\frac{\\mathrm{d}S}{\\mathrm{d}t}=\\frac{\\mathrm{d}S}{\\mathrm{d}r}\\times\\frac{\\mathrm{d}r}{\\mathrm{d}t}$",
+      "why": "The chain rule links the rate you want to $r$, which both $S$ and $V$ depend on.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "$\\frac{\\mathrm{d}r}{\\mathrm{d}t}=\\frac{\\mathrm{d}V}{\\mathrm{d}t}\\div\\frac{\\mathrm{d}V}{\\mathrm{d}r}$",
+      "why": "You need $\\frac{\\mathrm{d}r}{\\mathrm{d}t}$, and dividing by $\\frac{\\mathrm{d}V}{\\mathrm{d}r}$ is the right way round for the chain rule.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$\\frac{\\mathrm{d}r}{\\mathrm{d}t}=\\frac{14}{7\\pi r^2}$",
+      "why": "You substitute $14$ and $7\\pi r^2$ from the earlier lines.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 11,
+      "working": "$\\frac{\\mathrm{d}r}{\\mathrm{d}t}=\\frac{2}{\\pi r^2}$",
+      "why": "You cancel the common factor 7 in $\\frac{14}{7}$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 12,
+      "working": "$\\frac{\\mathrm{d}S}{\\mathrm{d}t}=18\\pi r\\times\\frac{2}{\\pi r^2}$",
+      "why": "You put $\\frac{\\mathrm{d}S}{\\mathrm{d}r}$ and $\\frac{\\mathrm{d}r}{\\mathrm{d}t}$ into the chain rule.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 13,
+      "working": "$\\frac{\\mathrm{d}S}{\\mathrm{d}t}=\\frac{36\\pi r}{\\pi r^2}$",
+      "why": "You multiply the numerators: $18\\times 2=36$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 14,
+      "working": "$\\frac{\\mathrm{d}S}{\\mathrm{d}t}=\\frac{36}{r}$",
+      "why": "You cancel $\\pi$ and one factor of $r$, leaving a rate that depends only on $r$.",
+      "secures": "M1",
+      "check": "The units work: an area per second needs a number over a length in cm, which fits."
+     },
+     {
+      "step": 15,
+      "working": "When $V=500$: $\\frac{7}{3}\\pi r^3=500$",
+      "why": "You need $r$ at this instant, so you set the volume formula equal to 500.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 16,
+      "working": "$7\\pi r^3=1500$",
+      "why": "You multiply both sides by 3 to clear the fraction.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 17,
+      "working": "$r^3=\\frac{1500}{7\\pi}$",
+      "why": "You divide both sides by $7\\pi$ to isolate $r^3$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 18,
+      "working": "$r^3=68.209\\ldots$",
+      "why": "You evaluate the fraction on your calculator and keep extra digits.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 19,
+      "working": "$r=\\sqrt[3]{68.209\\ldots}=4.0858\\ldots$",
+      "why": "You take the cube root to undo the cubing. Keep the full calculator value to avoid rounding errors.",
+      "secures": null,
+      "check": "$4.0858^3\\approx 68.2$."
+     },
+     {
+      "step": 20,
+      "working": "$\\frac{\\mathrm{d}S}{\\mathrm{d}t}=\\frac{36}{4.0858\\ldots}$",
+      "why": "You substitute this $r$ into $\\frac{36}{r}$.",
+      "secures": "dM1",
+      "check": null
+     },
+     {
+      "step": 21,
+      "working": "$\\frac{\\mathrm{d}S}{\\mathrm{d}t}=8.8109\\ldots$",
+      "why": "You evaluate the division on your calculator.",
+      "secures": null,
+      "check": "$36\\div 4=9$, so a value a little below 9 is sensible."
+     },
+     {
+      "step": 22,
+      "working": "$\\frac{\\mathrm{d}S}{\\mathrm{d}t}=8.81$ square centimetres per second",
+      "why": "You round to 3 significant figures and state the units.",
+      "secures": "A1",
+      "check": null
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:49:53+00:00",
+    "cost_usd": 0.1026,
+    "attempts": 2,
+    "errors": [],
+    "attempt_errors": [
+     [
+      "part b: brisk: last working does not contain a value equal to answer dSdt = 8.81 (to sf-3)",
+      "part b: every_step: last working does not contain a value equal to answer dSdt = 8.81 (to sf-3)"
+     ]
+    ]
+   }
   }
  ],
  "pitfalls": [
@@ -791,6 +1158,15 @@
      "eliminate-variable-using-constraint"
     ]
    }
+  },
+  "GL": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part a: copy check flag: cosine 0.854 with part:GCE2008_6664_Jan2009_Q10:a",
+    "part b: copy check flag: cosine 0.846 with part:IAL2018_WMA14_Oct2023_Q2:b"
+   ],
+   "parts_checked": 2
   }
  },
  "review": {

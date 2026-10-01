@@ -1,0 +1,321 @@
+{
+ "id": "cr-3-p2-q10",
+ "blueprint_id": "mk-3-p2-q10",
+ "question_type": "parametric-differentiation-tangents",
+ "component": "pure",
+ "tier": "standard",
+ "kind": "mock",
+ "stem": "For $0 \\leqslant t \\leqslant \\pi$, a curve $C$ is traced out by the parametric equations\n$$x = 5\\cos t - 1, \\qquad y = 2\\sin 2t,$$\nwhere $t$ is measured in radians. The point $P$ lies on $C$ and its $x$-coordinate is $\\frac{3}{2}$.",
+ "paper": "mock-3-P2",
+ "set": "mock-3",
+ "q_num": 10,
+ "parts": [
+  {
+   "label": "a",
+   "marks": 3,
+   "text": "Work out the value of $t$ at $P$. Then obtain the exact gradient of $C$ at $P$. Simplify your answer as far as possible, with a rational denominator. (3)",
+   "command": "simplify",
+   "forms": [
+    "exact"
+   ],
+   "skills": [
+    "parametric-differentiation",
+    "differentiate-trig-functions",
+    "find-parameter-at-point",
+    "exact-trig-values"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Solves $5\\cos t - 1 = \\frac{3}{2}$ to get $t = \\frac{\\pi}{3}$ at $P$",
+     "notes": "Accept $60^\\circ$ if it is then used correctly. It must be the only value in $0 \\leqslant t \\leqslant \\pi$."
+    },
+    {
+     "code": "M1",
+     "for": "Differentiates both $x$ and $y$ with respect to $t$, getting forms $\\pm a\\sin t$ and $\\pm b\\cos 2t$, and works out $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ as $\\frac{\\mathrm{d}y/\\mathrm{d}t}{\\mathrm{d}x/\\mathrm{d}t}$, then substitutes their value of $t$",
+     "notes": "If the fraction is upside down, $\\frac{\\mathrm{d}x/\\mathrm{d}t}{\\mathrm{d}y/\\mathrm{d}t}$, this mark is M0."
+    },
+    {
+     "code": "A1",
+     "for": "Gradient $= \\frac{4\\sqrt{3}}{15}$",
+     "notes": "cao. It must be exact with a rational denominator. $\\frac{4}{5\\sqrt{3}}$ alone is A0. Decimals only (0.4619 or similar) score A0."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$5\\cos t - 1 = \\frac{3}{2} \\Rightarrow \\cos t = \\frac{1}{2} \\Rightarrow t = \\frac{\\pi}{3}$, the only value in $[0, \\pi]$",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "$\\frac{\\mathrm{d}x}{\\mathrm{d}t} = -5\\sin t$, $\\quad \\frac{\\mathrm{d}y}{\\mathrm{d}t} = 4\\cos 2t$, so $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\frac{4\\cos 2t}{-5\\sin t}$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "At $t = \\frac{\\pi}{3}$: $\\cos\\frac{2\\pi}{3} = -\\frac{1}{2}$ and $\\sin\\frac{\\pi}{3} = \\frac{\\sqrt{3}}{2}$, so $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\frac{-2}{-\\frac{5\\sqrt{3}}{2}} = \\frac{4}{5\\sqrt{3}} = \\frac{4\\sqrt{3}}{15}$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "t_P",
+     "expr": "pi/3",
+     "form": "exact"
+    },
+    {
+     "name": "gradient",
+     "expr": "4*sqrt(3)/15",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "solutions",
+     "equation": "5cos(t) - 1 = 3/2",
+     "var": "t",
+     "interval": [
+      0,
+      "3.14159265"
+     ],
+     "result": [
+      "pi/3"
+     ]
+    },
+    {
+     "type": "substitute",
+     "expr": "5cos(t) - 1",
+     "at": {
+      "t": "pi/3"
+     },
+     "answer": "t_P",
+     "result": "3/2"
+    },
+    {
+     "type": "derivative",
+     "f": "5cos(t) - 1",
+     "var": "t",
+     "result": "-5sin(t)"
+    },
+    {
+     "type": "derivative",
+     "f": "2sin(2t)",
+     "var": "t",
+     "result": "4cos(2t)"
+    },
+    {
+     "type": "substitute",
+     "expr": "(4cos(2t))/(-5sin(t))",
+     "at": {
+      "t": "pi/3"
+     },
+     "answer": "gradient"
+    }
+   ],
+   "hints": [
+    "Put $5\\cos t - 1$ equal to $\\frac{3}{2}$ and solve for $t$ in the given interval.",
+    "Differentiate $x$ and $y$ separately with respect to $t$. Then divide $\\frac{\\mathrm{d}y}{\\mathrm{d}t}$ by $\\frac{\\mathrm{d}x}{\\mathrm{d}t}$."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 3,
+   "text": "Find the tangent to $C$ at $P$ and write its equation as $y = mx + c$, where $m$ and $c$ are exact values that you must determine. (3)",
+   "command": "find",
+   "forms": [
+    "exact"
+   ],
+   "skills": [
+    "exact-trig-values",
+    "parametric-differentiation",
+    "tangent-at-a-point",
+    "equation-of-straight-line",
+    "exact-form-answers"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Substitutes their parameter value from (a), not $t = \\frac{3}{2}$, into $y = 2\\sin 2t$ to find the $y$-coordinate of $P$. Then builds a straight line through $\\left(\\frac{3}{2}, y_P\\right)$ using their gradient from (a)",
+     "notes": "Allow $y - y_P = m(x - \\tfrac{3}{2})$ or $y = mx + c$ with $c$ found from the point. This mark is lost if $t = \\frac{3}{2}$ is used in place of the parameter, or if the gradient used is $-1/m$ or has been inverted."
+    },
+    {
+     "code": "A1",
+     "for": "$y$-coordinate of $P$ is $\\sqrt{3}$, with a correct line such as $y - \\sqrt{3} = \\frac{4\\sqrt{3}}{15}\\left(x - \\frac{3}{2}\\right)$",
+     "notes": "Depends on M1. Accept an exact equivalent of the gradient, e.g. $\\frac{4}{5\\sqrt{3}}$."
+    },
+    {
+     "code": "A1",
+     "for": "$y = \\frac{4\\sqrt{3}}{15}x + \\frac{3\\sqrt{3}}{5}$",
+     "notes": "cao oe with exact values of $m$ and $c$. Accept $c = \\frac{9\\sqrt{3}}{15}$ or $\\frac{9}{5\\sqrt{3}}$. Decimals score A0."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "At $t = \\frac{\\pi}{3}$: $y = 2\\sin\\frac{2\\pi}{3} = 2 \\times \\frac{\\sqrt{3}}{2} = \\sqrt{3}$, so $P\\left(\\frac{3}{2}, \\sqrt{3}\\right)$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$y - \\sqrt{3} = \\frac{4\\sqrt{3}}{15}\\left(x - \\frac{3}{2}\\right)$",
+     "mark": "A1"
+    },
+    {
+     "step": 3,
+     "working": "$y = \\frac{4\\sqrt{3}}{15}x - \\frac{2\\sqrt{3}}{5} + \\sqrt{3} = \\frac{4\\sqrt{3}}{15}x + \\frac{3\\sqrt{3}}{5}$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "m",
+     "expr": "4*sqrt(3)/15",
+     "form": "exact"
+    },
+    {
+     "name": "c",
+     "expr": "3*sqrt(3)/5",
+     "form": "exact",
+     "check": "c = sqrt(3) - m*3/2"
+    }
+   ],
+   "checks": [
+    {
+     "type": "substitute",
+     "expr": "2sin(2t)",
+     "at": {
+      "t": "pi/3"
+     },
+     "result": "sqrt(3)"
+    },
+    {
+     "type": "substitute",
+     "expr": "(4cos(2t))/(-5sin(t))",
+     "at": {
+      "t": "pi/3"
+     },
+     "answer": "m"
+    },
+    {
+     "type": "substitute",
+     "expr": "4sqrt(3)/15*x + 3sqrt(3)/5",
+     "at": {
+      "x": "3/2"
+     },
+     "result": "sqrt(3)"
+    },
+    {
+     "type": "equals",
+     "lhs": "sqrt(3) - (4sqrt(3)/15)*(3/2)",
+     "rhs": "3sqrt(3)/5"
+    }
+   ],
+   "hints": [
+    "You need the $y$-coordinate of $P$. Use the value of $t$ from part (a), not the $x$-coordinate.",
+    "Use $y - y_1 = m(x - x_1)$ with the gradient from part (a). Then rearrange to make $y$ the subject."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "parametric-derivative-inverted",
+   "text": "A common slip is to work out $\\frac{-5\\sin t}{4\\cos 2t}$, which is $\\frac{\\mathrm{d}x}{\\mathrm{d}t} \\div \\frac{\\mathrm{d}y}{\\mathrm{d}t}$. This gives $\\frac{5\\sqrt{3}}{4}$ instead of $\\frac{4\\sqrt{3}}{15}$. Because the method itself is wrong, the M1 is lost, and the A1 goes with it.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "trig-derivative-sign-error",
+   "text": "Many students write the derivative of $5\\cos t$ as $5\\sin t$ and drop the minus sign. You then get a gradient of $-\\frac{4\\sqrt{3}}{15}$, so the A1 is lost. Remember that $\\frac{\\mathrm{d}}{\\mathrm{d}t}(\\cos t) = -\\sin t$.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 3,
+   "error_code": "exact-trig-value-error",
+   "text": "If you take $\\sin\\frac{\\pi}{3} = \\frac{1}{2}$, or $\\cos\\frac{2\\pi}{3} = +\\frac{1}{2}$, your gradient will not be $\\frac{4\\sqrt{3}}{15}$ and the A1 is lost. The correct values are $\\sin\\frac{\\pi}{3} = \\frac{\\sqrt{3}}{2}$ and $\\cos\\frac{2\\pi}{3} = -\\frac{1}{2}$.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "x-value-used-as-parameter",
+   "text": "If you put $t = \\frac{3}{2}$ into $y = 2\\sin 2t$, you are using the $x$-coordinate as if it were the parameter. That gives the wrong point, so the M1 is lost. Use $t = \\frac{\\pi}{3}$, which gives $y = \\sqrt{3}$.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "parametric-derivative-inverted",
+   "text": "A common mistake is to reuse an upside-down gradient, $\\frac{5\\sqrt{3}}{4}$. Then your line is not the tangent, and this part's M1 is lost. The tangent's gradient is $\\frac{\\mathrm{d}y/\\mathrm{d}t}{\\mathrm{d}x/\\mathrm{d}t} = \\frac{4\\sqrt{3}}{15}$.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "exact-trig-value-error",
+   "text": "Writing $\\sin\\frac{2\\pi}{3} = \\frac{1}{2}$ gives $y = 1$ instead of $\\sqrt{3}$. You lose both A1 marks, because the intercept then comes out wrong too.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-10-01T00:03:39",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.3499
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 6
+  },
+  "G7": {
+   "pass": false,
+   "flag": true,
+   "reasons": [
+    "2 word 8-gram(s) also in the reference corpus (not whitelisted)"
+   ],
+   "flags": [
+    "cosine 0.902 with part:IAL2018_WMA13_Oct2021_Q8:c"
+   ],
+   "hit_fields": [
+    "part b text"
+   ],
+   "n_8gram_hits": 2,
+   "hits8": [
+    "mx c where m and c are exact",
+    "y mx c where m and c are"
+   ],
+   "max_jaccard": 0.059,
+   "jaccard_source": "GCE2008_6665_Jan2013_Q1",
+   "shared_numbers": 0,
+   "max_cosine": 0.902,
+   "cosine_source": "part:IAL2018_WMA13_Oct2021_Q8:c"
+  },
+  "G2": {
+   "pass": false,
+   "errors": [
+    "part a check 2 (substitute): result 3/2 differs from answer t_P = pi/3"
+   ],
+   "n_checks": 9,
+   "n_answers": 4,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

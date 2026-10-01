@@ -1,0 +1,253 @@
+{
+ "id": "cr-mech-velocity-time-graph-002",
+ "blueprint_id": "bp-mech-velocity-time-graph-002",
+ "question_type": "velocity-time-graph",
+ "component": "mech",
+ "tier": "standard",
+ "kind": "exam",
+ "stem": "During a training session, a rower in a single scull rows along a straight, calm stretch of a lake. The boat is modelled as a particle. The session has three stages.\n\nStage 1: The boat sets off from rest and speeds up at a constant $0.4\\,\\mathrm{m\\,s^{-2}}$ for $12$ seconds, when its speed is $U\\,\\mathrm{m\\,s^{-1}}$.\nStage 2: The boat keeps a steady speed of $U\\,\\mathrm{m\\,s^{-1}}$ for $T$ seconds.\nStage 3: The rower stops rowing, and the boat slows at a constant $0.3\\,\\mathrm{m\\,s^{-2}}$ until it is at rest.\n\nOver the three stages the boat covers a total distance of $1000\\,\\mathrm{m}$.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 2,
+   "text": "Find the value of $U$, and the length of time that stage 3 lasts. (2)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "velocity-time-graph-gradient-area",
+    "suvat-scalar"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "$U = 4.8$ (from $0 + 0.4 \\times 12$)",
+     "notes": "Accept $\\frac{24}{5}$. Units may be left out here."
+    },
+    {
+     "code": "B1",
+     "for": "Stage 3 lasts $16$ seconds (from $4.8 \\div 0.3$)",
+     "notes": "Accept $16\\,\\mathrm{s}$. A time of $-16$ that is never corrected gets B0."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Stage 1 with $v = u + at$: $U = 0 + 0.4 \\times 12 = 4.8$",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "Stage 3 with $v = u + at$: $0 = 4.8 - 0.3t$, which gives $t = \\frac{4.8}{0.3} = 16\\,\\mathrm{s}$. This is also the time for the line on the speed-time graph to drop 4.8 at gradient $-0.3$.",
+     "mark": "B1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "U",
+     "expr": "24/5",
+     "form": "exact"
+    },
+    {
+     "name": "t3",
+     "expr": "16",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "0.4*12",
+     "answer": "U"
+    },
+    {
+     "type": "solutions",
+     "equation": "24/5 - 0.3*t = 0",
+     "var": "t",
+     "result": [
+      "16"
+     ]
+    }
+   ],
+   "hints": [
+    "On a speed-time graph the acceleration is the gradient. Starting from rest, how much speed does $0.4\\,\\mathrm{m\\,s^{-2}}$ add in 12 seconds?",
+    "In stage 3 the speed falls from $U$ to 0 at $0.3\\,\\mathrm{m\\,s^{-1}}$ each second."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 3,
+   "text": "Find the value of $T$. Give your answer to 3 significant figures, with units. (3)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "velocity-time-graph-gradient-area",
+    "accuracy-units-and-rounding",
+    "suvat-scalar"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Writes the total area under the speed-time graph (two triangles plus a rectangle, or one trapezium) using their $U$ and their stage 3 time, and sets it equal to $1000$",
+     "notes": "Every stage must be included, and the terms must be areas (speed $\\times$ time) rather than gradients."
+    },
+    {
+     "code": "A1ft",
+     "ft_of": "a",
+     "for": "Correct equation using their values, e.g. $\\frac{1}{2}(12)(4.8) + 4.8T + \\frac{1}{2}(16)(4.8) = 1000$, or equivalently $28.8 + 4.8T + 38.4 = 1000$",
+     "depends_on": "M1",
+     "notes": "Trapezium version: $\\frac{1}{2}(4.8)\\big(T + (T + 28)\\big) = 1000$."
+    },
+    {
+     "code": "A1",
+     "for": "$T = 194\\,\\mathrm{s}$ (awrt 194), with units",
+     "depends_on": "M1",
+     "notes": "Units are needed. Exact value is $\\frac{583}{3}$."
+    }
+   ],
+   "alternatives": [
+    {
+     "name": "Way 2 (suvat for each stage)",
+     "marks": [
+      {
+       "code": "M1",
+       "for": "Uses $s = \\frac{1}{2}(u+v)t$ or $v^2 = u^2 + 2as$ to get the stage 1 and stage 3 distances, then gives the stage 2 distance as $4.8T$ and adds the three to equal $1000$"
+      },
+      {
+       "code": "A1ft",
+       "ft_of": "a",
+       "for": "$28.8 + 4.8T + 38.4 = 1000$ oe, following their $U$",
+       "depends_on": "M1"
+      },
+      {
+       "code": "A1",
+       "for": "$T = 194\\,\\mathrm{s}$ (awrt 194), with units",
+       "depends_on": "M1"
+      }
+     ]
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Stage 1 distance $= \\frac{1}{2} \\times 12 \\times 4.8 = 28.8\\,\\mathrm{m}$. Stage 3 distance $= \\frac{1}{2} \\times 16 \\times 4.8 = 38.4\\,\\mathrm{m}$. Stage 2 distance $= 4.8T$.",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$28.8 + 4.8T + 38.4 = 1000$, so $4.8T = 932.8$",
+     "mark": "A1ft"
+    },
+    {
+     "step": 3,
+     "working": "$T = \\frac{932.8}{4.8} = 194.33\\ldots$, so $T = 194\\,\\mathrm{s}$ (3 s.f.)",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "T",
+     "expr": "194",
+     "form": "sf-3",
+     "exact": "583/3"
+    }
+   ],
+   "checks": [
+    {
+     "type": "solutions",
+     "equation": "1/2*12*24/5 + 24/5*t + 1/2*16*24/5 = 1000",
+     "var": "t",
+     "result": [
+      "583/3"
+     ]
+    },
+    {
+     "type": "numeric",
+     "expr": "932.8/4.8",
+     "answer": "T",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "The distance travelled is the area under the speed-time graph. Draw it: a triangle, then a rectangle, then another triangle.",
+    "Put the three areas together, set the total to 1000, and solve the linear equation for $T$."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "vt-gradient-area-confused",
+   "text": "In stage 3 you need a time, and that comes from the gradient: $4.8 \\div 0.3 = 16$. If you work out an area such as $\\frac{1}{2} \\times 4.8 \\times 0.3$, or multiply $4.8 \\times 0.3$, you have mixed up gradient and area, and the second B1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "velocity-given-for-speed",
+   "text": "If you put $a = 0.3$ in place of $-0.3$ in $0 = 4.8 + at$, you get $t = -16$. A time can't be negative, and $U$ is a speed, so it is positive. Check your signs, because leaving $-16$ as the answer loses the B1.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "vt-gradient-area-confused",
+   "text": "Distance is the area under the graph, not the gradient. If you use $\\frac{4.8}{12}$ or $\\frac{4.8}{16}$ as the distance for a stage, or leave out the $\\frac{1}{2}$ for the triangles (for example writing $12 \\times 4.8 = 57.6$), your equation is wrong. You lose the M1, or the A1ft if only the $\\frac{1}{2}$ is missing.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:39:01",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.2377
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 5
+  },
+  "G7": {
+   "pass": false,
+   "flag": true,
+   "reasons": [
+    "1 word 8-gram(s) also in the reference corpus (not whitelisted)"
+   ],
+   "flags": [
+    "cosine 0.838 with question:IAL2018_WME01_June2024_Q7"
+   ],
+   "hit_fields": [
+    "stem"
+   ],
+   "n_8gram_hits": 1,
+   "hits8": [
+    "the boat is modelled as a particle the"
+   ],
+   "max_jaccard": 0.021,
+   "jaccard_source": "IAL2018_WMA13_Oct2023_Q4",
+   "shared_numbers": 2,
+   "max_cosine": 0.838,
+   "cosine_source": "question:IAL2018_WME01_June2024_Q7"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 4,
+   "n_answers": 3,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

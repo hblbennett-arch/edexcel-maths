@@ -1,0 +1,329 @@
+{
+ "item_id": "cr-pure-de-formulate-from-rates-004",
+ "applicable": true,
+ "reason": "Graphs of V against r (slope is dV/dr) and of dr/dt against r show why the chain rule divides the rates.",
+ "scenes": [
+  {
+   "id": "cr-pure-de-formulate-from-rates-004::a::1",
+   "part": "a",
+   "title": "The slope of V against r",
+   "purpose": "See that dV/dr is the gradient of the curve V = (11/3)πr³, and that it grows like r².",
+   "approach": "graphical",
+   "board": {
+    "x": [
+     -0.5,
+     3.2
+    ],
+    "y": [
+     -20,
+     340
+    ],
+    "axis": true,
+    "grid": true,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "r",
+     "label": "radius r",
+     "min": 0.3,
+     "max": 3,
+     "step": 0.1,
+     "value": 1
+    }
+   ],
+   "elements": [
+    {
+     "type": "function",
+     "id": "V",
+     "expr": "11/3*pi*x^3",
+     "color": "primary",
+     "label": "V"
+    },
+    {
+     "type": "point",
+     "id": "P",
+     "x": "r",
+     "y": "11/3*pi*r^3",
+     "label": "P"
+    },
+    {
+     "type": "tangent",
+     "id": "T",
+     "at": "P",
+     "of": "V",
+     "color": "secondary"
+    },
+    {
+     "type": "text",
+     "id": "info",
+     "x": "0",
+     "y": "300",
+     "value": "r = {r}: V = {11/3*pi*r^3}, gradient = {11*pi*r^2}"
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "The cylinder gives $\\pi r^2\\times 3r=3\\pi r^3$ and the hemisphere gives $\\frac{2}{3}\\pi r^3$. Together $V=\\frac{11}{3}\\pi r^3$, the curve drawn. This earns the M1 and the B1.",
+     "set": {
+      "r": 1
+     },
+     "highlight": [
+      "V"
+     ]
+    },
+    {
+     "n": 2,
+     "text": "Slide $r$ and watch the tangent at $P$. Its gradient is $\\frac{\\mathrm{d}V}{\\mathrm{d}r}=11\\pi r^2$, which matches the live reading. This is the final M1 for differentiating $kr^3$ to get $3kr^2$.",
+     "set": {
+      "r": 2
+     },
+     "highlight": [
+      "T",
+      "info"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "The curve is written as one power $r^3$ before differentiating. Differentiating the factors separately would not give this gradient.",
+     "set": {
+      "r": 3
+     },
+     "highlight": [
+      "T"
+     ]
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     1,
+     2,
+     3
+    ],
+    "marks": [
+     "M1",
+     "B1"
+    ],
+    "pitfalls": [
+     "not-rewritten-as-powers"
+    ]
+   },
+   "guide": {
+    "what_you_see": "The graph of the volume $V$ of the cylinder-plus-hemisphere solid against its radius $r$, which is the curve $V=\\frac{11}{3}\\pi r^3$, with a point $P$ on it and the tangent at $P$. The tangent's gradient is $\\frac{\\mathrm{d}V}{\\mathrm{d}r}$, the quantity the question asks for.",
+    "legend": [
+     {
+      "id": "V",
+      "meaning": "The curve $V=\\frac{11}{3}\\pi r^3$, the total volume of the cylinder (height $3r$) and the hemisphere, drawn with $r$ along the horizontal axis."
+     },
+     {
+      "id": "P",
+      "meaning": "The point on the curve with horizontal coordinate equal to the slider value $r$, so its height is the current volume $\\frac{11}{3}\\pi r^3$."
+     },
+     {
+      "id": "T",
+      "meaning": "The tangent to $V$ at $P$; its gradient is $\\frac{\\mathrm{d}V}{\\mathrm{d}r}=11\\pi r^2$ at that radius."
+     },
+     {
+      "id": "info",
+      "meaning": "A live text box at the top of the graph giving the current $r$, the volume $V$ and the tangent's gradient."
+     }
+    ],
+    "interact": [
+     {
+      "control": "r",
+      "kind": "slider",
+      "do": "Drag the slider from $0.3$ up to $3$, pausing at $r=1$, $r=2$ and $r=3$.",
+      "watch": "$P$ moves along the curve and the tangent steepens. At $r=1$ the gradient is $11\\pi\\approx 34.6$ and $V\\approx 11.5$. At $r=2$ the gradient is $44\\pi\\approx 138.2$ and $V\\approx 92.2$. At $r=3$ the gradient is $99\\pi\\approx 311.0$ and $V=99\\pi$. Doubling $r$ makes the gradient four times as large, because it grows like $r^2$."
+     }
+    ],
+    "question_link": {
+     "part": "a",
+     "marks": [
+      "M1",
+      "B1"
+     ],
+     "text": "The curve $V$ is the total volume: the cylinder $\\pi r^2\\times 3r=3\\pi r^3$ (first M1) plus the hemisphere $\\frac{2}{3}\\pi r^3$ (B1), giving $\\frac{11}{3}\\pi r^3$. The gradient of the tangent $T$ at $P$ is $\\frac{\\mathrm{d}V}{\\mathrm{d}r}=11\\pi r^2$, which is what the final M1 for differentiating $kr^3$ to $3kr^2$ produces."
+    },
+    "read_off": [
+     "The text box reads the slider radius $r$ in cm, the volume $V=\\frac{11}{3}\\pi r^3$ in $\\mathrm{cm^3}$, and the gradient $11\\pi r^2$, which is $\\frac{\\mathrm{d}V}{\\mathrm{d}r}$ at that radius and matches the slope of $T$."
+    ]
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0233,
+    "attempts": 1,
+    "gate": {
+     "pass": true,
+     "errors": []
+    },
+    "generated_at": "2026-09-30T23:12:30"
+   }
+  },
+  {
+   "id": "cr-pure-de-formulate-from-rates-004::b::1",
+   "part": "b",
+   "title": "How fast r grows when the volume grows steadily",
+   "purpose": "See that dr/dt equals 40 divided by dV/dr, so r grows more slowly as r gets larger.",
+   "approach": "model",
+   "board": {
+    "x": [
+     0,
+     4
+    ],
+    "y": [
+     -0.3,
+     3
+    ],
+    "axis": true,
+    "grid": true,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "r",
+     "label": "radius r",
+     "min": 0.6,
+     "max": 3.5,
+     "step": 0.1,
+     "value": 2
+    }
+   ],
+   "elements": [
+    {
+     "type": "function",
+     "id": "R",
+     "expr": "40/(11*pi*x^2)",
+     "domain": [
+      "0.5",
+      "4"
+     ],
+     "color": "primary",
+     "label": "dr/dt"
+    },
+    {
+     "type": "point",
+     "id": "P",
+     "x": "r",
+     "y": "40/(11*pi*r^2)",
+     "label": "P"
+    },
+    {
+     "type": "vline",
+     "id": "g",
+     "at": "r",
+     "color": "muted"
+    },
+    {
+     "type": "text",
+     "id": "info",
+     "x": "1.6",
+     "y": "2.6",
+     "value": "When r = {r}, dr/dt = {40/(11*pi*r^2)} cm/s"
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "With $\\frac{\\mathrm{d}V}{\\mathrm{d}t}=40$ and $\\frac{\\mathrm{d}V}{\\mathrm{d}r}=11\\pi r^2$, the chain rule gives $\\frac{\\mathrm{d}r}{\\mathrm{d}t}=\\frac{40}{11\\pi r^2}$, the curve drawn. You divide, so the curve falls as $r$ grows. This is the M1.",
+     "set": {
+      "r": 1
+     },
+     "highlight": [
+      "R"
+     ]
+    },
+    {
+     "n": 2,
+     "text": "Set $r=2$: $\\frac{\\mathrm{d}r}{\\mathrm{d}t}=\\frac{40}{44\\pi}=\\frac{10}{11\\pi}\\approx 0.289$ cm s$^{-1}$. This is the A1, with units.",
+     "set": {
+      "r": 2
+     },
+     "highlight": [
+      "P",
+      "info"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "Multiplying the rates would give about $5530$, far off the graph. Inverting the fraction would give $3.46$, which is seconds per cm. Both are clearly not a value on this curve.",
+     "set": {
+      "r": 2
+     },
+     "highlight": [
+      "R"
+     ]
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     1,
+     2
+    ],
+    "marks": [
+     "M1",
+     "A1"
+    ],
+    "pitfalls": [
+     "connected-rates-chain-error",
+     "parametric-derivative-inverted"
+    ]
+   },
+   "guide": {
+    "what_you_see": "A decreasing curve showing how fast the radius $r$ of the cylinder-and-hemisphere solid grows, $\\frac{\\mathrm{d}r}{\\mathrm{d}t}$, at each value of $r$ when the volume increases at $40\\,\\mathrm{cm^3\\,s^{-1}}$. A point on the curve and a vertical line mark the chosen radius. The horizontal axis is $r$ (cm) and the vertical axis is $\\frac{\\mathrm{d}r}{\\mathrm{d}t}$ (cm s$^{-1}$).",
+    "legend": [
+     {
+      "id": "R",
+      "meaning": "The curve $\\frac{\\mathrm{d}r}{\\mathrm{d}t}=\\frac{40}{11\\pi r^2}$, which is $40$ divided by $\\frac{\\mathrm{d}V}{\\mathrm{d}r}=11\\pi r^2$ from part (a). Here $r$ is drawn along the $x$-axis."
+     },
+     {
+      "id": "P",
+      "meaning": "The point on the curve at the current slider radius, with height equal to the rate at which $r$ is increasing at that radius."
+     },
+     {
+      "id": "g",
+      "meaning": "A vertical guide line at the current value of $r$, joining the axis to $P$."
+     }
+    ],
+    "interact": [
+     {
+      "control": "r",
+      "kind": "slider",
+      "do": "Drag the slider between $0.6$ and $3.5$, and set it to $2$ for the value the question asks about.",
+      "watch": "$P$ and the vertical line move along the curve. The curve is steep for small $r$ and flattens as $r$ grows, so $r$ grows more slowly for a bigger solid. At $r=2$ the height is $\\frac{10}{11\\pi}\\approx 0.289$."
+     }
+    ],
+    "question_link": {
+     "part": "b",
+     "marks": [
+      "M1",
+      "A1"
+     ],
+     "text": "The curve is $\\frac{\\mathrm{d}r}{\\mathrm{d}t}=40\\div\\frac{\\mathrm{d}V}{\\mathrm{d}r}$, the division that earns the M1 using your $\\frac{\\mathrm{d}V}{\\mathrm{d}r}$ from part (a). The height of $P$ at $r=2$ is the answer the A1 asks for, $0.289\\,\\mathrm{cm\\,s^{-1}}$."
+    },
+    "read_off": [
+     "The live label 'When r = ..., dr/dt = ... cm/s' gives the current radius in cm and the rate at which $r$ is increasing in $\\mathrm{cm\\,s^{-1}}$. At $r=2$ it reads about $0.289$, the answer to the question."
+    ]
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0213,
+    "attempts": 1,
+    "gate": {
+     "pass": true,
+     "errors": []
+    },
+    "generated_at": "2026-09-30T23:12:39"
+   }
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:50:49",
+ "cost_usd": 0.0921,
+ "attempts": 2,
+ "checks": {
+  "pass": true,
+  "errors": [],
+  "n_scenes": 2
+ }
+}

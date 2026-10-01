@@ -157,7 +157,193 @@
    "hints": [
     "Start by finding the $x$-coordinates where the curve and the line meet. These are your limits.",
     "Work out which graph is on top between those $x$-values, then integrate (top $-$ bottom)."
-   ]
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$-x^2+8x-5=x+1$, so $x^2-7x+6=0$, so $(x-1)(x-6)=0$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$x=1,\\ x=6$",
+      "secures": [
+       "A1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$\\int_1^6(-x^2+7x-6)\\,\\mathrm{d}x=\\left[-\\frac{x^3}{3}+\\frac{7x^2}{2}-6x\\right]_1^6$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 4,
+      "working": "$=(-72+126-36)-\\left(-\\frac13+\\frac72-6\\right)=18-\\left(-\\frac{17}{6}\\right)$",
+      "secures": [
+       "dM1"
+      ]
+     },
+     {
+      "step": 5,
+      "working": "$=\\frac{108}{6}+\\frac{17}{6}=\\frac{125}{6}$",
+      "secures": [
+       "A1*"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$-x^2+8x-5=x+1$",
+      "why": "Where $l$ meets $C$ the $y$-values match, so you put the two right-hand sides equal to each other.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$0=x^2-8x+5+x+1$",
+      "why": "You add $x^2$ to both sides and subtract $8x$ and $5$, so the $x^2$ term ends up positive.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$0=x^2-7x+6$",
+      "why": "You combine $-8x+x=-7x$ and $5+1=6$ to get a three-term quadratic.",
+      "secures": null,
+      "check": "Coefficients are $1$, $-7$, $6$."
+     },
+     {
+      "step": 4,
+      "working": "$(x-1)(x-6)=0$",
+      "why": "You look for two numbers with product $6$ and sum $-7$; these are $-1$ and $-6$.",
+      "secures": "M1",
+      "check": "Expanding gives $x^2-7x+6$."
+     },
+     {
+      "step": 5,
+      "working": "$x=1$ or $x=6$",
+      "why": "A product is zero only if a factor is zero, so you set each bracket to zero.",
+      "secures": "A1",
+      "check": "At $x=1$, both $C$ and $l$ give $y=2$."
+     },
+     {
+      "step": 6,
+      "working": "At $x=2$: $C$ gives $-4+16-5=7$ and $l$ gives $3$",
+      "why": "You test a point between $1$ and $6$ to find which graph lies above the other.",
+      "secures": null,
+      "check": "$7>3$, so $C$ is the upper graph."
+     },
+     {
+      "step": 7,
+      "working": "$\\text{Area}=\\int_1^6\\left[(-x^2+8x-5)-(x+1)\\right]\\mathrm{d}x$",
+      "why": "The area between two graphs is the integral of upper minus lower, between the meeting points.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$=\\int_1^6(-x^2+8x-5-x-1)\\,\\mathrm{d}x$",
+      "why": "You remove the brackets, flipping the signs in the second one because of the minus in front.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "$=\\int_1^6(-x^2+7x-6)\\,\\mathrm{d}x$",
+      "why": "You combine $8x-x=7x$ and $-5-1=-6$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$=\\left[-\\frac{x^3}{3}+\\frac{7x^2}{2}-6x\\right]_1^6$",
+      "why": "You integrate, which undoes differentiating: raise each power of $x$ by one and divide by the new power.",
+      "secures": "M1",
+      "check": "Differentiating returns $-x^2+7x-6$."
+     },
+     {
+      "step": 11,
+      "working": "At $x=6$: $-\\frac{6^3}{3}+\\frac{7\\times6^2}{2}-6\\times6$",
+      "why": "You substitute the upper limit $6$ into the integrated expression.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 12,
+      "working": "$=-\\frac{216}{3}+\\frac{252}{2}-36$",
+      "why": "You evaluate $6^3=216$ and $7\\times36=252$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 13,
+      "working": "$=-72+126-36=18$",
+      "why": "You divide each fraction out, then add.",
+      "secures": null,
+      "check": "$-72+126=54$ and $54-36=18$."
+     },
+     {
+      "step": 14,
+      "working": "At $x=1$: $-\\frac13+\\frac72-6$",
+      "why": "You substitute the lower limit $1$; every power of $1$ is $1$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 15,
+      "working": "$=-\\frac26+\\frac{21}{6}-\\frac{36}{6}$",
+      "why": "You rewrite each term over the common denominator $6$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 16,
+      "working": "$=-\\frac{17}{6}$",
+      "why": "You add the numerators: $-2+21-36=-17$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 17,
+      "working": "$\\text{Area}=18-\\left(-\\frac{17}{6}\\right)$",
+      "why": "You take the value at the top limit minus the value at the bottom limit.",
+      "secures": "dM1",
+      "check": null
+     },
+     {
+      "step": 18,
+      "working": "$=\\frac{108}{6}+\\frac{17}{6}$",
+      "why": "Subtracting a negative adds, and you write $18$ as $\\frac{108}{6}$ to share the denominator.",
+      "secures": null,
+      "check": "$18\\times6=108$."
+     },
+     {
+      "step": 19,
+      "working": "$\\text{Area}=\\frac{125}{6}$",
+      "why": "You add the numerators, $108+17=125$, giving the required exact area.",
+      "secures": "A1*",
+      "check": "$\\frac{125}{6}\\approx20.83$, a sensible size."
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:49:19+00:00",
+    "cost_usd": 0.064,
+    "attempts": 2,
+    "errors": [],
+    "attempt_errors": [
+     [
+      "part -: copy check: 1 word 8-gram(s) also in the reference corpus (not whitelisted)"
+     ]
+    ]
+   }
   }
  ],
  "pitfalls": [
@@ -539,6 +725,14 @@
      "evaluate-definite-integral"
     ]
    }
+  },
+  "GL": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part -: copy check flag: cosine 0.807 with question:P2_Oct2020_Q6"
+   ],
+   "parts_checked": 1
   }
  },
  "review": {

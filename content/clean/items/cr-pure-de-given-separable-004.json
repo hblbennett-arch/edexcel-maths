@@ -68,7 +68,98 @@
     "Integrate each term on its own. Which function has derivative $\\sec^2 x$?",
     "For $\\sin 2x$, think about what you must differentiate to get it, and remember the factor that the chain rule brings in."
    ],
-   "forms": []
+   "forms": [],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$\\int 2\\sin 2x\\,\\mathrm{d}x = 2\\times\\left(-\\tfrac{1}{2}\\cos 2x\\right)$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$= -\\cos 2x$",
+      "secures": [
+       "A1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$\\int \\sec^2 x\\,\\mathrm{d}x = \\tan x$, so $\\int\\left(2\\sin 2x + \\sec^2 x\\right)\\mathrm{d}x = \\tan x - \\cos 2x + c$",
+      "secures": [
+       "A1*"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$\\int \\left(2\\sin 2x + \\sec^2 x\\right)\\mathrm{d}x = \\int 2\\sin 2x\\,\\mathrm{d}x + \\int \\sec^2 x\\,\\mathrm{d}x$",
+      "why": "You can integrate a sum one term at a time, so you split the integral into the $\\sin 2x$ part and the $\\sec^2 x$ part.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$\\int \\sin 2x\\,\\mathrm{d}x = -\\tfrac{1}{2}\\cos 2x$",
+      "why": "Integrating $\\sin$ of a multiple of $x$ gives minus $\\cos$ of it, divided by the multiple, here $2$. Integrating undoes differentiating.",
+      "secures": null,
+      "check": "Differentiate $-\\tfrac12\\cos 2x$: you get $-\\tfrac12\\times(-2\\sin 2x)=\\sin 2x$."
+     },
+     {
+      "step": 3,
+      "working": "$\\int 2\\sin 2x\\,\\mathrm{d}x = 2\\times\\left(-\\tfrac{1}{2}\\cos 2x\\right)$",
+      "why": "The constant factor $2$ stays in front, so you multiply your result from the previous line by $2$.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$2\\times\\left(-\\tfrac{1}{2}\\right) = -1$",
+      "why": "You multiply the two coefficients $2$ and $-\\tfrac12$ together, and they cancel to $-1$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$\\int 2\\sin 2x\\,\\mathrm{d}x = -\\cos 2x$",
+      "why": "Replacing the coefficient by $-1$ leaves just $-\\cos 2x$, the form the question asks for.",
+      "secures": "A1",
+      "check": "Differentiate $-\\cos 2x$: you get $2\\sin 2x$."
+     },
+     {
+      "step": 6,
+      "working": "$\\int \\sec^2 x\\,\\mathrm{d}x = \\tan x$",
+      "why": "This is a standard result, because the derivative of $\\tan x$ is $\\sec^2 x$.",
+      "secures": null,
+      "check": "Differentiate $\\tan x$ to get $\\sec^2 x$."
+     },
+     {
+      "step": 7,
+      "working": "$\\int\\left(2\\sin 2x + \\sec^2 x\\right)\\mathrm{d}x = -\\cos 2x + \\tan x + c$",
+      "why": "You add the two integrated terms and include one arbitrary constant $c$, since an indefinite integral always has one.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$\\int\\left(2\\sin 2x + \\sec^2 x\\right)\\mathrm{d}x = \\tan x - \\cos 2x + c$",
+      "why": "You reorder the terms to match the printed result, so the result is shown.",
+      "secures": "A1*",
+      "check": null
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:49:58+00:00",
+    "cost_usd": 0.0206,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
   },
   {
    "label": "b",
@@ -121,7 +212,112 @@
     "Rewrite $\\frac{1}{\\sqrt{y^2+7}}$ as a power of $(y^2+7)$ first.",
     "The numerator $y$ is close to the derivative of $y^2+7$. Try a power of $(y^2+7)$ and differentiate it to see what you need to adjust."
    ],
-   "forms": []
+   "forms": [],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$\\int y\\left(y^2+7\\right)^{-\\frac12}\\,\\mathrm{d}y = \\lambda\\left(y^2+7\\right)^{\\frac12}$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$\\lambda=\\tfrac12\\times 2=1$ (power gives $\\tfrac12$ factor, $\\frac{\\mathrm{d}}{\\mathrm{d}y}(y^2+7)=2y$), so $\\int \\frac{y}{\\sqrt{y^2+7}}\\,\\mathrm{d}y=\\sqrt{y^2+7}+k$",
+      "secures": [
+       "A1*"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$\\int \\frac{y}{\\sqrt{y^2+7}}\\,\\mathrm{d}y$",
+      "why": "This is the integral you are asked to evaluate, so you start from it exactly as printed.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$\\sqrt{y^2+7}=\\left(y^2+7\\right)^{\\frac12}$",
+      "why": "You rewrite the square root as a power of $\\tfrac12$ so that you can use the power rules.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$\\frac{1}{\\sqrt{y^2+7}}=\\left(y^2+7\\right)^{-\\frac12}$",
+      "why": "A denominator becomes a negative power, so the whole expression can be written as a product.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$\\int y\\left(y^2+7\\right)^{-\\frac12}\\,\\mathrm{d}y$",
+      "why": "You put the factor $y$ in front of the bracket. Now the integrand is a function of $y^2+7$ multiplied by $y$, which is the derivative of $y^2+7$ up to a constant.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$\\frac{\\mathrm{d}}{\\mathrm{d}y}\\left(y^2+7\\right)=2y$",
+      "why": "You differentiate the inside of the bracket. It gives a multiple of the $y$ outside, which shows that the integral has the form $\\lambda\\left(y^2+7\\right)^{\\frac12}$.",
+      "secures": null,
+      "check": "Differentiating $y^2$ gives $2y$, and differentiating $7$ gives $0$."
+     },
+     {
+      "step": 6,
+      "working": "$\\int y\\left(y^2+7\\right)^{-\\frac12}\\,\\mathrm{d}y=\\lambda\\left(y^2+7\\right)^{\\frac12}+k$",
+      "why": "You raise the power from $-\\tfrac12$ to $\\tfrac12$, which is what integrating a power does. The constant $\\lambda$ is still unknown.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "$\\frac{\\mathrm{d}}{\\mathrm{d}y}\\left[\\lambda\\left(y^2+7\\right)^{\\frac12}\\right]=\\lambda\\times\\tfrac12\\left(y^2+7\\right)^{-\\frac12}$",
+      "why": "You differentiate your trial answer with the power rule to find $\\lambda$. The power $\\tfrac12$ comes down as a factor and the power drops by 1.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$\\lambda\\times\\tfrac12\\left(y^2+7\\right)^{-\\frac12}\\times 2y$",
+      "why": "The chain rule means you multiply by the derivative of the bracket, $2y$, from the earlier step.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "$=\\lambda y\\left(y^2+7\\right)^{-\\frac12}$",
+      "why": "The $\\tfrac12$ and the $2$ multiply to give $1$, which leaves just $\\lambda$ in front.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$\\lambda y\\left(y^2+7\\right)^{-\\frac12}=y\\left(y^2+7\\right)^{-\\frac12}\\Rightarrow\\lambda=1$",
+      "why": "For the derivative to match the integrand, the coefficients must be equal, so $\\lambda=1$.",
+      "secures": null,
+      "check": "With $\\lambda=1$ the derivative is exactly $\\frac{y}{\\sqrt{y^2+7}}$."
+     },
+     {
+      "step": 11,
+      "working": "$\\int \\frac{y}{\\sqrt{y^2+7}}\\,\\mathrm{d}y=\\sqrt{y^2+7}+k$",
+      "why": "You put $\\lambda=1$ into your result. The arbitrary constant $k$ is included because this is an indefinite integral, which gives the printed result.",
+      "secures": "A1*",
+      "check": null
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:50:02+00:00",
+    "cost_usd": 0.0253,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
   },
   {
    "label": "c",
@@ -212,7 +408,161 @@
     "Move every $y$ term to the same side as $\\mathrm{d}y$. You should end up with exactly the integrals from parts (a) and (b).",
     "Use the point $(0,3)$ to find the constant before you substitute $x = \\frac{\\pi}{6}$."
    ],
-   "forms": []
+   "forms": [],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$\\sqrt{y^2+7}=\\tan x-\\cos 2x+c$; at $(0,3)$: $4=0-1+c$, so $c=5$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "At $x=\\frac{\\pi}{6}$: $\\sqrt{y^2+7}=\\frac{1}{\\sqrt3}-\\frac12+5=5.0773\\ldots$, so $y^2=18.78\\ldots$, $y=4.33$",
+      "secures": [
+       "A1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\dfrac{\\sqrt{y^2+7}}{y}\\left(2\\sin 2x+\\sec^2 x\\right)$",
+      "why": "This is the starting equation. The $y$ parts and the $x$ parts are multiplied together, so you can separate them.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$\\dfrac{y}{\\sqrt{y^2+7}}\\,\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=2\\sin 2x+\\sec^2 x$",
+      "why": "You multiply both sides by $\\frac{y}{\\sqrt{y^2+7}}$ so that all the $y$ terms are on the left and all the $x$ terms on the right.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$\\displaystyle\\int \\frac{y}{\\sqrt{y^2+7}}\\,\\mathrm{d}y=\\int\\left(2\\sin 2x+\\sec^2 x\\right)\\mathrm{d}x$",
+      "why": "You integrate both sides, which undoes differentiating. Each side is a result you were given in parts (b) and (a).",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$\\sqrt{y^2+7}+k=\\tan x-\\cos 2x+c$",
+      "why": "You write in the results from (b) on the left and (a) on the right.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$\\sqrt{y^2+7}=\\tan x-\\cos 2x+c-k$",
+      "why": "You move $k$ to the right-hand side.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$\\sqrt{y^2+7}=\\tan x-\\cos 2x+C$",
+      "why": "Two arbitrary constants combine into one, $C=c-k$. Call it $c$ again from here on.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "At $(0,3)$: $\\sqrt{3^2+7}=\\tan 0-\\cos 0+c$",
+      "why": "The curve passes through $(0,3)$, so you substitute $x=0$ and $y=3$ to find the constant.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$\\sqrt{16}=0-1+c$",
+      "why": "You evaluate $3^2+7=16$, $\\tan 0=0$ and $\\cos 0=1$.",
+      "secures": null,
+      "check": "$9+7=16$."
+     },
+     {
+      "step": 9,
+      "working": "$4=-1+c$",
+      "why": "The positive square root of 16 is 4.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$c=5$",
+      "why": "You add 1 to both sides to get the constant.",
+      "secures": "M1",
+      "check": "$-1+5=4$."
+     },
+     {
+      "step": 11,
+      "working": "$\\sqrt{y^2+7}=\\tan x-\\cos 2x+5$",
+      "why": "You put $c=5$ back into the general solution to get this particular curve.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 12,
+      "working": "At $x=\\frac{\\pi}{6}$: $\\sqrt{y^2+7}=\\tan\\frac{\\pi}{6}-\\cos\\frac{\\pi}{3}+5$",
+      "why": "You substitute $x=\\frac{\\pi}{6}$, so $2x=\\frac{\\pi}{3}$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 13,
+      "working": "$\\sqrt{y^2+7}=\\frac{1}{\\sqrt3}-\\frac12+5$",
+      "why": "You use the exact values $\\tan\\frac{\\pi}{6}=\\frac{1}{\\sqrt3}$ and $\\cos\\frac{\\pi}{3}=\\frac12$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 14,
+      "working": "$\\sqrt{y^2+7}=0.57735\\ldots-0.5+5=5.07735\\ldots$",
+      "why": "You turn it into a decimal, keeping extra digits so rounding doesn't cause errors.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 15,
+      "working": "$y^2+7=5.07735\\ldots^2=25.7795\\ldots$",
+      "why": "You square both sides to remove the square root.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 16,
+      "working": "$y^2=25.7795\\ldots-7=18.7795\\ldots$",
+      "why": "You subtract 7 from both sides to isolate $y^2$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 17,
+      "working": "$y=\\sqrt{18.7795\\ldots}=4.33$ (3 s.f.)",
+      "why": "You take the square root. You keep only the positive root because the question says $y>0$.",
+      "secures": "A1",
+      "check": "$4.33^2\\approx18.75$, close to $18.78$."
+     },
+     {
+      "step": 18,
+      "working": "$y=4.33$",
+      "why": "This is the $y$-coordinate at $x=\\frac{\\pi}{6}$, to 3 significant figures.",
+      "secures": null,
+      "check": null
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:50:04+00:00",
+    "cost_usd": 0.0296,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
   }
  ],
  "pitfalls": [
@@ -1185,6 +1535,16 @@
      "find-constants-from-conditions"
     ]
    }
+  },
+  "GL": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part a: copy check flag: cosine 0.862 with note:IAL2018_WMA13_Jan2023_Q8_n7",
+    "part b: copy check flag: cosine 0.815 with part:GCE2008_6663_June2005_Q7:b",
+    "part c: copy check flag: cosine 0.854 with question:GCE2008_6666_June2012_Q6"
+   ],
+   "parts_checked": 3
   }
  },
  "review": {

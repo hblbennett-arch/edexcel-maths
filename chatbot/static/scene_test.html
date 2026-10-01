@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scene renderer test</title>
+<!-- Standalone check page for chatbot/static/scene.js. Open directly (file://): needs the CDN for JSXGraph and KaTeX.
+     The example scene is embedded inline (same as eval/fixtures/scene_example.json). -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph@1.8.0/distrib/jsxgraph.css">
+<script src="https://cdn.jsdelivr.net/npm/jsxgraph@1.8.0/distrib/jsxgraphcore.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script src="scene.js"></script>
+<style>
+  :root {
+    --primary: #1a365d; --accent: #2b6cb0; --success: #276749; --warning: #c05621; --danger: #c53030;
+    --bg: #f7fafc; --card: #ffffff; --border: #e2e8f0; --text: #2d3748; --muted: #718096; --mark: #805ad5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --primary: #90cdf4; --accent: #63b3ed; --success: #68d391; --warning: #f6ad55; --danger: #fc8181;
+      --bg: #171923; --card: #1f2330; --border: #2d3748; --text: #e2e8f0; --muted: #a0aec0; --mark: #b794f4;
+    }
+  }
+  :root[data-theme="dark"] {
+    --primary: #90cdf4; --accent: #63b3ed; --success: #68d391; --warning: #f6ad55; --danger: #fc8181;
+    --bg: #171923; --card: #1f2330; --border: #2d3748; --text: #e2e8f0; --muted: #a0aec0; --mark: #b794f4;
+  }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 16px; }
+  main { max-width: 760px; margin: 0 auto; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; margin-bottom: 1rem; }
+  button { font: inherit; padding: .3rem .8rem; border-radius: 6px; border: 1px solid var(--border); background: var(--card); color: var(--text); cursor: pointer; }
+  button:disabled { opacity: .5; cursor: default; }
+  .scene-board text, .scene-board .JXGtext { color: var(--text); }
+  details { margin-top: .5rem; }
+  pre { font-size: .8rem; overflow: auto; }
+</style>
+</head>
+<body>
+<main>
+  <h1 style="font-size:1.3rem">Scene renderer test</h1>
+  <p>Checks <code>scene.js</code> by hand: sliders row above the board, steps below, KaTeX in labels and steps,
+    <code>{area(R)}</code> live. Step 2 should read about 20.8 for the area.
+    <button type="button" id="theme">Toggle dark</button>
+    <button type="button" id="lazy">Reveal the lazy-init scene</button>
+    <button type="button" id="bad">Render a rejected scene</button></p>
+
+  <div class="card"><div id="scene-1"></div></div>
+
+  <div class="card" id="lazy-card" style="display:none"><div id="scene-2"></div></div>
+
+  <div class="card" style="display:none" id="bad-card"><div id="scene-3"></div></div>
+
+  <pre id="errors" style="color:var(--danger)"></pre>
+  <pre id="status"></pre>
+  <details><summary>Embedded scene JSON</summary><pre id="json"></pre></details>
+</main>
+<script>
+window.addEventListener('error', function (e) { document.getElementById('errors').textContent += 'JS error: ' + e.message + '\n'; });
+</script>
+<script>
+var SCENE = {
+  "id": "cr-area-between-curve-and-line-core::-::1",
+  "part": null,
+  "title": "Why the area is curve minus line",
+  "purpose": "See that the curve is above the line between the intersections, so the area is the integral of (curve - line).",
+  "approach": "graphical",
+  "board": {"x": [-1, 8], "y": [-2, 12], "axis": true, "grid": true, "aspect": "auto"},
+  "params": [
+    {"id": "k", "label": "upper limit k", "min": 1, "max": 6, "step": 0.1, "value": 3}
+  ],
+  "elements": [
+    {"type": "function", "id": "C", "expr": "-x^2 + 8*x - 5", "color": "primary", "label": "C"},
+    {"type": "function", "id": "l", "expr": "x + 1", "color": "secondary", "label": "l"},
+    {"type": "point", "id": "A", "x": "1", "y": "2", "label": "(1, 2)"},
+    {"type": "point", "id": "B", "x": "6", "y": "7", "label": "(6, 7)"},
+    {"type": "integral", "id": "R", "between": ["C", "l"], "from": "1", "to": "k", "color": "primary", "opacity": 0.25},
+    {"type": "vline", "id": "kLine", "at": "k", "color": "muted"},
+    {"type": "text", "id": "areaLabel", "x": "4.5", "y": "11", "value": "Area so far = {area(R)} (up to $x = k$)"},
+    {"type": "glider", "id": "Q", "on": "C", "x": "3", "label": "Q"},
+    {"type": "text", "id": "qLabel", "x": "-0.5", "y": "-1", "value": "$Q$ is at ({x(Q)}, {y(Q)}), above the line $l$"}
+  ],
+  "steps": [
+    {"n": 1, "text": "The shaded region grows as you drag $k$ to the right. It is bounded above by $C$ and below by $l$.", "set": {"k": 3}, "show": ["R"]},
+    {"n": 2, "text": "Drag $k$ to $6$: the region closes at the second intersection, and the area reads $\\frac{125}{6} \\approx 20.8$.", "set": {"k": 6}},
+    {"n": 3, "text": "Drag $Q$ along $C$ between $x=1$ and $x=6$: its $y$-value is always above the line's, which is why we integrate (curve $-$ line), not the other way round.", "highlight": ["Q"]}
+  ],
+  "links": {"solution_steps": [3, 4], "marks": ["M1", "dM1"], "pitfalls": ["area-between-wrong-subtraction"]},
+  "guide": {
+    "what_you_see": "The curve $C$ ($y = -x^2 + 8x - 5$) and the line $l$ ($y = x + 1$) from the question, meeting at $(1, 2)$ and $(6, 7)$. The shaded region $R$ lies between them, from $x = 1$ up to the dashed line at $x = k$.",
+    "legend": [
+      {"id": "C", "meaning": "The curve $y = -x^2 + 8x - 5$ from the question."},
+      {"id": "l", "meaning": "The line $y = x + 1$ from the question."},
+      {"id": "A", "meaning": "The first point where $C$ and $l$ meet."},
+      {"id": "B", "meaning": "The second point where $C$ and $l$ meet."},
+      {"id": "R", "meaning": "The region whose area the question asks for; it grows as you move $k$."},
+      {"id": "kLine", "meaning": "The current upper limit $x = k$ of the shaded region."},
+      {"id": "Q", "meaning": "A point you can drag along $C$ to compare its height with the line."}
+    ],
+    "interact": [
+      {"control": "k", "kind": "slider", "do": "Drag the slider to move the upper limit from $1$ to $6$.", "watch": "The shaded area and the live reading grow; at $k = 6$ the reading is $\\frac{125}{6} \\approx 20.8$."},
+      {"control": "Q", "kind": "glider", "do": "Drag $Q$ along the curve.", "watch": "Its $y$-value stays above the line between $x = 1$ and $x = 6$."}
+    ],
+    "question_link": {"part": null, "marks": ["M1", "dM1", "A1*"],
+                      "text": "The shaded region is $R$. Its area is what the 5-mark part asks you to show equals $\\frac{125}{6}$; the integral you set up (M1) and evaluate (dM1) is the area you are watching."},
+    "read_off": ["The live label 'Area so far' is the value of the integral from $1$ to $k$.", "The label at the bottom left gives the coordinates of $Q$ as you drag it."]
+  }
+};
+document.getElementById('json').textContent = JSON.stringify(SCENE, null, 2);
+var handle = window.renderScene('scene-1', SCENE, {});
+
+// second scene exercising more element types; rendered lazily when its card is shown
+var SCENE2 = {
+  "id": "demo::-::2", "title": "Tangent, normal, circle, parametric, polygon, vector",
+  "approach": "graphical",
+  "board": {"x": [-4, 6], "y": [-3, 6], "axis": true, "grid": false, "aspect": "equal"},
+  "params": [{"id": "a", "label": "a", "min": -2, "max": 3, "step": 0.1, "value": 1}],
+  "elements": [
+    {"type": "function", "id": "f", "expr": "x^2/2 - 1", "color": "primary", "label": "f", "domain": [-3, 4]},
+    {"type": "glider", "id": "P", "on": "f", "x": "a", "label": "P"},
+    {"type": "tangent", "id": "T", "at": "P", "of": "f", "color": "secondary"},
+    {"type": "normal", "id": "N", "at": "P", "of": "f", "color": "success"},
+    {"type": "circle", "id": "K", "centre": ["-2", "3"], "radius": "1", "color": "warning"},
+    {"type": "parametric", "id": "E", "x_expr": "3 + cos(t)", "y_expr": "4 + 0.5*sin(t)", "t_range": [0, "2*pi"], "color": "mark"},
+    {"type": "polygon", "id": "Tri", "points": [["-3", "-2"], ["-1", "-2"], ["-2", "-0.5"]], "color": "success", "opacity": 0.3},
+    {"type": "vector", "id": "v", "from": ["0", "0"], "to": ["a", "2"], "color": "warning", "label": "v"},
+    {"type": "segment", "id": "s", "from": "P", "to": ["a", "0"], "dash": true, "color": "muted"},
+    {"type": "hline", "id": "h", "at": "2"},
+    {"type": "text", "id": "tx", "x": "-3.8", "y": "5.5", "value": "$P = ({x(P)}, {y(P)})$, gradient $= {a}$"}
+  ],
+  "steps": [
+    {"n": 1, "text": "The tangent at $P$ has gradient $x$; the normal is perpendicular.", "set": {"a": 1}},
+    {"n": 2, "text": "Move $a$ to $-2$: the tangent slopes the other way.", "set": {"a": -2}, "highlight": ["T", "N"]},
+    {"n": 3, "text": "Hide the normal.", "hide": ["N"]}
+  ]
+};
+var lazyHandle = window.renderSceneWhenVisible('scene-2', SCENE2, { onReady: function (h) { console.log('lazy scene ready', h.board.id); } });
+document.getElementById('lazy').addEventListener('click', function () {
+  document.getElementById('lazy-card').style.display = '';
+});
+
+// a scene that must be rejected (implicit multiplication) -> error card naming the token
+var BAD = JSON.parse(JSON.stringify(SCENE));
+BAD.elements[0].expr = "-x^2 + 8x - 5";
+document.getElementById('bad').addEventListener('click', function () {
+  document.getElementById('bad-card').style.display = '';
+  window.renderScene('scene-3', BAD, {});
+});
+
+// status line (also read by a headless-browser check): area at k=6 should be 125/6.
+// Open with ?auto to also reveal the lazy scene and the rejected scene automatically.
+var AUTO = /auto/.test(location.search);
+if (AUTO) { document.getElementById('lazy').click(); document.getElementById('bad').click(); }
+setTimeout(function () {
+  try {
+    handle.showStep(2);
+    var area = handle.elements.R.sceneArea();
+    var label = handle.elements.areaLabel.rendNode ? handle.elements.areaLabel.rendNode.textContent : '';
+    handle.showStep(3);
+    var s = 'SCENE_STATUS area=' + area.toFixed(4) + ' label=' + JSON.stringify(label)
+      + ' elements=' + Object.keys(handle.elements).length + ' katex=' + (!!window.katex) + ' svg=' + document.querySelectorAll('#scene-1 svg').length;
+    if (AUTO) {
+      lazyHandle.showStep(2);
+      var P = lazyHandle.elements && lazyHandle.elements.P;
+      s += ' | lazy: svg=' + document.querySelectorAll('#scene-2 svg').length + ' elements=' + (lazyHandle.elements ? Object.keys(lazyHandle.elements).length : 0)
+        + ' P=(' + (P ? P.X().toFixed(2) + ',' + P.Y().toFixed(2) : '?') + ')';
+      var err = document.querySelector('#scene-3 .scene-error');
+      s += ' | rejected: ' + (err ? JSON.stringify(err.textContent) : 'NO ERROR CARD') + ' svg=' + document.querySelectorAll('#scene-3 svg').length;
+    }
+    document.getElementById('status').textContent = s;
+  } catch (e) { document.getElementById('errors').textContent += 'status error: ' + e.message + '\n'; }
+}, 600);
+
+document.getElementById('theme').addEventListener('click', function () {
+  var r = document.documentElement, dark = r.getAttribute('data-theme') === 'dark';
+  r.setAttribute('data-theme', dark ? 'light' : 'dark');
+  // colours are read at creation: re-render to pick up the new palette
+  handle.destroy(); handle = window.renderScene('scene-1', SCENE, {});
+});
+</script>
+</body>
+</html>

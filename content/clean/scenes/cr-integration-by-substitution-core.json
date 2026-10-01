@@ -1,0 +1,324 @@
+{
+ "item_id": "cr-integration-by-substitution-core",
+ "applicable": true,
+ "reason": "The substitution swaps one region for another with the same area. Drawing both regions, with the limits linked by $u = \\sqrt{2x-3}$, shows why the new limits and the $\\mathrm{d}x = u\\,\\mathrm{d}u$ factor matter.",
+ "scenes": [
+  {
+   "id": "cr-integration-by-substitution-core::-::1",
+   "part": null,
+   "title": "Two regions, one area: what $u = \\sqrt{2x-3}$ does",
+   "purpose": "See that the area under $y = \\frac{x+3}{\\sqrt{2x-3}}$ from $x=2$ to $x=6$ equals the area under $y = \\frac{u^2+9}{2}$ from $u=1$ to $u=3$. The limits must change, and $\\mathrm{d}x$ must become $u\\,\\mathrm{d}u$.",
+   "approach": "graphical",
+   "board": {
+    "x": [
+     -0.5,
+     7.5
+    ],
+    "y": [
+     -1,
+     11.5
+    ],
+    "axis": true,
+    "grid": true,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "k",
+     "label": "upper x-limit k",
+     "min": 2,
+     "max": 6,
+     "step": 0.05,
+     "value": 4
+    }
+   ],
+   "elements": [
+    {
+     "type": "function",
+     "id": "f",
+     "expr": "(x + 3)/sqrt(2*x - 3)",
+     "domain": [
+      "2",
+      "6.5"
+     ],
+     "color": "primary",
+     "label": "x-integrand"
+    },
+    {
+     "type": "function",
+     "id": "g",
+     "expr": "(x^2 + 9)/2",
+     "domain": [
+      "0.5",
+      "3.5"
+     ],
+     "color": "secondary",
+     "label": "u-integrand"
+    },
+    {
+     "type": "integral",
+     "id": "A",
+     "of": "f",
+     "from": "2",
+     "to": "k",
+     "color": "primary",
+     "opacity": 0.2
+    },
+    {
+     "type": "integral",
+     "id": "B",
+     "of": "g",
+     "from": "1",
+     "to": "sqrt(2*k - 3)",
+     "color": "secondary",
+     "opacity": 0.25
+    },
+    {
+     "type": "point",
+     "id": "P",
+     "x": "k",
+     "y": "(k + 3)/sqrt(2*k - 3)",
+     "label": "x = k",
+     "color": "primary"
+    },
+    {
+     "type": "point",
+     "id": "Q",
+     "x": "sqrt(2*k - 3)",
+     "y": "(2*k - 3 + 9)/2",
+     "label": "u limit",
+     "color": "secondary"
+    },
+    {
+     "type": "vline",
+     "id": "vk",
+     "at": "k"
+    },
+    {
+     "type": "vline",
+     "id": "vu",
+     "at": "sqrt(2*k - 3)"
+    },
+    {
+     "type": "function",
+     "id": "w",
+     "expr": "(x^2 + 9)/(2*x)",
+     "domain": [
+      "0.5",
+      "3.5"
+     ],
+     "color": "warning",
+     "dash": true,
+     "label": "dx not replaced"
+    },
+    {
+     "type": "integral",
+     "id": "W",
+     "of": "w",
+     "from": "1",
+     "to": "sqrt(2*k - 3)",
+     "color": "warning",
+     "opacity": 0.2
+    },
+    {
+     "type": "text",
+     "id": "t1",
+     "x": "4.2",
+     "y": "10.8",
+     "value": "x-area (x from 2 to k) = {area(A)}",
+     "color": "primary"
+    },
+    {
+     "type": "text",
+     "id": "t2",
+     "x": "4.2",
+     "y": "9.9",
+     "value": "u-area (u from 1 to its limit) = {area(B)}",
+     "color": "secondary"
+    },
+    {
+     "type": "text",
+     "id": "t3",
+     "x": "4.2",
+     "y": "9.0",
+     "value": "k = {k}, upper u-limit = {sqrt(2*k - 3)}"
+    },
+    {
+     "type": "text",
+     "id": "t4",
+     "x": "4.2",
+     "y": "8.1",
+     "value": "wrong integrand area = {area(W)}",
+     "color": "warning"
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "The blue curve is the original integrand $\\frac{x+3}{\\sqrt{2x-3}}$ along the $x$-axis. The orange curve is the new integrand $\\frac{u^2+9}{2}$, drawn with the horizontal axis read as $u$. You get it from $x = \\frac{u^2+3}{2}$, $\\mathrm{d}x = u\\,\\mathrm{d}u$ and $\\frac{u^2+9}{2u}\\cdot u = \\frac{u^2+9}{2}$. Writing this integral in $u$ alone is the M1.",
+     "set": {
+      "k": 4
+     },
+     "show": [
+      "f",
+      "g",
+      "A",
+      "B",
+      "t1",
+      "t2",
+      "t3"
+     ],
+     "hide": [
+      "w",
+      "W",
+      "t4"
+     ]
+    },
+    {
+     "n": 2,
+     "text": "Drag $k$. The orange region's right edge sits at $u = \\sqrt{2k-3}$, not at $k$. At $x = 2$ you have $u = 1$, and at $x = 6$ you have $u = 3$, so the integral is $\\int_1^3 \\frac{u^2+9}{2}\\,\\mathrm{d}u$. That is the A1. If you kept the limits $2$ and $6$ you would get $\\frac{176}{3}$, not $\\frac{40}{3}$.",
+     "set": {
+      "k": 6
+     },
+     "highlight": [
+      "Q",
+      "vu"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "With $k = 6$ both areas read $\\approx 13.33$. For any $k$ the two readouts agree. Integrating gives $\\left[\\frac{u^3}{6} + \\frac{9u}{2}\\right]_1^3$ (dM1), and $\\left(\\frac{27}{6} + \\frac{27}{2}\\right) - \\left(\\frac{1}{6} + \\frac{9}{2}\\right) = \\frac{40}{3}$ is the A1*.",
+     "set": {
+      "k": 6
+     },
+     "highlight": [
+      "A",
+      "B"
+     ]
+    },
+    {
+     "n": 4,
+     "text": "The dashed curve is what you get if $\\mathrm{d}x$ is swapped for plain $\\mathrm{d}u$: $\\frac{u^2+9}{2u}$. Its area from $u=1$ to $u=3$ is only about $6.94$, so the answer cannot reach $\\frac{40}{3}$. The factor $u$ from $\\mathrm{d}x = u\\,\\mathrm{d}u$ is what cancels the $\\sqrt{2x-3} = u$ below.",
+     "set": {
+      "k": 6
+     },
+     "show": [
+      "w",
+      "W",
+      "t4"
+     ],
+     "highlight": [
+      "w"
+     ]
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "marks": [
+     "M1",
+     "A1",
+     "dM1",
+     "A1*"
+    ],
+    "pitfalls": [
+     "substitution-dx-not-replaced",
+     "wrong-limits-after-substitution"
+    ]
+   },
+   "guide": {
+    "what_you_see": "Two curves and two shaded regions: the original integrand $\\frac{x+3}{\\sqrt{2x-3}}$ with its area from $x=2$ up to $k$, and the new integrand $\\frac{u^2+9}{2}$ (horizontal axis read as $u$) with its area from $u=1$ up to $\\sqrt{2k-3}$. The two areas are equal, which is what the substitution $u=\\sqrt{2x-3}$ achieves.",
+    "legend": [
+     {
+      "id": "f",
+      "meaning": "The integrand from the question, $y=\\frac{x+3}{\\sqrt{2x-3}}$, drawn with the horizontal axis as $x$."
+     },
+     {
+      "id": "g",
+      "meaning": "The integrand after substitution, $y=\\frac{u^2+9}{2}$, drawn with the horizontal axis read as $u$ (the scene reuses the same axis)."
+     },
+     {
+      "id": "A",
+      "meaning": "The area under $f$ from $x=2$ to $x=k$; at $k=6$ it is the integral in the question."
+     },
+     {
+      "id": "B",
+      "meaning": "The area under $g$ from $u=1$ to $u=\\sqrt{2k-3}$; at $k=6$ it is $\\int_1^3\\frac{u^2+9}{2}\\,\\mathrm{d}u$."
+     },
+     {
+      "id": "P",
+      "meaning": "The point on $f$ at $x=k$, marking the upper $x$-limit."
+     },
+     {
+      "id": "Q",
+      "meaning": "The point on $g$ at $u=\\sqrt{2k-3}$, marking the upper $u$-limit that matches $x=k$."
+     },
+     {
+      "id": "vk",
+      "meaning": "Vertical guide line at $x=k$."
+     },
+     {
+      "id": "vu",
+      "meaning": "Vertical guide line at $u=\\sqrt{2k-3}$, the new upper limit."
+     },
+     {
+      "id": "w",
+      "meaning": "The dashed curve $y=\\frac{u^2+9}{2u}$, which is what you get if $\\mathrm{d}x$ is wrongly replaced by $\\mathrm{d}u$ instead of $u\\,\\mathrm{d}u$."
+     },
+     {
+      "id": "W",
+      "meaning": "The area under the dashed curve $w$ from $u=1$ to $u=\\sqrt{2k-3}$, the incorrect area from the missed factor of $u$."
+     }
+    ],
+    "interact": [
+     {
+      "control": "k",
+      "kind": "slider",
+      "do": "Drag $k$ from $2$ to $6$, and step through the four stages to reveal the dashed curve.",
+      "watch": "The blue region grows with its edge at $x=k$, while the orange region's edge sits at $u=\\sqrt{2k-3}$: at $k=2$ both areas are $0$ and the $u$-limit is $1$; at $k=4$ the $u$-limit is $\\sqrt5\\approx2.24$; at $k=6$ it is $3$ and both areas read $\\frac{40}{3}\\approx13.33$. The two area readings match for every $k$, while the dashed-curve area stays smaller, reaching about $6.94$ at $k=6$."
+     }
+    ],
+    "question_link": {
+     "part": null,
+     "marks": [
+      "M1",
+      "A1",
+      "dM1",
+      "A1*"
+     ],
+     "text": "The blue region at $k=6$ is the integral $\\int_2^6\\frac{x+3}{\\sqrt{2x-3}}\\,\\mathrm{d}x$ from the question, and the orange curve is the $u$-integrand from the M1 (using $x=\\frac{u^2+3}{2}$ and $\\mathrm{d}x=u\\,\\mathrm{d}u$). The new limits $u=1$ and $u=3$ shown by $Q$ are the A1, and the equal area $\\frac{40}{3}$ is what the dM1 integration and the A1* evaluation reach."
+    },
+    "read_off": [
+     "t1: the area of the blue region under $f$ from $x=2$ to $x=k$; at $k=6$ it is $\\frac{40}{3}\\approx13.33$.",
+     "t2: the area of the orange region under $g$ from $u=1$ to the current $u$-limit; it always equals the t1 reading, showing the substitution preserves the area.",
+     "t3: the current slider value $k$ and the matching upper $u$-limit $\\sqrt{2k-3}$, which runs from $1$ at $k=2$ to $3$ at $k=6$.",
+     "t4: the area under the dashed curve $\\frac{u^2+9}{2u}$ from $u=1$ to the current $u$-limit; at $k=6$ it is about $6.94$, not $\\frac{40}{3}$, which shows the error of not replacing $\\mathrm{d}x$ by $u\\,\\mathrm{d}u$."
+    ]
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0343,
+    "attempts": 1,
+    "gate": {
+     "pass": true,
+     "errors": []
+    },
+    "generated_at": "2026-09-30T23:58:36"
+   }
+  }
+ ],
+ "model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:57:54",
+ "cost_usd": 0.2067,
+ "attempts": 3,
+ "checks": {
+  "pass": true,
+  "errors": [],
+  "n_scenes": 1
+ }
+}

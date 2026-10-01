@@ -1,0 +1,129 @@
+{
+ "id": "projectile-through-given-point",
+ "question_type": "projectile-through-given-point",
+ "component": "mech",
+ "title": "Projectile passing through a given point or colliding",
+ "what_it_asks": "You are given a projectile launched at speed $U$ and angle $\\alpha$, with a target point (or a second projectile) shown on a diagram. You must use the horizontal and vertical motions to eliminate time, which usually gives an equation in $\\tan\\alpha$. The idea is that the same time $t$ links the two components of motion at the target.",
+ "typical_structure": "There are usually three or four parts, worth about eleven to fifteen marks in total. Early parts are short: a 1-mark statement or a modelling comment. A big middle part, often worth five or more marks, is a show-that where you eliminate $t$ to reach a printed equation. Later parts use that result (\"hence\") to solve for $\\alpha$ or a speed, and may ask how a refined model would change the answer. A diagram is always given.",
+ "mark_pattern": "Short parts are often a single B1 for a stated value or a modelling comment. Substitution parts follow M1 A1* or M1 A1 repeated in pairs. The long elimination part can run as a chain such as M1 M1 A1 M1 A1 M1 A1 M1 A1. Early M1 marks are for resolving velocity and writing $x = Ut\\cos\\alpha$ and the vertical suvat equation at the target. A later M1 is for substituting $t$ and using $\\sec^2\\alpha = 1+\\tan^2\\alpha$. The A1 marks are for correct intermediate equations. The final A1*, cso, is for reaching the printed result. The last M1 A1 pair is for solving the quadratic in $\\tan\\alpha$ and giving the required values.",
+ "where_marks_leak": [
+  {
+   "error_code": "greatest-height-condition-error",
+   "mark_family": "method",
+   "text": "You set the whole velocity to zero at the top of the path, not just the vertical component. The method mark for the vertical condition is lost, and the accuracy mark and any dependent method marks that rely on it go too."
+  },
+  {
+   "error_code": "arithmetic-slip",
+   "mark_family": "accuracy",
+   "text": "Your method is right, but a numerical slip appears, for example a sign error with a displacement below the launch point. The A1 is lost. If the printed answer is then forced, the final A1* is lost as well."
+  },
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You give the final angle or distance to the wrong number of significant figures or decimal places, or round early. The final A1 is lost even though the method is fully correct."
+  },
+  {
+   "error_code": "assumption-not-relevant",
+   "mark_family": "independent",
+   "text": "When asked to comment on the model, you give an assumption that does not affect this motion. The B1 is lost, because the comment must be relevant to the projectile and say how the answer changes."
+  }
+ ],
+ "write_to_earn": [
+  "Resolve the velocity as $U\\cos\\alpha$ and $U\\sin\\alpha$ on its own line before any substitution, so the first method marks are secure.",
+  "Write the horizontal equation, make $t$ the subject, and only then substitute it into the vertical equation.",
+  "Show the line using $\\sec^2\\alpha = 1 + \\tan^2\\alpha$ before the printed equation, so the final A1* is earned by a complete argument.",
+  "Take the vertical displacement with the correct sign at the target, especially when it is below the launch point.",
+  "In a later part, state that you are using the equation from the earlier part, solve for $\\tan\\alpha$, then convert to $\\alpha$ and round only at the end."
+ ],
+ "check_before_you_leave": [
+  "Signs of vertical displacement",
+  "Only vertical velocity zero at top",
+  "Printed result reached exactly",
+  "Rounded only at the end",
+  "Model comment relevant and explained"
+ ],
+ "skills": [
+  "resolve-projection-velocity",
+  "projectile-vertical-motion",
+  "projectile-horizontal-motion",
+  "eliminate-time-projectile",
+  "show-that-given-answer",
+  "use-hence-previous-result",
+  "projectile-greatest-height"
+ ],
+ "related_types": [
+  "projectile-range-and-greatest-height",
+  "projectile-from-cliff",
+  "parametric-to-cartesian-and-intersections",
+  "differentiate-to-given-form"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:13:55",
+ "cost_usd": 0.0944,
+ "attempts": 2,
+ "facts": {
+  "n_questions": 3,
+  "codes_listed": {
+   "greatest-height-condition-error": 3,
+   "arithmetic-slip": 1,
+   "assumption-not-relevant": 1,
+   "wrong-final-accuracy": 1
+  },
+  "frequent_codes": [],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.847 with part:P3_June2018_Q10:b"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.002,
+   "shared_numbers": 0,
+   "max_cosine": 0.847,
+   "cosine_source": "part:P3_June2018_Q10:b"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 16
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.847 with part:P3_June2018_Q10:b"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

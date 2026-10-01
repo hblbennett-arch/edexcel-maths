@@ -194,8 +194,10 @@ def to_item(bp: dict, out: dict, meta: dict) -> dict:
     labels = {gate_marking.norm_label(p["label"]): p["label"] for p in parts}
     for pf in out.get("pitfalls") or []:  # "(a)" -> "a": pitfalls point at the part's own label
         pf["part"] = labels.get(gate_marking.norm_label(pf.get("part")), pf.get("part"))
+    paper = {"paper": bp["mock"], "set": bp["mock"].rsplit("-", 1)[0], "q_num": bp["q_num"]} if bp.get("mock") else {}
     return {"id": "cr-" + bp["id"][3:], "blueprint_id": bp["id"], "question_type": bp["question_type"],
             "component": bp["component"], "tier": bp["difficulty"], "kind": bp["kind"], "stem": out.get("stem"),
+            **paper,  # mock items: build_pack.py reads paper / set / q_num (bank items default to "bank")
             "parts": parts, "pitfalls": out.get("pitfalls") or [], "provenance": "original",
             "generator_model": MODEL, "generated_at": time.strftime("%Y-%m-%dT%H:%M:%S"),
             "generation": meta, "gate_results": {}, "review": {"by": None, "at": None, "decision": None, "notes": None}}

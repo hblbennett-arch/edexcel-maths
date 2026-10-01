@@ -1,0 +1,205 @@
+{
+ "id": "cr-projectile-time-of-flight-and-range-core",
+ "blueprint_id": "dr-projectile-time-of-flight-and-range-core",
+ "question_type": "projectile-range-and-greatest-height",
+ "component": "mech",
+ "tier": "core",
+ "kind": "drill",
+ "stem": null,
+ "parts": [
+  {
+   "label": null,
+   "marks": 4,
+   "text": "On a building site, a worker needs to get a steel cable across a flooded foundation trench. She uses a compressed-air launcher to fire a small weighted pilot cord to the far bank, so that the cable can then be pulled across. The weight leaves the launcher at ground level with speed $21\\,\\mathrm{m\\,s^{-1}}$, travelling at an angle $\\alpha$ above the horizontal, where $\\tan\\alpha = \\frac{3}{4}$. It comes down on the far bank, which is level with the launch point. Model the weight as a particle moving freely under gravity, and ignore air resistance and any effect of the cord. Show that the weight lands $43.2\\,\\mathrm{m}$ horizontally from where it was launched. (4)",
+   "command": "show-that",
+   "skills": [
+    "projectile-time-of-flight-and-range"
+   ],
+   "forms": [],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Writes the vertical motion from launch to landing using the vertical velocity component $21\\sin\\alpha$ (or $12.6$), acceleration $-9.8$ and vertical displacement $0$, e.g. $0 = 21\\sin\\alpha\\, t - 4.9t^2$",
+     "notes": "Accept an equivalent route through time to the top: $0 = 12.6 - 9.8t$, then doubling. Sign slips are allowed for M, but gravity must appear in the vertical equation only."
+    },
+    {
+     "code": "A1",
+     "for": "Gets the non-zero time of flight $t = \\frac{18}{7}$ s (awrt 2.57 s)",
+     "notes": "The $t = 0$ root does not need to be written down."
+    },
+    {
+     "code": "M1",
+     "for": "Multiplies the horizontal component $21\\cos\\alpha$ (or $16.8$) by their non-zero time from the vertical equation, with no acceleration term in the horizontal direction",
+     "notes": "The time must be the same one found from the vertical motion. Using $\\sin$ for horizontal and $\\cos$ for vertical earns M0."
+    },
+    {
+     "code": "A1*",
+     "for": "Correctly shows $16.8 \\times \\frac{18}{7} = 43.2$ m, with $\\sin\\alpha = 0.6$ and $\\cos\\alpha = 0.8$ used correctly throughout",
+     "notes": "cso. If a rounded time is used (e.g. $2.57$ giving $43.176$), it must be clearly tied to $43.2$, preferably by keeping the exact value $\\frac{18}{7}$."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "From $\\tan\\alpha = \\frac{3}{4}$: $\\sin\\alpha = \\frac{3}{5}$ and $\\cos\\alpha = \\frac{4}{5}$. So the initial velocity components are $21 \\times 0.6 = 12.6\\,\\mathrm{m\\,s^{-1}}$ (vertical) and $21 \\times 0.8 = 16.8\\,\\mathrm{m\\,s^{-1}}$ (horizontal).",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "Vertical, taking up as positive, with $s = 0$ at landing: $0 = 12.6t - \\tfrac{1}{2}(9.8)t^2 = 12.6t - 4.9t^2$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$t(12.6 - 4.9t) = 0$, so $t = \\dfrac{12.6}{4.9} = \\dfrac{18}{7}\\,\\mathrm{s}$ (taking $t \\neq 0$)",
+     "mark": "A1"
+    },
+    {
+     "step": 4,
+     "working": "Horizontal speed stays constant: distance $= 16.8 \\times \\dfrac{18}{7}$",
+     "mark": "M1"
+    },
+    {
+     "step": 5,
+     "working": "$= 2.4 \\times 18 = 43.2\\,\\mathrm{m}$, as required.",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [
+    {
+     "name": "t",
+     "expr": "18/7",
+     "form": "exact"
+    },
+    {
+     "name": "R",
+     "expr": "216/5",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "21*sin(arctan(3/4))",
+     "result": "12.6",
+     "form": "dp-1"
+    },
+    {
+     "type": "solutions",
+     "equation": "12.6t - 4.9t^2 = 0",
+     "var": "t",
+     "result": [
+      "0",
+      "18/7"
+     ]
+    },
+    {
+     "type": "substitute",
+     "expr": "12.6t - 4.9t^2",
+     "at": {
+      "t": "18/7"
+     },
+     "result": "0",
+     "answer": "t"
+    },
+    {
+     "type": "substitute",
+     "expr": "21*cos(arctan(3/4))*t",
+     "at": {
+      "t": "18/7"
+     },
+     "result": "216/5",
+     "answer": "R"
+    }
+   ],
+   "hints": [
+    "Use $\\tan\\alpha = \\frac{3}{4}$ to write down exact values of $\\sin\\alpha$ and $\\cos\\alpha$. Then split the $21\\,\\mathrm{m\\,s^{-1}}$ into horizontal and vertical parts.",
+    "The weight lands when its height is zero again. Find that time from the vertical motion, then use it in the horizontal motion."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "step": 4,
+   "error_code": "time-not-shared",
+   "text": "The horizontal and vertical motions happen over the same flight, so the horizontal distance must use the same $t = \\frac{18}{7}$ s you found from the vertical equation. If you use a different time, such as the time to the highest point ($\\frac{9}{7}$ s, giving $21.6$ m), you lose the second M1.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "step": 4,
+   "error_code": "gravity-applied-horizontally",
+   "text": "Gravity acts only vertically. If you write the horizontal distance as $16.8t - 4.9t^2$, you are treating the horizontal motion as if it slows down, which it does not. You lose the second M1 and cannot reach $43.2$ m.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "step": 2,
+   "error_code": "projectile-components-swapped",
+   "text": "The angle $\\alpha$ is measured from the horizontal, so the vertical component is $21\\sin\\alpha = 12.6$ and the horizontal component is $21\\cos\\alpha = 16.8$. If you swap them, you get a flight time of $\\frac{24}{7}$ s and a distance of $43.2$ m by coincidence. The method is wrong, though, so the method marks are lost.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:54:39",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.223
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 4
+  },
+  "G7": {
+   "pass": false,
+   "flag": true,
+   "reasons": [
+    "3 word 8-gram(s) also in the reference corpus (not whitelisted)"
+   ],
+   "flags": [
+    "cosine 0.812 with part:IAL2018_WME01_June2021_Q4:b"
+   ],
+   "hit_fields": [
+    "part - text"
+   ],
+   "n_8gram_hits": 3,
+   "hits8": [
+    "an angle alpha above the horizontal where tan",
+    "angle alpha above the horizontal where tan alpha",
+    "at an angle alpha above the horizontal where"
+   ],
+   "max_jaccard": 0.035,
+   "jaccard_source": "P3_Oct2021_mech_Q4",
+   "shared_numbers": 1,
+   "max_cosine": 0.812,
+   "cosine_source": "part:IAL2018_WME01_June2021_Q4:b"
+  },
+  "G2": {
+   "pass": false,
+   "errors": [
+    "part - check 3 (substitute): result 0 differs from answer t = 18/7"
+   ],
+   "n_checks": 4,
+   "n_answers": 2,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "projectile-range-and-greatest-height: total marks 4 outside 11-13 (seen 12-12, +-1) (only 2 real questions of this type)",
+    "projectile-range-and-greatest-height: number of parts 1 outside 3-6 (seen 4-5, +-1) (only 2 real questions of this type)"
+   ]
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

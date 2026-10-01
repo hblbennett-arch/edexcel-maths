@@ -1,0 +1,1039 @@
+{
+ "id": "cr-pure-trig-identity-then-solve-015",
+ "blueprint_id": "bp-pure-trig-identity-then-solve-015",
+ "question_type": "trig-identity-then-solve",
+ "component": "pure",
+ "tier": "standard",
+ "kind": "exam",
+ "stem": "An engineer is checking the temperature control system of a cold-storage unit for vaccines. She finds that the times, $t$ hours after midnight, at which the temperature measured by a sensor exactly equals the temperature predicted by her model satisfy the equation\n$$\\frac{6\\cos(30t + 20)^\\circ}{\\tan(15t + 10)^\\circ + \\cot(15t + 10)^\\circ} = 5\\cos(30t + 20)^\\circ.$$",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 3,
+   "text": "Prove that $$\\frac{2}{\\tan x + \\cot x} \\equiv \\sin 2x$$ for all values of $x$ for which $\\tan x$ and $\\cot x$ are defined. (3)",
+   "command": "prove",
+   "forms": [],
+   "skills": [
+    "reciprocal-trig-functions",
+    "prove-trig-identity",
+    "simplify-algebraic-fractions",
+    "show-that-given-answer",
+    "double-angle-formulae"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Writes $\\tan x = \\frac{\\sin x}{\\cos x}$ and $\\cot x = \\frac{\\cos x}{\\sin x}$ in the denominator, both correct.",
+     "notes": "Using $\\cot x = \\frac{1}{\\cos x}$ or similar confusion earns B0."
+    },
+    {
+     "code": "M1",
+     "for": "Puts $\\frac{\\sin x}{\\cos x} + \\frac{\\cos x}{\\sin x}$ over the common denominator $\\sin x\\cos x$ and uses $\\sin^2 x + \\cos^2 x = 1$, giving $\\tan x + \\cot x = \\frac{1}{\\sin x \\cos x}$ (or the whole expression as $\\frac{2\\sin x\\cos x}{\\sin^2 x + \\cos^2 x}$ then $2\\sin x \\cos x$).",
+     "notes": "Splitting $\\frac{2}{\\tan x + \\cot x}$ as $\\frac{2}{\\tan x} + \\frac{2}{\\cot x}$ earns M0."
+    },
+    {
+     "code": "A1",
+     "for": "Reaches $2\\sin x\\cos x$ and uses $\\sin 2x = 2\\sin x\\cos x$ to conclude $\\frac{2}{\\tan x + \\cot x} \\equiv \\sin 2x$, with no errors anywhere and a concluding statement.",
+     "notes": "cso. Every step must be shown, since the result is given in the question."
+    }
+   ],
+   "alternatives": [
+    {
+     "name": "Way 2 (working in tan)",
+     "marks": [
+      {
+       "code": "B1",
+       "for": "Writes $\\cot x = \\frac{1}{\\tan x}$ in the denominator.",
+       "notes": ""
+      },
+      {
+       "code": "M1",
+       "for": "Multiplies numerator and denominator by $\\tan x$ to get $\\frac{2\\tan x}{\\tan^2 x + 1}$ and uses $1 + \\tan^2 x = \\sec^2 x$.",
+       "notes": "Writing $\\sec^2 x$ as $\\frac{1}{\\sin^2 x}$ earns M0."
+      },
+      {
+       "code": "A1",
+       "for": "Writes $\\frac{2\\tan x}{\\sec^2 x} = 2\\cdot\\frac{\\sin x}{\\cos x}\\cdot\\cos^2 x = 2\\sin x \\cos x = \\sin 2x$ and concludes, with no errors.",
+       "notes": "cso"
+      }
+     ]
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\tan x + \\cot x = \\dfrac{\\sin x}{\\cos x} + \\dfrac{\\cos x}{\\sin x}$",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "$= \\dfrac{\\sin^2 x + \\cos^2 x}{\\sin x\\cos x} = \\dfrac{1}{\\sin x \\cos x}$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "So $\\dfrac{2}{\\tan x + \\cot x} = 2 \\div \\dfrac{1}{\\sin x\\cos x} = 2\\sin x\\cos x = \\sin 2x$. Therefore $\\dfrac{2}{\\tan x + \\cot x} \\equiv \\sin 2x$, as required.",
+     "mark": "A1"
+    }
+   ],
+   "answers": [],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "2/(tan(x) + cot(x))",
+     "rhs": "sin(2x)",
+     "domain": [
+      "0.1",
+      "1.4"
+     ]
+    },
+    {
+     "type": "equals",
+     "lhs": "tan(x) + cot(x)",
+     "rhs": "1/(sin(x)cos(x))",
+     "domain": [
+      "0.1",
+      "1.4"
+     ]
+    }
+   ],
+   "hints": [
+    "Rewrite $\\tan x$ and $\\cot x$ in terms of $\\sin x$ and $\\cos x$, then simplify only the denominator first.",
+    "Once the denominator is a single fraction, look for a Pythagorean identity in its numerator."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 5,
+   "text": "Hence find all the values of $t$ in the interval $0 \\leqslant t \\leqslant 24$ that satisfy the engineer's equation. Give your answers to 3 significant figures. (5)",
+   "command": "hence",
+   "forms": [],
+   "skills": [
+    "use-hence-previous-result",
+    "factorise-not-divide-trig",
+    "solve-trig-with-transformed-argument",
+    "solve-trig-equation-in-interval",
+    "accuracy-units-and-rounding"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Uses part (a) with $x = (15t+10)^\\circ$ to replace $\\frac{6}{\\tan(15t+10)^\\circ + \\cot(15t+10)^\\circ}$ by $3\\sin(30t+20)^\\circ$, giving $3\\sin(30t+20)^\\circ\\cos(30t+20)^\\circ = 5\\cos(30t+20)^\\circ$.",
+     "notes": "The argument must double correctly to $30t + 20$."
+    },
+    {
+     "code": "A1",
+     "for": "Collects terms on one side and factorises: $\\cos(30t+20)^\\circ\\,[3\\sin(30t+20)^\\circ - 5] = 0$, so $\\cos(30t+20)^\\circ = 0$ or $\\sin(30t+20)^\\circ = \\frac{5}{3}$.",
+     "notes": "oe. Dividing through by $\\cos(30t+20)^\\circ$ earns A0."
+    },
+    {
+     "code": "M1",
+     "for": "Solves $\\cos(30t+20)^\\circ = 0$ using the adjusted interval $20 \\leqslant 30t + 20 \\leqslant 740$: finds at least two correct values from $90, 270, 450, 630$ and uses $t = \\frac{(30t+20) - 20}{30}$ to find $t$.",
+     "notes": "Using only values of $30t+20$ in $[0, 360]$ with no attempt beyond 360 earns M0."
+    },
+    {
+     "code": "A1",
+     "for": "$t = 2.33, 8.33, 14.3, 20.3$ (all four, and no others in the interval).",
+     "notes": "awrt; accept exact $\\frac{7}{3}, \\frac{25}{3}, \\frac{43}{3}, \\frac{61}{3}$."
+    },
+    {
+     "code": "B1",
+     "for": "Rejects $\\sin(30t+20)^\\circ = \\frac{5}{3}$ with a reason, e.g. because $\\frac{5}{3} > 1$ and $-1 \\leqslant \\sin \\leqslant 1$, so this factor gives no solutions.",
+     "notes": "Independent mark. A comment such as 'no solutions' or 'impossible' next to $\\sin = \\frac{5}{3}$ is enough."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Let $x = (15t+10)^\\circ$, so $2x = (30t+20)^\\circ$. By part (a), $\\dfrac{6}{\\tan x + \\cot x} = 3\\sin 2x$. The equation becomes $3\\sin(30t+20)^\\circ\\cos(30t+20)^\\circ = 5\\cos(30t+20)^\\circ$.",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$\\cos(30t+20)^\\circ\\,[3\\sin(30t+20)^\\circ - 5] = 0$, so $\\cos(30t+20)^\\circ = 0$ or $\\sin(30t+20)^\\circ = \\dfrac{5}{3}$.",
+     "mark": "A1"
+    },
+    {
+     "step": 3,
+     "working": "$\\sin(30t+20)^\\circ = \\dfrac{5}{3}$ has no solutions because $\\dfrac{5}{3} > 1$ and the sine of an angle is never greater than 1.",
+     "mark": "B1"
+    },
+    {
+     "step": 4,
+     "working": "For $0 \\leqslant t \\leqslant 24$ we have $20 \\leqslant 30t + 20 \\leqslant 740$. $\\cos(30t+20)^\\circ = 0 \\Rightarrow 30t + 20 = 90, 270, 450, 630$ (the next value, 810, is too large). Then $30t = 70, 250, 430, 610$.",
+     "mark": "M1"
+    },
+    {
+     "step": 5,
+     "working": "$t = \\dfrac{7}{3}, \\dfrac{25}{3}, \\dfrac{43}{3}, \\dfrac{61}{3}$, so $t = 2.33, 8.33, 14.3, 20.3$ (3 s.f.). At these times $\\tan(15t+10)^\\circ$ and $\\cot(15t+10)^\\circ$ are both defined, because $15t + 10 = 45, 135, 225, 315$.",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "t1",
+     "expr": "2.33",
+     "form": "sf-3",
+     "exact": "7/3"
+    },
+    {
+     "name": "t2",
+     "expr": "8.33",
+     "form": "sf-3",
+     "exact": "25/3"
+    },
+    {
+     "name": "t3",
+     "expr": "14.3",
+     "form": "sf-3",
+     "exact": "43/3"
+    },
+    {
+     "name": "t4",
+     "expr": "20.3",
+     "form": "sf-3",
+     "exact": "61/3"
+    }
+   ],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "6/(tan(15t+10) + cot(15t+10))",
+     "rhs": "3 sin(30t+20)",
+     "domain": [
+      "0.5",
+      2
+     ],
+     "degrees": true
+    },
+    {
+     "type": "solutions",
+     "equation": "cos(30t+20)(3 sin(30t+20) - 5) = 0",
+     "var": "t",
+     "interval": [
+      0,
+      24
+     ],
+     "closed": [
+      true,
+      true
+     ],
+     "degrees": true,
+     "result": [
+      "7/3",
+      "25/3",
+      "43/3",
+      "61/3"
+     ]
+    },
+    {
+     "type": "substitute",
+     "expr": "6cos(30t+20)/(tan(15t+10) + cot(15t+10)) - 5cos(30t+20)",
+     "at": {
+      "t": "43/3"
+     },
+     "result": "0",
+     "degrees": true
+    },
+    {
+     "type": "numeric",
+     "expr": "61/3",
+     "result": "20.3",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "Let $x = (15t+10)^\\circ$ and use part (a). The left-hand side then becomes a multiple of $\\sin(30t+20)^\\circ\\cos(30t+20)^\\circ$.",
+    "Move everything to one side and take out the common factor. Before you solve, work out the interval for $30t + 20$."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 3,
+   "error_code": "double-angle-error",
+   "text": "You must recognise $2\\sin x\\cos x$ as $\\sin 2x$. A common mistake is to treat $\\sin 2x$ as $2\\sin x$ and try to reach that instead, so the proof never closes and the A1 is lost.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "reciprocal-trig-confused",
+   "text": "$\\cot x = \\frac{\\cos x}{\\sin x}$, not $\\frac{1}{\\cos x}$ (that is $\\sec x$). If you work in tan, remember $\\sec^2 x = \\frac{1}{\\cos^2 x}$, not $\\frac{1}{\\sin^2 x}$. Mixing these up is common and costs you the B1 and M1.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "splits-fraction-over-sum",
+   "text": "You can't write $\\frac{2}{\\tan x + \\cot x}$ as $\\frac{2}{\\tan x} + \\frac{2}{\\cot x}$. Combine the denominator into a single fraction first, otherwise you lose the M1.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 4,
+   "error_code": "transformed-interval-not-adjusted",
+   "text": "Since $0 \\leqslant t \\leqslant 24$, the angle $30t + 20$ runs from $20$ to $740$. It is common to stop at $90$ and $270$ and so miss $t = 14.3$ and $t = 20.3$, which comes from never adjusting the interval. This loses the M1 and A1.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "divides-by-variable-loses-root",
+   "text": "A common mistake is to divide both sides by $\\cos(30t+20)^\\circ$. That leaves only $\\sin(30t+20)^\\circ = \\frac{5}{3}$, which has no solutions, so you lose every real answer and the A marks. Factorise instead.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 3,
+   "error_code": "impossible-trig-value-kept",
+   "text": "$\\sin(30t+20)^\\circ = \\frac{5}{3}$ is impossible because $\\frac{5}{3} > 1$. It is common to try $\\arcsin\\left(\\frac{5}{3}\\right)$ or give 'solutions' from it. You must reject it with a reason to earn the B1, and extra values will cost you the final A1.",
+   "says_common": true
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:49:42",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.6349
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 8
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.908 with question:GCE2008_6665_June2016_Q8"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "hits8": [],
+   "max_jaccard": 0.021,
+   "jaccard_source": "GCE2008_6665R_June2014_Q3",
+   "shared_numbers": 0,
+   "max_cosine": 0.908,
+   "cosine_source": "question:GCE2008_6665_June2016_Q8"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 6,
+   "n_answers": 4,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0176,
+   "solver": {
+    "parts": [
+     {
+      "label": "(a)",
+      "answers": [
+       "sin(2x)"
+      ],
+      "printed_result_correct": true,
+      "working_summary": "tan x + cot x = (sin²x+cos²x)/(sin x cos x) = 1/(sin x cos x), so 2/(tan x+cot x) = 2 sin x cos x = sin 2x."
+     },
+     {
+      "label": "(b)",
+      "answers": [
+       "2.33",
+       "8.33",
+       "14.3",
+       "20.3"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "With x=15t+10, the equation becomes 3 sinθ cosθ = 5 cosθ, where θ=30t+20. Then cosθ(3 sinθ−5)=0. sinθ=5/3 is impossible, so cosθ=0. θ=90+180k gives t=7/3+6k. In [0,24] the values are 7/3, 25/3, 43/3, 61/3. At these x is 45°, 135°, 225° or 315°, so tan and cot are defined."
+     }
+    ],
+    "problems": []
+   }
+  },
+  "G4": {
+   "pass": false,
+   "errors": [
+    "response r5 (pitfall transformed-interval-not-adjusted): markers disagree ({'a': ['B1', 'M1', 'A1'], 'b': ['M1', 'A1', 'M1', 'A0', 'B1']} vs {'a': ['B1', 'M1', 'A0'], 'b': ['M1', 'A1', 'M0', 'A0', 'B1']}; designed {'a': ['B1', 'M1', 'A1'], 'b': ['M1', 'A1', 'M0', 'A0', 'B1']}): the mark scheme is ambiguous here"
+   ],
+   "flags": [
+    "response r4 (pitfall splits-fraction-over-sum): second marker agrees with the design; first marker gave {'a': ['B1', 'M1', 'A0'], 'b': ['M1', 'A1', 'M1', 'A1', 'B1']}",
+    "response r6 (pitfall divides-by-variable-loses-root): both markers award {'a': ['B0', 'M0', 'A0'], 'b': ['M1', 'A0', 'M0', 'A0', 'B1']}, not the designed {'a': ['B1', 'M1', 'A1'], 'b': ['M1', 'A0', 'M0', 'A0', 'B1']} (script design off; scheme consistent)",
+    "response r7 (pitfall impossible-trig-value-kept): both markers award {'a': ['B0', 'M0', 'A0'], 'b': ['M1', 'A1', 'M1', 'A0', 'B0']}, not the designed {'a': ['B1', 'M1', 'A1'], 'b': ['M1', 'A1', 'M1', 'A0', 'B0']} (script design off; scheme consistent)"
+   ],
+   "flag": true,
+   "n_responses": 9,
+   "agreed": [
+    "r1",
+    "r2",
+    "r3",
+    "r4",
+    "r8",
+    "r9"
+   ],
+   "consistent": {
+    "r6": [
+     {
+      "part": "a",
+      "marks": [
+       "B0",
+       "M0",
+       "A0"
+      ]
+     },
+     {
+      "part": "b",
+      "marks": [
+       "M1",
+       "A0",
+       "M0",
+       "A0",
+       "B1"
+      ]
+     }
+    ],
+    "r7": [
+     {
+      "part": "a",
+      "marks": [
+       "B0",
+       "M0",
+       "A0"
+      ]
+     },
+     {
+      "part": "b",
+      "marks": [
+       "M1",
+       "A1",
+       "M1",
+       "A0",
+       "B0"
+      ]
+     }
+    ]
+   },
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "r1",
+     "kind": "correct",
+     "error_code": null,
+     "work": "(a) $\\tan x+\\cot x=\\frac{\\sin x}{\\cos x}+\\frac{\\cos x}{\\sin x}=\\frac{\\sin^2x+\\cos^2x}{\\sin x\\cos x}=\\frac{1}{\\sin x\\cos x}$. So $\\frac{2}{\\tan x+\\cot x}=2\\sin x\\cos x=\\sin 2x$. Hence proved.\n(b) With $x=(15t+10)^\\circ$, $\\frac{6}{\\tan x+\\cot x}=3\\sin(30t+20)^\\circ$. So $3\\sin(30t+20)\\cos(30t+20)=5\\cos(30t+20)$, so $\\cos(30t+20)[3\\sin(30t+20)-5]=0$. $\\sin(30t+20)=5/3$ is impossible since $5/3>1$. $\\cos(30t+20)=0$: $20\\le30t+20\\le740$, so $30t+20=90,270,450,630$, $t=7/3,25/3,43/3,61/3$, i.e. $t=2.33,8.33,14.3,20.3$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "B1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "kind": "pitfall",
+     "error_code": "double-angle-error",
+     "work": "(a) $\\tan x+\\cot x=\\frac{\\sin x}{\\cos x}+\\frac{\\cos x}{\\sin x}=\\frac{\\sin^2x+\\cos^2x}{\\sin x\\cos x}=\\frac{1}{\\sin x\\cos x}$. So $\\frac{2}{\\tan x+\\cot x}=2\\sin x\\cos x$. Now $\\sin 2x=2\\sin x$ so I need $\\cos x=1$... this doesn't work, so I can't finish the proof.\n(b) Using the given result, $3\\sin(30t+20)\\cos(30t+20)=5\\cos(30t+20)$, so $\\cos(30t+20)[3\\sin(30t+20)-5]=0$. $\\sin=5/3$ is impossible as $5/3>1$. $\\cos(30t+20)=0$ gives $30t+20=90,270,450,630$, so $t=2.33,8.33,14.3,20.3$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "B1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r3",
+     "kind": "pitfall",
+     "error_code": "reciprocal-trig-confused",
+     "work": "(a) $\\tan x=\\frac{\\sin x}{\\cos x}$ and $\\cot x=\\frac{1}{\\cos x}$. So $\\tan x+\\cot x=\\frac{\\sin x+1}{\\cos x}$ and $\\frac{2}{\\tan x+\\cot x}=\\frac{2\\cos x}{\\sin x+1}$. I can't get this to $\\sin 2x$, so I can't complete the proof.\n(b) Using the result, $3\\sin(30t+20)\\cos(30t+20)=5\\cos(30t+20)$, so $\\cos(30t+20)[3\\sin(30t+20)-5]=0$. $\\sin=5/3$ has no solutions since $5/3>1$. $\\cos(30t+20)=0$: $30t+20=90,270,450,630$, so $t=2.33,8.33,14.3,20.3$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B0",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "B1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r4",
+     "kind": "pitfall",
+     "error_code": "splits-fraction-over-sum",
+     "work": "(a) $\\frac{2}{\\tan x+\\cot x}=\\frac{2}{\\tan x}+\\frac{2}{\\cot x}=\\frac{2\\cos x}{\\sin x}+\\frac{2\\sin x}{\\cos x}$, using $\\tan x=\\frac{\\sin x}{\\cos x}$, $\\cot x=\\frac{\\cos x}{\\sin x}$. $=\\frac{2\\cos^2x+2\\sin^2x}{\\sin x\\cos x}=\\frac{2}{\\sin x\\cos x}$, which is not obviously $\\sin 2x$ – I'll stop.\n(b) Using the result, $3\\sin(30t+20)\\cos(30t+20)=5\\cos(30t+20)$, so $\\cos(30t+20)[3\\sin(30t+20)-5]=0$. $\\sin=5/3$ is impossible as $5/3>1$. $30t+20=90,270,450,630$, so $t=2.33,8.33,14.3,20.3$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "B1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r5",
+     "kind": "pitfall",
+     "error_code": "transformed-interval-not-adjusted",
+     "work": "(a) $\\tan x+\\cot x=\\frac{\\sin x}{\\cos x}+\\frac{\\cos x}{\\sin x}=\\frac{1}{\\sin x\\cos x}$, so $\\frac{2}{\\tan x+\\cot x}=2\\sin x\\cos x=\\sin2x$. Proved.\n(b) $3\\sin(30t+20)\\cos(30t+20)=5\\cos(30t+20)$, so $\\cos(30t+20)[3\\sin(30t+20)-5]=0$. $\\sin=5/3$ impossible as $5/3>1$. $\\cos(30t+20)=0$: $30t+20=90,270$, so $30t=70,250$, $t=2.33,8.33$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M0",
+        "A0",
+        "B1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r6",
+     "kind": "pitfall",
+     "error_code": "divides-by-variable-loses-root",
+     "work": "(a) $\\tan x+\\cot x=\\frac{1}{\\sin x\\cos x}$, so $\\frac{2}{\\tan x+\\cot x}=2\\sin x\\cos x=\\sin2x$. Proved.\n(b) $3\\sin(30t+20)\\cos(30t+20)=5\\cos(30t+20)$. Divide by $\\cos(30t+20)$: $3\\sin(30t+20)=5$, $\\sin(30t+20)=5/3$, which is greater than 1 so impossible. No solutions.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0",
+        "M0",
+        "A0",
+        "B1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r7",
+     "kind": "pitfall",
+     "error_code": "impossible-trig-value-kept",
+     "work": "(a) $\\tan x+\\cot x=\\frac{1}{\\sin x\\cos x}$, so $\\frac{2}{\\tan x+\\cot x}=2\\sin x\\cos x=\\sin2x$. Proved.\n(b) $3\\sin(30t+20)\\cos(30t+20)=5\\cos(30t+20)$, so $\\cos(30t+20)[3\\sin(30t+20)-5]=0$. $\\cos(30t+20)=0$: $30t+20=90,270,450,630$, giving $t=2.33,8.33,14.3,20.3$. $\\sin(30t+20)=5/3$: $30t+20=\\arcsin(5/3)=111.8$, so $t=3.06$ also, and $t=$ another value from $180-111.8$. So answers: 2.33, 3.06, 8.33, 14.3, 20.3.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A0",
+        "B0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r8",
+     "kind": "alternative",
+     "error_code": null,
+     "work": "(a) $\\cot x=\\frac{1}{\\tan x}$, so $\\frac{2}{\\tan x+\\cot x}=\\frac{2\\tan x}{\\tan^2x+1}=\\frac{2\\tan x}{\\sec^2x}=2\\cdot\\frac{\\sin x}{\\cos x}\\cdot\\cos^2x=2\\sin x\\cos x=\\sin2x$. Proved.\n(b) Using (a), $3\\sin(30t+20)\\cos(30t+20)=5\\cos(30t+20)$, so $\\cos(30t+20)[3\\sin(30t+20)-5]=0$. $\\sin=5/3$ is impossible since $5/3>1$. $20\\le30t+20\\le740$, $\\cos=0$: $30t+20=90,270,450,630$, $t=2.33,8.33,14.3,20.3$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "B1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r9",
+     "kind": "partial",
+     "error_code": null,
+     "work": "(a) $\\tan x+\\cot x=\\frac{\\sin x}{\\cos x}+\\frac{\\cos x}{\\sin x}=\\frac{\\sin^2x+\\cos^2x}{\\sin x\\cos x}=\\frac{1}{\\sin x\\cos x}$. I'm not sure how to finish.\n(b) Not attempted.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0",
+        "M0",
+        "A0",
+        "B0"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "r1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "B1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "B1"
+       ]
+      }
+     ],
+     "reasons": [
+      "a A0: proof not completed; incorrectly claimed sin2x=2sinx and no conclusion."
+     ]
+    },
+    {
+     "id": "r3",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B0",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "B1"
+       ]
+      }
+     ],
+     "reasons": [
+      "a B0: cot x wrongly taken as 1/cos x.",
+      "a M0/A0: no valid route to sin2x."
+     ]
+    },
+    {
+     "id": "r4",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "B1"
+       ]
+      }
+     ],
+     "reasons": [
+      "a M0: splits 2/(tan+cot) into 2/tan + 2/cot (M0 as per scheme).",
+      "a A0: proof not completed."
+     ]
+    },
+    {
+     "id": "r5",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A0",
+        "B1"
+       ]
+      }
+     ],
+     "reasons": [
+      "b A0: only two of four values of t given (missing 14.3, 20.3)."
+     ]
+    },
+    {
+     "id": "r6",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B0",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0",
+        "M0",
+        "A0",
+        "B1"
+       ]
+      }
+     ],
+     "reasons": [
+      "a B0/M0/A0: no working shown for tan x + cot x = 1/(sin x cos x).",
+      "b A0: divided by cos(30t+20) instead of factorising.",
+      "b M0: never solved cos(30t+20)=0.",
+      "b A0: no values of t found."
+     ]
+    },
+    {
+     "id": "r7",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B0",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A0",
+        "B0"
+       ]
+      }
+     ],
+     "reasons": [
+      "a: no working shown for tan x + cot x = 1/(sin x cos x); no sin/cos form.",
+      "b A0: extra incorrect solutions (3.06 etc.) included.",
+      "b B0: sin=5/3 not rejected; attempted to solve it."
+     ]
+    },
+    {
+     "id": "r8",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "B1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r9",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0",
+        "M0",
+        "A0",
+        "B0"
+       ]
+      }
+     ],
+     "reasons": [
+      "a A0: did not reach 2sinx cosx or conclude sin2x.",
+      "b: not attempted."
+     ]
+    }
+   ],
+   "awarded_second": [
+    {
+     "id": "r4",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "B1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) M0: splits 2/(tan x + cot x) as 2/tan x + 2/cot x, which the scheme says earns M0.",
+      "(a) A0: depends on M1, and the proof is not completed."
+     ]
+    },
+    {
+     "id": "r5",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M0",
+        "A0",
+        "B1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) A0: cso on a given result. The common-denominator step and the use of sin²x + cos²x = 1 are not shown.",
+      "(b) M0: only uses 30t+20 = 90 and 270, with no attempt beyond 360 for the interval 20 to 740.",
+      "(b) A0: depends on the M mark. Only two of the four solutions are found."
+     ]
+    },
+    {
+     "id": "r6",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B0",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0",
+        "M0",
+        "A0",
+        "B1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) B0: tan x and cot x are never written in terms of sin and cos.",
+      "(a) M0: jumps straight to 1/(sin x cos x) with no common denominator and no use of the Pythagorean identity.",
+      "(a) A0: depends on M1, and steps are missing for a given result.",
+      "(b) A0: divides by cos(30t+20), which loses the factor cos(30t+20) = 0.",
+      "(b) M0: never solves cos(30t+20) = 0.",
+      "(b) A0: no correct solutions; concludes there are no solutions."
+     ]
+    },
+    {
+     "id": "r7",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B0",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A0",
+        "B0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) B0: tan x and cot x are never written in terms of sin and cos.",
+      "(a) M0: jumps straight to 1/(sin x cos x) with no common denominator and no use of the Pythagorean identity.",
+      "(a) A0: depends on M1, and steps are missing for a given result.",
+      "(b) A0: includes the extra value t = 3.06 (and mentions another) from the impossible equation sin = 5/3. The scheme requires no others.",
+      "(b) B0: does not reject sin(30t+20) = 5/3 and instead tries to solve it."
+     ]
+    }
+   ],
+   "cost_usd": 0.1455
+  },
+  "G5": {
+   "pass": false,
+   "errors": [
+    "pitfall [transformed-interval-not-adjusted] part b: the marker didn't score its response as designed"
+   ]
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

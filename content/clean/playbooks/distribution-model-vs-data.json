@@ -1,0 +1,125 @@
+{
+ "id": "distribution-model-vs-data",
+ "question_type": "distribution-model-vs-data",
+ "component": "stats",
+ "title": "Evaluate a probability model against data",
+ "what_it_asks": "You are given a variable from a large data set and asked to model it, usually with a discrete uniform or a binomial distribution. You use the model to find a probability or an expected frequency, compare it with the observed value, and say whether the model is reasonable. You may also be asked to suggest a better model. The idea is that a model is only as good as its assumptions and how well it matches what actually happened.",
+ "typical_structure": "There are usually four to six short parts, though a few questions have only two. Most parts are worth one or two marks, and a longer question may have one larger calculation part. The early parts set up the model (write down the distribution, state the probability of one outcome). Middle parts use it to calculate a probability or expected count. The last parts ask you to comment on the fit and to suggest a refinement. Later parts usually rely on your earlier answer, so a slip early on can carry through.",
+ "mark_pattern": "Independent marks dominate. A single B1 is the most typical part, for a stated distribution, a written probability or a comment. A pair, B1 B1, is typical for two stated values or for a comment plus a reason. Calculation parts are usually M1 A1: the method mark for using the model correctly (for example summing the right uniform probabilities, or a binomial term with the right $n$ and $p$), and the accuracy mark for the value. A B1ft is typical where you comment using your own calculated value, so a wrong value does not stop you earning the comparison mark. A longer calculation part can run M1 A1 M1 A1 A1 with a final mark that needs a fully correct route (cso).",
+ "where_marks_leak": [
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You give a probability or expected frequency to the wrong number of decimal places or significant figures, or leave it unrounded when a form was asked for. The final A1 is lost even though the method mark is safe."
+  },
+  {
+   "error_code": "premature-rounding",
+   "mark_family": "accuracy",
+   "text": "You round a probability early, then multiply it by the number of observations. The expected frequency drifts outside the accepted range and the A1 is lost, along with any B1ft comment that depends on a clean comparison."
+  },
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You write an expected frequency in a form that does not match the data, such as many decimal places against whole-number observations, so the comparison is unclear. The accuracy mark goes, and the comparison comment is weakened."
+  }
+ ],
+ "write_to_earn": [
+  "Write the model in full first, such as the distribution of $X$ with its parameters, because that line is worth an independent mark.",
+  "Write the probability expression before you evaluate it, for example $\\mathrm{P}(X \\geqslant 3)$ as a sum of listed values, so the method mark is secure.",
+  "Keep unrounded values until the end, then give the final answer to the accuracy the question asks for.",
+  "When you comment, quote your model value and the observed value side by side, then state whether they agree.",
+  "For a refinement, name one specific change, such as a non-uniform distribution or using data from different months, and say why it fits the context better."
+ ],
+ "check_before_you_leave": [
+  "Model and parameters stated",
+  "Rounding form matches the question",
+  "Model value compared with data",
+  "Reason and conclusion both written",
+  "Refinement is specific to the context"
+ ],
+ "skills": [
+  "discrete-uniform-distribution",
+  "critique-probability-model",
+  "explain-with-reason",
+  "evaluate-model-against-data",
+  "binomial-individual-probability",
+  "probabilities-from-distribution-table",
+  "refine-probability-model"
+ ],
+ "related_types": [
+  "binomial-probabilities-in-context",
+  "histogram-and-distribution-models",
+  "discrete-distribution-unknown-constant",
+  "normal-unknown-parameters"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:11:29",
+ "cost_usd": 0.0359,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 5,
+  "codes_listed": {
+   "wrong-final-accuracy": 3,
+   "premature-rounding": 1
+  },
+  "frequent_codes": [],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.814 with note:GCE2008_6683_June2010_G_n3"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.002,
+   "shared_numbers": 0,
+   "max_cosine": 0.814,
+   "cosine_source": "note:GCE2008_6683_June2010_G_n3"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 4
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "error code 'wrong-final-accuracy' used 2 times"
+   ]
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.814 with note:GCE2008_6683_June2010_G_n3",
+   "error_codes: error code 'wrong-final-accuracy' used 2 times"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

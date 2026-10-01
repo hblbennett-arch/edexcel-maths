@@ -1,0 +1,224 @@
+{
+ "item_id": "cr-pure-sigma-notation-sums-002",
+ "applicable": true,
+ "reason": "Part a is an arithmetic sum that can be seen as an area under the line of terms, with the term count made visible by a slider. Part b is left without a scene.",
+ "scenes": [
+  {
+   "id": "cr-pure-sigma-notation-sums-002::a::1",
+   "part": "a",
+   "title": "Counting the terms from r = 15 to r = 48",
+   "purpose": "See each term as a unit-wide strip under the line y = 5r - 2, so the number of terms is 34 and the total is 5287.",
+   "approach": "graphical",
+   "board": {
+    "x": [
+     0,
+     55
+    ],
+    "y": [
+     -20,
+     280
+    ],
+    "axis": true,
+    "grid": true,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "k",
+     "label": "last value of r",
+     "min": 15,
+     "max": 48,
+     "step": 1,
+     "value": 30
+    }
+   ],
+   "elements": [
+    {
+     "type": "function",
+     "id": "f",
+     "expr": "5*x-2",
+     "color": "primary",
+     "label": "5r - 2"
+    },
+    {
+     "type": "point",
+     "id": "A",
+     "x": "15",
+     "y": "73",
+     "label": "(15, 73)"
+    },
+    {
+     "type": "point",
+     "id": "B",
+     "x": "48",
+     "y": "238",
+     "label": "(48, 238)"
+    },
+    {
+     "type": "integral",
+     "id": "R",
+     "of": "f",
+     "from": "14.5",
+     "to": "k+0.5",
+     "color": "secondary",
+     "opacity": 0.3
+    },
+    {
+     "type": "vline",
+     "id": "vEnd",
+     "at": "k+0.5"
+    },
+    {
+     "type": "text",
+     "id": "info",
+     "x": "2",
+     "y": "255",
+     "value": "Last term at $r = {k}$: $5r - 2 = {5*k-2}$. Number of terms $= {k} - 15 + 1 = {k-14}$. Sum so far $= {area(R)}$"
+    },
+    {
+     "type": "glider",
+     "id": "Q",
+     "on": "f",
+     "x": "30",
+     "label": "Q"
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "Each strip is one term of $\\sum (5r-2)$, centred on an integer $r$. The first strip is at $r=15$, height $a = 5(15)-2 = 73$. The line rises by $d = 5$ per step, so the series is arithmetic. This is the first M1.",
+     "set": {
+      "k": 30
+     },
+     "show": [
+      "A"
+     ],
+     "highlight": [
+      "A"
+     ]
+    },
+    {
+     "n": 2,
+     "text": "Drag $k$ to $16$: the strips at $r=15$ and $r=16$ give $2$ terms, which is $16-15+1$, not $16-15$. Both ends count. Now drag $k$ to $48$ and the count reads $n = 48 - 15 + 1 = 34$. This is the M1 for the number of terms.",
+     "set": {
+      "k": 16
+     },
+     "highlight": [
+      "info"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "At $k=48$ the last term is $l = 5(48)-2 = 238$. Use $l = a + (n-1)d = 73 + 33\\times 5$, not $a + nd$. Then $S = \\frac{34}{2}(73+238) = 17\\times 311$. This is the third M1.",
+     "set": {
+      "k": 48
+     },
+     "show": [
+      "B"
+     ],
+     "highlight": [
+      "B"
+     ]
+    },
+    {
+     "n": 4,
+     "text": "The shaded area equals the sum because the strips average out the slope of the line: the area reads $5287$. This is the A1. Drag $Q$ along the line to see that the heights go up in steps of $5$.",
+     "set": {
+      "k": 48
+     },
+     "highlight": [
+      "Q",
+      "R"
+     ]
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "marks": [
+     "M1",
+     "A1"
+    ],
+    "pitfalls": [
+     "sigma-term-count-error",
+     "nth-term-index-error"
+    ]
+   },
+   "guide": {
+    "what_you_see": "The line $y=5r-2$ with unit-wide strips under it, one for each term of $\\sum (5r-2)$, each centred on a whole number $r$. The shaded strips start at $r=15$ and end at the slider value $k$, so the shaded area is the sum of the terms so far.",
+    "legend": [
+     {
+      "id": "f",
+      "meaning": "The line $y=5r-2$, whose height at each whole number $r$ is the term $5r-2$ of the series. Here $r$ is drawn along the horizontal axis."
+     },
+     {
+      "id": "A",
+      "meaning": "The point $(15, 73)$, the first term of the series, so $a=73$."
+     },
+     {
+      "id": "B",
+      "meaning": "The point $(48, 238)$, the last term of the series, so $l=238$."
+     },
+     {
+      "id": "R",
+      "meaning": "The shaded strips from $r=14.5$ to $r=k+0.5$. Each strip has width $1$ and height $5r-2$, so its area is one term, and the total area is the sum of the terms from $r=15$ to $r=k$."
+     },
+     {
+      "id": "vEnd",
+      "meaning": "The vertical line at $r=k+0.5$ that marks the right-hand edge of the last strip."
+     },
+     {
+      "id": "Q",
+      "meaning": "A point you can drag along the line $y=5r-2$ to read off the term heights."
+     }
+    ],
+    "interact": [
+     {
+      "control": "k",
+      "kind": "slider",
+      "do": "Drag the slider between $15$ and $48$. Try $16$ first, then move it up to $48$.",
+      "watch": "At $k=16$ there are two strips, which is $16-15+1$. As you drag, the strip count is $k-14$. At $k=48$ there are $34$ strips, the last height is $238$, and the shaded area is $5287$. At the starting value $k=30$ there are $16$ terms and the sum is $1768$."
+     },
+     {
+      "control": "Q",
+      "kind": "glider",
+      "do": "Drag $Q$ along the line, moving it from one whole-number $r$ to the next.",
+      "watch": "The height goes up by exactly $5$ for each step of $1$ in $r$. This constant difference is what makes the series arithmetic with $d=5$."
+     }
+    ],
+    "question_link": {
+     "part": "a",
+     "marks": [
+      "M1",
+      "A1"
+     ],
+     "text": "The strips are the terms of $\\sum_{r=15}^{48}(5r-2)$. $A$ gives the first term $a=73$ and the constant rise of $5$ gives $d=5$ (first M1). The strip count $48-15+1=34$ is the second M1. $B$ gives $l=238$, which feeds $\\frac{34}{2}(73+238)$ (third M1), and the full shaded area $5287$ is the A1."
+    },
+    "read_off": []
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0384,
+    "attempts": 1,
+    "gate": {
+     "pass": true,
+     "errors": []
+    },
+    "generated_at": "2026-09-30T23:58:12"
+   }
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T23:56:35",
+ "cost_usd": 0.04,
+ "attempts": 1,
+ "checks": {
+  "pass": true,
+  "errors": [],
+  "n_scenes": 1
+ }
+}

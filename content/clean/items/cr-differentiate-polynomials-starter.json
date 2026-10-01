@@ -87,7 +87,133 @@
     "Before you differentiate, write $2\\sqrt{x}$ as $2x^{1/2}$ and divide each term on top by it separately.",
     "Once $y$ is a sum of powers of $x$, multiply each term by its power and then take 1 off the power."
    ],
-   "forms": []
+   "forms": [],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$y = 2x^{5/2} - \\tfrac{3}{2}x^{-1/2}$, so $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 2\\cdot\\tfrac{5}{2}x^{3/2} + \\dots$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$2\\cdot\\tfrac{5}{2}x^{3/2} = 5x^{3/2}$ and $-\\tfrac{3}{2}\\cdot\\left(-\\tfrac{1}{2}\\right)x^{-3/2} = \\tfrac{3}{4}x^{-3/2}$",
+      "secures": [
+       "A1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 5x^{3/2} + \\tfrac{3}{4}x^{-3/2}$",
+      "secures": [
+       "A1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$y = \\dfrac{4x^3 - 3}{2x^{1/2}}$",
+      "why": "You start by writing the square root as a power, $\\sqrt{x} = x^{1/2}$, so every part of the curve is a power of $x$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$y = \\dfrac{4x^3}{2x^{1/2}} - \\dfrac{3}{2x^{1/2}}$",
+      "why": "You split the fraction into two, dividing each term of the numerator by the same denominator, so each piece can be handled on its own.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$\\dfrac{4x^3}{2x^{1/2}} = 2x^{3-1/2}$",
+      "why": "You divide the numbers, $4\\div 2 = 2$, and subtract the powers of $x$ because you are dividing powers.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$2x^{3-1/2} = 2x^{5/2}$",
+      "why": "You evaluate the index: $3 - \\tfrac{1}{2} = \\tfrac{5}{2}$.",
+      "secures": null,
+      "check": "$\\tfrac{5}{2} + \\tfrac{1}{2} = 3$, which matches the original $x^3$."
+     },
+     {
+      "step": 5,
+      "working": "$\\dfrac{3}{2x^{1/2}} = \\tfrac{3}{2}x^{-1/2}$",
+      "why": "You move $x^{1/2}$ from the bottom to the top, which changes the sign of its index.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$y = 2x^{5/2} - \\tfrac{3}{2}x^{-1/2}$",
+      "why": "You put the two pieces together. The curve is now a sum of constant times power terms, ready to differentiate.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "$\\dfrac{\\mathrm{d}}{\\mathrm{d}x}\\left(2x^{5/2}\\right) = 2\\times\\tfrac{5}{2}\\,x^{5/2-1}$",
+      "why": "To differentiate a power, multiply by the index and lower the index by 1. This is the step that earns the method mark.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$2\\times\\tfrac{5}{2}\\,x^{5/2-1} = 5x^{3/2}$",
+      "why": "You multiply the coefficients, $2\\times\\tfrac52 = 5$, and work out the new index, $\\tfrac52 - 1 = \\tfrac32$.",
+      "secures": "A1",
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "$\\dfrac{\\mathrm{d}}{\\mathrm{d}x}\\left(-\\tfrac{3}{2}x^{-1/2}\\right) = -\\tfrac{3}{2}\\times\\left(-\\tfrac{1}{2}\\right)x^{-1/2-1}$",
+      "why": "You apply the same rule to the second term: multiply by the index $-\\tfrac12$ and lower the index by 1.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$-\\tfrac{3}{2}\\times\\left(-\\tfrac{1}{2}\\right) = \\tfrac{3}{4}$",
+      "why": "A negative times a negative is positive, and $\\tfrac32\\times\\tfrac12 = \\tfrac34$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 11,
+      "working": "$-\\tfrac12 - 1 = -\\tfrac32$",
+      "why": "Lowering the index by 1 means subtracting 1 from $-\\tfrac12$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 12,
+      "working": "$\\dfrac{\\mathrm{d}}{\\mathrm{d}x}\\left(-\\tfrac{3}{2}x^{-1/2}\\right) = \\tfrac{3}{4}x^{-3/2}$",
+      "why": "You combine the new coefficient and the new index for the second term.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 13,
+      "working": "$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 5x^{3/2} + \\tfrac{3}{4}x^{-3/2}$",
+      "why": "You add the two derivatives to give the derivative of the whole curve.",
+      "secures": "A1",
+      "check": "The first term's index, $\\tfrac32$, is one less than $\\tfrac52$, so the powers have dropped correctly."
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:49:05+00:00",
+    "cost_usd": 0.0275,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
   }
  ],
  "pitfalls": [
@@ -361,6 +487,14 @@
      "differentiate-negative-and-fractional-powers"
     ]
    }
+  },
+  "GL": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part -: copy check flag: cosine 0.870 with part:IAL2018_WMA11_June2025_Q2:a"
+   ],
+   "parts_checked": 1
   }
  },
  "review": {

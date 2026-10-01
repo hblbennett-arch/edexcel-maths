@@ -1,0 +1,272 @@
+{
+ "item_id": "cr-area-between-curve-and-line-core",
+ "applicable": true,
+ "reason": "The picture shows the intersections as crossings, which curve is on top, and why the area is curve minus line.",
+ "scenes": [
+  {
+   "id": "cr-area-between-curve-and-line-core::-::1",
+   "part": null,
+   "title": "Why the area is curve minus line",
+   "purpose": "See that $C$ is above $l$ between the crossings at $x=1$ and $x=6$, so the area is the integral of (curve $-$ line), and that the area reaches $\\frac{125}{6}$.",
+   "approach": "graphical",
+   "board": {
+    "x": [
+     -1,
+     8
+    ],
+    "y": [
+     -2,
+     12
+    ],
+    "axis": true,
+    "grid": true,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "k",
+     "label": "upper limit k",
+     "min": 1,
+     "max": 6,
+     "step": 0.1,
+     "value": 3
+    }
+   ],
+   "elements": [
+    {
+     "type": "function",
+     "id": "C",
+     "expr": "-x^2 + 8*x - 5",
+     "color": "primary",
+     "label": "C"
+    },
+    {
+     "type": "function",
+     "id": "l",
+     "expr": "x + 1",
+     "color": "secondary",
+     "label": "l"
+    },
+    {
+     "type": "point",
+     "id": "A",
+     "x": "1",
+     "y": "2",
+     "label": "(1, 2)"
+    },
+    {
+     "type": "point",
+     "id": "B",
+     "x": "6",
+     "y": "7",
+     "label": "(6, 7)"
+    },
+    {
+     "type": "integral",
+     "id": "Rfull",
+     "of": "C",
+     "from": "1",
+     "to": "6",
+     "color": "warning",
+     "opacity": 0.15
+    },
+    {
+     "type": "integral",
+     "id": "R",
+     "between": [
+      "C",
+      "l"
+     ],
+     "from": "1",
+     "to": "k",
+     "color": "primary",
+     "opacity": 0.3
+    },
+    {
+     "type": "segment",
+     "id": "chk",
+     "from": [
+      "2",
+      "3"
+     ],
+     "to": [
+      "2",
+      "7"
+     ],
+     "dash": true,
+     "color": "muted"
+    },
+    {
+     "type": "glider",
+     "id": "Q",
+     "on": "C",
+     "x": "2",
+     "label": "Q"
+    },
+    {
+     "type": "text",
+     "id": "areaLabel",
+     "x": "6.3",
+     "y": "10.5",
+     "value": "Area so far = {area(R)}"
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "Setting $-x^2+8x-5=x+1$ gives $x^2-7x+6=0$, so $(x-1)(x-6)=0$. The line crosses the curve at $A$ and $B$, where $x=1$ and $x=6$. This is the M1 for forming and solving the quadratic, and the A1 for the two roots.",
+     "set": {
+      "k": 3
+     },
+     "hide": [
+      "Rfull"
+     ],
+     "show": [
+      "R"
+     ],
+     "highlight": [
+      "A",
+      "B"
+     ]
+    },
+    {
+     "n": 2,
+     "text": "Check $x=2$: the dashed segment runs from $3$ on the line up to $7$ on the curve, so $C$ is above $l$ between the crossings. The integrand is (curve $-$ line) $=-x^2+7x-6$. Integrating it is the M1. Turning it round to line $-$ curve gives $-\\frac{125}{6}$.",
+     "show": [
+      "chk"
+     ],
+     "highlight": [
+      "chk",
+      "Q"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "Drag $k$ from $1$ up to $6$. The shaded area is $\\left[-\\frac{x^3}{3}+\\frac{7x^2}{2}-6x\\right]_1^k$, and it closes at the second crossing. Use upper minus lower: $18-\\left(-\\frac{17}{6}\\right)$. This is the dM1. Reversing the limits gives $-\\frac{17}{6}-18$.",
+     "set": {
+      "k": 6
+     },
+     "highlight": [
+      "R"
+     ]
+    },
+    {
+     "n": 4,
+     "text": "The area is $\\frac{108}{6}+\\frac{17}{6}=\\frac{125}{6}$, which is the A1*. The orange region is the whole area under $C$ from $1$ to $6$, which is $\\frac{130}{3}$. If you integrate only the curve you include the trapezium under $l$, which is $\\frac{45}{2}$, and $\\frac{130}{3}-\\frac{45}{2}=\\frac{125}{6}$.",
+     "set": {
+      "k": 6
+     },
+     "show": [
+      "Rfull"
+     ],
+     "highlight": [
+      "Rfull"
+     ]
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "marks": [
+     "M1",
+     "A1",
+     "dM1",
+     "A1*"
+    ],
+    "pitfalls": [
+     "area-between-wrong-subtraction",
+     "region-part-missed"
+    ]
+   },
+   "guide": {
+    "what_you_see": "The curve $C$ and the line $l$ from the question, meeting at $A(1, 2)$ and $B(6, 7)$, with the region $R$ between them shaded up to a slider value $k$. A larger pale region under $C$ can also be shown for comparison.",
+    "legend": [
+     {
+      "id": "C",
+      "meaning": "The curve $y=-x^2+8x-5$ from the question."
+     },
+     {
+      "id": "l",
+      "meaning": "The line $y=x+1$ from the question."
+     },
+     {
+      "id": "A",
+      "meaning": "The left intersection point $(1, 2)$ of $C$ and $l$, where $x=1$ is a root of $x^2-7x+6=0$."
+     },
+     {
+      "id": "B",
+      "meaning": "The right intersection point $(6, 7)$ of $C$ and $l$, where $x=6$ is the other root."
+     },
+     {
+      "id": "Rfull",
+      "meaning": "The pale orange region between $C$ and the $x$-axis from $x=1$ to $x=6$. Its area is $\\frac{130}{3}$, which includes the trapezium under $l$ as well as $R$."
+     },
+     {
+      "id": "R",
+      "meaning": "The region between $C$ and $l$ from $x=1$ to $x=k$. At $k=6$ it is the whole region $R$ of the question, with area $\\frac{125}{6}$."
+     },
+     {
+      "id": "Q",
+      "meaning": "A point you can drag along $C$, to compare the height of the curve with the height of the line at the same $x$."
+     },
+     {
+      "id": "chk",
+      "meaning": "A dashed vertical segment at $x=2$ from the line (height $3$) up to the curve (height $7$), which checks that $C$ is above $l$."
+     }
+    ],
+    "interact": [
+     {
+      "control": "k",
+      "kind": "slider",
+      "do": "Drag the slider from $1$ up to $6$ in steps of $0.1$ to move the right-hand edge of the shaded region $R$.",
+      "watch": "The shaded region widens and the 'Area so far' reading rises from $0$. At $k=6$ it closes at $B$ and reads $\\frac{125}{6}\\approx 20.8$."
+     },
+     {
+      "control": "Q",
+      "kind": "glider",
+      "do": "Drag $Q$ along $C$ between $A$ and $B$, that is for $x$ from $1$ to $6$.",
+      "watch": "$Q$ stays above $l$ for every $x$ in this range. So the integrand is curve minus line, $-x^2+7x-6$, which is positive. At $x=2$, $Q$ sits at the top of the dashed segment, at height $7$."
+     }
+    ],
+    "question_link": {
+     "part": null,
+     "marks": [
+      "M1",
+      "A1",
+      "M1",
+      "dM1",
+      "A1*"
+     ],
+     "text": "$C$ and $l$ are the curve and line of the question. $A$ and $B$ are the roots $x=1$ and $x=6$ from the M1 and A1 for solving $x^2-7x+6=0$. The shaded $R$ is the region whose area comes from integrating (curve $-$ line), which is the second M1. Substituting the limits $6$ and $1$ is the dM1, and the reading of $\\frac{125}{6}$ at $k=6$ is the result the A1* asks you to show."
+    },
+    "read_off": [
+     "'Area so far' is the area of $R$ from $x=1$ to the current $k$. This is $\\left[-\\frac{x^3}{3}+\\frac{7x^2}{2}-6x\\right]_1^k$, and it reaches $\\frac{125}{6}\\approx 20.8$ at $k=6$."
+    ]
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0251,
+    "attempts": 1,
+    "gate": {
+     "pass": true,
+     "errors": []
+    },
+    "generated_at": "2026-09-30T23:11:23"
+   }
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:49:01",
+ "cost_usd": 0.0392,
+ "attempts": 1,
+ "checks": {
+  "pass": true,
+  "errors": [],
+  "n_scenes": 1
+ }
+}

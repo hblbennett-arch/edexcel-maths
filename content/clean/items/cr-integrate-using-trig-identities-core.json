@@ -108,7 +108,238 @@
    "hints": [
     "Write $\\mathrm{d}x$ in terms of $\\mathrm{d}\\theta$, and use $1 - \\sin^2\\theta = \\cos^2\\theta$ to simplify the square root. Remember to turn both $x$-limits into $\\theta$-limits in radians.",
     "You can't integrate $\\sin^2\\theta$ as it stands. Rewrite it using a double-angle formula for $\\cos 2\\theta$ first."
-   ]
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$x=3\\sin\\theta,\\ \\mathrm{d}x=3\\cos\\theta\\,\\mathrm{d}\\theta,\\ \\sqrt{9-x^2}=3\\cos\\theta$, so $\\int \\frac{9\\sin^2\\theta}{3\\cos\\theta}\\cdot 3\\cos\\theta\\,\\mathrm{d}\\theta=\\int 9\\sin^2\\theta\\,\\mathrm{d}\\theta$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$x=\\frac32\\Rightarrow\\theta=\\frac{\\pi}{6}$; $x=\\frac{3\\sqrt3}{2}\\Rightarrow\\theta=\\frac{\\pi}{3}$, so $\\int_{\\pi/6}^{\\pi/3}9\\sin^2\\theta\\,\\mathrm{d}\\theta$",
+      "secures": [
+       "A1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$=\\int_{\\pi/6}^{\\pi/3}\\frac92(1-\\cos2\\theta)\\,\\mathrm{d}\\theta=\\left[\\frac92\\theta-\\frac94\\sin2\\theta\\right]_{\\pi/6}^{\\pi/3}$",
+      "secures": [
+       "dM1"
+      ]
+     },
+     {
+      "step": 4,
+      "working": "$=\\left(\\frac{3\\pi}{2}-\\frac94\\cdot\\frac{\\sqrt3}{2}\\right)-\\left(\\frac{3\\pi}{4}-\\frac94\\cdot\\frac{\\sqrt3}{2}\\right)=\\frac{3\\pi}{4}$",
+      "secures": [
+       "A1*"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$x=3\\sin\\theta$",
+      "why": "This is the substitution you are told to use, so you start by writing it down.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$\\dfrac{\\mathrm{d}x}{\\mathrm{d}\\theta}=3\\cos\\theta$",
+      "why": "You differentiate $x=3\\sin\\theta$ with respect to $\\theta$ so you can replace $\\mathrm{d}x$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$\\mathrm{d}x=3\\cos\\theta\\,\\mathrm{d}\\theta$",
+      "why": "You multiply both sides by $\\mathrm{d}\\theta$ so that $\\mathrm{d}x$ can be swapped in the integral.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$9-x^2=9-9\\sin^2\\theta$",
+      "why": "You replace $x$ by $3\\sin\\theta$ inside the root, using $(3\\sin\\theta)^2=9\\sin^2\\theta$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$9-9\\sin^2\\theta=9(1-\\sin^2\\theta)$",
+      "why": "You take out the factor 9 so that the bracket matches an identity.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$9(1-\\sin^2\\theta)=9\\cos^2\\theta$",
+      "why": "You use $\\sin^2\\theta+\\cos^2\\theta=1$, which gives $1-\\sin^2\\theta=\\cos^2\\theta$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "$\\sqrt{9-x^2}=\\sqrt{9\\cos^2\\theta}=3\\cos\\theta$",
+      "why": "You take the square root. $\\cos\\theta$ is positive for $\\theta$ between $\\frac{\\pi}{6}$ and $\\frac{\\pi}{3}$, so there is no sign problem.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$x^2=9\\sin^2\\theta$",
+      "why": "You square $3\\sin\\theta$ for the numerator.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "$\\displaystyle\\int\\frac{9\\sin^2\\theta}{3\\cos\\theta}\\cdot3\\cos\\theta\\,\\mathrm{d}\\theta$",
+      "why": "You put the numerator, the denominator and $\\mathrm{d}x$ all in terms of $\\theta$.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$\\displaystyle\\int9\\sin^2\\theta\\,\\mathrm{d}\\theta$",
+      "why": "The $3\\cos\\theta$ in the denominator cancels with the $3\\cos\\theta$ from $\\mathrm{d}x$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 11,
+      "working": "$x=\\frac32\\Rightarrow\\sin\\theta=\\frac12$",
+      "why": "The limits are values of $x$, so you convert them. Divide $\\frac32$ by 3.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 12,
+      "working": "$\\theta=\\frac{\\pi}{6}$",
+      "why": "You take the inverse sine of $\\frac12$, in radians.",
+      "secures": null,
+      "check": "$\\sin\\frac{\\pi}{6}=\\frac12$"
+     },
+     {
+      "step": 13,
+      "working": "$x=\\frac{3\\sqrt3}{2}\\Rightarrow\\sin\\theta=\\frac{\\sqrt3}{2}$",
+      "why": "You divide the upper limit by 3.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 14,
+      "working": "$\\theta=\\frac{\\pi}{3}$",
+      "why": "You take the inverse sine of $\\frac{\\sqrt3}{2}$, in radians.",
+      "secures": null,
+      "check": "$\\sin\\frac{\\pi}{3}=\\frac{\\sqrt3}{2}$"
+     },
+     {
+      "step": 15,
+      "working": "$\\displaystyle\\int_{\\pi/6}^{\\pi/3}9\\sin^2\\theta\\,\\mathrm{d}\\theta$",
+      "why": "You combine the new integrand with the new limits.",
+      "secures": "A1",
+      "check": null
+     },
+     {
+      "step": 16,
+      "working": "$\\sin^2\\theta=\\frac12(1-\\cos2\\theta)$",
+      "why": "You cannot integrate $\\sin^2\\theta$ directly. The double-angle identity $\\cos2\\theta=1-2\\sin^2\\theta$ rearranges to give this form.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 17,
+      "working": "$9\\sin^2\\theta=\\frac92(1-\\cos2\\theta)$",
+      "why": "You multiply the identity by 9.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 18,
+      "working": "$\\displaystyle\\int_{\\pi/6}^{\\pi/3}\\left(\\frac92-\\frac92\\cos2\\theta\\right)\\mathrm{d}\\theta$",
+      "why": "You expand the bracket so each term can be integrated separately.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 19,
+      "working": "$\\displaystyle\\int\\frac92\\cos2\\theta\\,\\mathrm{d}\\theta=\\frac94\\sin2\\theta$",
+      "why": "Integrating $\\cos2\\theta$ gives $\\frac12\\sin2\\theta$, because of the factor 2 inside. Then multiply by $\\frac92$.",
+      "secures": null,
+      "check": "Differentiating $\\frac94\\sin2\\theta$ gives $\\frac92\\cos2\\theta$."
+     },
+     {
+      "step": 20,
+      "working": "$\\left[\\frac92\\theta-\\frac94\\sin2\\theta\\right]_{\\pi/6}^{\\pi/3}$",
+      "why": "You integrate the constant term to give $\\frac92\\theta$, and combine it with the previous result.",
+      "secures": "dM1",
+      "check": null
+     },
+     {
+      "step": 21,
+      "working": "Upper limit: $\\frac92\\cdot\\frac{\\pi}{3}-\\frac94\\sin\\frac{2\\pi}{3}$",
+      "why": "You substitute $\\theta=\\frac{\\pi}{3}$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 22,
+      "working": "$=\\frac{3\\pi}{2}-\\frac94\\cdot\\frac{\\sqrt3}{2}$",
+      "why": "$\\frac92\\cdot\\frac{\\pi}{3}=\\frac{3\\pi}{2}$, and $\\sin\\frac{2\\pi}{3}=\\frac{\\sqrt3}{2}$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 23,
+      "working": "Lower limit: $\\frac92\\cdot\\frac{\\pi}{6}-\\frac94\\sin\\frac{\\pi}{3}$",
+      "why": "You substitute $\\theta=\\frac{\\pi}{6}$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 24,
+      "working": "$=\\frac{3\\pi}{4}-\\frac94\\cdot\\frac{\\sqrt3}{2}$",
+      "why": "$\\frac92\\cdot\\frac{\\pi}{6}=\\frac{3\\pi}{4}$, and $\\sin\\frac{\\pi}{3}=\\frac{\\sqrt3}{2}$, the same value as above.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 25,
+      "working": "$\\left(\\frac{3\\pi}{2}-\\frac{9\\sqrt3}{8}\\right)-\\left(\\frac{3\\pi}{4}-\\frac{9\\sqrt3}{8}\\right)$",
+      "why": "You subtract the lower value from the upper value.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 26,
+      "working": "$=\\frac{3\\pi}{2}-\\frac{3\\pi}{4}$",
+      "why": "The two $\\frac{9\\sqrt3}{8}$ terms are equal, so they cancel.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 27,
+      "working": "$=\\frac{3\\pi}{4}$, as required.",
+      "why": "You subtract the fractions: $\\frac{6\\pi}{4}-\\frac{3\\pi}{4}=\\frac{3\\pi}{4}$, which is the printed result.",
+      "secures": "A1*",
+      "check": null
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:53:42+00:00",
+    "cost_usd": 0.0461,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
   }
  ],
  "pitfalls": [
@@ -408,6 +639,14 @@
      "standard-integrals"
     ]
    }
+  },
+  "GL": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part -: copy check flag: cosine 0.870 with part:IAL2013_WMA02_Jan2016_Q8:b"
+   ],
+   "parts_checked": 1
   }
  },
  "review": {

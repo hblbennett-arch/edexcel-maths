@@ -1,0 +1,129 @@
+{
+ "id": "log-coded-regression-model",
+ "question_type": "log-coded-regression-model",
+ "component": "stats",
+ "title": "Log-coded regression to y = ax^n or y = kb^x",
+ "what_it_asks": "You are given data coded with logarithms, such as $\\log_{10} y$ against $\\log_{10} x$, or $\\log_{10} y$ against $x$, with a linear regression line for the coded values. You convert that line back into a power model $y = ax^n$ or an exponential model $y = kb^x$ and find the constants. A correlation test on the coded data often comes with it.",
+ "typical_structure": "Usually three parts worth nine marks in total. One part is worth a single mark, often the hypotheses or a comment on the model. A second part is a short three-mark part, and the third is a longer five-mark part. The long part is where you turn the coded line back into the original model. The test and the conversion are usually separate parts, so you can often do one without the other. A diagram, such as a scatter plot of the coded data, appears in about half of these questions.",
+ "mark_pattern": "The short parts are typically B1, or B1 M1 A1. The B1 is for hypotheses written with the parameter $\\rho$. The M1 is for comparing $r$ with a critical value, or a p-value with the significance level. The A1 is for the conclusion in context. The longer part is mostly method marks, either five M1 or four M1 and a final A1. These reward writing the coded line, replacing the codes with logs of $x$ and $y$, using the log laws, removing the logs and identifying the constants. The final A1, where there is one, is for the constants in the required form. The method marks form a chain, so an early slip in the conversion can cost several later marks.",
+ "where_marks_leak": [
+  {
+   "error_code": "log-coding-conversion-error",
+   "mark_family": "method",
+   "text": "You convert back from the coded line wrongly, for example by giving the intercept as $a$ instead of $a = 10^{c}$, or the gradient as $b$ instead of $b = 10^{m}$. The method mark for removing the logs is lost, and the final A1 and any dependent marks go with it."
+  },
+  {
+   "error_code": "hypotheses-not-in-parameter",
+   "mark_family": "independent",
+   "text": "You write the hypotheses in words, or without $\\rho$. The B1 is lost, even if the rest of the test is sound."
+  },
+  {
+   "error_code": "two-tailed-level-not-halved",
+   "mark_family": "method",
+   "text": "In a two-tailed correlation test you use the full significance level in each tail, so you compare with the wrong critical value. The comparison M1 is lost, and the A1 for the conclusion goes with it."
+  },
+  {
+   "error_code": "binomial-parameters-wrong",
+   "mark_family": "method",
+   "text": "If a probability is involved, you use the wrong $n$ or $p$. The method mark for the probability calculation is lost, and so is the accuracy mark after it."
+  }
+ ],
+ "write_to_earn": [
+  "Write the coded line first, for example $\\log_{10} y = c + m\\log_{10} x$, before you replace anything.",
+  "Replace the codes with $\\log_{10} x$ and $\\log_{10} y$, then use the log laws line by line.",
+  "Raise 10 to both sides and state $a = 10^{c}$ and $n = m$ (or $b = 10^{m}$ and $k = 10^{c}$) as separate results.",
+  "Write hypotheses as $\\mathrm{H}_0: \\rho = 0$ and an $\\mathrm{H}_1$ in $\\rho$, with the tail that matches the question.",
+  "End the test with a conclusion in context, worded as evidence rather than proof."
+ ],
+ "check_before_you_leave": [
+  "Model in the required form?",
+  "Constants undone from logs?",
+  "Hypotheses use $\\rho$?",
+  "Tail and critical value match?",
+  "Conclusion in context?"
+ ],
+ "skills": [
+  "log-coding-to-nonlinear-model",
+  "laws-of-logarithms",
+  "remove-logarithms",
+  "state-hypotheses-correlation-test",
+  "correlation-test-critical-value",
+  "conclude-test-in-context"
+ ],
+ "related_types": [
+  "regression-and-correlation-test",
+  "log-laws-and-equations",
+  "log-linear-graph-model"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:11:03",
+ "cost_usd": 0.0444,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 2,
+  "codes_listed": {
+   "two-tailed-level-not-halved": 2,
+   "binomial-parameters-wrong": 1,
+   "hypotheses-not-in-parameter": 1,
+   "log-coding-conversion-error": 1
+  },
+  "frequent_codes": [],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "3 rare words shared with P3_June2022_stats_Q4",
+    "cosine 0.843 with note:IAL2018_WMA13_Oct2022_Q5_n3"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.005,
+   "shared_numbers": 0,
+   "max_cosine": 0.843,
+   "cosine_source": "note:IAL2018_WMA13_Oct2022_Q5_n3"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 28
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: 3 rare words shared with P3_June2022_stats_Q4",
+   "copy: cosine 0.843 with note:IAL2018_WMA13_Oct2022_Q5_n3"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

@@ -1,0 +1,148 @@
+{
+ "id": "area-between-curve-and-line",
+ "question_type": "area-between-curve-and-line",
+ "component": "pure",
+ "title": "Area bounded by a polynomial curve (and a line)",
+ "what_it_asks": "You are given a curve, almost always with a diagram, and often a line, a tangent or an axis that helps bound a shaded region. You must find the exact area of that region. The idea is that area is a definite integral of \"top minus bottom\", or an area under the curve combined with a triangle or trapezium.",
+ "typical_structure": "Usually two or three parts, sometimes one or four. Early parts are short: find a point, an intersection, a gradient or a line equation, or show a given result. The last part is the longest and often carries four to six marks for the area itself. Later parts typically use results from earlier ones, so a wrong early value can spread forward.",
+ "mark_pattern": "Short early parts are often a single B1 for a stated value or equation, or M1 A1 for a routine step. The area part is mostly method and accuracy marks. A 4-mark part is usually M1 A1 dM1 A1. The first M1 is for integrating, with at least one power raised correctly. The A1 is for a correct integrated expression. The dM1 is for substituting limits and subtracting, and it depends on the first M1. The last A1 is for the exact value. Longer parts add another M1 for setting up the region, for example M1 A1 M1 dM1 A1. Show-that parts end in a starred A1 that needs a complete argument. An A1ft sometimes lets you carry an earlier value forward.",
+ "mark_family": "x",
+ "where_marks_leak": [
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You give a decimal or round to the wrong accuracy when the question asks for an exact value or a stated accuracy. This is often made, and the final A1 is lost."
+  },
+  {
+   "error_code": "arithmetic-slip",
+   "mark_family": "accuracy",
+   "text": "Your method is right but you slip when evaluating fractions or powers at the limits. This is often made. The method marks stay, but the A1 goes."
+  },
+  {
+   "error_code": "area-between-wrong-subtraction",
+   "mark_family": "method",
+   "text": "You subtract the functions the wrong way round, or integrate between the wrong limits. The dM1 for substituting and subtracting is at risk, and the final A1 goes."
+  },
+  {
+   "error_code": "integration-power-rule-error",
+   "mark_family": "method",
+   "text": "You multiply by the old power, or add 1 wrongly to a negative or fractional power. The first M1 can go, and the A1 and dM1 after it go too."
+  },
+  {
+   "error_code": "region-limits-wrong",
+   "mark_family": "method",
+   "text": "You use limits that are not the intersections or intercepts bounding the shaded region. The dM1 is lost, and the exact-value A1 with it."
+  }
+ ],
+ "write_to_earn": [
+  "Find the intersection or intercept values first and write them down as your limits, since a stated value can earn a B1.",
+  "Rewrite roots and reciprocals as powers of $x$ before integrating, so the M1 and A1 are secure.",
+  "Write the integral with its limits and \"top minus bottom\" before you integrate.",
+  "Write the integrated expression in brackets with the limits, then show the upper substitution and the lower substitution separately.",
+  "Keep fractions and surds exact, and in a show-that part write the step just before the printed result."
+ ],
+ "check_before_you_leave": [
+  "Limits match the shaded region",
+  "Top minus bottom, not reversed",
+  "Answer exact, if asked",
+  "Area is positive",
+  "Arithmetic at both limits rechecked"
+ ],
+ "skills": [
+  "evaluate-definite-integral",
+  "integrate-powers-of-x",
+  "area-under-curve",
+  "area-between-curve-and-line",
+  "exact-form-answers",
+  "rewrite-using-index-laws",
+  "show-that-given-answer",
+  "substitute-to-find-intersections"
+ ],
+ "related_types": [
+  "definite-integrals-standard-forms",
+  "find-curve-from-gradient",
+  "parametric-area",
+  "stationary-points-and-nature"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:05:22",
+ "cost_usd": 0.0587,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 56,
+  "codes_listed": {
+   "wrong-final-accuracy": 26,
+   "arithmetic-slip": 14,
+   "area-between-wrong-subtraction": 9,
+   "rationalising-error": 9,
+   "integration-power-rule-error": 7,
+   "region-limits-wrong": 5,
+   "missing-constant-of-integration": 5,
+   "index-law-error": 5
+  },
+  "frequent_codes": [
+   "arithmetic-slip",
+   "wrong-final-accuracy"
+  ],
+  "practice_items": [
+   "cr-area-between-curve-and-line-core",
+   "cr-evaluate-definite-integral-core",
+   "cr-pure-area-between-curve-and-line-003",
+   "cr-pure-area-between-curve-and-line-010"
+  ]
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.862 with part:GCE2008_6666R_June2013_Q5:c"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.002,
+   "shared_numbers": 0,
+   "max_cosine": 0.862,
+   "cosine_source": "part:GCE2008_6666R_June2013_Q5:c"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 1
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.862 with part:GCE2008_6666R_June2013_Q5:c"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

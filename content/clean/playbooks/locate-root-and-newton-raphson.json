@@ -1,0 +1,141 @@
+{
+ "id": "locate-root-and-newton-raphson",
+ "question_type": "locate-root-and-newton-raphson",
+ "component": "pure",
+ "title": "Locate a root and apply Newton-Raphson or read a cobweb",
+ "what_it_asks": "You are given a function or an equation $f(x)=0$. First you prove a root lies in a short interval. Then you use an iterative process to home in on it, either Newton-Raphson or a fixed-point iteration that you may have to judge from a cobweb diagram. The idea is that a continuous function that changes sign must cross zero, and repeated substitution can close in on that crossing.",
+ "typical_structure": "Usually three parts, sometimes four, worth about eight marks in total. The opening part is often a show-that, either a sign change or a rearrangement into iterative form. A middle part asks for iterates from a given starting value, or for a derivative to set up Newton-Raphson. A final part may ask you to describe a diagram, explain why a method fails, or confirm a root to a stated accuracy using a tight interval. Later parts use earlier results, so a slip early on can spread.",
+ "mark_pattern": "Most parts are short, worth two or three marks. A 2-mark part is usually M1 A1: you set up the calculation, then reach the correct value. A 3-mark part is usually M1 A1 A1, for example a correct first substitution, then a correct iterate, then a final value in the accuracy asked for. A show-that part is often M1 A1*, where the method is the evaluation or the rearrangement and the starred mark needs a clean argument with a conclusion. Longer derivations can run M1 dM1 A1*, each step unlocking the next. Explanations, such as why Newton-Raphson fails or what a diagram shows, are usually a single B1 that stands alone.",
+ "where_marks_leak": [
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "This is a common loss. You reach the right value but quote it to the wrong number of decimal places or significant figures, so the final A1 goes even though the method was sound."
+  },
+  {
+   "error_code": "premature-rounding",
+   "mark_family": "accuracy",
+   "text": "This is often made. You round an iterate before feeding it back in, so later values drift and the final A1 is lost, along with any mark that follows from it."
+  },
+  {
+   "error_code": "sign-change-no-conclusion",
+   "mark_family": "accuracy",
+   "text": "You give the two function values with opposite signs but never mention continuity or say that a root lies in the interval. The A1 is lost."
+  },
+  {
+   "error_code": "newton-raphson-failure-not-explained",
+   "mark_family": "independent",
+   "text": "You say the method fails but do not state that the derivative is zero at the starting value, so the tangent is horizontal and never meets the axis. The B1 is lost."
+  },
+  {
+   "error_code": "iteration-diagram-misdescribed",
+   "mark_family": "independent",
+   "text": "You call a cobweb a staircase, or say the iteration converges when the lines spiral outwards. The B1 for the description is lost."
+  }
+ ],
+ "write_to_earn": [
+  "Write the general Newton-Raphson step $x_{n+1}=x_n-\\frac{f(x_n)}{f'(x_n)}$ first, with your derivative found separately, then substitute the starting value.",
+  "For a sign change, list $f(a)$ and $f(b)$ with their signs, say $f$ is continuous, and end with a sentence saying a root lies in $[a,b]$.",
+  "Keep every iterate unrounded on your calculator, and write each one to more places than the final answer needs.",
+  "In a show-that rearrangement, put in the line just before the printed form so the final result follows visibly.",
+  "For a root to a stated accuracy, test the two values half a unit either side at that accuracy and state the sign change."
+ ],
+ "check_before_you_leave": [
+  "Decimal places as asked",
+  "Continuity and conclusion stated",
+  "Derivative checked",
+  "No early rounding",
+  "Diagram described correctly"
+ ],
+ "skills": [
+  "change-of-sign-root-location",
+  "fixed-point-iteration",
+  "rearrange-to-iterative-form",
+  "accuracy-units-and-rounding",
+  "explain-with-reason",
+  "show-that-given-answer"
+ ],
+ "related_types": [
+  "turning-point-by-iteration",
+  "trapezium-rule-estimate",
+  "first-principles"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:04:56",
+ "cost_usd": 0.1094,
+ "attempts": 2,
+ "facts": {
+  "n_questions": 36,
+  "codes_listed": {
+   "wrong-final-accuracy": 25,
+   "premature-rounding": 10,
+   "sign-change-no-conclusion": 5,
+   "second-derivative-error": 3,
+   "arithmetic-slip": 2,
+   "not-in-required-form": 2,
+   "iteration-diagram-misdescribed": 2,
+   "newton-raphson-failure-not-explained": 2
+  },
+  "frequent_codes": [
+   "premature-rounding",
+   "wrong-final-accuracy"
+  ],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "3 rare words shared with P1_June2024_Q3",
+    "cosine 0.865 with question:P2_June2018_Q5"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.002,
+   "shared_numbers": 0,
+   "max_cosine": 0.865,
+   "cosine_source": "question:P2_June2018_Q5"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 6
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: 3 rare words shared with P1_June2024_Q3",
+   "copy: cosine 0.865 with question:P2_June2018_Q5"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

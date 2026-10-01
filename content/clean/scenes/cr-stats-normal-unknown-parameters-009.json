@@ -1,0 +1,425 @@
+{
+ "item_id": "cr-stats-normal-unknown-parameters-009",
+ "applicable": true,
+ "reason": "Normal-curve shading shows why the conditional probability divides by the smaller region, and two tail areas show how the inverse-normal equations fix the mean and standard deviation.",
+ "scenes": [
+  {
+   "id": "cr-stats-normal-unknown-parameters-009::a::1",
+   "part": "a",
+   "title": "Conditional probability as a fraction of the region above 220 g",
+   "purpose": "See that knowing the wedge is over 220 g shrinks the sample space, so the tail above 260 g is divided by P(X > 220).",
+   "approach": "model",
+   "board": {
+    "x": [
+     150,
+     310
+    ],
+    "y": [
+     -0.004,
+     0.026
+    ],
+    "axis": true,
+    "grid": false,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "k",
+     "label": "lower mass k (g)",
+     "min": 225,
+     "max": 290,
+     "step": 1,
+     "value": 260
+    }
+   ],
+   "elements": [
+    {
+     "type": "function",
+     "id": "f",
+     "expr": "exp(-((x-230)^2)/(2*18^2))/(18*sqrt(2*pi))",
+     "color": "primary",
+     "label": "X"
+    },
+    {
+     "type": "point",
+     "id": "I1",
+     "x": "212",
+     "y": "exp(-0.5)/(18*sqrt(2*pi))",
+     "label": "212"
+    },
+    {
+     "type": "point",
+     "id": "I2",
+     "x": "248",
+     "y": "exp(-0.5)/(18*sqrt(2*pi))",
+     "label": "248"
+    },
+    {
+     "type": "vline",
+     "id": "m",
+     "at": "230",
+     "color": "muted"
+    },
+    {
+     "type": "integral",
+     "id": "A",
+     "of": "f",
+     "from": "220",
+     "to": "310",
+     "color": "secondary",
+     "opacity": 0.2
+    },
+    {
+     "type": "integral",
+     "id": "B",
+     "of": "f",
+     "from": "k",
+     "to": "310",
+     "color": "warning",
+     "opacity": 0.5
+    },
+    {
+     "type": "text",
+     "id": "tA",
+     "x": "152",
+     "y": "0.024",
+     "value": "P(X > 220) = {area(A)}"
+    },
+    {
+     "type": "text",
+     "id": "tB",
+     "x": "152",
+     "y": "0.0215",
+     "value": "P(X > k) = {area(B)}"
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "The points of inflection sit at $\\mu\\pm\\sigma$, so $\\mu=230$ and $\\sigma=18$. This is the first M1: the curve drawn is $\\mathrm{N}(230,18^2)$.",
+     "set": {
+      "k": 260
+     },
+     "highlight": [
+      "I1",
+      "I2"
+     ]
+    },
+    {
+     "n": 2,
+     "text": "The pale region is $\\mathrm{P}(X>220)\\approx 0.711$ and the dark region is $\\mathrm{P}(X>260)\\approx 0.0478$. Both probabilities are needed, which earns the first M1.",
+     "set": {
+      "k": 260
+     },
+     "highlight": [
+      "A",
+      "B"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "Given the wedge is over $220$ g, only the pale region is possible, so the answer is the dark part of it: $\\frac{0.0478}{0.711}\\approx 0.0672$. This is the second M1 and the A1. Dividing by $\\mathrm{P}(X>260)$ or giving $0.0478$ alone is the conditional-denominator error.",
+     "set": {
+      "k": 260
+     }
+    },
+    {
+     "n": 4,
+     "text": "Drag $k$ down to $225$: the dark region fills most of the pale region, so the conditional probability rises towards $1$. Dragging $k$ up makes it tiny.",
+     "set": {
+      "k": 230
+     }
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "marks": [
+     "M1",
+     "A1"
+    ],
+    "pitfalls": [
+     "conditional-denominator-error",
+     "standardising-error"
+    ]
+   },
+   "guide": {
+    "what_you_see": "The bell-shaped density curve of the wedge mass $X$, with the whole region above $220$ g shaded palely and the region above the slider value $k$ shaded darker inside it. It shows the conditional probability as one tail divided by a larger region.",
+    "legend": [
+     {
+      "id": "f",
+      "meaning": "The probability density function of $X$, the normal curve $\\mathrm{N}(230,18^2)$ found from the question. The dashed-style line at $x=230$ marks the mean."
+     },
+     {
+      "id": "I1",
+      "meaning": "The left point of inflection of the curve, at $x=212$, which is $\\mu-\\sigma$."
+     },
+     {
+      "id": "I2",
+      "meaning": "The right point of inflection of the curve, at $x=248$, which is $\\mu+\\sigma$."
+     },
+     {
+      "id": "A",
+      "meaning": "The pale region under the curve for $x>220$: the probability $\\mathrm{P}(X>220)$, the wedge being over the labelled mass. It is the sample space once you know the label."
+     },
+     {
+      "id": "B",
+      "meaning": "The darker region under the curve for $x>k$. At $k=260$ it is $\\mathrm{P}(X>260)$, the event you want, and it lies wholly inside region $A$."
+     }
+    ],
+    "interact": [
+     {
+      "control": "k",
+      "kind": "slider",
+      "do": "Drag the slider between $225$ and $290$, starting at $260$. Try it at $260$, then drag it down towards $225$ and up towards $290$.",
+      "watch": "The darker region changes size and the reading $\\mathrm{P}(X>k)$ changes with it. At $k=260$ it is about $0.0478$, so the ratio with $0.711$ is about $0.0672$. As $k$ falls to $225$ the dark region fills most of the pale one and the ratio rises towards $1$; as $k$ rises the ratio becomes tiny."
+     }
+    ],
+    "question_link": {
+     "part": "a",
+     "marks": [
+      "M1",
+      "A1"
+     ],
+     "text": "The inflection points $I_1$ and $I_2$ at $212$ and $248$ give $\\mu=230$ and $\\sigma=18$, which is the first M1 (finding $\\mathrm{P}(X>260)$ or $\\mathrm{P}(X>220)$). The dark region $B$ over the pale region $A$ is the conditional probability $\\frac{\\mathrm{P}(X>260)}{\\mathrm{P}(X>220)}$ of the second M1, and its value $\\approx 0.0672$ is the A1."
+    },
+    "read_off": [
+     "The live label $\\mathrm{P}(X>220)$ is the area of the pale region $A$, about $0.711$. This is the denominator of the conditional probability and does not change with the slider.",
+     "The live label $\\mathrm{P}(X>k)$ is the area of the darker region $B$ for the current $k$. At $k=260$ it is about $0.0478$, the numerator. Dividing it by the $\\mathrm{P}(X>220)$ reading gives the answer to part a."
+    ]
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0227,
+    "attempts": 1,
+    "gate": {
+     "pass": true,
+     "errors": []
+    },
+    "generated_at": "2026-09-30T23:13:13"
+   }
+  },
+  {
+   "id": "cr-stats-normal-unknown-parameters-009::b::1",
+   "part": "b",
+   "title": "Tuning the normal curve to fit both tail conditions",
+   "purpose": "Adjust the mean and standard deviation until the area below 180 g is 0.2 and the area above 270 g is 0.05, to see why two equations fix both unknowns.",
+   "approach": "model",
+   "board": {
+    "x": [
+     0,
+     400
+    ],
+    "y": [
+     -0.004,
+     0.024
+    ],
+    "axis": true,
+    "grid": false,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "mu",
+     "label": "mean μ (g)",
+     "min": 180,
+     "max": 240,
+     "step": 0.1,
+     "value": 200
+    },
+    {
+     "id": "s",
+     "label": "standard deviation σ (g)",
+     "min": 20,
+     "max": 60,
+     "step": 0.1,
+     "value": 25
+    }
+   ],
+   "elements": [
+    {
+     "type": "function",
+     "id": "g",
+     "expr": "exp(-((x-mu)^2)/(2*s^2))/(s*sqrt(2*pi))",
+     "color": "primary",
+     "label": "Y"
+    },
+    {
+     "type": "integral",
+     "id": "L",
+     "of": "g",
+     "from": "0",
+     "to": "180",
+     "color": "warning",
+     "opacity": 0.45
+    },
+    {
+     "type": "integral",
+     "id": "U",
+     "of": "g",
+     "from": "270",
+     "to": "400",
+     "color": "secondary",
+     "opacity": 0.45
+    },
+    {
+     "type": "vline",
+     "id": "v1",
+     "at": "180",
+     "color": "muted"
+    },
+    {
+     "type": "vline",
+     "id": "v2",
+     "at": "270",
+     "color": "muted"
+    },
+    {
+     "type": "text",
+     "id": "tL",
+     "x": "5",
+     "y": "0.022",
+     "value": "P(Y < 180) = {area(L)}  (target 0.2)"
+    },
+    {
+     "type": "text",
+     "id": "tU",
+     "x": "5",
+     "y": "0.0195",
+     "value": "P(Y > 270) = {area(U)}  (target 0.05)"
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "The left tail is $\\mathrm{P}(Y<180)$ and should be $0.2$. Since $180$ g is below the mean, $\\frac{180-\\mu}{\\sigma}=-0.8416$. This is the first M1 and part of the B1.",
+     "set": {
+      "mu": 200,
+      "s": 25
+     },
+     "highlight": [
+      "L"
+     ]
+    },
+    {
+     "n": 2,
+     "text": "The right tail is $\\mathrm{P}(Y>270)=0.05$, so $\\mathrm{P}(Y<270)=0.95$ and $\\frac{270-\\mu}{\\sigma}=1.6449$. Using $-1.6449$ or $1.2816$ here is the inverse-normal tail error.",
+     "set": {
+      "mu": 200,
+      "s": 25
+     },
+     "highlight": [
+      "U"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "Subtracting $180-\\mu=-0.8416\\sigma$ from $270-\\mu=1.6449\\sigma$ gives $90=2.4865\\sigma$. The distance of $90$ g between the marks spans $2.4865$ standard deviations, which earns the third M1.",
+     "set": {
+      "mu": 200,
+      "s": 25
+     }
+    },
+    {
+     "n": 4,
+     "text": "Set $\\sigma=36.2$ and $\\mu=210.5$: both areas read about $0.2$ and $0.05$. This matches the last M1, $\\sigma\\approx36.2$ and $\\mu\\approx210.5$. Try moving either slider and see that one tail is always wrong.",
+     "set": {
+      "mu": 210.5,
+      "s": 36.2
+     }
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "marks": [
+     "M1",
+     "B1"
+    ],
+    "pitfalls": [
+     "z-sign-error",
+     "inverse-normal-tail-error",
+     "standardising-error"
+    ]
+   },
+   "guide": {
+    "what_you_see": "The density curve of the blue cheese mass $Y\\sim\\mathrm{N}(\\mu,\\sigma^2)$ with two tails shaded: the area below $180$ g and the area above $270$ g. Two live readings tell you how close those areas are to the required $0.2$ and $0.05$.",
+    "legend": [
+     {
+      "id": "g",
+      "meaning": "The probability density function of $Y\\sim\\mathrm{N}(\\mu,\\sigma^2)$, whose position and width change with your chosen $\\mu$ and $\\sigma$."
+     },
+     {
+      "id": "L",
+      "meaning": "The left-tail area $\\mathrm{P}(Y<180)$, which must equal $0.2$ (one wedge in five under $180$ g)."
+     },
+     {
+      "id": "U",
+      "meaning": "The right-tail area $\\mathrm{P}(Y>270)$, which must equal $0.05$ (one wedge in twenty over $270$ g)."
+     },
+     {
+      "id": "v1",
+      "meaning": "The vertical line at $y=180$ g that marks the upper edge of the left tail."
+     },
+     {
+      "id": "v2",
+      "meaning": "The vertical line at $y=270$ g that marks the lower edge of the right tail."
+     }
+    ],
+    "interact": [
+     {
+      "control": "mu",
+      "kind": "slider",
+      "do": "Drag the mean $\\mu$ between $180$ and $240$, keeping $\\sigma$ fixed, and watch the curve slide sideways.",
+      "watch": "Moving the curve right makes the left tail bigger or smaller and the right tail change the opposite way, so you cannot fix both tails with $\\mu$ alone. At $\\mu=210.5$ with $\\sigma=36.2$ the readings are about $0.2$ and $0.05$."
+     },
+     {
+      "control": "s",
+      "kind": "slider",
+      "do": "Drag the standard deviation $\\sigma$ between $20$ and $60$, keeping $\\mu$ fixed, and watch the curve widen and flatten or narrow and peak.",
+      "watch": "A larger $\\sigma$ moves both tails' areas upward at once, so one slider cannot hit both targets. At $\\sigma=36.2$ with $\\mu=210.5$ the readings are about $0.2$ and $0.05$."
+     }
+    ],
+    "question_link": {
+     "part": "b",
+     "marks": [
+      "M1",
+      "B1"
+     ],
+     "text": "The shaded area $L$ is the condition $\\mathrm{P}(Y<180)=0.2$, giving $\\frac{180-\\mu}{\\sigma}=-0.8416$, and $U$ is $\\mathrm{P}(Y>270)=0.05$, giving $\\frac{270-\\mu}{\\sigma}=1.6449$. These are the standardising M1 and the two $z$-values of the B1. Only one pair $(\\mu,\\sigma)$ meets both conditions, which is why you solve two simultaneous equations."
+    },
+    "read_off": [
+     "The live label for $\\mathrm{P}(Y<180)$ gives the area of the left tail for your current $\\mu$ and $\\sigma$; it should read $0.2$.",
+     "The live label for $\\mathrm{P}(Y>270)$ gives the area of the right tail for your current $\\mu$ and $\\sigma$; it should read $0.05$."
+    ]
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0244,
+    "attempts": 1,
+    "gate": {
+     "pass": true,
+     "errors": []
+    },
+    "generated_at": "2026-09-30T23:13:13"
+   }
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:49:11",
+ "cost_usd": 0.0571,
+ "attempts": 1,
+ "checks": {
+  "pass": true,
+  "errors": [],
+  "n_scenes": 2
+ }
+}

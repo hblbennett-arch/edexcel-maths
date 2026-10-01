@@ -1,0 +1,141 @@
+{
+ "id": "composite-and-inverse-functions",
+ "question_type": "composite-and-inverse-functions",
+ "component": "pure",
+ "title": "Composite and inverse functions",
+ "what_it_asks": "You are given one or two functions, often with a stated domain, and asked to combine them, reverse them or describe the values they take. Typical tasks are finding $\\mathrm{fg}(x)$, finding $\\mathrm{f}^{-1}(x)$, and stating a range or the domain of an inverse. Underneath sits one link: the output set of $\\mathrm{f}$ becomes the input set of $\\mathrm{f}^{-1}$.",
+ "typical_structure": "Usually three or four parts, sometimes only two and rarely more than five. Each part is typically worth two or three marks, with a few one-mark statements. Early parts often ask for a range or a composite value. Later parts ask for an inverse with its domain, or an equation such as $\\mathrm{fg}(x) = k$ to solve. Parts often build on earlier results, so a wrong range early on can spoil the inverse's domain later.",
+ "mark_pattern": "The commonest part is a two-mark M1 A1: a method step such as substituting one function into another, or swapping letters and rearranging, then the correct expression. A single B1 is also frequent, usually for a stated range or domain. Longer algebraic parts run M1 dM1 A1 or M1 A1 M1 A1. In M1 A1 B1, the B1 is typically for the domain or range that goes with the expression. The first M1 is for setting up the composite or the swap. A dM1 is for the rearrangement that depends on it. The final A1 is for the simplified result.",
+ "where_marks_leak": [
+  {
+   "error_code": "rationalising-error",
+   "mark_family": "method",
+   "text": "When a composite or inverse leaves a surd in a denominator, you multiply by the wrong conjugate or change only the numerator. The method mark for rationalising is lost, and the A1 after it goes too."
+  },
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You give a decimal answer to the wrong number of places or significant figures, or round early. The final A1 is lost even though the method was right."
+  },
+  {
+   "error_code": "arithmetic-slip",
+   "mark_family": "accuracy",
+   "text": "You make a numerical slip while substituting into a composite or rearranging for an inverse. The A1 is lost, and a dependent mark after it can go too unless it is a follow-through."
+  },
+  {
+   "error_code": "inverse-domain-not-range",
+   "mark_family": "independent",
+   "text": "You write the domain of $\\mathrm{f}^{-1}$ as the domain of $\\mathrm{f}$, or guess it from the expression. The B1 for the domain is lost because it must be the range of $\\mathrm{f}$."
+  },
+  {
+   "error_code": "inverse-function-error",
+   "mark_family": "method",
+   "text": "You write $\\frac{1}{\\mathrm{f}(x)}$ as the inverse, or rearrange without swapping $x$ and $y$. The method mark is lost, and the accuracy mark with it."
+  }
+ ],
+ "write_to_earn": [
+  "Write $y = \\mathrm{f}(x)$, swap the letters, then rearrange, so the method mark for the inverse is visible.",
+  "For $\\mathrm{fg}(x)$, write $\\mathrm{f}(\\mathrm{g}(x))$ first, then substitute the whole of $\\mathrm{g}(x)$ into $\\mathrm{f}$.",
+  "State the domain of an inverse as its own line, using inequality notation in $x$, taken from the range of the original.",
+  "State a range in terms of $\\mathrm{f}(x)$, using a sketch or the turning point to justify it.",
+  "Keep exact values until the last line and give the form the question asks for."
+ ],
+ "check_before_you_leave": [
+  "Inverse domain equals range of f",
+  "Order of composition correct",
+  "Range written in f(x), not x",
+  "Answer in form asked",
+  "Invalid roots rejected"
+ ],
+ "skills": [
+  "domain-and-range",
+  "inverse-functions",
+  "composite-functions",
+  "rearrange-to-make-subject",
+  "simplify-algebraic-fractions",
+  "exact-form-answers"
+ ],
+ "related_types": [
+  "modulus-and-transformations",
+  "log-laws-and-equations",
+  "exponential-equations"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:09:49",
+ "cost_usd": 0.1249,
+ "attempts": 2,
+ "facts": {
+  "n_questions": 51,
+  "codes_listed": {
+   "rationalising-error": 30,
+   "wrong-final-accuracy": 29,
+   "arithmetic-slip": 11,
+   "inverse-domain-not-range": 10,
+   "domain-range-confused": 6,
+   "inverse-function-error": 6,
+   "completing-square-error": 3,
+   "quadratic-formula-error": 3
+  },
+  "frequent_codes": [
+   "arithmetic-slip",
+   "inverse-domain-not-range",
+   "rationalising-error",
+   "wrong-final-accuracy"
+  ],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.865 with part:GCE2008_6665_June2012_Q6:d"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.002,
+   "shared_numbers": 0,
+   "max_cosine": 0.865,
+   "cosine_source": "part:GCE2008_6665_June2012_Q6:d"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 18
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.865 with part:GCE2008_6665_June2012_Q6:d"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

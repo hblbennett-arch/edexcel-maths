@@ -1,0 +1,142 @@
+{
+ "id": "trapezium-rule-estimate",
+ "question_type": "trapezium-rule-estimate",
+ "component": "pure",
+ "title": "Trapezium rule estimate",
+ "what_it_asks": "You are given a function or a table of values, often with a diagram of the curve. You are asked to estimate an integral using strips of equal width. You may then reuse the estimate for a related integral, judge whether it is an over- or underestimate, or compare it with the exact value. The idea is that each strip is treated as a trapezium, so the curve is replaced by straight-line tops.",
+ "typical_structure": "Usually two or three parts, sometimes four. The first part is often a short completion of the table of values, worth one or two marks. The next part applies the rule and is typically the largest, about three or four marks. A later part reuses the estimate (scaling it, or using a log law or constant factor), comments on accuracy, or asks for the exact integral to compare. Later parts often lean on the earlier estimate or table.",
+ "mark_pattern": "Most parts mix independent marks with one method and one accuracy mark. The usual sequence is B1 M1 A1. The B1 is for the correct strip width or a correct table value. The M1 is for a trapezium bracket with the right structure. The A1 is for the value to the required accuracy. Table completion is usually B1 or B1 B1, one mark per value. A 4-mark part is often B1 M1 A1ft A1, where the A1ft follows your own table values. Reuse or exact-integration parts are usually M1 A1 or M1 A1 A1: a method mark for the scaling or integration, then accuracy. A comment on over- or underestimate is typically a single B1.",
+ "where_marks_leak": [
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "Many students give the estimate to the wrong number of decimal places or significant figures. The final A1 is lost even when the method was right."
+  },
+  {
+   "error_code": "trapezium-strip-width-error",
+   "mark_family": "method",
+   "text": "Many students treat the number of ordinates as the number of strips, so $h$ is wrong. The M1 for the bracket can go, and the A1 that depends on it goes too."
+  },
+  {
+   "error_code": "trapezium-bracket-error",
+   "mark_family": "method",
+   "text": "Many students double the end ordinates or leave out the factor $\\frac{h}{2}$. The M1 is lost, and the A1 after it with it."
+  },
+  {
+   "error_code": "premature-rounding",
+   "mark_family": "accuracy",
+   "text": "You round table values or a partial sum, and the final answer drifts outside the accepted range. The A1 is lost."
+  },
+  {
+   "error_code": "integration-power-rule-error",
+   "mark_family": "method",
+   "text": "In the exact integral, you multiply by the old power or add 1 wrongly to a negative or fractional power. The M1 for integrating is lost, and the A1 marks after it."
+  }
+ ],
+ "write_to_earn": [
+  "Write $h$ as the interval length divided by the number of strips before you use it, so the B1 is secured.",
+  "Write the bracket as first plus last, plus twice the middle values, with $\\frac{h}{2}$ in front, before you put in numbers.",
+  "Keep full calculator values in the table and round only the final answer to the accuracy asked.",
+  "For a reuse part, say which factor or log law links the new integral to your estimate, and then apply it.",
+  "For an over- or underestimate comment, refer to the curve shape (concave or convex) and say whether the tops lie above or below the curve."
+ ],
+ "check_before_you_leave": [
+  "Number of strips correct?",
+  "Ends counted once only?",
+  "Accuracy as asked?",
+  "Table values unrounded?",
+  "Comment refers to curve shape?"
+ ],
+ "skills": [
+  "trapezium-rule",
+  "accuracy-units-and-rounding",
+  "trapezium-accuracy-and-reuse",
+  "evaluate-definite-integral",
+  "use-hence-previous-result",
+  "integrate-powers-of-x",
+  "exact-form-answers"
+ ],
+ "related_types": [
+  "definite-integrals-standard-forms",
+  "integration-by-parts",
+  "area-between-curve-and-line",
+  "locate-root-and-newton-raphson"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:04:33",
+ "cost_usd": 0.0579,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 63,
+  "codes_listed": {
+   "wrong-final-accuracy": 40,
+   "trapezium-strip-width-error": 16,
+   "trapezium-bracket-error": 12,
+   "by-parts-poor-choice": 6,
+   "premature-rounding": 6,
+   "integration-power-rule-error": 5,
+   "missing-constant-of-integration": 5,
+   "sketch-missing-coordinates": 4
+  },
+  "frequent_codes": [
+   "trapezium-bracket-error",
+   "trapezium-strip-width-error",
+   "wrong-final-accuracy"
+  ],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.882 with part:IAL2018_WMA12_Oct2024_Q1:b"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.0,
+   "shared_numbers": 0,
+   "max_cosine": 0.882,
+   "cosine_source": "part:IAL2018_WMA12_Oct2024_Q1:b"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 4
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.882 with part:IAL2018_WMA12_Oct2024_Q1:b"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

@@ -1,0 +1,1045 @@
+{
+ "id": "cr-3-p2-q09",
+ "blueprint_id": "mk-3-p2-q09",
+ "question_type": "linear-and-quadratic-models",
+ "component": "pure",
+ "tier": "standard",
+ "kind": "mock",
+ "stem": "A skatepark is putting in a U-shaped ramp. Its curved riding surface is $8\\,\\mathrm{m}$ wide. Take a vertical cross-section across the ramp. Let $x$ metres be the horizontal distance from the left-hand edge of the ramp, and $y$ metres the height of the riding surface above the flat concrete base, for $0 \\leqslant x \\leqslant 8$.\n\nThe designer models the cross-section by\n$$y = ax^2 + bx + c,$$\nwhere $a$, $b$ and $c$ are constants. The design has to meet these requirements:\n- at the left-hand edge ($x = 0$) the riding surface is $3.2\\,\\mathrm{m}$ above the base;\n- $2\\,\\mathrm{m}$ in from the left-hand edge ($x = 2$) the surface is $1.4\\,\\mathrm{m}$ above the base;\n- the lowest point of the surface is at the centre of the ramp, where $x = 4$.",
+ "paper": "mock-3-P2",
+ "set": "mock-3",
+ "q_num": 9,
+ "parts": [
+  {
+   "label": "a",
+   "marks": 3,
+   "text": "Show that the model for the cross-section is $y = 0.15x^2 - 1.2x + 3.2$. (3)",
+   "command": "show-that",
+   "forms": [],
+   "skills": [
+    "translate-context-into-model",
+    "show-that-given-answer"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Uses the height at the left-hand edge to get $c = 3.2$ (seen or used)",
+     "notes": "Can come from substituting $x = 0$, $y = 3.2$ or be written straight down."
+    },
+    {
+     "code": "M1",
+     "for": "Turns the lowest-point condition into an equation linking $a$ and $b$: either $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 2ax + b = 0$ at $x = 4$, giving $8a + b = 0$, or the axis of symmetry $-\\frac{b}{2a} = 4$",
+     "notes": "Also accept using symmetry to write $y(8) = 3.2$, which gives $64a + 8b = 0$. Setting $y = 0$ at $x = 4$ scores M0."
+    },
+    {
+     "code": "M1",
+     "for": "Substitutes $x = 2$, $y = 1.4$ to get $4a + 2b + 3.2 = 1.4$, solves it with their lowest-point equation, and shows $a = 0.15$, $b = -1.2$, reaching the printed model with no errors",
+     "notes": "The final equation $y = 0.15x^2 - 1.2x + 3.2$ must be stated. Accept the equivalent $y = \\frac{3}{20}x^2 - \\frac{6}{5}x + \\frac{16}{5}$ if it is then written in the printed form."
+    }
+   ],
+   "alternatives": [
+    {
+     "name": "Way 2 (vertex form)",
+     "marks": [
+      {
+       "code": "B1",
+       "for": "Uses the lowest point at $x = 4$ to write $y = p(x - 4)^2 + q$"
+      },
+      {
+       "code": "M1",
+       "for": "Substitutes $(0, 3.2)$ and $(2, 1.4)$ to get $16p + q = 3.2$ and $4p + q = 1.4$, then solves to get $p = 0.15$, $q = 0.8$"
+      },
+      {
+       "code": "M1",
+       "for": "Expands $0.15(x-4)^2 + 0.8 = 0.15x^2 - 1.2x + 2.4 + 0.8$ and reaches $y = 0.15x^2 - 1.2x + 3.2$ with no errors"
+      }
+     ]
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "At $x = 0$: $y = c = 3.2$.",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 2ax + b$. The lowest point is at $x = 4$, so $8a + b = 0$, which gives $b = -8a$.",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "At $x = 2$: $4a + 2b + 3.2 = 1.4$, so $4a + 2b = -1.8$. Substituting $b = -8a$: $4a - 16a = -1.8$, so $-12a = -1.8$ and $a = 0.15$. Then $b = -8(0.15) = -1.2$.",
+     "mark": "M1"
+    },
+    {
+     "step": 4,
+     "working": "So $y = 0.15x^2 - 1.2x + 3.2$, as required.",
+     "mark": "0"
+    }
+   ],
+   "answers": [
+    {
+     "name": "a",
+     "expr": "3/20",
+     "form": "exact"
+    },
+    {
+     "name": "b",
+     "expr": "-6/5",
+     "form": "exact"
+    },
+    {
+     "name": "c",
+     "expr": "16/5",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "system",
+     "equations": [
+      "c = 3.2",
+      "4a + 2b + c = 1.4",
+      "8a + b = 0"
+     ],
+     "vars": [
+      "a",
+      "b",
+      "c"
+     ],
+     "result": {
+      "a": "3/20",
+      "b": "-6/5",
+      "c": "16/5"
+     }
+    },
+    {
+     "type": "derivative",
+     "f": "0.15x^2 - 1.2x + 3.2",
+     "var": "x",
+     "result": "0.3x - 1.2"
+    },
+    {
+     "type": "substitute",
+     "expr": "0.3x - 1.2",
+     "at": {
+      "x": "4"
+     },
+     "result": "0"
+    },
+    {
+     "type": "substitute",
+     "expr": "0.15x^2 - 1.2x + 3.2",
+     "at": {
+      "x": "2"
+     },
+     "result": "1.4"
+    },
+    {
+     "type": "equals",
+     "lhs": "0.15(x-4)^2 + 0.8",
+     "rhs": "0.15x^2 - 1.2x + 3.2"
+    }
+   ],
+   "hints": [
+    "Each requirement gives you one equation. Begin with $x = 0$, which gives you $c$ straight away.",
+    "At the lowest point the gradient of the curve is zero. Differentiate and put $x = 4$."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 3,
+   "text": "Any part of the riding surface more than $2\\,\\mathrm{m}$ above the base will be painted red to warn beginners. Solve an inequality to find the values of $x$, for $0 \\leqslant x \\leqslant 8$, for which the surface is painted red. (3)",
+   "command": "solve",
+   "forms": [],
+   "skills": [
+    "translate-context-into-model",
+    "solve-quadratic-equation",
+    "solve-quadratic-inequality"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Writes $0.15x^2 - 1.2x + 3.2 > 2$ (or $= 2$), rearranges it to a three-term quadratic such as $x^2 - 8x + 8 = 0$ or $0.15x^2 - 1.2x + 1.2 = 0$, and solves it with a correct method (formula, completing the square or calculator roots after a correct rearrangement)",
+     "notes": "If the formula is used, it must be quoted or substituted correctly for their quadratic."
+    },
+    {
+     "code": "A1",
+     "for": "Critical values $x = 4 \\pm 2\\sqrt{2}$",
+     "notes": "Accept $4 \\pm \\sqrt{8}$ or awrt $1.17$ and $6.83$."
+    },
+    {
+     "code": "A1",
+     "for": "Chooses the outside region: $0 \\leqslant x < 4 - 2\\sqrt{2}$ or $4 + 2\\sqrt{2} < x \\leqslant 8$",
+     "notes": "Accept decimal equivalents (awrt 1.17, 6.83). Accept the answer without the end limits $0$ and $8$, and accept $\\leqslant$ or $\\geqslant$ at the critical values. Writing the inside region $4 - 2\\sqrt{2} < x < 4 + 2\\sqrt{2}$ scores A0."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Red where $0.15x^2 - 1.2x + 3.2 > 2$, i.e. $0.15x^2 - 1.2x + 1.2 > 0$. Multiplying by $\\frac{20}{3}$: $x^2 - 8x + 8 > 0$.",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "Critical values: $(x - 4)^2 - 8 = 0$, so $x - 4 = \\pm\\sqrt{8}$.",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$x = 4 \\pm 2\\sqrt{2}$, i.e. $x \\approx 1.17$ or $x \\approx 6.83$.",
+     "mark": "A1"
+    },
+    {
+     "step": 4,
+     "working": "The graph of $x^2 - 8x + 8$ is a U-shape, so it is positive outside the roots. The surface is red for $0 \\leqslant x < 4 - 2\\sqrt{2}$ or $4 + 2\\sqrt{2} < x \\leqslant 8$.",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "x1",
+     "expr": "4 - 2*sqrt(2)",
+     "form": "exact",
+     "check": "0.15*x1^2 - 1.2*x1 + 3.2 = 2"
+    },
+    {
+     "name": "x2",
+     "expr": "4 + 2*sqrt(2)",
+     "form": "exact",
+     "check": "0.15*x2^2 - 1.2*x2 + 3.2 = 2"
+    }
+   ],
+   "checks": [
+    {
+     "type": "solutions",
+     "equation": "0.15x^2 - 1.2x + 3.2 = 2",
+     "var": "x",
+     "result": [
+      "4 - 2*sqrt(2)",
+      "4 + 2*sqrt(2)"
+     ]
+    },
+    {
+     "type": "numeric",
+     "expr": "4 - 2*sqrt(2)",
+     "result": "1.17",
+     "form": "sf-3"
+    },
+    {
+     "type": "numeric",
+     "expr": "4 + 2*sqrt(2)",
+     "result": "6.83",
+     "form": "sf-3"
+    },
+    {
+     "type": "substitute",
+     "expr": "0.15x^2 - 1.2x + 3.2",
+     "at": {
+      "x": "0.5"
+     },
+     "result": "2.6375"
+    }
+   ],
+   "hints": [
+    "Write down the inequality that says the height is more than $2$, then find where the height is exactly $2$.",
+    "Picture the U-shaped cross-section. Is it higher than $2\\,\\mathrm{m}$ near the edges or near the centre?"
+   ]
+  },
+  {
+   "label": "c",
+   "marks": 1,
+   "text": "Hence find the horizontal width of the part of the riding surface that is not painted red. (1)",
+   "command": "hence",
+   "forms": [],
+   "skills": [
+    "use-hence-previous-result",
+    "solve-quadratic-inequality",
+    "rearrange-to-make-subject",
+    "substitute-to-find-intersections"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1ft",
+     "for": "Subtracts their critical values from (b): $(4 + 2\\sqrt{2}) - (4 - 2\\sqrt{2}) = 4\\sqrt{2}\\,\\mathrm{m}$ (awrt $5.66\\,\\mathrm{m}$)",
+     "ft_of": "(b)",
+     "notes": "Follow through on the difference between their two critical values from (b), as long as both lie between 0 and 8. Accept $\\sqrt{32}$."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "The unpainted part is $4 - 2\\sqrt{2} \\leqslant x \\leqslant 4 + 2\\sqrt{2}$, so its width is $(4 + 2\\sqrt{2}) - (4 - 2\\sqrt{2}) = 4\\sqrt{2} \\approx 5.66\\,\\mathrm{m}$.",
+     "mark": "B1ft"
+    }
+   ],
+   "answers": [
+    {
+     "name": "w",
+     "expr": "4*sqrt(2)",
+     "form": "exact",
+     "check": "w = (4 + 2*sqrt(2)) - (4 - 2*sqrt(2))"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "(4 + 2*sqrt(2)) - (4 - 2*sqrt(2))",
+     "result": "5.66",
+     "form": "sf-3"
+    },
+    {
+     "type": "equals",
+     "lhs": "(4 + 2*sqrt(2)) - (4 - 2*sqrt(2))",
+     "rhs": "4*sqrt(2)"
+    }
+   ],
+   "hints": [
+    "The part that is not red lies between the two critical values you found in (b)."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "error_code": "rate-not-derivative",
+   "step": 2,
+   "text": "The lowest point at $x = 4$ tells you the gradient is zero there, not the height. If you write $16a + 4b + c = 0$ (height zero at $x = 4$) instead of $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 8a + b = 0$, you get the wrong equation, cannot reach the printed model, and lose the M1 for the lowest-point condition.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "error_code": "parameter-meaning-no-context",
+   "step": 1,
+   "text": "Don't write $c = 3.2$ on its own. Show where it comes from: at $x = 0$ the surface is $3.2\\,\\mathrm{m}$ above the base, so $y(0) = c = 3.2$. In a 'show that' question, a value with no link to the ramp requirement may not earn the B1.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "error_code": "quadratic-inequality-wrong-region",
+   "step": 4,
+   "text": "Once you have found $4 \\pm 2\\sqrt{2}$, it is easy to write $4 - 2\\sqrt{2} < x < 4 + 2\\sqrt{2}$ out of habit. The ramp is U-shaped, so it is higher than $2\\,\\mathrm{m}$ near the two edges, not in the middle. You need the outside region, and choosing the inside loses the final A1. This is a common mistake.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "error_code": "quadratic-formula-error",
+   "step": 2,
+   "text": "If you use the formula on $x^2 - 8x + 8 = 0$, remember that $-b = +8$ and that the whole numerator is divided by $2a$: $x = \\frac{8 \\pm \\sqrt{64 - 32}}{2}$. Using $-8$ on top, or dividing only $\\sqrt{32}$ by $2$, loses the M1 and both A marks. This is a common slip.",
+   "says_common": true
+  },
+  {
+   "part": "c",
+   "error_code": "quadratic-inequality-wrong-region",
+   "step": 1,
+   "text": "The unpainted part is the middle section, between the critical values. If you add up the two red sections instead, $2(4 - 2\\sqrt{2}) = 8 - 4\\sqrt{2} \\approx 2.34\\,\\mathrm{m}$, you have answered the wrong question and the B1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "error_code": "completing-square-error",
+   "step": 1,
+   "text": "If you work the critical values out again from $x^2 - 8x + 8 = 0$ by completing the square, it is $(x - 4)^2 - 16 + 8 = (x-4)^2 - 8$. Getting the constant wrong, for example $(x-4)^2 + 8$ or $(x-4)^2 - 24$, gives the wrong width and loses the B1. This is a common error.",
+   "says_common": true
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-10-01T00:01:37",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.4315
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 7
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.794 with part:IAL2018_WME01_June2023_Q8:c"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "hits8": [],
+   "max_jaccard": 0.02,
+   "jaccard_source": "GCE2008_6665_June2018_Q2",
+   "shared_numbers": 2,
+   "max_cosine": 0.794,
+   "cosine_source": "part:IAL2018_WME01_June2023_Q8:c"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 11,
+   "n_answers": 6,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "part a: expected a = 3/20, solver got ['y = 0.15*x**2 - 1.2*x + 3.2'] [judge: same - Solver's y = 0.15x^2 - 1.2x + 3.2 gives a=3/20, b=-6/5, c=16/5, matching the setter.]",
+    "part a: expected b = -6/5, solver got ['y = 0.15*x**2 - 1.2*x + 3.2'] [judge: same - Solver's y = 0.15x^2 - 1.2x + 3.2 gives a=3/20, b=-6/5, c=16/5, matching the setter.]",
+    "part a: expected c = 16/5, solver got ['y = 0.15*x**2 - 1.2*x + 3.2'] [judge: same - Solver's y = 0.15x^2 - 1.2x + 3.2 gives a=3/20, b=-6/5, c=16/5, matching the setter.]",
+    "part b: expected x1 = 4 - 2*sqrt(2), solver got ['x < 4 - 2*sqrt(2)', 'x > 4 + 2*sqrt(2)'] [judge: same - Solver's critical values are x = 4 ± 2√2, the same as the setter's. The solver's red regions are 0≤x<4-2√2 and 4+2√2<x≤8, which is consistent with the setter's roots.]",
+    "part b: expected x2 = 4 + 2*sqrt(2), solver got ['x < 4 - 2*sqrt(2)', 'x > 4 + 2*sqrt(2)'] [judge: same - Solver's critical values are x = 4 ± 2√2, the same as the setter's. The solver's red regions are 0≤x<4-2√2 and 4+2√2<x≤8, which is consistent with the setter's roots.]",
+    "ambiguity (part (a)): The phrase 'lowest point' needs calculus or completing the square (symmetry) to use. Most students will use this, so it is fine. A student might wonder whether the model should be checked on the whole interval, but it works: y(8)=3.2 and the minimum height is 0.8 m."
+   ],
+   "flag": true,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0187,
+   "solver": {
+    "parts": [
+     {
+      "label": "(a)",
+      "answers": [
+       "y = 0.15*x**2 - 1.2*x + 3.2"
+      ],
+      "printed_result_correct": true,
+      "working_summary": "x=0 gives c=3.2. Minimum at x=4 gives dy/dx=2a*4+b=0, so b=-8a. x=2 gives 4a+2b+3.2=1.4, so -12a=-1.8, a=0.15, b=-1.2. This matches the printed result."
+     },
+     {
+      "label": "(b)",
+      "answers": [
+       "x < 4 - 2*sqrt(2)",
+       "x > 4 + 2*sqrt(2)"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "0.15x^2-1.2x+3.2>2 gives 0.15x^2-1.2x+1.2>0, so x^2-8x+8>0. The roots are x=4±2√2 (about 1.17 and 6.83). Red for 0≤x<4-2√2 and 4+2√2<x≤8."
+     },
+     {
+      "label": "(c)",
+      "answers": [
+       "4*sqrt(2)"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "Not red: 4-2√2 ≤ x ≤ 4+2√2, so the width is 4√2 ≈ 5.66 m."
+     }
+    ],
+    "problems": [
+     {
+      "kind": "ambiguity",
+      "severity": "minor",
+      "part": "(a)",
+      "detail": "The phrase 'lowest point' needs calculus or completing the square (symmetry) to use. Most students will use this, so it is fine. A student might wonder whether the model should be checked on the whole interval, but it works: y(8)=3.2 and the minimum height is 0.8 m."
+     }
+    ]
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "n_responses": 9,
+   "agreed": [
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "R7",
+    "R8",
+    "R9"
+   ],
+   "consistent": {},
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "R1",
+     "kind": "correct",
+     "error_code": null,
+     "work": "(a) At x=0, y=3.2 so c=3.2. dy/dx=2ax+b=0 at x=4 so 8a+b=0, b=-8a. At x=2: 4a+2b+3.2=1.4 so 4a+2b=-1.8. Sub: 4a-16a=-1.8, a=0.15, b=-1.2. So y=0.15x^2-1.2x+3.2 as required.\n(b) 0.15x^2-1.2x+3.2>2 so 0.15x^2-1.2x+1.2>0, so x^2-8x+8>0. (x-4)^2-8=0, x=4±2√2 (1.17, 6.83). U-shape so positive outside: 0≤x<4-2√2 or 4+2√2<x≤8.\n(c) Width = (4+2√2)-(4-2√2)=4√2≈5.66 m.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "R2",
+     "kind": "pitfall",
+     "error_code": "rate-not-derivative",
+     "work": "(a) x=0: c=3.2. Lowest point at x=4 so height is 0 there?: 16a+4b+3.2=0. x=2: 4a+2b=-1.8 so b=-0.9-2a. Then 16a-3.6-8a+3.2=0, 8a=0.4, a=0.05, b=-1.0. This doesn't give the printed model, but I'll use the given y=0.15x^2-1.2x+3.2 from here.\n(b) 0.15x^2-1.2x+1.2>0, x^2-8x+8>0, x=4±2√2, outside: 0≤x<4-2√2 or 4+2√2<x≤8.\n(c) Width = 4√2≈5.66 m.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M0",
+        "M0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "R3",
+     "kind": "pitfall",
+     "error_code": "parameter-meaning-no-context",
+     "work": "(a) c=3.2. 2ax+b=0 at x=4 so 8a+b=0. At x=2: 4a+2b+3.2=1.4, 4a+2b=-1.8. b=-8a so -12a=-1.8, a=0.15, b=-1.2. y=0.15x^2-1.2x+3.2.\n(b) x^2-8x+8>0, x=4±2√2, outside region: 0≤x<4-2√2 or 4+2√2<x≤8.\n(c) 4√2≈5.66 m.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "R4",
+     "kind": "pitfall",
+     "error_code": "quadratic-inequality-wrong-region",
+     "work": "(a) c=3.2 from y(0). 8a+b=0 from dy/dx=0 at x=4. 4a+2b+3.2=1.4, so a=0.15, b=-1.2, y=0.15x^2-1.2x+3.2.\n(b) 0.15x^2-1.2x+1.2>0 gives x^2-8x+8>0. (x-4)^2=8, x=4±2√2. Red region: 4-2√2<x<4+2√2.\n(c) Width = (4+2√2)-(4-2√2)=4√2≈5.66 m.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "R5",
+     "kind": "pitfall",
+     "error_code": "quadratic-formula-error",
+     "work": "(a) c=3.2 (y(0)). 8a+b=0, 4a+2b=-1.8, a=0.15, b=-1.2, so y=0.15x^2-1.2x+3.2.\n(b) x^2-8x+8=0. x=(-8±√(64-32))/2 = (-8±√32)/2 = -4±2√2, so x=-1.17 or -6.83. Red where x<-6.83 or x>-1.17.\n(c) Difference of critical values = 5.66 but the values are not in the ramp range, so I can't give a valid width.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "R6",
+     "kind": "pitfall",
+     "error_code": "quadratic-inequality-wrong-region",
+     "work": "(a) c=3.2, 8a+b=0, 4a+2b+3.2=1.4, a=0.15, b=-1.2, y=0.15x^2-1.2x+3.2.\n(b) x^2-8x+8>0, x=4±2√2, red: 0≤x<4-2√2 or 4+2√2<x≤8.\n(c) Unpainted width = sum of red parts: 2(4-2√2)=8-4√2≈2.34 m.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "R7",
+     "kind": "pitfall",
+     "error_code": "completing-square-error",
+     "work": "(a) c=3.2, 8a+b=0, 4a+2b=-1.8, a=0.15, b=-1.2, so y=0.15x^2-1.2x+3.2.\n(b) x^2-8x+8>0, (x-4)^2-8=0, x=4±2√2, outside: 0≤x<4-2√2 or 4+2√2<x≤8.\n(c) Redoing critical values: x^2-8x+8=(x-4)^2-24, so x=4±√24=4±2√6, i.e. -0.90 and 8.90. Width = 4√6≈9.80 m.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "R8",
+     "kind": "alternative",
+     "error_code": null,
+     "work": "(a) Lowest point at x=4 so y=p(x-4)^2+q. (0,3.2): 16p+q=3.2. (2,1.4): 4p+q=1.4. Subtract: 12p=1.8, p=0.15, q=0.8. y=0.15(x-4)^2+0.8=0.15x^2-1.2x+2.4+0.8=0.15x^2-1.2x+3.2.\n(b) x^2-8x+8>0, x=4±2√2, outside: 0≤x<4-2√2 or 4+2√2<x≤8.\n(c) Width 4√2≈5.66 m.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "R9",
+     "kind": "partial",
+     "error_code": null,
+     "work": "(a) x=0 gives y=c=3.2. dy/dx=2ax+b=0 at x=4 so 8a+b=0. Then I got stuck on using the x=2 point.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "R1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "R2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M0",
+        "M0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1ft"
+       ]
+      }
+     ],
+     "reasons": [
+      "Set y=0 at x=4 for lowest point, which scores M0.",
+      "Did not derive the printed model; the equations solved give a=0.05, b=-1.0."
+     ]
+    },
+    {
+     "id": "R3",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "R4",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1ft"
+       ]
+      }
+     ],
+     "reasons": [
+      "Gave the inside region instead of the outside region."
+     ]
+    },
+    {
+     "id": "R5",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0"
+       ]
+      }
+     ],
+     "reasons": [
+      "Formula substituted with wrong sign for -b, giving negative roots.",
+      "Critical values are wrong.",
+      "Wrong region, outside 0 to 8.",
+      "Their critical values are not between 0 and 8, so no follow-through."
+     ]
+    },
+    {
+     "id": "R6",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0"
+       ]
+      }
+     ],
+     "reasons": [
+      "Added the red parts, which is not the width of the unpainted part; the answer should be 4√2."
+     ]
+    },
+    {
+     "id": "R7",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0"
+       ]
+      }
+     ],
+     "reasons": [
+      "Completed the square wrongly in (c), giving the wrong width; it doesn't follow through from the (b) values."
+     ]
+    },
+    {
+     "id": "R8",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "R9",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0"
+       ]
+      }
+     ],
+     "reasons": [
+      "Did not use the point (2, 1.4), so a and b were not found and the model wasn't shown.",
+      "Part (b) not attempted.",
+      "Part (c) not attempted."
+     ]
+    }
+   ],
+   "awarded_second": [],
+   "cost_usd": 0.0648
+  },
+  "G5": {
+   "pass": false,
+   "errors": [
+    "pitfall [parameter-meaning-no-context] part a: its G4 response loses no marks",
+    "pitfall [quadratic-inequality-wrong-region] part b: flagged as common, but its error code has 7 matched notes (needs 10)"
+   ]
+  },
+  "G6": {
+   "pass": false,
+   "errors": [
+    "part a: tagged ['translate-context-into-model'], retagged ['differentiate-polynomials', 'find-polynomial-from-features', 'solve-simultaneous-linear-equations']"
+   ],
+   "flags": [
+    "part c: same topic, different skills: tagged ['solve-quadratic-inequality', 'rearrange-to-make-subject', 'substitute-to-find-intersections'], retagged ['solve-quadratic-equation']"
+   ],
+   "flag": true,
+   "agreement": "1/3",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.008548700000000001,
+   "retagged": {
+    "a": [
+     "differentiate-polynomials",
+     "find-polynomial-from-features",
+     "solve-simultaneous-linear-equations"
+    ],
+    "b": [
+     "solve-quadratic-inequality",
+     "solve-quadratic-equation"
+    ],
+    "c": [
+     "solve-quadratic-equation"
+    ]
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

@@ -1,0 +1,204 @@
+{
+ "item_id": "cr-pure-de-given-separable-001",
+ "applicable": true,
+ "reason": "The solution is a family of arctan curves, and the initial condition picks the one through (1, π/4). A slider for the constant c shows this clearly.",
+ "scenes": [
+  {
+   "id": "cr-pure-de-given-separable-001::-::1",
+   "part": null,
+   "title": "The constant c picks out one solution curve",
+   "purpose": "See that integrating gives a whole family of curves $y=\\arctan(2x^{3/2}+2x^{1/2}+c)$, and that the condition $y=\\frac{\\pi}{4}$ at $x=1$ selects $c=-3$.",
+   "approach": "graphical",
+   "board": {
+    "x": [
+     -0.5,
+     4
+    ],
+    "y": [
+     -2,
+     2
+    ],
+    "axis": true,
+    "grid": true,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "c",
+     "label": "constant c",
+     "min": -8,
+     "max": 4,
+     "step": 0.1,
+     "value": 0
+    }
+   ],
+   "elements": [
+    {
+     "type": "function",
+     "id": "S",
+     "expr": "atan(2*x^(3/2) + 2*x^(1/2) + c)",
+     "domain": [
+      "0.01",
+      "4"
+     ],
+     "color": "primary",
+     "label": "y"
+    },
+    {
+     "type": "point",
+     "id": "P",
+     "x": "1",
+     "y": "pi/4",
+     "label": "(1, π/4)",
+     "color": "warning"
+    },
+    {
+     "type": "hline",
+     "id": "top",
+     "at": "pi/2"
+    },
+    {
+     "type": "hline",
+     "id": "bottom",
+     "at": "-pi/2"
+    },
+    {
+     "type": "vline",
+     "id": "xs",
+     "at": "1"
+    },
+    {
+     "type": "text",
+     "id": "val",
+     "x": "1.3",
+     "y": "-1.2",
+     "value": "At $x=1$: $y=\\arctan(4+c)\\approx$ {atan(4+c)}, target $\\frac{\\pi}{4}\\approx$ {pi/4}"
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "After separating variables and integrating, $\\tan y = 2x^{3/2}+2x^{1/2}+c$. This earns the B1 for $\\int\\sec^2 y\\,\\mathrm{d}y=\\tan y$, the M1 for writing the right side as $3x^{1/2}+x^{-1/2}$ and integrating, and the A1 for including $+c$. The curve shown is $y=\\arctan(\\dots+c)$ for $c=0$. It stays between the dashed lines $y=\\pm\\frac{\\pi}{2}$.",
+     "set": {
+      "c": 0
+     },
+     "show": [
+      "S",
+      "top",
+      "bottom"
+     ]
+    },
+    {
+     "n": 2,
+     "text": "Drag $c$ and watch the curve move up and down. Each value of $c$ is a different solution. The equation alone cannot tell them apart, so leaving out $+c$ (the initial-conditions pitfall) gives only one curve.",
+     "set": {
+      "c": -1
+     },
+     "highlight": [
+      "S"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "Use the condition at $x=1$. The curve must pass through $\\left(1,\\frac{\\pi}{4}\\right)$, so $\\tan\\frac{\\pi}{4}=1=2+2+c$. This is the M1 for finding the constant. Set $c=-3$ and the curve passes exactly through the point.",
+     "set": {
+      "c": -3
+     },
+     "highlight": [
+      "P"
+     ]
+    },
+    {
+     "n": 4,
+     "text": "With $c=-3$ the solution is $y=\\arctan\\left(2x^{3/2}+2x^{1/2}-3\\right)$, which earns the final A1. Note that $\\tan\\frac{\\pi}{4}=1$, not $\\frac{\\pi}{4}$, when you substitute.",
+     "set": {
+      "c": -3
+     },
+     "highlight": [
+      "S"
+     ]
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     2,
+     4,
+     5,
+     6
+    ],
+    "marks": [
+     "B1",
+     "A1",
+     "M1"
+    ],
+    "pitfalls": [
+     "initial-conditions-not-used"
+    ]
+   },
+   "guide": {
+    "what_you_see": "The curve $y=\\arctan(2x^{3/2}+2x^{1/2}+c)$, one member of the family of solutions to the differential equation, drawn with the point $(1,\\frac{\\pi}{4})$ given in the question. The dashed horizontal lines are the limits $y=\\pm\\frac{\\pi}{2}$ and a vertical line marks $x=1$.",
+    "legend": [
+     {
+      "id": "S",
+      "meaning": "The curve $y=\\arctan(2x^{3/2}+2x^{1/2}+c)$, which comes from integrating the separated equation to get $\\tan y=2x^{3/2}+2x^{1/2}+c$. Each value of $c$ gives a different solution curve."
+     },
+     {
+      "id": "P",
+      "meaning": "The point $(1,\\frac{\\pi}{4})$ from the initial condition. The correct solution curve must pass through it."
+     },
+     {
+      "id": "top",
+      "meaning": "The horizontal line $y=\\frac{\\pi}{2}$, the upper limit on $y$ in the question."
+     },
+     {
+      "id": "bottom",
+      "meaning": "The horizontal line $y=-\\frac{\\pi}{2}$, the lower limit on $y$ in the question."
+     },
+     {
+      "id": "xs",
+      "meaning": "The vertical line $x=1$, where the initial condition is applied."
+     }
+    ],
+    "interact": [
+     {
+      "control": "c",
+      "kind": "slider",
+      "do": "Drag the slider between $-8$ and $4$, then set it to $-3$.",
+      "watch": "The whole curve moves up as $c$ increases and down as $c$ decreases, always staying between $y=\\pm\\frac{\\pi}{2}$. At $c=-3$ the curve passes exactly through $P$, and the reading at $x=1$ shows $\\arctan(1)=\\frac{\\pi}{4}\\approx 0.785$, matching the target."
+     }
+    ],
+    "question_link": {
+     "part": null,
+     "marks": [
+      "B1",
+      "A1",
+      "M1"
+     ],
+     "text": "The curve $S$ is the general solution $\\tan y=2x^{3/2}+2x^{1/2}+c$ found by integrating, which is where the B1 and the A1 for including $+c$ come from. Making $S$ pass through $P$ is the M1 step of substituting $x=1$, $y=\\frac{\\pi}{4}$ to get $1=2+2+c$, so $c=-3$. This gives the final answer $y=\\arctan(2x^{3/2}+2x^{1/2}-3)$."
+    },
+    "read_off": [
+     "The live label gives the height of the curve at $x=1$, which is $\\arctan(4+c)$, next to the target $\\frac{\\pi}{4}\\approx 0.785$ that the initial condition requires. They agree only when $c=-3$, since then $\\tan y=4+c=1$."
+    ]
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0232,
+    "attempts": 1,
+    "gate": {
+     "pass": true,
+     "errors": []
+    },
+    "generated_at": "2026-09-30T23:12:39"
+   }
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:49:01",
+ "cost_usd": 0.0377,
+ "attempts": 1,
+ "checks": {
+  "pass": true,
+  "errors": [],
+  "n_scenes": 1
+ }
+}

@@ -1,0 +1,145 @@
+{
+ "id": "implicit-differentiation-tangents",
+ "question_type": "implicit-differentiation-tangents",
+ "component": "pure",
+ "title": "Implicit differentiation with tangents and normals",
+ "what_it_asks": "You are given a curve where $y$ is not written as a function of $x$, or where $x$ is given in terms of $y$. You find $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ by differentiating every term with respect to $x$. Then you use it at a point to get a tangent or normal, or set it to zero (or make it undefined) to locate special points. The idea is that $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ is still the gradient of the curve, however the curve is written.",
+ "typical_structure": "Most questions have two parts, though one part or three parts also happen. Totals are typically 7 to 9 marks. The first part is usually a \"find\" or \"show that\" for $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$, often in terms of $x$ and $y$. The later part uses it: a tangent or normal equation at a given point, or coordinates where the gradient is zero. A \"hence\" sometimes links the parts. About a quarter of questions come with a diagram.",
+ "mark_pattern": "Most marks are method and accuracy marks, with few independent marks. A short derivative part is often M1 A1 or M1 A1 A1. The M1 is for differentiating with $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ appearing on the $y$ terms (and the product rule on any $xy$ term). The A1s are for correct differentiation and then for the rearranged result. A line part is often M1 dM1 A1. The M1 is for substituting the point into the derivative to get a gradient. The dM1 is for using the line formula with that gradient, or its negative reciprocal for a normal. The A1 is for the equation in the form asked. Longer parts run M1 A1 B1 dM1 A1 or M1 M1 A1 M1 A1. The B1 there is a stand-alone mark for a correct derivative of a separate term. In a show-that part the last A1 is a cso mark.",
+ "where_marks_leak": [
+  {
+   "error_code": "second-derivative-error",
+   "mark_family": "accuracy",
+   "text": "When the question asks for the nature of a point or an inflection, you differentiate the first derivative again and slip, often by forgetting $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ on a $y$ term or the product rule. The A1 is lost, and any dM1 or conclusion that depends on it."
+  },
+  {
+   "error_code": "rationalising-error",
+   "mark_family": "method",
+   "text": "A surd in the gradient or the coordinates is cleared by multiplying by the wrong conjugate, or only the numerator. The method mark for simplifying is lost, and the A1 for the exact gradient or equation goes with it."
+  },
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You give a coordinate or constant to the wrong number of decimal places or significant figures. The final A1 is lost, even though the method marks are secure."
+  },
+  {
+   "error_code": "arithmetic-slip",
+   "mark_family": "accuracy",
+   "text": "A numerical slip when substituting the point or solving for $y$ gives a wrong gradient or intercept in a sound method. The A1 is lost, and later accuracy marks may go unless follow-through applies."
+  },
+  {
+   "error_code": "gradient-not-evaluated-at-point",
+   "mark_family": "method",
+   "text": "You put the derivative, still containing $x$ and $y$, into the line equation instead of a number. The method mark for the tangent or normal is lost, and so is the A1 after it."
+  }
+ ],
+ "write_to_earn": [
+  "Write every term's derivative on its own line, putting $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ on each $y$ term, before you rearrange.",
+  "Show the product rule line for any $xy$ term, then collect the $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ terms and factorise before dividing.",
+  "In a show-that part, write the step just before the printed result, then the printed result, with no fudged line.",
+  "Substitute the point into $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ to get a number, then write $y-y_1=m(x-x_1)$ before filling it in.",
+  "For a normal, state the negative reciprocal gradient, then give the equation in the form asked, such as $ax+by+c=0$ with integers."
+ ],
+ "check_before_you_leave": [
+  "Is $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ on every $y$ term?",
+  "Did you use the product rule on $xy$?",
+  "Gradient a number, not an expression?",
+  "Normal: negative reciprocal used?",
+  "Answer in the form asked?",
+  "Does the point lie on the curve?"
+ ],
+ "skills": [
+  "implicit-differentiation",
+  "rearrange-to-make-subject",
+  "product-rule",
+  "equation-of-straight-line",
+  "perpendicular-gradients",
+  "gradient-conditions-on-curves",
+  "show-that-given-answer",
+  "exact-form-answers"
+ ],
+ "related_types": [
+  "stationary-points-and-nature",
+  "differentiate-to-given-form",
+  "first-principles",
+  "circle-centre-radius-and-distances"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:04:30",
+ "cost_usd": 0.052,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 76,
+  "codes_listed": {
+   "rationalising-error": 28,
+   "second-derivative-error": 19,
+   "wrong-final-accuracy": 15,
+   "arithmetic-slip": 12,
+   "gradient-not-evaluated-at-point": 7,
+   "trig-derivative-sign-error": 6,
+   "perpendicular-gradient-error": 4,
+   "ft-value-not-carried": 4
+  },
+  "frequent_codes": [
+   "arithmetic-slip",
+   "rationalising-error",
+   "second-derivative-error",
+   "wrong-final-accuracy"
+  ],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.868 with question:GCE2008_6663_Jan2005_Q9"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.003,
+   "shared_numbers": 0,
+   "max_cosine": 0.868,
+   "cosine_source": "question:GCE2008_6663_Jan2005_Q9"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 28
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.868 with question:GCE2008_6663_Jan2005_Q9"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

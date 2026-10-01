@@ -1,0 +1,365 @@
+{
+ "id": "cr-mech-vector-constant-acceleration-011",
+ "blueprint_id": "bp-mech-vector-constant-acceleration-011",
+ "question_type": "vector-constant-acceleration",
+ "component": "mech",
+ "tier": "accessible",
+ "kind": "exam",
+ "stem": "A robotic lawnmower cuts the grass on a level lawn. Its motion is modelled with the mower as a particle $M$ of mass $20\\,\\mathrm{kg}$. Directions on the lawn are given using $\\mathbf{i}$, a unit vector pointing east, and $\\mathbf{j}$, a unit vector pointing north.\n\nA timer is started when $t = 0$. At this moment $M$ has velocity $(2\\mathbf{i} + 5\\mathbf{j})\\,\\mathrm{m\\,s^{-1}}$. While $0 \\leqslant t \\leqslant 4$, where $t$ is in seconds, only two horizontal forces act on $M$: a constant driving force $\\mathbf{D} = (18\\mathbf{i} - 4\\mathbf{j})\\,\\mathrm{N}$ from its wheels and a constant resistance $\\mathbf{R}\\,\\mathrm{N}$. This means $M$ has constant acceleration $\\mathbf{a}\\,\\mathrm{m\\,s^{-2}}$ during this time. When $t = 4$, the velocity of $M$ is $(4\\mathbf{i} + 3\\mathbf{j})\\,\\mathrm{m\\,s^{-1}}$.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 2,
+   "text": "Write down the acceleration $\\mathbf{a}$ of $M$ for $0 \\leqslant t \\leqslant 4$, in the form $(p\\mathbf{i} + q\\mathbf{j})\\,\\mathrm{m\\,s^{-2}}$. (2)",
+   "command": "write-down",
+   "forms": [],
+   "skills": [
+    "suvat-vectors"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Uses $\\mathbf{v} = \\mathbf{u} + \\mathbf{a}t$ with $t = 4$: writes $(4\\mathbf{i} + 3\\mathbf{j}) = (2\\mathbf{i} + 5\\mathbf{j}) + 4\\mathbf{a}$, or $\\mathbf{a} = \\frac{(4\\mathbf{i}+3\\mathbf{j}) - (2\\mathbf{i}+5\\mathbf{j})}{4}$",
+     "notes": "Needs the final velocity minus the initial velocity, divided by 4. Also accept component equations $4 = 2 + 4p$ and $3 = 5 + 4q$."
+    },
+    {
+     "code": "A1",
+     "for": "$\\mathbf{a} = (0.5\\mathbf{i} - 0.5\\mathbf{j})\\,\\mathrm{m\\,s^{-2}}$",
+     "notes": "cao; accept $p = \\frac12$, $q = -\\frac12$ or a column vector"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$(4\\mathbf{i} + 3\\mathbf{j}) = (2\\mathbf{i} + 5\\mathbf{j}) + 4\\mathbf{a} \\;\\Rightarrow\\; 4\\mathbf{a} = 2\\mathbf{i} - 2\\mathbf{j}$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$\\mathbf{a} = (0.5\\mathbf{i} - 0.5\\mathbf{j})\\,\\mathrm{m\\,s^{-2}}$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "p",
+     "expr": "1/2",
+     "form": "exact"
+    },
+    {
+     "name": "q",
+     "expr": "-1/2",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "equals",
+     "answer": "p",
+     "lhs": "(4-2)/4",
+     "rhs": "1/2"
+    },
+    {
+     "type": "equals",
+     "answer": "q",
+     "lhs": "(3-5)/4",
+     "rhs": "-1/2"
+    }
+   ],
+   "hints": [
+    "Acceleration is constant, so $\\mathbf{v} = \\mathbf{u} + \\mathbf{a}t$ works as a vector equation. Use $t = 4$.",
+    "Work with the $\\mathbf{i}$ and $\\mathbf{j}$ components separately if you like."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 4,
+   "text": "Show that the magnitude of $\\mathbf{R}$ is $10\\,\\mathrm{N}$. (4)",
+   "command": "show-that",
+   "forms": [],
+   "skills": [
+    "resultant-force-vectors"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Uses Newton's second law in vector form with the sum of the forces equal to mass times acceleration: $\\mathbf{D} + \\mathbf{R} = 20\\mathbf{a}$, with their $\\mathbf{a}$ from (a)",
+     "notes": "Need both forces on one side and $20\\times$ their $\\mathbf{a}$ on the other"
+    },
+    {
+     "code": "A1",
+     "for": "$\\mathbf{R} = (10\\mathbf{i} - 10\\mathbf{j}) - (18\\mathbf{i} - 4\\mathbf{j}) = (-8\\mathbf{i} - 6\\mathbf{j})\\,\\mathrm{N}$",
+     "notes": "cao"
+    },
+    {
+     "code": "M1",
+     "for": "Finds the magnitude of their $\\mathbf{R}$ with Pythagoras: $\\sqrt{(-8)^2 + (-6)^2}$",
+     "notes": "Components must be squared, added and square-rooted"
+    },
+    {
+     "code": "A1*",
+     "for": "$|\\mathbf{R}| = \\sqrt{100} = 10\\,\\mathrm{N}$ from correct working",
+     "notes": "cso; the vector $\\mathbf{R}$ must be correct and $\\sqrt{64+36}$ or $\\sqrt{100}$ must be seen"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\mathbf{D} + \\mathbf{R} = m\\mathbf{a}$: $(18\\mathbf{i} - 4\\mathbf{j}) + \\mathbf{R} = 20(0.5\\mathbf{i} - 0.5\\mathbf{j}) = 10\\mathbf{i} - 10\\mathbf{j}$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$\\mathbf{R} = (10 - 18)\\mathbf{i} + (-10 + 4)\\mathbf{j} = (-8\\mathbf{i} - 6\\mathbf{j})\\,\\mathrm{N}$",
+     "mark": "A1"
+    },
+    {
+     "step": 3,
+     "working": "$|\\mathbf{R}| = \\sqrt{(-8)^2 + (-6)^2} = \\sqrt{64 + 36}$",
+     "mark": "M1"
+    },
+    {
+     "step": 4,
+     "working": "$= \\sqrt{100} = 10\\,\\mathrm{N}$ as required",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [
+    {
+     "name": "R_i",
+     "expr": "-8",
+     "form": "exact"
+    },
+    {
+     "name": "R_j",
+     "expr": "-6",
+     "form": "exact"
+    },
+    {
+     "name": "R_mag",
+     "expr": "10",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "equals",
+     "answer": "R_i",
+     "lhs": "20*(1/2) - 18",
+     "rhs": "-8"
+    },
+    {
+     "type": "equals",
+     "answer": "R_j",
+     "lhs": "20*(-1/2) + 4",
+     "rhs": "-6"
+    },
+    {
+     "type": "numeric",
+     "answer": "R_mag",
+     "expr": "sqrt((-8)^2 + (-6)^2)",
+     "result": "10"
+    }
+   ],
+   "hints": [
+    "The resultant of $\\mathbf{D}$ and $\\mathbf{R}$ equals $20\\mathbf{a}$. Rearrange to make $\\mathbf{R}$ the subject.",
+    "A magnitude is $\\sqrt{x^2 + y^2}$, where $x$ and $y$ are the components."
+   ]
+  },
+  {
+   "label": "c",
+   "marks": 3,
+   "text": "When $t = 4$ the wheels stop driving, so $\\mathbf{D}$ stops acting. Assume that for $4 \\leqslant t \\leqslant 9$ the resistance $\\mathbf{R}$ stays the same as in part (b) and is the only horizontal force on $M$. Hence find the speed of $M$ when $t = 9$. (3)",
+   "command": "hence",
+   "forms": [],
+   "skills": [
+    "suvat-vectors",
+    "use-hence-previous-result"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Uses their $\\mathbf{R}$ from (b) to get the new acceleration $\\frac{\\mathbf{R}}{20} = (-0.4\\mathbf{i} - 0.3\\mathbf{j})$, then uses $\\mathbf{v} = (4\\mathbf{i} + 3\\mathbf{j}) + 5 \\times$ this new acceleration",
+     "notes": "Must start from the velocity at $t = 4$ and use a time of 5 s"
+    },
+    {
+     "code": "A1ft",
+     "for": "$\\mathbf{v} = (2\\mathbf{i} + 1.5\\mathbf{j})\\,\\mathrm{m\\,s^{-1}}$",
+     "ft_of": "their vector $\\mathbf{R}$ from part (b)",
+     "notes": "Follow through their $\\mathbf{R}$ correctly"
+    },
+    {
+     "code": "A1",
+     "for": "Speed $= \\sqrt{2^2 + 1.5^2} = 2.5\\,\\mathrm{m\\,s^{-1}}$",
+     "notes": "cao; a velocity vector alone doesn't earn this mark"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "New acceleration $= \\frac{1}{20}(-8\\mathbf{i} - 6\\mathbf{j}) = (-0.4\\mathbf{i} - 0.3\\mathbf{j})\\,\\mathrm{m\\,s^{-2}}$. Then $\\mathbf{v} = (4\\mathbf{i} + 3\\mathbf{j}) + 5(-0.4\\mathbf{i} - 0.3\\mathbf{j})$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$\\mathbf{v} = (2\\mathbf{i} + 1.5\\mathbf{j})\\,\\mathrm{m\\,s^{-1}}$",
+     "mark": "A1ft"
+    },
+    {
+     "step": 3,
+     "working": "Speed $= \\sqrt{2^2 + 1.5^2} = \\sqrt{6.25} = 2.5\\,\\mathrm{m\\,s^{-1}}$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "v_i",
+     "expr": "2",
+     "form": "exact"
+    },
+    {
+     "name": "v_j",
+     "expr": "3/2",
+     "form": "exact"
+    },
+    {
+     "name": "speed",
+     "expr": "5/2",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "equals",
+     "answer": "v_i",
+     "lhs": "4 + 5*(-8/20)",
+     "rhs": "2"
+    },
+    {
+     "type": "equals",
+     "answer": "v_j",
+     "lhs": "3 + 5*(-6/20)",
+     "rhs": "3/2"
+    },
+    {
+     "type": "numeric",
+     "answer": "speed",
+     "expr": "sqrt((4 - 5*8/20)^2 + (3 - 5*6/20)^2)",
+     "result": "2.5"
+    }
+   ],
+   "hints": [
+    "With $\\mathbf{D}$ gone, $\\mathbf{R} = 20\\mathbf{a}$ gives the new acceleration. Use your vector $\\mathbf{R}$ from part (b).",
+    "This stage starts when $t = 4$, so the initial velocity is $(4\\mathbf{i} + 3\\mathbf{j})$ and the time is 5 seconds."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "error_code": "vector-direction-reversed",
+   "step": 1,
+   "text": "If you work out $(2\\mathbf{i} + 5\\mathbf{j}) - (4\\mathbf{i} + 3\\mathbf{j})$, you subtract the wrong way round and get $\\mathbf{a} = (-0.5\\mathbf{i} + 0.5\\mathbf{j})$. The change in velocity is final minus initial, so the M1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "error_code": "magnitude-error",
+   "step": 2,
+   "text": "The question asks for the acceleration as a vector $p\\mathbf{i} + q\\mathbf{j}$. If you turn it into a single number such as $\\sqrt{0.5}$, or combine the components wrongly, you don't have the vector answer and the A1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "error_code": "resultant-force-error",
+   "step": 1,
+   "text": "If you write $\\mathbf{D} + \\mathbf{R} + 20\\mathbf{a} = \\mathbf{0}$, or $\\mathbf{R} = \\mathbf{D} + 20\\mathbf{a}$, you are treating $m\\mathbf{a}$ as an extra force. The resultant force equals $m\\mathbf{a}$, so the first M1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "error_code": "magnitude-error",
+   "step": 3,
+   "text": "If you add the components ($8 + 6 = 14$), or forget the square root and stop at $100$, you haven't used Pythagoras correctly, so the second M1 and the A1* are lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "error_code": "mass-for-weight",
+   "step": 1,
+   "text": "The lawn is horizontal, so weight has no part in $\\mathbf{D} + \\mathbf{R} = 20\\mathbf{a}$. If you use $20 \\times 9.8$ in place of the mass $20$, you get the wrong resultant and lose the first M1.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "error_code": "vector-direction-reversed",
+   "step": 1,
+   "text": "If you use $+\\frac{1}{20}(8\\mathbf{i} + 6\\mathbf{j})$ as the new acceleration, the resistance is pointing the wrong way. The mower would then speed up to $(6\\mathbf{i} + 4.5\\mathbf{j})$, and the M1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "error_code": "velocity-given-for-speed",
+   "step": 3,
+   "text": "Stopping at $\\mathbf{v} = (2\\mathbf{i} + 1.5\\mathbf{j})$ answers the wrong question. Speed is the magnitude, $2.5\\,\\mathrm{m\\,s^{-1}}$, so the final A1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "error_code": "magnitude-error",
+   "step": 3,
+   "text": "If you give the speed as $2 + 1.5 = 3.5$, or as $6.25$ without the square root, the magnitude is wrong and the final A1 is lost.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:37:34",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.3912
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 9
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.826 with part:GCE2008_6677_June2005_Q7:c"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "hits8": [],
+   "max_jaccard": 0.011,
+   "jaccard_source": "GCE2008_6677_Jan2011_Q4",
+   "shared_numbers": 0,
+   "max_cosine": 0.826,
+   "cosine_source": "part:GCE2008_6677_June2005_Q7:c"
+  },
+  "G2": {
+   "pass": false,
+   "errors": [
+    "part c check 3 (numeric): result 2.5 differs from answer speed = 5/2"
+   ],
+   "n_checks": 8,
+   "n_answers": 8,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

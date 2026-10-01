@@ -1,0 +1,394 @@
+{
+ "id": "cr-pure-parametric-area-003",
+ "blueprint_id": "bp-pure-parametric-area-003",
+ "question_type": "parametric-area",
+ "component": "pure",
+ "tier": "standard",
+ "kind": "exam",
+ "stem": "A workshop laser-cuts small steel badges for a firm that makes machine tools. Each badge has a straight bottom edge, two straight vertical sides and a curved top. Axes are set up with units in centimetres, and the bottom edge lies along the $x$-axis. The curved top follows part of the curve $C$, given by\n$$x = 2t - \\sin 2t, \\qquad y = 4\\sin^2 t, \\qquad 0 \\leqslant t \\leqslant \\pi,$$\nwhere $t$ is in radians. $P$ and $Q$ are the two points of $C$ with $y$-coordinate $3$, and $P$ has the smaller $x$-coordinate. The badge is the region $R$ bounded by the arc of $C$ from $P$ to $Q$, the $x$-axis, and the vertical lines through $P$ and $Q$.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 3,
+   "text": "Show that $t = \\frac{\\pi}{3}$ at $P$ and $t = \\frac{2\\pi}{3}$ at $Q$. (3)",
+   "command": "show-that",
+   "forms": [],
+   "skills": [
+    "solve-trig-equation-in-interval",
+    "show-that-given-answer"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Sets $4\\sin^2 t = 3$ and rearranges to $\\sin t = \\pm\\frac{\\sqrt{3}}{2}$, or uses $4\\sin^2 t = 2 - 2\\cos 2t$ to reach $\\cos 2t = -\\frac{1}{2}$",
+     "notes": "Accept $\\sin^2 t = \\frac{3}{4}$ followed by a square root, with or without the $\\pm$"
+    },
+    {
+     "code": "dM1",
+     "for": "Solves in radians and gives both values of $t$ in $0 \\leqslant t \\leqslant \\pi$. This means discarding $\\sin t = -\\frac{\\sqrt{3}}{2}$, since $\\sin t \\geqslant 0$ on this interval, or using $0 \\leqslant 2t \\leqslant 2\\pi$ to get $2t = \\frac{2\\pi}{3}, \\frac{4\\pi}{3}$",
+     "depends_on": "M1",
+     "notes": "Answers in degrees only (60, 120) earn dM0"
+    },
+    {
+     "code": "A1*",
+     "for": "Shows that $x$ at $t=\\frac{\\pi}{3}$ is $\\frac{2\\pi}{3} - \\frac{\\sqrt{3}}{2}$ ($\\approx 1.23$) and $x$ at $t=\\frac{2\\pi}{3}$ is $\\frac{4\\pi}{3} + \\frac{\\sqrt{3}}{2}$ ($\\approx 5.05$), or states that $x$ increases with $t$. Concludes that $t = \\frac{\\pi}{3}$ at $P$ and $t = \\frac{2\\pi}{3}$ at $Q$",
+     "depends_on": "dM1",
+     "notes": "cso. The working must justify which value belongs to $P$ and which to $Q$"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$4\\sin^2 t = 3 \\Rightarrow \\sin^2 t = \\frac{3}{4} \\Rightarrow \\sin t = \\pm\\frac{\\sqrt{3}}{2}$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "For $0 \\leqslant t \\leqslant \\pi$ we have $\\sin t \\geqslant 0$, so reject $\\sin t = -\\frac{\\sqrt{3}}{2}$. The principal value is $t = \\frac{\\pi}{3}$, and by symmetry the other value is $t = \\pi - \\frac{\\pi}{3} = \\frac{2\\pi}{3}$",
+     "mark": "dM1"
+    },
+    {
+     "step": 3,
+     "working": "$x\\left(\\frac{\\pi}{3}\\right) = \\frac{2\\pi}{3} - \\sin\\frac{2\\pi}{3} = \\frac{2\\pi}{3} - \\frac{\\sqrt{3}}{2} \\approx 1.23$ and $x\\left(\\frac{2\\pi}{3}\\right) = \\frac{4\\pi}{3} - \\sin\\frac{4\\pi}{3} = \\frac{4\\pi}{3} + \\frac{\\sqrt{3}}{2} \\approx 5.05$. $P$ has the smaller $x$-coordinate, so $t = \\frac{\\pi}{3}$ at $P$ and $t = \\frac{2\\pi}{3}$ at $Q$",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [
+    {
+     "name": "t1",
+     "expr": "pi/3",
+     "form": "exact",
+     "check": "4*sin(t1)^2 = 3"
+    },
+    {
+     "name": "t2",
+     "expr": "2*pi/3",
+     "form": "exact",
+     "check": "4*sin(t2)^2 = 3"
+    }
+   ],
+   "checks": [
+    {
+     "type": "solutions",
+     "equation": "4 sin(t)^2 = 3",
+     "var": "t",
+     "interval": [
+      0,
+      "3.14159265358979"
+     ],
+     "result": [
+      "pi/3",
+      "2*pi/3"
+     ]
+    },
+    {
+     "type": "substitute",
+     "expr": "2t - sin(2t)",
+     "at": {
+      "t": "pi/3"
+     },
+     "result": "2*pi/3 - sqrt(3)/2"
+    },
+    {
+     "type": "substitute",
+     "expr": "2t - sin(2t)",
+     "at": {
+      "t": "2*pi/3"
+     },
+     "result": "4*pi/3 + sqrt(3)/2"
+    }
+   ],
+   "hints": [
+    "Set the $y$-coordinate equal to $3$ and solve for $\\sin t$. Think about the sign of $\\sin t$ when $0 \\leqslant t \\leqslant \\pi$.",
+    "To decide which value goes with $P$, work out the $x$-coordinate for each value of $t$."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 3,
+   "text": "Show that the area of $R$ is given by\n$$\\int_{\\pi/3}^{2\\pi/3} \\left(6 - 8\\cos 2t + 2\\cos 4t\\right)\\,\\mathrm{d}t.$$ (3)",
+   "command": "show-that",
+   "forms": [],
+   "skills": [
+    "area-under-parametric-curve",
+    "show-that-given-answer"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "$\\frac{\\mathrm{d}x}{\\mathrm{d}t} = 2 - 2\\cos 2t$",
+     "notes": "oe, e.g. $4\\sin^2 t$"
+    },
+    {
+     "code": "M1",
+     "for": "Writes the area as $\\int 4\\sin^2 t\\,(2 - 2\\cos 2t)\\,\\mathrm{d}t$ with $t$-limits $\\frac{\\pi}{3}$ and $\\frac{2\\pi}{3}$. Uses $4\\sin^2 t = 2 - 2\\cos 2t$ (or $\\cos 2t = 1 - 2\\sin^2 t$) to write the integrand in terms of $\\cos 2t$, then uses $\\cos^2 2t = \\frac{1}{2}(1 + \\cos 4t)$",
+     "notes": "An attempt at both identities is required. A slip in a coefficient can still earn M1"
+    },
+    {
+     "code": "A1*",
+     "for": "Expands $(2 - 2\\cos 2t)^2 = 4 - 8\\cos 2t + 4\\cos^2 2t$ and reaches $6 - 8\\cos 2t + 2\\cos 4t$ with limits $\\frac{\\pi}{3}$ and $\\frac{2\\pi}{3}$, with no errors",
+     "depends_on": "M1",
+     "notes": "cso. The limits must be justified from part (a) and $\\mathrm{d}t$ must appear"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\frac{\\mathrm{d}x}{\\mathrm{d}t} = 2 - 2\\cos 2t$",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "$y \\geqslant 0$ throughout and $\\frac{\\mathrm{d}x}{\\mathrm{d}t} \\geqslant 0$, so $x$ goes from $P$ to $Q$ as $t$ goes from $\\frac{\\pi}{3}$ to $\\frac{2\\pi}{3}$. Area $= \\int y\\,\\frac{\\mathrm{d}x}{\\mathrm{d}t}\\,\\mathrm{d}t = \\int_{\\pi/3}^{2\\pi/3} 4\\sin^2 t\\,(2 - 2\\cos 2t)\\,\\mathrm{d}t$. Since $4\\sin^2 t = 2 - 2\\cos 2t$, the integrand is $(2 - 2\\cos 2t)^2$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$(2 - 2\\cos 2t)^2 = 4 - 8\\cos 2t + 4\\cos^2 2t = 4 - 8\\cos 2t + 2(1 + \\cos 4t) = 6 - 8\\cos 2t + 2\\cos 4t$. So the area is $\\int_{\\pi/3}^{2\\pi/3} (6 - 8\\cos 2t + 2\\cos 4t)\\,\\mathrm{d}t$",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [],
+   "checks": [
+    {
+     "type": "derivative",
+     "f": "2t - sin(2t)",
+     "var": "t",
+     "result": "2 - 2cos(2t)"
+    },
+    {
+     "type": "equals",
+     "lhs": "4 sin(t)^2 (2 - 2cos(2t))",
+     "rhs": "6 - 8cos(2t) + 2cos(4t)"
+    }
+   ],
+   "hints": [
+    "Differentiate $x$ with respect to $t$, then multiply by $y$. Your limits are values of $t$, not values of $x$.",
+    "Write $4\\sin^2 t$ in terms of $\\cos 2t$. You will then need a double-angle identity a second time, for $\\cos^2 2t$."
+   ]
+  },
+  {
+   "label": "c",
+   "marks": 5,
+   "text": "Hence find the exact area of the badge. (5)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "evaluate-definite-integral",
+    "use-hence-previous-result"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Integrates to get $6t$ and terms of the form $\\pm\\alpha\\sin 2t$ and $\\pm\\beta\\sin 4t$",
+     "notes": "Allow wrong coefficients $\\alpha, \\beta$, but the cosines must become sines"
+    },
+    {
+     "code": "A1",
+     "for": "$6t - 4\\sin 2t + \\frac{1}{2}\\sin 4t$",
+     "depends_on": "M1",
+     "notes": "oe"
+    },
+    {
+     "code": "M1",
+     "for": "Substitutes the limits $t = \\frac{2\\pi}{3}$ and $t = \\frac{\\pi}{3}$ from part (a) into their integrated expression",
+     "notes": "Using $x$-values such as $1.23$ and $5.05$ as limits earns M0"
+    },
+    {
+     "code": "ddM1",
+     "for": "Uses exact values, e.g. $\\sin\\frac{4\\pi}{3} = -\\frac{\\sqrt{3}}{2}$ and $\\sin\\frac{8\\pi}{3} = \\frac{\\sqrt{3}}{2}$, and subtracts upper minus lower",
+     "depends_on": "both previous M marks"
+    },
+    {
+     "code": "A1",
+     "for": "$2\\pi + \\frac{9\\sqrt{3}}{2}$ $\\mathrm{cm}^2$",
+     "depends_on": "ddM1",
+     "notes": "cao, oe exact, e.g. $\\frac{4\\pi + 9\\sqrt{3}}{2}$. A decimal alone (awrt 14.1) earns A0"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\int (6 - 8\\cos 2t + 2\\cos 4t)\\,\\mathrm{d}t$ gives $6t$ plus multiples of $\\sin 2t$ and $\\sin 4t$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$= \\left[6t - 4\\sin 2t + \\tfrac{1}{2}\\sin 4t\\right]_{\\pi/3}^{2\\pi/3}$",
+     "mark": "A1"
+    },
+    {
+     "step": 3,
+     "working": "Upper: $4\\pi - 4\\sin\\frac{4\\pi}{3} + \\frac{1}{2}\\sin\\frac{8\\pi}{3}$. Lower: $2\\pi - 4\\sin\\frac{2\\pi}{3} + \\frac{1}{2}\\sin\\frac{4\\pi}{3}$",
+     "mark": "M1"
+    },
+    {
+     "step": 4,
+     "working": "Upper $= 4\\pi + 2\\sqrt{3} + \\frac{\\sqrt{3}}{4}$ and lower $= 2\\pi - 2\\sqrt{3} - \\frac{\\sqrt{3}}{4}$. Upper $-$ lower $= 2\\pi + 4\\sqrt{3} + \\frac{\\sqrt{3}}{2}$",
+     "mark": "ddM1"
+    },
+    {
+     "step": 5,
+     "working": "Area $= 2\\pi + \\frac{9\\sqrt{3}}{2}\\,\\mathrm{cm}^2$ ($\\approx 14.1\\,\\mathrm{cm}^2$)",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "A",
+     "expr": "2*pi + 9*sqrt(3)/2",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "integral",
+     "f": "6 - 8cos(2t) + 2cos(4t)",
+     "var": "t",
+     "lower": "pi/3",
+     "upper": "2*pi/3",
+     "answer": "A"
+    },
+    {
+     "type": "integral",
+     "f": "4 sin(t)^2 (2 - 2cos(2t))",
+     "var": "t",
+     "lower": "pi/3",
+     "upper": "2*pi/3",
+     "answer": "A"
+    },
+    {
+     "type": "integral",
+     "f": "6 - 8cos(2t) + 2cos(4t)",
+     "var": "t",
+     "result": "6t - 4sin(2t) + sin(4t)/2"
+    }
+   ],
+   "hints": [
+    "Integrate $\\cos kt$ to $\\frac{1}{k}\\sin kt$.",
+    "Use the $t$-values from part (a) as your limits, and simplify with exact values of sine."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "error_code": "exact-trig-value-error",
+   "step": 2,
+   "text": "If you mix up the exact values and take $\\sin t = \\frac{\\sqrt{3}}{2}$ to mean $t = \\frac{\\pi}{6}$, you get the wrong values of $t$ and cannot reach the printed result, so the A1* is lost.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "error_code": "impossible-trig-value-kept",
+   "step": 2,
+   "text": "$\\sin t = -\\frac{\\sqrt{3}}{2}$ has no solutions for $0 \\leqslant t \\leqslant \\pi$, because $\\sin t \\geqslant 0$ there. If you keep it and list values such as $\\frac{4\\pi}{3}$, you have points that are not on $C$, and the A1* is lost.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "error_code": "degrees-not-radians",
+   "step": 2,
+   "text": "The parameter $t$ is in radians. Answers of $60$ and $120$, or a calculator in degree mode giving $x$-coordinates for $t = 60$, lose the dM1.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "error_code": "parametric-area-dx-dt-missing",
+   "step": 2,
+   "text": "If you integrate $4\\sin^2 t$ on its own with respect to $t$, leaving out the factor $2 - 2\\cos 2t$, or if you use the $x$-values $1.23$ and $5.05$ as limits for $t$, you lose the M1.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "error_code": "area-between-wrong-subtraction",
+   "step": 2,
+   "text": "The badge only covers the part of $C$ from $P$ to $Q$. If you integrate from $t = 0$ to $t = \\pi$ (the whole arch), or subtract a rectangle of height $3$, you are using the wrong limits or the wrong region, and the M1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "error_code": "negative-area-taken",
+   "step": 3,
+   "text": "If you swap the limits to $\\frac{2\\pi}{3}$ at the bottom and $\\frac{\\pi}{3}$ at the top, your integral becomes negative and doesn't match the printed form, so the A1* is lost. Here $x$ increases with $t$, so the lower limit is $\\frac{\\pi}{3}$.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "error_code": "integration-power-rule-error",
+   "step": 2,
+   "text": "A common slip is to multiply instead of divide, integrating $2\\cos 4t$ as $8\\sin 4t$ or $-8\\cos 2t$ as $-16\\sin 2t$. You can still earn the M1, but the A1 and the final A1 are lost.",
+   "says_common": true
+  },
+  {
+   "part": "c",
+   "error_code": "limits-substitution-error",
+   "step": 4,
+   "text": "If you work out lower minus upper, you get $-2\\pi - \\frac{9\\sqrt{3}}{2}$. A negative value can't be an area, and working in the wrong order loses the ddM1 and the A1.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "error_code": "missing-constant-of-integration",
+   "step": 2,
+   "text": "Students often leave out $+c$. In this definite integral it cancels, so you don't need it. But if you write an indefinite integral as a separate line, you should include $+c$ there. Don't then try to find $c$ or add it to your final area, or the A1 is lost.",
+   "says_common": true
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:40:20",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.607
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 11
+  },
+  "G7": {
+   "pass": false,
+   "flag": true,
+   "reasons": [
+    "3 word 8-gram(s) also in the reference corpus (not whitelisted)"
+   ],
+   "flags": [
+    "cosine 0.844 with part:IAL2018_WMA11_Oct2020_Q3:a"
+   ],
+   "hit_fields": [
+    "part b text"
+   ],
+   "n_8gram_hits": 3,
+   "hits8": [
+    "show that the area of r is given",
+    "that the area of r is given by",
+    "the area of r is given by integral"
+   ],
+   "max_jaccard": 0.036,
+   "jaccard_source": "GCE2008_6666_June2008_Q8",
+   "shared_numbers": 0,
+   "max_cosine": 0.844,
+   "cosine_source": "part:IAL2018_WMA11_Oct2020_Q3:a"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 8,
+   "n_answers": 3,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

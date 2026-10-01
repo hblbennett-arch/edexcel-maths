@@ -79,7 +79,160 @@
     "Start by replacing $x$ with $x + h$ in $7x - 2x^2$ and expanding carefully.",
     "Subtract the $y$-coordinate of $P$ and divide by $h$ before you think about $h$ getting small."
    ],
-   "forms": []
+   "forms": [],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$y_Q = 7(x+h) - 2(x+h)^2 = 7x + 7h - 2x^2 - 4xh - 2h^2$",
+      "secures": [
+       "B1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "Chord gradient $= \\dfrac{7h - 4xh - 2h^2}{h} = 7 - 4x - 2h$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\lim_{h \\to 0}(7 - 4x - 2h) = 7 - 4x$",
+      "secures": [
+       "A1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$P = (x,\\ 7x - 2x^2)$ and $Q$ has $x$-coordinate $x+h$",
+      "why": "You name both points first, so you can build the slope of the straight line joining them.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$y_Q = 7(x+h) - 2(x+h)^2$",
+      "why": "You replace $x$ by $x+h$ in $y = 7x - 2x^2$ to get the height of $Q$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$(x+h)^2 = (x+h)(x+h)$",
+      "why": "Writing the square as a product of two brackets stops you forgetting the middle term.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$(x+h)^2 = x^2 + xh + hx + h^2$",
+      "why": "You multiply every term in the first bracket by every term in the second.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$(x+h)^2 = x^2 + 2xh + h^2$",
+      "why": "The two matching cross terms $xh$ and $hx$ combine into $2xh$.",
+      "secures": null,
+      "check": "Try $x=1$, $h=1$: $2^2=4$ and $1+2+1=4$."
+     },
+     {
+      "step": 6,
+      "working": "$-2(x+h)^2 = -2x^2 - 4xh - 2h^2$",
+      "why": "You multiply each term of the expanded square by $-2$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "$7(x+h) = 7x + 7h$",
+      "why": "You multiply both terms in the bracket by 7.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$y_Q = 7x + 7h - 2x^2 - 4xh - 2h^2$",
+      "why": "You put the two expanded pieces together to get the full height of $Q$.",
+      "secures": "B1",
+      "check": "Putting $h=0$ should give back $7x-2x^2$."
+     },
+     {
+      "step": 9,
+      "working": "Gradient of $PQ = \\dfrac{y_Q - y_P}{(x+h) - x}$",
+      "why": "A chord's slope is the rise in $y$ divided by the run in $x$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$= \\dfrac{(7x + 7h - 2x^2 - 4xh - 2h^2) - (7x - 2x^2)}{h}$",
+      "why": "You insert both heights; the run is $(x+h)-x = h$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 11,
+      "working": "$= \\dfrac{7x + 7h - 2x^2 - 4xh - 2h^2 - 7x + 2x^2}{h}$",
+      "why": "You open the second bracket, flipping the sign of each term inside it.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 12,
+      "working": "$= \\dfrac{7h - 4xh - 2h^2}{h}$",
+      "why": "The $7x$ terms cancel, as do $-2x^2$ and $+2x^2$, so every term left contains $h$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 13,
+      "working": "$= \\dfrac{7h}{h} - \\dfrac{4xh}{h} - \\dfrac{2h^2}{h}$",
+      "why": "You divide each term on top by $h$ separately.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 14,
+      "working": "$= 7 - 4x - 2h$",
+      "why": "You cancel one $h$ from each term, which is allowed since $h \\neq 0$.",
+      "secures": "M1",
+      "check": "Multiply by $h$ to return to $7h-4xh-2h^2$."
+     },
+     {
+      "step": 15,
+      "working": "$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\lim_{h \\to 0}(7 - 4x - 2h)$",
+      "why": "The slope of the curve at $P$ is the value the chord slope approaches as $Q$ slides towards $P$, so $h$ tends to zero.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 16,
+      "working": "As $h \\to 0$, $-2h \\to 0$",
+      "why": "Only the $h$ term vanishes; $7$ and $-4x$ do not involve $h$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 17,
+      "working": "$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 7 - 4x$",
+      "why": "What remains after dropping the vanishing term is the gradient function.",
+      "secures": "A1",
+      "check": "At $x=0$ the gradient is 7, matching the $7x$ term near the origin."
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:48:12+00:00",
+    "cost_usd": 0.0577,
+    "attempts": 2,
+    "errors": []
+   }
   }
  ],
  "pitfalls": [
@@ -371,6 +524,14 @@
      "differentiate-from-first-principles"
     ]
    }
+  },
+  "GL": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part -: copy check flag: cosine 0.792 with part:IAL2018_WMA11_Jan2020_Q3:b"
+   ],
+   "parts_checked": 1
   }
  },
  "review": {

@@ -1,0 +1,435 @@
+{
+ "id": "cr-1-p1-q08",
+ "blueprint_id": "mk-1-p1-q08",
+ "question_type": "composite-and-inverse-functions",
+ "component": "pure",
+ "tier": "standard",
+ "kind": "mock",
+ "stem": "In this question, f is the function with rule $\\mathrm{f}(x) = 2 + 3\\mathrm{e}^{x/2}$, whose domain is all real numbers $x$, and g is the function with rule $\\mathrm{g}(x) = \\ln(x - 1)$, whose domain is $x > 1$.",
+ "paper": "mock-1-P1",
+ "set": "mock-1",
+ "q_num": 8,
+ "parts": [
+  {
+   "label": "a",
+   "marks": 2,
+   "text": "Find the range of f. (2)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "domain-and-range"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Uses the fact that $\\mathrm{e}^{x/2} > 0$ for every real $x$, so that $3\\mathrm{e}^{x/2}$ is positive and $\\mathrm{f}(x)$ is always more than 2. A sketch showing the horizontal asymptote $y = 2$ also earns this mark.",
+     "notes": "The 2 must come from the constant term in f, e.g. by saying $\\mathrm{f}(x) \\to 2$ as $x \\to -\\infty$."
+    },
+    {
+     "code": "A1",
+     "for": "$\\mathrm{f}(x) > 2$ (or $\\mathrm{f} > 2$, $y > 2$, or $(2, \\infty)$)",
+     "notes": "cao. Reject $\\mathrm{f}(x) \\geqslant 2$. Reject $x > 2$."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "For all real $x$, $\\mathrm{e}^{x/2} > 0$, so $3\\mathrm{e}^{x/2} > 0$. As $x \\to -\\infty$, $\\mathrm{e}^{x/2} \\to 0$ but never reaches 0.",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "So $\\mathrm{f}(x) = 2 + 3\\mathrm{e}^{x/2} > 2$. The range is $\\mathrm{f}(x) > 2$.",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "L",
+     "expr": "2",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "substitute",
+     "expr": "2 + 3*exp(x/2) - 3*exp(x/2)",
+     "at": {
+      "x": "1"
+     },
+     "answer": "L"
+    },
+    {
+     "type": "numeric",
+     "expr": "2 + 3*exp(-40)",
+     "result": "2.00",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "Think about which values $\\mathrm{e}^{x/2}$ can and cannot take.",
+    "What happens to $\\mathrm{f}(x)$ as $x$ becomes very large and negative?"
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 2,
+   "text": "Find $\\mathrm{f}^{-1}(x)$, and give the domain of $\\mathrm{f}^{-1}$. (2)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "domain-and-range",
+    "inverse-functions"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Swaps $x$ and $y$ in $y = 2 + 3\\mathrm{e}^{x/2}$ (or rearranges first and swaps at the end), gets $\\mathrm{e}^{y/2} = \\frac{x-2}{3}$ and then takes natural logs correctly, e.g. $\\frac{y}{2} = \\ln\\left(\\frac{x-2}{3}\\right)$",
+     "notes": "The rearrangement must undo the $+2$ and $\\times 3$ before logs are taken. Taking $\\ln$ term by term, e.g. $\\ln x = \\ln 2 + \\ln 3 + \\frac{y}{2}$, scores M0."
+    },
+    {
+     "code": "A1",
+     "for": "$\\mathrm{f}^{-1}(x) = 2\\ln\\left(\\frac{x-2}{3}\\right)$ with domain $x > 2$",
+     "notes": "oe, e.g. $2\\ln(x-2) - 2\\ln 3$ or $\\ln\\left(\\frac{(x-2)^2}{9}\\right)$ (with $x > 2$). You may follow through a range from (a) of the form $\\mathrm{f}(x) > k$ as the domain $x > k$ only if the expression is correct. Reject a domain written as $\\mathrm{f}^{-1}(x) > 2$."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Let $y = 2 + 3\\mathrm{e}^{x/2}$. Swap $x$ and $y$: $x = 2 + 3\\mathrm{e}^{y/2}$, so $\\mathrm{e}^{y/2} = \\dfrac{x-2}{3}$ and $\\dfrac{y}{2} = \\ln\\left(\\dfrac{x-2}{3}\\right)$.",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$\\mathrm{f}^{-1}(x) = 2\\ln\\left(\\dfrac{x-2}{3}\\right)$. The domain of $\\mathrm{f}^{-1}$ is the range of f, so the domain is $x > 2$.",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "finv",
+     "expr": "2*log((x-2)/3)",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "2 + 3*exp(finv/2)",
+     "rhs": "x",
+     "domain": [
+      3,
+      20
+     ],
+     "answer": "finv"
+    },
+    {
+     "type": "equals",
+     "lhs": "2*log((2 + 3*exp(x/2) - 2)/3)",
+     "rhs": "x",
+     "domain": [
+      -5,
+      5
+     ]
+    }
+   ],
+   "hints": [
+    "Write $x = 2 + 3\\mathrm{e}^{y/2}$ and make $\\mathrm{e}^{y/2}$ the subject before you take logs.",
+    "The domain of the inverse is the range you found in part (a)."
+   ]
+  },
+  {
+   "label": "c",
+   "marks": 4,
+   "text": "Find $\\mathrm{gf}(x)$, simplifying your answer, and find the range of gf. (4)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "composite-functions",
+    "domain-and-range"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Applies f first and puts its output into g: $\\mathrm{g}(2 + 3\\mathrm{e}^{x/2}) = \\ln(2 + 3\\mathrm{e}^{x/2} - 1)$",
+     "notes": "Working out $\\mathrm{f}(\\ln(x-1))$ is the wrong order and scores M0."
+    },
+    {
+     "code": "A1",
+     "for": "$\\mathrm{gf}(x) = \\ln(1 + 3\\mathrm{e}^{x/2})$",
+     "notes": "cao. The argument must be simplified to $1 + 3\\mathrm{e}^{x/2}$."
+    },
+    {
+     "code": "M1",
+     "for": "Uses the range of f ($\\mathrm{f}(x) > 2$), or the fact that $3\\mathrm{e}^{x/2} > 0$, to show that the argument $1 + 3\\mathrm{e}^{x/2} > 1$, and so the log is greater than $\\ln 1$",
+     "notes": "Could instead come from a correct sketch of $y = \\ln(1 + 3\\mathrm{e}^{x/2})$ approaching the $x$-axis as $x \\to -\\infty$."
+    },
+    {
+     "code": "A1",
+     "for": "$\\mathrm{gf}(x) > 0$",
+     "notes": "cao. Reject $\\mathrm{gf}(x) \\geqslant 0$, $x > 0$ and 'all real numbers'."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\mathrm{gf}(x) = \\mathrm{g}(2 + 3\\mathrm{e}^{x/2}) = \\ln\\left(2 + 3\\mathrm{e}^{x/2} - 1\\right)$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$\\mathrm{gf}(x) = \\ln\\left(1 + 3\\mathrm{e}^{x/2}\\right)$",
+     "mark": "A1"
+    },
+    {
+     "step": 3,
+     "working": "From (a), f takes all values greater than 2, so the input to g is always greater than 2. This means $1 + 3\\mathrm{e}^{x/2}$ takes all values greater than 1, and $\\ln$ is increasing, so $\\ln(1 + 3\\mathrm{e}^{x/2}) > \\ln 1 = 0$.",
+     "mark": "M1"
+    },
+    {
+     "step": 4,
+     "working": "The range of gf is $\\mathrm{gf}(x) > 0$.",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "gf",
+     "expr": "log(1 + 3*exp(x/2))",
+     "form": "exact"
+    },
+    {
+     "name": "M",
+     "expr": "0",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "log(2 + 3*exp(x/2) - 1)",
+     "rhs": "gf",
+     "domain": [
+      -5,
+      5
+     ],
+     "answer": "gf"
+    },
+    {
+     "type": "substitute",
+     "expr": "log(2 - 1)",
+     "at": {
+      "x": "0"
+     },
+     "answer": "M"
+    }
+   ],
+   "hints": [
+    "gf means you apply f first, then apply g to the result.",
+    "The values going into g are the outputs of f. Use your range from part (a)."
+   ]
+  },
+  {
+   "label": "d",
+   "marks": 3,
+   "text": "A curve $C$ is given by $y = \\mathrm{gf}(x)$. Find the exact gradient of $C$ at the point on $C$ whose $x$-coordinate is $2\\ln 3$. (3)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "differentiate-exponentials-and-logs"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Differentiates $\\ln(1 + 3\\mathrm{e}^{x/2})$ as (derivative of the argument) divided by (the argument), giving the form $\\dfrac{k\\,\\mathrm{e}^{x/2}}{1 + 3\\mathrm{e}^{x/2}}$ with $k \\neq 0$",
+     "ft_of": "c",
+     "notes": "Follow through their gf(x) from (c) if it is of the form $\\ln(a + b\\mathrm{e}^{x/2})$."
+    },
+    {
+     "code": "dM1",
+     "for": "Substitutes $x = 2\\ln 3$ into their derivative, using $\\mathrm{e}^{(2\\ln 3)/2} = \\mathrm{e}^{\\ln 3} = 3$",
+     "depends_on": "M1",
+     "notes": "Evaluating with a calculator counts as substitution."
+    },
+    {
+     "code": "A1",
+     "for": "Gradient $= \\dfrac{9}{20}$",
+     "notes": "cao, from the correct derivative $\\dfrac{\\frac{3}{2}\\mathrm{e}^{x/2}}{1 + 3\\mathrm{e}^{x/2}}$. Accept 0.45."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{\\frac{3}{2}\\mathrm{e}^{x/2}}{1 + 3\\mathrm{e}^{x/2}} = \\dfrac{3\\mathrm{e}^{x/2}}{2(1 + 3\\mathrm{e}^{x/2})}$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "When $x = 2\\ln 3$: $\\mathrm{e}^{x/2} = \\mathrm{e}^{\\ln 3} = 3$, so $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{\\frac{3}{2} \\times 3}{1 + 3 \\times 3}$",
+     "mark": "dM1"
+    },
+    {
+     "step": 3,
+     "working": "$= \\dfrac{9/2}{10} = \\dfrac{9}{20}$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "gradient",
+     "expr": "9/20",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "derivative",
+     "f": "log(1 + 3*exp(x/2))",
+     "var": "x",
+     "result": "3*exp(x/2)/(2*(1 + 3*exp(x/2)))"
+    },
+    {
+     "type": "substitute",
+     "expr": "3*exp(x/2)/(2*(1 + 3*exp(x/2)))",
+     "at": {
+      "x": "2*log(3)"
+     },
+     "answer": "gradient"
+    }
+   ],
+   "hints": [
+    "The derivative of $\\ln(u)$ is $\\dfrac{u'}{u}$, where $u$ is a function of $x$.",
+    "Simplify $\\mathrm{e}^{(2\\ln 3)/2}$ before you substitute."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "inverse-domain-not-range",
+   "text": "If you get the range of f wrong here, e.g. by writing $\\mathrm{f}(x) > 0$ because 'exponentials are positive', you will carry that same wrong set into part (b) as the domain of $\\mathrm{f}^{-1}$. The domain of the inverse has to be exactly the range of f, which is $\\mathrm{f}(x) > 2$, because the $+2$ shifts everything up.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "domain-range-confused",
+   "text": "Writing the range as $x > 2$ describes inputs, not outputs, so you lose the A1. The range must be written in terms of $\\mathrm{f}(x)$ (or $y$): $\\mathrm{f}(x) > 2$.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "range-endpoint-error",
+   "text": "Writing $\\mathrm{f}(x) \\geqslant 2$ loses the A1. $3\\mathrm{e}^{x/2}$ gets closer and closer to 0 but never equals 0, so f never actually takes the value 2.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "inverse-domain-not-range",
+   "text": "Giving the domain of $\\mathrm{f}^{-1}$ as $x > 0$ (because it involves $\\ln$) or as all real $x$ loses the A1. The domain of $\\mathrm{f}^{-1}$ is the range of f from part (a), which is $x > 2$. It also matches the condition $\\frac{x-2}{3} > 0$ needed for the log.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "inverse-function-error",
+   "text": "$\\dfrac{1}{2 + 3\\mathrm{e}^{x/2}}$ is the reciprocal of f, not its inverse, and it scores M0. You have to swap $x$ and $y$ and then rearrange to make $y$ the subject.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "domain-range-confused",
+   "text": "Writing the domain as $\\mathrm{f}^{-1}(x) > 2$ describes outputs, not inputs. The domain is a condition on $x$: $x > 2$.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "step": 1,
+   "error_code": "composite-order-error",
+   "text": "If you work out $\\mathrm{f}(\\ln(x-1)) = 2 + 3\\sqrt{x-1}$, you have found fg, not gf, and you score M0. In gf, f is applied first, so you replace the $x$ in $\\ln(x-1)$ with $2 + 3\\mathrm{e}^{x/2}$.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "step": 4,
+   "error_code": "domain-range-confused",
+   "text": "Saying the range of gf is 'all real numbers' because $\\ln$ can take any value ignores the fact that g only receives values greater than 2 from f. Writing $x > 0$ instead of $\\mathrm{gf}(x) > 0$ also loses the final A1.",
+   "says_common": false
+  },
+  {
+   "part": "d",
+   "step": 1,
+   "error_code": "exp-log-derivative-error",
+   "text": "If you differentiate $3\\mathrm{e}^{x/2}$ as $3\\mathrm{e}^{x/2}$ and forget the factor $\\frac{1}{2}$, your gradient comes out as $\\frac{9}{10}$ and you lose the A1. The derivative of $\\mathrm{e}^{x/2}$ is $\\frac{1}{2}\\mathrm{e}^{x/2}$.",
+   "says_common": false
+  },
+  {
+   "part": "d",
+   "step": 1,
+   "error_code": "constant-not-differentiated-to-zero",
+   "text": "The numerator is the derivative of $1 + 3\\mathrm{e}^{x/2}$, and the 1 differentiates to 0. If you write the numerator as $1 + \\frac{3}{2}\\mathrm{e}^{x/2}$, you get $\\frac{11}{20}$ and lose the A1.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:41:24",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.4587
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 11
+  },
+  "G7": {
+   "pass": false,
+   "flag": true,
+   "reasons": [
+    "1 word 8-gram(s) also in the reference corpus (not whitelisted)"
+   ],
+   "flags": [
+    "cosine 0.884 with part:IAL2018_WMA13_Jan2021_Q3:c"
+   ],
+   "hit_fields": [
+    "part b hints"
+   ],
+   "n_8gram_hits": 1,
+   "hits8": [
+    "the domain of the inverse is the range"
+   ],
+   "max_jaccard": 0.023,
+   "jaccard_source": "IAL2018_WMA13_Oct2023_Q7",
+   "shared_numbers": 0,
+   "max_cosine": 0.884,
+   "cosine_source": "part:IAL2018_WMA13_Jan2021_Q3:c"
+  },
+  "G2": {
+   "pass": false,
+   "errors": [
+    "part b check 1 (equals): 2 + 3*exp(finv/2) != x",
+    "part c check 1 (equals): log(2 + 3*exp(x/2) - 1) != gf"
+   ],
+   "n_checks": 8,
+   "n_answers": 5,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

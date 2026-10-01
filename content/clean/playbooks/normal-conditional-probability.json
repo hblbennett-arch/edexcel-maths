@@ -1,0 +1,145 @@
+{
+ "id": "normal-conditional-probability",
+ "question_type": "normal-conditional-probability",
+ "component": "stats",
+ "title": "Normal distribution with conditional probability",
+ "what_it_asks": "You are given a normal model $X \\sim \\mathrm{N}(\\mu, \\sigma^2)$ for some measured quantity. You find ordinary normal probabilities, then a conditional probability such as $\\mathrm{P}(X > a \\mid X > b)$. The idea is that the condition shrinks the sample space, so you divide the probability of both events by the probability of the condition.",
+ "typical_structure": "Usually three parts, sometimes four, occasionally more. The first part is a routine calculator probability, an inverse normal step or an unknown-parameter step. A middle part gives the conditional probability, often using the earlier result. A later part may ask you to comment on or refine the model, and some questions end with a hypothesis test for the mean. Most of the marks sit in three-mark parts, and the whole question is often worth about ten to fourteen marks.",
+ "mark_pattern": "The commonest part is a three-mark part, usually M1 M1 A1. The first M1 is for a correct probability statement or standardisation. The second M1 is for the second probability or for forming the ratio. The A1 is for the final value in the stated accuracy. Two-mark parts are usually M1 A1: set up the calculation, then get the value. M1 A1 A1 and M1 B1 A1 also appear, where a stated value or a printed intermediate result earns a B1. A lone B1 is typical for a one-mark probability or a short comment. Longer parts may run M1 dM1 A1 or M1 A1 M1 A1 through a chain of steps. An A1ft sometimes carries an earlier value forward, and show-that parts end with a final A1 that needs cso.",
+ "where_marks_leak": [
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "This is often made. You give the final probability to the wrong number of decimal places or significant figures, so the last A1 is lost even though the method was sound."
+  },
+  {
+   "error_code": "conditional-denominator-error",
+   "mark_family": "method",
+   "text": "This is often made. You divide by the wrong probability, for example by $\\mathrm{P}(X>a)$ when the condition is $X>b$. The method mark for the ratio goes, and the A1 after it goes too."
+  },
+  {
+   "error_code": "premature-rounding",
+   "mark_family": "accuracy",
+   "text": "You round the numerator or denominator before dividing. The final answer then drifts outside the accepted range and the A1 is lost."
+  },
+  {
+   "error_code": "z-sign-error",
+   "mark_family": "accuracy",
+   "text": "When you set up equations for $\\mu$ and $\\sigma$, you use a positive z for a value below the mean. The A1 for the equations is lost, and so are the accuracy marks that follow."
+  },
+  {
+   "error_code": "conclusion-too-definite-or-no-context",
+   "mark_family": "accuracy",
+   "text": "In the final test you say the result proves the mean has changed, or you conclude without mentioning the context. The concluding A1 is lost."
+  }
+ ],
+ "write_to_earn": [
+  "Write the conditional probability as a ratio, for example $\\frac{\\mathrm{P}(X>a)}{\\mathrm{P}(X>b)}$ when $a>b$, before you put in any numbers.",
+  "Write each normal probability with its distribution, such as $X \\sim \\mathrm{N}(\\mu,\\sigma^2)$, and state the interval you are finding, so the method marks are visible.",
+  "Keep full calculator values through the ratio and round only on the final line to the accuracy asked.",
+  "When finding $\\mu$ or $\\sigma$, write $\\frac{x-\\mu}{\\sigma}=z$ with the sign of z matched to which side of the mean x lies on.",
+  "In a test or model comment, state the hypotheses or the feature you are judging, then conclude in context with cautious wording."
+ ],
+ "check_before_you_leave": [
+  "Denominator is the condition",
+  "Answer in required accuracy",
+  "No early rounding",
+  "Sign of z sensible",
+  "Conclusion in context"
+ ],
+ "skills": [
+  "normal-probability-calculator",
+  "normal-conditional-probability",
+  "accuracy-units-and-rounding",
+  "inverse-normal",
+  "conditional-probability-formula",
+  "standardise-to-find-mu-or-sigma",
+  "use-hence-previous-result"
+ ],
+ "related_types": [
+  "normal-unknown-parameters",
+  "distribution-model-vs-data",
+  "tree-diagram-conditional-probability",
+  "binomial-probabilities-in-context"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:12:21",
+ "cost_usd": 0.0622,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 21,
+  "codes_listed": {
+   "wrong-final-accuracy": 15,
+   "conditional-denominator-error": 13,
+   "premature-rounding": 4,
+   "z-sign-error": 2,
+   "inverse-normal-tail-error": 1,
+   "standardising-error": 1,
+   "wrong-distribution-chosen": 1,
+   "conclusion-too-definite-or-no-context": 1
+  },
+  "frequent_codes": [
+   "conditional-denominator-error",
+   "wrong-final-accuracy"
+  ],
+  "practice_items": [
+   "cr-sample-mean-distribution-core",
+   "cr-stats-normal-conditional-probability-008",
+   "cr-stats-normal-conditional-probability-009"
+  ]
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.848 with note:IAL2018_WMA13_June2023_Q5_n7"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.0,
+   "shared_numbers": 0,
+   "max_cosine": 0.848,
+   "cosine_source": "note:IAL2018_WMA13_June2023_Q5_n7"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 12
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.848 with note:IAL2018_WMA13_June2023_Q5_n7"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

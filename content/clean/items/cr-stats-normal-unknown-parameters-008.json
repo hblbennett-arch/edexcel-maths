@@ -1,0 +1,1427 @@
+{
+ "id": "cr-stats-normal-unknown-parameters-008",
+ "blueprint_id": "bp-stats-normal-unknown-parameters-008",
+ "question_type": "normal-unknown-parameters",
+ "component": "stats",
+ "tier": "challenging",
+ "kind": "exam",
+ "stem": "A market gardener grows cucumbers in a polytunnel. The length, $L$ cm, of a cucumber from this polytunnel is modelled by $L \\sim \\mathrm{N}(\\mu, \\sigma^2)$.\n\nThe graph of the probability density function of $L$ has points of inflection at $L = 27.4$ and $L = 33.0$.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 2,
+   "text": "Show that $\\mu = 30.2$ and $\\sigma = 2.8$. (2)",
+   "command": "show-that",
+   "forms": [],
+   "skills": [
+    "normal-shape-and-symmetry"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Uses the symmetry of the normal curve about its mean to state $\\mu = \\frac{27.4 + 33.0}{2} = 30.2$",
+     "notes": "Must show the midpoint working (or say the curve is symmetrical about $\\mu$). Just writing $30.2$ does not score."
+    },
+    {
+     "code": "B1",
+     "for": "States that the points of inflection are at $\\mu \\pm \\sigma$, so $\\sigma = 33.0 - 30.2 = 2.8$ (or $\\sigma = \\frac{33.0 - 27.4}{2} = 2.8$)",
+     "notes": "Must link the inflection points to $\\mu \\pm \\sigma$. B0 if $5.6$ or $2.8^2$ appears as $\\sigma$ in the final statement."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "The normal curve is symmetrical about $\\mu$, so $\\mu$ is midway between the points of inflection: $\\mu = \\frac{27.4 + 33.0}{2} = 30.2$.",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "The points of inflection are at $\\mu - \\sigma$ and $\\mu + \\sigma$, so $\\sigma = 33.0 - 30.2 = 2.8$.",
+     "mark": "B1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "mu",
+     "expr": "151/5",
+     "form": "exact"
+    },
+    {
+     "name": "sigma",
+     "expr": "14/5",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "(27.4 + 33.0)/2",
+     "rhs": "151/5",
+     "answer": "mu"
+    },
+    {
+     "type": "equals",
+     "lhs": "(33.0 - 27.4)/2",
+     "rhs": "14/5",
+     "answer": "sigma"
+    }
+   ],
+   "hints": [
+    "Where does the normal curve's line of symmetry sit compared with these two points?",
+    "How far from the mean are the points of inflection of a normal curve, in terms of $\\sigma$?"
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 1,
+   "text": "Cucumbers shorter than $26.0$ cm or longer than $35.0$ cm are rejected by a supermarket. Calculate the proportion of cucumbers that are rejected. (1)",
+   "command": "calculate",
+   "forms": [],
+   "skills": [
+    "complement-and-addition-rules"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "$\\mathrm{P}(L < 26) + \\mathrm{P}(L > 35) = 0.0668 + 0.0432 = $ awrt $0.110$ (or $1 - \\mathrm{P}(26 < L < 35)$)",
+     "notes": "Accept awrt 0.110 or 11.0%. Adding is valid because the two events are mutually exclusive."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "The two events cannot happen together, so add: $\\mathrm{P}(L < 26) + \\mathrm{P}(L > 35) = 0.066807 + 0.043238 = 0.110045 \\approx 0.110$. Or: $1 - \\mathrm{P}(26 < L < 35) = 1 - 0.889955 = 0.110$.",
+     "mark": "B1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "p",
+     "expr": "0.110",
+     "form": "sf-3"
+    }
+   ],
+   "checks": [
+    {
+     "type": "normal",
+     "mean": "30.2",
+     "sd": "2.8",
+     "upper": 26,
+     "result": "0.0668",
+     "form": "sf-3"
+    },
+    {
+     "type": "normal",
+     "mean": "30.2",
+     "sd": "2.8",
+     "lower": 35,
+     "result": "0.0432",
+     "form": "sf-3"
+    },
+    {
+     "type": "normal",
+     "mean": "30.2",
+     "sd": "2.8",
+     "lower": 26,
+     "upper": 35,
+     "result": "0.890",
+     "form": "sf-3"
+    },
+    {
+     "type": "numeric",
+     "expr": "1 - 0.8899547",
+     "answer": "p",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "A cucumber can't be both too short and too long. How does that help you combine the two probabilities?",
+    "You could also find the probability that a cucumber is accepted and use the complement."
+   ]
+  },
+  {
+   "label": "c",
+   "marks": 1,
+   "text": "A different buyer rejects only cucumbers shorter than $m$ cm. The proportion of cucumbers this buyer rejects is the same as the proportion rejected in part (b). Hence find the value of $m$, giving your answer to 1 decimal place. (1)",
+   "command": "hence",
+   "forms": [],
+   "skills": [
+    "inverse-normal",
+    "accuracy-units-and-rounding"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Solves $\\mathrm{P}(L < m) = $ their $0.110$ using the inverse normal (z about $-1.226$), giving $m = 26.8$",
+     "notes": "cao 26.8 (from $p = 0.110$ or the unrounded $p$). B0 for 33.6 (wrong tail)."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\mathrm{P}(L < m) = 0.110045$, so $\\frac{m - 30.2}{2.8} = -1.2263$, which gives $m = 30.2 - 2.8 \\times 1.2263 = 26.766\\ldots$, so $m = 26.8$ (1 d.p.).",
+     "mark": "B1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "m",
+     "expr": "26.8",
+     "form": "dp-1"
+    }
+   ],
+   "checks": [
+    {
+     "type": "normal",
+     "mean": "30.2",
+     "sd": "2.8",
+     "prob": "0.1100453",
+     "tail": "le",
+     "answer": "m",
+     "form": "dp-1"
+    }
+   ],
+   "hints": [
+    "Now all the rejected cucumbers are in the lower tail. Which cumulative probability does $m$ have?",
+    "Your value of $m$ must be less than the mean. Check this before you round."
+   ]
+  },
+  {
+   "label": "d",
+   "marks": 3,
+   "text": "A cucumber is chosen at random from those accepted by the supermarket in part (b). Find the probability that its length is greater than $33.0$ cm, giving your answer to 3 significant figures. (3)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "normal-probability-calculator",
+    "accuracy-units-and-rounding"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Identifies the numerator as $\\mathrm{P}(33 < L < 35)$ and finds it: awrt $0.115$ (e.g. $0.1587 - 0.0432$)",
+     "notes": "Using $\\mathrm{P}(L > 33)$ on its own as the numerator scores M0."
+    },
+    {
+     "code": "M1",
+     "for": "Uses the denominator $\\mathrm{P}(26 < L < 35) = 1 - $ their (b), awrt $0.890$",
+     "ft_of": "b"
+    },
+    {
+     "code": "dM1",
+     "for": "Divides their $\\mathrm{P}(33 < L < 35)$ by their $\\mathrm{P}(26 < L < 35)$ to get a probability; with correct values this is awrt $0.130$",
+     "depends_on": "M1",
+     "notes": "Depends on the first M1. Correct answer awrt 0.130. Dividing by $\\mathrm{P}(L > 33)$ scores dM0."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\mathrm{P}(L > 33 \\mid 26 < L < 35) = \\frac{\\mathrm{P}(33 < L < 35)}{\\mathrm{P}(26 < L < 35)}$. The numerator is $\\mathrm{P}(33 < L < 35) = 0.158655 - 0.043238 = 0.115417$.",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "The denominator is $\\mathrm{P}(26 < L < 35) = 1 - 0.110045 = 0.889955$.",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$\\frac{0.115417}{0.889955} = 0.12969\\ldots \\approx 0.130$ (3 s.f.).",
+     "mark": "dM1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "P",
+     "expr": "0.130",
+     "form": "sf-3"
+    }
+   ],
+   "checks": [
+    {
+     "type": "normal",
+     "mean": "30.2",
+     "sd": "2.8",
+     "lower": 33,
+     "upper": 35,
+     "result": "0.115",
+     "form": "sf-3"
+    },
+    {
+     "type": "normal",
+     "mean": "30.2",
+     "sd": "2.8",
+     "lower": 33,
+     "result": "0.159",
+     "form": "sf-3"
+    },
+    {
+     "type": "numeric",
+     "expr": "0.1154172/0.8899547",
+     "answer": "P",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "This is a conditional probability: you already know the cucumber was accepted, so it is between 26.0 cm and 35.0 cm.",
+    "The event you need must be inside the accepted range. Where does 'longer than 33.0 cm' overlap with that range?"
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "error_code": "approximation-parameters-wrong",
+   "text": "If you take $\\sigma$ to be the whole gap between the points of inflection, $33.0 - 27.4 = 5.6$, you have forgotten that each point is only one standard deviation from the mean. The second B1 is lost.",
+   "says_common": false,
+   "step": 2
+  },
+  {
+   "part": "a",
+   "error_code": "standardising-error",
+   "text": "The points of inflection are at $\\mu \\pm \\sigma$, not $\\mu \\pm \\sigma^2$. If you write $\\sigma^2 = 2.8$, you are using the variance as the standard deviation, and the second B1 is lost.",
+   "says_common": false,
+   "step": 2
+  },
+  {
+   "part": "b",
+   "error_code": "independence-assumed",
+   "text": "Multiplying $0.0668 \\times 0.0432$ treats 'too short' and 'too long' as independent events that both happen. A cucumber is rejected if either happens, and the two can't happen together, so you must add. Multiplying loses the B1.",
+   "says_common": false,
+   "step": 1
+  },
+  {
+   "part": "b",
+   "error_code": "at-least-one-complement-error",
+   "text": "If you use the complement, it must be $1 - \\mathrm{P}(26 < L < 35)$. Writing $\\mathrm{P}(L < 35)$ instead of $\\mathrm{P}(L > 35)$ for the long cucumbers gives a total over 0.9, and the B1 is lost.",
+   "says_common": false,
+   "step": 1
+  },
+  {
+   "part": "c",
+   "error_code": "inverse-normal-tail-error",
+   "text": "The rejected cucumbers are all short, so $m$ is in the lower tail and $z$ is negative ($z \\approx -1.226$). Using $+1.226$ gives $m = 33.6$, which is above the mean, and the B1 is lost.",
+   "says_common": false,
+   "step": 1
+  },
+  {
+   "part": "c",
+   "error_code": "variance-given-as-sd",
+   "text": "If you enter $7.84$ as the standard deviation in your calculator's inverse normal, you are using the variance $\\sigma^2$ instead of $\\sigma = 2.8$. You get the wrong $m$ and lose the B1.",
+   "says_common": false,
+   "step": 1
+  },
+  {
+   "part": "d",
+   "error_code": "conditional-denominator-error",
+   "text": "A common mistake is to divide by $\\mathrm{P}(L > 33)$, or to give $\\mathrm{P}(L > 33) = 0.159$ with no division. You are told the cucumber was accepted, so divide by $\\mathrm{P}(26 < L < 35) = 0.890$, and the top of the fraction must be $\\mathrm{P}(33 < L < 35)$. Getting this wrong loses the method marks.",
+   "says_common": true,
+   "step": 1
+  },
+  {
+   "part": "d",
+   "error_code": "standardising-error",
+   "text": "If you standardise by hand, $z = \\frac{35 - 30.2}{2.8} = 1.714$. Writing $\\frac{30.2 - 35}{2.8}$ and then reading off the wrong tail gives a numerator that is far too large, and the first M1 is lost.",
+   "says_common": false,
+   "step": 1
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:41:47",
+ "generation": {
+  "attempts": 1,
+  "cost_usd": 0.2068
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 7
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.804 with part:IAL2018_WST01_June2025_Q6:a(ii)"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "hits8": [],
+   "max_jaccard": 0.026,
+   "jaccard_source": "GCE2008_6664_Jan2007_Q4",
+   "shared_numbers": 1,
+   "max_cosine": 0.804,
+   "cosine_source": "part:IAL2018_WST01_June2025_Q6:a(ii)"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 10,
+   "n_answers": 5,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "ambiguity (part c): 'Hence' is slightly odd. The answer needs the unrounded part (b) proportion (about 0.11005). Using a rounded 0.110 gives z≈-1.2265 and still m=26.8, so the answer is unaffected."
+   ],
+   "flag": true,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0169,
+   "solver": {
+    "parts": [
+     {
+      "label": "a",
+      "answers": [
+       "mu = 30.2",
+       "sigma = 2.8"
+      ],
+      "printed_result_correct": true,
+      "working_summary": "Normal pdf has inflection points at mu ± sigma. mu = (27.4+33.0)/2 = 30.2; sigma = (33.0-27.4)/2 = 2.8. Printed result is correct."
+     },
+     {
+      "label": "b",
+      "answers": [
+       "0.110"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "P(L<26)=P(Z<-1.5)=0.06681; P(L>35)=P(Z>1.7143)=0.04324; total ≈0.11005."
+     },
+     {
+      "label": "c",
+      "answers": [
+       "26.8"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "P(L<m)=0.11005 gives z≈-1.226, so m=30.2-2.8*1.226≈26.77, which is 26.8 to 1 d.p."
+     },
+     {
+      "label": "d",
+      "answers": [
+       "0.130"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "P(33<L<35)=0.95676-0.84134=0.11542. P(26<L<35)=1-0.11005=0.88995. Ratio ≈0.1297, which is 0.130 to 3 s.f."
+     }
+    ],
+    "problems": [
+     {
+      "kind": "ambiguity",
+      "severity": "minor",
+      "part": "c",
+      "detail": "'Hence' is slightly odd. The answer needs the unrounded part (b) proportion (about 0.11005). Using a rounded 0.110 gives z≈-1.2265 and still m=26.8, so the answer is unaffected."
+     }
+    ]
+   }
+  },
+  "G4": {
+   "pass": false,
+   "errors": [
+    "response p3 (pitfall independence-assumed): markers disagree ({'a': ['B1', 'B1'], 'b': ['B0'], 'c': ['B0'], 'd': ['M1', 'M1', 'M1']} vs {'a': ['B1', 'B0'], 'b': ['B0'], 'c': ['B0'], 'd': ['M1', 'M1', 'dM1']}; designed {'a': ['B1', 'B1'], 'b': ['B0'], 'c': ['B0'], 'd': ['M1', 'M1', 'dM1']}): the mark scheme is ambiguous here",
+    "response p4 (pitfall at-least-one-complement-error): markers disagree ({'a': ['B1', 'B1'], 'b': ['B0'], 'c': ['B0'], 'd': ['M1', 'M1', 'M1']} vs {'a': ['B1', 'B0'], 'b': ['B0'], 'c': ['B0'], 'd': ['M1', 'M1', 'dM1']}; designed {'a': ['B1', 'B1'], 'b': ['B0'], 'c': ['B0'], 'd': ['M1', 'M1', 'dM1']}): the mark scheme is ambiguous here",
+    "response p5 (pitfall inverse-normal-tail-error): markers disagree ({'a': ['B1', 'B1'], 'b': ['B1'], 'c': ['B0'], 'd': ['M1', 'M1', 'M1']} vs {'a': ['B1', 'B0'], 'b': ['B1'], 'c': ['B0'], 'd': ['M1', 'M1', 'dM1']}; designed {'a': ['B1', 'B1'], 'b': ['B1'], 'c': ['B0'], 'd': ['M1', 'M1', 'dM1']}): the mark scheme is ambiguous here",
+    "response p6 (pitfall variance-given-as-sd): markers disagree ({'a': ['B1', 'B1'], 'b': ['B1'], 'c': ['B0'], 'd': ['M1', 'M1', 'M1']} vs {'a': ['B1', 'B0'], 'b': ['B1'], 'c': ['B0'], 'd': ['M1', 'M1', 'dM1']}; designed {'a': ['B1', 'B1'], 'b': ['B1'], 'c': ['B0'], 'd': ['M1', 'M1', 'dM1']}): the mark scheme is ambiguous here"
+   ],
+   "flags": [
+    "response r1 (correct): second marker agrees with the design; first marker gave {'a': ['B1', 'B1'], 'b': ['B1'], 'c': ['B1'], 'd': ['M1', 'M1', 'M1']}",
+    "response p1 (pitfall approximation-parameters-wrong): second marker agrees with the design; first marker gave {'a': ['B1', 'B0'], 'b': ['B1'], 'c': ['B1'], 'd': ['M1', 'M1', 'M1']}",
+    "response p2 (pitfall standardising-error): second marker agrees with the design; first marker gave {'a': ['B1', 'B0'], 'b': ['B1'], 'c': ['B1'], 'd': ['M1', 'M1', 'M1']}"
+   ],
+   "flag": true,
+   "n_responses": 10,
+   "agreed": [
+    "r1",
+    "p1",
+    "p2",
+    "p7",
+    "p8",
+    "partial"
+   ],
+   "consistent": {},
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "r1",
+     "kind": "correct",
+     "error_code": null,
+     "work": "(a) Normal curve is symmetrical about the mean, so $\\mu=\\frac{27.4+33.0}{2}=30.2$. Points of inflection are at $\\mu\\pm\\sigma$, so $\\sigma=33.0-30.2=2.8$.\n(b) $P(L<26)+P(L>35)=0.0668+0.0432=0.110$.\n(c) $P(L<m)=0.110$, $z=-1.226$, $m=30.2-1.226\\times2.8=26.8$.\n(d) $P(L>33\\mid 26<L<35)=\\frac{P(33<L<35)}{P(26<L<35)}=\\frac{0.1587-0.0432}{1-0.110}=\\frac{0.1154}{0.890}=0.130$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "dM1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p1",
+     "kind": "pitfall",
+     "error_code": "approximation-parameters-wrong",
+     "work": "(a) $\\mu=\\frac{27.4+33.0}{2}=30.2$. The points of inflection are the ends of the spread so $\\sigma=33.0-27.4=5.6$. (Given answer is 2.8, so I use 2.8 below.)\n(b) $0.0668+0.0432=0.110$.\n(c) $z=-1.226$, $m=30.2-1.226\\times2.8=26.8$.\n(d) $\\frac{0.1587-0.0432}{0.890}=\\frac{0.1154}{0.890}=0.130$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "dM1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p2",
+     "kind": "pitfall",
+     "error_code": "standardising-error",
+     "work": "(a) Symmetry gives $\\mu=\\frac{27.4+33.0}{2}=30.2$. Points of inflection at $\\mu\\pm\\sigma^2$, so $\\sigma^2=33.0-30.2=2.8$.\n(b) $0.0668+0.0432=0.110$.\n(c) $z=-1.226$, $m=30.2-1.226\\times2.8=26.8$.\n(d) $\\frac{0.1587-0.0432}{0.890}=0.130$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "dM1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p3",
+     "kind": "pitfall",
+     "error_code": "independence-assumed",
+     "work": "(a) $\\mu=\\frac{27.4+33.0}{2}=30.2$, $\\sigma=33.0-30.2=2.8$.\n(b) $P(L<26)\\times P(L>35)=0.0668\\times0.0432=0.00289$.\n(c) $P(L<m)=0.00289$, $z=-2.76$, $m=30.2-2.76\\times2.8=22.5$.\n(d) Using the calculator directly, $P(26<L<35)=0.890$ and $P(33<L<35)=0.1154$, so $\\frac{0.1154}{0.890}=0.130$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "dM1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p4",
+     "kind": "pitfall",
+     "error_code": "at-least-one-complement-error",
+     "work": "(a) $\\mu=\\frac{27.4+33.0}{2}=30.2$, $\\sigma=33.0-30.2=2.8$.\n(b) $P(L<26)+P(L<35)=0.0668+0.9568=1.02$.\n(c) A probability can't be more than 1 so I can't solve this; left blank.\n(d) $P(33<L<35)=0.9568-0.8413=0.1155$; $P(26<L<35)=0.9568-0.0668=0.890$; $\\frac{0.1155}{0.890}=0.130$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "dM1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p5",
+     "kind": "pitfall",
+     "error_code": "inverse-normal-tail-error",
+     "work": "(a) $\\mu=\\frac{27.4+33.0}{2}=30.2$, $\\sigma=33.0-30.2=2.8$.\n(b) $0.0668+0.0432=0.110$.\n(c) $P(L<m)=0.110$, I used $z=+1.226$, so $m=30.2+1.226\\times2.8=33.6$.\n(d) $\\frac{0.1587-0.0432}{0.890}=0.130$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "dM1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p6",
+     "kind": "pitfall",
+     "error_code": "variance-given-as-sd",
+     "work": "(a) $\\mu=\\frac{27.4+33.0}{2}=30.2$, $\\sigma=33.0-30.2=2.8$.\n(b) $0.0668+0.0432=0.110$.\n(c) InvNorm(0.110, 30.2, 7.84) gives $m=20.6$.\n(d) $\\frac{0.1587-0.0432}{0.890}=0.130$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "dM1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p7",
+     "kind": "pitfall",
+     "error_code": "conditional-denominator-error",
+     "work": "(a) $\\mu=\\frac{27.4+33.0}{2}=30.2$, $\\sigma=33.0-30.2=2.8$.\n(b) $0.0668+0.0432=0.110$.\n(c) $z=-1.226$, $m=26.8$.\n(d) $P(L>33\\mid\\text{accepted})=\\frac{P(33<L<35)}{P(L>33)}=\\frac{0.1154}{0.1587}=0.727$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M0",
+        "dM0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p8",
+     "kind": "pitfall",
+     "error_code": "standardising-error",
+     "work": "(a) $\\mu=\\frac{27.4+33.0}{2}=30.2$, $\\sigma=33.0-30.2=2.8$.\n(b) $0.0668+0.0432=0.110$.\n(c) $z=-1.226$, $m=26.8$.\n(d) $z=\\frac{30.2-35}{2.8}=-1.714$ and I read the wrong tail: $P(L<35)=0.9568$, and $P(L<33)$ taken as $0.1587$. Numerator $=0.9568-0.1587=0.798$. Denominator $=1-0.110=0.890$. Answer $=\\frac{0.798}{0.890}=0.897$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M0",
+        "M1",
+        "dM0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "partial",
+     "kind": "partial",
+     "error_code": null,
+     "work": "(a) $\\mu=\\frac{27.4+33.0}{2}=30.2$; inflection points at $\\mu\\pm\\sigma$ so $\\sigma=33.0-30.2=2.8$.\n(b) $0.0668+0.0432=0.110$.\n(c) $z=-1.226$, $m=26.8$.\n(d) $P(33<L<35)=0.1587-0.0432=0.1155$. I'm not sure what to do next.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M0",
+        "dM0"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "r1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "M1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "M1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) second B0: sigma=5.6 found, not linked to mu±sigma."
+     ]
+    },
+    {
+     "id": "p2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "M1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) second B0: inflection points stated at mu±sigma^2 and sigma^2=2.8 given."
+     ]
+    },
+    {
+     "id": "p3",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "M1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) multiplied probabilities instead of adding.",
+      "(c) used wrong probability, m=22.5 not 26.8."
+     ]
+    },
+    {
+     "id": "p4",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "M1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) used P(L<35) instead of P(L>35), giving 1.02.",
+      "(c) left blank."
+     ]
+    },
+    {
+     "id": "p5",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "M1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(c) wrong tail, m=33.6."
+     ]
+    },
+    {
+     "id": "p6",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "M1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(c) used variance 7.84 as the standard deviation, m=20.6."
+     ]
+    },
+    {
+     "id": "p7",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M0",
+        "dM0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(d) denominator P(L>33) used instead of P(26<L<35).",
+      "(d) dM0: divided by P(L>33)."
+     ]
+    },
+    {
+     "id": "p8",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M0",
+        "M1",
+        "dM0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(d) numerator 0.798 wrong, P(33<L<35) not found.",
+      "(d) dM0: depends on the first M1."
+     ]
+    },
+    {
+     "id": "partial",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M0",
+        "dM0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(d) no denominator P(26<L<35) found.",
+      "(d) no division carried out."
+     ]
+    }
+   ],
+   "awarded_second": [
+    {
+     "id": "r1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "dM1"
+       ]
+      }
+     ],
+     "reasons": []
+    },
+    {
+     "id": "p1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "dM1"
+       ]
+      }
+     ],
+     "reasons": [
+      "a B0: gives sigma = 5.6 and does not link the inflection points to mu ± sigma."
+     ]
+    },
+    {
+     "id": "p2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "dM1"
+       ]
+      }
+     ],
+     "reasons": [
+      "a B0: puts the inflection points at mu ± sigma^2 and gives sigma^2 = 2.8, not sigma."
+     ]
+    },
+    {
+     "id": "p3",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "dM1"
+       ]
+      }
+     ],
+     "reasons": [
+      "a B0: sigma = 33.0 - 30.2 is found without linking the inflection points to mu ± sigma.",
+      "b B0: multiplies the probabilities instead of adding them (0.00289).",
+      "c B0: m = 22.5, not 26.8 (cao)."
+     ]
+    },
+    {
+     "id": "p4",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "dM1"
+       ]
+      }
+     ],
+     "reasons": [
+      "a B0: sigma is found without linking the inflection points to mu ± sigma.",
+      "b B0: uses P(L<35) instead of P(L>35), giving 1.02.",
+      "c B0: no answer given."
+     ]
+    },
+    {
+     "id": "p5",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "dM1"
+       ]
+      }
+     ],
+     "reasons": [
+      "a B0: sigma is found without linking the inflection points to mu ± sigma.",
+      "c B0: wrong tail, giving 33.6."
+     ]
+    },
+    {
+     "id": "p6",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "M1",
+        "dM1"
+       ]
+      }
+     ],
+     "reasons": [
+      "a B0: sigma is found without linking the inflection points to mu ± sigma.",
+      "c B0: uses the variance 7.84 as the standard deviation, giving 20.6, not 26.8."
+     ]
+    }
+   ],
+   "cost_usd": 0.1521
+  },
+  "G5": {
+   "pass": false,
+   "errors": [
+    "pitfall [independence-assumed] part b: the marker didn't score its response as designed",
+    "pitfall [at-least-one-complement-error] part b: the marker didn't score its response as designed",
+    "pitfall [inverse-normal-tail-error] part c: the marker didn't score its response as designed",
+    "pitfall [variance-given-as-sd] part c: the marker didn't score its response as designed"
+   ]
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

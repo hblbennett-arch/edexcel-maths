@@ -49,7 +49,69 @@
    "hints": [
     "Put the mean 2.6 and the standard deviation 0.45 (not the variance) into your calculator's normal distribution function, with 3 as the lower limit."
    ],
-   "forms": []
+   "forms": [],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$\\mathrm{P}(F>3) = 0.187$",
+      "secures": [
+       "B1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$F \\sim \\mathrm{N}(2.6,\\ 0.45^2)$, so $\\mu = 2.6$ and $\\sigma = 0.45$",
+      "why": "You read the mean and standard deviation from the model. The second number in the bracket is the variance, so the standard deviation is its square root, $0.45$.",
+      "secures": null,
+      "check": "The variance is $0.45^2$, so $\\sigma = 0.45$, not $0.45^2$."
+     },
+     {
+      "step": 2,
+      "working": "We need the upper tail $\\mathrm{P}(F > 3)$, where $3$ is above the mean $2.6$",
+      "why": "You are asked for the chance that a fleece is heavier than $3$ kg. Since $3 > 2.6$, you expect a fairly small probability, well below $0.5$.",
+      "secures": null,
+      "check": "The answer should be less than $0.5$."
+     },
+     {
+      "step": 3,
+      "working": "Standardise: $z = \\dfrac{3 - 2.6}{0.45}$",
+      "why": "Standardising turns $F$ into a standard normal value. This shows how many standard deviations $3$ lies above the mean. Your calculator does this for you if you enter $\\mu$ and $\\sigma$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$z = \\dfrac{0.4}{0.45} = 0.888\\ldots$",
+      "why": "You subtract the mean from $3$ to get $0.4$, then divide by $0.45$.",
+      "secures": null,
+      "check": "$0.45 \\times 0.889 \\approx 0.4$."
+     },
+     {
+      "step": 5,
+      "working": "$\\mathrm{P}(F > 3) = \\mathrm{P}(Z > 0.888\\ldots) = 0.18703\\ldots$",
+      "why": "You use the normal distribution function on your calculator, with lower limit $3$ (or $z = 0.889$) and no upper limit. This gives the upper tail area.",
+      "secures": null,
+      "check": "It is below $0.5$, as expected."
+     },
+     {
+      "step": 6,
+      "working": "$\\mathrm{P}(F>3) = 0.187$",
+      "why": "You round $0.18703\\ldots$ to 3 significant figures.",
+      "secures": "B1",
+      "check": null
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:47:57+00:00",
+    "cost_usd": 0.0148,
+    "attempts": 1,
+    "errors": []
+   }
   },
   {
    "label": "b",
@@ -93,7 +155,62 @@
    "hints": [
     "Accepted means the mass is at least 2 kg, so you want the upper tail."
    ],
-   "forms": []
+   "forms": [],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$\\mathrm{P}(F \\geqslant 2) = 0.909$",
+      "secures": [
+       "B1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "Accepted means the mass is at least 2 kg, so we need $\\mathrm{P}(F \\geqslant 2)$.",
+      "why": "Fleeces below 2 kg are rejected, so the accepted ones are those with mass 2 kg or more. You write the probability you want in this form.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$F \\sim \\mathrm{N}(2.6,\\ 0.45^2)$, so $\\mathrm{P}(F \\geqslant 2) = 1 - \\mathrm{P}(F < 2)$",
+      "why": "A calculator's normal distribution function gives the area below a value. You subtract that lower area from 1 to get the area above.",
+      "secures": null,
+      "check": "Because 2 is below the mean 2.6, expect an answer well above 0.5."
+     },
+     {
+      "step": 3,
+      "working": "$\\mathrm{P}(F < 2) = 0.0912\\ldots$",
+      "why": "You enter mean 2.6 and standard deviation 0.45 into your calculator and find the probability below 2.",
+      "secures": null,
+      "check": "2 is about 1.33 standard deviations below the mean, so a small probability is sensible."
+     },
+     {
+      "step": 4,
+      "working": "$\\mathrm{P}(F \\geqslant 2) = 1 - 0.0912\\ldots = 0.90878\\ldots$",
+      "why": "You subtract the lower-tail probability from 1 to get the probability of acceptance.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$\\mathrm{P}(F \\geqslant 2) = 0.909$",
+      "why": "You round $0.90878\\ldots$ to 3 significant figures, as the answer form asks.",
+      "secures": "B1",
+      "check": "The fourth digit is 7, so the third digit rounds up from 8 to 9."
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:47:57+00:00",
+    "cost_usd": 0.0203,
+    "attempts": 1,
+    "errors": []
+   }
   },
   {
    "label": "c",
@@ -176,7 +293,111 @@
     "You already know the fleece was accepted, so you are working only with accepted fleeces. Which probability belongs in the denominator?",
     "Think about which fleeces are both over 3 kg and accepted."
    ],
-   "forms": []
+   "forms": [],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$\\mathrm{P}(F>3 \\mid F\\geqslant 2)=\\dfrac{\\mathrm{P}(F>3 \\cap F\\geqslant 2)}{\\mathrm{P}(F\\geqslant 2)}$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$=\\dfrac{\\mathrm{P}(F>3)}{\\mathrm{P}(F\\geqslant 2)}=\\dfrac{0.187}{0.909}$",
+      "secures": [
+       "A1ft"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$=0.206$",
+      "secures": [
+       "A1cso"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "We want the chance of a premium fleece, given that the fleece was accepted, i.e. $F\\geqslant 2$.",
+      "why": "The word 'accepted' tells you the sample is restricted to fleeces of at least 2 kg, so this is a conditional probability.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$\\mathrm{P}(F>3 \\mid F\\geqslant 2)$",
+      "why": "You write the required probability in conditional notation, with the event 'premium' before the bar and 'accepted' after it.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$\\mathrm{P}(F>3 \\mid F\\geqslant 2)=\\dfrac{\\mathrm{P}(F>3 \\cap F\\geqslant 2)}{\\mathrm{P}(F\\geqslant 2)}$",
+      "why": "You use the conditional probability formula: the probability of both events divided by the probability of the given event. The denominator is the accepted probability.",
+      "secures": "M1",
+      "check": "The denominator is the event you are told has happened (accepted)."
+     },
+     {
+      "step": 4,
+      "working": "$F>3 \\Rightarrow F\\geqslant 2$",
+      "why": "Any fleece heavier than 3 kg is certainly at least 2 kg, so the second condition adds nothing.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$\\mathrm{P}(F>3 \\cap F\\geqslant 2)=\\mathrm{P}(F>3)$",
+      "why": "Because being above 3 kg already implies being accepted, the 'and' event is just the event $F>3$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$\\mathrm{P}(F>3 \\mid F\\geqslant 2)=\\dfrac{\\mathrm{P}(F>3)}{\\mathrm{P}(F\\geqslant 2)}$",
+      "why": "You replace the numerator using the previous line.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "$\\mathrm{P}(F>3)=0.187,\\quad \\mathrm{P}(F\\geqslant 2)=0.909$",
+      "why": "You take these values from parts (a) and (b), as the question instructs.",
+      "secures": null,
+      "check": "The numerator is smaller than the denominator, as it must be."
+     },
+     {
+      "step": 8,
+      "working": "$=\\dfrac{0.187}{0.909}$",
+      "why": "You substitute the two values into the fraction.",
+      "secures": "A1ft",
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "$=0.2057\\ldots$",
+      "why": "You divide 0.187 by 0.909 on your calculator.",
+      "secures": null,
+      "check": "Check $0.909\\times 0.2057\\approx 0.187$."
+     },
+     {
+      "step": 10,
+      "working": "$\\mathrm{P}(\\text{premium}\\mid\\text{accepted})=0.206$",
+      "why": "You round to 3 significant figures, giving the final answer.",
+      "secures": "A1cso",
+      "check": "About 1 in 5 accepted fleeces earns the premium, which is sensible given $\\mathrm{P}(F>3)\\approx 0.19$."
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:48:09+00:00",
+    "cost_usd": 0.0215,
+    "attempts": 1,
+    "errors": []
+   }
   },
   {
    "label": "d",
@@ -257,7 +478,132 @@
     "The test is about a mean of 20 fleeces, so first work out the standard deviation of that sample mean.",
     "The farmer wants to know whether the mean has gone up. Does that make the test one-tailed or two-tailed?"
    ],
-   "forms": []
+   "forms": [],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$\\mathrm{H_0}:\\mu=2.6,\\ \\mathrm{H_1}:\\mu>2.6$; under $\\mathrm{H_0}$, $\\bar F\\sim \\mathrm{N}\\left(2.6,\\dfrac{0.45^2}{20}\\right)$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$\\mathrm{P}(\\bar F\\geqslant 2.78)=0.0368<0.05$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "Reject $\\mathrm{H_0}$: sufficient evidence at the 5% level that the mineral licks have increased the mean fleece mass. $p=0.0368$",
+      "secures": [
+       "A1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$\\mathrm{H_0}:\\mu=2.6$",
+      "why": "The null hypothesis is the claim that the licks made no difference, so the mean stays at the original 2.6 kg.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$\\mathrm{H_1}:\\mu>2.6$",
+      "why": "The farmer wants to know if the mean has been raised, so the alternative is one-tailed, with the mean larger than 2.6.",
+      "secures": null,
+      "check": "The alternative has one inequality sign because the question says 'raised'."
+     },
+     {
+      "step": 3,
+      "working": "Under $\\mathrm{H_0}$, $F\\sim \\mathrm{N}(2.6,\\ 0.45^2)$ for a single fleece",
+      "why": "You assume $\\mathrm{H_0}$ is true and use the stated normal model, with the standard deviation still 0.45.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$\\bar F\\sim \\mathrm{N}\\left(2.6,\\ \\dfrac{0.45^2}{20}\\right)$",
+      "why": "The mean of a sample of 20 has the same mean, but its variance is the single-fleece variance divided by $n=20$.",
+      "secures": "M1",
+      "check": "The variance must get smaller when you average 20 values."
+     },
+     {
+      "step": 5,
+      "working": "$0.45^2=0.2025$",
+      "why": "Square the standard deviation to get the variance of one fleece.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$\\dfrac{0.2025}{20}=0.010125$",
+      "why": "Divide by 20 to get the variance of the sample mean.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "$\\sqrt{0.010125}=0.1006\\ldots$",
+      "why": "Take the square root to get the standard deviation of $\\bar F$, which a calculator's normal distribution function needs.",
+      "secures": null,
+      "check": "This equals $0.45/\\sqrt{20}$, which is about $0.45/4.472$."
+     },
+     {
+      "step": 8,
+      "working": "$\\mathrm{P}(\\bar F\\geqslant 2.78)$",
+      "why": "You find the chance of a sample mean at least as big as the observed 2.78 if $\\mathrm{H_0}$ were true.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "$z=\\dfrac{2.78-2.6}{0.1006\\ldots}=1.79\\ldots$",
+      "why": "Standardise by subtracting the mean and dividing by the standard deviation of $\\bar F$.",
+      "secures": null,
+      "check": "$0.18/0.1006\\approx1.79$."
+     },
+     {
+      "step": 10,
+      "working": "$\\mathrm{P}(\\bar F\\geqslant 2.78)=\\mathrm{P}(Z\\geqslant 1.79\\ldots)=0.0368$",
+      "why": "Look up or calculate the upper tail probability for this $z$-value.",
+      "secures": "M1",
+      "check": "A $z$ of about 1.8 gives a tail of roughly 0.036 to 0.037."
+     },
+     {
+      "step": 11,
+      "working": "$0.0368<0.05$",
+      "why": "Compare the probability with the 5% significance level.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 12,
+      "working": "So reject $\\mathrm{H_0}$",
+      "why": "The probability is smaller than the significance level, so a result this extreme would be unlikely if the licks had no effect.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 13,
+      "working": "There is sufficient evidence at the 5% level that the mineral licks have increased the mean fleece mass. $p=0.0368$",
+      "why": "State the conclusion in context, without claiming it is proved.",
+      "secures": "A1",
+      "check": null
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:48:11+00:00",
+    "cost_usd": 0.0247,
+    "attempts": 1,
+    "errors": []
+   }
   }
  ],
  "pitfalls": [
@@ -1284,6 +1630,17 @@
      "standardise-to-find-mu-or-sigma"
     ]
    }
+  },
+  "GL": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part a: copy check flag: cosine 0.799 with part:IAL2018_WST01_Jan2024_Q8:a",
+    "part b: copy check flag: cosine 0.791 with part:IAL2018_WST01_June2025_Q6:d",
+    "part c: copy check flag: cosine 0.783 with part:IAL2018_WST01_June2023_Q6:b",
+    "part d: copy check flag: cosine 0.787 with question:IAL2018_WST01_Oct2024_Q8"
+   ],
+   "parts_checked": 4
   }
  },
  "review": {

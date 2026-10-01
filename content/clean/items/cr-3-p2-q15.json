@@ -1,0 +1,1371 @@
+{
+ "id": "cr-3-p2-q15",
+ "blueprint_id": "mk-3-p2-q15",
+ "question_type": "implicit-differentiation-tangents",
+ "component": "pure",
+ "tier": "standard",
+ "kind": "mock",
+ "stem": "The curve $C$ has equation\n$$x^2 - xy + 2y^2 + 3x + y + \\mathrm{e}^{x-y} = 17.$$\nThe point $P(2, 2)$ lies on $C$.",
+ "paper": "mock-3-P2",
+ "set": "mock-3",
+ "q_num": 15,
+ "parts": [
+  {
+   "label": "a",
+   "marks": 6,
+   "text": "Find $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ in terms of $x$ and $y$. (6)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "chain-rule",
+    "rearrange-to-make-subject"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Differentiates the polynomial terms implicitly with respect to $x$. The product rule must be used on $xy$, giving two terms of the form $\\pm x\\frac{\\mathrm{d}y}{\\mathrm{d}x} \\pm y$, and at least one of $2y^2$ or $y$ must pick up a factor of $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$.",
+     "notes": "The constant 17 may be differentiated to 0 or left out."
+    },
+    {
+     "code": "A1",
+     "for": "All polynomial terms correct: $2x - x\\frac{\\mathrm{d}y}{\\mathrm{d}x} - y + 4y\\frac{\\mathrm{d}y}{\\mathrm{d}x} + 3 + \\frac{\\mathrm{d}y}{\\mathrm{d}x}$ (with $= 0$ at some point).",
+     "depends_on": "M1"
+    },
+    {
+     "code": "M1",
+     "for": "Uses the chain rule on $\\mathrm{e}^{x-y}$: writes $\\mathrm{e}^{x-y}$ multiplied by the derivative of $x - y$ with respect to $x$, in the form $\\mathrm{e}^{x-y}\\left(1 \\pm \\frac{\\mathrm{d}y}{\\mathrm{d}x}\\right)$ or an expanded version.",
+     "notes": "Writing just $\\mathrm{e}^{x-y}$, or $\\mathrm{e}^{x-y}\\cdot 1$, gets M0."
+    },
+    {
+     "code": "A1",
+     "for": "Correct result $\\mathrm{e}^{x-y}\\left(1 - \\frac{\\mathrm{d}y}{\\mathrm{d}x}\\right)$ oe.",
+     "depends_on": "M1"
+    },
+    {
+     "code": "M1",
+     "for": "Gets every term containing $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ on one side and the rest on the other, takes out $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ as a common factor and divides by the bracket.",
+     "notes": "Their equation must have exactly two groups of terms: those with $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ and those without."
+    },
+    {
+     "code": "A1",
+     "for": "$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\frac{y - 2x - 3 - \\mathrm{e}^{x-y}}{4y - x + 1 - \\mathrm{e}^{x-y}}$ or an equivalent form.",
+     "depends_on": "M1",
+     "notes": "Accept e.g. $\\frac{2x - y + 3 + \\mathrm{e}^{x-y}}{x - 4y - 1 + \\mathrm{e}^{x-y}}$. isw after a correct expression."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Differentiate the polynomial terms with respect to $x$, using the product rule on $xy$: $2x - \\left(y + x\\frac{\\mathrm{d}y}{\\mathrm{d}x}\\right) + 4y\\frac{\\mathrm{d}y}{\\mathrm{d}x} + 3 + \\frac{\\mathrm{d}y}{\\mathrm{d}x}$",
+     "mark": "M1 A1"
+    },
+    {
+     "step": 2,
+     "working": "Chain rule: $\\frac{\\mathrm{d}}{\\mathrm{d}x}\\left(\\mathrm{e}^{x-y}\\right) = \\mathrm{e}^{x-y}\\left(1 - \\frac{\\mathrm{d}y}{\\mathrm{d}x}\\right)$, so the whole equation becomes $2x - y - x\\frac{\\mathrm{d}y}{\\mathrm{d}x} + 4y\\frac{\\mathrm{d}y}{\\mathrm{d}x} + 3 + \\frac{\\mathrm{d}y}{\\mathrm{d}x} + \\mathrm{e}^{x-y} - \\mathrm{e}^{x-y}\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 0$",
+     "mark": "M1 A1"
+    },
+    {
+     "step": 3,
+     "working": "Collect the $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ terms: $\\frac{\\mathrm{d}y}{\\mathrm{d}x}\\left(4y - x + 1 - \\mathrm{e}^{x-y}\\right) = y - 2x - 3 - \\mathrm{e}^{x-y}$",
+     "mark": "M1"
+    },
+    {
+     "step": 4,
+     "working": "$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\dfrac{y - 2x - 3 - \\mathrm{e}^{x-y}}{4y - x + 1 - \\mathrm{e}^{x-y}}$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "dydx",
+     "expr": "(y - 2*x - 3 - exp(x - y))/(4*y - x + 1 - exp(x - y))",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "derivative",
+     "f": "x^2 - x*y + 2*y^2 + 3*x + y + exp(x - y)",
+     "var": "x",
+     "result": "2*x - y + 3 + exp(x - y)"
+    },
+    {
+     "type": "derivative",
+     "f": "x^2 - x*y + 2*y^2 + 3*x + y + exp(x - y)",
+     "var": "y",
+     "result": "-x + 4*y + 1 - exp(x - y)"
+    },
+    {
+     "type": "equals",
+     "lhs": "-(2*x - y + 3 + exp(x - y))/(-x + 4*y + 1 - exp(x - y))",
+     "rhs": "(y - 2*x - 3 - exp(x - y))/(4*y - x + 1 - exp(x - y))",
+     "domain": [
+      0,
+      1
+     ]
+    },
+    {
+     "type": "substitute",
+     "expr": "x^2 - x*y + 2*y^2 + 3*x + y + exp(x - y)",
+     "at": {
+      "x": 2,
+      "y": 2
+     },
+     "result": "17"
+    }
+   ],
+   "hints": [
+    "Differentiate every term with respect to $x$. Any term containing $y$ gets a factor of $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$, and $xy$ is a product.",
+    "For $\\mathrm{e}^{x-y}$, think of the power $x - y$ as the inner function and differentiate it with respect to $x$."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 2,
+   "text": "Show that the normal to $C$ at $P$ has equation $y = x$. (2)",
+   "command": "show-that",
+   "forms": [],
+   "skills": [
+    "normal-at-a-point",
+    "perpendicular-gradients",
+    "equation-of-straight-line",
+    "show-that-given-answer"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Puts $x = 2$, $y = 2$ into their $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ to get a number, takes the negative reciprocal of that number, and uses it with $(2, 2)$ to form a straight line equation.",
+     "ft_of": "a",
+     "notes": "The tangent gradient must be a number, not an expression still in $x$ and $y$."
+    },
+    {
+     "code": "A1*",
+     "for": "Tangent gradient $\\frac{2 - 4 - 3 - 1}{8 - 2 + 1 - 1} = -1$ shown, normal gradient $1$, then $y - 2 = 1(x - 2)$ leading to $y = x$, with no errors.",
+     "depends_on": "M1",
+     "notes": "cso. The value $\\mathrm{e}^{0} = 1$ must be used correctly and the substitution must be visible."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "At $P(2,2)$: $\\mathrm{e}^{2-2} = 1$, so $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\frac{2 - 4 - 3 - 1}{8 - 2 + 1 - 1} = \\frac{-6}{6} = -1$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "Normal gradient $= -\\frac{1}{-1} = 1$, so the normal is $y - 2 = 1(x - 2)$, i.e. $y = x$",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [
+    {
+     "name": "normal_gradient",
+     "expr": "1",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "substitute",
+     "expr": "(y - 2*x - 3 - exp(x - y))/(4*y - x + 1 - exp(x - y))",
+     "at": {
+      "x": 2,
+      "y": 2
+     },
+     "result": "-1"
+    },
+    {
+     "type": "substitute",
+     "expr": "-1/((y - 2*x - 3 - exp(x - y))/(4*y - x + 1 - exp(x - y)))",
+     "at": {
+      "x": 2,
+      "y": 2
+     },
+     "answer": "normal_gradient"
+    }
+   ],
+   "hints": [
+    "Start by turning your part (a) expression into a number: put in the coordinates of $P$ and remember $\\mathrm{e}^{0} = 1$.",
+    "The normal is at right angles to the tangent, so its gradient times the tangent's gradient must be $-1$. Then write the line through $(2, 2)$ with that gradient."
+   ]
+  },
+  {
+   "label": "c",
+   "marks": 4,
+   "text": "The normal to $C$ at $P$ meets $C$ again at the point $Q$.\n\nFind the coordinates of $Q$. (4)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "substitute-to-find-intersections"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Replaces $y$ by $x$ (or $x$ by $y$) in every term of the equation of $C$, including $\\mathrm{e}^{x-y}$ becoming $\\mathrm{e}^{0} = 1$, to get an equation in one variable.",
+     "notes": "Allow minor slips in collecting terms but every term must be substituted."
+    },
+    {
+     "code": "M1",
+     "for": "Simplifies to a 3-term quadratic, e.g. $2x^2 + 4x - 16 = 0$ or $x^2 + 2x - 8 = 0$, and solves it by any valid method.",
+     "depends_on": "M1",
+     "notes": "This M1 needs the first M1. Allow solving by factorising, the formula or completing the square."
+    },
+    {
+     "code": "A1",
+     "for": "$x = -4$ picked out as the new point (with $x = 2$ recognised as $P$ or discarded).",
+     "depends_on": "M1"
+    },
+    {
+     "code": "A1ft",
+     "for": "$y = -4$, so $Q(-4, -4)$.",
+     "ft_of": "c",
+     "notes": "Follow through $y$ = their non-$P$ value of $x$ from the line $y = x$."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "On the normal $y = x$, so $\\mathrm{e}^{x-y} = \\mathrm{e}^0 = 1$: $x^2 - x^2 + 2x^2 + 3x + x + 1 = 17$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$2x^2 + 4x - 16 = 0 \\Rightarrow x^2 + 2x - 8 = 0 \\Rightarrow (x + 4)(x - 2) = 0$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$x = 2$ gives $P$, so at $Q$, $x = -4$",
+     "mark": "A1"
+    },
+    {
+     "step": 4,
+     "working": "$y = x = -4$, so $Q$ is $(-4, -4)$",
+     "mark": "A1ft"
+    }
+   ],
+   "answers": [
+    {
+     "name": "x",
+     "expr": "-4",
+     "form": "exact",
+     "check": "x^2 - x*y + 2*y^2 + 3*x + y + exp(x - y) = 17"
+    },
+    {
+     "name": "y",
+     "expr": "-4",
+     "form": "exact",
+     "check": "y = x"
+    }
+   ],
+   "checks": [
+    {
+     "type": "solutions",
+     "equation": "x^2 - x*x + 2*x^2 + 3*x + x + exp(x - x) = 17",
+     "var": "x",
+     "result": [
+      "-4",
+      "2"
+     ]
+    },
+    {
+     "type": "system",
+     "equations": [
+      "x^2 - x*y + 2*y^2 + 3*x + y + exp(x - y) = 17",
+      "y = x"
+     ],
+     "vars": [
+      "x",
+      "y"
+     ],
+     "result": {
+      "x": "-4",
+      "y": "-4"
+     }
+    }
+   ],
+   "hints": [
+    "Use the equation of the normal to replace $y$ in the equation of $C$. Look at what happens to the exponential term.",
+    "You already know that one of the solutions must be the $x$-coordinate of $P$."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "error_code": "chain-rule-inner-derivative-missing",
+   "step": 2,
+   "text": "If you differentiate $\\mathrm{e}^{x-y}$ as just $\\mathrm{e}^{x-y}$, you have left out the derivative of the power $x - y$, which is $1 - \\frac{\\mathrm{d}y}{\\mathrm{d}x}$. You lose the M1 for the exponential term, and your final expression is wrong too.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "error_code": "exp-log-derivative-error",
+   "step": 2,
+   "text": "Writing the derivative of $\\mathrm{e}^{x-y}$ as $\\mathrm{e}^{x-y}\\left(-\\frac{\\mathrm{d}y}{\\mathrm{d}x}\\right)$ (only the $y$ part) or as $(x-y)\\mathrm{e}^{x-y-1}$ (treating it like a power of $x$) gives the wrong result, so the A1 for that term is lost.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "error_code": "rearranging-inverse-operation-error",
+   "step": 3,
+   "text": "When you move $2x - y + 3 + \\mathrm{e}^{x-y}$ to the other side, every one of those terms must change sign. If you change only some of them, or divide only one term by the bracket $4y - x + 1 - \\mathrm{e}^{x-y}$, you lose the M1 for making $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ the subject.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "error_code": "perpendicular-gradient-error",
+   "step": 2,
+   "text": "A common slip is to write the normal gradient as $-m$ or $\\frac{1}{m}$. With $m = -1$, using $-m$ happens to give $1$, but that method is still wrong: you must show the negative reciprocal $-\\frac{1}{-1}$ or the M1 is not earned.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "error_code": "gradient-not-evaluated-at-point",
+   "step": 1,
+   "text": "A common slip is to use the whole fraction from part (a), still containing $x$ and $y$, as the gradient of the line. A straight line needs a number, so first put in $x = 2$, $y = 2$ to get $-1$. Otherwise you lose the M1.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "error_code": "normal-uses-tangent-gradient",
+   "step": 2,
+   "text": "Using the tangent gradient $-1$ in the line gives $y = -x + 4$, which is the tangent, not the normal. You cannot reach $y = x$ that way, so both marks are lost.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "error_code": "simultaneous-elimination-error",
+   "step": 1,
+   "text": "When you substitute $y = x$, every term must change, including $\\mathrm{e}^{x-y}$, which becomes $\\mathrm{e}^0 = 1$, not $0$. If you replace $y$ in only some terms, or drop the exponential, you get the wrong quadratic and lose the first M1.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "error_code": "rearranging-inverse-operation-error",
+   "step": 2,
+   "text": "From $2x^2 + 4x + 1 = 17$ you need to subtract 17 from both sides to get $2x^2 + 4x - 16 = 0$. Adding it instead, to get $2x^2 + 4x + 18 = 0$, gives a quadratic with no real roots, and the marks for solving are lost.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-10-01T00:11:55",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.6496
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 12
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.918 with part:IAL2018_WMA13A_June2025_Q3:a"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "hits8": [],
+   "max_jaccard": 0.111,
+   "jaccard_source": "IAL2018_WMA14_Oct2023_Q5",
+   "shared_numbers": 1,
+   "max_cosine": 0.918,
+   "cosine_source": "part:IAL2018_WMA13A_June2025_Q3:a"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 8,
+   "n_answers": 4,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "part b: expected normal_gradient = 1, solver got ['y = x'] [judge: same - Setter's normal gradient is 1. Solver finds dy/dx = -1 at P, so the normal has gradient 1 and equation y = x. These agree.]",
+    "part c: expected x = -4, solver got ['(-4, -4)'] [judge: same - Both give Q = (-4, -4). Substituting y = x gives x^2 + 2x - 8 = 0, so x = 2 (P) or x = -4.]",
+    "part c: expected y = -4, solver got ['(-4, -4)'] [judge: same - Both give Q = (-4, -4). Substituting y = x gives x^2 + 2x - 8 = 0, so x = 2 (P) or x = -4.]"
+   ],
+   "flag": true,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.022,
+   "solver": {
+    "parts": [
+     {
+      "label": "a",
+      "answers": [
+       "(2*x - y + 3 + exp(x-y))/(x - 4*y - 1 + exp(x-y))"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "Differentiate implicitly: 2x - y - x y' + 4y y' + 3 + y' + e^{x-y}(1 - y') = 0. So y'(4y - x + 1 - e^{x-y}) = -(2x - y + 3 + e^{x-y}), which gives dy/dx = -(2x - y + 3 + e^{x-y})/(4y - x + 1 - e^{x-y})."
+     },
+     {
+      "label": "b",
+      "answers": [
+       "y = x"
+      ],
+      "printed_result_correct": true,
+      "working_summary": "P lies on C: 4 - 4 + 8 + 6 + 2 + 1 = 17. At (2,2), dy/dx = -(4 - 2 + 3 + 1)/(8 - 2 + 1 - 1) = -6/6 = -1. The normal has gradient 1, so y - 2 = x - 2, i.e. y = x."
+     },
+     {
+      "label": "c",
+      "answers": [
+       "(-4, -4)"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "Put y = x in C: 2x^2 + 4x + 1 = 17, so x^2 + 2x - 8 = 0, giving x = 2 (P) or x = -4. So Q = (-4, -4)."
+     }
+    ],
+    "problems": []
+   }
+  },
+  "G4": {
+   "pass": false,
+   "errors": [
+    "response r9 (pitfall rearranging-inverse-operation-error): markers disagree ({'a': ['M1', 'A1', 'M1', 'A1', 'M1', 'A1'], 'b': ['M1', 'A0'], 'c': ['M1', 'M0', 'A0', 'A0']} vs {'a': ['M1', 'A1', 'M1', 'A1', 'M1', 'A1'], 'b': ['M1', 'A1'], 'c': ['M1', 'M1', 'A0', 'A0']}; designed {'a': ['M1', 'A1', 'M1', 'A1', 'M1', 'A1'], 'b': ['M1', 'A1'], 'c': ['M1', 'M0', 'A0', 'A0']}): the mark scheme is ambiguous here"
+   ],
+   "flags": [
+    "response r4 (pitfall rearranging-inverse-operation-error): both markers award {'a': ['M1', 'A1', 'M1', 'A1', 'M1', 'A0'], 'b': ['M1', 'A0'], 'c': ['M1', 'M1', 'A1', 'A1']}, not the designed {'a': ['M1', 'A1', 'M1', 'A1', 'M0', 'A0'], 'b': ['M1', 'A0'], 'c': ['M1', 'M1', 'A1', 'A1']} (script design off; scheme consistent)",
+    "response r5 (pitfall perpendicular-gradient-error): second marker agrees with the design; first marker gave {'a': ['M1', 'A1', 'M1', 'A1', 'M1', 'A1'], 'b': ['M1', 'A0'], 'c': ['M1', 'M1', 'A1', 'A1']}",
+    "response r8 (pitfall simultaneous-elimination-error): second marker agrees with the design; first marker gave {'a': ['M1', 'A1', 'M1', 'A1', 'M1', 'A1'], 'b': ['M1', 'A0'], 'c': ['M0', 'M0', 'A0', 'A0']}"
+   ],
+   "flag": true,
+   "n_responses": 10,
+   "agreed": [
+    "r1",
+    "r2",
+    "r3",
+    "r5",
+    "r6",
+    "r7",
+    "r8",
+    "r10"
+   ],
+   "consistent": {
+    "r4": [
+     {
+      "part": "a",
+      "marks": [
+       "M1",
+       "A1",
+       "M1",
+       "A1",
+       "M1",
+       "A0"
+      ]
+     },
+     {
+      "part": "b",
+      "marks": [
+       "M1",
+       "A0"
+      ]
+     },
+     {
+      "part": "c",
+      "marks": [
+       "M1",
+       "M1",
+       "A1",
+       "A1"
+      ]
+     }
+    ]
+   },
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "r1",
+     "kind": "correct",
+     "error_code": null,
+     "work": "(a) Differentiate wrt x: $2x - y - x\\frac{dy}{dx} + 4y\\frac{dy}{dx} + 3 + \\frac{dy}{dx} + e^{x-y}\\left(1-\\frac{dy}{dx}\\right)=0$\n$\\frac{dy}{dx}(4y - x + 1 - e^{x-y}) = y - 2x - 3 - e^{x-y}$\n$\\frac{dy}{dx}=\\frac{y-2x-3-e^{x-y}}{4y-x+1-e^{x-y}}$\n(b) At $(2,2)$: $\\frac{2-4-3-1}{8-2+1-1}=\\frac{-6}{6}=-1$. Normal gradient $=-1/(-1)=1$. $y-2=1(x-2)$ so $y=x$.\n(c) Sub $y=x$: $x^2-x^2+2x^2+3x+x+e^0=17$, so $2x^2+4x-16=0$, $x^2+2x-8=0$, $(x+4)(x-2)=0$. $x=2$ is P so $x=-4$, $y=-4$. $Q(-4,-4)$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "A1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "kind": "pitfall",
+     "error_code": "chain-rule-inner-derivative-missing",
+     "work": "(a) $2x - y - x\\frac{dy}{dx} + 4y\\frac{dy}{dx} + 3 + \\frac{dy}{dx} + e^{x-y}=0$\n$\\frac{dy}{dx}(4y-x+1)=y-2x-3-e^{x-y}$\n$\\frac{dy}{dx}=\\frac{y-2x-3-e^{x-y}}{4y-x+1}$\n(b) At $(2,2)$: $\\frac{2-4-3-1}{8-2+1}=-\\frac{6}{7}$. Normal gradient $\\frac{7}{6}$. $y-2=\\frac76(x-2)$. This isn't $y=x$ but I'll go on.\n(c) Sub $y=x$: $2x^2+3x+x+1=17$, $2x^2+4x-16=0$, $(x+4)(x-2)=0$, $x=-4$, $y=-4$. $Q(-4,-4)$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M0",
+        "A0",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0*"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "A1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r3",
+     "kind": "pitfall",
+     "error_code": "exp-log-derivative-error",
+     "work": "(a) $2x - y - x\\frac{dy}{dx} + 4y\\frac{dy}{dx} + 3 + \\frac{dy}{dx} + e^{x-y}\\left(-\\frac{dy}{dx}\\right)=0$\n$\\frac{dy}{dx}(4y-x+1-e^{x-y})=y-2x-3$\n$\\frac{dy}{dx}=\\frac{y-2x-3}{4y-x+1-e^{x-y}}$\n(b) At $(2,2)$: $\\frac{2-4-3}{8-2+1-1}=-\\frac56$. Normal gradient $\\frac65$, $y-2=\\frac65(x-2)$, which is not $y=x$.\n(c) Sub $y=x$: $2x^2+4x+1=17$, $2x^2+4x-16=0$, $x^2+2x-8=0$, $x=-4$ (or 2), $y=-4$. $Q(-4,-4)$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M0",
+        "A0",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0*"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "A1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r4",
+     "kind": "pitfall",
+     "error_code": "rearranging-inverse-operation-error",
+     "work": "(a) $2x - y - x\\frac{dy}{dx} + 4y\\frac{dy}{dx} + 3 + \\frac{dy}{dx} + e^{x-y}\\left(1-\\frac{dy}{dx}\\right)=0$\nMoving terms over (I only change the sign of some): $\\frac{dy}{dx}(4y-x+1-e^{x-y}) = y-2x+3+e^{x-y}$\n$\\frac{dy}{dx}=\\frac{y-2x+3+e^{x-y}}{4y-x+1-e^{x-y}}$\n(b) At $(2,2)$: $\\frac{2-4+3+1}{6}=\\frac13$. Normal gradient $-3$. $y-2=-3(x-2)$, $y=-3x+8$. This isn't $y=x$ but I'll go on.\n(c) Sub $y=x$: $2x^2+4x+1=17$, $2x^2+4x-16=0$, $(x+4)(x-2)=0$, $x=-4$, $y=-4$. $Q(-4,-4)$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0*"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "A1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r5",
+     "kind": "pitfall",
+     "error_code": "perpendicular-gradient-error",
+     "work": "(a) $2x - y - x\\frac{dy}{dx} + 4y\\frac{dy}{dx} + 3 + \\frac{dy}{dx} + e^{x-y}\\left(1-\\frac{dy}{dx}\\right)=0$\n$\\frac{dy}{dx}(4y-x+1-e^{x-y})=y-2x-3-e^{x-y}$\n$\\frac{dy}{dx}=\\frac{y-2x-3-e^{x-y}}{4y-x+1-e^{x-y}}$\n(b) At $(2,2)$: gradient $=\\frac{-6}{6}=-1$. Normal gradient is $-m=1$. $y-2=1(x-2)$, so $y=x$.\n(c) Sub $y=x$: $2x^2+4x+1=17$, $2x^2+4x-16=0$, $(x+4)(x-2)=0$, $x=-4$, $y=-4$. $Q(-4,-4)$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0*"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "A1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r6",
+     "kind": "pitfall",
+     "error_code": "gradient-not-evaluated-at-point",
+     "work": "(a) $2x - y - x\\frac{dy}{dx} + 4y\\frac{dy}{dx} + 3 + \\frac{dy}{dx} + e^{x-y}\\left(1-\\frac{dy}{dx}\\right)=0$\n$\\frac{dy}{dx}=\\frac{y-2x-3-e^{x-y}}{4y-x+1-e^{x-y}}$\n(b) Tangent gradient is $\\frac{y-2x-3-e^{x-y}}{4y-x+1-e^{x-y}}$, so the normal gradient is $-\\frac{4y-x+1-e^{x-y}}{y-2x-3-e^{x-y}}$. Normal: $y-2=-\\frac{4y-x+1-e^{x-y}}{y-2x-3-e^{x-y}}(x-2)$, which I can't simplify to $y=x$.\n(c) Sub $y=x$: $2x^2+4x+1=17$, $2x^2+4x-16=0$, $(x+4)(x-2)=0$, $x=-4$, $y=-4$. $Q(-4,-4)$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0*"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "A1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r7",
+     "kind": "pitfall",
+     "error_code": "normal-uses-tangent-gradient",
+     "work": "(a) $2x - y - x\\frac{dy}{dx} + 4y\\frac{dy}{dx} + 3 + \\frac{dy}{dx} + e^{x-y}\\left(1-\\frac{dy}{dx}\\right)=0$\n$\\frac{dy}{dx}=\\frac{y-2x-3-e^{x-y}}{4y-x+1-e^{x-y}}$\n(b) At $(2,2)$: gradient $=\\frac{-6}{6}=-1$. Line: $y-2=-1(x-2)$, so $y=-x+4$. This doesn't match $y=x$ but I'll go on.\n(c) Use $y=x$ from the question: $2x^2+4x+1=17$, $2x^2+4x-16=0$, $(x+4)(x-2)=0$, $x=-4$, $y=-4$. $Q(-4,-4)$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0*"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "A1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r8",
+     "kind": "pitfall",
+     "error_code": "simultaneous-elimination-error",
+     "work": "(a) $2x - y - x\\frac{dy}{dx} + 4y\\frac{dy}{dx} + 3 + \\frac{dy}{dx} + e^{x-y}\\left(1-\\frac{dy}{dx}\\right)=0$\n$\\frac{dy}{dx}=\\frac{y-2x-3-e^{x-y}}{4y-x+1-e^{x-y}}$\n(b) At $(2,2)$: $\\frac{-6}{6}=-1$. Normal gradient $=-\\frac{1}{-1}=1$, $y-2=x-2$, $y=x$.\n(c) Sub $y=x$: $x^2-x^2+2x^2+3x+x+e^{0}=17$. I take $e^0=0$, so $2x^2+4x-17=0$. $x=\\frac{-4\\pm\\sqrt{16+136}}{4}=\\frac{-4\\pm\\sqrt{152}}{4}$, which gives $x\\approx2.08$ or $x\\approx-4.08$. So $Q\\approx(-4.08,-4.08)$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "M0",
+        "A0",
+        "A0ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r9",
+     "kind": "pitfall",
+     "error_code": "rearranging-inverse-operation-error",
+     "work": "(a) $2x - y - x\\frac{dy}{dx} + 4y\\frac{dy}{dx} + 3 + \\frac{dy}{dx} + e^{x-y}\\left(1-\\frac{dy}{dx}\\right)=0$\n$\\frac{dy}{dx}=\\frac{y-2x-3-e^{x-y}}{4y-x+1-e^{x-y}}$\n(b) At $(2,2)$: $\\frac{-6}{6}=-1$. Normal gradient $=1$, $y-2=x-2$, $y=x$.\n(c) Sub $y=x$: $x^2-x^2+2x^2+3x+x+1=17$, so $2x^2+4x+1=17$. Adding 17: $2x^2+4x+18=0$, $x^2+2x+9=0$. Discriminant $=4-36<0$, so there are no real roots and no point $Q$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M0",
+        "A0",
+        "A0ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r10",
+     "kind": "partial",
+     "error_code": null,
+     "work": "(a) Differentiating wrt x: $2x - y - x\\frac{dy}{dx} + 4y\\frac{dy}{dx} + 3 + \\frac{dy}{dx} + e^{x-y}\\left(1-\\frac{dy}{dx}\\right)=0$\nI'm not sure how to rearrange this, so I'll stop here.\n(b) Not attempted.\n(c) Not attempted.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0*"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "M0",
+        "A0",
+        "A0ft"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "r1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M0",
+        "A0",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "a: no chain rule on e^{x-y} (missing derivative of x-y)",
+      "a: final A0 as result incorrect",
+      "b: A0 as result is not y=x"
+     ]
+    },
+    {
+     "id": "r3",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M0",
+        "A0",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "a: chain rule form lacks the 1 from d/dx(x), so not e^{x-y}(1 - dy/dx)",
+      "a: A0 consequently",
+      "a: final answer incorrect",
+      "b: A0 since y=x not shown"
+     ]
+    },
+    {
+     "id": "r4",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "a: sign errors when rearranging, final expression incorrect",
+      "b: A0 as y=x not obtained"
+     ]
+    },
+    {
+     "id": "r5",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "b: substitution into dy/dx not shown, only -6/6, so cso not met"
+     ]
+    },
+    {
+     "id": "r6",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "b: gradient not evaluated as a number at (2,2)",
+      "b: A0 as y=x not shown"
+     ]
+    },
+    {
+     "id": "r7",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "b: used tangent gradient rather than negative reciprocal",
+      "b: A0 as y=x not shown"
+     ]
+    },
+    {
+     "id": "r8",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "M0",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "b: substitution into dy/dx not visible, so cso not met",
+      "c: e^0 taken as 0 so not all terms correctly substituted",
+      "c: second M depends on first M",
+      "c: x=-4 not obtained",
+      "c: no ft as earlier marks lost"
+     ]
+    },
+    {
+     "id": "r9",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M0",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "b: substitution not visible, cso not met",
+      "c: algebra error adding 17 instead of subtracting, so wrong quadratic and not solved",
+      "c: x=-4 not found",
+      "c: no Q found"
+     ]
+    },
+    {
+     "id": "r10",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "M0",
+        "A0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "a: no rearrangement to make dy/dx the subject",
+      "a: final answer not given",
+      "b: not attempted",
+      "c: not attempted"
+     ]
+    }
+   ],
+   "awarded_second": [
+    {
+     "id": "r4",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "A1ft"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) A0: sign errors in numerator (y-2x+3+e^{x-y}); dy/dx incorrect.",
+      "(b) A0: incorrect gradient 1/3 leads to y=-3x+8, not y=x."
+     ]
+    },
+    {
+     "id": "r5",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1",
+        "A1ft"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) M0: normal gradient found as -m rather than the negative reciprocal; correct value only by coincidence since m=-1.",
+      "(b) A0: cso not satisfied due to incorrect method for normal gradient."
+     ]
+    },
+    {
+     "id": "r8",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "M0",
+        "A0",
+        "A0ft"
+       ]
+      }
+     ],
+     "reasons": [
+      "(c) M0: e^0 taken as 0, so e^{x-y} not correctly substituted as 1.",
+      "(c) M0: dependent on first M1.",
+      "(c) A0: x=-4 not obtained.",
+      "(c) A0ft: no valid follow-through without method marks."
+     ]
+    },
+    {
+     "id": "r9",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A0",
+        "A0ft"
+       ]
+      }
+     ],
+     "reasons": [
+      "(c) A0: sign error (adding 17) gives wrong quadratic with no real roots; x=-4 not found.",
+      "(c) A0ft: no non-P x value obtained, so no Q found."
+     ]
+    }
+   ],
+   "cost_usd": 0.1944
+  },
+  "G5": {
+   "pass": false,
+   "errors": [
+    "pitfall [rearranging-inverse-operation-error] part a: the marker didn't score its response as designed",
+    "pitfall [rearranging-inverse-operation-error] part c: the marker didn't score its response as designed"
+   ]
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

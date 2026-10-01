@@ -1,0 +1,112 @@
+{
+ "id": "normal-mean-hypothesis-test",
+ "question_type": "normal-mean-hypothesis-test",
+ "component": "stats",
+ "title": "Hypothesis test for a normal mean",
+ "what_it_asks": "You are given a normal population with a known variance, a sample size and an observed sample mean. You must decide whether the data give enough evidence to say the population mean has changed, or moved in one direction. The idea is that, if $\\mathrm{H}_0$ is true, the sample mean follows $\\mathrm{N}(\\mu, \\frac{\\sigma^2}{n})$, so you judge how unlikely your observed mean is.",
+ "typical_structure": "Usually three short parts worth six marks in total. Two parts are single marks, often stating the hypotheses or the distribution of the sample mean. The remaining part carries most of the marks and asks you to carry out the test. The later part usually depends on what you set up earlier, so the hypotheses and distribution feed straight into the calculation and conclusion.",
+ "mark_pattern": "Single-mark parts are typically a lone B1 for a correct statement, such as the hypotheses, or B1ft for a statement that follows from your own earlier value. The main four-mark part usually runs B1 M1 A1 A1. The B1 is for writing the hypotheses or the sample-mean distribution correctly. The M1 is for standardising or finding a probability with that distribution. The first A1 rewards the correct probability, p-value or test statistic. The last A1 rewards the conclusion, which must compare properly with the significance level and be worded in the context of the question.",
+ "where_marks_leak": [
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You round a probability or test statistic to the wrong number of decimal places or significant figures, or round too early. The A1 is lost, and the conclusion mark that relies on it can go too."
+  }
+ ],
+ "write_to_earn": [
+  "Write $\\mathrm{H}_0$ and $\\mathrm{H}_1$ in terms of $\\mu$ before any calculation, choosing one- or two-tailed from the wording.",
+  "Write the distribution $\\bar{X} \\sim \\mathrm{N}\\left(\\mu, \\frac{\\sigma^2}{n}\\right)$ with your numbers before finding any probability.",
+  "For a two-tailed test, either double the tail probability or compare with half the significance level, and say which you did.",
+  "Keep unrounded values until the end, then give the accuracy the question asks for.",
+  "Finish with a sentence in context that says whether $\\mathrm{H}_0$ is rejected, without claiming certainty."
+ ],
+ "check_before_you_leave": [
+  "Hypotheses use $\\mu$",
+  "Variance divided by $n$",
+  "Tail and level compared correctly",
+  "Rounding as requested",
+  "Conclusion in context"
+ ],
+ "skills": [
+  "state-hypotheses-normal-mean-test",
+  "sample-mean-distribution",
+  "normal-probability-calculator",
+  "two-tailed-test-and-p-value",
+  "conclude-test-in-context",
+  "use-hence-previous-result"
+ ],
+ "related_types": [
+  "binomial-critical-region-test"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:12:31",
+ "cost_usd": 0.0879,
+ "attempts": 2,
+ "facts": {
+  "n_questions": 1,
+  "codes_listed": {
+   "wrong-final-accuracy": 2
+  },
+  "frequent_codes": [],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "3 rare words shared with P3_June2022_stats_Q4",
+    "cosine 0.833 with part:P3_June2023_stats_Q4:b"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.003,
+   "shared_numbers": 0,
+   "max_cosine": 0.833,
+   "cosine_source": "part:P3_June2023_stats_Q4:b"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 9
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "1 where_marks_leak entries (wanted 3-5)"
+   ]
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: 3 rare words shared with P3_June2022_stats_Q4",
+   "copy: cosine 0.833 with part:P3_June2023_stats_Q4:b",
+   "error_codes: 1 where_marks_leak entries (wanted 3-5)"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

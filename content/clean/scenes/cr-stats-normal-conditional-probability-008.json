@@ -1,0 +1,382 @@
+{
+ "item_id": "cr-stats-normal-conditional-probability-008",
+ "applicable": true,
+ "reason": "Conditional probability is a restriction of the normal curve to T > 70, and the hypothesis test is a tail area of the sample-mean curve, so both are clearer as shaded pictures.",
+ "scenes": [
+  {
+   "id": "cr-stats-normal-conditional-probability-008::c::1",
+   "part": "c",
+   "title": "Silver badge, given the time is over 70 seconds",
+   "purpose": "See that knowing $T>70$ shrinks the sample space to the area above 70, so the silver area is divided by that smaller area.",
+   "approach": "model",
+   "board": {
+    "x": [
+     40,
+     130
+    ],
+    "y": [
+     -0.006,
+     0.045
+    ],
+    "axis": true,
+    "grid": false,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "u",
+     "label": "upper limit of silver region",
+     "min": 71,
+     "max": 125,
+     "step": 1,
+     "value": 95
+    }
+   ],
+   "elements": [
+    {
+     "type": "function",
+     "id": "f",
+     "expr": "exp(-((x-84)^2)/(2*11^2))/(11*sqrt(2*pi))",
+     "color": "primary",
+     "label": "T"
+    },
+    {
+     "type": "integral",
+     "id": "C",
+     "of": "f",
+     "from": "70",
+     "to": "130",
+     "color": "muted",
+     "opacity": 0.2
+    },
+    {
+     "type": "integral",
+     "id": "S",
+     "of": "f",
+     "from": "70",
+     "to": "u",
+     "color": "success",
+     "opacity": 0.4
+    },
+    {
+     "type": "vline",
+     "id": "v70",
+     "at": "70",
+     "color": "warning"
+    },
+    {
+     "type": "vline",
+     "id": "v95",
+     "at": "95",
+     "color": "secondary",
+     "dash": true
+    },
+    {
+     "type": "text",
+     "id": "tC",
+     "x": "100",
+     "y": "0.04",
+     "value": "Area where $T>70$ is {area(C)}"
+    },
+    {
+     "type": "text",
+     "id": "tS",
+     "x": "100",
+     "y": "0.035",
+     "value": "Silver area up to the limit is {area(S)}"
+    },
+    {
+     "type": "text",
+     "id": "tG",
+     "x": "100",
+     "y": "0.03",
+     "value": "Set the limit to 95 and divide: $0.740\\div 0.898\\approx 0.823$"
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "The grey region is everything you know Mira could be in: $T>70$. Its area is $1-0.10156=0.898$, the A1ft for $\\mathrm{P}(T>70)$.",
+     "set": {
+      "u": 95
+     },
+     "show": [
+      "C"
+     ]
+    },
+    {
+     "n": 2,
+     "text": "The green region is $70<T<95$, the silver area from part (b), about $0.740$. It sits wholly inside the grey region, so the two events are not independent.",
+     "highlight": [
+      "S"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "The required probability is green area over grey area: $\\frac{\\mathrm{P}(70<T<95)}{\\mathrm{P}(T>70)}$, the M1. Dividing gives $\\frac{0.73979}{0.89844}\\approx 0.823$, the dM1 and final A1.",
+     "set": {
+      "u": 95
+     }
+    },
+    {
+     "n": 4,
+     "text": "Drag the limit to 125: the green fills nearly all of the grey region, so the ratio heads towards 1. Dividing by $0.740$ or multiplying $0.898\\times0.740$ would not describe this picture.",
+     "set": {
+      "u": 125
+     }
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "marks": [
+     "M1",
+     "A1ft",
+     "dM1",
+     "A1"
+    ],
+    "pitfalls": [
+     "conditional-denominator-error",
+     "independence-assumed"
+    ]
+   },
+   "guide": {
+    "what_you_see": "The normal density curve for the time $T \\sim \\mathrm{N}(84, 11^2)$ taken on Level 12, with the region above $T=70$ shaded grey and the silver region from $70$ up to a slider limit shaded green inside it.",
+    "legend": [
+     {
+      "id": "f",
+      "meaning": "The density curve of $T \\sim \\mathrm{N}(84, 11^2)$, the first-attempt time in seconds, drawn along the horizontal axis."
+     },
+     {
+      "id": "C",
+      "meaning": "The grey region under the curve for $T>70$ (drawn from $70$ to $130$). Its area is $\\mathrm{P}(T>70)$, the condition Mira is known to satisfy."
+     },
+     {
+      "id": "S",
+      "meaning": "The green region under the curve from $70$ to the slider value $u$. With $u=95$ it is $\\mathrm{P}(70<T<95)$, the silver-badge probability from part (b)."
+     },
+     {
+      "id": "v70",
+      "meaning": "The solid vertical line at $T=70$, the gold badge cut-off and the left edge of both shaded regions."
+     },
+     {
+      "id": "v95",
+      "meaning": "The dashed vertical line at $T=95$, the upper end of the silver range in the question."
+     }
+    ],
+    "interact": [
+     {
+      "control": "u",
+      "kind": "slider",
+      "do": "Drag the slider between $71$ and $125$, first setting it to $95$, then moving it up to $125$.",
+      "watch": "At $u=95$ the green area reads about $0.740$ against the grey $0.898$, and $0.740\\div0.898\\approx0.823$. As $u$ rises towards $125$ the green fills nearly all of the grey region, so the ratio of green to grey heads towards $1$."
+     }
+    ],
+    "question_link": {
+     "part": "c",
+     "marks": [
+      "M1",
+      "A1ft",
+      "dM1",
+      "A1"
+     ],
+     "text": "The grey region is $\\mathrm{P}(T>70)$, the smaller sample space once you know Mira missed gold, and its area $1-0.10156=0.898$ is the A1ft. The green region at $u=95$ is $\\mathrm{P}(70<T<95)$, and green divided by grey, $\\frac{\\mathrm{P}(70<T<95)}{\\mathrm{P}(T>70)}$, is the M1; carrying out the division to get $0.823$ is the dM1 and A1."
+    },
+    "read_off": [
+     "The label 'Area where $T>70$' gives $\\mathrm{P}(T>70)$, which should read about $0.898$. It does not change with the slider, and it is the denominator of the conditional probability.",
+     "The label 'Silver area up to the limit' gives $\\mathrm{P}(70<T<u)$. At $u=95$ it reads about $0.740$, the part (b) probability and the numerator. For other values of $u$ it is the area up to that limit, not the silver probability."
+    ]
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0221,
+    "attempts": 1,
+    "gate": {
+     "pass": true,
+     "errors": []
+    },
+    "generated_at": "2026-09-30T23:13:03"
+   }
+  },
+  {
+   "id": "cr-stats-normal-conditional-probability-008::d::1",
+   "part": "d",
+   "title": "Is a sample mean of 80.2 unusually low?",
+   "purpose": "See the sample mean has standard deviation 2.2, so 80.2 lies far enough into the lower tail to give a p-value below 0.05.",
+   "approach": "model",
+   "board": {
+    "x": [
+     74,
+     94
+    ],
+    "y": [
+     -0.03,
+     0.22
+    ],
+    "axis": true,
+    "grid": false,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "m",
+     "label": "sample mean",
+     "min": 76,
+     "max": 84,
+     "step": 0.1,
+     "value": 80.2
+    }
+   ],
+   "elements": [
+    {
+     "type": "function",
+     "id": "g",
+     "expr": "exp(-((x-84)^2)/(2*2.2^2))/(2.2*sqrt(2*pi))",
+     "color": "primary",
+     "label": "Mean"
+    },
+    {
+     "type": "integral",
+     "id": "P",
+     "of": "g",
+     "from": "74",
+     "to": "m",
+     "color": "warning",
+     "opacity": 0.4
+    },
+    {
+     "type": "vline",
+     "id": "crit",
+     "at": "84-1.645*2.2",
+     "color": "secondary",
+     "dash": true
+    },
+    {
+     "type": "vline",
+     "id": "mu",
+     "at": "84",
+     "color": "muted"
+    },
+    {
+     "type": "text",
+     "id": "tp",
+     "x": "85",
+     "y": "0.15",
+     "value": "Tail area (p-value) is {area(P)}"
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "Under $\\mathrm{H}_0:\\mu=84$ against $\\mathrm{H}_1:\\mu<84$, the sample mean follows a curve centred at 84. The alternative is lower, so only the left tail matters (B1).",
+     "set": {
+      "m": 80.2
+     }
+    },
+    {
+     "n": 2,
+     "text": "The curve is narrow because its standard deviation is $\\frac{11}{\\sqrt{25}}=2.2$, not 11. Then $z=\\frac{80.2-84}{2.2}=-1.727$ (M1).",
+     "highlight": [
+      "g"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "The shaded tail up to $80.2$ has area about $0.0421$ (A1). The dashed line at about $80.38$ is the critical value for 5%; $80.2$ lies to its left.",
+     "highlight": [
+      "P",
+      "crit"
+     ]
+    },
+    {
+     "n": 4,
+     "text": "Drag the sample mean up towards $81$: the tail grows past $0.05$ and you would keep $\\mathrm{H}_0$. At $80.2$ you reject, so there is evidence the mean first-attempt time has decreased (final A1).",
+     "set": {
+      "m": 81
+     }
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "marks": [
+     "B1",
+     "M1",
+     "A1"
+    ],
+    "pitfalls": [
+     "sample-mean-sd-not-scaled",
+     "conclusion-too-definite-or-no-context"
+    ]
+   },
+   "guide": {
+    "what_you_see": "The bell-shaped curve of the sample mean $\\bar{T}$ for 25 players if the mean time is still $84$ seconds, with the lower tail up to the slider value shaded. A dashed line marks the 5% critical value and a solid line marks $84$.",
+    "legend": [
+     {
+      "id": "g",
+      "meaning": "The distribution of the sample mean $\\bar{T}\\sim\\mathrm{N}\\left(84,\\frac{11^2}{25}\\right)$ under $\\mathrm{H}_0$, with standard deviation $2.2$. It is much narrower than the distribution of a single time."
+     },
+     {
+      "id": "P",
+      "meaning": "The shaded lower tail of $g$ from the left edge up to the slider value $m$. Its area is $\\mathrm{P}(\\bar{T}\\leqslant m)$, the p-value when $m=80.2$."
+     },
+     {
+      "id": "crit",
+      "meaning": "Dashed vertical line at $84-1.645\\times2.2\\approx 80.38$, the 5% critical value for the lower-tail test."
+     },
+     {
+      "id": "mu",
+      "meaning": "Solid vertical line at $\\mu=84$, the mean under $\\mathrm{H}_0$."
+     }
+    ],
+    "interact": [
+     {
+      "control": "m",
+      "kind": "slider",
+      "do": "Drag the sample mean from $76$ to $84$. Start at $80.2$, the observed value, then move it up towards $81$ and back.",
+      "watch": "The shaded tail grows as $m$ increases. At $m=80.2$ the area is about $0.0421$, which is below $0.05$. The tail area reaches $0.05$ at about $80.38$, where the shaded edge meets the dashed line. By $m=81$ the area is above $0.05$."
+     }
+    ],
+    "question_link": {
+     "part": "d",
+     "marks": [
+      "B1",
+      "M1",
+      "A1"
+     ],
+     "text": "The curve $g$ is the sampling distribution of the mean of the 25 new players under $\\mathrm{H}_0:\\mu=84$, and only the left tail is shaded because $\\mathrm{H}_1:\\mu<84$ (B1). Its standard deviation of $2.2$ gives $z=\\frac{80.2-84}{2.2}=-1.727$ (M1). The shaded area of about $0.0421$ is the p-value, which is less than $0.05$ (A1). The shaded edge at $80.2$ lies to the left of the dashed line, so you reject $\\mathrm{H}_0$."
+    },
+    "read_off": [
+     "The label 'Tail area (p-value)' shows the area of $P$, which is $\\mathrm{P}(\\bar{T}\\leqslant m)$. At $m=80.2$ it reads about $0.0421$. If it is below $0.05$ you reject $\\mathrm{H}_0$, and if it is above $0.05$ you do not."
+    ]
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0222,
+    "attempts": 1,
+    "gate": {
+     "pass": true,
+     "errors": []
+    },
+    "generated_at": "2026-09-30T23:13:06"
+   }
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:51:50",
+ "cost_usd": 0.1065,
+ "attempts": 2,
+ "checks": {
+  "pass": true,
+  "errors": [],
+  "n_scenes": 2
+ }
+}

@@ -1,0 +1,203 @@
+{
+ "item_id": "cr-evaluate-definite-integral-core",
+ "applicable": true,
+ "reason": "Area under a curve between limits: the shaded region growing with the upper limit shows why F(4) - F(1) gives the area.",
+ "scenes": [
+  {
+   "id": "cr-evaluate-definite-integral-core::-::1",
+   "part": null,
+   "title": "Area under the curve as F(4) minus F(1)",
+   "purpose": "See the region R grow as the upper limit moves from 1 to 4, and check the integrated expression gives the same area.",
+   "approach": "algebraic-check",
+   "board": {
+    "x": [
+     -1,
+     6
+    ],
+    "y": [
+     -2,
+     15
+    ],
+    "axis": true,
+    "grid": true,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "k",
+     "label": "upper limit k",
+     "min": 1,
+     "max": 4,
+     "step": 0.05,
+     "value": 2
+    }
+   ],
+   "elements": [
+    {
+     "type": "function",
+     "id": "C",
+     "expr": "sqrt(x) + 8/x^2",
+     "domain": [
+      "0.8",
+      "5"
+     ],
+     "color": "primary",
+     "label": "C"
+    },
+    {
+     "type": "vline",
+     "id": "v1",
+     "at": "1",
+     "color": "muted"
+    },
+    {
+     "type": "vline",
+     "id": "v4",
+     "at": "4",
+     "color": "muted"
+    },
+    {
+     "type": "integral",
+     "id": "R",
+     "of": "C",
+     "from": "1",
+     "to": "k",
+     "color": "primary",
+     "opacity": 0.3
+    },
+    {
+     "type": "text",
+     "id": "areaLabel",
+     "x": "2.5",
+     "y": "13",
+     "value": "Shaded area so far = {area(R)}"
+    },
+    {
+     "type": "text",
+     "id": "algLabel",
+     "x": "2.5",
+     "y": "11.5",
+     "value": "$F(k)-F(1)$ = {2/3*k^(3/2) - 8/k + 22/3}",
+     "color": "secondary"
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "Write $y=x^{\\frac12}+8x^{-2}$. The shaded region lies between $x=1$ and $x=k$, above the $x$-axis, so its area is $\\int_1^k \\left(x^{\\frac12}+8x^{-2}\\right)\\mathrm{d}x$.",
+     "set": {
+      "k": 2
+     },
+     "show": [
+      "R"
+     ]
+    },
+    {
+     "n": 2,
+     "text": "Integrate each term by raising the power and dividing by the new power: $\\frac23 x^{\\frac32}$ earns the first M1, and $8x^{-2}\\to -8x^{-1}$ earns the second M1. Together they give $F(x)=\\frac23x^{\\frac32}-\\frac8x$, the A1.",
+     "highlight": [
+      "C"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "Drag $k$ and compare the two readouts. The area equals $F(k)-F(1)$, value at the top limit minus value at the bottom limit. Reversing the order would give a negative, which is the limits slip.",
+     "set": {
+      "k": 3
+     },
+     "highlight": [
+      "algLabel",
+      "areaLabel"
+     ]
+    },
+    {
+     "n": 4,
+     "text": "Set $k=4$. Both readouts show $\\frac{32}{3}\\approx 10.67$, from $\\left(\\frac{16}{3}-2\\right)-\\left(\\frac23-8\\right)=\\frac{10}{3}+\\frac{22}{3}$. This is the limits M1 and the final A1*.",
+     "set": {
+      "k": 4
+     }
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ],
+    "marks": [
+     "M1",
+     "A1",
+     "A1*"
+    ],
+    "pitfalls": [
+     "limits-substitution-error",
+     "integration-power-rule-error"
+    ]
+   },
+   "guide": {
+    "what_you_see": "The curve $C$ with equation $y=\\sqrt{x}+\\frac{8}{x^2}$ and the vertical lines $x=1$ and $x=4$, with the part of the region $R$ from $x=1$ up to the slider value $k$ shaded under the curve and above the $x$-axis. Two live readings compare the shaded area with the value of the integrated expression.",
+    "legend": [
+     {
+      "id": "C",
+      "meaning": "The curve $y=\\sqrt{x}+\\frac{8}{x^2}$ from the question, drawn for $0.8\\leqslant x\\leqslant 5$; it stays above the $x$-axis."
+     },
+     {
+      "id": "R",
+      "meaning": "The shaded part of the region $R$ between $C$, the $x$-axis, $x=1$ and $x=k$; at $k=4$ it is the whole region of the question, with area $\\int_1^4\\left(x^{\\frac12}+8x^{-2}\\right)\\mathrm{d}x$."
+     },
+     {
+      "id": "v1",
+      "meaning": "The vertical line $x=1$, the lower limit of the integral."
+     },
+     {
+      "id": "v4",
+      "meaning": "The vertical line $x=4$, the upper limit of the region $R$ in the question."
+     }
+    ],
+    "interact": [
+     {
+      "control": "k",
+      "kind": "slider",
+      "do": "Drag the slider from $1$ up to $4$ in small steps, then back down, moving the right-hand edge of the shaded region.",
+      "watch": "The shaded region widens and both readings rise together and always agree. At $k=1$ both are $0$; at $k=2$ they are about $2.4$; at $k=4$ both read $\\frac{32}{3}\\approx 10.67$ and the region reaches the line $x=4$."
+     }
+    ],
+    "question_link": {
+     "part": null,
+     "marks": [
+      "M1",
+      "A1",
+      "A1*"
+     ],
+     "text": "The shaded region $R$ under $C$ between $x=1$ and $x=4$ is the region whose exact area the question asks for. The expression $F(k)-F(1)$ with $F(x)=\\frac23x^{\\frac32}-\\frac8x$ is the integrated result (the M1 and A1 for integrating), and putting $k=4$ shows the limits M1 (top minus bottom) and the final value $\\frac{10}{3}+\\frac{22}{3}=\\frac{32}{3}$ for the A1*."
+    },
+    "read_off": [
+     "'Shaded area so far' is the area of the shaded region $R$ from $x=1$ to $x=k$, worked out by the picture itself; at $k=4$ it is $\\frac{32}{3}\\approx 10.67$ square units.",
+     "'$F(k)-F(1)$' is the value of $\\frac23k^{\\frac32}-\\frac8k+\\frac{22}{3}$, which is the integrated expression at $k$ minus its value at $1$ (since $F(1)=\\frac23-8=-\\frac{22}{3}$). It matches the shaded area for every $k$, and at $k=4$ it is $\\frac{32}{3}$."
+    ]
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0231,
+    "attempts": 1,
+    "gate": {
+     "pass": true,
+     "errors": []
+    },
+    "generated_at": "2026-09-30T23:12:20"
+   }
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:50:13",
+ "cost_usd": 0.0755,
+ "attempts": 2,
+ "checks": {
+  "pass": true,
+  "errors": [],
+  "n_scenes": 1
+ }
+}

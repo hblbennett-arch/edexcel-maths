@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How marks are awarded</title>
+<style>
+  :root {
+    --primary: #1a365d; --accent: #2b6cb0; --success: #276749; --warning: #c05621; --danger: #c53030;
+    --bg: #f7fafc; --card: #ffffff; --border: #e2e8f0; --text: #2d3748; --muted: #718096; --mark: #805ad5;
+    --hint-bg: #f0fff4; --warn-bg: #fffaf0; --user-bg: #ebf4ff; --ok-bg: #f0fff4; --miss-bg: #fffaf0; --code-bg: #edf2f7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --primary: #90cdf4; --accent: #63b3ed; --success: #68d391; --warning: #f6ad55; --danger: #fc8181;
+      --bg: #171923; --card: #1f2330; --border: #2d3748; --text: #e2e8f0; --muted: #a0aec0; --mark: #b794f4;
+      --hint-bg: #1c2e25; --warn-bg: #2e2518; --user-bg: #1e2a3d; --ok-bg: #1c2e25; --miss-bg: #2e2518; --code-bg: #2a2f3d;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  header { position: sticky; top: 0; z-index: 2; background: var(--primary); color: #fff; padding: 12px 16px;
+           display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) header { background: #102a43; } }
+  header h1 { margin: 0; font-size: 18px; font-weight: 600; }
+  header h1 span { font-weight: 400; opacity: .8; }
+  header a { color: #fff; opacity: .85; font-size: 13px; }
+  main { max-width: 860px; margin: 0 auto; padding: 16px 16px 40px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin: 12px 0; }
+  .card h3 { margin: 0 0 8px; font-size: 16px; color: var(--primary); }
+  .card h3 small { color: var(--muted); font-weight: 400; font-size: 13px; }
+  .card h3 code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background: var(--code-bg);
+                  border-radius: 6px; padding: 1px 7px; margin-right: 6px; color: var(--mark); font-size: 15px; }
+  h2 { font-size: 20px; color: var(--primary); margin: 22px 0 6px; }
+  .lead { margin: 0 0 6px; font-weight: 600; }
+  .explain { margin: 0 0 8px; color: var(--text); }
+  .earn { background: var(--hint-bg); border-left: 4px solid var(--success); border-radius: 8px; padding: 8px 12px; margin-top: 8px; font-size: 14.5px; }
+  .earn b { color: var(--success); }
+  .muted { color: var(--muted); }
+  .hint { color: var(--muted); font-size: 13.5px; margin: 4px 0 8px; }
+  table { border-collapse: collapse; width: 100%; font-size: 14.5px; }
+  th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--border); }
+  th { color: var(--muted); font-weight: 600; font-size: 13px; }
+  td.n, th.n { text-align: right; }
+  tfoot td { font-weight: 600; border-bottom: 0; }
+  .buttons { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 12px; }
+  a.act { display: inline-block; background: var(--accent); color: #fff; border: 0; border-radius: 18px; padding: 8px 18px; font: inherit;
+          font-size: 15px; text-decoration: none; }
+  a.act.secondary { background: var(--card); color: var(--accent); border: 1px solid var(--accent); }
+
+  /* chain diagram: boxes and arrows in plain HTML/CSS */
+  .chain { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 4px 0; margin: 10px 0 4px; }
+  .node { display: flex; flex-direction: column; align-items: center; min-width: 74px; }
+  .box { border: 2px solid var(--mark); color: var(--mark); background: var(--card); border-radius: 8px; padding: 6px 10px;
+         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-weight: 700; font-size: 15px; cursor: pointer;
+         user-select: none; min-width: 58px; text-align: center; }
+  .box:hover { filter: brightness(1.05); }
+  .node.lost .box { border-color: var(--danger); color: var(--danger); background: var(--miss-bg); text-decoration: line-through; }
+  .node.implied .box { border-color: var(--warning); color: var(--warning); background: var(--miss-bg); border-style: dashed; }
+  .node.alone .box { border-color: var(--success); color: var(--success); }
+  .dep { font-size: 12px; color: var(--muted); margin-top: 4px; text-align: center; line-height: 1.3; max-width: 90px; }
+  .node.lost .dep, .node.implied .dep { color: var(--danger); }
+  .node.implied .dep { color: var(--warning); }
+  .arrow { align-self: flex-start; margin-top: 8px; color: var(--muted); font-size: 18px; padding: 0 4px; }
+  .arrow.needs { color: var(--mark); }
+  .arrow.needs.cut { color: var(--danger); }
+  .caption { margin: 8px 0 0; font-size: 14.5px; }
+  .caption b { color: var(--danger); }
+  .score { display: inline-block; margin-left: 8px; font-weight: 600; color: var(--primary); }
+  .legend { font-size: 12.5px; color: var(--muted); margin-top: 6px; }
+  .legend span { display: inline-block; margin-right: 12px; }
+  .legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; border: 2px solid var(--mark); vertical-align: -2px; margin-right: 4px; }
+  .legend i.l { border-color: var(--danger); background: var(--miss-bg); }
+  .legend i.i { border-color: var(--warning); border-style: dashed; background: var(--miss-bg); }
+  footer { max-width: 860px; margin: 0 auto; padding: 8px 16px 32px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); }
+  @media (max-width: 600px) {
+    .node { min-width: 62px; }
+    .box { min-width: 50px; padding: 5px 7px; font-size: 14px; }
+    .dep { max-width: 70px; font-size: 11px; }
+    .arrow { font-size: 16px; padding: 0 2px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>How marks are awarded <span id="board">· every convention in plain words</span></h1>
+  <span><a href="/start">Start →</a> &nbsp; <a href="/examiner">Be the examiner →</a></span>
+</header>
+<main>
+  <div class="card">
+    <h3>A 5-mark scheme, as a chain <small>tap a mark to lose it</small></h3>
+    <p class="hint">Scheme: <code>M1 A1 M1 dM1 A1*</code>. Marks in a scheme are not independent: A needs the nearest earlier M, dM needs the previous M, and B marks stand alone.</p>
+    <div class="chain" id="chain"></div>
+    <div class="legend"><span><i></i>earned</span><span><i class="l"></i>lost by the student</span><span><i class="i"></i>lost because it depends on a lost mark</span></div>
+    <p class="caption" id="caption"></p>
+    <div class="buttons"><a class="act secondary" href="#" id="reset">Reset</a></div>
+  </div>
+
+  <h2>The papers</h2>
+  <div class="card" id="papers"><p class="muted">Loading…</p></div>
+
+  <h2>The marks and the words on a scheme</h2>
+  <div id="conventions"><p class="muted">Loading…</p></div>
+
+  <div class="card">
+    <h3>Ready to practise?</h3>
+    <p class="explain">The fastest way to learn this is to judge marks yourself and compare with the marker.</p>
+    <div class="buttons"><a class="act" href="/examiner">Practise judging marks</a> <a class="act secondary" href="/start">Back to start</a></div>
+  </div>
+</main>
+<footer id="foot">Independent: not affiliated with, endorsed or licensed by Pearson. Every question and mark scheme here is our own.</footer>
+
+<script>
+  // ---- Tiny replica of chatbot/marks.chain(): which earlier marks each mark depends on, by position ----
+  const METHOD_LETTERS = new Set(["M", "dM", "ddM"]);
+  function parseCode(code) {
+    const m = /^(ddM|dM|dB|M|A|B)([0-9])(\*|ft|cso|cao)?$/.exec(code);
+    return { letter: m[1], worth: +m[2], suffix: m[3] || "" };
+  }
+  function chain(codes) {
+    const out = [], methods = [];
+    codes.forEach((code, i) => {
+      const p = parseCode(code);
+      let deps = [];
+      if (p.letter === "A") deps = methods.slice(-1);          // A needs the nearest earlier M
+      else if (p.letter === "dM") deps = methods.slice(-1);    // dM needs the previous M
+      else if (p.letter === "ddM") deps = methods.slice(-2);   // ddM needs the previous two
+      else if (p.letter === "dB") deps = methods.slice(-1);
+      // B stands alone
+      out.push({ code, letter: p.letter, deps, ft: p.suffix === "ft" });
+      if (METHOD_LETTERS.has(p.letter)) methods.push(i);
+    });
+    return out;
+  }
+  // Marks that go when others are lost: follow the dependency links forward (ft marks survive)
+  function implied(links, lost) {
+    const gone = new Set(lost);
+    let changed = true;
+    while (changed) {
+      changed = false;
+      links.forEach((l, i) => {
+        if (!gone.has(i) && !l.ft && l.deps.some(d => gone.has(d))) { gone.add(i); changed = true; }
+      });
+    }
+    return [...gone].filter(i => !lost.has(i));
+  }
+
+  const CODES = ["M1", "A1", "M1", "dM1", "A1*"];
+  const LINKS = chain(CODES);
+  const DEFAULT_LOST = new Set([2]);
+  let lost = new Set(DEFAULT_LOST);
+
+  function drawChain() {
+    const imp = new Set(implied(LINKS, lost));
+    const root = document.getElementById("chain");
+    root.innerHTML = "";
+    LINKS.forEach((l, i) => {
+      if (i > 0) {
+        const a = document.createElement("span");
+        const needsPrev = l.deps.includes(i - 1);
+        a.className = "arrow" + (needsPrev ? " needs" : "") + (needsPrev && (lost.has(i - 1) || imp.has(i - 1)) ? " cut" : "");
+        a.textContent = "→";
+        root.appendChild(a);
+      }
+      const n = document.createElement("div");
+      n.className = "node" + (lost.has(i) ? " lost" : imp.has(i) ? " implied" : l.deps.length ? "" : " alone");
+      const b = document.createElement("div");
+      b.className = "box"; b.textContent = l.code; b.title = "Tap to lose or restore this mark";
+      b.onclick = () => { if (lost.has(i)) lost.delete(i); else lost.add(i); drawChain(); };
+      const d = document.createElement("div");
+      d.className = "dep";
+      d.textContent = l.deps.length ? "needs " + l.deps.map(k => CODES[k] + " (" + (k + 1) + ")").join(" and ") : "stands alone";
+      n.appendChild(b); n.appendChild(d);
+      root.appendChild(n);
+    });
+    const earned = LINKS.reduce((s, l, i) => s + (lost.has(i) || imp.has(i) ? 0 : parseCode(l.code).worth), 0);
+    const total = LINKS.reduce((s, l) => s + parseCode(l.code).worth, 0);
+    const cap = document.getElementById("caption");
+    if (lost.size === 1 && lost.has(2)) {
+      cap.innerHTML = "Lose the second M1 and <b>the dM1 and A1* go with it.</b>" +
+        ' <span class="score">' + earned + "/" + total + "</span>";
+    } else if (lost.size === 0) {
+      cap.innerHTML = "Every method line is on the page, so every mark is available." + ' <span class="score">' + earned + "/" + total + "</span>";
+    } else {
+      const names = [...imp].sort().map(k => CODES[k]);
+      cap.innerHTML = "Lost: " + [...lost].sort().map(k => CODES[k]).join(", ") +
+        (names.length ? ". <b>Goes with it: " + names.join(", ") + ".</b>" : ". Nothing else depends on it.") +
+        ' <span class="score">' + earned + "/" + total + "</span>";
+    }
+  }
+  document.getElementById("reset").onclick = (e) => { e.preventDefault(); lost = new Set(DEFAULT_LOST); drawChain(); };
+  drawChain();
+
+  // ---- Glossary from the board profile ----
+  const ORDER = ["M", "A", "B", "dM", "ddM", "ft", "cso", "cao", "awrt", "oe", "isw", "show_that", "dependency", "bald_answer"];
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+  function label(key) { return ["dependency", "bald_answer", "show_that"].includes(key) ? "" : key.replace("_", " "); }
+
+  fetch("/api/marks/glossary").then(r => r.json()).then(d => {
+    if (d.board) document.getElementById("board").textContent = "· " + d.board;
+    if (d.disclaimer) document.getElementById("foot").textContent = d.disclaimer;
+
+    // papers table
+    const ps = (d.paper_structure && d.paper_structure.papers) || [];
+    let html = "<table><thead><tr><th>Paper</th><th>Title</th><th class=n>Marks</th><th class=n>Minutes</th></tr></thead><tbody>";
+    ps.forEach(p => {
+      const secs = (p.sections || []).map(s => esc(s.id) + " " + s.marks).join(", ");
+      html += "<tr><td>" + esc(p.id) + "</td><td>" + esc(p.title) + (secs ? ' <span class="muted">(' + secs + ")</span>" : "") +
+              "</td><td class=n>" + esc(p.marks) + "</td><td class=n>" + esc(p.minutes) + "</td></tr>";
+    });
+    const totalMin = ps.reduce((s, p) => s + (p.minutes || 0), 0);
+    html += "</tbody><tfoot><tr><td colspan=2>Total</td><td class=n>" + esc((d.paper_structure && d.paper_structure.total_marks) || "") +
+            "</td><td class=n>" + totalMin + "</td></tr></tfoot></table>";
+    document.getElementById("papers").innerHTML = html;
+
+    // one card per convention, in the fixed order, then anything else the profile adds
+    const byKey = {};
+    (d.glossary || []).forEach(g => { byKey[g.key] = g; });
+    const keys = ORDER.filter(k => byKey[k]).concat(Object.keys(byKey).filter(k => !ORDER.includes(k)));
+    const root = document.getElementById("conventions");
+    root.innerHTML = "";
+    keys.forEach(k => {
+      const g = byKey[k];
+      const card = document.createElement("div");
+      card.className = "card"; card.id = "conv-" + k;
+      const lab = label(k);
+      let extra = "";
+      if (k === "bald_answer" && d.bald_answer_policy) extra = '<p class="explain muted">' + esc(d.bald_answer_policy) + "</p>";
+      card.innerHTML = "<h3>" + (lab ? "<code>" + esc(lab) + "</code>" : "") + esc(g.name) + "</h3>" +
+        '<p class="lead">' + esc(g.short) + "</p>" +
+        '<p class="explain">' + esc(g.explain) + "</p>" + extra +
+        '<div class="earn"><b>Write this to earn it:</b> ' + esc(g.write_to_earn) + "</div>";
+      root.appendChild(card);
+    });
+  }).catch(() => {
+    document.getElementById("conventions").innerHTML = '<p class="muted">Could not load the glossary. Is the server running?</p>';
+  });
+</script>
+</body>
+</html>

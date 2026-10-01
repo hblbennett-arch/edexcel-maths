@@ -1,0 +1,141 @@
+{
+ "id": "binomial-probabilities-in-context",
+ "question_type": "binomial-probabilities-in-context",
+ "component": "stats",
+ "title": "Binomial probabilities in context",
+ "what_it_asks": "You are given a situation with repeated trials, such as items tested, days observed or boxes checked, and a probability of success. You must justify a binomial model, then find exact or cumulative probabilities. Sometimes you feed one result into a second binomial stage, or use a normal approximation when $n$ is large. The idea is to choose the right $n$ and $p$, then turn the wording into the correct probability statement.",
+ "typical_structure": "Usually four parts, sometimes two. Most questions are worth six or seven marks, though a longer one can reach eleven. An early part often asks you to state conditions for the model or find a single probability. Later parts usually use a cumulative probability, an expected value, a two-stage set-up or a test. A probability from an earlier part often becomes the $p$ in a later one, so an early slip can carry forward.",
+ "mark_pattern": "The most usual three-mark part is M1 A1 A1. The M1 is for naming the model with the right $n$ and $p$ and writing the correct probability statement. The two A1 marks are for the values that follow from it. Single-mark parts are usually B1, for a stated condition, a stated model or a simple value. Two-mark parts are often M1 A1. Longer parts add a B1 for the model, as in B1 M1 A1 or B1 M1 A1 A1. A two-stage problem can run M1 A1 M1 A1, with the first pair finding the probability that becomes $p$ and the second pair using it. A normal approximation can appear as M1 M1 A1: one M1 for the parameters and one for the continuity-corrected probability.",
+ "where_marks_leak": [
+  {
+   "error_code": "binomial-parameters-wrong",
+   "mark_family": "method",
+   "text": "You use the wrong $n$ or $p$, for example the number of items in one box when the question counts boxes. The M1 is lost, and so are the A1 marks that depend on it."
+  },
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You round too early or give the wrong number of significant figures or decimal places. The final A1 is lost even though the method was sound."
+  },
+  {
+   "error_code": "cumulative-individual-confused",
+   "mark_family": "method",
+   "text": "You find $\\mathrm{P}(X \\leqslant x)$ where $\\mathrm{P}(X = x)$ is needed, or the other way round. The M1 for the correct probability statement is lost, and the A1 marks after it go too."
+  },
+  {
+   "error_code": "critical-region-probabilities-not-shown",
+   "mark_family": "method",
+   "text": "In a test, you give a critical value without showing the probabilities on either side of it. The M1 for justifying the region is lost, and the A1 that depends on it goes too."
+  },
+  {
+   "error_code": "continuity-correction-error",
+   "mark_family": "method",
+   "text": "In a normal approximation, you leave out the continuity correction or apply it the wrong way. The M1 for the corrected boundary is lost, and the A1 after it with it."
+  }
+ ],
+ "write_to_earn": [
+  "Write the model first, such as $X \\sim \\mathrm{B}(n, p)$, and say in words what $X$ counts.",
+  "When asked for conditions, state them in the context of the question: a fixed number of trials, independent trials, two outcomes and a constant probability.",
+  "Write the probability statement, such as $\\mathrm{P}(X \\geqslant 3) = 1 - \\mathrm{P}(X \\leqslant 2)$, before you use your calculator.",
+  "In a two-stage problem, give the first probability in full and label it as the new $p$ before you start the second stage.",
+  "For a normal approximation, write $\\mathrm{N}(np, np(1-p))$ with the variance worked out, then show the continuity-corrected boundary."
+ ],
+ "check_before_you_leave": [
+  "Right $n$ and $p$?",
+  "Cumulative or exact?",
+  "Inequality direction correct?",
+  "Variance, not standard deviation, in $\\mathrm{N}$?",
+  "Rounded only at the end?"
+ ],
+ "skills": [
+  "binomial-cumulative-probability",
+  "binomial-individual-probability",
+  "binomial-conditions",
+  "two-stage-binomial",
+  "binomial-expected-value",
+  "normal-approximation-to-binomial",
+  "continuity-correction",
+  "complement-and-addition-rules"
+ ],
+ "related_types": [
+  "normal-unknown-parameters",
+  "distribution-model-vs-data",
+  "discrete-distribution-unknown-constant",
+  "normal-conditional-probability"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:11:32",
+ "cost_usd": 0.0488,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 5,
+  "codes_listed": {
+   "binomial-parameters-wrong": 4,
+   "critical-region-probabilities-not-shown": 2,
+   "wrong-final-accuracy": 2,
+   "approximation-parameters-wrong": 1,
+   "continuity-correction-error": 1,
+   "at-least-one-complement-error": 1,
+   "cumulative-individual-confused": 1,
+   "population-sample-confused": 1
+  },
+  "frequent_codes": [],
+  "practice_items": [
+   "cr-stats-binomial-probabilities-in-context-001"
+  ]
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.859 with note:IAL2018_WMA11A_June2025_Q9_n8"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.002,
+   "shared_numbers": 0,
+   "max_cosine": 0.859,
+   "cosine_source": "note:IAL2018_WMA11A_June2025_Q9_n8"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 19
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.859 with note:IAL2018_WMA11A_June2025_Q9_n8"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

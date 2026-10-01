@@ -1,0 +1,322 @@
+{
+ "id": "cr-3-p2-q08",
+ "blueprint_id": "mk-3-p2-q08",
+ "question_type": "trig-identity-then-solve",
+ "component": "pure",
+ "tier": "challenging",
+ "kind": "mock",
+ "stem": "An architect is designing the glazed north-facing panels of a sawtooth roof for a converted textile mill. To model how much daylight reaches the floor, she uses the function\n$$\\mathrm{f}(\\theta) = (\\sec\\theta + \\operatorname{cosec}\\theta)(\\sin\\theta - \\cos\\theta),$$\nwhere $\\theta$ is measured in degrees and $\\sin\\theta \\neq 0$, $\\cos\\theta \\neq 0$.",
+ "paper": "mock-3-P2",
+ "set": "mock-3",
+ "q_num": 8,
+ "parts": [
+  {
+   "label": "a",
+   "marks": 3,
+   "text": "Prove that\n$$(\\sec\\theta + \\operatorname{cosec}\\theta)(\\sin\\theta - \\cos\\theta) \\equiv -2\\cot 2\\theta$$\nfor all values of $\\theta$ for which both sides are defined. (3)",
+   "command": "prove",
+   "skills": [
+    "reciprocal-trig-functions",
+    "show-that-given-answer"
+   ],
+   "forms": [],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Writes $\\sec\\theta = \\frac{1}{\\cos\\theta}$ and $\\operatorname{cosec}\\theta = \\frac{1}{\\sin\\theta}$, then expands the brackets or combines them into one fraction in $\\sin\\theta$ and $\\cos\\theta$, e.g. $\\frac{\\sin\\theta}{\\cos\\theta} - 1 + 1 - \\frac{\\cos\\theta}{\\sin\\theta}$ or $\\frac{\\sin^2\\theta - \\cos^2\\theta}{\\sin\\theta\\cos\\theta}$",
+     "notes": "The reciprocal definitions must be correct. Using $\\sec\\theta = \\frac{1}{\\sin\\theta}$ scores M0. Allow a slip in the expansion if the method is clear."
+    },
+    {
+     "code": "M1",
+     "for": "Changes numerator and denominator into double angles using correct identities: $\\sin^2\\theta - \\cos^2\\theta = -\\cos 2\\theta$ and $\\sin\\theta\\cos\\theta = \\tfrac{1}{2}\\sin 2\\theta$",
+     "notes": "Both substitutions are needed for this mark. If the sign of $\\cos 2\\theta$ is wrong this is M0, because the identity has been misused."
+    },
+    {
+     "code": "A1*",
+     "for": "Simplifies $\\frac{-\\cos 2\\theta}{\\tfrac{1}{2}\\sin 2\\theta}$ to $-2\\cot 2\\theta$, with every line correct, and ends on the printed result",
+     "notes": "cso. The working must show the step through $\\frac{\\cos 2\\theta}{\\sin 2\\theta}$ or an equivalent. There must be no sign errors anywhere."
+    }
+   ],
+   "alternatives": [
+    {
+     "name": "Way 2: start from the right-hand side",
+     "marks": [
+      {
+       "code": "M1",
+       "for": "Writes $-2\\cot 2\\theta = \\frac{-2\\cos 2\\theta}{\\sin 2\\theta}$ and replaces the double angles with $\\cos^2\\theta - \\sin^2\\theta$ and $2\\sin\\theta\\cos\\theta$"
+      },
+      {
+       "code": "M1",
+       "for": "Obtains $\\frac{\\sin^2\\theta - \\cos^2\\theta}{\\sin\\theta\\cos\\theta}$, factorises the numerator as $(\\sin\\theta - \\cos\\theta)(\\sin\\theta + \\cos\\theta)$ and writes $\\frac{\\sin\\theta + \\cos\\theta}{\\sin\\theta\\cos\\theta}$ as $\\frac{1}{\\cos\\theta} + \\frac{1}{\\sin\\theta}$"
+      },
+      {
+       "code": "A1*",
+       "for": "Rewrites this as $(\\sec\\theta + \\operatorname{cosec}\\theta)(\\sin\\theta - \\cos\\theta)$, with a fully correct chain of reasoning",
+       "notes": "cso"
+      }
+     ]
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$(\\sec\\theta + \\operatorname{cosec}\\theta)(\\sin\\theta - \\cos\\theta) = \\left(\\frac{1}{\\cos\\theta} + \\frac{1}{\\sin\\theta}\\right)(\\sin\\theta - \\cos\\theta) = \\frac{\\sin\\theta}{\\cos\\theta} - 1 + 1 - \\frac{\\cos\\theta}{\\sin\\theta} = \\frac{\\sin^2\\theta - \\cos^2\\theta}{\\sin\\theta\\cos\\theta}$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$\\sin^2\\theta - \\cos^2\\theta = -(\\cos^2\\theta - \\sin^2\\theta) = -\\cos 2\\theta$ and $\\sin\\theta\\cos\\theta = \\tfrac{1}{2}\\sin 2\\theta$, so the expression is $\\frac{-\\cos 2\\theta}{\\tfrac{1}{2}\\sin 2\\theta}$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$= -2\\,\\frac{\\cos 2\\theta}{\\sin 2\\theta} = -2\\cot 2\\theta$, as required.",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "(sec(x) + cosec(x))(sin(x) - cos(x))",
+     "rhs": "-2cot(2x)",
+     "domain": [
+      "0.1",
+      "1.4"
+     ]
+    },
+    {
+     "type": "equals",
+     "lhs": "(sin(x)^2 - cos(x)^2)/(sin(x)cos(x))",
+     "rhs": "-cos(2x)/(sin(2x)/2)",
+     "domain": [
+      "0.1",
+      "1.4"
+     ]
+    }
+   ],
+   "hints": [
+    "Replace $\\sec\\theta$ and $\\operatorname{cosec}\\theta$ with fractions in $\\cos\\theta$ and $\\sin\\theta$, then multiply out the brackets.",
+    "Look for $\\cos^2\\theta - \\sin^2\\theta$ and $\\sin\\theta\\cos\\theta$ in your fraction. Both can be written using $2\\theta$."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 4,
+   "text": "To position the glazing, the architect needs the values of $x$ for which $\\mathrm{f}(x + 70^\\circ) = 3\\sin(2x + 140^\\circ)$.\n\nHence solve, for $0 \\leqslant x < 180^\\circ$,\n$$(\\sec(x + 70^\\circ) + \\operatorname{cosec}(x + 70^\\circ))(\\sin(x + 70^\\circ) - \\cos(x + 70^\\circ)) = 3\\sin(2x + 140^\\circ).$$\nGive each answer in degrees to 1 decimal places. (4)",
+   "command": "solve",
+   "skills": [
+    "use-hence-previous-result",
+    "solve-trig-with-transformed-argument",
+    "solve-trig-equation-in-interval",
+    "accuracy-units-and-rounding"
+   ],
+   "forms": [
+    "dp-1"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Puts $\\theta = x + 70^\\circ$ into the result of (a), so the left-hand side becomes $-2\\cot(2x + 140^\\circ)$ and the equation becomes $-2\\cot(2x+140^\\circ) = 3\\sin(2x+140^\\circ)$ or an equivalent",
+     "notes": "Accept the equation written in terms of a substituted variable, e.g. $-2\\cot u = 3\\sin u$ with $u = 2x + 140^\\circ$."
+    },
+    {
+     "code": "M1",
+     "for": "Writes $\\cot$ as $\\frac{\\cos}{\\sin}$, clears the fraction to get $-2\\cos u = 3\\sin^2 u$, then uses $\\sin^2 u = 1 - \\cos^2 u$ to form the three-term quadratic $3\\cos^2 u - 2\\cos u - 3 = 0$ and solves it to get $\\cos u = \\frac{1 \\pm \\sqrt{10}}{3}$",
+     "notes": "Any correct method for solving the quadratic, including a calculator, is fine once the quadratic is shown. Allow a slip in the coefficients if the method is correct."
+    },
+    {
+     "code": "dM1",
+     "for": "Depends on the M mark. Rejects $\\cos u = \\frac{1+\\sqrt{10}}{3} \\approx 1.39$ because it is greater than 1. Finds $u$ from $\\cos u \\approx -0.7208$ in the shifted range $140^\\circ \\leqslant u < 500^\\circ$, then subtracts $140^\\circ$ and halves to get at least one correct value of $x$",
+     "notes": "The order of undoing must be correct: subtract 140, then divide by 2. Working in $0 \\leqslant u < 360^\\circ$ without reference to the shifted range still earns this mark if one valid $x$ is correctly obtained."
+    },
+    {
+     "code": "A1",
+     "for": "$x = 41.9^\\circ$ and $x = 178.1^\\circ$, with no other values given in $0 \\leqslant x < 180^\\circ$",
+     "notes": "cao. Values that round to these are accepted if more decimal places are given. A1 is withheld if the impossible root is kept, if any extra value such as $x = -6.9^\\circ$ is included, or if $178.1^\\circ$ is missing."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Let $u = 2x + 140^\\circ$. Using (a) with $\\theta = x + 70^\\circ$, so that $2\\theta = u$: $-2\\cot u = 3\\sin u$.",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "$-2\\,\\frac{\\cos u}{\\sin u} = 3\\sin u \\Rightarrow -2\\cos u = 3\\sin^2 u = 3(1 - \\cos^2 u) \\Rightarrow 3\\cos^2 u - 2\\cos u - 3 = 0$, so $\\cos u = \\frac{2 \\pm \\sqrt{4 + 36}}{6} = \\frac{1 \\pm \\sqrt{10}}{3}$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$\\frac{1+\\sqrt{10}}{3} \\approx 1.387 > 1$, which is impossible, so $\\cos u = \\frac{1 - \\sqrt{10}}{3} \\approx -0.72076$. This gives a principal value of $u = 136.117^\\circ$. Since $0 \\leqslant x < 180^\\circ$, the range is $140^\\circ \\leqslant u < 500^\\circ$. The values of $u$ in this range are $360^\\circ - 136.117^\\circ = 223.883^\\circ$ and $360^\\circ + 136.117^\\circ = 496.117^\\circ$. The principal value $136.117^\\circ$ lies outside the range.",
+     "mark": "dM1"
+    },
+    {
+     "step": 4,
+     "working": "$2x = 223.883^\\circ - 140^\\circ = 83.883^\\circ \\Rightarrow x = 41.94^\\circ$; $2x = 496.117^\\circ - 140^\\circ = 356.117^\\circ \\Rightarrow x = 178.06^\\circ$. So $x = 41.9^\\circ$ or $x = 178.1^\\circ$ (1 d.p.).",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "x_1",
+     "expr": "41.9",
+     "form": "dp-1"
+    },
+    {
+     "name": "x_2",
+     "expr": "178.1",
+     "form": "dp-1"
+    }
+   ],
+   "checks": [
+    {
+     "type": "solutions",
+     "equation": "3c^2 - 2c - 3 = 0",
+     "var": "c",
+     "result": [
+      "(1+sqrt(10))/3",
+      "(1-sqrt(10))/3"
+     ]
+    },
+    {
+     "type": "numeric",
+     "expr": "110 - (180/pi)*arccos((1-sqrt(10))/3)/2",
+     "answer": "x_1",
+     "form": "dp-1"
+    },
+    {
+     "type": "numeric",
+     "expr": "110 + (180/pi)*arccos((1-sqrt(10))/3)/2",
+     "answer": "x_2",
+     "form": "dp-1"
+    },
+    {
+     "type": "solutions",
+     "equation": "(sec(x+70) + cosec(x+70))(sin(x+70) - cos(x+70)) = 3 sin(2x+140)",
+     "var": "x",
+     "interval": [
+      0,
+      180
+     ],
+     "closed": [
+      true,
+      false
+     ],
+     "degrees": true,
+     "result": [
+      "41.9",
+      "178.1"
+     ],
+     "form": "dp-1"
+    }
+   ],
+   "hints": [
+    "Replace $\\theta$ in part (a) with $x + 70^\\circ$. What does $2\\theta$ become?",
+    "Once you have $\\cot$ and $\\sin$ of the same angle, aim for a quadratic in $\\cos(2x+140^\\circ)$. Then find the range that $2x + 140^\\circ$ covers when $0 \\leqslant x < 180^\\circ$."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "reciprocal-trig-confused",
+   "text": "A common slip is writing $\\sec\\theta = \\frac{1}{\\sin\\theta}$ and $\\operatorname{cosec}\\theta = \\frac{1}{\\cos\\theta}$. Here that turns the expansion into $1 - \\frac{\\cos\\theta}{\\sin\\theta} + \\frac{\\sin\\theta}{\\cos\\theta} - 1$ with the fractions in the wrong places, and the method mark is lost. A quick way to remember: the 'co-' functions go together, so cosec goes with sin and sec goes with cos.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "compound-angle-sign-error",
+   "text": "$\\cos 2\\theta$ comes from $\\cos(\\theta + \\theta) = \\cos^2\\theta - \\sin^2\\theta$. It is easy to get the sign wrong and write $\\sin^2\\theta - \\cos^2\\theta = \\cos 2\\theta$. If you do, you end at $+2\\cot 2\\theta$, and you lose the second M1 and the A1*.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "double-angle-error",
+   "text": "Many students write $\\sin\\theta\\cos\\theta = \\sin 2\\theta$ and forget the factor $\\tfrac{1}{2}$. It is actually $\\tfrac{1}{2}\\sin 2\\theta$. Without the half you cannot reach the factor $2$ in $-2\\cot 2\\theta$, so the second M1 is lost.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 3,
+   "error_code": "transformed-interval-not-adjusted",
+   "text": "A common mistake is to look for $2x + 140^\\circ$ only between $0^\\circ$ and $360^\\circ$. This gives $136.1^\\circ$ and $223.9^\\circ$, so $x = -6.9^\\circ$ (not allowed) and $41.9^\\circ$, and you miss $x = 178.1^\\circ$. Because $0 \\leqslant x < 180^\\circ$, you need $140^\\circ \\leqslant 2x + 140^\\circ < 500^\\circ$, which includes $496.1^\\circ$. Missing this loses the A1.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 3,
+   "error_code": "impossible-trig-value-kept",
+   "text": "The quadratic has two roots, and $\\cos u = \\frac{1+\\sqrt{10}}{3} \\approx 1.39$ is one of them. Cosine can never be greater than 1, so you must say this root is impossible and reject it. Keeping it, or trying to find its inverse cosine, is a common error and costs you the A1.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "double-angle-error",
+   "text": "Don't expand $\\sin(2x + 140^\\circ)$ into single angles of $x$, and don't write $3\\sin(2x+140^\\circ)$ as $6\\sin(x+70^\\circ)$. That treats $\\sin 2A$ as $2\\sin A$, which is wrong, and it is a common way to lose the M1. Keep $u = 2x + 140^\\circ$ as one angle so that both sides use the same argument.",
+   "says_common": true
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-10-01T00:02:58",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.6333
+ },
+ "gate_results": {
+  "G1": {
+   "pass": false,
+   "errors": [
+    "part a A1*: A1* (printed answer) outside a show-that part",
+    "part a Way 2: start from the right-hand side A1*: A1* (printed answer) outside a show-that part"
+   ],
+   "total_marks": 7
+  },
+  "G7": {
+   "pass": false,
+   "flag": true,
+   "reasons": [
+    "1 word 8-gram(s) also in the reference corpus (not whitelisted)"
+   ],
+   "flags": [
+    "cosine 0.907 with question:GCE2008_6665_June2006_Q6"
+   ],
+   "hit_fields": [
+    "part b text"
+   ],
+   "n_8gram_hits": 1,
+   "hits8": [
+    "the values of x for which f x"
+   ],
+   "max_jaccard": 0.022,
+   "jaccard_source": "P1_Oct2020_Q12",
+   "shared_numbers": 2,
+   "max_cosine": 0.907,
+   "cosine_source": "question:GCE2008_6665_June2006_Q6"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 6,
+   "n_answers": 2,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

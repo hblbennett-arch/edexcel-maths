@@ -118,7 +118,140 @@
     "Decide which tail you need. A lower mean time means $\\mathrm{H}_1$ uses '<'.",
     "The sample mean of 16 times has a smaller spread than a single time: its standard deviation is $\\frac{\\sigma}{\\sqrt{n}}$."
    ],
-   "forms": []
+   "forms": [],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$\\mathrm{H}_0: \\mu = 98$, $\\mathrm{H}_1: \\mu < 98$",
+      "secures": [
+       "B1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "Under $\\mathrm{H}_0$: $\\bar{T} \\sim \\mathrm{N}\\left(98, \\frac{3.2^2}{16}\\right)$, sd $=0.8$; $z = \\frac{96.5-98}{0.8} = -1.875$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$\\mathrm{P}(\\bar{T} < 96.5) = \\mathrm{P}(Z < -1.875) = 0.0304$",
+      "secures": [
+       "A1"
+      ]
+     },
+     {
+      "step": 4,
+      "working": "$0.0304 < 0.05$, so reject $\\mathrm{H}_0$: there is evidence the new plan has lowered the juniors' mean 500 m time. $p = 0.0304$",
+      "secures": [
+       "A1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$\\mathrm{H}_0: \\mu = 98$",
+      "why": "The null hypothesis says the plan has made no difference, so the population mean time stays at the old value of 98 seconds.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$\\mathrm{H}_1: \\mu < 98$",
+      "why": "The coach wants to know if the plan has lowered the mean time, so the alternative is one-tailed, with $\\mu$ below 98. Here $\\mu$ is the population mean time after the plan.",
+      "secures": "B1",
+      "check": "The word 'lowered' gives a one-tailed test with $<$."
+     },
+     {
+      "step": 3,
+      "working": "Under $\\mathrm{H}_0$: $T \\sim \\mathrm{N}(98, 3.2^2)$",
+      "why": "You assume $\\mathrm{H}_0$ is true and the standard deviation is unchanged, so individual times keep the original model.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$\\bar{T} \\sim \\mathrm{N}\\left(98, \\frac{3.2^2}{16}\\right)$",
+      "why": "The test uses a sample mean of 16 times. The mean of such a sample has the same mean, but its variance is the original variance divided by $n=16$.",
+      "secures": null,
+      "check": "The sample mean should vary less than a single time does."
+     },
+     {
+      "step": 5,
+      "working": "$\\text{sd} = \\frac{3.2}{\\sqrt{16}}$",
+      "why": "Take the square root of the variance $\\frac{3.2^2}{16}$ to get the standard deviation of the sample mean.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$\\text{sd} = \\frac{3.2}{4} = 0.8$",
+      "why": "Since $\\sqrt{16}=4$, dividing 3.2 by 4 gives 0.8.",
+      "secures": null,
+      "check": "$0.8 \\times 4 = 3.2$"
+     },
+     {
+      "step": 7,
+      "working": "$z = \\frac{96.5-98}{0.8}$",
+      "why": "You standardise the observed mean 96.5 by subtracting the mean 98 and dividing by the standard deviation 0.8. This lets you use the standard normal distribution.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$z = \\frac{-1.5}{0.8}$",
+      "why": "Work out the top line: $96.5 - 98 = -1.5$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "$z = -1.875$",
+      "why": "Divide $-1.5$ by $0.8$. The negative sign shows the sample mean is below 98.",
+      "secures": null,
+      "check": "$0.8 \\times 1.875 = 1.5$"
+     },
+     {
+      "step": 10,
+      "working": "$\\mathrm{P}(\\bar{T} < 96.5) = \\mathrm{P}(Z < -1.875)$",
+      "why": "The probability of a sample mean this low or lower is the same as the standard normal probability below $z=-1.875$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 11,
+      "working": "$\\mathrm{P}(Z < -1.875) = 0.0304$",
+      "why": "Read this from your calculator's normal distribution function, and give it to 3 significant figures.",
+      "secures": "A1",
+      "check": "It should be small, since $-1.875$ is beyond $-1.645$, which has 5% below it."
+     },
+     {
+      "step": 12,
+      "working": "Compare: $0.0304 < 0.05$",
+      "why": "The test is at the 5% level, so you compare your probability with 0.05. Here it is smaller.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 13,
+      "working": "Reject $\\mathrm{H}_0$. There is evidence at the 5% level that the new plan has lowered the juniors' mean 500 m time. $p = 0.0304$",
+      "why": "Because the probability is below 0.05, the result is significant. You state the conclusion in context, without claiming certainty.",
+      "secures": "A1",
+      "check": null
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:50:22+00:00",
+    "cost_usd": 0.0258,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
   }
  ],
  "pitfalls": [
@@ -462,6 +595,14 @@
      "conclude-test-in-context"
     ]
    }
+  },
+  "GL": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part -: copy check flag: cosine 0.777 with question:GCE2008_6683_June2013_Q4"
+   ],
+   "parts_checked": 1
   }
  },
  "review": {

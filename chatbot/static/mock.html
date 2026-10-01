@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Timed mock</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<style>
+  :root {
+    --primary: #1a365d; --accent: #2b6cb0; --success: #276749; --warning: #c05621; --danger: #c53030;
+    --bg: #f7fafc; --card: #ffffff; --border: #e2e8f0; --text: #2d3748; --muted: #718096; --mark: #805ad5;
+    --hint-bg: #f0fff4; --warn-bg: #fffaf0; --user-bg: #ebf4ff; --ok-bg: #f0fff4; --miss-bg: #fffaf0; --code-bg: #edf2f7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --primary: #90cdf4; --accent: #63b3ed; --success: #68d391; --warning: #f6ad55; --danger: #fc8181;
+      --bg: #171923; --card: #1f2330; --border: #2d3748; --text: #e2e8f0; --muted: #a0aec0; --mark: #b794f4;
+      --hint-bg: #1c2e25; --warn-bg: #2e2518; --user-bg: #1e2a3d; --ok-bg: #1c2e25; --miss-bg: #2e2518; --code-bg: #2a2f3d;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  header { position: sticky; top: 0; z-index: 2; background: var(--primary); color: #fff; padding: 12px 16px;
+           display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) header { background: #102a43; } }
+  header h1 { margin: 0; font-size: 18px; font-weight: 600; }
+  header h1 span { font-weight: 400; opacity: .8; }
+  header a { color: #fff; opacity: .85; font-size: 13px; }
+  #timer { font-variant-numeric: tabular-nums; font-weight: 600; font-size: 18px; background: rgba(255,255,255,.14); border-radius: 14px; padding: 2px 12px; }
+  #timer.low { background: var(--warning); color: #fff; }
+  #timer.zero { background: var(--danger); color: #fff; }
+  #progress { font-size: 13px; opacity: .9; }
+  main { max-width: 860px; margin: 0 auto; padding: 16px 16px 40px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin: 12px 0; }
+  .card h3 { margin: 0 0 8px; font-size: 16px; color: var(--primary); }
+  .card h3 small { color: var(--muted); font-weight: 400; font-size: 13px; }
+  .question { border-left: 4px solid var(--accent); }
+  .script { border-left: 4px solid var(--mark); }
+  .pre { white-space: pre-wrap; }
+  .pre.stem { margin-bottom: 8px; }
+  .picker label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 3px; }
+  select, textarea { width: 100%; font: inherit; color: var(--text); background: var(--card); border: 1px solid var(--border);
+                     border-radius: 8px; padding: 8px 10px; }
+  select:focus, textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+  textarea { min-height: 96px; resize: vertical; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 14.5px; line-height: 1.5; }
+  .hint { color: var(--muted); font-size: 13.5px; margin: 4px 0 8px; }
+  .buttons { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 12px; }
+  button.act { background: var(--accent); color: #fff; border: 0; border-radius: 18px; padding: 8px 18px; font: inherit;
+               font-size: 15px; cursor: pointer; }
+  button.act:disabled { opacity: .45; cursor: default; }
+  button.act.secondary { background: var(--card); color: var(--accent); border: 1px solid var(--accent); }
+  button.act.small { padding: 4px 12px; font-size: 13.5px; }
+  .working { color: var(--muted); font-style: italic; display: flex; align-items: center; gap: 10px; margin: 12px 0; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: pulse 1s infinite alternate; }
+  @keyframes pulse { from { opacity: .2 } to { opacity: 1 } }
+  .warning { background: var(--warn-bg); border: 1px solid var(--warning); border-radius: 8px; padding: 10px 14px; margin: 12px 0; }
+  .rule { background: var(--user-bg); border-left: 4px solid var(--accent); border-radius: 8px; padding: 8px 12px; margin: 10px 0; }
+  .partname { font-size: 13px; color: var(--muted); margin: 14px 0 4px; }
+  .partname b { color: var(--text); }
+  .row { display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: start;
+         border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; margin: 8px 0; }
+  .row.ok { background: var(--ok-bg); border-color: var(--success); }
+  .row.miss { background: var(--miss-bg); border-color: var(--warning); }
+  .chip { display: inline-block; color: #fff; border-radius: 12px; font-size: 12.5px; padding: 2px 10px; min-width: 44px;
+          text-align: center; font-weight: 600; margin-top: 2px; background: var(--mark); }
+  .row.ok .chip { background: var(--success); }
+  .row.miss .chip { background: var(--warning); }
+  .for { min-width: 0; }
+  .for .scheme { font-weight: 600; }
+  .notes { color: var(--muted); font-size: 13.5px; margin-top: 2px; }
+  .evidence { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13.5px; background: var(--code-bg);
+              border-radius: 6px; padding: 6px 9px; margin: 6px 0; white-space: pre-wrap; word-break: break-word; }
+  .evidence span { color: var(--muted); font-family: inherit; }
+  .reason { margin: 4px 0; }
+  .conv { color: var(--muted); font-size: 13.5px; }
+  .conv b { color: var(--text); font-weight: 600; }
+  .earn { background: var(--hint-bg); border-left: 4px solid var(--success); border-radius: 8px; padding: 8px 12px; margin-top: 8px; font-size: 14.5px; }
+  .earn b { color: var(--success); }
+  .badge { display: inline-block; font-size: 12px; border-radius: 10px; padding: 1px 8px; margin-left: 6px; vertical-align: middle;
+           border: 1px solid var(--danger); color: var(--danger); background: var(--card); }
+  .badge.err { border-color: var(--warning); color: var(--warning); }
+  .badge.na { border-color: var(--muted); color: var(--muted); }
+  .result { border-left: 4px solid var(--success); }
+  .result .big { font-size: 26px; font-weight: 600; }
+  .result .stat { display: inline-block; margin: 4px 22px 4px 0; vertical-align: top; }
+  .result .stat span { color: var(--muted); font-size: 13px; display: block; }
+  .grade { font-size: 40px; font-weight: 700; color: var(--primary); line-height: 1; }
+  .scale { position: relative; height: 26px; margin: 14px 0 22px; background: var(--border); border-radius: 6px; }
+  .scale .fill { position: absolute; left: 0; top: 0; bottom: 0; background: var(--accent); border-radius: 6px 0 0 6px; opacity: .55; }
+  .scale .tick { position: absolute; top: -2px; bottom: -2px; width: 2px; background: var(--text); }
+  .scale .tick span { position: absolute; top: 28px; left: -10px; font-size: 12px; color: var(--muted); white-space: nowrap; }
+  .scale .you { position: absolute; top: -8px; width: 0; height: 0; border-left: 7px solid transparent; border-right: 7px solid transparent; border-top: 8px solid var(--danger); margin-left: -7px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  th, td { text-align: left; padding: 6px 8px; border-top: 1px solid var(--border); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: 13px; border-top: 0; }
+  td.n, th.n { text-align: right; white-space: nowrap; }
+  .bars { margin: 8px 0; }
+  .bar { display: grid; grid-template-columns: 150px 1fr 110px; gap: 10px; align-items: center; margin: 5px 0; font-size: 14px; }
+  .bar .track { height: 10px; background: var(--border); border-radius: 5px; overflow: hidden; display: flex; }
+  .bar .fill { height: 100%; background: var(--warning); }
+  .bar .fill.na { background: var(--muted); opacity: .6; }
+  .bar .n { color: var(--muted); font-size: 13px; text-align: right; }
+  .list { margin: 6px 0 0; padding-left: 0; list-style: none; }
+  .list li { padding: 5px 0; border-top: 1px solid var(--border); font-size: 14.5px; }
+  .list li:first-child { border-top: 0; }
+  .list b { color: var(--primary); }
+  .list .def { color: var(--muted); font-size: 13.5px; }
+  .muted { color: var(--muted); }
+  .qhead { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+  .qhead .m { color: var(--muted); font-size: 13.5px; }
+  .answered { color: var(--success); font-size: 12.5px; }
+  details { margin-top: 8px; }
+  summary { cursor: pointer; color: var(--accent); font-size: 14px; }
+  footer { max-width: 860px; margin: 0 auto; padding: 8px 16px 32px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); }
+  .katex-display { overflow-x: auto; overflow-y: hidden; }
+  .katex { font-size: 1.05em; }
+  @media (max-width: 600px) { .bar { grid-template-columns: 100px 1fr 90px; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Timed mock <span>· sit a paper, see where the marks went</span></h1>
+  <span><a href="/learn">Learn →</a> &nbsp; <a href="/mark">Mark my working →</a> &nbsp; <a href="/examiner">Be the examiner →</a> &nbsp;
+    <span id="progress"></span> &nbsp; <span id="timer" hidden>--:--</span></span>
+</header>
+<main id="app">
+  <div id="choose"></div>
+  <div id="start"></div>
+  <div id="paper"></div>
+  <div id="result"></div>
+</main>
+<footer id="foot"></footer>
+<script>
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+function typeset(el) {
+  if (window.renderMathInElement) renderMathInElement(el, {
+    delimiters: [{left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false}], throwOnError: false });
+}
+function store(key, fallback) { try { const v = localStorage.getItem(key); return v === null ? fallback : JSON.parse(v); } catch { return fallback; } }
+function save(key, val) { try { localStorage.setItem(key, JSON.stringify(val)); } catch {} }
+function drop(key) { try { localStorage.removeItem(key); } catch {} }
+const uuid = () => (crypto.randomUUID ? crypto.randomUUID() : "u-" + Math.random().toString(36).slice(2) + Date.now().toString(36));
+let user = store("bte-user", null); if (!user) { user = uuid(); save("bte-user", user); }   // one profile across /mark, /examiner, /mock
+const $ = id => document.getElementById(id);
+const plural = (n, w) => `${n} ${w}${n === 1 ? "" : "s"}`;
+const partName = l => l == null || l === "-" ? "The question" : `Part (${l})`;
+const PROGRESS_KEY = "mock-progress";
+let papers = [], paper = null, state = null, tick = null, submitting = false;
+
+// ---- choose ----------------------------------------------------------------------------------------------
+async function loadPapers() {
+  try {
+    const d = await (await fetch("/api/mock/papers")).json();
+    papers = d.papers || [];
+    $("foot").textContent = (d.disclaimer || "") + " Grade estimates map your score to the published 2026 9MA0 boundaries scaled to this paper; they are a guide, not a prediction. Your working is sent only to this server and its marker; no name or email is stored.";
+    const saved = store(PROGRESS_KEY, null);
+    if (saved && saved.paper_id && papers.some(p => p.id === saved.paper_id)) return resume(saved);
+    renderChoose();
+  } catch (e) {
+    $("choose").innerHTML = `<div class="warning">Couldn't load the papers (${esc(e.message || e)}). Is the server still running?</div>`;
+  }
+}
+function renderChoose() {
+  $("timer").hidden = true; $("progress").textContent = ""; $("paper").innerHTML = ""; $("result").innerHTML = ""; $("start").innerHTML = "";
+  if (!papers.length) { $("choose").innerHTML = `<div class="card question"><h3>No papers yet</h3><div class="muted">No gate-passed items are available to build a paper from.</div></div>`; return; }
+  $("choose").innerHTML = `<div class="card question"><h3>Choose a paper</h3>
+    <div class="picker"><label for="paper-sel">Paper</label>
+    <select id="paper-sel">${papers.map(p => `<option value="${esc(p.id)}">${esc(p.title)} · ${plural(p.marks, "mark")} · ${p.minutes} min · ${plural(p.n_questions, "question")}</option>`).join("")}</select></div>
+    <div class="buttons"><button class="act" id="pick">Show the start screen</button></div></div>`;
+  $("pick").onclick = () => showStart($("paper-sel").value);
+}
+async function showStart(id) {
+  $("start").innerHTML = `<div class="working"><span class="dot"></span>Loading the paper…</div>`;
+  try {
+    const r = await fetch(`/api/mock/paper?id=${encodeURIComponent(id)}`); paper = await r.json();
+    if (!r.ok || paper.error) throw new Error(paper.error || r.statusText);
+  } catch (e) { $("start").innerHTML = `<div class="warning">${esc(e.message || e)}</div>`; return; }
+  const b = paper.boundaries || {};
+  $("start").innerHTML = `<div class="card script"><h3>${esc(paper.title)} <small>· ${esc(paper.board || "")}</small></h3>
+    <div class="result"><span class="stat"><span>Marks</span><b class="big">${paper.marks}</b></span>
+      <span class="stat"><span>Time</span><b class="big">${paper.minutes} min</b></span>
+      <span class="stat"><span>Questions</span><b class="big">${paper.questions.length}</b></span></div>
+    <div class="rule"><b>Rule:</b> type your working, one line per step (use $...$ for maths). Every part is marked against the scheme when you submit; blank parts score 0 and are flagged "not attempted".</div>
+    <div class="hint">Boundaries for this paper (2026, scaled): ${Object.entries(b).map(([g, m]) => `${esc(g)} ${m}`).join(" · ")}. The timer starts when you press Start and the paper is submitted automatically when it reaches zero. A refresh does not lose your answers.</div>
+    <div class="buttons"><button class="act" id="go">Start the paper</button><button class="act secondary" id="back">Choose another</button></div></div>`;
+  $("go").onclick = () => start(paper);
+  $("back").onclick = () => { $("start").innerHTML = ""; };
+}
+
+// ---- sit --------------------------------------------------------------------------------------------------
+function start(p) {
+  state = {paper_id: p.id, started_at: Date.now(), minutes: p.minutes, answers: {}};
+  save(PROGRESS_KEY, state);
+  renderPaper();
+}
+async function resume(saved) {
+  try {
+    const r = await fetch(`/api/mock/paper?id=${encodeURIComponent(saved.paper_id)}`); paper = await r.json();
+    if (!r.ok || paper.error) throw new Error(paper.error || r.statusText);
+  } catch (e) { drop(PROGRESS_KEY); return renderChoose(); }
+  state = saved;
+  renderPaper();
+  if (remaining() <= 0) autoSubmit();
+}
+function remaining() { return state.started_at + state.minutes * 60000 - Date.now(); }
+function renderPaper() {
+  $("choose").innerHTML = ""; $("start").innerHTML = ""; $("result").innerHTML = "";
+  const qs = paper.questions.map(q => `<div class="card question" id="q-${esc(q.item_id)}">
+      <div class="qhead"><h3>Question ${q.q_num} <small>· ${esc(q.title)} · ${plural(q.marks, "mark")}</small></h3></div>
+      ${q.stem ? `<div class="pre stem">${esc(q.stem)}</div>` : ""}
+      ${q.parts.map(pt => `<div class="pre">${pt.label ? `<b>(${esc(pt.label)})</b> ` : ""}${esc(pt.text)}</div>
+        <div class="partname"><b>Your working for ${partName(pt.label).toLowerCase()}</b> · ${plural(pt.marks, "mark")} <span class="answered" data-ans="${esc(q.item_id)}|${esc(pt.key)}"></span></div>
+        <textarea data-item="${esc(q.item_id)}" data-key="${esc(pt.key)}" placeholder="one line per step…">${esc((state.answers[q.item_id] || {})[pt.key] || "")}</textarea>`).join("")}
+    </div>`).join("");
+  $("paper").innerHTML = `<div class="card script"><h3>${esc(paper.title)} <small>· ${plural(paper.marks, "mark")} · ${paper.minutes} min</small></h3>
+      <div class="hint">Type your working, one line per step. Answers are saved in this browser as you type.</div></div>
+    ${qs}
+    <div class="card"><div class="buttons"><button class="act" id="submit">Submit paper</button>
+      <button class="act secondary" id="abandon">Abandon (no marking)</button><span class="hint" id="status" style="margin:0"></span></div></div>`;
+  $("paper").querySelectorAll("textarea").forEach(ta => {
+    ta.oninput = () => { (state.answers[ta.dataset.item] = state.answers[ta.dataset.item] || {})[ta.dataset.key] = ta.value; save(PROGRESS_KEY, state); updateProgress(); };
+  });
+  $("submit").onclick = () => submit(false);
+  $("abandon").onclick = () => { if (confirm("Abandon this paper? Your answers will be discarded and nothing is marked.")) { stopTimer(); drop(PROGRESS_KEY); state = null; renderChoose(); } };
+  typeset($("paper"));
+  updateProgress();
+  $("timer").hidden = false; stopTimer(); tick = setInterval(tickTimer, 500); tickTimer();
+}
+function updateProgress() {
+  const all = paper.questions.flatMap(q => q.parts.map(pt => [q.item_id, pt.key]));
+  const n = all.filter(([i, k]) => ((state.answers[i] || {})[k] || "").trim()).length;
+  $("progress").textContent = `${n}/${all.length} parts answered`;
+  all.forEach(([i, k]) => { const el = document.querySelector(`[data-ans="${i}|${k}"]`); if (el) el.textContent = ((state.answers[i] || {})[k] || "").trim() ? "· answered" : ""; });
+}
+function tickTimer() {
+  if (!state) return;
+  const ms = Math.max(0, remaining()), s = Math.ceil(ms / 1000);
+  $("timer").textContent = `${String(Math.floor(s / 60)).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`;
+  $("timer").className = ms <= 0 ? "zero" : ms < 10 * 60000 ? "low" : "";
+  if (ms <= 0) autoSubmit();
+}
+function stopTimer() { if (tick) clearInterval(tick); tick = null; }
+function autoSubmit() {
+  if (submitting || !state) return;
+  stopTimer();
+  const st = $("status"); if (st) st.textContent = "Time is up: the paper has been submitted for marking.";
+  submit(true);
+}
+
+// ---- submit ---------------------------------------------------------------------------------------------
+async function submit(auto) {
+  if (submitting || !state) return;
+  const answered = Object.values(state.answers).flatMap(a => Object.values(a)).filter(t => (t || "").trim()).length;
+  if (!auto && !confirm(`Submit the paper for marking? ${plural(answered, "part")} answered; blank parts score 0.`)) return;
+  submitting = true; stopTimer();
+  $("paper").querySelectorAll("textarea, button").forEach(el => el.disabled = true);
+  $("result").innerHTML = `<div class="working"><span class="dot"></span>Marking ${plural(answered, "part")} — about 10 seconds each, three at a time.${auto ? " Time was up, so the paper was submitted automatically." : ""}</div>`;
+  $("result").scrollIntoView({behavior: "smooth", block: "start"});
+  const elapsed = Math.round((Date.now() - state.started_at) / 1000);
+  try {
+    const r = await fetch("/api/mock/submit", {method: "POST", headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({user, paper_id: state.paper_id, answers: state.answers, elapsed_seconds: elapsed})});
+    const d = await r.json();
+    if (!r.ok || d.error) throw new Error(d.error || r.statusText);
+    drop(PROGRESS_KEY); state = null; $("timer").hidden = true; $("progress").textContent = "";
+    $("paper").innerHTML = "";
+    renderResult(d, auto);
+  } catch (e) {
+    $("result").innerHTML = `<div class="warning">${esc(e.message || e)} Your answers are still saved in this browser. <button class="act secondary small" onclick="location.reload()">Try again</button></div>`;
+    $("paper").querySelectorAll("textarea, button").forEach(el => el.disabled = false);
+  } finally { submitting = false; }
+}
+
+// ---- results --------------------------------------------------------------------------------------------
+const famText = lost => { const k = Object.keys(lost || {}); return k.length ? k.map(x => `${x} ${lost[x]}`).join(", ") : "none"; };
+function scale(g, out_of, earned) {
+  const b = g.boundaries || {}, pct = m => Math.min(100, Math.max(0, 100 * m / (out_of || 1)));
+  return `<div class="scale"><div class="fill" style="width:${pct(earned)}%"></div>
+    ${Object.entries(b).map(([k, m]) => `<div class="tick" style="left:${pct(m)}%"><span>${esc(k)} ${m}</span></div>`).join("")}
+    <div class="you" style="left:${pct(earned)}%" title="you: ${earned}"></div></div>`;
+}
+function renderResult(d, auto) {
+  const g = d.grade || {};
+  const mins = Math.floor((d.elapsed_seconds || 0) / 60);
+  const fams = Object.entries(d.by_family || {}).sort((a, b) => b[1].lost - a[1].lost);
+  const skills = Object.entries(d.by_skill || {}).filter(([, v]) => v.lost > 0).sort((a, b) => b[1].lost - a[1].lost).slice(0, 8);
+  const bar = (label, v) => { const l = v.available ? 100 * (v.lost - (v.not_attempted || 0)) / v.available : 0, na = v.available ? 100 * (v.not_attempted || 0) / v.available : 0;
+    return `<div class="bar"><span>${esc(label)}</span><div class="track"><div class="fill" style="width:${l}%"></div><div class="fill na" style="width:${na}%"></div></div><span class="n">${v.lost}/${v.available} lost${v.not_attempted ? ` (${v.not_attempted} blank)` : ""}</span></div>`; };
+  const rows = d.questions.map(q => `<tr><td class="n">${q.q_num}</td><td>${esc(q.title)}<div class="notes">${esc(q.band || "")}</div></td>
+      <td class="n">${q.earned}/${q.marks}</td><td>${q.attempted ? esc(famText(q.lost_by_family)) : `<span class="badge na" style="margin:0">not attempted</span>`}</td>
+      <td><a href="/learn?item=${encodeURIComponent(q.item_id)}">Learn this question</a><br><a href="#mk-${esc(q.item_id)}" onclick="document.getElementById('mk-${esc(q.item_id)}').open=true">See the marking</a></td></tr>`).join("");
+  const marking = d.questions.map(q => `<details id="mk-${esc(q.item_id)}" class="card"><summary><b>Question ${q.q_num}</b> · ${esc(q.title)} · ${q.earned}/${q.marks}</summary>
+      ${q.parts.map(pt => `<div class="partname"><b>${partName(pt.label)}</b> · ${pt.earned}/${pt.marks} marks${pt.attempted ? ` · lost by family: ${esc(famText(pt.lost_by_family))}${pt.implied_positions.length ? ` (${pt.implied_positions.length} through dependency)` : ""}` : ""}
+          ${!pt.attempted ? `<span class="badge na">not attempted</span>` : ""}${pt.error ? `<span class="badge">${esc(pt.error)}</span>` : ""}</div>
+        ${pt.lines && pt.lines.length ? `<div class="evidence"><span>you wrote · </span>${pt.lines.map(esc).join("\n")}</div>` : ""}
+        ${pt.decisions.map(renderRow).join("")}`).join("")}
+      <div class="hint" style="margin-top:8px"><a href="/learn?item=${encodeURIComponent(q.item_id)}">Learn this question →</a> <span class="muted">· solution at three depths, mark scheme, pitfalls</span></div></details>`).join("");
+  $("result").innerHTML = `
+    <div class="card result"><h3>${esc(d.title)} <small>· ${mins} min used of ${d.minutes}${auto ? " · time ran out" : ""}</small></h3>
+      <span class="stat"><span>Total</span><b class="big">${d.earned}/${d.marks}</b></span>
+      <span class="stat"><span>Estimated grade</span><span class="grade">${esc(g.grade || "–")}</span></span>
+      <span class="stat"><span>Scaled to 300</span><b class="big">${g.scaled_300 ?? "–"}</b></span>
+      ${g.next_grade ? `<span class="stat"><span>To the next boundary</span><b class="big">${g.marks_to_next}</b> mark${g.marks_to_next === 1 ? "" : "s"} to ${esc(g.next_grade)}</span>` : ""}
+      ${scale(g, d.marks, d.earned)}
+      <div class="notes">${esc(g.basis || "")}. ${d.parts_attempted}/${d.parts_total} parts attempted; ${plural(d.marker_calls, "marker call")}${d.cost_usd ? `, $${Number(d.cost_usd).toFixed(3)}` : ""}.</div>
+      <div class="buttons"><button class="act secondary" onclick="renderChoose()">Sit another paper</button></div></div>
+    <div class="card"><h3>Question by question</h3><table><thead><tr><th class="n">Q</th><th>Question</th><th class="n">Marks</th><th>Lost by family</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>
+    <div class="card"><h3>Where the marks went</h3>
+      <div class="hint">By mark family (grey = not attempted)</div><div class="bars">${fams.map(([k, v]) => bar(k, v)).join("") || `<span class="muted">Nothing marked.</span>`}</div>
+      <div class="hint" style="margin-top:12px">By skill</div>${skills.length ? `<div class="bars">${skills.map(([s, v]) => bar(v.title || s, v)).join("")}</div>` : `<div class="muted">No skill lost a mark.</div>`}
+      <div class="hint" style="margin-top:12px">Top error codes</div>
+      ${d.top_error_codes.length ? `<ul class="list">${d.top_error_codes.map(c => `<li><b>${esc(c.code)}</b> · ${plural(c.marks, "mark")}<div class="def">${esc(c.definition || "")}</div></li>`).join("")}</ul>` : `<div class="muted">No coded slips in the attempted parts.</div>`}
+    </div>
+    <h3 style="color:var(--primary);margin:18px 0 0">The marking, part by part</h3>${marking}`;
+  typeset($("result"));
+  $("result").scrollIntoView({behavior: "smooth", block: "start"});
+}
+function renderRow(x) {
+  const flags = (x.check_this ? `<span class="badge" title="${esc(x.self_contradiction ? "the reason contradicts the code" : x.overridden ? "the marker awarded it but the dependency chain withholds it" : "low marker confidence")}">check this one</span>` : "")
+              + (x.error_code ? `<span class="badge err" title="${esc(x.error_definition || "")}">${esc(x.error_code)}</span>` : "");
+  return `<div class="row ${x.awarded ? "ok" : "miss"}">
+    <span class="chip">${esc(x.code)}</span>
+    <div class="for">
+      <div><span class="scheme">${esc(x.scheme_code)} for:</span> ${esc(x.for)}${x.notes ? `<span class="notes"> (${esc(x.notes)})</span>` : ""}${flags}</div>
+      <div class="evidence"><span>evidence · </span>${esc(x.evidence)}</div>
+      <div class="reason">${esc(x.reason)}</div>
+      ${x.convention_short ? `<div class="conv"><b>${esc(x.awarded ? "Why this mark exists" : "Convention")}:</b> ${esc(x.convention_short)}</div>` : ""}
+      ${!x.awarded && x.rewrite_to_earn ? `<div class="earn"><b>Write this to earn it:</b> ${esc(x.rewrite_to_earn)}</div>` : ""}
+      ${x.error_definition && !x.awarded ? `<div class="notes">${esc(x.error_code)}: ${esc(x.error_definition)}</div>` : ""}
+      <div class="notes">confidence ${Math.round((x.confidence || 0) * 100)}%${x.overridden ? " · overridden by the dependency chain" : ""}${x.missing ? " · the marker gave no decision for this mark" : ""}</div>
+    </div></div>`;
+}
+window.addEventListener("load", loadPapers);
+</script>
+</body>
+</html>

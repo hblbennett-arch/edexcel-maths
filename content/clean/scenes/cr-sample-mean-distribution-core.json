@@ -1,0 +1,222 @@
+{
+ "item_id": "cr-sample-mean-distribution-core",
+ "applicable": true,
+ "reason": "Shading the lower tail of the distribution of the sample mean shows why 96.5 is unusual for a mean of 16 times but not for one rower.",
+ "scenes": [
+  {
+   "id": "cr-sample-mean-distribution-core::-::1",
+   "part": null,
+   "title": "Where does a sample mean of 96.5 sit?",
+   "purpose": "See that the mean of 16 times has a much narrower distribution than a single time, so 96.5 falls in the lower 5% tail and the null hypothesis is rejected.",
+   "approach": "graphical",
+   "board": {
+    "x": [
+     90,
+     106
+    ],
+    "y": [
+     -0.06,
+     0.6
+    ],
+    "axis": true,
+    "grid": false,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "m",
+     "label": "observed sample mean",
+     "min": 94,
+     "max": 98,
+     "step": 0.05,
+     "value": 96.5
+    }
+   ],
+   "elements": [
+    {
+     "type": "function",
+     "id": "f",
+     "expr": "exp(-((x-98)^2)/(2*0.8^2))/(0.8*sqrt(2*pi))",
+     "color": "primary",
+     "label": "mean of 16"
+    },
+    {
+     "type": "function",
+     "id": "g",
+     "expr": "exp(-((x-98)^2)/(2*3.2^2))/(3.2*sqrt(2*pi))",
+     "color": "muted",
+     "dash": true,
+     "label": "one rower"
+    },
+    {
+     "type": "integral",
+     "id": "R",
+     "of": "f",
+     "from": "90",
+     "to": "m",
+     "color": "warning",
+     "opacity": 0.4
+    },
+    {
+     "type": "vline",
+     "id": "crit",
+     "at": "96.684",
+     "color": "success"
+    },
+    {
+     "type": "vline",
+     "id": "obs",
+     "at": "m",
+     "color": "secondary"
+    },
+    {
+     "type": "text",
+     "id": "t1",
+     "x": "99",
+     "y": "0.5",
+     "value": "Sample mean = {m}"
+    },
+    {
+     "type": "text",
+     "id": "t2",
+     "x": "99",
+     "y": "0.44",
+     "value": "Shaded area = {area(R)}"
+    },
+    {
+     "type": "text",
+     "id": "t3",
+     "x": "99",
+     "y": "0.38",
+     "value": "Compare with 0.05"
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "Under $H_0: \\mu = 98$ (with $H_1: \\mu < 98$) the mean of 16 times follows a narrow curve centred on $98$. The dashed curve is a single rower, $\\mathrm{N}(98, 3.2^2)$. This is the B1 for the hypotheses.",
+     "set": {
+      "m": 98
+     },
+     "show": [
+      "f",
+      "g"
+     ]
+    },
+    {
+     "n": 2,
+     "text": "The mean of 16 times has standard deviation $\\frac{3.2}{\\sqrt{16}} = 0.8$, so the solid curve is much narrower than the dashed one. This is the M1; using the dashed curve instead is the sample-mean-sd-not-scaled pitfall.",
+     "highlight": [
+      "f",
+      "g"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "Set the slider to $96.5$. The standardised value is $z = \\frac{96.5-98}{0.8} = -1.875$, and the shaded lower tail reads about $0.0304$. This is the A1 for the probability; the green line marks the 5% cut-off at about $96.68$.",
+     "set": {
+      "m": 96.5
+     },
+     "show": [
+      "R",
+      "obs",
+      "crit"
+     ],
+     "highlight": [
+      "R"
+     ]
+    },
+    {
+     "n": 4,
+     "text": "Drag the slider towards $98$: the shaded area passes $0.05$ when the mean reaches about $96.68$. Since $96.5$ is below this, $0.0304 < 0.05$, so you reject $H_0$ and conclude that there is evidence the new plan has lowered the mean 500 m time. This is the final A1.",
+     "highlight": [
+      "obs",
+      "crit"
+     ]
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "marks": [
+     "B1",
+     "M1",
+     "A1"
+    ],
+    "pitfalls": [
+     "sample-mean-sd-not-scaled",
+     "actual-significance-level-error"
+    ]
+   },
+   "guide": {
+    "what_you_see": "Two bell curves centred on $98$: a narrow solid one for the mean $\\bar{T}$ of 16 juniors' times and a wide dashed one for a single rower's time $T$. A vertical line marks your observed sample mean, and the area to its left under the narrow curve is shaded.",
+    "legend": [
+     {
+      "id": "f",
+      "meaning": "The distribution of the sample mean $\\bar{T}$ of 16 times under $\\mathrm{H}_0$: $\\mathrm{N}\\left(98, \\frac{3.2^2}{16}\\right)$, standard deviation $0.8$ (labelled 'mean of 16')."
+     },
+     {
+      "id": "g",
+      "meaning": "The dashed distribution of a single rower's time, $T \\sim \\mathrm{N}(98, 3.2^2)$ (labelled 'one rower'); much wider than $f$."
+     },
+     {
+      "id": "R",
+      "meaning": "The shaded lower-tail area under $f$ from the left edge up to the slider value $m$; this is $\\mathrm{P}(\\bar{T} < m)$, the probability your decision is based on."
+     },
+     {
+      "id": "crit",
+      "meaning": "The green vertical line at about $96.684$, the 5% cut-off: the area to its left under $f$ is $0.05$."
+     },
+     {
+      "id": "obs",
+      "meaning": "The vertical line at the observed sample mean $m$ set by the slider."
+     }
+    ],
+    "interact": [
+     {
+      "control": "m",
+      "kind": "slider",
+      "do": "Drag the slider between $94$ and $98$, first setting it to $96.5$, then sliding it towards $98$ and back.",
+      "watch": "At $m=96.5$ the shaded area reads about $0.0304$ (corresponding to $z=-1.875$). As $m$ rises the area grows, and it passes $0.05$ as the line $obs$ crosses the green cut-off near $96.68$; at $m=98$ it is $0.5$."
+     }
+    ],
+    "question_link": {
+     "part": null,
+     "marks": [
+      "B1",
+      "M1",
+      "A1"
+     ],
+     "text": "The solid curve $f$ is the distribution of $\\bar{T}$ under $\\mathrm{H}_0: \\mu=98$ with standard deviation $0.8$ (the B1 and M1 steps), and the shaded area to the left of the observed mean $96.5$ is the $\\mathrm{P}(\\bar{T}<96.5)\\approx 0.0304$ of the A1. Seeing it lie beyond the green 5% cut-off, so $0.0304<0.05$, shows why $\\mathrm{H}_0$ is rejected in the final A1."
+    },
+    "read_off": [
+     "'Sample mean = m' shows the observed mean time in seconds of the 16 juniors; it is $96.5$ in the question.",
+     "'Shaded area = …' shows $\\mathrm{P}(\\bar{T}<m)$ under $\\mathrm{N}(98,0.8^2)$; at $m=96.5$ it is about $0.0304$, to compare with the significance level $0.05$."
+    ]
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0235,
+    "attempts": 1,
+    "gate": {
+     "pass": true,
+     "errors": []
+    },
+    "generated_at": "2026-09-30T23:12:58"
+   }
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:51:24",
+ "cost_usd": 0.0813,
+ "attempts": 2,
+ "checks": {
+  "pass": true,
+  "errors": [],
+  "n_scenes": 1
+ }
+}

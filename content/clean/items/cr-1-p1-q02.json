@@ -1,0 +1,317 @@
+{
+ "id": "cr-1-p1-q02",
+ "blueprint_id": "mk-1-p1-q02",
+ "question_type": "binomial-expansion-and-approximation",
+ "component": "pure",
+ "tier": "accessible",
+ "kind": "mock",
+ "stem": "The function $\\mathrm{f}$ is given by $\\mathrm{f}(x) = \\dfrac{1}{\\sqrt{9-2x}}$, for $|x| < \\frac{9}{2}$.",
+ "paper": "mock-1-P1",
+ "set": "mock-1",
+ "q_num": 2,
+ "parts": [
+  {
+   "label": "a",
+   "marks": 2,
+   "command": "find",
+   "forms": [
+    "simplest-form"
+   ],
+   "skills": [
+    "binomial-expansion-terms"
+   ],
+   "text": "Find the constant term, the term in $x$ and the term in $x^2$ of the binomial series for $\\mathrm{f}(x)$. Write each coefficient in its simplest form. (2)",
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Writes $\\mathrm{f}(x)$ as $9^{-\\frac12}\\left(1-\\frac{2x}{9}\\right)^{-\\frac12}$, i.e. $\\frac13\\left(1-\\frac{2x}{9}\\right)^{-\\frac12}$, and expands the bracket with the correct structure $1 + \\left(-\\tfrac12\\right)\\left(-\\tfrac{2x}{9}\\right) + \\frac{\\left(-\\frac12\\right)\\left(-\\frac32\\right)}{2!}\\left(-\\tfrac{2x}{9}\\right)^2$",
+     "notes": "The factor $9^{-\\frac12}$ (or $\\frac13$) must appear somewhere. Allow a sign slip or an unsquared bracket in the $x^2$ term, as long as the coefficient $\\frac{(-\\frac12)(-\\frac32)}{2}$ is right. Also allow a direct expansion $9^{-\\frac12} + (-\\tfrac12)9^{-\\frac32}(-2x) + \\frac{(-\\frac12)(-\\frac32)}{2}9^{-\\frac52}(-2x)^2$."
+    },
+    {
+     "code": "A1",
+     "for": "$\\frac13 + \\frac{1}{27}x + \\frac{1}{162}x^2$",
+     "depends_on": "M1",
+     "notes": "cao. All three coefficients must be fully simplified. isw once the correct three terms have been seen."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\mathrm{f}(x) = (9-2x)^{-\\frac12} = 9^{-\\frac12}\\left(1-\\frac{2x}{9}\\right)^{-\\frac12} = \\frac13\\left(1-\\frac{2x}{9}\\right)^{-\\frac12}$",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "$\\left(1-\\frac{2x}{9}\\right)^{-\\frac12} = 1 + \\left(-\\tfrac12\\right)\\left(-\\tfrac{2x}{9}\\right) + \\frac{\\left(-\\frac12\\right)\\left(-\\frac32\\right)}{2}\\left(-\\tfrac{2x}{9}\\right)^2 + \\dots = 1 + \\frac{x}{9} + \\frac38\\cdot\\frac{4x^2}{81} + \\dots = 1 + \\frac{x}{9} + \\frac{x^2}{54} + \\dots$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$\\mathrm{f}(x) = \\frac13\\left(1 + \\frac{x}{9} + \\frac{x^2}{54}\\right) = \\frac13 + \\frac{1}{27}x + \\frac{1}{162}x^2 + \\dots$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "c0",
+     "expr": "1/3",
+     "form": "exact"
+    },
+    {
+     "name": "c1",
+     "expr": "1/27",
+     "form": "exact"
+    },
+    {
+     "name": "c2",
+     "expr": "1/162",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "substitute",
+     "expr": "(9-2x)^(-1/2)",
+     "at": {
+      "x": 0
+     },
+     "answer": "c0"
+    },
+    {
+     "type": "derivative",
+     "f": "(9-2x)^(-1/2)",
+     "var": "x",
+     "result": "(9-2x)^(-3/2)"
+    },
+    {
+     "type": "substitute",
+     "expr": "(9-2x)^(-3/2)",
+     "at": {
+      "x": 0
+     },
+     "answer": "c1"
+    },
+    {
+     "type": "derivative",
+     "f": "(9-2x)^(-1/2)",
+     "var": "x",
+     "order": 2,
+     "result": "3(9-2x)^(-5/2)"
+    },
+    {
+     "type": "substitute",
+     "expr": "(3/2)(9-2x)^(-5/2)",
+     "at": {
+      "x": 0
+     },
+     "answer": "c2"
+    }
+   ],
+   "hints": [
+    "Before you expand, take out a factor so that the bracket starts with 1: $9-2x = 9\\left(1-\\frac{2x}{9}\\right)$.",
+    "Remember that the factor 9 must also be raised to the power $-\\frac12$."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 2,
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "multiply-series-and-truncate",
+    "use-hence-previous-result"
+   ],
+   "text": "Let $\\mathrm{g}(x) = \\dfrac{3+4x}{\\sqrt{9-2x}}$, for $|x| < \\frac{9}{2}$. Using your answer to part (a), find the series for $\\mathrm{g}(x)$ as far as the term in $x^2$. (2)",
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Writes $\\mathrm{g}(x) = (3+4x)\\,\\mathrm{f}(x)$, multiplies $(3+4x)$ by their three-term series from (a), and collects the constant, $x$ and $x^2$ terms",
+     "ft_of": "a",
+     "notes": "Must have at least two correct $x^2$ contributions from their series, e.g. $3\\cdot\\frac{1}{162}x^2$ and $4x\\cdot\\frac{1}{27}x$. Terms in $x^3$ may be seen but should not be included in the final answer."
+    },
+    {
+     "code": "A1",
+     "for": "$1 + \\frac{13}{9}x + \\frac16x^2$",
+     "depends_on": "M1",
+     "notes": "cao. oe for exact equivalents, e.g. $1 + \\frac{13x}{9} + \\frac{x^2}{6}$. If an $x^3$ term is kept in the final answer, A0."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\mathrm{g}(x) = (3+4x)\\,\\mathrm{f}(x) = (3+4x)\\left(\\frac13 + \\frac{1}{27}x + \\frac{1}{162}x^2 + \\dots\\right)$",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "$= 1 + \\frac19x + \\frac{1}{54}x^2 + \\frac43x + \\frac{4}{27}x^2 + \\dots$ (the $\\frac{4}{162}x^3$ term is ignored)",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$= 1 + \\left(\\frac19 + \\frac{12}{9}\\right)x + \\left(\\frac{1}{54} + \\frac{8}{54}\\right)x^2 = 1 + \\frac{13}{9}x + \\frac16x^2$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "d0",
+     "expr": "1",
+     "form": "exact"
+    },
+    {
+     "name": "d1",
+     "expr": "13/9",
+     "form": "exact"
+    },
+    {
+     "name": "d2",
+     "expr": "1/6",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "(3+4x)(1/3 + x/27 + x^2/162) - 2x^3/81",
+     "rhs": "1 + 13x/9 + x^2/6"
+    },
+    {
+     "type": "substitute",
+     "expr": "(3+4x)(9-2x)^(-1/2)",
+     "at": {
+      "x": 0
+     },
+     "answer": "d0"
+    },
+    {
+     "type": "substitute",
+     "expr": "4(9-2x)^(-1/2) + (3+4x)(9-2x)^(-3/2)",
+     "at": {
+      "x": 0
+     },
+     "answer": "d1"
+    },
+    {
+     "type": "derivative",
+     "f": "(3+4x)(9-2x)^(-1/2)",
+     "var": "x",
+     "result": "4(9-2x)^(-1/2) + (3+4x)(9-2x)^(-3/2)"
+    },
+    {
+     "type": "substitute",
+     "expr": "(1/2)(8(9-2x)^(-3/2) + 3(3+4x)(9-2x)^(-5/2))",
+     "at": {
+      "x": 0
+     },
+     "answer": "d2"
+    }
+   ],
+   "hints": [
+    "Write $\\mathrm{g}(x)$ as $(3+4x)$ multiplied by $\\mathrm{f}(x)$.",
+    "The $x^2$ term comes from two products: the constant times the $x^2$ term and the $x$ term times the $x$ term."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "binomial-negative-term-sign-error",
+   "text": "The quantity inside the bracket is $-\\frac{2x}{9}$, not $+\\frac{2x}{9}$. If you drop the minus sign you get $1 - \\frac{x}{9} + \\dots$, so your $x$ coefficient comes out as $-\\frac{1}{27}$ and you lose the A1. This is a common slip. Here the two negatives multiply, so every term is positive.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "binomial-factor-not-taken-out",
+   "text": "A common error is to expand $(9-2x)^{-\\frac12}$ as if it were $(1-2x)^{-\\frac12}$, or to take out 9 but then multiply by 9, or by 3, instead of by $9^{-\\frac12} = \\frac13$. Either way the structure is wrong and the M1 is lost.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "binomial-coefficient-error",
+   "text": "The $x^2$ coefficient uses $\\frac{n(n-1)}{2!}$ with $n = -\\frac12$, giving $\\frac{(-\\frac12)(-\\frac32)}{2} = \\frac38$. Using $n-1 = +\\frac12$, or forgetting to divide by $2!$, is common and costs you the M1.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "truncation-error",
+   "text": "When you multiply $4x$ by $\\frac{1}{162}x^2$ you get an $x^3$ term, $\\frac{2}{81}x^3$. It lies beyond the accuracy of your series, so leave it out. Keeping it in your final answer loses the A1. Also make sure you don't miss the $4x \\cdot \\frac{1}{27}x$ contribution to the $x^2$ term.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "binomial-negative-term-sign-error",
+   "text": "If your series from (a) had alternating signs, $\\frac13 - \\frac{1}{27}x + \\dots$, then multiplying by $(3+4x)$ gives an $x$ coefficient of $\\frac{11}{9}$ instead of $\\frac{13}{9}$, and the A1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "binomial-factor-not-taken-out",
+   "text": "If you used a constant factor of 3 instead of $\\frac13$ in part (a), the constant term of $\\mathrm{g}(x)$ comes out as 9 rather than 1. A quick check: $\\mathrm{g}(0) = \\frac{3}{\\sqrt9} = 1$.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:32:45",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.3202
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 4
+  },
+  "G7": {
+   "pass": false,
+   "flag": true,
+   "reasons": [
+    "3 word 8-gram(s) also in the reference corpus (not whitelisted)"
+   ],
+   "flags": [
+    "cosine 0.903 with part:GCE2008_6666_June2011_Q2:"
+   ],
+   "hit_fields": [
+    "part a text",
+    "part b text"
+   ],
+   "n_8gram_hits": 3,
+   "hits8": [
+    "as far as the term in x 2",
+    "the term in x and the term in",
+    "x as far as the term in x"
+   ],
+   "max_jaccard": 0.041,
+   "jaccard_source": "GCE2008_6666_June2010_Q5",
+   "shared_numbers": 0,
+   "max_cosine": 0.903,
+   "cosine_source": "part:GCE2008_6666_June2011_Q2:"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 10,
+   "n_answers": 6,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

@@ -71,7 +71,161 @@
     "Divide both sides by $y(6-y)$ and by $x$, so that $y$ appears only on the $\\mathrm{d}y$ side.",
     "You can't integrate $\\frac{1}{y(6-y)}$ directly. Split it into partial fractions first."
    ],
-   "forms": []
+   "forms": [],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$\\dfrac{1}{y(6-y)}=\\dfrac16\\left(\\dfrac1y+\\dfrac1{6-y}\\right)$",
+      "secures": [
+       "B1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$\\displaystyle\\int\\frac16\\left(\\frac1y+\\frac1{6-y}\\right)\\mathrm{d}y=\\int\\frac kx\\,\\mathrm{d}x$, so $\\frac16\\ln y-\\frac16\\ln(6-y)=k\\ln x+c_1$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$\\ln y-\\ln(6-y)=6k\\ln x+6c_1$, so $\\ln\\left(\\dfrac{y}{6-y}\\right)=6k\\ln x+c$ with $c=6c_1$",
+      "secures": [
+       "A1*"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$x\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=ky(6-y)$",
+      "why": "This is the equation you are given. Your plan is to get all the $y$ terms on one side and all the $x$ terms on the other (separating the variables).",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$\\dfrac{1}{y(6-y)}\\,\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\dfrac{k}{x}$",
+      "why": "You divide both sides by $y(6-y)$ and by $x$, so the $y$ terms are on the left and the $x$ terms on the right.",
+      "secures": null,
+      "check": "Multiply back by $xy(6-y)$ to recover the original."
+     },
+     {
+      "step": 3,
+      "working": "$\\displaystyle\\int\\frac{1}{y(6-y)}\\,\\mathrm{d}y=\\int\\frac{k}{x}\\,\\mathrm{d}x$",
+      "why": "You multiply by $\\mathrm{d}x$ so each side can be integrated with respect to its own variable.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$\\dfrac{1}{y(6-y)}=\\dfrac{P}{y}+\\dfrac{Q}{6-y}$",
+      "why": "The left integrand cannot be integrated directly, so you split it into partial fractions (simpler fractions that add to it).",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$1=P(6-y)+Qy$",
+      "why": "You multiply both sides by $y(6-y)$ to clear the denominators.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "At $y=0$: $1=6P$, so $P=\\dfrac16$",
+      "why": "Putting $y=0$ removes the $Q$ term, which leaves $P$ on its own.",
+      "secures": null,
+      "check": "Substitute $y=0$ in $P(6-y)+Qy$ to get $6P$."
+     },
+     {
+      "step": 7,
+      "working": "At $y=6$: $1=6Q$, so $Q=\\dfrac16$",
+      "why": "Putting $y=6$ removes the $P$ term, which leaves $Q$ on its own.",
+      "secures": null,
+      "check": "Check $\\frac16(6-y)+\\frac16y=1$."
+     },
+     {
+      "step": 8,
+      "working": "$\\dfrac{1}{y(6-y)}=\\dfrac16\\left(\\dfrac1y+\\dfrac1{6-y}\\right)$",
+      "why": "You put $P$ and $Q$ back into the split and take out the common factor $\\frac16$.",
+      "secures": "B1",
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "$\\displaystyle\\int\\frac16\\left(\\frac1y+\\frac1{6-y}\\right)\\mathrm{d}y=\\int\\frac kx\\,\\mathrm{d}x$",
+      "why": "You replace the left integrand by its split form.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$\\displaystyle\\int\\frac1y\\,\\mathrm{d}y=\\ln y$",
+      "why": "The integral of $\\frac1y$ is $\\ln y$. You can drop the modulus signs because $y>0$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 11,
+      "working": "$\\displaystyle\\int\\frac1{6-y}\\,\\mathrm{d}y=-\\ln(6-y)$",
+      "why": "The inner function $6-y$ has derivative $-1$, so a minus sign appears. You keep $6-y>0$ because $y<6$.",
+      "secures": null,
+      "check": "Differentiate $-\\ln(6-y)$ to get $\\frac{1}{6-y}$."
+     },
+     {
+      "step": 12,
+      "working": "$\\displaystyle\\int\\frac kx\\,\\mathrm{d}x=k\\ln x+c_1$",
+      "why": "The integral of $\\frac1x$ is $\\ln x$, with $x>0$. You add one constant $c_1$ to cover both sides.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 13,
+      "working": "$\\dfrac16\\ln y-\\dfrac16\\ln(6-y)=k\\ln x+c_1$",
+      "why": "You put the three integrals together, keeping the factor $\\frac16$.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 14,
+      "working": "$\\ln y-\\ln(6-y)=6k\\ln x+6c_1$",
+      "why": "You multiply every term by 6 to remove the fractions.",
+      "secures": null,
+      "check": "Every term, including $c_1$, has been multiplied by 6."
+     },
+     {
+      "step": 15,
+      "working": "$\\ln\\left(\\dfrac{y}{6-y}\\right)=6k\\ln x+6c_1$",
+      "why": "You use $\\ln a-\\ln b=\\ln\\frac ab$ to combine the two logs on the left.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 16,
+      "working": "$c=6c_1$",
+      "why": "$6c_1$ is just another arbitrary constant, so you rename it $c$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 17,
+      "working": "$\\ln\\left(\\dfrac{y}{6-y}\\right)=6k\\ln x+c$",
+      "why": "You replace $6c_1$ by $c$, which gives the printed result.",
+      "secures": "A1*",
+      "check": null
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:49:47+00:00",
+    "cost_usd": 0.0304,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
   },
   {
    "label": "b",
@@ -232,7 +386,231 @@
    ],
    "forms": [
     "in-the-form"
-   ]
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$x=1,y=1$: $\\ln\\frac15 = 0 + c$, so $c=-\\ln 5$",
+      "secures": [
+       "B1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$x=25,y=3$: $0 = 6k\\ln 25 - \\ln 5$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$12k\\ln 5=\\ln 5$ using $\\ln 25 = 2\\ln 5$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 4,
+      "working": "$k=\\frac1{12}$",
+      "secures": [
+       "A1"
+      ]
+     },
+     {
+      "step": 5,
+      "working": "$\\frac{y}{6-y}=\\frac{\\sqrt x}{5}$, so $5y=6\\sqrt x - y\\sqrt x$, $y(5+\\sqrt x)=6\\sqrt x$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 6,
+      "working": "$y=\\dfrac{6x^{1/2}}{5+x^{1/2}}$, so $k=\\frac1{12}$, $c=-\\ln 5$, $A=6$, $B=5$, $n=\\frac12$",
+      "secures": [
+       "A1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "At $x=1$, $y=1$: $\\ln\\left(\\frac{1}{6-1}\\right)=6k\\ln 1 + c$",
+      "why": "You substitute the first pair of values into the result from part (a) to find the constant $c$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$\\ln\\frac15 = 6k\\times 0 + c$",
+      "why": "Since $\\ln 1 = 0$, the term containing $k$ disappears.",
+      "secures": null,
+      "check": "$\\ln 1=0$ always."
+     },
+     {
+      "step": 3,
+      "working": "$c=\\ln\\frac15$",
+      "why": "What is left is $c$ on its own.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$c=-\\ln 5$",
+      "why": "Because $\\ln\\frac15 = \\ln 5^{-1} = -\\ln 5$, you can write $c$ in this neater form.",
+      "secures": "B1",
+      "check": "$e^{-\\ln 5}=\\frac15$."
+     },
+     {
+      "step": 5,
+      "working": "At $x=25$, $y=3$: $\\ln\\left(\\frac{3}{6-3}\\right)=6k\\ln 25 - \\ln 5$",
+      "why": "You substitute the second pair of values, with your $c$, to get an equation containing only $k$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$\\ln 1 = 6k\\ln 25 - \\ln 5$",
+      "why": "Evaluate $\\frac{3}{3}=1$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "$0 = 6k\\ln 25 - \\ln 5$",
+      "why": "Since $\\ln 1 = 0$, the left side becomes zero.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$6k\\ln 25 = \\ln 5$",
+      "why": "You add $\\ln 5$ to both sides to isolate the $k$ term.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "$\\ln 25 = \\ln 5^2 = 2\\ln 5$",
+      "why": "Writing 25 as $5^2$ and using the power rule for logs lets you compare with $\\ln 5$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$6k\\times 2\\ln 5 = \\ln 5$",
+      "why": "You replace $\\ln 25$ by $2\\ln 5$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 11,
+      "working": "$12k\\ln 5 = \\ln 5$",
+      "why": "Multiply $6\\times 2$.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 12,
+      "working": "$12k = 1$",
+      "why": "You divide both sides by $\\ln 5$, which is not zero.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 13,
+      "working": "$k=\\frac1{12}$",
+      "why": "You divide both sides by 12.",
+      "secures": "A1",
+      "check": "$6k\\ln25=\\frac12\\times 2\\ln5=\\ln 5$. ✓"
+     },
+     {
+      "step": 14,
+      "working": "$6k = 6\\times\\frac1{12}=\\frac12$",
+      "why": "You need the power of $\\ln x$ in the general solution.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 15,
+      "working": "$\\ln\\left(\\frac{y}{6-y}\\right)=\\frac12\\ln x - \\ln 5$",
+      "why": "You substitute $6k$ and $c$ into the result from part (a).",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 16,
+      "working": "$\\ln\\left(\\frac{y}{6-y}\\right)=\\ln x^{1/2} - \\ln 5$",
+      "why": "The power rule turns $\\frac12\\ln x$ into $\\ln x^{1/2}$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 17,
+      "working": "$\\ln\\left(\\frac{y}{6-y}\\right)=\\ln\\left(\\frac{x^{1/2}}{5}\\right)$",
+      "why": "The subtraction rule for logs combines the two terms into one log.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 18,
+      "working": "$\\frac{y}{6-y}=\\frac{x^{1/2}}{5}$",
+      "why": "Both sides are a single log, so you can remove the logs.",
+      "secures": null,
+      "check": "At $x=1$: $\\frac15$, matching $y=1$."
+     },
+     {
+      "step": 19,
+      "working": "$5y = x^{1/2}(6-y)$",
+      "why": "You multiply both sides by $5(6-y)$ to clear the fractions.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 20,
+      "working": "$5y = 6x^{1/2} - yx^{1/2}$",
+      "why": "Expand the bracket.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 21,
+      "working": "$5y + yx^{1/2} = 6x^{1/2}$",
+      "why": "You move the $y$ terms to one side by adding $yx^{1/2}$ to both sides.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 22,
+      "working": "$y(5+x^{1/2}) = 6x^{1/2}$",
+      "why": "You factorise out $y$.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 23,
+      "working": "$y=\\dfrac{6x^{1/2}}{5+x^{1/2}}$",
+      "why": "You divide by $5+x^{1/2}$ and compare with the form $\\frac{Ax^n}{B+x^n}$.",
+      "secures": "A1",
+      "check": "At $x=25$: $\\frac{30}{10}=3$. ✓"
+     },
+     {
+      "step": 24,
+      "working": "$k=\\frac1{12}$, $c=-\\ln 5$, $A=6$, $B=5$, $n=\\frac12$",
+      "why": "These are all the values the part asks for.",
+      "secures": null,
+      "check": null
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:49:49+00:00",
+    "cost_usd": 0.0338,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
   }
  ],
  "pitfalls": [
@@ -788,6 +1166,15 @@
      "remove-logarithms"
     ]
    }
+  },
+  "GL": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part a: copy check flag: cosine 0.830 with question:GCE2008_6663_June2018_Q2",
+    "part b: copy check flag: cosine 0.845 with note:IAL2018_WMA13_June2025_Q6_n4"
+   ],
+   "parts_checked": 2
   }
  },
  "review": {

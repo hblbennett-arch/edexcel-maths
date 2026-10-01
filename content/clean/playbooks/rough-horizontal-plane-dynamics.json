@@ -1,0 +1,141 @@
+{
+ "id": "rough-horizontal-plane-dynamics",
+ "question_type": "rough-horizontal-plane-dynamics",
+ "component": "mech",
+ "title": "Particle on a rough horizontal plane",
+ "what_it_asks": "You are given a particle on a rough horizontal surface, often pulled or pushed by a force at an angle. You are asked for a normal reaction, a coefficient of friction, an acceleration or a distance. The idea is to resolve vertically to find $R$, use $F = \\mu R$ when the particle is sliding or about to slide, and use $F = ma$ horizontally. Often the force is removed later, so the particle decelerates under friction alone and you find a stopping distance.",
+ "typical_structure": "Most questions have one or two parts, though longer ones run to five. A short opening part is often worth one or two marks, for a value such as a weight or a stated result. Later parts carry most of the marks. They usually build on an earlier result, so $R$ or $\\mu$ from one part feeds the next. Stopping-distance parts add a constant-acceleration step after the dynamics. A diagram is almost always given.",
+ "mark_pattern": "Marks are mostly method and accuracy, with some independent marks. A short part is often M1 A1: one resolving or $F = ma$ equation, then its correct form. Three-mark parts are often M1 A1 A1, where the extra A1 is the final value. A single B1 rewards a stated value or statement that stands on its own. Longer parts run M1 A1 for the vertical resolution and $R$, then M1 A1 for the horizontal equation using $F = \\mu R$. After that comes a B1 or a dM1 A1 for the last stage, such as a suvat step. The dM1 needs the earlier method to be in place.",
+ "where_marks_leak": [
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You give the final answer to the wrong number of significant figures, for example a long decimal after using $g = 9.8$. The final A1 is lost even though the method was sound. Round only at the end, to the accuracy asked."
+  },
+  {
+   "error_code": "resultant-force-error",
+   "mark_family": "method",
+   "text": "You treat $ma$ as an extra force, or take the direction the wrong way, so the horizontal equation is not resultant force $= ma$. The M1 goes, and the A1 and any dM1 after it go too."
+  },
+  {
+   "error_code": "friction-limiting-assumed",
+   "mark_family": "method",
+   "text": "You write $F = \\mu R$ when the particle is not sliding or on the point of sliding. The method mark for the friction step is lost, and the accuracy mark that follows goes with it."
+  },
+  {
+   "error_code": "mass-for-weight",
+   "mark_family": "method",
+   "text": "You use $m$ instead of $mg$ for the weight when resolving vertically. $R$ is then wrong, the M1 for that equation is lost, and $F$ and the later marks are affected."
+  },
+  {
+   "error_code": "friction-wrong-direction",
+   "mark_family": "method",
+   "text": "You point friction the wrong way, so it does not oppose the motion. The horizontal equation fails and the M1 is lost, along with the A1 after it."
+  }
+ ],
+ "write_to_earn": [
+  "Draw the forces first: weight, $R$, friction opposing motion, and the applied force with its angle.",
+  "Resolve vertically on its own line, including the vertical component of the applied force, and state $R$ before using it.",
+  "Write $F = \\mu R$ only when the particle is sliding or limiting, and say so.",
+  "Write resultant force $= ma$ horizontally before substituting, with the direction of motion taken as positive.",
+  "When the force is removed, find the new $R$ and deceleration, then state the suvat formula before substituting, and round only on the last line."
+ ],
+ "check_before_you_leave": [
+  "Is $R$ found from vertical resolution?",
+  "Is friction opposing motion?",
+  "Is $ma$ on the right-hand side?",
+  "Is the accuracy and $g$ value right?",
+  "Did you answer the question asked?"
+ ],
+ "skills": [
+  "resolve-force-at-angle",
+  "equilibrium-of-particle",
+  "friction-f-equals-mu-r",
+  "weight-and-g",
+  "newtons-second-law-equation",
+  "accuracy-units-and-rounding",
+  "limiting-equilibrium-friction",
+  "suvat-scalar"
+ ],
+ "related_types": [
+  "inclined-plane-friction",
+  "connected-particles-pulley",
+  "suvat-straight-line",
+  "vector-forces-newtons-second-law"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:13:40",
+ "cost_usd": 0.0589,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 15,
+  "codes_listed": {
+   "wrong-final-accuracy": 10,
+   "resultant-force-error": 3,
+   "slope-weight-component-error": 2,
+   "friction-limiting-assumed": 2,
+   "arithmetic-slip": 1,
+   "compound-angle-sign-error": 1,
+   "friction-wrong-direction": 1,
+   "mass-for-weight": 1
+  },
+  "frequent_codes": [
+   "wrong-final-accuracy"
+  ],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.891 with part:IAL2018_WME01_Oct2024_Q6:b"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.002,
+   "shared_numbers": 0,
+   "max_cosine": 0.891,
+   "cosine_source": "part:IAL2018_WME01_Oct2024_Q6:b"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 24
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.891 with part:IAL2018_WME01_Oct2024_Q6:b"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

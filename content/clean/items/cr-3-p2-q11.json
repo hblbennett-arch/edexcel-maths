@@ -1,0 +1,221 @@
+{
+ "id": "cr-3-p2-q11",
+ "blueprint_id": "mk-3-p2-q11",
+ "question_type": "integration-by-parts",
+ "component": "pure",
+ "tier": "standard",
+ "kind": "mock",
+ "stem": null,
+ "paper": "mock-3-P2",
+ "set": "mock-3",
+ "q_num": 11,
+ "parts": [
+  {
+   "label": null,
+   "marks": 5,
+   "text": "Using integration by parts, find the value of $$\\int_{1}^{8} \\sqrt[3]{x}\\,\\ln x \\,\\mathrm{d}x.$$ Write your answer in the form $p\\ln 2 + q$, where $p$ is an integer and $q$ is a rational number. Show your working clearly: a correct answer from a calculator alone will not earn the marks. (5)",
+   "command": "find",
+   "forms": [
+    "in-the-form",
+    "no-calc-tech"
+   ],
+   "skills": [
+    "integration-by-parts",
+    "integrate-powers-of-x",
+    "evaluate-definite-integral",
+    "exact-form-answers",
+    "differentiate-exponentials-and-logs",
+    "laws-of-logarithms"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Takes $u = \\ln x$ and $\\frac{\\mathrm{d}v}{\\mathrm{d}x} = x^{1/3}$, and gets a result with the structure $\\alpha x^{4/3}\\ln x - \\int \\beta x^{1/3}\\,\\mathrm{d}x$ for positive constants $\\alpha, \\beta$",
+     "notes": "The second integrand must come from multiplying their $v$ by $\\frac{1}{x}$. Choosing $u = x^{1/3}$ (so that $\\ln x$ has to be integrated) is M0 unless the attempt is completed correctly."
+    },
+    {
+     "code": "A1",
+     "for": "Correct first stage: $\\frac{3}{4}x^{4/3}\\ln x - \\int \\frac{3}{4}x^{1/3}\\,\\mathrm{d}x$",
+     "notes": "oe, e.g. $\\frac34 x^{4/3}\\ln x - \\frac34\\int x^{\\frac43}\\cdot\\frac1x\\,\\mathrm{d}x$"
+    },
+    {
+     "code": "dM1",
+     "for": "Integrates their $\\beta x^{1/3}$ to $\\gamma x^{4/3}$ and substitutes the limits $8$ and $1$ into their whole expression, subtracting (value at 8 minus value at 1)",
+     "notes": "Depends on the first M1. The value at the lower limit must be included, even though $\\ln 1 = 0$ there."
+    },
+    {
+     "code": "A1",
+     "for": "Correct unsimplified value, e.g. $\\left(12\\ln 8 - 9\\right) - \\left(0 - \\frac{9}{16}\\right)$",
+     "notes": "oe; accept $12\\ln 8 - \\frac{135}{16}$"
+    },
+    {
+     "code": "A1",
+     "for": "$36\\ln 2 - \\frac{135}{16}$",
+     "notes": "cao; must be in the form asked, using $\\ln 8 = 3\\ln 2$. Accept $q = -8.4375$. A decimal answer only (awrt 16.5) scores A0 for this mark."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Rewrite $\\sqrt[3]{x} = x^{1/3}$. Let $u = \\ln x$, so $\\frac{\\mathrm{d}u}{\\mathrm{d}x} = \\frac{1}{x}$; let $\\frac{\\mathrm{d}v}{\\mathrm{d}x} = x^{1/3}$, so $v = \\frac{x^{4/3}}{4/3} = \\frac{3}{4}x^{4/3}$.",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "$\\int x^{1/3}\\ln x\\,\\mathrm{d}x = \\frac34 x^{4/3}\\ln x - \\int \\frac34 x^{4/3}\\cdot\\frac1x\\,\\mathrm{d}x = \\frac34 x^{4/3}\\ln x - \\int \\frac34 x^{1/3}\\,\\mathrm{d}x$",
+     "mark": "M1 A1"
+    },
+    {
+     "step": 3,
+     "working": "$\\int \\frac34 x^{1/3}\\,\\mathrm{d}x = \\frac34\\cdot\\frac34 x^{4/3} = \\frac{9}{16}x^{4/3}$, so the integral is $\\left[\\frac34 x^{4/3}\\ln x - \\frac{9}{16}x^{4/3}\\right]_1^8$. Since $8^{4/3} = 16$ and $1^{4/3} = 1$: $\\left(\\frac34(16)\\ln 8 - \\frac{9}{16}(16)\\right) - \\left(\\frac34\\ln 1 - \\frac{9}{16}\\right)$",
+     "mark": "dM1"
+    },
+    {
+     "step": 4,
+     "working": "$= (12\\ln 8 - 9) - \\left(0 - \\frac{9}{16}\\right) = 12\\ln 8 - \\frac{135}{16}$",
+     "mark": "A1"
+    },
+    {
+     "step": 5,
+     "working": "Since $\\ln 8 = \\ln 2^3 = 3\\ln 2$, the integral is $36\\ln 2 - \\frac{135}{16}$, so $p = 36$ and $q = -\\frac{135}{16}$.",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "I",
+     "expr": "36*log(2) - 135/16",
+     "form": "exact"
+    },
+    {
+     "name": "p",
+     "expr": "36",
+     "form": "exact"
+    },
+    {
+     "name": "q",
+     "expr": "-135/16",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "integral",
+     "f": "x^(1/3)*ln(x)",
+     "var": "x",
+     "lower": "1",
+     "upper": "8",
+     "answer": "I"
+    },
+    {
+     "type": "integral",
+     "f": "x^(1/3)*ln(x)",
+     "var": "x",
+     "result": "(3/4)*x^(4/3)*ln(x) - (9/16)*x^(4/3)"
+    },
+    {
+     "type": "equals",
+     "lhs": "p*ln(2) + q",
+     "rhs": "36*ln(2) - 135/16"
+    },
+    {
+     "type": "substitute",
+     "expr": "p",
+     "at": {
+      "p": "36"
+     },
+     "answer": "p"
+    },
+    {
+     "type": "substitute",
+     "expr": "(36*ln(2) - 135/16) - 36*ln(2)",
+     "at": {},
+     "answer": "q"
+    },
+    {
+     "type": "numeric",
+     "expr": "36*ln(2) - 135/16",
+     "result": "16.5",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "Write $\\sqrt[3]{x}$ as a power of $x$ first. Which factor gets simpler when you differentiate it, and which one can you integrate easily?",
+    "Once you have the result at the upper limit, look for a way to write $\\ln 8$ in terms of $\\ln 2$."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "step": 1,
+   "error_code": "not-rewritten-as-powers",
+   "text": "A common mistake is to try to integrate $\\sqrt[3]{x}$ without first writing it as $x^{1/3}$. Guesses such as $\\frac{2}{3}x^{3/2}$ (treating it as a square root) give the wrong $v$, and then the parts result does not have the correct form, so the first A1 is lost and the rest of the working follows from a wrong expression.",
+   "says_common": true
+  },
+  {
+   "part": null,
+   "step": 3,
+   "error_code": "integration-power-rule-error",
+   "text": "A common mistake with the fractional power is to multiply by $\\frac43$ instead of dividing, giving $v = \\frac43 x^{4/3}$, or to divide by the old power $\\frac13$. Check your answer by differentiating it: $\\frac{\\mathrm{d}}{\\mathrm{d}x}\\left(\\frac34 x^{4/3}\\right) = x^{1/3}$. If you make the same error in the second integral you lose the method mark for integrating $\\frac34 x^{1/3}$ and every accuracy mark after it.",
+   "says_common": true
+  },
+  {
+   "part": null,
+   "step": 2,
+   "error_code": "exp-log-derivative-error",
+   "text": "You must differentiate $u = \\ln x$ to get $\\frac{1}{x}$. If you write $\\frac{\\mathrm{d}u}{\\mathrm{d}x}$ as $1$, or as $x\\ln x - x$ (which is the integral), the second integral is wrong and the A1 for the first stage is lost. The $\\frac1x$ is what cancels the power down to $x^{1/3}$.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-10-01T00:04:40",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.2941
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 5
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.852 with question:IAL2018_WMA14U_Jan2022_Q6"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "hits8": [],
+   "max_jaccard": 0.057,
+   "jaccard_source": "IAL2018_WMA14_June2025_Q4",
+   "shared_numbers": 0,
+   "max_cosine": 0.852,
+   "cosine_source": "question:IAL2018_WMA14U_Jan2022_Q6"
+  },
+  "G2": {
+   "pass": false,
+   "errors": [
+    "part - check 3 (equals): p*ln(2) + q != 36*ln(2) - 135/16"
+   ],
+   "n_checks": 6,
+   "n_answers": 3,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

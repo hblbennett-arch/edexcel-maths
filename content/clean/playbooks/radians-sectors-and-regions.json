@@ -1,0 +1,144 @@
+{
+ "id": "radians-sectors-and-regions",
+ "question_type": "radians-sectors-and-regions",
+ "component": "pure",
+ "title": "Arcs, sectors and composite circular regions",
+ "what_it_asks": "You get a diagram built from circles, sectors and triangles, with some lengths and angles marked. You must find a missing angle, length, area or perimeter. With angles in radians, arc length is radius times angle and sector area is half the radius squared times the angle. Awkward regions are split into pieces, and you add or remove their areas.",
+ "typical_structure": "Usually two or three parts, sometimes four, with about eight marks in total. Each part is typically worth two to four marks. An early part often asks you to show a given angle, length or equation, using a triangle rule. Later parts then use that result to find an area or perimeter, often to a stated accuracy. Nearly every question has a diagram.",
+ "mark_pattern": "The most usual part is M1 A1: a method mark for setting up the right formula or rule with your values, then an accuracy mark for the result. Three-mark parts are often M1 M1 A1 or M1 dM1 A1, where two stages, such as a triangle area and a sector area, are needed before you combine them. Show-that parts typically end M1 A1*, where the last mark is for a clean route to the printed result. Some short parts are a single B1 for a stated value. Accuracy marks need the method mark before them, and each dM1 needs the previous M1.",
+ "where_marks_leak": [
+  {
+   "error_code": "sine-cosine-rule-misapplied",
+   "mark_family": "method",
+   "text": "You pair a side with an angle that is not opposite it, or use the sine rule where the cosine rule is needed. The M1 goes, and the A1 and any dM1 that depend on it go too."
+  },
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You give the answer to the wrong number of decimal places or significant figures. The final A1 is lost even though the method was sound."
+  },
+  {
+   "error_code": "sector-formula-error",
+   "mark_family": "method",
+   "text": "You use $r\\theta$ for an area, or $r^2\\theta$ without the half, or mix up the arc and area formulas. The M1 for the sector is lost, and the A1 after it."
+  },
+  {
+   "error_code": "premature-rounding",
+   "mark_family": "accuracy",
+   "text": "You round an angle or length midway and use the rounded value later. The final A1 can drift outside the accepted range."
+  },
+  {
+   "error_code": "segment-triangle-area-error",
+   "mark_family": "method",
+   "text": "You subtract the wrong triangle when finding a segment, for example using the wrong sides or angle. The method mark for the segment is lost, and the accuracy mark with it."
+  }
+ ],
+ "write_to_earn": [
+  "Write the formula, such as $A=\\frac{1}{2}r^2\\theta$, before you substitute, so the method mark is safe.",
+  "Label each piece of the region and say whether you add or subtract it.",
+  "In a show-that part, write the line just before the printed result, then the result itself.",
+  "Keep unrounded values in your calculator and round only on the final line.",
+  "State the final answer once, in the form and accuracy asked, with units if given."
+ ],
+ "check_before_you_leave": [
+  "Calculator in radian mode?",
+  "Right formula for arc or area?",
+  "Sides opposite the right angles?",
+  "Added or subtracted the right pieces?",
+  "Accuracy and units as asked?"
+ ],
+ "skills": [
+  "triangle-trigonometry",
+  "composite-circular-regions",
+  "sector-area",
+  "arc-length",
+  "accuracy-units-and-rounding",
+  "show-that-given-answer",
+  "use-hence-previous-result"
+ ],
+ "related_types": [
+  "small-angle-approximations",
+  "trig-identity-then-solve",
+  "harmonic-form-and-trig-models"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:08:55",
+ "cost_usd": 0.1191,
+ "attempts": 2,
+ "facts": {
+  "n_questions": 75,
+  "codes_listed": {
+   "sine-cosine-rule-misapplied": 39,
+   "wrong-final-accuracy": 35,
+   "sector-formula-error": 30,
+   "small-angle-approximation-error": 19,
+   "premature-rounding": 13,
+   "segment-triangle-area-error": 10,
+   "degrees-not-radians": 7,
+   "obtuse-sine-rule-case-missed": 6
+  },
+  "frequent_codes": [
+   "premature-rounding",
+   "sector-formula-error",
+   "segment-triangle-area-error",
+   "sine-cosine-rule-misapplied",
+   "small-angle-approximation-error",
+   "wrong-final-accuracy"
+  ],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.862 with note:P3_June2022_stats_Q3_n4"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.002,
+   "shared_numbers": 0,
+   "max_cosine": 0.862,
+   "cosine_source": "note:P3_June2022_stats_Q3_n4"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 3
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.862 with note:P3_June2022_stats_Q3_n4"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

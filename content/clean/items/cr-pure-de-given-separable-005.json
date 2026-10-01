@@ -86,7 +86,154 @@
     "Deal with each term on its own: one is of the form $\\frac{1}{at+b}$ and the other is $\\sin(kt)$.",
     "Remember to divide by the coefficient of $t$ inside the bracket or the trig function, and think carefully about the sign when you integrate sine."
    ],
-   "forms": []
+   "forms": [],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$\\int \\frac{6}{3t+2}\\,\\mathrm{d}t = 6\\times\\frac{1}{3}\\ln(3t+2)$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$\\int \\sin\\left(\\frac{\\pi t}{12}\\right)\\mathrm{d}t = -\\frac{12}{\\pi}\\cos\\left(\\frac{\\pi t}{12}\\right)$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "So $-\\frac{\\pi}{24}\\times\\left(-\\frac{12}{\\pi}\\right)\\cos\\left(\\frac{\\pi t}{12}\\right)$ and $6\\times\\frac{1}{3}\\ln(3t+2)$",
+      "secures": [
+       "A1"
+      ]
+     },
+     {
+      "step": 4,
+      "working": "$\\frac{6}{3}=2,\\ \\frac{\\pi}{24}\\times\\frac{12}{\\pi}=\\frac12$, so $2\\ln(3t+2)+\\frac12\\cos\\left(\\frac{\\pi t}{12}\\right)$",
+      "secures": [
+       "dM1"
+      ]
+     },
+     {
+      "step": 5,
+      "working": "$\\int\\left(\\frac{6}{3t+2}-\\frac{\\pi}{24}\\sin\\left(\\frac{\\pi t}{12}\\right)\\right)\\mathrm{d}t = 2\\ln(3t+2)+\\frac12\\cos\\left(\\frac{\\pi t}{12}\\right)+c$",
+      "secures": [
+       "A1*"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$\\int \\left(\\frac{6}{3t+2}-\\frac{\\pi}{24}\\sin\\left(\\frac{\\pi t}{12}\\right)\\right)\\mathrm{d}t = \\int \\frac{6}{3t+2}\\,\\mathrm{d}t - \\int\\frac{\\pi}{24}\\sin\\left(\\frac{\\pi t}{12}\\right)\\mathrm{d}t$",
+      "why": "You split the integral into two pieces so that each can be integrated on its own.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$\\int \\frac{6}{3t+2}\\,\\mathrm{d}t = 6\\int\\frac{1}{3t+2}\\,\\mathrm{d}t$",
+      "why": "You take the constant 6 outside the integral, leaving a simple reciprocal of a linear expression.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$\\int\\frac{1}{3t+2}\\,\\mathrm{d}t=\\frac13\\ln(3t+2)$",
+      "why": "The integral of $\\frac{1}{ax+b}$ is $\\frac1a\\ln(ax+b)$. Here $a=3$, so you divide by 3 to compensate for the chain rule. No modulus is needed because $3t+2>0$ for $t\\geqslant 0$.",
+      "secures": null,
+      "check": "Differentiate $\\frac13\\ln(3t+2)$: you get $\\frac13\\times\\frac{3}{3t+2}=\\frac{1}{3t+2}$."
+     },
+     {
+      "step": 4,
+      "working": "$\\int \\frac{6}{3t+2}\\,\\mathrm{d}t = 6\\times\\frac13\\ln(3t+2)$",
+      "why": "You put the 6 back in front of the result of the last line.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$\\int\\sin\\left(\\frac{\\pi t}{12}\\right)\\mathrm{d}t = -\\frac{1}{\\pi/12}\\cos\\left(\\frac{\\pi t}{12}\\right)$",
+      "why": "Integrating $\\sin(kt)$ gives $-\\frac1k\\cos(kt)$, where $k=\\frac{\\pi}{12}$ is the coefficient of $t$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$-\\frac{1}{\\pi/12}=-\\frac{12}{\\pi}$",
+      "why": "Dividing by a fraction means multiplying by its reciprocal, so $\\frac{1}{\\pi/12}$ becomes $\\frac{12}{\\pi}$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "$\\int\\sin\\left(\\frac{\\pi t}{12}\\right)\\mathrm{d}t = -\\frac{12}{\\pi}\\cos\\left(\\frac{\\pi t}{12}\\right)$",
+      "why": "This is the integral of the sine term on its own, with the cosine having a multiple.",
+      "secures": "M1",
+      "check": "Differentiate: $-\\frac{12}{\\pi}\\times\\left(-\\sin\\left(\\frac{\\pi t}{12}\\right)\\right)\\times\\frac{\\pi}{12}=\\sin\\left(\\frac{\\pi t}{12}\\right)$."
+     },
+     {
+      "step": 8,
+      "working": "$-\\int\\frac{\\pi}{24}\\sin\\left(\\frac{\\pi t}{12}\\right)\\mathrm{d}t = -\\frac{\\pi}{24}\\times\\left(-\\frac{12}{\\pi}\\right)\\cos\\left(\\frac{\\pi t}{12}\\right)$",
+      "why": "You multiply the integral of the sine by the constant $-\\frac{\\pi}{24}$ that sits in front of it in the original expression.",
+      "secures": "A1",
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "Both terms: $6\\times\\frac13\\ln(3t+2)$ and $-\\frac{\\pi}{24}\\times\\left(-\\frac{12}{\\pi}\\right)\\cos\\left(\\frac{\\pi t}{12}\\right)$",
+      "why": "You gather the two integrated pieces before tidying up the coefficients.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$6\\times\\frac13=\\frac63=2$",
+      "why": "You multiply the coefficients of the log term to get a whole number.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 11,
+      "working": "$-\\frac{\\pi}{24}\\times\\left(-\\frac{12}{\\pi}\\right)=+\\frac{12\\pi}{24\\pi}$",
+      "why": "A negative times a negative is positive, so the cosine term has a plus sign.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 12,
+      "working": "$\\frac{12\\pi}{24\\pi}=\\frac{12}{24}=\\frac12$",
+      "why": "You cancel the $\\pi$ from top and bottom, then cancel the common factor 12.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 13,
+      "working": "$2\\ln(3t+2)+\\frac12\\cos\\left(\\frac{\\pi t}{12}\\right)$",
+      "why": "You put the two simplified terms together as a single expression.",
+      "secures": "dM1",
+      "check": null
+     },
+     {
+      "step": 14,
+      "working": "$\\int\\left(\\frac{6}{3t+2}-\\frac{\\pi}{24}\\sin\\left(\\frac{\\pi t}{12}\\right)\\right)\\mathrm{d}t = 2\\ln(3t+2)+\\frac12\\cos\\left(\\frac{\\pi t}{12}\\right)+c$",
+      "why": "An indefinite integral needs an arbitrary constant $c$, so you add it. This is the printed result.",
+      "secures": "A1*",
+      "check": null
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:50:09+00:00",
+    "cost_usd": 0.036,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
   },
   {
    "label": "b",
@@ -145,7 +292,77 @@
     "Get every $M$ on the left with $\\mathrm{d}M$ and every $t$ on the right with $\\mathrm{d}t$ by dividing both sides by $M$.",
     "You have already done the right-hand integral in part (a)."
    ],
-   "forms": []
+   "forms": [],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$\\int \\frac{1}{M}\\,\\mathrm{d}M = \\int\\left(\\frac{6}{3t+2} - \\frac{\\pi}{24}\\sin\\left(\\frac{\\pi t}{12}\\right)\\right)\\mathrm{d}t$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$\\ln M = 2\\ln(3t+2) + \\frac{1}{2}\\cos\\left(\\frac{\\pi t}{12}\\right) + c$",
+      "secures": [
+       "A1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$\\frac{\\mathrm{d}M}{\\mathrm{d}t} = M\\left(\\frac{6}{3t+2} - \\frac{\\pi}{24}\\sin\\left(\\frac{\\pi t}{12}\\right)\\right)$",
+      "why": "This is the equation you are given. $M$ multiplies a function of $t$ only, so you can separate the variables, which means getting all the $M$ terms on one side and all the $t$ terms on the other.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$\\frac{1}{M}\\frac{\\mathrm{d}M}{\\mathrm{d}t} = \\frac{6}{3t+2} - \\frac{\\pi}{24}\\sin\\left(\\frac{\\pi t}{12}\\right)$",
+      "why": "You divide both sides by $M$. This leaves only $t$ on the right-hand side.",
+      "secures": null,
+      "check": "Multiply both sides by $M$ and you get the original equation back."
+     },
+     {
+      "step": 3,
+      "working": "$\\int \\frac{1}{M}\\,\\mathrm{d}M = \\int\\left(\\frac{6}{3t+2} - \\frac{\\pi}{24}\\sin\\left(\\frac{\\pi t}{12}\\right)\\right)\\mathrm{d}t$",
+      "why": "You integrate both sides, the left with respect to $M$ and the right with respect to $t$. Integrating is the reverse of differentiating.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$\\int \\frac{1}{M}\\,\\mathrm{d}M = \\ln M$",
+      "why": "The integral of $\\frac{1}{M}$ is $\\ln M$. You need no modulus signs because the mass $M$ is positive.",
+      "secures": null,
+      "check": "Differentiating $\\ln M$ gives $\\frac{1}{M}$."
+     },
+     {
+      "step": 5,
+      "working": "$\\int\\left(\\frac{6}{3t+2} - \\frac{\\pi}{24}\\sin\\left(\\frac{\\pi t}{12}\\right)\\right)\\mathrm{d}t = 2\\ln(3t+2) + \\frac{1}{2}\\cos\\left(\\frac{\\pi t}{12}\\right) + c$",
+      "why": "Part (a) already gives this integral, so you can use it without working it out again. The constant $c$ goes on the right-hand side only.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$\\ln M = 2\\ln(3t+2) + \\frac{1}{2}\\cos\\left(\\frac{\\pi t}{12}\\right) + c$",
+      "why": "You equate the two integrals. This gives $\\ln M$ as a function of $t$ with one unknown constant $c$.",
+      "secures": "A1",
+      "check": "Differentiate both sides with respect to $t$: $\\frac{1}{M}\\frac{\\mathrm{d}M}{\\mathrm{d}t}$ equals the bracket."
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:50:04+00:00",
+    "cost_usd": 0.0211,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
   },
   {
    "label": "c",
@@ -242,7 +459,205 @@
     "Use the starting mass to find your constant before you put in $t = 12$.",
     "When you remove the logarithms, remember that $2\\ln 38 = \\ln(38^2)$."
    ],
-   "forms": []
+   "forms": [],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$t=0,\\ M=12$: $\\ln 12 = 2\\ln 2 + \\tfrac12\\cos 0 + c$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$c = \\ln 12 - \\ln 4 - \\tfrac12 = \\ln 3 - \\tfrac12$",
+      "secures": [
+       "A1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$t=12$: $\\ln M = 2\\ln 38 + \\tfrac12\\cos\\pi + \\ln 3 - \\tfrac12 = \\ln(3\\times 38^2) - 1$, so $M = 4332\\mathrm{e}^{-1}$",
+      "secures": [
+       "dM1"
+      ]
+     },
+     {
+      "step": 4,
+      "working": "$M = 1593.6\\ldots$ g $= 1.59$ kg (3 s.f.)",
+      "secures": [
+       "A1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$\\ln M = 2\\ln(3t+2) + \\tfrac12\\cos\\left(\\tfrac{\\pi t}{12}\\right) + c$",
+      "why": "You start from your solution to part (b), which contains the unknown constant $c$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "At $t=0$, $M=12$: $\\ln 12 = 2\\ln(3\\times0+2) + \\tfrac12\\cos 0 + c$",
+      "why": "The starting condition gives one pair of values, so you substitute them in to be able to find $c$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$\\ln 12 = 2\\ln 2 + \\tfrac12\\cos 0 + c$",
+      "why": "You evaluate $3\\times 0+2 = 2$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$\\ln 12 = 2\\ln 2 + \\tfrac12 + c$",
+      "why": "Since $\\cos 0 = 1$, the cosine term becomes $\\tfrac12$.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$\\ln 12 = \\ln 4 + \\tfrac12 + c$",
+      "why": "You use the power rule $2\\ln 2 = \\ln 2^2 = \\ln 4$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$c = \\ln 12 - \\ln 4 - \\tfrac12$",
+      "why": "You move $\\ln 4$ and $\\tfrac12$ to the other side by subtracting them, leaving $c$ alone.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "$c = \\ln\\frac{12}{4} - \\tfrac12$",
+      "why": "You combine the two logs using $\\ln a - \\ln b = \\ln\\frac ab$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$c = \\ln 3 - \\tfrac12$",
+      "why": "You evaluate $12\\div4 = 3$.",
+      "secures": "A1",
+      "check": "$\\ln 3 - 0.5 \\approx 0.599$."
+     },
+     {
+      "step": 9,
+      "working": "$\\ln M = 2\\ln(3t+2) + \\tfrac12\\cos\\left(\\tfrac{\\pi t}{12}\\right) + \\ln 3 - \\tfrac12$",
+      "why": "You put the value of $c$ back into the equation, so it now has no unknowns besides $M$ and $t$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "At $t=12$: $\\ln M = 2\\ln(3\\times12+2) + \\tfrac12\\cos\\left(\\tfrac{12\\pi}{12}\\right) + \\ln 3 - \\tfrac12$",
+      "why": "You want the mass after 12 hours, so you substitute $t=12$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 11,
+      "working": "$\\ln M = 2\\ln 38 + \\tfrac12\\cos\\pi + \\ln 3 - \\tfrac12$",
+      "why": "You evaluate $3\\times12+2 = 38$ and $\\tfrac{12\\pi}{12}=\\pi$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 12,
+      "working": "$\\ln M = 2\\ln 38 - \\tfrac12 + \\ln 3 - \\tfrac12$",
+      "why": "Since $\\cos\\pi = -1$, the cosine term is $-\\tfrac12$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 13,
+      "working": "$\\ln M = 2\\ln 38 + \\ln 3 - 1$",
+      "why": "You collect the two $-\\tfrac12$ terms into $-1$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 14,
+      "working": "$\\ln M = \\ln 38^2 + \\ln 3 - 1$",
+      "why": "You use the power rule to write $2\\ln 38 = \\ln 38^2$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 15,
+      "working": "$\\ln M = \\ln(3\\times 38^2) - 1$",
+      "why": "You combine the logs with $\\ln a + \\ln b = \\ln(ab)$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 16,
+      "working": "$M = \\mathrm{e}^{\\ln(3\\times 38^2) - 1}$",
+      "why": "You take $\\mathrm{e}$ to the power of both sides, which undoes the natural log.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 17,
+      "working": "$M = 3\\times 38^2\\,\\mathrm{e}^{-1}$",
+      "why": "You use $\\mathrm{e}^{\\ln x} = x$ and $\\mathrm{e}^{a-1}$ splitting as a product, keeping $\\mathrm{e}^{-1}$ as a factor.",
+      "secures": "dM1",
+      "check": null
+     },
+     {
+      "step": 18,
+      "working": "$M = 4332\\,\\mathrm{e}^{-1}$",
+      "why": "You evaluate $38^2 = 1444$, then $3\\times1444 = 4332$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 19,
+      "working": "$M = 1593.6\\ldots$ grams",
+      "why": "You calculate $4332\\div\\mathrm{e}$ on a calculator.",
+      "secures": null,
+      "check": "$\\mathrm{e}\\approx2.718$, and $4332/2.718\\approx1594$."
+     },
+     {
+      "step": 20,
+      "working": "$M = 1.5936\\ldots$ kg",
+      "why": "The question asks for kilograms, so you divide by 1000.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 21,
+      "working": "$c = \\ln 3 - \\tfrac12$ and the mass is $1.59$ kg (3 s.f.)",
+      "why": "You round to 3 significant figures and state the answers.",
+      "secures": "A1",
+      "check": null
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:50:37+00:00",
+    "cost_usd": 0.0722,
+    "attempts": 2,
+    "errors": [],
+    "attempt_errors": [
+     [
+      "part c: brisk is empty or not a list",
+      "part c: every_step is empty or not a list"
+     ],
+     [
+      "part c: brisk: last working does not contain a value equal to answer c = log(3) - 1/2 (to exact)"
+     ]
+    ],
+    "regated": "passes after gate_levels answer-parser fix (units, earlier-line answers)"
+   }
   }
  ],
  "pitfalls": [
@@ -1130,6 +1545,17 @@
      "find-constants-from-conditions"
     ]
    }
+  },
+  "GL": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part a: copy check flag: cosine 0.837 with note:IAL2018_WMA13_Jan2021_Q9_n3",
+    "part b: copy check flag: cosine 0.820 with part:IAL2018_WMA14_Oct2022_Q7:ii",
+    "part c: brisk: answer c = log(3) - 1/2 appears in an earlier line but not the last working",
+    "part c: copy check flag: cosine 0.830 with note:GCE2008_6665_June2018_Q3_n10"
+   ],
+   "parts_checked": 3
   }
  },
  "review": {

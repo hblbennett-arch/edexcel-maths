@@ -71,6 +71,9 @@ PROVENANCE_COLUMNS = (
     "review_notes TEXT",
 )
 PROVENANCE_TABLES = ("questions", "question_parts", "pitfalls")
+# The full structured item (scheme with alternatives, solution levels, scenes, G4 scripts) travels with the
+# question row, so the product reads one source and the licence gate scans it like any other text column.
+CONTENT_COLUMNS = {"questions": ("item_json TEXT",)}
 # Our own common-mistake notes (replace examiner_notes in the clean pack). One row per pitfall,
 # tied to a part and, where possible, a step of the worked solution and an error code (§5.2).
 PITFALLS_DDL = """
@@ -92,6 +95,9 @@ def create_schema(conn, provenance: str | None = None) -> None:
     uses it; clean-pack rows must state their provenance explicitly)."""
     conn.executescript(SCHEMA_PATH.read_text())
     conn.executescript(PITFALLS_DDL)
+    for table, cols in CONTENT_COLUMNS.items():
+        for col in cols:
+            conn.execute(f"ALTER TABLE {table} ADD COLUMN {col}")
     for table in PROVENANCE_TABLES:
         for col in PROVENANCE_COLUMNS:
             if provenance and col.startswith("provenance "):

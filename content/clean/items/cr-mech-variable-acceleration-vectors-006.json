@@ -1,0 +1,1680 @@
+{
+ "id": "cr-mech-variable-acceleration-vectors-006",
+ "blueprint_id": "bp-mech-variable-acceleration-vectors-006",
+ "question_type": "variable-acceleration-vectors",
+ "component": "mech",
+ "tier": "standard",
+ "kind": "exam",
+ "stem": "A site manager uses a small inspection drone to check the roof steelwork of a warehouse being built. During one pass the drone keeps a constant height, and it is modelled as a particle moving in a horizontal plane. The unit vectors $\\mathbf{i}$ and $\\mathbf{j}$ point due east and due north respectively. At time $t$ seconds after the drone's flight programme starts, where $1 \\leqslant t \\leqslant 8$, the velocity of the drone is $\\mathbf{v}\\,\\mathrm{m\\,s^{-1}}$, where\n$$\\mathbf{v} = \\left(t + \\frac{9}{t}\\right)\\mathbf{i} + \\left(\\tfrac{1}{2}t^2 - 2t - 6\\right)\\mathbf{j}.$$",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 1,
+   "text": "Find the speed of the drone when $t = 2$. (1)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "speed-and-direction-from-velocity",
+    "vector-magnitude",
+    "exact-form-answers",
+    "rewrite-using-index-laws"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Speed $= \\sqrt{6.5^2 + (-8)^2} = \\frac{5\\sqrt{17}}{2}$ or awrt $10.3\\,\\mathrm{m\\,s^{-1}}$",
+     "notes": "Accept $\\sqrt{106.25}$ or $\\frac{\\sqrt{425}}{2}$. Giving the vector $6.5\\mathbf{i} - 8\\mathbf{j}$ as the answer is B0."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "At $t = 2$: $\\mathbf{v} = \\left(2 + \\tfrac{9}{2}\\right)\\mathbf{i} + (2 - 4 - 6)\\mathbf{j} = 6.5\\mathbf{i} - 8\\mathbf{j}$",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "Speed $= \\sqrt{6.5^2 + 8^2} = \\sqrt{106.25} = \\frac{5\\sqrt{17}}{2} \\approx 10.3\\,\\mathrm{m\\,s^{-1}}$",
+     "mark": "B1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "speed",
+     "expr": "5*sqrt(17)/2",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "sqrt((2 + 9/2)^2 + (1/2*2^2 - 2*2 - 6)^2)",
+     "result": "10.3",
+     "form": "sf-3"
+    },
+    {
+     "type": "equals",
+     "lhs": "sqrt((2 + 9/2)^2 + (1/2*2^2 - 2*2 - 6)^2)",
+     "rhs": "5*sqrt(17)/2",
+     "answer": "speed"
+    }
+   ],
+   "hints": [
+    "Work out each component of $\\mathbf{v}$ at $t = 2$ first, then find the magnitude of that vector."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 2,
+   "text": "At the instant when $t = T$, the drone's line of travel points exactly due east. Find $T$. (2)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "direction-condition-on-vector",
+    "reject-invalid-solutions",
+    "solve-quadratic-equation",
+    "vector-magnitude"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Puts the northward ($\\mathbf{j}$) component equal to zero, $\\tfrac{1}{2}t^2 - 2t - 6 = 0$, and solves this 3-term quadratic, e.g. $(t - 6)(t + 2) = 0$",
+     "notes": "Any correct method of solving the quadratic is fine, e.g. multiplying by 2 first to get $t^2 - 4t - 12 = 0$."
+    },
+    {
+     "code": "A1",
+     "for": "$T = 6$ only, with $t = -2$ discarded because it lies outside $1 \\leqslant t \\leqslant 8$",
+     "notes": "The final answer must not include $-2$. There is no need to check that the $\\mathbf{i}$ component is positive at $t = 6$ (it is $7.5$), but credit it if seen."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Travelling due east means the $\\mathbf{j}$ component is zero (with the $\\mathbf{i}$ component positive): $\\tfrac{1}{2}t^2 - 2t - 6 = 0 \\Rightarrow t^2 - 4t - 12 = 0 \\Rightarrow (t - 6)(t + 2) = 0$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$t = 6$ or $t = -2$. Discard $t = -2$ because $1 \\leqslant t \\leqslant 8$. At $t = 6$ the $\\mathbf{i}$ component is $6 + 1.5 = 7.5 > 0$, so the drone is heading east. $T = 6$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "T",
+     "expr": "6",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "solutions",
+     "equation": "1/2*t^2 - 2t - 6 = 0",
+     "var": "t",
+     "interval": [
+      1,
+      8
+     ],
+     "closed": [
+      true,
+      true
+     ],
+     "result": [
+      "6"
+     ]
+    },
+    {
+     "type": "substitute",
+     "expr": "t + 9/t",
+     "at": {
+      "t": 6
+     },
+     "result": "15/2"
+    }
+   ],
+   "hints": [
+    "Think about which component of the velocity has to be zero if the drone is moving due east.",
+    "Check your roots against the time interval given in the question."
+   ]
+  },
+  {
+   "label": "c",
+   "marks": 2,
+   "text": "Find, in terms of $t$, the acceleration of the drone. (2)",
+   "command": "find",
+   "forms": [
+    "in-terms-of"
+   ],
+   "skills": [
+    "differentiate-kinematics-vectors",
+    "differentiate-polynomials",
+    "differentiate-negative-and-fractional-powers",
+    "integrate-kinematics-vectors"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Differentiates both components of $\\mathbf{v}$ with respect to $t$, with $\\frac{9}{t}$ written as $9t^{-1}$ and at least one power of $t$ reduced by 1 in each component",
+     "notes": "Integrating, or using constant-acceleration formulae, is M0."
+    },
+    {
+     "code": "A1",
+     "for": "$\\mathbf{a} = \\left(1 - \\frac{9}{t^2}\\right)\\mathbf{i} + (t - 2)\\mathbf{j}\\ \\mathrm{m\\,s^{-2}}$",
+     "notes": "oe, e.g. $(1 - 9t^{-2})\\mathbf{i} + (t - 2)\\mathbf{j}$. cao"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Rewrite $\\mathbf{v} = (t + 9t^{-1})\\mathbf{i} + \\left(\\tfrac{1}{2}t^2 - 2t - 6\\right)\\mathbf{j}$ and differentiate each component: $\\mathbf{a} = \\frac{\\mathrm{d}\\mathbf{v}}{\\mathrm{d}t} = (1 - 9t^{-2})\\mathbf{i} + (t - 2)\\mathbf{j}$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$\\mathbf{a} = \\left(1 - \\frac{9}{t^2}\\right)\\mathbf{i} + (t - 2)\\mathbf{j}\\ \\mathrm{m\\,s^{-2}}$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "a_x",
+     "expr": "1 - 9/t^2",
+     "form": "exact"
+    },
+    {
+     "name": "a_y",
+     "expr": "t - 2",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "derivative",
+     "f": "t + 9/t",
+     "var": "t",
+     "answer": "a_x"
+    },
+    {
+     "type": "derivative",
+     "f": "1/2*t^2 - 2t - 6",
+     "var": "t",
+     "answer": "a_y"
+    }
+   ],
+   "hints": [
+    "Acceleration is the rate of change of velocity, so differentiate each component with respect to $t$.",
+    "Write $\\frac{9}{t}$ as a power of $t$ before you differentiate."
+   ]
+  },
+  {
+   "label": "d",
+   "marks": 2,
+   "text": "At a single moment during the pass, the acceleration of the drone is directed straight towards the north. Using your answer to part (c), find the value of $t$ at that moment. (2)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "direction-condition-on-vector",
+    "use-hence-previous-result",
+    "differentiate-kinematics-vectors",
+    "differentiate-negative-and-fractional-powers"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Puts the eastward ($\\mathbf{i}$) component of their acceleration from (c) equal to zero, $1 - \\frac{9}{t^2} = 0$, and solves it for $t$",
+     "notes": "Their $\\mathbf{i}$ component must contain a negative power of $t$."
+    },
+    {
+     "code": "A1",
+     "for": "$t = 3$ only ($t = -3$ discarded or not seen)",
+     "notes": "cso. At $t = 3$, $\\mathbf{a} = \\mathbf{j}$, which points north. Credit this check if seen, but it is not needed."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "North means the $\\mathbf{i}$ component of $\\mathbf{a}$ is zero: $1 - \\frac{9}{t^2} = 0 \\Rightarrow t^2 = 9$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$t = 3$ (because $t = -3$ lies outside $1 \\leqslant t \\leqslant 8$). Check: $\\mathbf{a} = 0\\mathbf{i} + (3 - 2)\\mathbf{j} = \\mathbf{j}$, which points north.",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "t",
+     "expr": "3",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "solutions",
+     "equation": "1 - 9/t^2 = 0",
+     "var": "t",
+     "interval": [
+      1,
+      8
+     ],
+     "closed": [
+      true,
+      true
+     ],
+     "result": [
+      "3"
+     ]
+    },
+    {
+     "type": "substitute",
+     "expr": "t - 2",
+     "at": {
+      "t": 3
+     },
+     "result": "1"
+    }
+   ],
+   "hints": [
+    "If a vector points due north, which of its components must be zero?"
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "index-law-error",
+   "text": "A common slip is to treat $\\frac{9}{t}$ as $9t$ when you substitute. That gives an $\\mathbf{i}$ component of $2 + 18 = 20$ instead of $6.5$, so your speed is wrong and you lose the B1.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "velocity-given-for-speed",
+   "text": "If you stop at $6.5\\mathbf{i} - 8\\mathbf{j}$, you have given the velocity. Speed is a single positive number (the magnitude of the velocity), so without it the B1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "magnitude-error",
+   "text": "If you add the components as $6.5 + 8$, or forget the square root and give $106.25$, you haven't found the magnitude and the B1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "quadratic-formula-error",
+   "text": "A common error with the formula on $t^2 - 4t - 12 = 0$ is to use $+b$ in place of $-b$. That gives $t = -6$ or $2$, which is wrong and loses the M1. Factorising as $(t - 6)(t + 2)$ is quicker here.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "hidden-quadratic-not-converted-back",
+   "text": "Many students solve the quadratic but then leave both roots, $t = 6$ and $t = -2$, as the answer. The motion only holds for $1 \\leqslant t \\leqslant 8$, so you must reject $-2$ and state $T = 6$. Otherwise you lose the A1.",
+   "says_common": true
+  },
+  {
+   "part": "c",
+   "step": 1,
+   "error_code": "sign-error-differentiating-negative-power",
+   "text": "A common mistake is to differentiate $9t^{-1}$ as $+9t^{-2}$ or $-9t^{0}$. The power drops from $-1$ to $-2$ and the coefficient becomes $-9$, so the correct term is $-9t^{-2}$. Getting this wrong loses the A1.",
+   "says_common": true
+  },
+  {
+   "part": "c",
+   "step": 1,
+   "error_code": "not-rewritten-as-powers",
+   "text": "If you differentiate $\\frac{9}{t}$ as though it were $\\frac{9}{1}$ (giving $0$), or differentiate the top and bottom separately, you haven't used the power rule correctly and the M1 is lost. Write it as $9t^{-1}$ first.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "step": 1,
+   "error_code": "suvat-with-variable-acceleration",
+   "text": "The velocity is not a linear function of $t$, so the acceleration isn't constant. Working out $\\frac{v - u}{t}$ between two times does not give $\\mathbf{a}$ in terms of $t$ and earns no marks.",
+   "says_common": false
+  },
+  {
+   "part": "d",
+   "step": 1,
+   "error_code": "sign-error-differentiating-negative-power",
+   "text": "If your part (c) gave $1 + \\frac{9}{t^2}$, setting it to zero has no real solution. That result is a sign that you have differentiated $9t^{-1}$ wrongly, so go back and check before you lose the A1.",
+   "says_common": false
+  },
+  {
+   "part": "d",
+   "step": 1,
+   "error_code": "not-rewritten-as-powers",
+   "text": "If you solve $1 - \\frac{9}{t^2} = 0$ as $t = 9$ (forgetting that $t$ is squared), the final A1 is lost. Rearrange to $t^2 = 9$ first.",
+   "says_common": false
+  },
+  {
+   "part": "d",
+   "step": 1,
+   "error_code": "suvat-with-variable-acceleration",
+   "text": "Don't try to find when the acceleration points north by using an average or constant acceleration. The direction changes with $t$, so you must use the $\\mathbf{a}$ you found in part (c), or the M1 is lost.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:43:29",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.466
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 7
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.852 with part:P3_June2023_mech_Q4:b"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "hits8": [],
+   "max_jaccard": 0.022,
+   "jaccard_source": "IAL2013_WME01_Oct2018_Q6",
+   "shared_numbers": 0,
+   "max_cosine": 0.852,
+   "cosine_source": "part:P3_June2023_mech_Q4:b"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 8,
+   "n_answers": 5,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "part c: expected a_x = 1 - 9/t^2, solver got ['(1 - 9/t**2)*i + (t - 2)*j'] [judge: same - Solver's acceleration (1 - 9/t^2)i + (t - 2)j matches setter's components a_x = 1 - 9/t^2 and a_y = t - 2.]",
+    "part c: expected a_y = t - 2, solver got ['(1 - 9/t**2)*i + (t - 2)*j'] [judge: same - Solver's acceleration (1 - 9/t^2)i + (t - 2)j matches setter's components a_x = 1 - 9/t^2 and a_y = t - 2.]"
+   ],
+   "flag": true,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0167,
+   "solver": {
+    "parts": [
+     {
+      "label": "a",
+      "answers": [
+       "sqrt(425)/2",
+       "10.3"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "At t=2, v=6.5i-8j, speed=sqrt(6.5^2+8^2)=sqrt(106.25)≈10.3 m/s."
+     },
+     {
+      "label": "b",
+      "answers": [
+       "6"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "j-component zero: t^2-4t-12=0, (t-6)(t+2)=0, t=6 (within range). i-component is 7.5>0, so it is heading east, not west."
+     },
+     {
+      "label": "c",
+      "answers": [
+       "(1 - 9/t**2)*i + (t - 2)*j"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "Differentiate v: a=(1-9/t^2)i+(t-2)j."
+     },
+     {
+      "label": "d",
+      "answers": [
+       "3"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "i-component zero: t^2=9, t=3 (t=-3 is out of range). j-component is 1>0, so the acceleration is northwards."
+     }
+    ],
+    "problems": []
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "response p6 (pitfall sign-error-differentiating-negative-power): both markers award {'a': ['B1'], 'b': ['M1', 'A1'], 'c': ['M1', 'A0'], 'd': ['M1', 'A0']}, not the designed {'a': ['B1'], 'b': ['M1', 'A1'], 'c': ['M1', 'A0'], 'd': ['M0', 'A0']} (script design off; scheme consistent)",
+    "response p7 (pitfall sign-error-differentiating-negative-power): both markers award {'a': ['B1'], 'b': ['M1', 'A1'], 'c': ['M1', 'A0'], 'd': ['M0', 'A0']}, not the designed {'a': ['B1'], 'b': ['M1', 'A1'], 'c': ['M0', 'A0'], 'd': ['M0', 'A0']} (script design off; scheme consistent)",
+    "response p9 (pitfall suvat-with-variable-acceleration): both markers award {'a': ['B1'], 'b': ['M1', 'A1'], 'c': ['M0', 'A0'], 'd': ['M1', 'A0']}, not the designed {'a': ['B1'], 'b': ['M1', 'A1'], 'c': ['M0', 'A0'], 'd': ['M0', 'A0']} (script design off; scheme consistent)",
+    "response p10 (pitfall not-rewritten-as-powers): second marker agrees with the design; first marker gave {'a': ['B1'], 'b': ['M1', 'A1'], 'c': ['M1', 'A1'], 'd': ['M0', 'A0']}"
+   ],
+   "flag": true,
+   "n_responses": 13,
+   "agreed": [
+    "correct",
+    "p1",
+    "p2",
+    "p3",
+    "p4",
+    "p5",
+    "p8",
+    "p10",
+    "p11",
+    "partial"
+   ],
+   "consistent": {
+    "p6": [
+     {
+      "part": "a",
+      "marks": [
+       "B1"
+      ]
+     },
+     {
+      "part": "b",
+      "marks": [
+       "M1",
+       "A1"
+      ]
+     },
+     {
+      "part": "c",
+      "marks": [
+       "M1",
+       "A0"
+      ]
+     },
+     {
+      "part": "d",
+      "marks": [
+       "M1",
+       "A0"
+      ]
+     }
+    ],
+    "p7": [
+     {
+      "part": "a",
+      "marks": [
+       "B1"
+      ]
+     },
+     {
+      "part": "b",
+      "marks": [
+       "M1",
+       "A1"
+      ]
+     },
+     {
+      "part": "c",
+      "marks": [
+       "M1",
+       "A0"
+      ]
+     },
+     {
+      "part": "d",
+      "marks": [
+       "M0",
+       "A0"
+      ]
+     }
+    ],
+    "p9": [
+     {
+      "part": "a",
+      "marks": [
+       "B1"
+      ]
+     },
+     {
+      "part": "b",
+      "marks": [
+       "M1",
+       "A1"
+      ]
+     },
+     {
+      "part": "c",
+      "marks": [
+       "M0",
+       "A0"
+      ]
+     },
+     {
+      "part": "d",
+      "marks": [
+       "M1",
+       "A0"
+      ]
+     }
+    ]
+   },
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "correct",
+     "kind": "correct",
+     "error_code": null,
+     "work": "(a) At t=2: $\\mathbf{v}=(2+4.5)\\mathbf{i}+(2-4-6)\\mathbf{j}=6.5\\mathbf{i}-8\\mathbf{j}$. Speed $=\\sqrt{6.5^2+8^2}=\\sqrt{106.25}=10.3$ m/s.\n(b) $\\frac12t^2-2t-6=0\\Rightarrow t^2-4t-12=0\\Rightarrow(t-6)(t+2)=0$. $t=-2$ is outside $1\\le t\\le8$, so $T=6$.\n(c) $\\mathbf{v}=(t+9t^{-1})\\mathbf{i}+(\\frac12t^2-2t-6)\\mathbf{j}$, so $\\mathbf{a}=(1-9t^{-2})\\mathbf{i}+(t-2)\\mathbf{j}$.\n(d) $1-\\frac{9}{t^2}=0\\Rightarrow t^2=9\\Rightarrow t=3$ (reject $-3$).",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p1",
+     "kind": "pitfall",
+     "error_code": "index-law-error",
+     "work": "(a) At t=2: $\\mathbf{v}=(2+9\\times2)\\mathbf{i}+(2-4-6)\\mathbf{j}=20\\mathbf{i}-8\\mathbf{j}$. Speed $=\\sqrt{400+64}=\\sqrt{464}=21.5$ m/s.\n(b) $t^2-4t-12=0$, $(t-6)(t+2)=0$, $t=6$ (since $t\\ge1$).\n(c) $\\mathbf{a}=(1-9t^{-2})\\mathbf{i}+(t-2)\\mathbf{j}$.\n(d) $1-9/t^2=0$, $t^2=9$, $t=3$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p2",
+     "kind": "pitfall",
+     "error_code": "velocity-given-for-speed",
+     "work": "(a) At t=2: $\\mathbf{v}=6.5\\mathbf{i}-8\\mathbf{j}$, so the speed is $6.5\\mathbf{i}-8\\mathbf{j}$ m/s.\n(b) $t^2-4t-12=0$, $(t-6)(t+2)=0$, $T=6$ as $t=-2$ is not in range.\n(c) $\\mathbf{a}=(1-9t^{-2})\\mathbf{i}+(t-2)\\mathbf{j}$.\n(d) $t^2=9$, $t=3$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p3",
+     "kind": "pitfall",
+     "error_code": "magnitude-error",
+     "work": "(a) $\\mathbf{v}=6.5\\mathbf{i}-8\\mathbf{j}$. Speed $=6.5^2+8^2=106.25$ m/s (no square root taken).\n(b) $t^2-4t-12=0$, $(t-6)(t+2)=0$, $T=6$ (reject $-2$).\n(c) $\\mathbf{a}=(1-9t^{-2})\\mathbf{i}+(t-2)\\mathbf{j}$.\n(d) $t^2=9$, $t=3$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p4",
+     "kind": "pitfall",
+     "error_code": "quadratic-formula-error",
+     "work": "(a) $\\sqrt{6.5^2+8^2}=10.3$ m/s.\n(b) $t^2-4t-12=0$. Formula with $a=1,b=-4,c=-12$, using $+b$ by mistake: $t=\\frac{-4\\pm\\sqrt{16+48}}{2}=\\frac{-4\\pm8}{2}$, so $t=2$ or $t=-6$. Only $t=2$ is in range, $T=2$.\n(c) $\\mathbf{a}=(1-9t^{-2})\\mathbf{i}+(t-2)\\mathbf{j}$.\n(d) $t^2=9$, $t=3$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p5",
+     "kind": "pitfall",
+     "error_code": "hidden-quadratic-not-converted-back",
+     "work": "(a) $\\sqrt{106.25}=10.3$ m/s.\n(b) $\\frac12t^2-2t-6=0\\Rightarrow(t-6)(t+2)=0$, so $T=6$ or $T=-2$.\n(c) $\\mathbf{a}=(1-9t^{-2})\\mathbf{i}+(t-2)\\mathbf{j}$.\n(d) $t^2=9$, $t=3$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p6",
+     "kind": "pitfall",
+     "error_code": "sign-error-differentiating-negative-power",
+     "work": "(a) $\\sqrt{106.25}=10.3$ m/s.\n(b) $(t-6)(t+2)=0$, $T=6$.\n(c) $9t^{-1}$ differentiates to $+9t^{-2}$, so $\\mathbf{a}=(1+9t^{-2})\\mathbf{i}+(t-2)\\mathbf{j}$.\n(d) $1+\\frac{9}{t^2}=0\\Rightarrow t^2=-9$, which has no real solution, so no such time exists.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p7",
+     "kind": "pitfall",
+     "error_code": "sign-error-differentiating-negative-power",
+     "work": "(a) $\\sqrt{6.5^2+8^2}=10.3$ m/s.\n(b) $t^2-4t-12=0$, $T=6$ (reject $-2$).\n(c) $9t^{-1}\\to-9t^{0}=-9$, so $\\mathbf{a}=(1-9)\\mathbf{i}+(t-2)\\mathbf{j}=-8\\mathbf{i}+(t-2)\\mathbf{j}$.\n(d) The $\\mathbf{i}$ component is $-8$, never zero, so it cannot point north. I can't find $t$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p8",
+     "kind": "pitfall",
+     "error_code": "not-rewritten-as-powers",
+     "work": "(a) $\\sqrt{106.25}=10.3$ m/s.\n(b) $(t-6)(t+2)=0$, $T=6$.\n(c) Differentiating $9/t$: $9$ is a constant so it gives $0$. $\\mathbf{a}=1\\mathbf{i}+(t-2)\\mathbf{j}$.\n(d) The $\\mathbf{i}$ component is $1$, which is never $0$. No solution found.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p9",
+     "kind": "pitfall",
+     "error_code": "suvat-with-variable-acceleration",
+     "work": "(a) $\\sqrt{106.25}=10.3$ m/s.\n(b) $(t-6)(t+2)=0$, $T=6$.\n(c) Using $\\mathbf{a}=\\frac{\\mathbf{v}-\\mathbf{u}}{t}$ with $\\mathbf{u}=0$: $\\mathbf{a}=\\left(1+\\frac{9}{t^2}\\right)\\mathbf{i}+\\left(\\frac t2-2-\\frac6t\\right)\\mathbf{j}$.\n(d) $1+\\frac{9}{t^2}=0$ has no real solution, so I can't find $t$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p10",
+     "kind": "pitfall",
+     "error_code": "not-rewritten-as-powers",
+     "work": "(a) $\\sqrt{106.25}=10.3$ m/s.\n(b) $(t-6)(t+2)=0$, $T=6$.\n(c) $\\mathbf{a}=(1-9t^{-2})\\mathbf{i}+(t-2)\\mathbf{j}$.\n(d) $1-\\frac{9}{t^2}=0\\Rightarrow1=9/t\\Rightarrow t=9$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p11",
+     "kind": "pitfall",
+     "error_code": "suvat-with-variable-acceleration",
+     "work": "(a) $\\sqrt{106.25}=10.3$ m/s.\n(b) $(t-6)(t+2)=0$, $T=6$.\n(c) $\\mathbf{a}=(1-9t^{-2})\\mathbf{i}+(t-2)\\mathbf{j}$.\n(d) Treat the acceleration as constant: the average over $1\\le t\\le8$ is found from $\\mathbf{v}(8)-\\mathbf{v}(1)$ over $7$, which gives $-\\frac{1}{8}\\mathbf{i}+\\frac{35}{14}\\mathbf{j}$. The $\\mathbf{i}$ component is nearly zero, so take the middle of the interval, $t=4.5$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "partial",
+     "kind": "partial",
+     "error_code": null,
+     "work": "(a) $\\mathbf{v}=6.5\\mathbf{i}-8\\mathbf{j}$, speed $=\\sqrt{106.25}=10.3$ m/s.\n(b) $\\frac12t^2-2t-6=0$, $(t-6)(t+2)=0$, $T=6$.\n(c) Not sure how to start; differentiate? I'll leave it.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "correct",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) B0: wrong velocity, since 9/t was evaluated as 9×2, so the speed is wrong."
+     ]
+    },
+    {
+     "id": "p2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) B0: the answer is given as a vector, not a speed."
+     ]
+    },
+    {
+     "id": "p3",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) B0: no square root taken, so 106.25 is not the speed."
+     ]
+    },
+    {
+     "id": "p4",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) M0: the quadratic formula was applied with the wrong sign for b, so the solving method is incorrect.",
+      "(b) A0: T=2 is wrong."
+     ]
+    },
+    {
+     "id": "p5",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) A0: T=-2 is not rejected, so the final answer includes -2."
+     ]
+    },
+    {
+     "id": "p6",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(c) A0: sign error on the derivative of 9/t.",
+      "(d) A0: t=3 is not obtained. The M1 is awarded for setting their i component to zero and trying to solve it."
+     ]
+    },
+    {
+     "id": "p7",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(c) A0: 9t^-1 was differentiated incorrectly to a constant.",
+      "(d) M0: their i component has no negative power of t.",
+      "(d) A0: no value of t is found."
+     ]
+    },
+    {
+     "id": "p8",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(c) M0: 9/t was not written as 9t^-1 and was treated as a constant.",
+      "(c) A0: the i component is wrong.",
+      "(d) M0: their i component has no negative power of t.",
+      "(d) A0: no value of t is found."
+     ]
+    },
+    {
+     "id": "p9",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(c) M0: v/t was used, which is not differentiation.",
+      "(c) A0: the acceleration is wrong.",
+      "(d) A0: t=3 is not obtained. The M1 is awarded for setting their i component (which has a negative power of t) to zero."
+     ]
+    },
+    {
+     "id": "p10",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(d) M0: algebra error, since 1=9/t^2 was changed to 1=9/t.",
+      "(d) A0: t=9 is wrong."
+     ]
+    },
+    {
+     "id": "p11",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(d) M0: part (c) was not used. The i component was not set to zero and solved.",
+      "(d) A0: t=4.5 is wrong."
+     ]
+    },
+    {
+     "id": "partial",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(c) M0, A0: no differentiation was attempted.",
+      "(d) M0, A0: part (d) was not attempted."
+     ]
+    }
+   ],
+   "awarded_second": [
+    {
+     "id": "p6",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "c A0: sign error, derivative of 9t^{-1} is -9t^{-2}, not +9t^{-2}.",
+      "d A0: their i component 1+9/t^2 gives no real solution, so t=3 is not found."
+     ]
+    },
+    {
+     "id": "p7",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "c A0: 9t^{-1} differentiated wrongly as -9. The i component should be 1-9/t^2.",
+      "d M0: their i component (-8) has no negative power of t and is not solved for t.",
+      "d A0: depends on M1."
+     ]
+    },
+    {
+     "id": "p9",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "c M0: used a constant-acceleration formula a=(v-u)/t instead of differentiating.",
+      "c A0: depends on M1.",
+      "d A0: their equation 1+9/t^2=0 has no real solution, so t=3 is not reached."
+     ]
+    },
+    {
+     "id": "p10",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "d A0: algebra error (1=9/t instead of t^2=9) gives t=9 instead of t=3."
+     ]
+    }
+   ],
+   "cost_usd": 0.155
+  },
+  "G5": {
+   "pass": false,
+   "errors": [
+    "pitfall [sign-error-differentiating-negative-power] part c: flagged as common, but its error code has 6 matched notes (needs 10)",
+    "pitfall [suvat-with-variable-acceleration] part c: doesn't use the question's own numbers"
+   ]
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "part d: same topic, different skills: tagged ['direction-condition-on-vector', 'differentiate-kinematics-vectors', 'differentiate-negative-and-fractional-powers'], retagged ['solve-power-equation', 'speed-and-direction-from-velocity']"
+   ],
+   "flag": true,
+   "agreement": "3/4",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.026357,
+   "retagged": {
+    "a": [
+     "vector-magnitude"
+    ],
+    "b": [
+     "solve-quadratic-equation",
+     "speed-and-direction-from-velocity"
+    ],
+    "c": [
+     "differentiate-kinematics-vectors",
+     "differentiate-negative-and-fractional-powers"
+    ],
+    "d": [
+     "solve-power-equation",
+     "speed-and-direction-from-velocity"
+    ]
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

@@ -1,0 +1,138 @@
+{
+ "id": "regression-and-correlation-test",
+ "question_type": "regression-and-correlation-test",
+ "component": "stats",
+ "title": "Regression line interpretation & PMCC test",
+ "what_it_asks": "You are given a scatter diagram, a regression line or a value of $r$, usually in a real context. You are asked to describe or interpret what it shows, and often to test for correlation using $\\mathrm{H}_0: \\rho = 0$. The idea is that a sample correlation only matters if it would be unlikely to arise by chance when the population has no correlation.",
+ "typical_structure": "Usually about four parts, worth six or seven marks in total, so most parts are a single mark. Early parts ask you to state or describe something, such as the type of correlation or the meaning of a gradient. A later part is the hypothesis test, which carries more marks. A final part may ask you to comment on the model or give a reason. The parts share one context but are mostly separate, so a slip in one rarely spoils the next.",
+ "mark_pattern": "Most parts are a single B1 for a stated description, interpretation or hypothesis. Two-mark parts are usually B1 B1, or B1 B1ft when the second statement follows from the first. The test itself is typically B1 M1 A1. The B1 is for both hypotheses written with $\\rho$. The M1 is for comparing $r$ with the critical value, or the p-value with the significance level. The A1 is for a conclusion in context that is not too definite. Occasionally a longer part is a run of separate B1 marks, one for each point made.",
+ "where_marks_leak": [
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You give a value to the wrong number of decimal places or significant figures. The final A1 is lost, even though the method was sound."
+  },
+  {
+   "error_code": "conclusion-too-definite-or-no-context",
+   "mark_family": "accuracy",
+   "text": "You write that the test proves correlation, or you say 'reject $\\mathrm{H}_0$' without naming the variables. The final A1 of the test is lost."
+  },
+  {
+   "error_code": "hypotheses-not-in-parameter",
+   "mark_family": "independent",
+   "text": "You write the hypotheses in words, or without $\\rho$. The B1 for the hypotheses is lost, and it does not depend on any later working."
+  },
+  {
+   "error_code": "tail-choice-error",
+   "mark_family": "independent",
+   "text": "You use a two-tailed $\\mathrm{H}_1$ when the claim is about positive or negative correlation, or the reverse. The hypotheses B1 is lost, and the wrong critical value may then cost the M1."
+  },
+  {
+   "error_code": "correlation-as-causation",
+   "mark_family": "independent",
+   "text": "You say one variable causes the change in the other because they are correlated. The B1 for the comment or reason is lost."
+  }
+ ],
+ "write_to_earn": [
+  "Write $\\mathrm{H}_0: \\rho = 0$ and $\\mathrm{H}_1$ with $\\rho$ and the correct tail before you look at any table.",
+  "Quote the critical value or p-value and your $r$ side by side, then say which is larger, so the M1 is visible.",
+  "Word the conclusion as 'there is evidence that...' and name both variables from the question.",
+  "When interpreting a gradient, say the change in $y$ per one unit of $x$, with units.",
+  "For 'describe' parts, give both the direction and the strength, for example 'strong positive correlation'."
+ ],
+ "check_before_you_leave": [
+  "Hypotheses use $\\rho$",
+  "Tail matches the claim",
+  "Conclusion is in context",
+  "No 'proves' anywhere",
+  "Rounding as asked"
+ ],
+ "skills": [
+  "describe-correlation",
+  "explain-with-reason",
+  "state-hypotheses-correlation-test",
+  "correlation-test-critical-value",
+  "conclude-test-in-context",
+  "interpret-regression-coefficients",
+  "assess-linear-model-fit",
+  "suggest-reason-for-correlation"
+ ],
+ "related_types": [
+  "log-coded-regression-model"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:11:11",
+ "cost_usd": 0.0607,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 6,
+  "codes_listed": {
+   "wrong-final-accuracy": 4,
+   "conclusion-too-definite-or-no-context": 2,
+   "population-sample-confused": 1,
+   "premature-rounding": 1,
+   "correlation-as-causation": 1,
+   "hypotheses-not-in-parameter": 1,
+   "log-linear-constants-confused": 1,
+   "tail-choice-error": 1
+  },
+  "frequent_codes": [],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "4 rare words shared with P3_June2022_stats_Q4",
+    "cosine 0.843 with note:IAL2013_WMA01_Jan2017_Q1_n4"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.001,
+   "shared_numbers": 0,
+   "max_cosine": 0.843,
+   "cosine_source": "note:IAL2013_WMA01_Jan2017_Q1_n4"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 14
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: 4 rare words shared with P3_June2022_stats_Q4",
+   "copy: cosine 0.843 with note:IAL2013_WMA01_Jan2017_Q1_n4"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

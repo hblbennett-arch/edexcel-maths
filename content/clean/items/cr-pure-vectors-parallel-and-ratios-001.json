@@ -1,0 +1,294 @@
+{
+ "id": "cr-pure-vectors-parallel-and-ratios-001",
+ "blueprint_id": "bp-pure-vectors-parallel-and-ratios-001",
+ "question_type": "vectors-parallel-and-ratios",
+ "component": "pure",
+ "tier": "standard",
+ "kind": "exam",
+ "stem": "Three points $P$, $Q$ and $T$ in three-dimensional space have position vectors\n$\\mathbf{p} = 3\\mathbf{i} - 2\\mathbf{j} + \\mathbf{k}$, $\\quad\\mathbf{q} = 7\\mathbf{i} + 4\\mathbf{j} - \\mathbf{k}$ $\\quad$ and $\\quad\\mathbf{t} = a\\mathbf{i} + 13\\mathbf{j} + b\\mathbf{k}$,\nwhere $a$ and $b$ are constants.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 2,
+   "text": "Find the displacement $\\overrightarrow{PQ}$ and write it in terms of $\\mathbf{i}$, $\\mathbf{j}$ and $\\mathbf{k}$. (2)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "vector-between-points"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Works out $\\mathbf{q} - \\mathbf{p}$ one component at a time, i.e. $(7-3)\\mathbf{i} + (4-(-2))\\mathbf{j} + (-1-1)\\mathbf{k}$, with at least two of the three components correct",
+     "notes": "Using $\\mathbf{p} - \\mathbf{q}$ is M0. A column vector is fine."
+    },
+    {
+     "code": "A1",
+     "for": "$\\overrightarrow{PQ} = 4\\mathbf{i} + 6\\mathbf{j} - 2\\mathbf{k}$",
+     "notes": "cao; accept $\\begin{pmatrix}4\\\\6\\\\-2\\end{pmatrix}$"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\overrightarrow{PQ} = \\mathbf{q} - \\mathbf{p} = (7-3)\\mathbf{i} + (4-(-2))\\mathbf{j} + (-1-1)\\mathbf{k}$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$\\overrightarrow{PQ} = 4\\mathbf{i} + 6\\mathbf{j} - 2\\mathbf{k}$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "PQ_i",
+     "expr": "4",
+     "form": "exact"
+    },
+    {
+     "name": "PQ_j",
+     "expr": "6",
+     "form": "exact"
+    },
+    {
+     "name": "PQ_k",
+     "expr": "-2",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "7 - 3",
+     "rhs": "4",
+     "answer": "PQ_i"
+    },
+    {
+     "type": "equals",
+     "lhs": "4 - (-2)",
+     "rhs": "6",
+     "answer": "PQ_j"
+    },
+    {
+     "type": "equals",
+     "lhs": "-1 - 1",
+     "rhs": "-2",
+     "answer": "PQ_k"
+    }
+   ],
+   "hints": [
+    "To go from $P$ to $Q$ you go back to the origin and then out to $Q$, so the vector is $-\\mathbf{p} + \\mathbf{q}$.",
+    "Subtract each component of $\\mathbf{p}$ from the matching component of $\\mathbf{q}$."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 3,
+   "text": "The point $T$ is on the straight line through $P$ and $Q$. Find the value of $a$ and the value of $b$. (3)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "parallel-and-collinear-vectors",
+    "vector-ratios-and-geometric-proof",
+    "vector-between-points"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Writes down a vector from a known point to $T$ in terms of $a$ and $b$, e.g. $\\overrightarrow{PT} = (a-3)\\mathbf{i} + 15\\mathbf{j} + (b-1)\\mathbf{k}$",
+     "notes": "Allow a slip in one component. Accept $\\overrightarrow{QT} = (a-7)\\mathbf{i} + 9\\mathbf{j} + (b+1)\\mathbf{k}$."
+    },
+    {
+     "code": "dM1",
+     "for": "Sets their $\\overrightarrow{PT} = \\lambda\\,\\overrightarrow{PQ}$ (their PQ from (a)), gets $\\lambda$ from the $\\mathbf{j}$ components ($15 = 6\\lambda$, so $\\lambda = \\tfrac{5}{2}$) and uses that $\\lambda$ in at least one of the other components",
+     "notes": "Depends on the first M1. Also allow the equivalent line equation $\\mathbf{r} = \\mathbf{p} + \\lambda(4\\mathbf{i}+6\\mathbf{j}-2\\mathbf{k})$ with $-2 + 6\\lambda = 13$."
+    },
+    {
+     "code": "A1",
+     "for": "$a = 13$ and $b = -4$",
+     "notes": "cao, both values needed"
+    }
+   ],
+   "alternatives": [
+    {
+     "name": "Way 2 (using Q as the fixed point)",
+     "marks": [
+      {
+       "code": "M1",
+       "for": "$\\overrightarrow{QT} = (a-7)\\mathbf{i} + 9\\mathbf{j} + (b+1)\\mathbf{k}$"
+      },
+      {
+       "code": "dM1",
+       "for": "Sets $\\overrightarrow{QT} = \\mu(4\\mathbf{i}+6\\mathbf{j}-2\\mathbf{k})$, gets $\\mu = \\tfrac{3}{2}$ from $9 = 6\\mu$ and uses it in another component"
+      },
+      {
+       "code": "A1",
+       "for": "$a = 13$ and $b = -4$",
+       "notes": "cao"
+      }
+     ]
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\overrightarrow{PT} = \\mathbf{t} - \\mathbf{p} = (a-3)\\mathbf{i} + (13-(-2))\\mathbf{j} + (b-1)\\mathbf{k} = (a-3)\\mathbf{i} + 15\\mathbf{j} + (b-1)\\mathbf{k}$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$T$ lies on line $PQ$, so $\\overrightarrow{PT} = \\lambda\\,\\overrightarrow{PQ} = \\lambda(4\\mathbf{i} + 6\\mathbf{j} - 2\\mathbf{k})$. The $\\mathbf{j}$ components give $15 = 6\\lambda$, so $\\lambda = \\tfrac{5}{2}$. Then $a - 3 = 4\\times\\tfrac{5}{2} = 10$ and $b - 1 = -2\\times\\tfrac{5}{2} = -5$.",
+     "mark": "dM1"
+    },
+    {
+     "step": 3,
+     "working": "$a = 13$, $\\; b = -4$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "a",
+     "expr": "13",
+     "form": "exact"
+    },
+    {
+     "name": "b",
+     "expr": "-4",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "system",
+     "equations": [
+      "a - 3 = 4*lam",
+      "13 + 2 = 6*lam",
+      "b - 1 = -2*lam"
+     ],
+     "vars": [
+      "a",
+      "b",
+      "lam"
+     ],
+     "result": {
+      "a": "13",
+      "b": "-4",
+      "lam": "5/2"
+     }
+    },
+    {
+     "type": "equals",
+     "lhs": "(13 - 7)/4",
+     "rhs": "(-4 + 1)/(-2)"
+    },
+    {
+     "type": "equals",
+     "lhs": "(13 - 4)/6",
+     "rhs": "(13 - 7)/4"
+    }
+   ],
+   "hints": [
+    "If $T$ is on the line through $P$ and $Q$, then $\\overrightarrow{PT}$ must be a scalar multiple of $\\overrightarrow{PQ}$.",
+    "The $\\mathbf{j}$ component of $\\mathbf{t}$ is known, so use it to find the scalar first."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "vector-direction-reversed",
+   "text": "If you work out $\\mathbf{p} - \\mathbf{q}$ you get $-4\\mathbf{i} - 6\\mathbf{j} + 2\\mathbf{k}$. That is $\\overrightarrow{QP}$, not $\\overrightarrow{PQ}$, so you lose the M1 and the A1. The vector from $P$ to $Q$ is 'end minus start'.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "distance-formula-error",
+   "text": "Adding the position vectors instead of subtracting them gives $10\\mathbf{i} + 2\\mathbf{j} + 0\\mathbf{k}$, which does not describe the displacement. This scores no marks.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "vector-direction-reversed",
+   "text": "Take care if you write $\\overrightarrow{PT}$ as $\\mathbf{p} - \\mathbf{t}$ but keep $\\overrightarrow{PQ} = \\mathbf{q} - \\mathbf{p}$. The scalar must then be $\\lambda = -\\tfrac{5}{2}$. If you drop the sign and use $\\tfrac{5}{2}$, you get $a = -7$ and $b = 6$, and the method and accuracy marks are lost. Always use 'end minus start' for both vectors.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "distance-formula-error",
+   "text": "The $\\mathbf{j}$ component of $\\overrightarrow{PT}$ is $13 - (-2) = 15$, not $13 - 2 = 11$. A wrong sign here gives the untidy scalar $\\tfrac{11}{6}$ and wrong values of $a$ and $b$, so you lose the A1.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "parallel-not-shown",
+   "text": "You earn nothing for guessing values of $a$ and $b$ and saying $T$ 'looks' collinear. You need to write $\\overrightarrow{PT} = \\lambda\\,\\overrightarrow{PQ}$, find $\\lambda = \\tfrac{5}{2}$ and use that same $\\lambda$ in every component. Without this you do not get the dM1.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:44:40",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.2752
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 5
+  },
+  "G7": {
+   "pass": false,
+   "flag": true,
+   "reasons": [
+    "4 word 8-gram(s) also in the reference corpus (not whitelisted)"
+   ],
+   "flags": [
+    "cosine 0.871 with question:IAL2013_WMA01_June2014_Q5"
+   ],
+   "hit_fields": [
+    "part b text"
+   ],
+   "n_8gram_hits": 4,
+   "hits8": [
+    "find the value of a and the value",
+    "of a and the value of b 3",
+    "the value of a and the value of",
+    "value of a and the value of b"
+   ],
+   "max_jaccard": 0.078,
+   "jaccard_source": "GCE2008_6663_June2005_Q3",
+   "shared_numbers": 0,
+   "max_cosine": 0.871,
+   "cosine_source": "question:IAL2013_WMA01_June2014_Q5"
+  },
+  "G2": {
+   "pass": false,
+   "errors": [
+    "part b check 1 (system): no solution of the system matches {'a': '13', 'b': '-4', 'lam': '5/2'} (solutions: [])"
+   ],
+   "n_checks": 6,
+   "n_answers": 5,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

@@ -1,0 +1,1028 @@
+{
+ "item_id": "cr-stats-binomial-probabilities-in-context-001",
+ "applicable": true,
+ "reason": "Binomial bar charts with a live cumulative probability make the exact versus cumulative distinction and the tail-based test decision visible.",
+ "scenes": [
+  {
+   "id": "cr-stats-binomial-probabilities-in-context-001::b::1",
+   "part": "b",
+   "title": "Exact and cumulative probabilities for B(14, 0.12)",
+   "purpose": "See P(X = 2) as one bar and P(X > 3) as the bars to the right of 3, so that 1 - P(X <= 3) is the right calculation.",
+   "approach": "model",
+   "board": {
+    "x": [
+     -1,
+     15
+    ],
+    "y": [
+     -0.06,
+     0.42
+    ],
+    "axis": true,
+    "grid": false,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "k",
+     "label": "cut-off k",
+     "min": 0,
+     "max": 14,
+     "step": 1,
+     "value": 2
+    }
+   ],
+   "elements": [
+    {
+     "type": "polygon",
+     "id": "b0",
+     "points": [
+      [
+       "-0.4",
+       "0"
+      ],
+      [
+       "-0.4",
+       "binom_pmf(14, 0.12, 0)"
+      ],
+      [
+       "0.4",
+       "binom_pmf(14, 0.12, 0)"
+      ],
+      [
+       "0.4",
+       "0"
+      ]
+     ],
+     "color": "primary",
+     "opacity": 0.5
+    },
+    {
+     "type": "polygon",
+     "id": "b1",
+     "points": [
+      [
+       "0.6",
+       "0"
+      ],
+      [
+       "0.6",
+       "binom_pmf(14, 0.12, 1)"
+      ],
+      [
+       "1.4",
+       "binom_pmf(14, 0.12, 1)"
+      ],
+      [
+       "1.4",
+       "0"
+      ]
+     ],
+     "color": "primary",
+     "opacity": 0.5
+    },
+    {
+     "type": "polygon",
+     "id": "b2",
+     "points": [
+      [
+       "1.6",
+       "0"
+      ],
+      [
+       "1.6",
+       "binom_pmf(14, 0.12, 2)"
+      ],
+      [
+       "2.4",
+       "binom_pmf(14, 0.12, 2)"
+      ],
+      [
+       "2.4",
+       "0"
+      ]
+     ],
+     "color": "warning",
+     "opacity": 0.6
+    },
+    {
+     "type": "polygon",
+     "id": "b3",
+     "points": [
+      [
+       "2.6",
+       "0"
+      ],
+      [
+       "2.6",
+       "binom_pmf(14, 0.12, 3)"
+      ],
+      [
+       "3.4",
+       "binom_pmf(14, 0.12, 3)"
+      ],
+      [
+       "3.4",
+       "0"
+      ]
+     ],
+     "color": "primary",
+     "opacity": 0.5
+    },
+    {
+     "type": "polygon",
+     "id": "b4",
+     "points": [
+      [
+       "3.6",
+       "0"
+      ],
+      [
+       "3.6",
+       "binom_pmf(14, 0.12, 4)"
+      ],
+      [
+       "4.4",
+       "binom_pmf(14, 0.12, 4)"
+      ],
+      [
+       "4.4",
+       "0"
+      ]
+     ],
+     "color": "secondary",
+     "opacity": 0.5
+    },
+    {
+     "type": "polygon",
+     "id": "b5",
+     "points": [
+      [
+       "4.6",
+       "0"
+      ],
+      [
+       "4.6",
+       "binom_pmf(14, 0.12, 5)"
+      ],
+      [
+       "5.4",
+       "binom_pmf(14, 0.12, 5)"
+      ],
+      [
+       "5.4",
+       "0"
+      ]
+     ],
+     "color": "secondary",
+     "opacity": 0.5
+    },
+    {
+     "type": "polygon",
+     "id": "b6",
+     "points": [
+      [
+       "5.6",
+       "0"
+      ],
+      [
+       "5.6",
+       "binom_pmf(14, 0.12, 6)"
+      ],
+      [
+       "6.4",
+       "binom_pmf(14, 0.12, 6)"
+      ],
+      [
+       "6.4",
+       "0"
+      ]
+     ],
+     "color": "secondary",
+     "opacity": 0.5
+    },
+    {
+     "type": "polygon",
+     "id": "b7",
+     "points": [
+      [
+       "6.6",
+       "0"
+      ],
+      [
+       "6.6",
+       "binom_pmf(14, 0.12, 7)"
+      ],
+      [
+       "7.4",
+       "binom_pmf(14, 0.12, 7)"
+      ],
+      [
+       "7.4",
+       "0"
+      ]
+     ],
+     "color": "secondary",
+     "opacity": 0.5
+    },
+    {
+     "type": "polygon",
+     "id": "b8",
+     "points": [
+      [
+       "7.6",
+       "0"
+      ],
+      [
+       "7.6",
+       "binom_pmf(14, 0.12, 8)"
+      ],
+      [
+       "8.4",
+       "binom_pmf(14, 0.12, 8)"
+      ],
+      [
+       "8.4",
+       "0"
+      ]
+     ],
+     "color": "secondary",
+     "opacity": 0.5
+    },
+    {
+     "type": "polygon",
+     "id": "b9",
+     "points": [
+      [
+       "8.6",
+       "0"
+      ],
+      [
+       "8.6",
+       "binom_pmf(14, 0.12, 9)"
+      ],
+      [
+       "9.4",
+       "binom_pmf(14, 0.12, 9)"
+      ],
+      [
+       "9.4",
+       "0"
+      ]
+     ],
+     "color": "secondary",
+     "opacity": 0.5
+    },
+    {
+     "type": "polygon",
+     "id": "b10",
+     "points": [
+      [
+       "9.6",
+       "0"
+      ],
+      [
+       "9.6",
+       "binom_pmf(14, 0.12, 10)"
+      ],
+      [
+       "10.4",
+       "binom_pmf(14, 0.12, 10)"
+      ],
+      [
+       "10.4",
+       "0"
+      ]
+     ],
+     "color": "secondary",
+     "opacity": 0.5
+    },
+    {
+     "type": "vline",
+     "id": "cut",
+     "at": "k+0.5",
+     "color": "mark",
+     "dash": true
+    },
+    {
+     "type": "text",
+     "id": "t1",
+     "x": "7",
+     "y": "0.39",
+     "value": "P(X = 2) = {binom_pmf(14, 0.12, 2)}"
+    },
+    {
+     "type": "text",
+     "id": "t2",
+     "x": "7",
+     "y": "0.34",
+     "value": "P(X $\\leqslant$ {k}) = {binom_le(14, 0.12, k)}"
+    },
+    {
+     "type": "text",
+     "id": "t3",
+     "x": "7",
+     "y": "0.29",
+     "value": "P(X $\\geqslant$ {k+1}) = {binom_ge(14, 0.12, k+1)}"
+    },
+    {
+     "type": "text",
+     "id": "t4",
+     "x": "7",
+     "y": "0.24",
+     "value": "P(X $>$ 3) = {1 - binom_le(14, 0.12, 3)}",
+     "color": "secondary"
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "The orange bar is $\\mathrm{P}(X=2)$, one exact value: $\\binom{14}{2}(0.12)^2(0.88)^{12}\\approx 0.283$. This is the B1 for part (i).",
+     "set": {
+      "k": 2
+     },
+     "highlight": [
+      "b2",
+      "t1"
+     ]
+    },
+    {
+     "n": 2,
+     "text": "Set $k=3$. The dashed line splits the bars into $X\\leqslant 3$ on the left and $X>3$ on the right. The left bars add to about $0.9226$.",
+     "set": {
+      "k": 3
+     },
+     "highlight": [
+      "cut",
+      "t2"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "'More than 3' means the blue bars from $X=4$ onwards, so $\\mathrm{P}(X>3)=1-\\mathrm{P}(X\\leqslant 3)\\approx 0.0774$. This is the B1 for part (ii). Slide $k$ to $4$ to see that $1-\\mathrm{P}(X\\leqslant 4)$ would leave out the bar at $4$ and give the wrong value.",
+     "set": {
+      "k": 3
+     },
+     "highlight": [
+      "t4"
+     ]
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     1,
+     2,
+     3
+    ],
+    "marks": [
+     "B1"
+    ],
+    "pitfalls": [
+     "cumulative-individual-confused"
+    ]
+   },
+   "guide": {
+    "what_you_see": "A bar chart of the distribution of $X\\sim \\mathrm{B}(14, 0.12)$, the number of nights out of 14 on which the sensor fails to record fully, with a dashed vertical cut-off line you can move. The bar at $X=2$ is highlighted in orange.",
+    "legend": [
+     {
+      "id": "b2",
+      "meaning": "The orange bar at $X=2$; its height is $\\mathrm{P}(X=2)=\\binom{14}{2}(0.12)^2(0.88)^{12}$, the answer to part (i)."
+     },
+     {
+      "id": "b3",
+      "meaning": "The bar at $X=3$; it is the last bar included in $\\mathrm{P}(X\\leqslant 3)$, so it is not part of 'more than 3'."
+     },
+     {
+      "id": "b4",
+      "meaning": "The bar at $X=4$, the first bar of 'more than 3'. The bars from $X=4$ onwards (here drawn up to $X=10$) make up $\\mathrm{P}(X>3)$."
+     },
+     {
+      "id": "cut",
+      "meaning": "The dashed vertical line at $x=k+0.5$, splitting the bars into $X\\leqslant k$ on its left and $X\\geqslant k+1$ on its right."
+     }
+    ],
+    "interact": [
+     {
+      "control": "k",
+      "kind": "slider",
+      "do": "Drag the slider from $0$ to $14$, stopping at $k=2$, $k=3$ and $k=4$, to move the dashed line between bars.",
+      "watch": "The readings for $\\mathrm{P}(X\\leqslant k)$ and $\\mathrm{P}(X\\geqslant k+1)$ change and always add to $1$. At $k=2$ they are about $0.769$ and $0.231$; at $k=3$ they are about $0.9226$ and $0.0774$, and the right-hand value is the answer to (ii); at $k=4$ they are about $0.980$ and $0.0196$, which is too small for 'more than 3'. The $\\mathrm{P}(X=2)$ and $\\mathrm{P}(X>3)$ readings do not change."
+     }
+    ],
+    "question_link": {
+     "part": "b",
+     "marks": [
+      "B1"
+     ],
+     "text": "The orange bar $b2$ is $\\mathrm{P}(X=2)\\approx 0.283$, the B1 for (i). With the line at $k=3$, the bars to its right (from $X=4$) are 'more than 3', so $\\mathrm{P}(X>3)=1-\\mathrm{P}(X\\leqslant 3)\\approx 0.0774$ is the B1 for (ii)."
+    },
+    "read_off": [
+     "t1: $\\mathrm{P}(X=2)$, the height of the orange bar, about $0.283$ (3 s.f.); it stays fixed whatever $k$ is.",
+     "t2: $\\mathrm{P}(X\\leqslant k)$, the total of all bars to the left of the dashed line, which is the cumulative probability up to and including $k$. At $k=3$ it is about $0.9226$.",
+     "t3: $\\mathrm{P}(X\\geqslant k+1)$, the total of the bars to the right of the dashed line, which equals $1-\\mathrm{P}(X\\leqslant k)$. At $k=3$ it is about $0.0774$.",
+     "t4: $\\mathrm{P}(X>3)=1-\\mathrm{P}(X\\leqslant 3)\\approx 0.0774$ (3 s.f.), the answer to (ii); it does not depend on the slider."
+    ]
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0323,
+    "attempts": 1,
+    "gate": {
+     "pass": true,
+     "errors": []
+    },
+    "generated_at": "2026-09-30T23:39:02"
+   }
+  },
+  {
+   "id": "cr-stats-binomial-probabilities-in-context-001::d::2",
+   "part": "d",
+   "title": "Testing the claim with B(60, 0.12)",
+   "purpose": "See that the test compares the tail probability P(Y <= 3) with 5%, not the single bar at 3.",
+   "approach": "model",
+   "board": {
+    "x": [
+     -1,
+     21
+    ],
+    "y": [
+     -0.03,
+     0.18
+    ],
+    "axis": true,
+    "grid": false,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "c",
+     "label": "cut-off c",
+     "min": 0,
+     "max": 10,
+     "step": 1,
+     "value": 3
+    }
+   ],
+   "elements": [
+    {
+     "type": "polygon",
+     "id": "d0",
+     "points": [
+      [
+       "-0.4",
+       "0"
+      ],
+      [
+       "-0.4",
+       "binom_pmf(60, 0.12, 0)"
+      ],
+      [
+       "0.4",
+       "binom_pmf(60, 0.12, 0)"
+      ],
+      [
+       "0.4",
+       "0"
+      ]
+     ],
+     "color": "primary",
+     "opacity": 0.5
+    },
+    {
+     "type": "polygon",
+     "id": "d1",
+     "points": [
+      [
+       "0.6",
+       "0"
+      ],
+      [
+       "0.6",
+       "binom_pmf(60, 0.12, 1)"
+      ],
+      [
+       "1.4",
+       "binom_pmf(60, 0.12, 1)"
+      ],
+      [
+       "1.4",
+       "0"
+      ]
+     ],
+     "color": "primary",
+     "opacity": 0.5
+    },
+    {
+     "type": "polygon",
+     "id": "d2",
+     "points": [
+      [
+       "1.6",
+       "0"
+      ],
+      [
+       "1.6",
+       "binom_pmf(60, 0.12, 2)"
+      ],
+      [
+       "2.4",
+       "binom_pmf(60, 0.12, 2)"
+      ],
+      [
+       "2.4",
+       "0"
+      ]
+     ],
+     "color": "primary",
+     "opacity": 0.5
+    },
+    {
+     "type": "polygon",
+     "id": "d3",
+     "points": [
+      [
+       "2.6",
+       "0"
+      ],
+      [
+       "2.6",
+       "binom_pmf(60, 0.12, 3)"
+      ],
+      [
+       "3.4",
+       "binom_pmf(60, 0.12, 3)"
+      ],
+      [
+       "3.4",
+       "0"
+      ]
+     ],
+     "color": "warning",
+     "opacity": 0.6
+    },
+    {
+     "type": "polygon",
+     "id": "d4",
+     "points": [
+      [
+       "3.6",
+       "0"
+      ],
+      [
+       "3.6",
+       "binom_pmf(60, 0.12, 4)"
+      ],
+      [
+       "4.4",
+       "binom_pmf(60, 0.12, 4)"
+      ],
+      [
+       "4.4",
+       "0"
+      ]
+     ],
+     "color": "secondary",
+     "opacity": 0.5
+    },
+    {
+     "type": "polygon",
+     "id": "d5",
+     "points": [
+      [
+       "4.6",
+       "0"
+      ],
+      [
+       "4.6",
+       "binom_pmf(60, 0.12, 5)"
+      ],
+      [
+       "5.4",
+       "binom_pmf(60, 0.12, 5)"
+      ],
+      [
+       "5.4",
+       "0"
+      ]
+     ],
+     "color": "secondary",
+     "opacity": 0.5
+    },
+    {
+     "type": "polygon",
+     "id": "d6",
+     "points": [
+      [
+       "5.6",
+       "0"
+      ],
+      [
+       "5.6",
+       "binom_pmf(60, 0.12, 6)"
+      ],
+      [
+       "6.4",
+       "binom_pmf(60, 0.12, 6)"
+      ],
+      [
+       "6.4",
+       "0"
+      ]
+     ],
+     "color": "secondary",
+     "opacity": 0.5
+    },
+    {
+     "type": "polygon",
+     "id": "d7",
+     "points": [
+      [
+       "6.6",
+       "0"
+      ],
+      [
+       "6.6",
+       "binom_pmf(60, 0.12, 7)"
+      ],
+      [
+       "7.4",
+       "binom_pmf(60, 0.12, 7)"
+      ],
+      [
+       "7.4",
+       "0"
+      ]
+     ],
+     "color": "secondary",
+     "opacity": 0.5
+    },
+    {
+     "type": "polygon",
+     "id": "d8",
+     "points": [
+      [
+       "7.6",
+       "0"
+      ],
+      [
+       "7.6",
+       "binom_pmf(60, 0.12, 8)"
+      ],
+      [
+       "8.4",
+       "binom_pmf(60, 0.12, 8)"
+      ],
+      [
+       "8.4",
+       "0"
+      ]
+     ],
+     "color": "secondary",
+     "opacity": 0.5
+    },
+    {
+     "type": "polygon",
+     "id": "d9",
+     "points": [
+      [
+       "8.6",
+       "0"
+      ],
+      [
+       "8.6",
+       "binom_pmf(60, 0.12, 9)"
+      ],
+      [
+       "9.4",
+       "binom_pmf(60, 0.12, 9)"
+      ],
+      [
+       "9.4",
+       "0"
+      ]
+     ],
+     "color": "secondary",
+     "opacity": 0.5
+    },
+    {
+     "type": "polygon",
+     "id": "d10",
+     "points": [
+      [
+       "9.6",
+       "0"
+      ],
+      [
+       "9.6",
+       "binom_pmf(60, 0.12, 10)"
+      ],
+      [
+       "10.4",
+       "binom_pmf(60, 0.12, 10)"
+      ],
+      [
+       "10.4",
+       "0"
+      ]
+     ],
+     "color": "secondary",
+     "opacity": 0.5
+    },
+    {
+     "type": "polygon",
+     "id": "d11",
+     "points": [
+      [
+       "10.6",
+       "0"
+      ],
+      [
+       "10.6",
+       "binom_pmf(60, 0.12, 11)"
+      ],
+      [
+       "11.4",
+       "binom_pmf(60, 0.12, 11)"
+      ],
+      [
+       "11.4",
+       "0"
+      ]
+     ],
+     "color": "secondary",
+     "opacity": 0.5
+    },
+    {
+     "type": "polygon",
+     "id": "d12",
+     "points": [
+      [
+       "11.6",
+       "0"
+      ],
+      [
+       "11.6",
+       "binom_pmf(60, 0.12, 12)"
+      ],
+      [
+       "12.4",
+       "binom_pmf(60, 0.12, 12)"
+      ],
+      [
+       "12.4",
+       "0"
+      ]
+     ],
+     "color": "secondary",
+     "opacity": 0.5
+    },
+    {
+     "type": "polygon",
+     "id": "d13",
+     "points": [
+      [
+       "12.6",
+       "0"
+      ],
+      [
+       "12.6",
+       "binom_pmf(60, 0.12, 13)"
+      ],
+      [
+       "13.4",
+       "binom_pmf(60, 0.12, 13)"
+      ],
+      [
+       "13.4",
+       "0"
+      ]
+     ],
+     "color": "secondary",
+     "opacity": 0.5
+    },
+    {
+     "type": "polygon",
+     "id": "d14",
+     "points": [
+      [
+       "13.6",
+       "0"
+      ],
+      [
+       "13.6",
+       "binom_pmf(60, 0.12, 14)"
+      ],
+      [
+       "14.4",
+       "binom_pmf(60, 0.12, 14)"
+      ],
+      [
+       "14.4",
+       "0"
+      ]
+     ],
+     "color": "secondary",
+     "opacity": 0.5
+    },
+    {
+     "type": "vline",
+     "id": "cutY",
+     "at": "c+0.5",
+     "color": "mark",
+     "dash": true
+    },
+    {
+     "type": "text",
+     "id": "u1",
+     "x": "14",
+     "y": "0.16",
+     "value": "P(Y $\\leqslant$ {c}) = {binom_le(60, 0.12, c)}"
+    },
+    {
+     "type": "text",
+     "id": "u2",
+     "x": "14",
+     "y": "0.14",
+     "value": "Significance level = 0.05"
+    },
+    {
+     "type": "text",
+     "id": "u3",
+     "x": "14",
+     "y": "0.12",
+     "value": "P(Y = 3) = {binom_pmf(60, 0.12, 3)}",
+     "color": "warning"
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "Under $\\mathrm{H}_0$ the number of failures is $Y\\sim\\mathrm{B}(60,0.12)$. With $c=3$ the dashed line cuts off the observed result and everything below it. The tail is $\\mathrm{P}(Y\\leqslant 3)\\approx 0.0601$. This is the M1.",
+     "set": {
+      "c": 3
+     },
+     "highlight": [
+      "cutY",
+      "u1"
+     ]
+    },
+    {
+     "n": 2,
+     "text": "Since $0.0601>0.05$, the observed $3$ is not extreme enough, so you do not reject $\\mathrm{H}_0$. Say in context: there is insufficient evidence that the update has reduced how often the sensor fails. This is the A1.",
+     "set": {
+      "c": 3
+     },
+     "highlight": [
+      "u1",
+      "u2"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "Move $c$ to $2$: $\\mathrm{P}(Y\\leqslant 2)\\approx 0.0196$ is below $0.05$, so the critical region is $Y\\leqslant 2$ and $3$ lies outside it. The orange bar alone, $\\mathrm{P}(Y=3)\\approx 0.0405$, is not the quantity to compare.",
+     "set": {
+      "c": 2
+     },
+     "highlight": [
+      "d3",
+      "u3"
+     ]
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     1,
+     2
+    ],
+    "marks": [
+     "M1",
+     "A1"
+    ],
+    "pitfalls": [
+     "point-probability-compared",
+     "conclusion-too-definite-or-no-context"
+    ]
+   },
+   "guide": {
+    "what_you_see": "A bar chart of the distribution of $Y\\sim\\mathrm{B}(60,0.12)$, the number of failing nights in 60 under $\\mathrm{H}_0$, for $Y=0$ to $14$. A dashed vertical line cuts the bars at the slider value $c$, and the bar for the observed result $Y=3$ is picked out in orange.",
+    "legend": [
+     {
+      "id": "d0",
+      "meaning": "Bar for $\\mathrm{P}(Y=0)$ under $\\mathrm{B}(60,0.12)$; its height is the probability."
+     },
+     {
+      "id": "d1",
+      "meaning": "Bar for $\\mathrm{P}(Y=1)$ under $\\mathrm{B}(60,0.12)$."
+     },
+     {
+      "id": "d2",
+      "meaning": "Bar for $\\mathrm{P}(Y=2)$ under $\\mathrm{B}(60,0.12)$; the largest value in the critical region $Y\\leqslant 2$."
+     },
+     {
+      "id": "d3",
+      "meaning": "The orange bar for $\\mathrm{P}(Y=3)$, the observed result of 3 failing nights."
+     },
+     {
+      "id": "d4",
+      "meaning": "Bar for $\\mathrm{P}(Y=4)$."
+     },
+     {
+      "id": "d5",
+      "meaning": "Bar for $\\mathrm{P}(Y=5)$."
+     },
+     {
+      "id": "d6",
+      "meaning": "Bar for $\\mathrm{P}(Y=6)$."
+     },
+     {
+      "id": "d7",
+      "meaning": "Bar for $\\mathrm{P}(Y=7)$."
+     },
+     {
+      "id": "d8",
+      "meaning": "Bar for $\\mathrm{P}(Y=8)$."
+     },
+     {
+      "id": "d9",
+      "meaning": "Bar for $\\mathrm{P}(Y=9)$."
+     },
+     {
+      "id": "d10",
+      "meaning": "Bar for $\\mathrm{P}(Y=10)$."
+     },
+     {
+      "id": "d11",
+      "meaning": "Bar for $\\mathrm{P}(Y=11)$."
+     },
+     {
+      "id": "d12",
+      "meaning": "Bar for $\\mathrm{P}(Y=12)$."
+     },
+     {
+      "id": "d13",
+      "meaning": "Bar for $\\mathrm{P}(Y=13)$."
+     },
+     {
+      "id": "d14",
+      "meaning": "Bar for $\\mathrm{P}(Y=14)$."
+     },
+     {
+      "id": "cutY",
+      "meaning": "The dashed line at $c+0.5$; all bars to its left make up the tail $Y\\leqslant c$."
+     },
+     {
+      "id": "u1",
+      "meaning": "Live reading of the tail probability $\\mathrm{P}(Y\\leqslant c)$."
+     },
+     {
+      "id": "u2",
+      "meaning": "The significance level of the test, $0.05$, for comparison."
+     },
+     {
+      "id": "u3",
+      "meaning": "The probability of the single value $Y=3$, shown for contrast."
+     }
+    ],
+    "interact": [
+     {
+      "control": "c",
+      "kind": "slider",
+      "do": "Drag the slider between $0$ and $10$, starting at $3$, then move it down to $2$.",
+      "watch": "The dashed line moves and the tail reading changes. At $c=3$ it is $\\approx 0.0601$, above $0.05$. At $c=2$ it is $\\approx 0.0196$, below $0.05$. The $\\mathrm{P}(Y=3)$ reading stays at $\\approx 0.0405$ whatever $c$ is."
+     }
+    ],
+    "question_link": {
+     "part": "d",
+     "marks": [
+      "M1",
+      "A1"
+     ],
+     "text": "The bars are the distribution of $Y\\sim\\mathrm{B}(60,0.12)$ under $\\mathrm{H}_0$, and the orange bar is the observed 3 failures. Setting $c=3$ shows the M1 value $\\mathrm{P}(Y\\leqslant 3)\\approx 0.0601$, and comparing it with $0.05$ gives the A1 conclusion not to reject $\\mathrm{H}_0$. Setting $c=2$ shows the critical region $Y\\leqslant 2$, which does not contain 3."
+    },
+    "read_off": [
+     "The live label $\\mathrm{P}(Y\\leqslant c)$ is the total probability of the bars to the left of the dashed line. At $c=3$ it is $\\approx 0.0601$, the p-value you compare with $0.05$.",
+     "The label $\\mathrm{P}(Y=3)\\approx 0.0405$ is the height of the orange bar alone. It is not the quantity compared with the significance level."
+    ]
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0319,
+    "attempts": 1,
+    "gate": {
+     "pass": true,
+     "errors": []
+    },
+    "generated_at": "2026-09-30T23:39:02"
+   }
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T23:37:41",
+ "cost_usd": 0.0812,
+ "attempts": 1,
+ "checks": {
+  "pass": true,
+  "errors": [],
+  "n_scenes": 2
+ }
+}

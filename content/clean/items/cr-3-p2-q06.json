@@ -1,0 +1,327 @@
+{
+ "id": "cr-3-p2-q06",
+ "blueprint_id": "mk-3-p2-q06",
+ "question_type": "turning-point-by-iteration",
+ "component": "pure",
+ "tier": "standard",
+ "kind": "mock",
+ "stem": "The curve $C$ has equation $y = f(x)$, where\n$$f(x) = 5x^2 + 60\\mathrm{e}^{-\\frac{1}{2}x}, \\quad x \\in \\mathbb{R}.$$\n$C$ has exactly one turning point, and the $x$-coordinate of this turning point is $\\alpha$.",
+ "paper": "mock-3-P2",
+ "set": "mock-3",
+ "q_num": 6,
+ "parts": [
+  {
+   "label": "a",
+   "marks": 2,
+   "text": "Show that $\\alpha$ is a solution of the equation $x = 3\\mathrm{e}^{-\\frac{1}{2}x}$. (2)",
+   "command": "show-that",
+   "forms": [],
+   "skills": [
+    "chain-rule",
+    "differentiate-exponentials-and-logs",
+    "set-derivative-zero-and-solve",
+    "show-that-given-answer"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Differentiates $f(x)$ to get an expression of the form $px + q\\mathrm{e}^{-\\frac{1}{2}x}$ ($p, q \\neq 0$) and sets it equal to $0$",
+     "notes": "The exponential term must keep its power $-\\frac{1}{2}x$. Setting $y = 0$ instead of $f'(x) = 0$ scores M0."
+    },
+    {
+     "code": "A1*",
+     "for": "Gets $f'(x) = 10x - 30\\mathrm{e}^{-\\frac{1}{2}x}$ exactly, writes $10x - 30\\mathrm{e}^{-\\frac{1}{2}x} = 0$, then rearranges (e.g. dividing by 10) to reach $x = 3\\mathrm{e}^{-\\frac{1}{2}x}$",
+     "depends_on": "M1",
+     "notes": "cso. The derivative must be correct and $f'(x) = 0$ (or $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 0$) must appear before the printed equation."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Chain rule on the exponential: $\\frac{\\mathrm{d}}{\\mathrm{d}x}\\left(60\\mathrm{e}^{-\\frac{1}{2}x}\\right) = 60 \\times \\left(-\\tfrac{1}{2}\\right)\\mathrm{e}^{-\\frac{1}{2}x} = -30\\mathrm{e}^{-\\frac{1}{2}x}$, which gives $f'(x) = 10x - 30\\mathrm{e}^{-\\frac{1}{2}x}$",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "The gradient is zero at the turning point, so $10x - 30\\mathrm{e}^{-\\frac{1}{2}x} = 0$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$10x = 30\\mathrm{e}^{-\\frac{1}{2}x} \\Rightarrow x = 3\\mathrm{e}^{-\\frac{1}{2}x}$, so $\\alpha$ satisfies this equation",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [],
+   "checks": [
+    {
+     "type": "derivative",
+     "f": "5x^2 + 60*exp(-x/2)",
+     "var": "x",
+     "result": "10x - 30*exp(-x/2)"
+    },
+    {
+     "type": "equals",
+     "lhs": "(10x - 30*exp(-x/2))/10",
+     "rhs": "x - 3*exp(-x/2)"
+    }
+   ],
+   "hints": [
+    "A turning point is where the gradient $f'(x)$ equals zero. Differentiate first.",
+    "For $\\mathrm{e}^{-\\frac{1}{2}x}$, multiply by the derivative of the power, $-\\frac{1}{2}$."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 3,
+   "text": "Starting from $x_1 = 1.5$, apply the recurrence relation $x_{n+1} = 3\\mathrm{e}^{-\\frac{1}{2}x_n}$ three times. Calculate $x_2$, $x_3$ and $x_4$, writing each one to 4 decimal places. (3)",
+   "command": "calculate",
+   "forms": [
+    "dp-4"
+   ],
+   "skills": [
+    "fixed-point-iteration",
+    "accuracy-units-and-rounding"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Puts $x_1 = 1.5$ into $3\\mathrm{e}^{-\\frac{1}{2}x}$, e.g. shows $3\\mathrm{e}^{-0.75}$ or gives $x_2$ as awrt $1.417$",
+     "notes": "Evidence of substituting into the given recurrence is enough."
+    },
+    {
+     "code": "A1",
+     "for": "$x_2 = 1.4171$",
+     "depends_on": "M1",
+     "notes": "cao, to 4 decimal places"
+    },
+    {
+     "code": "A1",
+     "for": "$x_3 = 1.4771$ and $x_4 = 1.4334$",
+     "depends_on": "M1",
+     "notes": "cao, both needed to 4 decimal places. Using the rounded value $1.4171$ at the next step gives the same answers, so allow it."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$x_2 = 3\\mathrm{e}^{-\\frac{1}{2}(1.5)} = 3\\mathrm{e}^{-0.75} = 1.41709\\ldots$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$x_2 = 1.4171$ (4 d.p.)",
+     "mark": "A1"
+    },
+    {
+     "step": 3,
+     "working": "$x_3 = 3\\mathrm{e}^{-\\frac{1}{2}(1.41709\\ldots)} = 1.47707\\ldots = 1.4771$, then $x_4 = 3\\mathrm{e}^{-\\frac{1}{2}(1.47707\\ldots)} = 1.43343\\ldots = 1.4334$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "x2",
+     "expr": "1.4171",
+     "form": "dp-4",
+     "exact": "3*exp(-3/4)"
+    },
+    {
+     "name": "x3",
+     "expr": "1.4771",
+     "form": "dp-4",
+     "exact": "3*exp(-3*exp(-3/4)/2)"
+    },
+    {
+     "name": "x4",
+     "expr": "1.4334",
+     "form": "dp-4",
+     "exact": "3*exp(-3*exp(-3*exp(-3/4)/2)/2)"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "3*exp(-0.75)",
+     "answer": "x2",
+     "form": "dp-4"
+    },
+    {
+     "type": "numeric",
+     "expr": "3*exp(-1.5*exp(-0.75))",
+     "answer": "x3",
+     "form": "dp-4"
+    },
+    {
+     "type": "numeric",
+     "expr": "3*exp(-1.5*exp(-1.5*exp(-0.75)))",
+     "answer": "x4",
+     "form": "dp-4"
+    }
+   ],
+   "hints": [
+    "Each new value comes from putting the previous one into $3\\mathrm{e}^{-\\frac{1}{2}x}$.",
+    "Keep the full calculator value (use the ANS key) and only round when you write each answer down."
+   ]
+  },
+  {
+   "label": "c",
+   "marks": 2,
+   "text": "By choosing a suitable interval and looking at the sign of $f'(x)$ at each end, show that $\\alpha = 1.452$ to 3 decimal places. (2)",
+   "command": "show-that",
+   "forms": [],
+   "skills": [
+    "change-of-sign-root-location",
+    "explain-with-reason"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Picks the interval $[1.4515, 1.4525]$ (or a narrower interval that contains the root and lies inside it) and works out $f'(x)$, or $x - 3\\mathrm{e}^{-\\frac{1}{2}x}$, at both ends, with at least one value correct to 1 significant figure",
+     "notes": "$f'(1.4515) = -0.0038\\ldots$, $f'(1.4525) = 0.0134\\ldots$; or for $h(x) = x - 3\\mathrm{e}^{-\\frac{1}{2}x}$: $h(1.4515) = -0.00038\\ldots$, $h(1.4525) = 0.00134\\ldots$. Testing $1.451$ and $1.453$ only is too wide and scores M0."
+    },
+    {
+     "code": "A1*",
+     "for": "Both values correct, with a statement that the sign changes and that the function is continuous, and a conclusion that $\\alpha = 1.452$ to 3 d.p.",
+     "depends_on": "M1",
+     "notes": "cso. All three parts are needed: the sign change, continuity, and the conclusion."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Any number that rounds to $1.452$ lies between $1.4515$ and $1.4525$, so test these two values: $f'(1.4515) = 14.515 - 30\\mathrm{e}^{-0.72575} = -0.0038\\ldots < 0$ and $f'(1.4525) = 14.525 - 30\\mathrm{e}^{-0.72625} = 0.0134\\ldots > 0$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$f'(x) = 10x - 30\\mathrm{e}^{-\\frac{1}{2}x}$ is continuous, and it goes from negative to positive over $[1.4515, 1.4525]$. So $f'(x) = 0$ somewhere in this interval, which means $1.4515 < \\alpha < 1.4525$ and so $\\alpha = 1.452$ to 3 decimal places.",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "10*1.4515 - 30*exp(-0.72575)",
+     "result": "-0.0038",
+     "form": "dp-4"
+    },
+    {
+     "type": "numeric",
+     "expr": "10*1.4525 - 30*exp(-0.72625)",
+     "result": "0.0134",
+     "form": "dp-4"
+    }
+   ],
+   "hints": [
+    "Work out the smallest and largest numbers that round to $1.452$ to 3 decimal places.",
+    "Substitute both of those numbers into $f'(x)$ and compare the signs."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "sets-y-zero-not-derivative",
+   "text": "A turning point is where the gradient is zero, not where the curve crosses the $x$-axis. If you write $5x^2 + 60\\mathrm{e}^{-\\frac{1}{2}x} = 0$ you can't reach $x = 3\\mathrm{e}^{-\\frac{1}{2}x}$, and you lose the M1.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "exp-log-derivative-error",
+   "text": "If you differentiate $60\\mathrm{e}^{-\\frac{1}{2}x}$ as $60\\mathrm{e}^{-\\frac{1}{2}x}$ and forget the factor $-\\frac{1}{2}$ from the chain rule, you get $10x + 60\\mathrm{e}^{-\\frac{1}{2}x}$. That leads to $x = -6\\mathrm{e}^{-\\frac{1}{2}x}$ instead of the printed equation, so the A1* is lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 3,
+   "error_code": "iteration-evaluation-error",
+   "text": "Always put the previous iterate into the recurrence. If you use $x_1 = 1.5$ again when finding $x_3$, or type $3\\mathrm{e}^{-2x}$ instead of $3\\mathrm{e}^{-\\frac{1}{2}x}$, your $x_3$ and $x_4$ will be wrong and the final A1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 3,
+   "error_code": "iteration-diagram-misdescribed",
+   "text": "The values $1.4171$, $1.4771$, $1.4334$ go down and up alternately. This doesn't mean the iteration is failing: it is converging to $\\alpha \\approx 1.452$ in a cobweb pattern, not a staircase. Don't claim it diverges.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "step": 1,
+   "error_code": "sign-change-interval-too-wide",
+   "text": "Testing $1.451$ and $1.453$ only shows that $\\alpha$ lies between those two numbers, and some of those values would round to $1.451$ or $1.453$. To confirm $1.452$ to 3 d.p. you must use $1.4515$ and $1.4525$, otherwise you lose the M1.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "step": 2,
+   "error_code": "sign-change-no-conclusion",
+   "text": "Getting $-0.0038$ and $0.0134$ is not enough by itself. You must also say that $f'(x)$ is continuous, that its sign changes, and that therefore $\\alpha = 1.452$ to 3 d.p. Leaving any of these out loses the A1*.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:58:58",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.4698
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 7
+  },
+  "G7": {
+   "pass": false,
+   "flag": true,
+   "reasons": [
+    "5 word 8-gram(s) also in the reference corpus (not whitelisted)"
+   ],
+   "flags": [
+    "cosine 0.905 with part:GCE2008_6665_June2012_Q3:a"
+   ],
+   "hit_fields": [
+    "part a text",
+    "part c mark scheme",
+    "stem"
+   ],
+   "n_8gram_hits": 5,
+   "hits8": [
+    "and that the function is continuous and a",
+    "or a narrower interval that contains the root",
+    "show that alpha is a solution of the",
+    "that alpha is a solution of the equation",
+    "the x coordinate of this turning point is"
+   ],
+   "max_jaccard": 0.048,
+   "jaccard_source": "GCE2008_6665_June2014_Q1",
+   "shared_numbers": 0,
+   "max_cosine": 0.905,
+   "cosine_source": "part:GCE2008_6665_June2012_Q3:a"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 7,
+   "n_answers": 3,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

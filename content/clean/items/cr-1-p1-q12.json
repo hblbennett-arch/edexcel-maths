@@ -1,0 +1,452 @@
+{
+ "id": "cr-1-p1-q12",
+ "blueprint_id": "mk-1-p1-q12",
+ "question_type": "harmonic-form-and-trig-models",
+ "component": "pure",
+ "tier": "standard",
+ "kind": "mock",
+ "stem": "A university astronomy club is monitoring a pulsating star that its members have catalogued as V-417. They record a brightness index $B$ for the star every night. A club member suggests that, for $0 \\leqslant t \\leqslant 30$, the index can be modelled by\n$$B = 40 + 3\\cos(14t)^\\circ - 3\\sqrt{3}\\,\\sin(14t)^\\circ$$\nwhere $t$ is the number of days since the first recording.",
+ "paper": "mock-1-P1",
+ "set": "mock-1",
+ "q_num": 12,
+ "parts": [
+  {
+   "label": "a",
+   "marks": 3,
+   "text": "Express $3\\cos\\theta - 3\\sqrt{3}\\sin\\theta$ in the form $R\\cos(\\theta + \\alpha)$, where $R > 0$ and $0^\\circ < \\alpha < 90^\\circ$. State the exact value of $R$ and the exact value of $\\alpha$ in degrees. (3)",
+   "command": "express",
+   "forms": [
+    "exact",
+    "in-the-form"
+   ],
+   "skills": [
+    "harmonic-form",
+    "accuracy-units-and-rounding"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "$R = 6$ (from $\\sqrt{3^2 + (3\\sqrt{3})^2} = \\sqrt{36}$)",
+     "notes": "Accept $\\sqrt{36}$. A decimal such as 6.0 scores B1 only if it clearly comes from $\\sqrt{36}$."
+    },
+    {
+     "code": "M1",
+     "for": "Compares coefficients to get $R\\cos\\alpha = 3$ and $R\\sin\\alpha = 3\\sqrt{3}$, then writes $\\tan\\alpha = \\pm\\sqrt{3}$ or $\\tan\\alpha = \\pm\\frac{1}{\\sqrt{3}}$",
+     "notes": "Also award for $\\sin\\alpha = \\pm\\frac{3\\sqrt{3}}{R}$ or $\\cos\\alpha = \\pm\\frac{3}{R}$ using their $R$."
+    },
+    {
+     "code": "A1",
+     "for": "$\\alpha = 60^\\circ$, so the expression is $6\\cos(\\theta + 60^\\circ)$",
+     "notes": "cao. Needs the exact value 60. Reject 1.047 (radians) and reject $-60^\\circ$."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$R = \\sqrt{3^2 + (3\\sqrt{3})^2} = \\sqrt{9 + 27} = 6$",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "$R\\cos(\\theta+\\alpha) = R\\cos\\theta\\cos\\alpha - R\\sin\\theta\\sin\\alpha$, so $R\\cos\\alpha = 3$ and $R\\sin\\alpha = 3\\sqrt{3}$, which gives $\\tan\\alpha = \\frac{3\\sqrt{3}}{3} = \\sqrt{3}$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$\\alpha = 60^\\circ$, so $3\\cos\\theta - 3\\sqrt{3}\\sin\\theta = 6\\cos(\\theta + 60^\\circ)$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "R",
+     "expr": "6",
+     "form": "exact"
+    },
+    {
+     "name": "alpha",
+     "expr": "60",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "3cos(x) - 3sqrt(3) sin(x)",
+     "rhs": "6cos(x + 60)",
+     "degrees": true
+    },
+    {
+     "type": "numeric",
+     "expr": "sqrt(3^2 + 27)",
+     "answer": "R"
+    },
+    {
+     "type": "numeric",
+     "expr": "arctan(sqrt(3))",
+     "answer": "alpha",
+     "degrees": true
+    }
+   ],
+   "hints": [
+    "Expand $R\\cos(\\theta+\\alpha)$ using the compound-angle formula. Then match the coefficients of $\\cos\\theta$ and $\\sin\\theta$ with $3$ and $-3\\sqrt{3}$.",
+    "You get $R$ from squaring and adding the two coefficient equations. You get $\\tan\\alpha$ from dividing one by the other."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 3,
+   "text": "Hence find the greatest brightness index predicted by the model. Find also the value of $t$ at which this greatest value first occurs, giving $t$ to 1 decimal place. (3)",
+   "command": "find",
+   "forms": [
+    "dp-1"
+   ],
+   "skills": [
+    "trig-model-max-min-and-times",
+    "use-hence-previous-result",
+    "solve-trig-with-transformed-argument",
+    "accuracy-units-and-rounding"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Greatest value $B = 40 + 6 = 46$",
+     "ft_of": "their $R$ from (a): $40 + R$"
+    },
+    {
+     "code": "M1",
+     "for": "Sets $14t + 60 = 360$ (with their $\\alpha$), i.e. uses the fact that the cosine equals 1 at an argument of $360^\\circ$ inside the range $60^\\circ$ to $480^\\circ$, and solves for $t$",
+     "notes": "Setting $14t + 60 = 0$ gives a negative $t$ and scores M0 unless they then go on to use $360$."
+    },
+    {
+     "code": "A1",
+     "for": "$t = 21.4$ days",
+     "notes": "cao. Accept awrt 21.4. Needs the M mark."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$B = 40 + 6\\cos(14t + 60)^\\circ$, and $\\cos$ is at most 1, so $B_{\\max} = 46$",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "For $0 \\leqslant t \\leqslant 30$, the argument satisfies $60 \\leqslant 14t + 60 \\leqslant 480$. The cosine first equals 1 when $14t + 60 = 360$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$t = \\frac{300}{14} = 21.428\\ldots \\approx 21.4$ days",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "Bmax",
+     "expr": "46",
+     "form": "exact"
+    },
+    {
+     "name": "t1",
+     "expr": "21.4",
+     "form": "dp-1",
+     "exact": "300/14"
+    }
+   ],
+   "checks": [
+    {
+     "type": "substitute",
+     "expr": "40 + 3cos(14t) - 3sqrt(3) sin(14t)",
+     "at": {
+      "t": "150/7"
+     },
+     "answer": "Bmax",
+     "degrees": true
+    },
+    {
+     "type": "solutions",
+     "equation": "cos(14t + 60) = 1",
+     "var": "t",
+     "interval": [
+      0,
+      30
+     ],
+     "degrees": true,
+     "result": [
+      "150/7"
+     ]
+    },
+    {
+     "type": "numeric",
+     "expr": "300/14",
+     "answer": "t1"
+    }
+   ],
+   "hints": [
+    "Rewrite $B$ using part (a). What is the largest value that $\\cos(14t+60)^\\circ$ can take?",
+    "Work out the range of values that $14t + 60$ takes when $0 \\leqslant t \\leqslant 30$."
+   ]
+  },
+  {
+   "label": "c",
+   "marks": 3,
+   "text": "Calculate the least brightness index predicted by the model, and the value of $t$ at which this least value first occurs. (3)",
+   "command": "calculate",
+   "forms": [],
+   "skills": [
+    "trig-model-max-min-and-times",
+    "solve-trig-with-transformed-argument",
+    "accuracy-units-and-rounding"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Least value $B = 40 - 6 = 34$",
+     "ft_of": "their $R$ from (a): $40 - R$"
+    },
+    {
+     "code": "M1",
+     "for": "Sets $14t + 60 = 180$ (with their $\\alpha$), i.e. cosine equal to $-1$, and solves for $t$"
+    },
+    {
+     "code": "A1",
+     "for": "$t = \\frac{60}{7}$ days",
+     "notes": "Accept awrt 8.57. Needs the M mark."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "The least value of $\\cos(14t+60)^\\circ$ is $-1$, so $B_{\\min} = 40 - 6 = 34$",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "The first argument in $[60, 480]$ where the cosine equals $-1$ is $180$, so $14t + 60 = 180$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$t = \\frac{120}{14} = \\frac{60}{7} \\approx 8.57$ days",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "Bmin",
+     "expr": "34",
+     "form": "exact"
+    },
+    {
+     "name": "t2",
+     "expr": "60/7",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "substitute",
+     "expr": "40 + 3cos(14t) - 3sqrt(3) sin(14t)",
+     "at": {
+      "t": "60/7"
+     },
+     "answer": "Bmin",
+     "degrees": true
+    },
+    {
+     "type": "solutions",
+     "equation": "cos(14t + 60) = -1",
+     "var": "t",
+     "interval": [
+      0,
+      30
+     ],
+     "degrees": true,
+     "result": [
+      "60/7"
+     ]
+    }
+   ],
+   "hints": [
+    "The least value of $B$ comes from the least value of the cosine term.",
+    "Find the first angle of $60^\\circ$ or more at which the cosine equals $-1$."
+   ]
+  },
+  {
+   "label": "d",
+   "marks": 2,
+   "text": "Explain why there are exactly two values of $t$ in the interval $0 \\leqslant t \\leqslant 30$ for which the model gives $B = 45$. (2)",
+   "command": "explain",
+   "forms": [],
+   "skills": [
+    "solve-trig-with-transformed-argument"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Forms $\\cos(14t + 60)^\\circ = \\frac{5}{6}$ and states that the argument $14t + 60$ lies between $60^\\circ$ and $480^\\circ$",
+     "notes": "May find the principal value $33.6^\\circ$."
+    },
+    {
+     "code": "A1",
+     "for": "Argues that $\\frac{5}{6}$ is reached at $360 - 33.6 = 326.4^\\circ$ and $360 + 33.6 = 393.6^\\circ$, both inside $[60, 480]$, while $33.6^\\circ$ is below $60^\\circ$ and $686.4^\\circ$ is above $480^\\circ$. Concludes that there are exactly two values of $t$",
+     "notes": "Needs a conclusion. Other valid reasoning is acceptable, e.g. the cosine takes the value $\\frac{5}{6}$ once while it rises from $-1$ at $180^\\circ$ to $1$ at $360^\\circ$, and once while it falls from $1$ to $-0.5$ between $360^\\circ$ and $480^\\circ$, but never between $60^\\circ$ and $180^\\circ$ because $\\cos 60^\\circ = 0.5 < \\frac{5}{6}$."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$40 + 6\\cos(14t+60)^\\circ = 45 \\Rightarrow \\cos(14t+60)^\\circ = \\frac{5}{6}$, where $60 \\leqslant 14t + 60 \\leqslant 480$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$\\cos^{-1}\\frac{5}{6} = 33.56^\\circ$. The solutions of $\\cos x = \\frac{5}{6}$ are $33.56^\\circ, 326.44^\\circ, 393.56^\\circ, 686.44^\\circ, \\ldots$. Only $326.44^\\circ$ and $393.56^\\circ$ lie in $[60, 480]$, giving $t \\approx 19.0$ and $t \\approx 23.8$. So there are exactly two values of $t$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [],
+   "checks": [
+    {
+     "type": "solutions",
+     "equation": "40 + 6cos(14t + 60) = 45",
+     "var": "t",
+     "interval": [
+      0,
+      30
+     ],
+     "degrees": true,
+     "result": [
+      "(300 - arccos(5/6))/14",
+      "(300 + arccos(5/6))/14"
+     ]
+    }
+   ],
+   "hints": [
+    "Write the equation as $\\cos(\\text{something}) = k$. Then decide which interval the 'something' lies in.",
+    "List every angle with cosine $\\frac{5}{6}$ between $0^\\circ$ and $720^\\circ$, and check which ones fall in that interval."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "error_code": "compound-angle-sign-error",
+   "step": 2,
+   "text": "If you expand $R\\cos(\\theta+\\alpha)$ as $R\\cos\\theta\\cos\\alpha + R\\sin\\theta\\sin\\alpha$, you get $R\\sin\\alpha = -3\\sqrt{3}$. That leads to a negative angle, which is outside $0^\\circ < \\alpha < 90^\\circ$, so the M1 is lost. Remember that $\\cos(A+B)$ has a minus sign.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "error_code": "trig-ratio-quadrant-sign-error",
+   "step": 3,
+   "text": "If you take $\\tan\\alpha = -\\sqrt{3}$ and give $\\alpha = -60^\\circ$ or $300^\\circ$, you have ignored the fact that $R\\cos\\alpha = 3$ and $R\\sin\\alpha = 3\\sqrt{3}$ are both positive. That puts $\\alpha$ in the first quadrant, and the A1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "error_code": "trig-model-extreme-misread",
+   "step": 2,
+   "text": "The greatest $B$ occurs when $\\cos(14t+60)^\\circ = 1$, not when the argument is $180^\\circ$. If you solve $14t + 60 = 180$ here, you find the time of the least brightness instead, and the A1 is lost. This is a common slip.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "error_code": "transformed-interval-not-adjusted",
+   "step": 2,
+   "text": "If you solve $14t + 60 = 0$, you get $t = -4.3$, which is outside the interval. The argument runs from $60^\\circ$ to $480^\\circ$, so the first maximum is at $360^\\circ$. Without this step you lose the M1.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "error_code": "trig-model-extreme-misread",
+   "step": 2,
+   "text": "The least $B$ needs $\\cos(14t+60)^\\circ = -1$, which means an argument of $180^\\circ$. If you use an argument of $360^\\circ$ again, or $270^\\circ$ (where the cosine is 0), the time is wrong and you lose the M1 and A1. This is a common mix-up.",
+   "says_common": true
+  },
+  {
+   "part": "c",
+   "error_code": "transformed-interval-not-adjusted",
+   "step": 2,
+   "text": "If you give $t = \\frac{480}{14}$ from an argument of $540^\\circ$, that time is outside $0 \\leqslant t \\leqslant 30$. The first minimum comes from $14t + 60 = 180$, so the A1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "d",
+   "error_code": "transformed-interval-not-adjusted",
+   "step": 2,
+   "text": "If you look for solutions of $\\cos x = \\frac{5}{6}$ only between $0^\\circ$ and $360^\\circ$, you get $33.6^\\circ$ and $326.4^\\circ$. The number of answers is still two, but the reasoning is wrong: $33.6^\\circ$ is below $60^\\circ$, and you have missed $393.6^\\circ$. The A1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "d",
+   "error_code": "impossible-trig-value-kept",
+   "step": 2,
+   "text": "If you count $33.6^\\circ$ as one of the solutions, you would need $14t = -26.4$, which gives a negative $t$ that cannot happen in this model. If you keep it and claim three values, the A1 is lost.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:46:34",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.4834
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 11
+  },
+  "G7": {
+   "pass": false,
+   "flag": true,
+   "reasons": [
+    "4 word 8-gram(s) also in the reference corpus (not whitelisted)"
+   ],
+   "flags": [
+    "cosine 0.916 with part:IAL2013_WMA02_Jan2015_Q13:a"
+   ],
+   "hit_fields": [
+    "part a text",
+    "stem"
+   ],
+   "n_8gram_hits": 4,
+   "hits8": [
+    "3 sin theta in the form r cos",
+    "sin theta in the form r cos theta",
+    "theta in the form r cos theta alpha",
+    "where t is the number of days since"
+   ],
+   "max_jaccard": 0.056,
+   "jaccard_source": "IAL2013_WMA02_June2019_Q7",
+   "shared_numbers": 0,
+   "max_cosine": 0.916,
+   "cosine_source": "part:IAL2013_WMA02_Jan2015_Q13:a"
+  },
+  "G2": {
+   "pass": false,
+   "errors": [
+    "part d check 1 (solutions): missing solution(s) 19.0316, 23.8255; extra or wrong solution(s) (300 - arccos(5/6))/14, (300 + arccos(5/6))/14"
+   ],
+   "n_checks": 9,
+   "n_answers": 6,
+   "unverified_parts": [
+    "d"
+   ]
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

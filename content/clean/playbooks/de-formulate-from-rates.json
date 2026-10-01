@@ -1,0 +1,145 @@
+{
+ "id": "de-formulate-from-rates",
+ "question_type": "de-formulate-from-rates",
+ "component": "pure",
+ "title": "Form and solve a differential equation from a description",
+ "what_it_asks": "You are given a worded rate statement, such as a rate proportional to a quantity, or a liquid flowing in and out of a container. You turn it into a differential equation, often linking rates with the chain rule and a volume formula. Then you solve it, find the constants and interpret the result in context.",
+ "typical_structure": "Usually two or three parts, sometimes one, and occasionally up to five. The first part often asks you to form or show a given equation. Later parts solve it, find constants from conditions, and use the result to predict a value with units or a given accuracy. Later parts usually depend on the equation from the first part, so an error there carries forward. Total marks are typically between five and ten, with longer questions spread over more parts.",
+ "mark_pattern": "The most typical part is 2 marks, M1 A1: a method mark for setting up or applying the rate relationship, then an accuracy mark for the correct result. Single B1 parts are also typical, for writing down a correct volume, area or rate statement on its own. Longer set-up parts run B1 B1 M1 A1, or B1 B1 M1 A1* when the equation is printed: the B marks are for correct expressions (for example a volume and a rate of change), the M1 for combining them with the chain rule, and the A1* for reaching the printed result with no gaps. Solving parts typically run M1 A1 M1 A1: separate and integrate, then use a condition to find the constant, then answer the question. Some parts run M1 M1 A1 or M1 M1 A1 M1 A1 with extra method steps, and dM1 marks depend on the method before them.",
+ "where_marks_leak": [
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "This is a frequent slip. You give the final time, height or volume to the wrong number of significant figures or decimal places, so the last A1 is lost even though the method was right."
+  },
+  {
+   "error_code": "mensuration-formula-error",
+   "mark_family": "method",
+   "text": "You use a wrong volume or area formula, for example missing a face or using the wrong expression for a curved surface. The M1 for linking rates is lost, and the accuracy and dependent marks after it go too."
+  },
+  {
+   "error_code": "proportionality-constant-missing",
+   "mark_family": "independent",
+   "text": "You write the rate equation without a constant of proportionality, or with the wrong sign for an increase or decrease. The B1 for the correct differential equation is lost, and later constants cannot be found properly."
+  },
+  {
+   "error_code": "missing-constant-of-integration",
+   "mark_family": "accuracy",
+   "text": "You integrate after separating the variables but leave out $+c$. The A1 is lost, and the dM1 for using a condition to find the constant may go with it."
+  },
+  {
+   "error_code": "chain-rule-inner-derivative-missing",
+   "mark_family": "method",
+   "text": "You forget a factor such as $\\frac{\\mathrm{d}r}{\\mathrm{d}t}$ when linking rates. The M1 for the chain rule is lost, and the accuracy mark that depends on it goes too."
+  }
+ ],
+ "write_to_earn": [
+  "Write the volume or area formula on its own line first, because a correct statement can earn a B1 by itself.",
+  "Write the chain rule in symbols, such as $\\frac{\\mathrm{d}V}{\\mathrm{d}t} = \\frac{\\mathrm{d}V}{\\mathrm{d}h} \\times \\frac{\\mathrm{d}h}{\\mathrm{d}t}$, before you substitute anything.",
+  "Introduce a constant $k$ for any proportional rate and decide its sign from the words before you integrate.",
+  "On a show-that part, write the line just before the printed result, then the printed result, with no skipped algebra.",
+  "Include $+c$, substitute the given condition to find the constants, then answer in context with units and the required accuracy."
+ ],
+ "check_before_you_leave": [
+  "Sign of rate correct?",
+  "Constant $k$ included?",
+  "$+c$ found and used?",
+  "Units and accuracy right?",
+  "Answer fits the context?"
+ ],
+ "skills": [
+  "connected-rates-of-change",
+  "form-differential-equation",
+  "separate-variables-and-integrate",
+  "find-constants-from-conditions",
+  "mensuration-formulae",
+  "show-that-given-answer",
+  "use-model-to-predict",
+  "accuracy-units-and-rounding"
+ ],
+ "related_types": [
+  "de-given-separable",
+  "exponential-model-in-context",
+  "differentiate-to-given-form",
+  "linear-and-quadratic-models"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:07:18",
+ "cost_usd": 0.0966,
+ "attempts": 2,
+ "facts": {
+  "n_questions": 37,
+  "codes_listed": {
+   "wrong-final-accuracy": 15,
+   "rationalising-error": 6,
+   "mensuration-formula-error": 6,
+   "missing-constant-of-integration": 4,
+   "proportionality-constant-missing": 4,
+   "decimal-not-exact": 4,
+   "chain-rule-inner-derivative-missing": 4,
+   "premature-rounding": 3
+  },
+  "frequent_codes": [
+   "wrong-final-accuracy"
+  ],
+  "practice_items": [
+   "cr-pure-de-formulate-from-rates-001",
+   "cr-pure-de-formulate-from-rates-003",
+   "cr-pure-de-formulate-from-rates-004"
+  ]
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.856 with note:IAL2018_WMA11A_June2025_Q9_n8"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.0,
+   "shared_numbers": 0,
+   "max_cosine": 0.856,
+   "cosine_source": "note:IAL2018_WMA11A_June2025_Q9_n8"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 7
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.856 with note:IAL2018_WMA11A_June2025_Q9_n8"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

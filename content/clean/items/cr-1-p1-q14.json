@@ -1,0 +1,1389 @@
+{
+ "id": "cr-1-p1-q14",
+ "blueprint_id": "mk-1-p1-q14",
+ "question_type": "de-formulate-from-rates",
+ "component": "pure",
+ "tier": "standard",
+ "kind": "mock",
+ "stem": "An architect is designing an underground rainwater cistern beneath a new public library. The side walls of the cistern slope outwards. When the water is $h$ metres deep, the volume of water stored is $V\\,\\mathrm{m^3}$, where\n$$V = h^3 + 3h^2 + 3h, \\qquad 0 \\leqslant h \\leqslant 3.$$\nWater is pumped out of the cistern at a constant rate of $1.5\\,\\mathrm{m^3}$ per hour to irrigate the library's green roof. No water enters the cistern during this time. Pumping starts at time $t = 0$ hours, when the water is $2$ metres deep.",
+ "paper": "mock-1-P1",
+ "set": "mock-1",
+ "q_num": 14,
+ "parts": [
+  {
+   "label": "a",
+   "marks": 1,
+   "text": "Find $\\frac{\\mathrm{d}V}{\\mathrm{d}h}$. (1)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "differentiate-polynomials"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Writes $\\frac{\\mathrm{d}V}{\\mathrm{d}h} = 3h^2 + 6h + 3$, or the factorised form $3(h+1)^2$",
+     "notes": "All three terms must be correct. No constant term should appear."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Reduce each power of $h$ by one: $\\frac{\\mathrm{d}V}{\\mathrm{d}h} = 3h^2 + 6h + 3 = 3(h+1)^2$",
+     "mark": "B1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "dVdh",
+     "expr": "3*h^2 + 6*h + 3",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "derivative",
+     "f": "h^3 + 3h^2 + 3h",
+     "var": "h",
+     "result": "3*h^2 + 6*h + 3"
+    }
+   ],
+   "hints": [
+    "Differentiate each term of $V$ with respect to $h$, one term at a time."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 2,
+   "text": "Find $\\frac{\\mathrm{d}h}{\\mathrm{d}t}$, writing it as a function of $h$ in its simplest form. (2)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "connected-rates-of-change"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Links the rates by the chain rule as $\\frac{\\mathrm{d}h}{\\mathrm{d}t} = \\frac{\\mathrm{d}V}{\\mathrm{d}t} \\div \\frac{\\mathrm{d}V}{\\mathrm{d}h}$, using $\\frac{\\mathrm{d}V}{\\mathrm{d}t} = \\pm 1.5$ and their answer to (a)",
+     "notes": "A missing minus sign can still earn this mark. Multiplying $1.5$ by $\\frac{\\mathrm{d}V}{\\mathrm{d}h}$ gets M0."
+    },
+    {
+     "code": "A1",
+     "for": "$\\frac{\\mathrm{d}h}{\\mathrm{d}t} = -\\frac{1}{2(h+1)^2}$ oe, including the negative sign",
+     "notes": "Accept $-\\frac{1.5}{3h^2+6h+3}$ or $-\\frac{1}{2h^2+4h+2}$."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "The volume is falling, so $\\frac{\\mathrm{d}V}{\\mathrm{d}t} = -1.5$. By the chain rule, $\\frac{\\mathrm{d}h}{\\mathrm{d}t} = \\frac{\\mathrm{d}V}{\\mathrm{d}t} \\times \\frac{\\mathrm{d}h}{\\mathrm{d}V} = \\frac{-1.5}{3(h+1)^2}$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$\\frac{\\mathrm{d}h}{\\mathrm{d}t} = -\\frac{1}{2(h+1)^2}$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "dhdt",
+     "expr": "-1/(2*(h+1)^2)",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "-1/(2*(h+1)^2)",
+     "rhs": "-3/(2*(3*h^2 + 6*h + 3))",
+     "domain": "positive"
+    }
+   ],
+   "hints": [
+    "Write down $\\frac{\\mathrm{d}V}{\\mathrm{d}t}$ first, and think about its sign, because water is leaving.",
+    "Link $\\frac{\\mathrm{d}h}{\\mathrm{d}t}$, $\\frac{\\mathrm{d}V}{\\mathrm{d}t}$ and $\\frac{\\mathrm{d}V}{\\mathrm{d}h}$ with the chain rule."
+   ]
+  },
+  {
+   "label": "c",
+   "marks": 3,
+   "text": "Solve your differential equation from part (b), using the information about the start of pumping, to find $h$ in terms of $t$. (3)",
+   "command": "solve",
+   "forms": [
+    "in-terms-of"
+   ],
+   "skills": [
+    "separate-variables-and-integrate",
+    "find-constants-from-conditions",
+    "reverse-chain-rule"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Gathers all the $h$ terms on one side, e.g. $\\int (h+1)^2\\,\\mathrm{d}h = \\int -\\tfrac{1}{2}\\,\\mathrm{d}t$, and integrates to get $\\frac{(h+1)^3}{3} = -\\frac{t}{2} + c$",
+     "notes": "Also accept $\\int (3h^2+6h+3)\\,\\mathrm{d}h = \\int -1.5\\,\\mathrm{d}t$, giving $h^3 + 3h^2 + 3h = -1.5t + c$. Allow a slip in a coefficient, but the variables must have been separated correctly."
+    },
+    {
+     "code": "M1",
+     "for": "Puts $t = 0$, $h = 2$ into their integrated equation to find their constant, e.g. $c = 9$ (or $c = 26$ for the expanded form)"
+    },
+    {
+     "code": "A1",
+     "for": "$h = \\left(27 - \\tfrac{3}{2}t\\right)^{1/3} - 1$ oe, with $h$ as the subject",
+     "notes": "Accept $h = \\sqrt[3]{27 - 1.5t} - 1$. If the expanded route is used, the student must notice that $h^3 + 3h^2 + 3h + 1 = (h+1)^3$ in order to make $h$ the subject."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Separate the variables: $(h+1)^2\\,\\mathrm{d}h = -\\tfrac{1}{2}\\,\\mathrm{d}t$. Integrate by reverse chain rule: $\\frac{(h+1)^3}{3} = -\\frac{t}{2} + c$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "When $t = 0$, $h = 2$: $\\frac{3^3}{3} = c$, so $c = 9$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$(h+1)^3 = 27 - \\tfrac{3}{2}t$, so $h = \\left(27 - \\tfrac{3}{2}t\\right)^{1/3} - 1$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "h",
+     "expr": "(27 - 3*t/2)^(1/3) - 1",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "(27 - 3*t/2)^(1/3) - 1",
+     "rhs": "((54 - 3*t)/2)^(1/3) - 1",
+     "domain": [
+      0,
+      17
+     ]
+    },
+    {
+     "type": "integral",
+     "f": "(h+1)^2",
+     "var": "h",
+     "result": "(h+1)^3/3"
+    },
+    {
+     "type": "substitute",
+     "expr": "(27 - 3*t/2)^(1/3) - 1",
+     "at": {
+      "t": "0"
+     },
+     "result": "2"
+    },
+    {
+     "type": "derivative",
+     "f": "(27 - 3*t/2)^(1/3) - 1",
+     "var": "t",
+     "result": "-1/(2*(27 - 3*t/2)^(2/3))"
+    }
+   ],
+   "hints": [
+    "Move every term involving $h$ to the same side as $\\mathrm{d}h$ before you integrate.",
+    "$(h+1)^2$ can be integrated by inspection, without expanding it."
+   ]
+  },
+  {
+   "label": "d",
+   "marks": 1,
+   "text": "Hence determine how deep the water in the cistern is once the pump has been running for $10$ hours. Give your answer to 3 significant figures. (1)",
+   "command": "hence",
+   "forms": [
+    "sf-3"
+   ],
+   "skills": [
+    "use-model-to-predict",
+    "accuracy-units-and-rounding"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Puts $t = 10$ into their part (c) result to get $12^{1/3} - 1$, giving a depth of awrt $1.29$ metres",
+     "notes": "A unit is needed: m or metres."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$h = (27 - 15)^{1/3} - 1 = 12^{1/3} - 1 = 1.2894\\ldots \\approx 1.29\\,\\mathrm{m}$",
+     "mark": "B1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "depth",
+     "expr": "1.29",
+     "form": "sf-3",
+     "exact": "12^(1/3) - 1"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "12^(1/3) - 1",
+     "result": "1.29",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "Substitute the time into the formula for $h$ you found in part (c)."
+   ]
+  },
+  {
+   "label": "e",
+   "marks": 2,
+   "text": "Find how long after pumping begins the cistern becomes empty. (2)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "accuracy-units-and-rounding",
+    "use-model-to-predict"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Sets $h = 0$ in their part (c) result (or $V = 0$) and solves for $t$, e.g. $27 - \\tfrac{3}{2}t = 1$"
+    },
+    {
+     "code": "A1",
+     "for": "$t = \\frac{52}{3}$ hours, i.e. awrt $17.3$ hours, or $17$ hours $20$ minutes",
+     "notes": "A unit of time is needed."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "The cistern is empty when $h = 0$: $\\left(27 - \\tfrac{3}{2}t\\right)^{1/3} = 1$, so $27 - \\tfrac{3}{2}t = 1$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$t = \\frac{26}{1.5} = \\frac{52}{3}$ hours, which is $17$ hours $20$ minutes",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "T",
+     "expr": "52/3",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "solutions",
+     "equation": "(27 - 3*t/2)^(1/3) - 1 = 0",
+     "var": "t",
+     "interval": [
+      0,
+      18
+     ],
+     "result": [
+      "52/3"
+     ]
+    },
+    {
+     "type": "substitute",
+     "expr": "(27 - 3*t/2)^(1/3) - 1",
+     "at": {
+      "t": "52/3"
+     },
+     "result": "0"
+    }
+   ],
+   "hints": [
+    "What is the value of $h$ when the cistern is empty?"
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "error_code": "sign-error-differentiating-negative-power",
+   "step": 1,
+   "text": "Take care with the new powers. Every power of $h$ goes down by exactly one, so $h^3 \\to 3h^2$ and $3h^2 \\to 6h$. Writing something like $3h^3$ or $6h^3$ loses the B1.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "error_code": "connected-rates-chain-error",
+   "step": 1,
+   "text": "If you multiply $1.5$ by $3(h+1)^2$, the units no longer make sense and you lose the M1. You must divide the volume rate by $\\frac{\\mathrm{d}V}{\\mathrm{d}h}$, because $\\frac{\\mathrm{d}h}{\\mathrm{d}V} = 1 \\div \\frac{\\mathrm{d}V}{\\mathrm{d}h}$.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "error_code": "parametric-derivative-inverted",
+   "step": 1,
+   "text": "Writing $\\frac{\\mathrm{d}h}{\\mathrm{d}t} = \\frac{3(h+1)^2}{-1.5}$ puts the fraction upside down and loses the M1. Check that the $\\mathrm{d}V$ terms cancel: $\\frac{\\mathrm{d}V}{\\mathrm{d}t} \\times \\frac{\\mathrm{d}h}{\\mathrm{d}V}$.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "error_code": "separation-error",
+   "step": 1,
+   "text": "A common error is to leave $(h+1)^2$ on the $t$ side and integrate it with respect to $t$, getting $-\\frac{t}{2(h+1)^2}$. This loses the first M1. Multiply both sides by $(h+1)^2$ before you integrate.",
+   "says_common": true
+  },
+  {
+   "part": "c",
+   "error_code": "reverse-chain-coefficient-error",
+   "step": 1,
+   "text": "The integral of $(h+1)^2$ is $\\frac{(h+1)^3}{3}$, not $3(h+1)^3$. You divide by the new power, you don't multiply by it. If you multiply, your constant and your final expression are wrong and you lose the A1.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "error_code": "initial-conditions-not-used",
+   "step": 2,
+   "text": "If you leave out $+c$, or never substitute $t = 0$, $h = 2$, your formula would give an empty cistern at the start. That loses the second M1 and the A1.",
+   "says_common": false
+  },
+  {
+   "part": "d",
+   "error_code": "rate-not-derivative",
+   "step": 1,
+   "text": "The question asks for the depth, so use your formula for $h$ from part (c). Substituting into $\\frac{\\mathrm{d}h}{\\mathrm{d}t}$ from part (b) gives how fast the depth is falling, not how deep the water is, and the B1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "e",
+   "error_code": "extrapolation-not-flagged",
+   "step": 2,
+   "text": "The model only holds while there is water in the cistern. For $t > \\frac{52}{3}$ it gives a negative depth, which is meaningless. Don't solve $h = -1$ or put in times beyond $17.3$ hours. Solve $h = 0$ to get the M1 and A1.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:49:34",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.4906
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 9
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.836 with question:IAL2018_WMA14_Jan2021_Q10"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "hits8": [],
+   "max_jaccard": 0.012,
+   "jaccard_source": "IAL2013_WMA02_Jan2018_Q14",
+   "shared_numbers": 0,
+   "max_cosine": 0.836,
+   "cosine_source": "question:IAL2018_WMA14_Jan2021_Q10"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 9,
+   "n_answers": 5,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0146,
+   "solver": {
+    "parts": [
+     {
+      "label": "a",
+      "answers": [
+       "3*h**2 + 6*h + 3"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "Differentiate: dV/dh = 3h^2+6h+3 = 3(h+1)^2."
+     },
+     {
+      "label": "b",
+      "answers": [
+       "-1/(2*(h+1)**2)"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "dV/dt = -1.5, so dh/dt = (dV/dt)/(dV/dh) = -1.5/(3(h+1)^2) = -1/(2(h+1)^2)."
+     },
+     {
+      "label": "c",
+      "answers": [
+       "h = (27 - 3*t/2)**(1/3) - 1"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "Separate variables: ∫(h+1)^2 dh = -∫1/2 dt, so (h+1)^3/3 = -t/2 + C. At t=0, h=2 gives C=9. So (h+1)^3 = 27 - 1.5t and h = (27 - 1.5t)^(1/3) - 1."
+     },
+     {
+      "label": "d",
+      "answers": [
+       "1.29"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "t=10 gives h = 12^(1/3) - 1 = 1.2894, which is 1.29 to 3 s.f."
+     },
+     {
+      "label": "e",
+      "answers": [
+       "52/3"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "Set h=0: 1 = 27 - 1.5t, so t = 26/1.5 = 52/3 hours, about 17.3 hours (17 h 20 min)."
+     }
+    ],
+    "problems": []
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "n_responses": 10,
+   "agreed": [
+    "correct",
+    "pit-a",
+    "pit-b1",
+    "pit-b2",
+    "pit-c1",
+    "pit-c2",
+    "pit-c3",
+    "pit-d",
+    "pit-e",
+    "partial"
+   ],
+   "consistent": {},
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "correct",
+     "kind": "correct",
+     "error_code": null,
+     "work": "(a) $\\frac{dV}{dh}=3h^2+6h+3=3(h+1)^2$\n(b) $\\frac{dV}{dt}=-1.5$, so $\\frac{dh}{dt}=\\frac{-1.5}{3(h+1)^2}=-\\frac{1}{2(h+1)^2}$\n(c) $\\int (h+1)^2dh=\\int -\\frac12 dt$ so $\\frac{(h+1)^3}{3}=-\\frac t2+c$. $t=0,h=2$: $9=c$. $(h+1)^3=27-1.5t$, $h=(27-1.5t)^{1/3}-1$\n(d) $t=10$: $h=12^{1/3}-1=1.29$ m\n(e) $h=0$: $27-1.5t=1$, $t=52/3=17.3$ hours",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pit-a",
+     "kind": "pitfall",
+     "error_code": "sign-error-differentiating-negative-power",
+     "work": "(a) $\\frac{dV}{dh}=3h^3+6h^2+3$\n(b) $\\frac{dh}{dt}=\\frac{-1.5}{3h^3+6h^2+3}$\n(c) $\\int(3h^3+6h^2+3)dh=\\int-1.5\\,dt$ so $\\frac34h^4+2h^3+3h=-1.5t+c$. $t=0,h=2$: $12+16+6=34=c$. I can't rearrange this for $h$.\n(d) I can't find $h$ at $t=10$ from this.\n(e) $h=0$: $0=-1.5t+34$, $t=22.7$ hours",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pit-b1",
+     "kind": "pitfall",
+     "error_code": "connected-rates-chain-error",
+     "work": "(a) $3h^2+6h+3=3(h+1)^2$\n(b) $\\frac{dh}{dt}=-1.5\\times3(h+1)^2=-4.5(h+1)^2$\n(c) $\\int(h+1)^{-2}dh=\\int-4.5\\,dt$ so $-\\frac{1}{h+1}=-4.5t+c$. $t=0,h=2$: $c=-\\frac13$. So $\\frac1{h+1}=4.5t+\\frac13$, $h=\\frac{1}{4.5t+1/3}-1$\n(d) $t=10$: $h=\\frac{1}{45.33}-1=-0.978$ m\n(e) $h=0$: $1=4.5t+\\frac13$, $t=0.148$ hours",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pit-b2",
+     "kind": "pitfall",
+     "error_code": "parametric-derivative-inverted",
+     "work": "(a) $3h^2+6h+3=3(h+1)^2$\n(b) $\\frac{dh}{dt}=\\frac{3(h+1)^2}{-1.5}=-2(h+1)^2$\n(c) $\\int(h+1)^{-2}dh=\\int-2\\,dt$ so $-\\frac1{h+1}=-2t+c$. $t=0,h=2$: $c=-\\frac13$. $\\frac1{h+1}=2t+\\frac13$, $h=\\frac1{2t+1/3}-1$\n(d) $t=10$: $h=\\frac1{20.33}-1=-0.951$ m\n(e) $h=0$: $1=2t+\\frac13$, $t=\\frac13$ hour",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pit-c1",
+     "kind": "pitfall",
+     "error_code": "separation-error",
+     "work": "(a) $3(h+1)^2$\n(b) $\\frac{dh}{dt}=-\\frac{1}{2(h+1)^2}$\n(c) Integrate with respect to $t$: $h=-\\frac{t}{2(h+1)^2}+c$. $t=0,h=2$: $c=2$. I can't make $h$ the subject neatly.\n(d) Can't evaluate $h$ at $t=10$.\n(e) $h=0$: $0=-\\frac t2+2$, $t=4$ hours",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pit-c2",
+     "kind": "pitfall",
+     "error_code": "reverse-chain-coefficient-error",
+     "work": "(a) $3(h+1)^2$\n(b) $\\frac{dh}{dt}=-\\frac{1}{2(h+1)^2}$\n(c) $\\int(h+1)^2dh=\\int-\\frac12dt$ so $3(h+1)^3=-\\frac t2+c$. $t=0,h=2$: $c=81$. $(h+1)^3=27-\\frac t6$, $h=(27-\\frac t6)^{1/3}-1$\n(d) $t=10$: $h=(25.33)^{1/3}-1=1.94$ m\n(e) $h=0$: $27-\\frac t6=1$, $t=156$ hours",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pit-c3",
+     "kind": "pitfall",
+     "error_code": "initial-conditions-not-used",
+     "work": "(a) $3(h+1)^2$\n(b) $\\frac{dh}{dt}=-\\frac{1}{2(h+1)^2}$\n(c) $\\int(h+1)^2dh=\\int-\\frac12dt$ so $\\frac{(h+1)^3}{3}=-\\frac t2$ (no constant). $(h+1)^3=-1.5t$, $h=(-1.5t)^{1/3}-1$\n(d) $t=10$: $h=(-15)^{1/3}-1=-3.47$ m\n(e) $h=0$: $-1.5t=1$, $t=-0.667$ hours",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pit-d",
+     "kind": "pitfall",
+     "error_code": "rate-not-derivative",
+     "work": "(a) $3(h+1)^2$\n(b) $\\frac{dh}{dt}=-\\frac1{2(h+1)^2}$\n(c) $\\frac{(h+1)^3}{3}=-\\frac t2+c$, $c=9$, $h=(27-1.5t)^{1/3}-1$\n(d) Using the answer to (b) with $h=2$: $\\frac{dh}{dt}=-\\frac1{18}=-0.0556$ m/h\n(e) $h=0$: $27-1.5t=1$, $t=\\frac{52}{3}=17.3$ hours",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pit-e",
+     "kind": "pitfall",
+     "error_code": "extrapolation-not-flagged",
+     "work": "(a) $3(h+1)^2$\n(b) $-\\frac1{2(h+1)^2}$\n(c) $h=(27-1.5t)^{1/3}-1$\n(d) $12^{1/3}-1=1.29$ m\n(e) Solve $h=-1$: $(27-1.5t)^{1/3}=0$, $27=1.5t$, $t=18$ hours",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "partial",
+     "kind": "partial",
+     "error_code": null,
+     "work": "(a) $\\frac{dV}{dh}=3h^2+6h+3$\n(b) $\\frac{dh}{dt}=\\frac{-1.5}{3h^2+6h+3}=-\\frac{1}{2(h+1)^2}$\n(c) $\\int(h+1)^2dh=\\int-\\frac12dt$, so $\\frac{(h+1)^3}{3}=-\\frac t2+c$ ... I'm not sure how to carry on.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "correct",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pit-a",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "a: 3h^3 term and wrong derivative",
+      "b: wrong expression from (a)",
+      "c: h not made the subject",
+      "d: no value found",
+      "e: wrong t from wrong equation"
+     ]
+    },
+    {
+     "id": "pit-b1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "b: multiplied by dV/dh instead of dividing",
+      "c: h expression not the correct result",
+      "d: wrong and negative depth",
+      "e: wrong t"
+     ]
+    },
+    {
+     "id": "pit-b2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "b: inverted the chain rule (dV/dh ÷ dV/dt)",
+      "c: h expression wrong",
+      "d: wrong and negative depth",
+      "e: wrong t"
+     ]
+    },
+    {
+     "id": "pit-c1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "c: variables not separated; integrated wrt t only",
+      "c: h not found",
+      "d: no value",
+      "e: wrong t"
+     ]
+    },
+    {
+     "id": "pit-c2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "c: wrong result due to coefficient slip (3(h+1)^3)",
+      "d: wrong depth",
+      "e: wrong t"
+     ]
+    },
+    {
+     "id": "pit-c3",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "c: no constant, so no use of initial condition",
+      "d: wrong negative depth",
+      "e: wrong negative t"
+     ]
+    },
+    {
+     "id": "pit-d",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "d: found dh/dt at h=2 instead of h at t=10"
+     ]
+    },
+    {
+     "id": "pit-e",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "e: set h=-1 instead of h=0; wrong t"
+     ]
+    },
+    {
+     "id": "partial",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "d",
+       "marks": [
+        "B0"
+       ]
+      },
+      {
+       "part": "e",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "c: no constant found, not completed",
+      "d: not attempted",
+      "e: not attempted"
+     ]
+    }
+   ],
+   "awarded_second": [],
+   "cost_usd": 0.1069
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": false,
+   "errors": [
+    "part e: tagged ['use-model-to-predict'], retagged ['solve-power-equation']"
+   ],
+   "flags": [],
+   "flag": false,
+   "agreement": "4/5",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.018402500000000002,
+   "retagged": {
+    "a": [
+     "differentiate-polynomials"
+    ],
+    "b": [
+     "connected-rates-of-change",
+     "simplify-algebraic-fractions"
+    ],
+    "c": [
+     "separate-variables-and-integrate",
+     "integrate-powers-of-x",
+     "find-constants-from-conditions",
+     "rearrange-solution-explicitly"
+    ],
+    "d": [
+     "use-model-to-predict"
+    ],
+    "e": [
+     "solve-power-equation"
+    ]
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

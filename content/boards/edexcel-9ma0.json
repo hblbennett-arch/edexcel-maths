@@ -1,0 +1,135 @@
+{
+  "id": "edexcel-9ma0",
+  "board": "Pearson Edexcel",
+  "qualification": "A Level Mathematics (9MA0)",
+  "subject": "mathematics",
+  "disclaimer": "Independent: not affiliated with, endorsed or licensed by Pearson. Every question and mark scheme here is our own.",
+  "notation": {
+    "METHOD": "M",
+    "ACCURACY": "A",
+    "INDEPENDENT": "B",
+    "DEPENDENT_METHOD": "dM",
+    "DOUBLY_DEPENDENT_METHOD": "ddM",
+    "DEPENDENT_INDEPENDENT": "dB",
+    "ft_suffix": "ft",
+    "show_that_suffix": "*",
+    "cso_suffix": "cso",
+    "cao_suffix": "cao"
+  },
+  "code_pattern": "^(ddM|dM|dB|M|A|B)([0-9])(\\*|ft|cso|cao)?$",
+  "dependency": {
+    "accuracy_needs_preceding_method": true,
+    "dependent_method_needs_previous_method": true,
+    "doubly_dependent_needs_two_previous_methods": true,
+    "independent_marks_stand_alone": true
+  },
+  "bald_answer_policy": "A correct final answer with no working usually earns the marks only where the scheme says so. Where a question says to show working, or uses 'show that', an answer on its own scores nothing.",
+  "conventions": {
+    "M": {
+      "name": "Method mark",
+      "short": "For knowing a correct method and making a real attempt at it.",
+      "explain": "A method mark rewards the approach, not the arithmetic. You earn it when your working shows a valid method that could lead to the answer, even if a slip means the numbers come out wrong. The scheme usually says how much has to be visible, for example 'at least one power reduced by 1' for differentiation.",
+      "write_to_earn": "Write the method line before you substitute numbers: the formula you are using, the equation you are setting up, or the integral you are about to evaluate. If you then make a slip, the method mark is still safe."
+    },
+    "A": {
+      "name": "Accuracy mark",
+      "short": "For a correct result, and only after the method mark that comes before it.",
+      "explain": "An accuracy mark is for getting the right value, expression or form at that step. It cannot be earned without the method mark before it, so a correct answer from a wrong or missing method does not score it. Accuracy marks are where most 'careless' marks go: rounding too early, giving a decimal where an exact value was asked for, or the wrong form.",
+      "write_to_earn": "Check the form the question asks for (exact, 3 significant figures, a particular shape) and keep full accuracy until the final line. Then state the answer once, clearly."
+    },
+    "B": {
+      "name": "Independent mark",
+      "short": "For a correct statement or value that stands on its own.",
+      "explain": "A B mark does not depend on any method mark. It is given for something correct in its own right: a stated value, a correct sketch feature, hypotheses written correctly, a correct interpretation.",
+      "write_to_earn": "Do not skip the 'obvious' lines. State the value, the hypotheses or the feature explicitly, because it is worth a mark on its own."
+    },
+    "dM": {
+      "name": "Dependent method mark",
+      "short": "A method mark that needs the previous method mark to have been earned.",
+      "explain": "The small d means dependent. A dM mark is for the next stage of a method, and it is only available if you earned the method mark before it. If the earlier method was wrong or missing, the dM mark is lost too, even if this step is done correctly.",
+      "write_to_earn": "Make sure each stage of a multi-step method is visibly present and valid. Once the first method mark is secure, the later dependent marks become available."
+    },
+    "ddM": {
+      "name": "Doubly dependent method mark",
+      "short": "A method mark that needs both of the previous method marks.",
+      "explain": "A ddM mark depends on the two method marks before it. It usually appears at the end of a long chain, such as putting limits into an integral you have already set up and integrated.",
+      "write_to_earn": "The same as for dM: keep each earlier method step visible and valid."
+    },
+    "ft": {
+      "name": "Follow-through",
+      "short": "A mark you can still earn after an earlier error, if you use your own wrong value correctly.",
+      "explain": "Follow-through means the scheme lets an earlier mistake carry forward. If you got a wrong value earlier but then use it correctly in the next stage, an ft mark can still be awarded. The scheme names what it follows, for example 'ft their gradient'. Follow-through does not rescue a mark that says cao or cso.",
+      "write_to_earn": "If you suspect an earlier value is wrong but have no time to fix it, carry on and use it correctly and clearly. You can still pick up follow-through marks."
+    },
+    "cso": {
+      "name": "Correct solution only",
+      "short": "The mark needs the whole argument to be correct, not just the last line.",
+      "explain": "cso appears on marks where the final line is not enough: the working leading to it must have no errors. It is typical on 'show that' questions, where the printed answer is already known, so the marks are for reaching it properly.",
+      "write_to_earn": "In a show-that question, never fudge a line to reach the printed answer. If your working does not reach it, say so and check the previous line instead."
+    },
+    "cao": {
+      "name": "Correct answer only",
+      "short": "Only the exact stated answer earns the mark.",
+      "explain": "cao means no follow-through and no equivalent form: the scheme wants this specific answer.",
+      "write_to_earn": "Read what form is wanted and give exactly that."
+    },
+    "awrt": {
+      "name": "Answers which round to",
+      "short": "Any answer that rounds to the stated value is accepted.",
+      "explain": "awrt 2.35 means anything from 2.345 to 2.355 is fine. It protects you from small rounding differences but not from rounding too early in the working.",
+      "write_to_earn": "Keep unrounded values in your calculator and round only at the end."
+    },
+    "oe": {
+      "name": "Or equivalent",
+      "short": "Any equivalent form of the answer is accepted.",
+      "explain": "oe means the marker accepts any mathematically equivalent form, for example a fraction or an unsimplified surd, unless the question asked for a particular form.",
+      "write_to_earn": "Unless a form is specified, an equivalent form is safe. If a form is specified, convert to it."
+    },
+    "isw": {
+      "name": "Ignore subsequent working",
+      "short": "Once a correct answer is reached, later working is ignored.",
+      "explain": "If you reach the correct answer and then go on to simplify it wrongly, isw means the marker ignores what comes after and you keep the mark. It does not apply if the question asked for a specific form and you never gave it.",
+      "write_to_earn": "Stop when you have the answer in the required form. Extra 'tidying' can only hurt when the required form has not yet been reached."
+    },
+    "show_that": {
+      "name": "Show-that mark (starred)",
+      "short": "The final mark on a 'show that' question, awarded only for a complete, correct argument that reaches the printed result.",
+      "explain": "When the answer is printed in the question, the last accuracy mark is for arriving at it with no errors and with the necessary intermediate step or conclusion shown. Because the answer is given, the marker is looking at the route, not the destination.",
+      "write_to_earn": "Show the step just before the printed result, then write the printed result. If a conclusion is needed, write it in words."
+    },
+    "dependency": {
+      "name": "Dependency chains",
+      "short": "A marks need the M before them; dM marks need the previous M; ddM marks need the previous two.",
+      "explain": "Marks in a scheme are not independent. Losing one method mark can lose the accuracy mark and the dependent method marks after it in the same chain. That is why a single missing method line can cost three or four marks.",
+      "write_to_earn": "Protect the first method mark in every chain: it unlocks the others."
+    },
+    "bald_answer": {
+      "name": "Answer with no working",
+      "short": "A correct answer alone earns marks only where the scheme allows it.",
+      "explain": "Some marks can be earned by a correct answer with no working, some cannot. Where a question says 'show your working' or 'show that', an answer on its own earns nothing. Where a method mark says 'may be implied by a correct answer', a bald answer earns it.",
+      "write_to_earn": "Always show the method line. It costs a few seconds and protects several marks."
+    }
+  },
+  "answer_forms": {
+    "exact": "An exact value: fractions, surds, multiples of pi or e, not a rounded decimal.",
+    "sf-N": "Rounded to N significant figures.",
+    "dp-N": "Rounded to N decimal places.",
+    "awrt": "Any value that rounds to the stated one.",
+    "in-the-form": "Written in the shape the question states, with the constants identified."
+  },
+  "paper_structure": {
+    "papers": [
+      {"id": "P1", "title": "Pure Mathematics 1", "marks": 100, "minutes": 120},
+      {"id": "P2", "title": "Pure Mathematics 2", "marks": 100, "minutes": 120},
+      {"id": "P3", "title": "Statistics and Mechanics", "marks": 100, "minutes": 120, "sections": [{"id": "stats", "marks": 50}, {"id": "mech", "marks": 50}]}
+    ],
+    "total_marks": 300
+  },
+  "legal": {
+    "may_learn_facts": true,
+    "may_quote_board_text": false,
+    "ai_training_prohibited_by_board": false,
+    "endorsement_route": "Open, non-exclusive endorsement policy (v1.9, June 2026); endorsed resources must not claim to be official or imply examiner input.",
+    "notes": "Facts about papers (skills tested, marks, code sequences) are learned by local scripts only. No board text enters prompts or the product."
+  }
+}

@@ -1,0 +1,142 @@
+{
+ "id": "summary-statistics-and-lds",
+ "question_type": "summary-statistics-and-lds",
+ "component": "stats",
+ "title": "Summary statistics, coding and the large data set",
+ "what_it_asks": "You are given totals such as $\\sum x$ and $\\sum x^2$, sometimes for coded values, or a table, histogram or large data set extract. You find a mean and standard deviation, then use them to interpret, compare or decide which measures suit the data. The idea is that summary statistics compress data, and you must know how they change when the data is coded, cleaned or added to.",
+ "typical_structure": "Usually four or five parts, worth about ten marks in total, and most parts carry two or three marks. Early parts are calculations: a mean, a standard deviation, a median or quartiles. Later parts ask you to describe, compare or explain, often in context. Parts often build on earlier values, so a slip in the mean can carry into the standard deviation. Most questions include a diagram, table or data extract.",
+ "mark_pattern": "The most typical two-mark part is M1 A1: a method mark for a correct formula with values in, then an accuracy mark for the value. A three-mark part is often B1 M1 A1, where the B1 is for a stated value or fact, then a method and an answer. Some calculations run M1 M1 A1 or M1 A1 M1 A1, for example finding a mean and then using it in a variance. Single-mark B1 parts are for statements or readings, such as naming a measure or a feature of the data. Pairs like B1 B1 or B1 dB1 reward a comparison and then a reason that depends on it. Interpretation marks are mostly independent, so give both the reason and the conclusion.",
+ "where_marks_leak": [
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You give the final answer to the wrong number of significant figures or decimal places. The final A1 is lost even though the method is right."
+  },
+  {
+   "error_code": "standard-deviation-formula-error",
+   "mark_family": "method",
+   "text": "You forget to square the mean in $\\frac{\\sum x^2}{n} - \\bar{x}^2$, or divide by the wrong $n$. The M1 for the variance is lost, and the A1 after it."
+  },
+  {
+   "error_code": "histogram-height-as-frequency",
+   "mark_family": "method",
+   "text": "You read the bar height as the frequency instead of using frequency density times class width. The M1 is lost, and the A1 that depends on it."
+  },
+  {
+   "error_code": "coding-applied-to-spread",
+   "mark_family": "method",
+   "text": "You add the coding constant to the standard deviation, or fail to scale it when the coding multiplies. The method mark for undoing the coding is lost, and the A1 goes with it."
+  },
+  {
+   "error_code": "premature-rounding",
+   "mark_family": "accuracy",
+   "text": "You round the mean or variance part-way through, so the final standard deviation drifts outside the accepted range. The final A1 is lost."
+  }
+ ],
+ "write_to_earn": [
+  "Write the formula for the mean or standard deviation before you substitute, so the M1 is safe even if the arithmetic slips.",
+  "Keep unrounded values in your calculator and round only on the last line, to the accuracy asked.",
+  "For a coded variable, state the coding rule and the effect on the mean and on the spread separately before giving the original values.",
+  "For a histogram, write frequency $=$ frequency density $\\times$ width before you calculate.",
+  "When asked to compare or choose a measure, give a reason (skew or outliers) and a conclusion in the context of the data."
+ ],
+ "check_before_you_leave": [
+  "Mean squared in variance?",
+  "Square root taken?",
+  "Coding undone correctly?",
+  "Accuracy and units as asked?",
+  "Reason and conclusion in context?"
+ ],
+ "skills": [
+  "mean-from-summary-statistics",
+  "standard-deviation-from-summary-statistics",
+  "coding-mean-and-sd",
+  "median-quartiles-iqr",
+  "histogram-area-frequency",
+  "choose-appropriate-average-and-spread",
+  "explain-with-reason",
+  "accuracy-units-and-rounding"
+ ],
+ "related_types": [
+  "box-plot-outliers-and-percentiles",
+  "histogram-and-distribution-models"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:11:09",
+ "cost_usd": 0.0614,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 40,
+  "codes_listed": {
+   "wrong-final-accuracy": 34,
+   "standard-deviation-formula-error": 13,
+   "histogram-height-as-frequency": 7,
+   "coding-applied-to-spread": 5,
+   "premature-rounding": 5,
+   "arithmetic-slip": 4,
+   "units-missing-or-wrong": 2,
+   "wrong-distribution-chosen": 2
+  },
+  "frequent_codes": [
+   "standard-deviation-formula-error",
+   "wrong-final-accuracy"
+  ],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "3 rare words shared with P3_June2025_stats_Q4",
+    "cosine 0.868 with note:IAL2013_WMA01_Jan2017_Q1_n4"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.001,
+   "shared_numbers": 0,
+   "max_cosine": 0.868,
+   "cosine_source": "note:IAL2013_WMA01_Jan2017_Q1_n4"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 6
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: 3 rare words shared with P3_June2025_stats_Q4",
+   "copy: cosine 0.868 with note:IAL2013_WMA01_Jan2017_Q1_n4"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

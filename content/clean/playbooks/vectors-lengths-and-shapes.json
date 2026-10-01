@@ -1,0 +1,136 @@
+{
+ "id": "vectors-lengths-and-shapes",
+ "question_type": "vectors-lengths-and-shapes",
+ "component": "pure",
+ "title": "Vector lengths, angles and shapes",
+ "what_it_asks": "You are given position vectors or coordinates of points in $\\mathbf{i}, \\mathbf{j}, \\mathbf{k}$ form, often describing a triangle or other shape. You must find vectors between points, then use magnitudes to get lengths, and sometimes an angle or area. The idea is Pythagoras in three dimensions, combined with a rule such as the cosine rule to classify or measure the shape.",
+ "typical_structure": "Usually two parts, sometimes three. Most parts carry 2 to 4 marks, so a question is typically around 5 marks, though longer ones exist. The first part often finds a vector or a length, and a later part uses it to show a property, find an angle or give an area. Some parts are \"show that\" with a printed answer, so the route matters.",
+ "mark_pattern": "The most usual part is M1 A1: a method mark for forming a vector difference or a magnitude with squared components and a root, then an accuracy mark for the correct vector or length. Three-mark parts are often M1 dM1 A1 or M1 A1 A1, where a second method step (such as a cosine rule or a second length) depends on the first. Four-mark parts are usually M1 A1 dM1 A1, with a first result followed by a dependent step. Sometimes a B1ft is given for using your earlier vector correctly, and in show-that parts the last mark is starred and needs a complete argument.",
+ "where_marks_leak": [
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You give the final length or angle to the wrong number of significant figures or decimal places, or leave a surd when a decimal was asked for. The final A1 is lost even though the method was right."
+  },
+  {
+   "error_code": "parallel-not-shown",
+   "mark_family": "independent",
+   "text": "You state that vectors are parallel or points are collinear without showing a scalar multiple and a shared point. The independent mark for the justification is lost."
+  },
+  {
+   "error_code": "sine-cosine-rule-misapplied",
+   "mark_family": "method",
+   "text": "You use the wrong rule, or pair a side with an angle that is not opposite it. The M1 is lost, and the accuracy and dependent marks that follow go with it."
+  },
+  {
+   "error_code": "magnitude-error",
+   "mark_family": "method",
+   "text": "You forget to square the components or forget the square root when finding a length. The M1 for the magnitude is lost, and any A1 or dM1 that depends on it goes too."
+  },
+  {
+   "error_code": "vector-direction-reversed",
+   "mark_family": "method",
+   "text": "You work out $\\overrightarrow{AB}$ as $\\mathbf{a} - \\mathbf{b}$ instead of $\\mathbf{b} - \\mathbf{a}$. The vector has the wrong sign, so the A1 is lost, and the method mark may go if the error changes the approach."
+  }
+ ],
+ "write_to_earn": [
+  "Write $\\overrightarrow{AB} = \\mathbf{b} - \\mathbf{a}$ before substituting, then give the vector in $\\mathbf{i}, \\mathbf{j}, \\mathbf{k}$ form.",
+  "Write the magnitude formula with every component squared before you take the root, so the method mark is visible.",
+  "When you show points are collinear or vectors parallel, write the scalar multiple and name the common point, then state the conclusion in words.",
+  "Keep surds or unrounded values until the last line, then give the form the question asks for.",
+  "In a show-that part, write the line just before the printed result, then the printed result itself."
+ ],
+ "check_before_you_leave": [
+  "Vector direction correct?",
+  "Every component squared?",
+  "Right rule, right opposite angle?",
+  "Answer in required form?",
+  "Conclusion written?"
+ ],
+ "skills": [
+  "vector-between-points",
+  "vector-magnitude",
+  "exact-surd-manipulation",
+  "show-that-given-answer",
+  "parallel-and-collinear-vectors",
+  "distance-between-points"
+ ],
+ "related_types": [
+  "vectors-parallel-and-ratios",
+  "circle-centre-radius-and-distances",
+  "vector-constant-acceleration"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:07:19",
+ "cost_usd": 0.0962,
+ "attempts": 2,
+ "facts": {
+  "n_questions": 9,
+  "codes_listed": {
+   "wrong-final-accuracy": 7,
+   "parallel-not-shown": 5,
+   "sine-cosine-rule-misapplied": 4,
+   "rationalising-error": 3,
+   "magnitude-error": 3,
+   "arithmetic-slip": 2,
+   "premature-rounding": 2,
+   "vector-direction-reversed": 2
+  },
+  "frequent_codes": [],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.853 with note:P2_June2019_Q10_n5"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.0,
+   "shared_numbers": 0,
+   "max_cosine": 0.853,
+   "cosine_source": "note:P2_June2019_Q10_n5"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 6
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.853 with note:P2_June2019_Q10_n5"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

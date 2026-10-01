@@ -1,0 +1,139 @@
+{
+ "id": "tree-diagram-conditional-probability",
+ "question_type": "tree-diagram-conditional-probability",
+ "component": "stats",
+ "title": "Tree diagram & conditional probability",
+ "what_it_asks": "You are given a situation with successive selections or events, such as picking items with or without replacement. You complete or draw a tree diagram, find combined probabilities, and then find a \"given that\" probability. The idea is that probabilities multiply along branches, add across paths, and a conditional probability restricts the sample space to the given event.",
+ "typical_structure": "Usually there are four parts, and most parts carry two or three marks. A diagram is nearly always involved. The first part often asks you to complete or draw the tree. The middle parts find combined probabilities, sometimes using \"at least one\" or a complement. The last part is usually the conditional probability, and it reuses the answers from the earlier parts. A \"show that\" part sometimes appears, and \"hence\" is used occasionally.",
+ "mark_pattern": "The most typical part is two marks, M1 A1. The M1 is for a correct product along branches or a correct sum of paths. The A1 is for the correct value. Three-mark parts are often M1 A1ft A1 or M1 A1 A1. The M1 sets up the calculation, the first accuracy mark is for a correct intermediate value (which may follow through from your own earlier values), and the last A1 gives the final answer. Diagram parts are usually independent marks, B1 B1 or B1 B1 B1, one for each correct set of branches or labels. A B1 M1 A1 part has a stated value, then the method and result.",
+ "where_marks_leak": [
+  {
+   "error_code": "conditional-denominator-error",
+   "mark_family": "method",
+   "text": "This is a common error. You divide by the wrong probability, for example by the probability of the outcome instead of the probability of the condition. The M1 for the ratio is lost, and the A1 that depends on it goes too."
+  },
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "This is a common error. You leave the answer as a rounded decimal of the wrong accuracy, or round when an exact fraction was wanted. The final A1 is lost even though the method is fine."
+  },
+  {
+   "error_code": "premature-rounding",
+   "mark_family": "accuracy",
+   "text": "You round a branch product or a sum of paths, then use it in the conditional ratio. The final value drifts and the last A1 is lost."
+  },
+  {
+   "error_code": "at-least-one-complement-error",
+   "mark_family": "method",
+   "text": "For 'at least one' you work out one minus the probability of all of them, instead of one minus the probability of none. The M1 is lost, and so is the A1 after it."
+  },
+  {
+   "error_code": "independence-assumed",
+   "mark_family": "method",
+   "text": "You multiply the same branch probabilities on the second stage when the selection is without replacement. The M1 for a valid product is lost, and so is the A1 after it."
+  }
+ ],
+ "write_to_earn": [
+  "Label every branch with its probability, and check that the branches from each node add to 1, so the diagram marks are secure.",
+  "For each combined probability, write the product of branches first, then the value, so the M1 is safe even after a slip.",
+  "List every path you are adding before you add them, so a missed path costs only the accuracy mark.",
+  "For the 'given that' part, write $\\mathrm{P}(A \\mid B) = \\frac{\\mathrm{P}(A \\cap B)}{\\mathrm{P}(B)}$ and put in your own two values before dividing.",
+  "Keep fractions or unrounded values until the last line, then give the form asked for."
+ ],
+ "check_before_you_leave": [
+  "Branches from each node sum to 1",
+  "Second-stage probabilities match the selection rule",
+  "Denominator is the given event",
+  "All needed paths included",
+  "Answer in the required form"
+ ],
+ "skills": [
+  "combine-probabilities-on-tree",
+  "complement-and-addition-rules",
+  "draw-tree-diagram",
+  "conditional-probability-formula",
+  "use-hence-previous-result",
+  "show-that-given-answer"
+ ],
+ "related_types": [
+  "venn-diagram-unknown-probabilities",
+  "two-way-table-probability",
+  "normal-conditional-probability"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:11:28",
+ "cost_usd": 0.0411,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 30,
+  "codes_listed": {
+   "conditional-denominator-error": 14,
+   "wrong-final-accuracy": 10,
+   "premature-rounding": 2,
+   "arithmetic-slip": 1,
+   "independence-assumed": 1,
+   "units-missing-or-wrong": 1,
+   "answer-not-in-context": 1,
+   "at-least-one-complement-error": 1
+  },
+  "frequent_codes": [
+   "conditional-denominator-error",
+   "wrong-final-accuracy"
+  ],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.883 with part:IAL2013_WST01_Oct2017_Q4:b"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.0,
+   "shared_numbers": 0,
+   "max_cosine": 0.883,
+   "cosine_source": "part:IAL2013_WST01_Oct2017_Q4:b"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 1
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.883 with part:IAL2013_WST01_Oct2017_Q4:b"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

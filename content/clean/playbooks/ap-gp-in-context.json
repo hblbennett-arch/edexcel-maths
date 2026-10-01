@@ -1,0 +1,141 @@
+{
+ "id": "ap-gp-in-context",
+ "question_type": "ap-gp-in-context",
+ "component": "pure",
+ "title": "Arithmetic and geometric sequences in context",
+ "what_it_asks": "You are given a worded situation such as savings, training distances, yearly profit or a race, where amounts rise by a fixed step or a fixed multiplier. You build the model, then use the nth-term or sum formula to find a term, a total, a rate or the number of terms. The idea is to decide whether the context is arithmetic or geometric, then turn a total into an equation, which is sometimes a quadratic in $n$.",
+ "typical_structure": "Usually three parts, sometimes two or four. The early part is short and asks for a term, the first term, or the difference or ratio, often with a \"show that\" line. Later parts carry more marks and ask for a total, or for $n$ when a sum reaches a target. Later parts often rely on a model set up earlier, and some use \"hence\".",
+ "mark_pattern": "The typical part is a 2-mark M1 A1: one line of method with the correct formula and values, then the correct result. Three-mark parts are often M1 A1 A1 or M1 M1 A1, where you form an equation and then solve it. A show-that part is usually M1 A1*, where the starred mark needs a complete, correct route to the printed result. A stand-alone B1 is usually for writing down a term, a difference or a ratio. Longer parts, such as forming and solving a quadratic, follow M1 dM1 A1 or M1 A1 M1 A1. Later method marks depend on the first, so the first method line matters most.",
+ "where_marks_leak": [
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "This is a common loss. You give a money or distance answer to the wrong number of decimal places or significant figures, or ignore \"nearest\". The final A1 goes even though the method was right."
+  },
+  {
+   "error_code": "series-formula-error",
+   "mark_family": "method",
+   "text": "This is a common loss. You misremember the sum formula, for example dropping the $\\frac{n}{2}$ or using $r^{n-1}$ in a geometric sum. The M1 is lost, and the A1 and any dM1 that depend on it go too."
+  },
+  {
+   "error_code": "nth-term-index-error",
+   "mark_family": "method",
+   "text": "You write $a+nd$ or $ar^n$ instead of using $n-1$. The method mark for the nth term is lost, and the accuracy mark after it."
+  },
+  {
+   "error_code": "integer-n-rounded-wrong-way",
+   "mark_family": "accuracy",
+   "text": "After solving for $n$ you leave a non-integer or round the wrong way. When a total must be reached, you need the next whole number up, and the final A1 is lost otherwise."
+  },
+  {
+   "error_code": "premature-rounding",
+   "mark_family": "accuracy",
+   "text": "You round an intermediate value, so the final answer drifts outside the accepted range. The final A1 is lost."
+  }
+ ],
+ "write_to_earn": [
+  "Decide and state whether the situation is arithmetic or geometric, and write down $a$ and $d$ or $r$ before using any formula.",
+  "Write the formula with $n$ in it before you substitute, so the M1 is safe if you slip later.",
+  "When a total is given, set up the sum equation, rearrange to a quadratic in $n$ and show the solving step.",
+  "In a show-that part, write the line just before the printed result, then the result itself, with no fudged steps.",
+  "Keep unrounded values until the last line, then give the form asked for, with units."
+ ],
+ "check_before_you_leave": [
+  "Right index: $n-1$ used?",
+  "Answer in required accuracy and units",
+  "Is $n$ a whole number, rounded the right way?",
+  "Answer makes sense in context",
+  "Printed result reached with no gaps"
+ ],
+ "skills": [
+  "translate-context-into-model",
+  "arithmetic-series-sum",
+  "arithmetic-sequence-nth-term",
+  "show-that-given-answer",
+  "accuracy-units-and-rounding",
+  "geometric-sequence-nth-term",
+  "geometric-series-sum"
+ ],
+ "related_types": [
+  "geometric-series-with-unknowns",
+  "sigma-notation-sums",
+  "linear-and-quadratic-models",
+  "recurrence-and-periodic-sequences"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:10:43",
+ "cost_usd": 0.1268,
+ "attempts": 2,
+ "facts": {
+  "n_questions": 68,
+  "codes_listed": {
+   "wrong-final-accuracy": 42,
+   "series-formula-error": 13,
+   "series-proof-incomplete": 7,
+   "nth-term-index-error": 5,
+   "integer-n-rounded-wrong-way": 5,
+   "premature-rounding": 4,
+   "sigma-term-count-error": 4,
+   "arithmetic-slip": 4
+  },
+  "frequent_codes": [
+   "series-formula-error",
+   "wrong-final-accuracy"
+  ],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.861 with note:IAL2018_WMA11A_June2025_Q9_n8"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.0,
+   "shared_numbers": 0,
+   "max_cosine": 0.861,
+   "cosine_source": "note:IAL2018_WMA11A_June2025_Q9_n8"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 15
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.861 with note:IAL2018_WMA11A_June2025_Q9_n8"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

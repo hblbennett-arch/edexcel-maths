@@ -1,0 +1,140 @@
+{
+ "id": "circle-centre-radius-and-distances",
+ "question_type": "circle-centre-radius-and-distances",
+ "component": "pure",
+ "title": "Circle centre/radius with distances",
+ "what_it_asks": "You are handed a circle as an expanded equation, and sometimes a second circle or an outside point. The task is to turn the equation into a form where the centre and radius can be read off, then use the gap between points, measured with Pythagoras, to answer a question about position. That might be the furthest point on the circle, or whether two circles cross.",
+ "typical_structure": "Usually two to four parts, with about three the most typical. The first part is often short: find the centre and radius, or show a given centre. Later parts use those results, so an early slip travels forward. A middle part often asks for a line equation through the centre, a gradient or a distance. The last part is usually the longest, carrying a few marks for a distance to a point or circle, or a comparison of two circles. About a third of questions have a diagram.",
+ "mark_pattern": "Most parts are short: M1 A1 is the commonest, followed by M1 M1 A1 and M1 A1 A1. In a centre-and-radius part, the first M1 is for completing the square on both variables, and the A1s are for the centre and the radius. Sometimes a B1 is given alone for a centre or radius stated correctly. In longer chains, such as M1 dM1 A1, the first M1 sets up a distance or gradient, the dM1 uses it in the next stage (for example subtracting a radius or forming a line), and the A1 is the final value in the required form. A B1 M1 A1 part usually gives the independent mark for the centre or radius, then method and accuracy for using it.",
+ "where_marks_leak": [
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You round a distance or length to the wrong number of decimal places or significant figures, or round early. The final A1 is lost even though the method was sound."
+  },
+  {
+   "error_code": "circle-centre-sign-error",
+   "mark_family": "independent",
+   "text": "From $(x+3)^2+(y-2)^2=r^2$ you write the centre as $(3,2)$ instead of $(-3,2)$. The B1 for the centre goes, and every distance or line built on it is wrong, so later accuracy marks go too."
+  },
+  {
+   "error_code": "circle-radius-error",
+   "mark_family": "independent",
+   "text": "You give $r^2$ as the radius, or forget to move the constant across after completing the square. The B1 for the radius is lost, and any A1 that uses the radius goes with it."
+  },
+  {
+   "error_code": "arithmetic-slip",
+   "mark_family": "accuracy",
+   "text": "You make a slip in a difference of coordinates or a square in an otherwise correct method. The M1 stays, but the A1 for that value is lost."
+  },
+  {
+   "error_code": "radius-not-subtracted",
+   "mark_family": "method",
+   "text": "You stop at the distance to the centre when the question wants the distance to the circle itself. The method mark for combining the distance with the radius is not earned, and the final A1 goes too."
+  }
+ ],
+ "write_to_earn": [
+  "Write the completed-square form on its own line, with both brackets and the constant, before reading off anything.",
+  "State the centre as a coordinate pair and the radius as a number, separately, so each independent mark is visible.",
+  "Write the distance formula with the coordinate differences before you evaluate it.",
+  "When you need the distance to the circle, write whether you add or subtract the radius, and why, perhaps with a quick sketch.",
+  "Keep surds exact until the last line, then give the form the question asks for."
+ ],
+ "check_before_you_leave": [
+  "Centre signs flipped?",
+  "Radius, not radius squared?",
+  "Add or subtract the radius?",
+  "Answer in the asked form?",
+  "Sketch agrees with result?"
+ ],
+ "skills": [
+  "distance-between-points",
+  "circle-centre-and-radius",
+  "equation-of-straight-line",
+  "exact-surd-manipulation",
+  "perpendicular-gradients",
+  "complete-the-square",
+  "two-circles-and-distance-to-circle"
+ ],
+ "related_types": [
+  "circle-line-tangency",
+  "vectors-lengths-and-shapes",
+  "implicit-differentiation-tangents"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:08:04",
+ "cost_usd": 0.096,
+ "attempts": 2,
+ "facts": {
+  "n_questions": 50,
+  "codes_listed": {
+   "wrong-final-accuracy": 19,
+   "circle-centre-sign-error": 12,
+   "circle-radius-error": 8,
+   "arithmetic-slip": 8,
+   "completing-square-error": 7,
+   "rationalising-error": 7,
+   "perpendicular-gradient-error": 6,
+   "radius-not-subtracted": 5
+  },
+  "frequent_codes": [
+   "circle-centre-sign-error",
+   "wrong-final-accuracy"
+  ],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.859 with part:IAL2018_WMA12A_June2025_Q9:b"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.002,
+   "shared_numbers": 0,
+   "max_cosine": 0.859,
+   "cosine_source": "part:IAL2018_WMA12A_June2025_Q9:b"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 4
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.859 with part:IAL2018_WMA12A_June2025_Q9:b"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

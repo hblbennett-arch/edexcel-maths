@@ -1,0 +1,137 @@
+{
+ "id": "first-principles",
+ "question_type": "first-principles",
+ "component": "pure",
+ "title": "Differentiation from first principles",
+ "what_it_asks": "You are given a function, usually a polynomial such as $x^3$ or a trig function such as $\\sin x$, and asked to prove its derivative from the definition. You write the gradient of the chord between $x$ and $x+h$, simplify it, and let $h \\to 0$. The idea is that the tangent gradient is the limit of chord gradients.",
+ "typical_structure": "Most questions are a single part worth between three and six marks. Some are split into three short parts: an opening mark for a statement or expansion, a middle part that builds the chord gradient, and a last part that uses the result, for example to find a tangent. Where there are several parts, later ones usually depend on the derivative you have just proved. A diagram of a curve with a chord is often given.",
+ "mark_pattern": "A longer proof is usually B1 M1 A1 dM1 A1*. The B1 is for a correct expansion of $f(x+h)$ or a correct statement of the chord. The M1 is for forming $\\frac{f(x+h)-f(x)}{h}$. The A1 is for the simplified form with $h$ cancelled. The dM1 is for taking the limit as $h \\to 0$, and it depends on the earlier method. The final A1* is cso for the printed or required derivative with correct notation. Shorter parts are usually M1 A1, B1 M1 A1 or M1 A1 A1*, following the same order. A lone B1 is often for one stated result or expansion.",
+ "where_marks_leak": [
+  {
+   "error_code": "arithmetic-slip",
+   "mark_family": "accuracy",
+   "text": "You expand $(x+h)^3$ or collect terms with a slip, so the simplified chord gradient is wrong. The A1 is lost, and the dM1 and final A1* that depend on it can go too."
+  },
+  {
+   "error_code": "double-angle-error",
+   "mark_family": "method",
+   "text": "On trig functions, you expand $\\sin(x+h)$ incorrectly, for example as $\\sin x + \\sin h$, which is the same kind of slip as mishandling a double angle. The expansion method mark is lost, and the chain after it is at risk."
+  },
+  {
+   "error_code": "gradient-not-evaluated-at-point",
+   "mark_family": "method",
+   "text": "In a follow-on tangent part, you leave the gradient as the expression in $x$ instead of substituting the given $x$-value. The method mark for the line equation is lost."
+  },
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You give a final value to the wrong accuracy, or a rounded decimal where the exact value was wanted. The last A1 is lost even when the method is right."
+  }
+ ],
+ "write_to_earn": [
+  "Write $\\frac{f(x+h)-f(x)}{h}$ as your first line before you substitute anything.",
+  "Expand $f(x+h)$ fully and show it, since that line can earn a mark by itself.",
+  "Cancel $h$ explicitly before you take any limit, so the simplified form is visible.",
+  "Write $\\lim_{h \\to 0}$ or 'as $h \\to 0$' with the derivative notation, and do not drop it early.",
+  "In a show-that proof, write the line just before the printed result, then the result, with no fudging."
+ ],
+ "check_before_you_leave": [
+  "Chord formula written first",
+  "Every $h$ term shown",
+  "$h$ cancelled before the limit",
+  "Limit notation kept throughout",
+  "Final form matches the question"
+ ],
+ "skills": [
+  "differentiate-from-first-principles",
+  "show-that-given-answer",
+  "differentiate-polynomials",
+  "tangent-at-a-point",
+  "compound-angle-formulae",
+  "explain-with-reason"
+ ],
+ "related_types": [
+  "differentiate-to-given-form",
+  "stationary-points-and-nature",
+  "parametric-differentiation-tangents",
+  "implicit-differentiation-tangents"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:03:43",
+ "cost_usd": 0.0387,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 6,
+  "codes_listed": {
+   "second-derivative-error": 2,
+   "wrong-final-accuracy": 2,
+   "answers-different-quantity": 1,
+   "chain-rule-inner-derivative-missing": 1,
+   "gradient-not-evaluated-at-point": 1,
+   "rationalising-error": 1,
+   "arithmetic-slip": 1,
+   "double-angle-error": 1
+  },
+  "frequent_codes": [],
+  "practice_items": [
+   "cr-differentiate-from-first-principles-core",
+   "cr-pure-first-principles-001"
+  ]
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "3 rare words shared with IAL2013_WST01_June2019_Q2",
+    "cosine 0.846 with part:P1_June2024_Q4:"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.0,
+   "shared_numbers": 0,
+   "max_cosine": 0.846,
+   "cosine_source": "part:P1_June2024_Q4:"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 21
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: 3 rare words shared with IAL2013_WST01_June2019_Q2",
+   "copy: cosine 0.846 with part:P1_June2024_Q4:"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

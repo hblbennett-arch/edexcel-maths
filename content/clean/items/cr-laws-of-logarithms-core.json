@@ -1,0 +1,550 @@
+{
+ "id": "cr-laws-of-logarithms-core",
+ "blueprint_id": "dr-laws-of-logarithms-core",
+ "question_type": "log-laws-and-equations",
+ "component": "pure",
+ "tier": "core",
+ "kind": "drill",
+ "stem": null,
+ "parts": [
+  {
+   "label": null,
+   "marks": 3,
+   "text": "Find the value of $x$ that satisfies the equation $$2\\log_3 x - \\log_3(x+6) = 1.$$ Show clearly why any other solution of your working is not valid. (3)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "laws-of-logarithms"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Uses the power law correctly: $2\\log_3 x = \\log_3 x^2$, seen or implied (e.g. by $\\log_3\\frac{x^2}{x+6}$).",
+     "notes": "Do not award for $\\log_3 2x$ or $\\log_3 (2x)$."
+    },
+    {
+     "code": "M1",
+     "for": "Combines the logs with the subtraction law and removes them using $1 = \\log_3 3$ to get an equation with no logs, e.g. $\\frac{x^2}{x+6} = 3$ or $x^2 = 3(x+6)$, then solves the resulting 3-term quadratic $x^2 - 3x - 18 = 0$.",
+     "notes": "The equation without logs must come from correct log laws. Treating $\\frac{\\log_3 x^2}{\\log_3(x+6)}$ as a single log, or writing $\\frac{x^2}{x+6} = 1$, gets M0. Accept any valid method for solving the quadratic (factorising, formula, calculator) as long as roots are found."
+    },
+    {
+     "code": "A1",
+     "for": "$x = 6$ only, with $x = -3$ rejected because $\\log_3(-3)$ is undefined (or because $x$ must be positive).",
+     "notes": "cso. If $x = -3$ is still given as a final answer, or is left in without being rejected, award A0."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Power law: $2\\log_3 x = \\log_3 x^2$, so the equation becomes $\\log_3 x^2 - \\log_3(x+6) = 1$.",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "Subtraction law: $\\log_3\\left(\\dfrac{x^2}{x+6}\\right) = 1 = \\log_3 3$, so $\\dfrac{x^2}{x+6} = 3$, giving $x^2 = 3x + 18$.",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$x^2 - 3x - 18 = 0 \\Rightarrow (x-6)(x+3) = 0 \\Rightarrow x = 6$ or $x = -3$.",
+     "mark": "M1"
+    },
+    {
+     "step": 4,
+     "working": "$x = -3$ is rejected because $\\log_3(-3)$ is not defined. Check: $2\\log_3 6 - \\log_3 12 = \\log_3\\frac{36}{12} = \\log_3 3 = 1$. So $x = 6$.",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "x",
+     "expr": "6",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "substitute",
+     "expr": "2*log(x, 3) - log(x + 6, 3)",
+     "at": {
+      "x": "6"
+     },
+     "result": "1"
+    },
+    {
+     "type": "solutions",
+     "equation": "x^2 - 3x - 18 = 0",
+     "var": "x",
+     "result": [
+      "-3",
+      "6"
+     ]
+    },
+    {
+     "type": "solutions",
+     "equation": "x^2 - 3x - 18 = 0",
+     "var": "x",
+     "interval": [
+      0,
+      100
+     ],
+     "closed": [
+      false,
+      true
+     ],
+     "result": [
+      "6"
+     ]
+    },
+    {
+     "type": "equals",
+     "lhs": "2*log(x, 3) - log(x + 6, 3)",
+     "rhs": "log(x^2/(x + 6), 3)",
+     "domain": "positive"
+    }
+   ],
+   "hints": [
+    "Start by using the power law to write $2\\log_3 x$ as a single logarithm, then combine the two logs into one.",
+    "Write the right-hand side $1$ as $\\log_3$ of something, so you can remove the logs from both sides."
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$\\log_3 x^2 - \\log_3(x+6) = 1$",
+      "secures": [
+       "B1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$\\log_3\\frac{x^2}{x+6}=1 \\Rightarrow x^2 = 3(x+6) \\Rightarrow x^2-3x-18=0 \\Rightarrow (x-6)(x+3)=0$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$x=-3$ rejected as $\\log_3(-3)$ is undefined, so $x=6$",
+      "secures": [
+       "A1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$2\\log_3 x = \\log_3 x^2$",
+      "why": "You move the 2 in front of the log to become a power of $x$, using the power law of logarithms.",
+      "secures": null,
+      "check": "Try $x=3$: $2\\log_3 3=2$ and $\\log_3 9=2$."
+     },
+     {
+      "step": 2,
+      "working": "$\\log_3 x^2 - \\log_3(x+6) = 1$",
+      "why": "You replace the first term in the original equation with the single log from the previous line, so both terms are logs of one expression.",
+      "secures": "B1",
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$\\log_3\\left(\\frac{x^2}{x+6}\\right) = 1$",
+      "why": "A difference of two logs with the same base is the log of a quotient, so you combine them into one log.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$1=\\log_3 3$",
+      "why": "You write 1 as a log to base 3 so both sides of the equation are logs of the same base.",
+      "secures": null,
+      "check": "$3^1=3$."
+     },
+     {
+      "step": 5,
+      "working": "$\\log_3\\left(\\frac{x^2}{x+6}\\right) = \\log_3 3$",
+      "why": "You substitute $\\log_3 3$ for 1 on the right-hand side.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$\\frac{x^2}{x+6} = 3$",
+      "why": "If two logs of the same base are equal, what is inside them is equal, so you drop the logs.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "$x^2 = 3(x+6)$",
+      "why": "You multiply both sides by $x+6$ to clear the fraction.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$x^2 = 3x+18$",
+      "why": "You expand the bracket on the right.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "$x^2-3x-18=0$",
+      "why": "You subtract $3x$ and $18$ from both sides so that one side is zero, ready to solve the quadratic.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$(x-6)(x+3)=0$",
+      "why": "You factorise by finding two numbers that multiply to $-18$ and add to $-3$: these are $-6$ and $3$.",
+      "secures": null,
+      "check": "Expand: $x^2+3x-6x-18=x^2-3x-18$."
+     },
+     {
+      "step": 11,
+      "working": "$x=6$ or $x=-3$",
+      "why": "Each bracket can be zero, so you set each equal to zero and solve.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 12,
+      "working": "$x=-3$: $\\log_3 x=\\log_3(-3)$ is undefined",
+      "why": "You can only take the log of a positive number, and the original equation contains $\\log_3 x$, so $x=-3$ must be rejected.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 13,
+      "working": "$x=6$: $2\\log_3 6-\\log_3 12=\\log_3\\frac{36}{12}=\\log_3 3=1$",
+      "why": "You substitute $x=6$ into the original equation, where both logs are defined, to confirm it works.",
+      "secures": null,
+      "check": "Left side equals the right side, 1."
+     },
+     {
+      "step": 14,
+      "working": "$x=6$",
+      "why": "Only $x=6$ is valid, since $x=-3$ is rejected.",
+      "secures": "A1",
+      "check": null
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T22:59:41+00:00",
+    "cost_usd": 0.022,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "step": 1,
+   "error_code": "log-power-law-misapplied",
+   "text": "A common slip is writing $2\\log_3 x$ as $\\log_3 2x$. The 2 must become a power, giving $\\log_3 x^2$. If you use $\\log_3 2x$ you get the wrong equation, so you lose the B1 and the M1.",
+   "says_common": true
+  },
+  {
+   "part": null,
+   "step": 2,
+   "error_code": "log-law-misapplied",
+   "text": "A common mistake is to change $\\log_3 x^2 - \\log_3(x+6)$ into $\\dfrac{\\log_3 x^2}{\\log_3(x+6)}$, or into $\\log_3(x^2 - x - 6)$. The subtraction law gives $\\log_3\\dfrac{x^2}{x+6}$. Using a false law loses the M1 and the A1.",
+   "says_common": true
+  },
+  {
+   "part": null,
+   "step": 2,
+   "error_code": "logs-taken-term-by-term",
+   "text": "Don't remove the logs one term at a time, for example by turning $\\log_3 x^2 - \\log_3(x+6) = 1$ into $x^2 - (x+6) = 3$. First combine the logs into one, then remove it. Working term by term gives the wrong quadratic and loses the M1.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:53:11",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.1826
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 3
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.881 with part:GCE2008_6664_June2012_Q2:"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "hits8": [],
+   "max_jaccard": 0.081,
+   "jaccard_source": "GCE2008_6664_June2012_Q2",
+   "shared_numbers": 0,
+   "max_cosine": 0.881,
+   "cosine_source": "part:GCE2008_6664_June2012_Q2:"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 4,
+   "n_answers": 1,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0082,
+   "solver": {
+    "parts": [
+     {
+      "label": null,
+      "answers": [
+       "6"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "2log3 x - log3(x+6) = log3(x^2/(x+6)) = 1, so x^2 = 3(x+6), x^2 - 3x - 18 = 0, (x-6)(x+3) = 0. x = -3 is rejected since log3(-3) is undefined (x must be > 0). x = 6 checks: log3(36/12) = 1."
+     }
+    ],
+    "problems": []
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "n_responses": 5,
+   "agreed": [
+    "r1",
+    "r2",
+    "r3",
+    "r4",
+    "r5"
+   ],
+   "consistent": {},
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "r1",
+     "kind": "correct",
+     "work": "$2\\log_3 x=\\log_3 x^2$\n$\\log_3 x^2-\\log_3(x+6)=1$\n$\\log_3\\frac{x^2}{x+6}=1$\n$\\frac{x^2}{x+6}=3$\n$x^2-3x-18=0$\n$(x-6)(x+3)=0$, so $x=6$ or $x=-3$\n$x=-3$ is rejected because $\\log_3(-3)$ is undefined. So $x=6$.",
+     "error_code": null,
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "kind": "pitfall",
+     "work": "$2\\log_3 x=\\log_3 2x$\n$\\log_3 2x-\\log_3(x+6)=1$\n$\\log_3\\frac{2x}{x+6}=1$\n$\\frac{2x}{x+6}=3$\n$2x=3x+18$\n$x=-18$\nThis is negative, so there is no valid solution. (I'll give $x=-18$.)",
+     "error_code": "log-power-law-misapplied",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "B0",
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r3",
+     "kind": "pitfall",
+     "work": "$2\\log_3 x=\\log_3 x^2$\n$\\frac{\\log_3 x^2}{\\log_3(x+6)}=1$\n$\\log_3 x^2=\\log_3(x+6)$\n$x^2=x+6$\n$x^2-x-6=0$\n$(x-3)(x+2)=0$\n$x=3$ (since $x=-2$ gives a log of a negative number)",
+     "error_code": "log-law-misapplied",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "B1",
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r4",
+     "kind": "pitfall",
+     "work": "$2\\log_3 x=\\log_3 x^2$\n$\\log_3 x^2-\\log_3(x+6)=1$\nRemove the logs: $x^2-(x+6)=3$\n$x^2-x-9=0$\n$x=\\frac{1\\pm\\sqrt{37}}{2}$\n$x=3.54$ or $x=-2.54$\nThe negative value is rejected as $\\log_3$ of a negative number is undefined. So $x=3.54$.",
+     "error_code": "logs-taken-term-by-term",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "B1",
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r5",
+     "kind": "partial",
+     "work": "$2\\log_3 x=\\log_3 x^2$\n$\\log_3 x^2-\\log_3(x+6)=1$\nI'm not sure what to do next.",
+     "error_code": null,
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "B1",
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "r1",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "B1",
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "B0",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "B0: used log_3 2x, not x^2.",
+      "M0: log equation derived from incorrect power law; no valid quadratic solved.",
+      "A0: x=-18 given, not x=6."
+     ]
+    },
+    {
+     "id": "r3",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "B1",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "M0: treated as a quotient of logs and equated to 1 incorrectly; not correct log laws.",
+      "A0: x=3 is not correct."
+     ]
+    },
+    {
+     "id": "r4",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "B1",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "M0: removed logs incorrectly (x^2-(x+6)=3) without correct subtraction law.",
+      "A0: x=3.54 incorrect."
+     ]
+    },
+    {
+     "id": "r5",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "B1",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "M0: no progress to a log-free equation.",
+      "A0: no solution given."
+     ]
+    }
+   ],
+   "awarded_second": [],
+   "cost_usd": 0.0301
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "agreement": "1/1",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.010610000000000001,
+   "retagged": {
+    "findthevalueofxthatsatisfiestheequationandshowwhyanyothersolutionisnotvalid": [
+     "laws-of-logarithms",
+     "remove-logarithms",
+     "solve-quadratic-equation"
+    ]
+   }
+  },
+  "GL": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part -: copy check flag: cosine 0.881 with part:GCE2008_6664_June2012_Q2:"
+   ],
+   "parts_checked": 1
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

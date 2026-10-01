@@ -1,0 +1,820 @@
+{
+ "id": "cr-1-p1-q09",
+ "blueprint_id": "mk-1-p1-q09",
+ "question_type": "geometric-series-with-unknowns",
+ "component": "pure",
+ "tier": "standard",
+ "kind": "mock",
+ "stem": "A geometric sequence has $u_1 = 5k + 2$, $u_2 = 3k - 2$ and $u_3 = 2k - 4$, where $k$ is a real constant.",
+ "paper": "mock-1-P1",
+ "set": "mock-1",
+ "q_num": 9,
+ "parts": [
+  {
+   "label": "a",
+   "marks": 2,
+   "text": "Show that $k^2 - 4k - 12 = 0$. (2)",
+   "command": "show-that",
+   "forms": [],
+   "skills": [
+    "geometric-ratio-equation",
+    "show-that-given-answer"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Sets two expressions for the common ratio equal, e.g. $\\frac{3k-2}{5k+2} = \\frac{2k-4}{3k-2}$, and cross-multiplies to get $(3k-2)^2 = (5k+2)(2k-4)$",
+     "notes": "Accept $\\frac{5k+2}{3k-2} = \\frac{3k-2}{2k-4}$, since inverting both ratios gives the same equation. Do not accept a mixed equation such as $\\frac{3k-2}{5k+2} = \\frac{3k-2}{2k-4}$."
+    },
+    {
+     "code": "A1*",
+     "for": "Expands both sides correctly to $9k^2 - 12k + 4 = 10k^2 - 16k - 8$ and rearranges to reach $k^2 - 4k - 12 = 0$ exactly",
+     "notes": "cso. Both expanded sides must be seen before the printed result."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Using the common ratio: $\\frac{u_2}{u_1} = \\frac{u_3}{u_2}$, so $\\frac{3k-2}{5k+2} = \\frac{2k-4}{3k-2}$, which gives $(3k-2)^2 = (5k+2)(2k-4)$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$9k^2 - 12k + 4 = 10k^2 - 20k + 4k - 8 = 10k^2 - 16k - 8$",
+     "mark": "0"
+    },
+    {
+     "step": 3,
+     "working": "$0 = 10k^2 - 9k^2 - 16k + 12k - 8 - 4$, so $k^2 - 4k - 12 = 0$",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "(5k+2)(2k-4) - (3k-2)^2",
+     "rhs": "k^2 - 4k - 12"
+    }
+   ],
+   "hints": [
+    "In a geometric sequence, dividing any term by the term before it always gives the same value.",
+    "Write $\\frac{u_2}{u_1} = \\frac{u_3}{u_2}$, cross-multiply, then expand both sides."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 2,
+   "text": "Find the two possible values of $k$. (2)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "solve-quadratic-equation"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "$k = 6$",
+     "notes": "Can come from factorising $(k-6)(k+2) = 0$, from the formula or from a calculator."
+    },
+    {
+     "code": "B1",
+     "for": "$k = -2$",
+     "notes": "Both values may be given together. If extra values are given, withhold the second B1."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$k^2 - 4k - 12 = (k - 6)(k + 2) = 0$",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "$k = 6$",
+     "mark": "B1"
+    },
+    {
+     "step": 3,
+     "working": "$k = -2$",
+     "mark": "B1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "k1",
+     "expr": "6",
+     "form": "exact"
+    },
+    {
+     "name": "k2",
+     "expr": "-2",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "solutions",
+     "equation": "k^2 - 4k - 12 = 0",
+     "var": "k",
+     "result": [
+      "6",
+      "-2"
+     ]
+    },
+    {
+     "type": "substitute",
+     "expr": "(3k-2)^2 - (5k+2)(2k-4)",
+     "at": {
+      "k": "6"
+     },
+     "result": "0"
+    },
+    {
+     "type": "substitute",
+     "expr": "(3k-2)^2 - (5k+2)(2k-4)",
+     "at": {
+      "k": "-2"
+     },
+     "result": "0"
+    }
+   ],
+   "hints": [
+    "Look for two numbers that multiply to $-12$ and add to $-4$."
+   ]
+  },
+  {
+   "label": "c",
+   "marks": 2,
+   "text": "Given also that the sum to infinity of the corresponding geometric series exists, find the exact value of $u_9$. (2)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "geometric-sequence-nth-term"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Picks the value of $k$ with $|r| < 1$, so $k = 6$, giving $a = 32$ and $r = \\frac{16}{32} = \\frac{1}{2}$, and substitutes into $u_9 = ar^{8}$, i.e. $32 \\times \\left(\\frac{1}{2}\\right)^8$",
+     "notes": "Needs the power $n - 1 = 8$. Using $k = -2$ (which gives $r = 1$) earns M0."
+    },
+    {
+     "code": "A1",
+     "for": "$u_9 = \\frac{1}{8}$",
+     "notes": "cao. Accept $0.125$."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "When $k = -2$ every term is $-8$, so $r = 1$ and the sum to infinity does not exist. Hence $k = 6$.",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "When $k = 6$: $u_1 = 32$, $u_2 = 16$, $u_3 = 8$, so $a = 32$ and $r = \\frac{16}{32} = \\frac{1}{2}$. Then $u_9 = ar^{9-1} = 32 \\times \\left(\\frac{1}{2}\\right)^8$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$u_9 = \\frac{32}{256} = \\frac{1}{8}$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "u9",
+     "expr": "1/8",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "32*(1/2)^8",
+     "answer": "u9",
+     "form": "exact"
+    },
+    {
+     "type": "substitute",
+     "expr": "(5k+2)*((3k-2)/(5k+2))^8",
+     "at": {
+      "k": "6"
+     },
+     "result": "1/8"
+    }
+   ],
+   "hints": [
+    "The sum to infinity exists only when $|r| < 1$. Work out $r$ for each value of $k$ from part (b).",
+    "The $n$th term is $ar^{n-1}$, so the 9th term uses the power 8."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "common-ratio-inverted",
+   "text": "If you write one ratio as later over earlier and the other as earlier over later, e.g. $\\frac{3k-2}{5k+2} = \\frac{3k-2}{2k-4}$, the equation you get is not the one for a common ratio. You lose the M1 and cannot reach $k^2 - 4k - 12 = 0$.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "quadratic-formula-error",
+   "text": "If you use the formula with $+b$ instead of $-b$, i.e. $\\frac{-4 \\pm \\sqrt{64}}{2}$, you get $k = 2$ and $k = -6$, and both B1 marks are lost. Here $b = -4$, so $-b = 4$, and factorising $(k-6)(k+2)$ is quicker anyway.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "incomplete-factorisation",
+   "text": "If you stop at $(k-6)(k+2) = 0$ without writing $k = 6$ and $k = -2$, you have not stated the values of $k$ that were asked for, so the marks are not earned.",
+   "says_common": true
+  },
+  {
+   "part": "c",
+   "step": 2,
+   "error_code": "nth-term-index-error",
+   "text": "If you use $ar^n$ and work out $32 \\times \\left(\\frac{1}{2}\\right)^9 = \\frac{1}{16}$, you have found $u_{10}$, not $u_9$. The M1 is lost because the power must be $n - 1 = 8$.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "step": 2,
+   "error_code": "common-ratio-inverted",
+   "text": "If you divide $u_1$ by $u_2$ you get $r = \\frac{32}{16} = 2$. That would mean no sum to infinity exists, and $32 \\times 2^8$ is wrong, so the M1 is lost. The ratio is always a later term divided by the term before it.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:40:31",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.271
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 6
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.881 with question:IAL2018_WMA12_Oct2022_Q8"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "hits8": [],
+   "max_jaccard": 0.027,
+   "jaccard_source": "GCE2008_6663_June2013_Q4",
+   "shared_numbers": 0,
+   "max_cosine": 0.881,
+   "cosine_source": "question:IAL2018_WMA12_Oct2022_Q8"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 6,
+   "n_answers": 3,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0101,
+   "solver": {
+    "parts": [
+     {
+      "label": "a",
+      "answers": [],
+      "printed_result_correct": true,
+      "working_summary": "For a geometric sequence u2^2 = u1*u3, so (3k-2)^2 = (5k+2)(2k-4). Expanding: 9k^2 - 12k + 4 = 10k^2 - 16k - 8. Rearranging gives k^2 - 4k - 12 = 0, as printed."
+     },
+     {
+      "label": "b",
+      "answers": [
+       "6",
+       "-2"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "(k-6)(k+2)=0, so k=6 or k=-2."
+     },
+     {
+      "label": "c",
+      "answers": [
+       "1/8"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "k=-2 gives the terms -8, -8, -8 with r=1, so the sum to infinity does not exist. k=6 gives 32, 16, 8 with r=1/2, which converges. u9 = 32*(1/2)^8 = 1/8."
+     }
+    ],
+    "problems": []
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "response r4 (pitfall incomplete-factorisation): second marker agrees with the design; first marker gave {'a': ['M1', 'A1'], 'b': ['B1', 'B1'], 'c': ['M1', 'A1']}"
+   ],
+   "flag": true,
+   "n_responses": 7,
+   "agreed": [
+    "r1",
+    "r2",
+    "r3",
+    "r4",
+    "r5",
+    "r6",
+    "r7"
+   ],
+   "consistent": {},
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "r1",
+     "kind": "correct",
+     "work": "(a) $\\frac{3k-2}{5k+2}=\\frac{2k-4}{3k-2}$ so $(3k-2)^2=(5k+2)(2k-4)$. $9k^2-12k+4=10k^2-16k-8$. So $0=k^2-4k-12$.\n(b) $(k-6)(k+2)=0$, $k=6$, $k=-2$.\n(c) $k=-2$ gives $r=1$, no sum to infinity, so $k=6$. $a=32$, $r=\\frac{16}{32}=\\frac12$. $u_9=32\\times(\\frac12)^8=\\frac18$.",
+     "error_code": null,
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "kind": "pitfall",
+     "work": "(a) $\\frac{3k-2}{5k+2}=\\frac{3k-2}{2k-4}$ so $(3k-2)(2k-4)=(3k-2)(5k+2)$. Expanding: $6k^2-16k+8=15k^2-4k-4$, so $9k^2+12k-12=0$. I can't get the given equation, so I'll go with the printed result $k^2-4k-12=0$.\n(b) $(k-6)(k+2)=0$, $k=6$, $k=-2$.\n(c) $k=6$, $a=32$, $r=\\frac12$, $u_9=32(\\frac12)^8=\\frac18$.",
+     "error_code": "common-ratio-inverted",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "A0*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r3",
+     "kind": "pitfall",
+     "work": "(a) $\\frac{3k-2}{5k+2}=\\frac{2k-4}{3k-2}$, $(3k-2)^2=(5k+2)(2k-4)$, $9k^2-12k+4=10k^2-16k-8$, so $k^2-4k-12=0$.\n(b) $k=\\frac{-4\\pm\\sqrt{16+48}}{2}=\\frac{-4\\pm8}{2}$, so $k=2$ or $k=-6$.\n(c) Take $k=2$: $u_1=12$, $u_2=4$, $r=\\frac13$. $u_9=12\\times(\\frac13)^8=\\frac{12}{6561}=\\frac{4}{2187}$.",
+     "error_code": "quadratic-formula-error",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B0",
+        "B0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r4",
+     "kind": "pitfall",
+     "work": "(a) $\\frac{3k-2}{5k+2}=\\frac{2k-4}{3k-2}$, $(3k-2)^2=(5k+2)(2k-4)$, $9k^2-12k+4=10k^2-16k-8$, so $k^2-4k-12=0$.\n(b) $(k-6)(k+2)=0$.\n(c) Since sum to infinity exists, $k=6$, $a=32$, $r=\\frac12$, $u_9=32(\\frac12)^8=\\frac18$.",
+     "error_code": "incomplete-factorisation",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B0",
+        "B0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r5",
+     "kind": "pitfall",
+     "work": "(a) $\\frac{3k-2}{5k+2}=\\frac{2k-4}{3k-2}$, $(3k-2)^2=(5k+2)(2k-4)$, $9k^2-12k+4=10k^2-16k-8$, so $k^2-4k-12=0$.\n(b) $k=6$ or $k=-2$.\n(c) $k=6$, $a=32$, $r=\\frac12$. $u_9=ar^9=32\\times(\\frac12)^9=\\frac1{16}$.",
+     "error_code": "nth-term-index-error",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r6",
+     "kind": "pitfall",
+     "work": "(a) $\\frac{3k-2}{5k+2}=\\frac{2k-4}{3k-2}$, $(3k-2)^2=(5k+2)(2k-4)$, $9k^2-12k+4=10k^2-16k-8$, so $k^2-4k-12=0$.\n(b) $k=6$ or $k=-2$.\n(c) $k=6$: $a=32$, $u_2=16$, $r=\\frac{32}{16}=2$. $u_9=32\\times2^8=8192$.",
+     "error_code": "common-ratio-inverted",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r7",
+     "kind": "partial",
+     "work": "(a) $\\frac{3k-2}{5k+2}=\\frac{2k-4}{3k-2}$, so $(3k-2)^2=(5k+2)(2k-4)$. Expanding gives $9k^2-12k+4=10k^2-16k-8$, so $k^2-4k-12=0$.\n(b) $(k-6)(k+2)=0$ so $k=6$ or $k=-2$.\n(c) I'm not sure which k to use.",
+     "error_code": null,
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "r1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) Mixed ratio equation used, which is not accepted, so M0. The student also fudged the printed result, so A0."
+     ]
+    },
+    {
+     "id": "r3",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B0",
+        "B0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) Sign error in the formula gave k=2 and k=-6, which are wrong.",
+      "(c) Used k=2, which is not a root, rather than k=6, so M0. The answer is wrong, so A0."
+     ]
+    },
+    {
+     "id": "r4",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r5",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(c) Used ar^9 instead of ar^8, so the power is wrong and M0. The answer is wrong, so A0."
+     ]
+    },
+    {
+     "id": "r6",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(c) Inverted the ratio to get r=2, which has |r|>1 and does not give a sum to infinity, so M0. The answer is wrong, so A0."
+     ]
+    },
+    {
+     "id": "r7",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(c) No k was chosen and no u_9 was calculated."
+     ]
+    }
+   ],
+   "awarded_second": [
+    {
+     "id": "r4",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B0",
+        "B0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) B0: The student only wrote the factorised form (k-6)(k+2)=0 and never stated k = 6.",
+      "(b) B0: The student never stated k = -2. The question asks for the values, and a factorised form does not state them."
+     ]
+    }
+   ],
+   "cost_usd": 0.0687
+  },
+  "G5": {
+   "pass": false,
+   "errors": [
+    "pitfall [common-ratio-inverted] part a: says it's common without the frequency flag"
+   ]
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "agreement": "3/3",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.013711,
+   "retagged": {
+    "a": [
+     "geometric-ratio-equation"
+    ],
+    "b": [
+     "solve-quadratic-equation"
+    ],
+    "c": [
+     "sum-to-infinity-and-convergence",
+     "geometric-sequence-nth-term"
+    ]
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

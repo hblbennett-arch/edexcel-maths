@@ -1,0 +1,230 @@
+{
+ "id": "cr-find-constants-from-conditions-core",
+ "blueprint_id": "dr-find-constants-from-conditions-core",
+ "question_type": "de-given-separable",
+ "component": "pure",
+ "tier": "core",
+ "kind": "drill",
+ "stem": null,
+ "parts": [
+  {
+   "label": null,
+   "marks": 5,
+   "text": "The variables $x$ and $y$ satisfy the differential equation\n$$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = y^2(4x - 1), \\qquad -1 < x < \\tfrac{3}{2}.$$\nGiven that $y = \\frac{1}{2}$ when $x = 1$, show that\n$$y = \\frac{1}{(1 + x)(3 - 2x)}.$$ (5)",
+   "command": "show-that",
+   "forms": [],
+   "skills": [
+    "find-constants-from-conditions"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Separates the variables to get $\\int y^{-2}\\,\\mathrm{d}y = \\int (4x - 1)\\,\\mathrm{d}x$ oe and integrates, with at least one side correct ($-\\frac{1}{y}$ or $2x^2 - x$)",
+     "notes": "Integral signs may be implied by the integration. The variables must be correctly separated, e.g. not $\\int y^2\\,\\mathrm{d}y$."
+    },
+    {
+     "code": "A1",
+     "for": "$-\\frac{1}{y} = 2x^2 - x + c$ with both sides correct and a constant of integration",
+     "notes": "Accept the constant on either side, e.g. $-\\frac{1}{y} + k = 2x^2 - x$."
+    },
+    {
+     "code": "M1",
+     "for": "Puts $x = 1$ and $y = \\frac{1}{2}$ into their integrated equation, which contains a constant, and solves for it, e.g. $-2 = 2 - 1 + c$ so $c = -3$",
+     "notes": "The coordinates must go in the right way round. No credit if the constant is found by comparing with the printed answer."
+    },
+    {
+     "code": "M1",
+     "for": "Rearranges their equation, including their numerical constant, to make $y$ the subject, e.g. $y = \\frac{1}{3 + x - 2x^2}$ oe",
+     "notes": "Must deal with the reciprocal and the sign correctly for their equation."
+    },
+    {
+     "code": "A1*",
+     "for": "Factorises $3 + x - 2x^2 = (1 + x)(3 - 2x)$ and reaches the printed answer $y = \\frac{1}{(1+x)(3-2x)}$ with no errors in the working",
+     "notes": "cso. The factorisation, or an expansion of $(1+x)(3-2x)$ showing it equals $3 + x - 2x^2$, must be seen."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Separate the variables: $\\displaystyle\\int \\frac{1}{y^2}\\,\\mathrm{d}y = \\int (4x - 1)\\,\\mathrm{d}x$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "Integrate: $-\\dfrac{1}{y} = 2x^2 - x + c$",
+     "mark": "A1"
+    },
+    {
+     "step": 3,
+     "working": "Put in $x = 1$, $y = \\tfrac{1}{2}$: $-2 = 2 - 1 + c$, so $c = -3$",
+     "mark": "M1"
+    },
+    {
+     "step": 4,
+     "working": "$-\\dfrac{1}{y} = 2x^2 - x - 3 \\;\\Rightarrow\\; \\dfrac{1}{y} = 3 + x - 2x^2 \\;\\Rightarrow\\; y = \\dfrac{1}{3 + x - 2x^2}$",
+     "mark": "M1"
+    },
+    {
+     "step": 5,
+     "working": "$3 + x - 2x^2 = (1 + x)(3 - 2x)$, so $y = \\dfrac{1}{(1 + x)(3 - 2x)}$ as required.",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [
+    {
+     "name": "c",
+     "expr": "-3",
+     "form": "exact"
+    },
+    {
+     "name": "y",
+     "expr": "1/((1+x)(3-2x))",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "integral",
+     "f": "4x - 1",
+     "var": "x",
+     "result": "2x^2 - x"
+    },
+    {
+     "type": "integral",
+     "f": "1/y^2",
+     "var": "y",
+     "result": "-1/y"
+    },
+    {
+     "type": "solutions",
+     "equation": "-1/(1/2) = 2*1^2 - 1 + c",
+     "var": "c",
+     "result": [
+      "-3"
+     ]
+    },
+    {
+     "type": "equals",
+     "lhs": "1/((1+x)(3-2x))",
+     "rhs": "1/(3 + x - 2x^2)",
+     "domain": [
+      "-0.9",
+      "1.4"
+     ]
+    },
+    {
+     "type": "derivative",
+     "f": "1/((1+x)(3-2x))",
+     "var": "x",
+     "result": "(4x - 1)/((1+x)(3-2x))^2"
+    },
+    {
+     "type": "substitute",
+     "expr": "1/((1+x)(3-2x))",
+     "at": {
+      "x": "1"
+     },
+     "result": "1/2"
+    }
+   ],
+   "hints": [
+    "Get every $y$ on the side with $\\mathrm{d}y$ and every $x$ on the side with $\\mathrm{d}x$, then integrate both sides. Remember that $\\frac{1}{y^2} = y^{-2}$.",
+    "Put in the given values to find your constant before you rearrange. Then take the reciprocal and factorise the quadratic."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "error_code": "missing-constant-of-integration",
+   "step": 2,
+   "text": "If you write $-\\frac{1}{y} = 2x^2 - x$ with no $+c$, you lose the A1 straight away. You also have nothing to find from $x = 1$, $y = \\frac{1}{2}$, so you lose the next M1 too, and you cannot reach the printed answer. This is a common mistake.",
+   "says_common": true
+  },
+  {
+   "part": null,
+   "error_code": "constant-not-found-from-point",
+   "step": 3,
+   "text": "Make sure $x = 1$ and $y = \\frac{1}{2}$ go in the right way round. If you swap them, $-1 = \\frac{1}{2} - \\frac{1}{2} + c$ gives $c = -1$, which is wrong. That loses the M1 for finding the constant, and you will not get the printed answer.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "error_code": "initial-conditions-not-used",
+   "step": 3,
+   "text": "Don't work backwards from the printed answer to decide that $c = -3$. You have to substitute the given values $x = 1$, $y = \\frac{1}{2}$ into your own equation. If you don't, you lose the M1 for finding the constant and the final A1* as well.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:51:52",
+ "generation": {
+  "attempts": 1,
+  "cost_usd": 0.1089
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 5
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.857 with part:GCE2008_6666_Jan2007_Q4:b"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "hits8": [],
+   "max_jaccard": 0.014,
+   "jaccard_source": "GCE2008_6664_June2010_Q2",
+   "shared_numbers": 0,
+   "max_cosine": 0.857,
+   "cosine_source": "part:GCE2008_6666_Jan2007_Q4:b"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 6,
+   "n_answers": 2,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": false,
+   "errors": [
+    "part -: expected c = -3, solver got ['1/((1 + x)*(3 - 2*x))'] [judge: differs - no verdict]"
+   ],
+   "flags": [],
+   "flag": false,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0133,
+   "solver": {
+    "parts": [
+     {
+      "label": null,
+      "answers": [
+       "1/((1 + x)*(3 - 2*x))"
+      ],
+      "printed_result_correct": true,
+      "working_summary": "Separate variables: ∫ y^-2 dy = ∫(4x-1)dx, so -1/y = 2x^2 - x + C. With y=1/2 at x=1: -2 = 1 + C, so C = -3. Then 1/y = 3 + x - 2x^2 = (1+x)(3-2x), giving y = 1/((1+x)(3-2x)). The printed result is correct."
+     }
+    ],
+    "problems": []
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

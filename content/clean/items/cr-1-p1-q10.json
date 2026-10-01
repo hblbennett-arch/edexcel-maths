@@ -1,0 +1,415 @@
+{
+ "id": "cr-1-p1-q10",
+ "blueprint_id": "mk-1-p1-q10",
+ "question_type": "area-between-curve-and-line",
+ "component": "pure",
+ "tier": "standard",
+ "kind": "mock",
+ "stem": "The curve $C$ has equation\n$$y = 5\\sqrt{x} - x - 4, \\qquad x \\geqslant 0.$$",
+ "paper": "mock-1-P1",
+ "set": "mock-1",
+ "q_num": 10,
+ "parts": [
+  {
+   "label": "a",
+   "marks": 3,
+   "command": "show-that",
+   "text": "Show that $C$ meets the $x$-axis exactly at the points where $x = 1$ and $x = 16$. (3)",
+   "forms": [],
+   "skills": [
+    "solve-quadratic-equation"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Puts $y = 0$ and writes the equation as a three-term quadratic in $\\sqrt{x}$, e.g. $(\\sqrt{x})^2 - 5\\sqrt{x} + 4 = 0$ or $u^2 - 5u + 4 = 0$ with $u = \\sqrt{x}$",
+     "notes": "Any sign-equivalent form, e.g. $-u^2 + 5u - 4 = 0$. Also accept squaring $5\\sqrt{x} = x + 4$ to get $x^2 - 17x + 16 = 0$."
+    },
+    {
+     "code": "M1",
+     "for": "Solves their three-term quadratic by a valid method (factorising, formula or completing the square) to find two values of $\\sqrt{x}$ (or of $x$ if they squared)",
+     "notes": "For factorising, the brackets must expand to give their quadratic's $x^0$ term or $u^0$ term. For the formula, it must be quoted or used correctly."
+    },
+    {
+     "code": "A1*",
+     "for": "Gets $\\sqrt{x} = 1$ and $\\sqrt{x} = 4$, then converts back to reach $x = 1$ and $x = 16$ with no errors",
+     "notes": "cso. Stopping at $\\sqrt{x} = 1, 4$ scores A0. If they squared, they must check both roots in $5\\sqrt{x} = x + 4$ (or say both roots work)."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "On the $x$-axis $y = 0$, so $5\\sqrt{x} - x - 4 = 0$, i.e. $x - 5\\sqrt{x} + 4 = 0$. Let $u = \\sqrt{x}$, so $x = u^2$: $u^2 - 5u + 4 = 0$.",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "$(u - 1)(u - 4) = 0$, so $u = 1$ or $u = 4$.",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$\\sqrt{x} = 1 \\Rightarrow x = 1$ and $\\sqrt{x} = 4 \\Rightarrow x = 16$. A quadratic has at most two roots and both give $u \\geqslant 0$, so $C$ meets the $x$-axis exactly where $x = 1$ and $x = 16$.",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [
+    {
+     "name": "x1",
+     "expr": "1",
+     "form": "exact"
+    },
+    {
+     "name": "x2",
+     "expr": "16",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "solutions",
+     "equation": "5*sqrt(x) - x - 4 = 0",
+     "var": "x",
+     "interval": [
+      0,
+      100
+     ],
+     "result": [
+      "1",
+      "16"
+     ]
+    },
+    {
+     "type": "equals",
+     "lhs": "((5 - sqrt(25 - 16))/2)^2",
+     "rhs": "1"
+    },
+    {
+     "type": "equals",
+     "lhs": "((5 + sqrt(25 - 16))/2)^2",
+     "rhs": "16"
+    },
+    {
+     "type": "solutions",
+     "equation": "u^2 - 5u + 4 = 0",
+     "var": "u",
+     "result": [
+      "1",
+      "4"
+     ]
+    }
+   ],
+   "hints": [
+    "Set $y = 0$. Then, since $x = (\\sqrt{x})^2$, try writing the equation in terms of $u = \\sqrt{x}$.",
+    "Once you have the values of $u$, remember that you need $x$, not $u$."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 3,
+   "command": "show-that",
+   "text": "The line $L$ has equation $y = 2$. By forming and solving a suitable quadratic equation, show that $L$ meets $C$ only at the points $(4, 2)$ and $(9, 2)$. (3)",
+   "forms": [],
+   "skills": [
+    "solve-quadratic-equation"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Sets $5\\sqrt{x} - x - 4 = 2$, rearranges to a three-term quadratic in $\\sqrt{x}$ (e.g. $u^2 - 5u + 6 = 0$) and solves it by a valid method",
+     "notes": "Also accept squaring $5\\sqrt{x} = x + 6$ to get $x^2 - 13x + 36 = 0$ and solving that. Substituting $x = 4$ and $x = 9$ into the equation alone scores M0, because it doesn't show that there are no other points."
+    },
+    {
+     "code": "A1",
+     "for": "$\\sqrt{x} = 2$ and $\\sqrt{x} = 3$ (or $x = 4$ and $x = 9$ straight from the squared form)",
+     "notes": "Both values needed."
+    },
+    {
+     "code": "A1*",
+     "for": "Converts back to get $x = 4$ and $x = 9$, and gives the points as $(4, 2)$ and $(9, 2)$ with no errors",
+     "notes": "cso. Must state or clearly show $y = 2$ at both points. If they squared, they must check both roots."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$5\\sqrt{x} - x - 4 = 2 \\Rightarrow x - 5\\sqrt{x} + 6 = 0$. With $u = \\sqrt{x}$: $u^2 - 5u + 6 = 0$, so $(u - 2)(u - 3) = 0$.",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$u = 2$ or $u = 3$, i.e. $\\sqrt{x} = 2$ or $\\sqrt{x} = 3$.",
+     "mark": "A1"
+    },
+    {
+     "step": 3,
+     "working": "$x = 4$ or $x = 9$. The equation has only these two roots and $y = 2$ on $L$, so $L$ meets $C$ only at $(4, 2)$ and $(9, 2)$.",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [
+    {
+     "name": "x3",
+     "expr": "4",
+     "form": "exact"
+    },
+    {
+     "name": "x4",
+     "expr": "9",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "solutions",
+     "equation": "5*sqrt(x) - x - 4 = 2",
+     "var": "x",
+     "interval": [
+      0,
+      100
+     ],
+     "result": [
+      "4",
+      "9"
+     ]
+    },
+    {
+     "type": "equals",
+     "lhs": "((5 - sqrt(25 - 24))/2)^2",
+     "rhs": "4"
+    },
+    {
+     "type": "equals",
+     "lhs": "((5 + sqrt(25 - 24))/2)^2",
+     "rhs": "9"
+    },
+    {
+     "type": "substitute",
+     "expr": "5*sqrt(x) - x - 4",
+     "at": {
+      "x": "9"
+     },
+     "result": "2"
+    }
+   ],
+   "hints": [
+    "Set the equation of $C$ equal to $2$ and collect everything on one side.",
+    "Use the same substitution $u = \\sqrt{x}$ as in part (a)."
+   ]
+  },
+  {
+   "label": "c",
+   "marks": 3,
+   "command": "find",
+   "text": "The finite region $R$ is bounded by $C$ and $L$. Find the exact area of $R$. (3)",
+   "forms": [],
+   "skills": [
+    "integrate-powers-of-x",
+    "evaluate-definite-integral",
+    "area-between-curve-and-line",
+    "area-under-curve"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Integrates $\\pm(5x^{\\frac{1}{2}} - x - 6)$ (curve minus line), with at least one power of $x$ raised by 1, and uses the limits $4$ and $9$ from part (b)",
+     "notes": "$\\sqrt{x}$ must be treated as $x^{\\frac{1}{2}}$, giving a multiple of $x^{\\frac{3}{2}}$."
+    },
+    {
+     "code": "A1",
+     "for": "Correct integral: $\\frac{10}{3}x^{\\frac{3}{2}} - \\frac{1}{2}x^2 - 6x$",
+     "notes": "oe, unsimplified allowed, e.g. $\\frac{5x^{3/2}}{3/2}$."
+    },
+    {
+     "code": "A1",
+     "for": "Area $= \\frac{5}{6}$",
+     "notes": "cao. Accept $0.8\\dot{3}$ only if $\\frac{5}{6}$ is also seen. A final answer of $-\\frac{5}{6}$ scores A0."
+    }
+   ],
+   "alternatives": [
+    {
+     "name": "Way 2: area under curve minus rectangle",
+     "marks": [
+      {
+       "code": "M1",
+       "for": "Integrates $5x^{\\frac{1}{2}} - x - 4$ with at least one power raised by 1, uses limits $4$ and $9$, and subtracts the rectangle of area $5 \\times 2 = 10$"
+      },
+      {
+       "code": "A1",
+       "for": "Correct integral $\\frac{10}{3}x^{\\frac{3}{2}} - \\frac{1}{2}x^2 - 4x$ (oe), or the value $\\frac{65}{6}$"
+      },
+      {
+       "code": "A1",
+       "for": "Area $= \\frac{65}{6} - 10 = \\frac{5}{6}$",
+       "notes": "cao"
+      }
+     ]
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "For $4 < x < 9$ the curve is above $L$ (e.g. at $x = 6.25$, $y = 2.25 > 2$). Area $= \\int_4^9 \\left(5x^{\\frac{1}{2}} - x - 4 - 2\\right)\\mathrm{d}x = \\int_4^9 \\left(5x^{\\frac{1}{2}} - x - 6\\right)\\mathrm{d}x$.",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$= \\left[\\frac{10}{3}x^{\\frac{3}{2}} - \\frac{1}{2}x^2 - 6x\\right]_4^9$",
+     "mark": "A1"
+    },
+    {
+     "step": 3,
+     "working": "$= \\left(90 - \\frac{81}{2} - 54\\right) - \\left(\\frac{80}{3} - 8 - 24\\right) = -\\frac{9}{2} + \\frac{16}{3} = \\frac{5}{6}$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "area",
+     "expr": "5/6",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "integral",
+     "f": "5*sqrt(x) - x - 6",
+     "var": "x",
+     "lower": "4",
+     "upper": "9",
+     "answer": "area"
+    },
+    {
+     "type": "integral",
+     "f": "5x^(1/2) - x - 6",
+     "var": "x",
+     "result": "(10/3)x^(3/2) - x^2/2 - 6x"
+    },
+    {
+     "type": "integral",
+     "f": "5*sqrt(x) - x - 4",
+     "var": "x",
+     "lower": "4",
+     "upper": "9",
+     "result": "65/6"
+    }
+   ],
+   "hints": [
+    "The region is between $x = 4$ and $x = 9$. Work out which graph is on top there.",
+    "Write $\\sqrt{x}$ as $x^{\\frac{1}{2}}$ before you integrate."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 3,
+   "error_code": "hidden-quadratic-not-converted-back",
+   "text": "Many students solve $u^2 - 5u + 4 = 0$ and stop at $u = 1$ and $u = 4$. These are values of $\\sqrt{x}$, not of $x$. If you don't square to get $x = 16$, you haven't reached the printed answer and the A1* is lost.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "quadratic-formula-error",
+   "text": "A common slip when using the formula on $u^2 - 5u + 4 = 0$ is to write $u = \\frac{-5 \\pm \\sqrt{9}}{2}$ with $+b$ instead of $-b$. This gives negative values of $\\sqrt{x}$ and loses the M1. Here $b = -5$, so $-b = +5$.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "incomplete-factorisation",
+   "text": "If you write $x - 5\\sqrt{x} + 4 = 0$ as $\\sqrt{x}(\\sqrt{x} - 5) = -4$, you haven't factorised fully and can't read off any roots. This mistake is common. You need to go on to $(\\sqrt{x} - 1)(\\sqrt{x} - 4) = 0$ to earn the marks.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 3,
+   "error_code": "hidden-quadratic-not-converted-back",
+   "text": "Stopping at $\\sqrt{x} = 2$ and $\\sqrt{x} = 3$ is a common mistake. The points are $(4, 2)$ and $(9, 2)$, not $(2, 2)$ and $(3, 2)$, so you lose the A1*.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "quadratic-formula-error",
+   "text": "When using the formula on $u^2 - 5u + 6 = 0$, dividing only the square root by 2 gives $u = 5 \\pm \\frac{1}{2}$, which is wrong, and you lose the M1. The whole of $5 \\pm 1$ must be divided by $2$. Students often make this slip.",
+   "says_common": true
+  },
+  {
+   "part": "c",
+   "step": 1,
+   "error_code": "area-between-wrong-subtraction",
+   "text": "A common mistake is to integrate $5\\sqrt{x} - x - 4$ from $4$ to $9$ and give $\\frac{65}{6}$ as the answer. That is the area under the curve down to the $x$-axis, not the area down to the line $y = 2$. You must subtract $2$ inside the integral (or subtract the rectangle of area $10$), otherwise the M1 is lost.",
+   "says_common": true
+  },
+  {
+   "part": "c",
+   "step": 2,
+   "error_code": "not-rewritten-as-powers",
+   "text": "Students often try to integrate $5\\sqrt{x}$ without first writing it as $5x^{\\frac{1}{2}}$. This leads to answers like $\\frac{5}{2}\\sqrt{x^2}$. Rewrite it as a power first, or you lose the method mark.",
+   "says_common": true
+  },
+  {
+   "part": "c",
+   "step": 2,
+   "error_code": "integration-power-rule-error",
+   "text": "A frequent error is dividing by the old power, so that $5x^{\\frac{1}{2}}$ becomes $10x^{\\frac{3}{2}}$ when it should be $\\frac{10}{3}x^{\\frac{3}{2}}$. You must add 1 to the power to get $\\frac{3}{2}$, then divide by the new power $\\frac{3}{2}$.",
+   "says_common": true
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:44:30",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.4596
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 9
+  },
+  "G7": {
+   "pass": false,
+   "flag": true,
+   "reasons": [
+    "1 word 8-gram(s) also in the reference corpus (not whitelisted)"
+   ],
+   "flags": [
+    "cosine 0.879 with question:IAL2018_WMA11_June2022_Q7"
+   ],
+   "hit_fields": [
+    "part a mark scheme"
+   ],
+   "n_8gram_hits": 1,
+   "hits8": [
+    "formula or completing the square to find two"
+   ],
+   "max_jaccard": 0.042,
+   "jaccard_source": "GCE2008_6663_June2008_Q6",
+   "shared_numbers": 0,
+   "max_cosine": 0.879,
+   "cosine_source": "question:IAL2018_WMA11_June2022_Q7"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 11,
+   "n_answers": 5,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

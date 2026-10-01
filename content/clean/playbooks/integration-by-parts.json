@@ -1,0 +1,142 @@
+{
+ "id": "integration-by-parts",
+ "question_type": "integration-by-parts",
+ "component": "pure",
+ "title": "Integration by parts (exact answer)",
+ "what_it_asks": "You are given a product such as $x\\mathrm{e}^{2x}$, $x\\sin x$ or $x\\ln x$, or a region under a curve built from one. You integrate it, usually between limits, and leave the result exact. The idea is to split the product into a factor you differentiate and a factor you integrate, so the new integral is easier than the original.",
+ "typical_structure": "Usually one or two parts, sometimes three. A part is often worth three or five marks, so one part can carry much of the question. When there is a diagram, an early part often finds a coordinate or limit, and a later part uses it to set up the area. Some questions say \"hence\" and expect you to reuse an earlier result. Others need parts twice, or a substitution or identity first.",
+ "mark_pattern": "Most parts run on method and accuracy marks, with an occasional independent mark for a stated value. The usual three-mark sequence is M1 A1 A1. The M1 is for choosing $u$ and $\\frac{\\mathrm{d}v}{\\mathrm{d}x}$ and writing $uv - \\int v\\frac{\\mathrm{d}u}{\\mathrm{d}x}\\,\\mathrm{d}x$ with the right shape. The first A1 is earned when both the $uv$ term and the new integral are right. The second A1 needs the whole integral finished correctly. Longer parts repeat the cycle, as in M1 A1 M1 A1 M1 A1 when you apply parts twice and then use limits. In M1 A1 dM1 M1 A1, the dM1 is for putting limits into your own integrated result, and it is only available if the first method mark was earned. Short parts such as M1 A1 or B1 cover finding a limit or a single value. On a show-that part the final A1* needs a clean route to the printed result.",
+ "where_marks_leak": [
+  {
+   "error_code": "by-parts-poor-choice",
+   "mark_family": "method",
+   "text": "Many students choose $u$ and $\\frac{\\mathrm{d}v}{\\mathrm{d}x}$ so the new integral is harder, for example by making $\\ln x$ the part to integrate. The M1 goes, and the accuracy marks and dependent method marks after it go too."
+  },
+  {
+   "error_code": "by-parts-sign-error",
+   "mark_family": "accuracy",
+   "text": "You write $uv + \\int v\\frac{\\mathrm{d}u}{\\mathrm{d}x}\\,\\mathrm{d}x$, or lose a minus sign when the second integral is negative. The method mark is safe but the A1 is lost, and so is any later accuracy mark that relies on it."
+  },
+  {
+   "error_code": "decimal-not-exact",
+   "mark_family": "accuracy",
+   "text": "You give a calculator decimal when the answer should be in terms of $\\pi$, $\\mathrm{e}$ or $\\ln$. The final A1 is lost even if everything before it was right."
+  },
+  {
+   "error_code": "trig-integral-sign-error",
+   "mark_family": "accuracy",
+   "text": "You integrate $\\sin x$ as $\\cos x$, or forget the $\\frac{1}{k}$ in $\\cos kx$. The A1 for the integrated term is lost, and the final A1 with it."
+  },
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You round to the wrong number of figures when a numerical value is asked for. The final A1 goes, though the method marks stay."
+  }
+ ],
+ "write_to_earn": [
+  "Write your choice of $u$ and $\\frac{\\mathrm{d}v}{\\mathrm{d}x}$, and the found $\\frac{\\mathrm{d}u}{\\mathrm{d}x}$ and $v$, before you use the formula.",
+  "Write the formula line with the minus sign before you substitute, then simplify the new integral separately.",
+  "Keep brackets round the limits and show the upper substitution and the lower substitution before subtracting.",
+  "Keep surds, $\\pi$, $\\mathrm{e}$ and logs exact, and combine logs with the laws at the end.",
+  "On a show-that part, write the line just before the printed result and do not skip any step."
+ ],
+ "check_before_you_leave": [
+  "Is the new integral simpler?",
+  "Minus sign in the formula?",
+  "Limits used, upper minus lower?",
+  "Answer exact, in the form asked?",
+  "Does the answer look sensible in size?"
+ ],
+ "skills": [
+  "integration-by-parts",
+  "standard-integrals",
+  "exact-form-answers",
+  "evaluate-definite-integral",
+  "integrate-powers-of-x",
+  "use-hence-previous-result",
+  "laws-of-logarithms",
+  "exact-trig-values"
+ ],
+ "related_types": [
+  "definite-integrals-standard-forms",
+  "integration-by-substitution",
+  "area-between-curve-and-line",
+  "parametric-area",
+  "partial-fractions-then-calculus"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:06:36",
+ "cost_usd": 0.1169,
+ "attempts": 2,
+ "facts": {
+  "n_questions": 25,
+  "codes_listed": {
+   "by-parts-poor-choice": 10,
+   "wrong-final-accuracy": 7,
+   "wrong-limits-after-substitution": 4,
+   "decimal-not-exact": 4,
+   "trig-integral-sign-error": 4,
+   "by-parts-sign-error": 4,
+   "sine-cosine-rule-misapplied": 2,
+   "double-angle-error": 2
+  },
+  "frequent_codes": [
+   "by-parts-poor-choice"
+  ],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.844 with question:IAL2013_WMA02_June2017_Q2"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.002,
+   "shared_numbers": 0,
+   "max_cosine": 0.844,
+   "cosine_source": "question:IAL2013_WMA02_June2017_Q2"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 24
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.844 with question:IAL2013_WMA02_June2017_Q2"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

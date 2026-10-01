@@ -3,7 +3,8 @@
 
     .venv/bin/python scripts/clean/build_pack.py            # -> content/clean/pack.db, then the licence gate
 
-Inputs (all original work, nothing Pearson-written):
+Inputs (all original work, nothing Pearson-written). Each question row also carries `item_json`: the whole item
+(scheme with alternatives, solution levels, scenes, G4 scripts), so the product reads one source.
     content/clean/tags.json          skill / question-type vocabulary (our taxonomy)
     content/clean/items/*.json       reviewed, generated items (format: docs/clean-room-pipeline.md)
 Only items whose review decision is accept/edit, and that don't need re-gating after an edit, are loaded. The build fails if the licence gate
@@ -35,6 +36,22 @@ def _prov(item: dict) -> dict:
             "review_decision": review.get("decision"), "review_notes": review.get("notes")}
 
 
+def with_scenes(item: dict) -> dict:
+    """The item plus its interactive scenes (content/clean/scenes/<id>.json, if applicable), so item_json is the
+    single source the product reads. Scenes that fail their gate are left out."""
+    path = ROOT / "content" / "clean" / "scenes" / f"{item['id']}.json"
+    if not path.exists():
+        return item
+    try:
+        d = json.loads(path.read_text())
+    except (OSError, ValueError):
+        return item
+    if not d.get("applicable"):
+        return dict(item, scenes=[], scenes_not_applicable=d.get("reason"))
+    scenes = [sc for sc in d.get("scenes") or [] if (sc.get("gate") or {}).get("pass", True)]
+    return dict(item, scenes=scenes)
+
+
 def load_item(conn: sqlite3.Connection, item: dict, type_ids: set[str], skill_ids: set[str]) -> None:
     qid, prov = item["id"], _prov(item)
     if item["question_type"] not in type_ids:
@@ -47,11 +64,12 @@ def load_item(conn: sqlite3.Connection, item: dict, type_ids: set[str], skill_id
     q_text = "\n".join(filter(None, [item.get("stem")] + [p["text"] for p in parts]))
     conn.execute(
         f"INSERT INTO questions (id, spec, paper, sitting, paper_id, qualification, unit, component, status, "
-        f"q_num, total_marks, question_text, mark_scheme_text, stem, has_figure, figure_pages, {', '.join(PROV_FIELDS)}) "
-        f"VALUES (?, '9MA0', ?, 'original', ?, 'original', NULL, ?, 'current', ?, ?, ?, ?, ?, ?, '[]', "
+        f"q_num, total_marks, question_text, mark_scheme_text, stem, has_figure, figure_pages, item_json, {', '.join(PROV_FIELDS)}) "
+        f"VALUES (?, '9MA0', ?, 'original', ?, 'original', NULL, ?, 'current', ?, ?, ?, ?, ?, ?, '[]', ?, "
         f"{', '.join('?' * len(PROV_FIELDS))})",
         (qid, item.get("paper", "bank"), item.get("set", "bank"), item["component"], item.get("q_num", qid), total,
-         q_text, ms_text, item.get("stem"), int(bool(item.get("figure_svg"))), *prov.values()))
+         q_text, ms_text, item.get("stem"), int(bool(item.get("figure_svg"))), json.dumps(with_scenes(item), ensure_ascii=False),
+         *prov.values()))
     conn.execute("INSERT INTO question_tags (question_id, part_label, tag_type, tag_value) VALUES (?, NULL, "
                  "'question_type', ?)", (qid, item["question_type"]))
     for i, p in enumerate(parts):

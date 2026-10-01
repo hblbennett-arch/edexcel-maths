@@ -1,0 +1,140 @@
+{
+ "id": "recurrence-and-periodic-sequences",
+ "question_type": "recurrence-and-periodic-sequences",
+ "component": "pure",
+ "title": "Recurrence relations and periodic sequences",
+ "what_it_asks": "You are given a rule of the form $u_{n+1} = f(u_n)$ and a starting term, often with an unknown constant. You generate terms, sometimes in terms of that constant, and may need to find the constant from a condition. Often you then spot that the sequence repeats and sum a long run of terms using the repeating block.",
+ "typical_structure": "Usually two or three parts, sometimes four. The first part is short: find $u_2$ and $u_3$ in terms of the constant, or write down a value. The middle part forms and solves an equation, often a quadratic, and may be a show-that. The last part usually uses the result to find the order of the sequence or a sum of many terms. Later parts depend on the earlier values, so an early slip carries forward.",
+ "mark_pattern": "The most typical part is a 2-mark M1 A1: substitute into the rule, then give the correct term. Single B1 parts are also usual, for writing down a term or the order of a periodic sequence. A 3-mark part is often B1 M1 A1 or M1 dM1 A1. In these, the B1 is for an earlier correct term, the M1 is for setting up an equation or a sum of blocks, the dM1 is for solving it or handling the leftover terms, and the A1 is for the value. Show-that parts end in a final A1 that needs cso. Some marks are A1ft, so a wrong earlier value used correctly can still earn.",
+ "where_marks_leak": [
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "This is often made. You round a value, or give a decimal when an exact one or a set number of significant figures is asked for. The final A1 is lost even though the method was right."
+  },
+  {
+   "error_code": "series-formula-error",
+   "mark_family": "method",
+   "text": "This is often made. When summing terms you misremember the arithmetic or geometric sum formula, or apply one where the sequence is periodic. The M1 is lost, and the A1 and any dM1 after it go too."
+  },
+  {
+   "error_code": "miscopied-value",
+   "mark_family": "accuracy",
+   "text": "You copy the starting term or a previous $u_n$ wrongly into the next substitution. The method mark survives, but the A1 is lost, and later terms can only earn by follow-through."
+  },
+  {
+   "error_code": "incomplete-factorisation",
+   "mark_family": "accuracy",
+   "text": "When the constant comes from a quadratic, you stop at a factor that still factorises, or miss a root. The A1 for the full set of values is lost."
+  },
+  {
+   "error_code": "quadratic-formula-error",
+   "mark_family": "method",
+   "text": "You misquote the quadratic formula when solving for the constant, for example by dividing only the root by $2a$. The M1 for solving is lost, and so is the A1."
+  }
+ ],
+ "write_to_earn": [
+  "Write the rule with the value substituted, such as $u_2 = f(u_1)$, before you simplify, so the M1 is secure.",
+  "List the terms $u_1, u_2, u_3, \\dots$ in a row until the pattern repeats, then state the order of the sequence.",
+  "In a show-that part, write the equation you form, then the rearranged line just before the printed result, then the result.",
+  "For a long sum, write the number of complete blocks, the block sum, and the leftover terms as separate lines.",
+  "Give the final answer in the form asked for, exact or rounded, and state it once."
+ ],
+ "check_before_you_leave": [
+  "Terms copied correctly?",
+  "Rejected roots checked?",
+  "Order of sequence stated?",
+  "Leftover terms included?",
+  "Form of answer matches question?"
+ ],
+ "skills": [
+  "recurrence-relation-terms",
+  "periodic-sequence-sum",
+  "sigma-notation-sums",
+  "show-that-given-answer",
+  "solve-quadratic-equation",
+  "use-hence-previous-result"
+ ],
+ "related_types": [
+  "sigma-notation-sums",
+  "ap-gp-in-context",
+  "geometric-series-with-unknowns",
+  "polynomial-factorise-and-solve"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:10:05",
+ "cost_usd": 0.0409,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 42,
+  "codes_listed": {
+   "wrong-final-accuracy": 28,
+   "series-formula-error": 12,
+   "series-proof-incomplete": 4,
+   "miscopied-value": 4,
+   "rationalising-error": 4,
+   "incomplete-factorisation": 3,
+   "sum-to-infinity-condition-ignored": 2,
+   "quadratic-formula-error": 2
+  },
+  "frequent_codes": [
+   "series-formula-error",
+   "wrong-final-accuracy"
+  ],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.871 with part:GCE2008_6663_Jan2008_Q7:d"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.01,
+   "shared_numbers": 0,
+   "max_cosine": 0.871,
+   "cosine_source": "part:GCE2008_6663_Jan2008_Q7:d"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 7
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.871 with part:GCE2008_6663_Jan2008_Q7:d"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

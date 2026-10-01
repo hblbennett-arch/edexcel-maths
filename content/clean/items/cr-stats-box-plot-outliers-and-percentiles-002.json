@@ -1,0 +1,1345 @@
+{
+ "id": "cr-stats-box-plot-outliers-and-percentiles-002",
+ "blueprint_id": "bp-stats-box-plot-outliers-and-percentiles-002",
+ "question_type": "box-plot-outliers-and-percentiles",
+ "component": "stats",
+ "tier": "accessible",
+ "kind": "exam",
+ "stem": "A river trust tested water at 60 points across a farming catchment and recorded the dissolved nitrate concentration, in $\\mathrm{mg}$ per litre, at each point. The results were displayed in a box plot with these features:\n\n- lowest reading $3$\n- lower quartile $11$\n- median $16$\n- upper quartile $21$\n- the right-hand whisker stops at $33$, and one reading of $44$ is plotted on its own as an outlier.\n\nThe trust counts a reading as an outlier if it lies further than one and a half interquartile ranges beyond the nearer quartile.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 2,
+   "text": "Write down\n\n(i) the interquartile range of the nitrate readings,\n\n(ii) the concentration above which a reading counts as an outlier under the trust's rule. (2)",
+   "command": "write-down",
+   "forms": [],
+   "skills": [
+    "median-quartiles-iqr",
+    "box-plot-reading-and-drawing"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "(i) Interquartile range $= 21 - 11 = 10$ (mg per litre)",
+     "notes": "cao; units not required"
+    },
+    {
+     "code": "B1",
+     "for": "(ii) Upper outlier boundary $= 21 + 1.5 \\times 10 = 36$",
+     "notes": "ft their IQR from (i), provided the upper quartile 21 is used; $Q_3 + 1.5\\times$their IQR. Reject values built from the median (e.g. 31)"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "The interquartile range is $Q_3 - Q_1 = 21 - 11 = 10$.",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "One and a half IQRs is $1.5 \\times 10 = 15$, so the upper boundary is $21 + 15 = 36$. (The lower boundary is $11 - 15 = -4$, so there are no low outliers.)",
+     "mark": "B1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "iqr",
+     "expr": "10",
+     "form": "exact"
+    },
+    {
+     "name": "upper",
+     "expr": "36",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "21 - 11",
+     "rhs": "10"
+    },
+    {
+     "type": "equals",
+     "lhs": "21 + 1.5*(21 - 11)",
+     "rhs": "36"
+    }
+   ],
+   "hints": [
+    "The box runs from the lower quartile to the upper quartile, so its length gives the interquartile range.",
+    "For the upper boundary, begin at the upper quartile, not the median, and go up by 1.5 times your answer to (i)."
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "(i) $\\mathrm{IQR} = 21 - 11 = 10$",
+      "secures": [
+       "B1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "(ii) $21 + 1.5\\times 10 = 36$",
+      "secures": [
+       "B1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$\\mathrm{IQR} = Q_3 - Q_1$",
+      "why": "The interquartile range is the spread of the middle half of the data, so you subtract the lower quartile from the upper quartile.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$Q_3 = 21,\\ Q_1 = 11$",
+      "why": "You read these two values straight from the box plot features listed in the question.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$\\mathrm{IQR} = 21 - 11$",
+      "why": "You substitute the two quartiles into the formula from step 1.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$\\mathrm{IQR} = 10$",
+      "why": "You evaluate the subtraction to get the interquartile range, in mg per litre.",
+      "secures": "B1",
+      "check": "The box runs from 11 to 21, so its width is 10."
+     },
+     {
+      "step": 5,
+      "working": "Upper boundary $= Q_3 + 1.5\\times\\mathrm{IQR}$",
+      "why": "The trust's rule says an outlier lies more than 1.5 IQRs beyond the nearer quartile. For high readings that quartile is the upper quartile, not the median.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$1.5\\times 10 = 15$",
+      "why": "You work out the distance of 1.5 interquartile ranges, using the IQR of 10 from part (i).",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "Upper boundary $= 21 + 15$",
+      "why": "You add this distance to the upper quartile 21.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "Upper boundary $= 36$, so readings above $36$ are outliers. Answers: IQR $= 10$, upper boundary $= 36$.",
+      "why": "You evaluate the sum. The reading 44 is above 36, so it is an outlier. The whisker end 33 is below 36, so it is not.",
+      "secures": "B1",
+      "check": "33 < 36 < 44 agrees with the box plot."
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T22:59:20+00:00",
+    "cost_usd": 0.0156,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
+  },
+  {
+   "label": "b",
+   "marks": 2,
+   "text": "Estimate how many of the 60 testing points had a nitrate concentration greater than $16\\,\\mathrm{mg}$ per litre but less than $36\\,\\mathrm{mg}$ per litre. (2)",
+   "command": "estimate",
+   "forms": [],
+   "skills": [
+    "median-quartiles-iqr",
+    "box-plot-reading-and-drawing"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "States that half of the 60 readings, i.e. 30, are above the median value of 16",
+     "notes": "Accept $15 + 15$ (the points between median and $Q_3$ plus those above $Q_3$)"
+    },
+    {
+     "code": "dB1",
+     "depends_on": "B1",
+     "for": "Takes away the lone reading of 44, which is beyond 36, to get 29",
+     "notes": "cao 29; an answer of 30 gets B1 dB0"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Since 16 is the median, about $\\tfrac{1}{2} \\times 60 = 30$ readings are above 16 (15 between 16 and 21 and another 15 above 21).",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "The only reading above 36 is the outlier at 44, since the whisker stops at 33. So the estimate is $30 - 1 = 29$ testing points.",
+     "mark": "dB1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "count",
+     "expr": "29",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "60/4 + 60/4 - 1",
+     "rhs": "29"
+    }
+   ],
+   "hints": [
+    "Work out what fraction of the readings lie above the median.",
+    "Look at which readings above 16 are not below 36. How many readings are shown beyond the end of the whisker?"
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "Half of the readings lie above the median: $\\tfrac{1}{2}\\times 60 = 30$ readings above $16$.",
+      "secures": [
+       "B1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "Only $44$ is above $36$, so $30 - 1 = 29$.",
+      "secures": [
+       "dB1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "The median is $16$.",
+      "why": "The median is the middle value, so it splits the 60 readings into two equal halves. You use this to count readings above 16.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "Number above the median $= \\tfrac{1}{2}\\times 60$",
+      "why": "Half of the readings sit above the median, so you take half of the total of 60.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$\\tfrac{1}{2}\\times 60 = 30$",
+      "why": "You evaluate the product to get the number of readings greater than 16.",
+      "secures": "B1",
+      "check": "The two quarters above the median (between 16 and 21, and above 21) are $15 + 15 = 30$."
+     },
+     {
+      "step": 4,
+      "working": "The upper whisker stops at $33$, and $33 < 36$.",
+      "why": "You need to know which of these 30 readings are not below 36. The whisker shows every reading up to 33 is inside the limit.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "The only reading above $36$ is the outlier $44$.",
+      "why": "The one plotted point on its own is the only reading beyond the 36 limit, so exactly one reading must be removed.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$30 - 1$",
+      "why": "You subtract that one reading from the 30 readings above 16, as it is not less than 36.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "$30 - 1 = 29$, so about $29$ testing points had a concentration between $16$ and $36\\,\\mathrm{mg}$ per litre.",
+      "why": "You evaluate the subtraction to get the estimate.",
+      "secures": "dB1",
+      "check": "The answer should be just under 30, since only one reading is removed."
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T22:59:30+00:00",
+    "cost_usd": 0.0225,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
+  },
+  {
+   "label": "c",
+   "marks": 2,
+   "text": "Later the trust found that its testing kit had been set up wrongly, so every reading was $1.5\\,\\mathrm{mg}$ per litre too high. Each of the 60 readings is corrected by taking away $1.5$.\n\nState the interquartile range of the corrected readings, giving a reason for your answer. (2)",
+   "command": "state",
+   "forms": [],
+   "skills": [
+    "explain-with-reason",
+    "median-quartiles-iqr"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Corrected interquartile range is $10$",
+     "notes": "ft their IQR from (a)(i); reject 8.5"
+    },
+    {
+     "code": "dB1",
+     "depends_on": "B1",
+     "for": "Reason: taking the same 1.5 off every reading moves both quartiles down by 1.5 (to 9.5 and 19.5), so the gap between them is the same",
+     "notes": "Accept any clear statement that a constant shift moves all values equally and leaves the spread unchanged"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "The corrected quartiles are $11 - 1.5 = 9.5$ and $21 - 1.5 = 19.5$, so the IQR is $19.5 - 9.5 = 10$.",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "Taking the same amount off every reading moves the whole box plot down by 1.5 but does not change the gap between the quartiles, so the interquartile range is still 10.",
+     "mark": "dB1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "iqr_corrected",
+     "expr": "10",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "(21 - 1.5) - (11 - 1.5)",
+     "rhs": "10"
+    }
+   ],
+   "hints": [
+    "Work out what happens to each quartile when 1.5 is taken off every reading.",
+    "Think about whether moving every value by the same amount changes how spread out the values are."
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "New quartiles: $Q_1 = 11-1.5 = 9.5$, $Q_3 = 21-1.5 = 19.5$, so IQR $= 19.5-9.5 = 10$",
+      "secures": [
+       "B1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "Subtracting the same 1.5 from every reading shifts both quartiles equally, so their difference is unchanged: IQR $= 10$",
+      "secures": [
+       "dB1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "Corrected lower quartile: $Q_1 = 11 - 1.5$",
+      "why": "Every reading drops by 1.5, so the lower quartile of 11 drops by 1.5 too.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$Q_1 = 9.5$",
+      "why": "You evaluate the subtraction to get the new lower quartile.",
+      "secures": null,
+      "check": "$9.5 + 1.5 = 11$"
+     },
+     {
+      "step": 3,
+      "working": "Corrected upper quartile: $Q_3 = 21 - 1.5$",
+      "why": "The upper quartile of 21 also has 1.5 taken away.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$Q_3 = 19.5$",
+      "why": "You evaluate the subtraction to get the new upper quartile.",
+      "secures": null,
+      "check": "$19.5 + 1.5 = 21$"
+     },
+     {
+      "step": 5,
+      "working": "$\\text{IQR} = Q_3 - Q_1 = 19.5 - 9.5$",
+      "why": "The interquartile range is the upper quartile minus the lower quartile, so you substitute the new values.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$\\text{IQR} = 10$",
+      "why": "You evaluate the difference. It matches the original IQR of 10.",
+      "secures": "B1",
+      "check": "Same as the IQR from (a)(i)."
+     },
+     {
+      "step": 7,
+      "working": "Both quartiles move down by the same $1.5$, so $(Q_3 - 1.5) - (Q_1 - 1.5) = Q_3 - Q_1$",
+      "why": "This is the reason. The $1.5$ cancels in the subtraction, so subtracting a constant from every reading cannot change the gap between the quartiles.",
+      "secures": "dB1",
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "The interquartile range of the corrected readings is $10$ (unchanged, since the same amount was subtracted from every reading)",
+      "why": "You state the final answer together with its reason.",
+      "secures": null,
+      "check": null
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T22:59:29+00:00",
+    "cost_usd": 0.0167,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "outlier-fence-error",
+   "text": "If you add $1.5 \\times 10$ to the median 16 and get 31, or add only one IQR to get 31, your boundary is wrong and you lose the B1 in (ii). The rule starts from the upper quartile, 21.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "median-position-error",
+   "text": "If you take the IQR from the median to a quartile (e.g. $21 - 16 = 5$), you have found only half the box, so the first B1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "whisker-to-outlier",
+   "text": "If you think the whisker runs all the way to 44, you might count every reading above 16 and answer 30. The reading of 44 is plotted separately and is above 36, so it must be removed. Answering 30 loses the dB1.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "median-position-error",
+   "text": "If you treat 16 as a quartile and say only a quarter of the readings (15) are above it, you lose both marks. 16 is the median, so half the 60 readings lie above it.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "step": 1,
+   "error_code": "coding-applied-to-spread",
+   "text": "If you take 1.5 off the interquartile range as well and give 8.5, you lose both marks. Subtracting a constant moves both quartiles down by the same amount, so their difference stays the same.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "step": 2,
+   "error_code": "median-position-error",
+   "text": "If you only give the corrected median ($16 - 1.5 = 14.5$), you have not answered the question about spread. You need the gap between the corrected quartiles 9.5 and 19.5.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:49:48",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.3259
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 6
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.867 with question:IAL2013_WST01_Oct2016_Q6"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "hits8": [],
+   "max_jaccard": 0.013,
+   "jaccard_source": "P1_June2018_Q2",
+   "shared_numbers": 2,
+   "max_cosine": 0.867,
+   "cosine_source": "question:IAL2013_WST01_Oct2016_Q6"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 4,
+   "n_answers": 4,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "ambiguity (part b): The question says 'estimate', but the answer of 29 depends on an assumption. It assumes exactly 30 readings lie above the median (n = 60 is even, so ties at 16 or a median taken as the mean of the 30th and 31st values could change this). Most students will still reach 29. The mark scheme should state the expected reasoning: 30 above the median, minus 1 outlier."
+   ],
+   "flag": true,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0154,
+   "solver": {
+    "parts": [
+     {
+      "label": "a(i)",
+      "answers": [
+       "10"
+      ],
+      "working_summary": "IQR = 21 - 11 = 10.",
+      "printed_result_correct": null
+     },
+     {
+      "label": "a(ii)",
+      "answers": [
+       "36"
+      ],
+      "working_summary": "Upper outlier boundary = Q3 + 1.5*IQR = 21 + 15 = 36. This fits the plot: the whisker ends at 33 (below 36) and 44 is above 36. The lower boundary is 11 - 15 = -4, so there are no low outliers.",
+      "printed_result_correct": null
+     },
+     {
+      "label": "b",
+      "answers": [
+       "29"
+      ],
+      "working_summary": "The median is 16, so about 30 of the 60 readings are above 16. Only the reading of 44 is above 36, and the highest non-outlier is 33, so no reading lies between 33 and 36. The number between 16 and 36 is 30 - 1 = 29.",
+      "printed_result_correct": null
+     },
+     {
+      "label": "c",
+      "answers": [
+       "10"
+      ],
+      "working_summary": "Subtracting a constant 1.5 from every reading shifts both quartiles by 1.5 (Q1 = 9.5, Q3 = 19.5). The spread is unchanged, so the IQR is still 10.",
+      "printed_result_correct": null
+     }
+    ],
+    "problems": [
+     {
+      "kind": "ambiguity",
+      "severity": "minor",
+      "part": "b",
+      "detail": "The question says 'estimate', but the answer of 29 depends on an assumption. It assumes exactly 30 readings lie above the median (n = 60 is even, so ties at 16 or a median taken as the mean of the 30th and 31st values could change this). Most students will still reach 29. The mark scheme should state the expected reasoning: 30 above the median, minus 1 outlier."
+     }
+    ]
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "response correct (correct): second marker agrees with the design; first marker gave {'a': ['B1', 'B1'], 'b': ['B1', 'B1'], 'c': ['B1', 'B1']}",
+    "response p1 (pitfall outlier-fence-error): second marker agrees with the design; first marker gave {'a': ['B1', 'B0'], 'b': ['B1', 'B1'], 'c': ['B1', 'B1']}",
+    "response p2 (pitfall median-position-error): second marker agrees with the design; first marker gave {'a': ['B0', 'B1'], 'b': ['B1', 'B1'], 'c': ['B1', 'B1']}",
+    "response p3 (pitfall whisker-to-outlier): second marker agrees with the design; first marker gave {'a': ['B1', 'B1'], 'b': ['B1', 'B0'], 'c': ['B1', 'B1']}",
+    "response p4 (pitfall median-position-error): second marker agrees with the design; first marker gave {'a': ['B1', 'B1'], 'b': ['B0', 'B0'], 'c': ['B1', 'B1']}",
+    "response p5 (pitfall coding-applied-to-spread): second marker agrees with the design; first marker gave {'a': ['B1', 'B1'], 'b': ['B1', 'B1'], 'c': ['B0', 'B0']}",
+    "response p6 (pitfall median-position-error): second marker agrees with the design; first marker gave {'a': ['B1', 'B1'], 'b': ['B1', 'B1'], 'c': ['B0', 'B0']}",
+    "response partial (partial): second marker agrees with the design; first marker gave {'a': ['B1', 'B1'], 'b': ['B1', 'B0'], 'c': ['B0', 'B0']}"
+   ],
+   "flag": true,
+   "n_responses": 8,
+   "agreed": [
+    "correct",
+    "p1",
+    "p2",
+    "p3",
+    "p4",
+    "p5",
+    "p6",
+    "partial"
+   ],
+   "consistent": {},
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "correct",
+     "kind": "correct",
+     "error_code": null,
+     "work": "(a)(i) IQR = $21-11=10$.\n(ii) $21+1.5\\times10=21+15=36$, so readings above 36 are outliers.\n(b) 16 is the median so half of 60, i.e. 30, are above 16 (15 between 16 and 21, 15 above 21). The reading of 44 is above 36 so is not in the range, so $30-1=29$.\n(c) Corrected quartiles are $11-1.5=9.5$ and $21-1.5=19.5$. IQR $=19.5-9.5=10$. Subtracting the same amount from every reading shifts both quartiles equally so the spread is unchanged.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "dB1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1",
+        "dB1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p1",
+     "kind": "pitfall",
+     "error_code": "outlier-fence-error",
+     "work": "(a)(i) IQR $=21-11=10$.\n(ii) Outlier boundary: $16+1.5\\times10=31$.\n(b) Half of 60 is 30 above the median 16. The 44 is an outlier so remove it: $30-1=29$.\n(c) Quartiles become 9.5 and 19.5, IQR $=10$, because every reading is lowered by the same amount so the gap between the quartiles does not change.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "dB1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1",
+        "dB1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p2",
+     "kind": "pitfall",
+     "error_code": "median-position-error",
+     "work": "(a)(i) IQR $=21-16=5$.\n(ii) $21+1.5\\times5=28.5$.\n(b) 16 is the median so 30 readings are above it. Remove the outlier 44: $30-1=29$.\n(c) The corrected IQR is still 5, since taking 1.5 off every reading moves both quartiles down equally so the difference stays the same.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B0",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "dB1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1",
+        "dB1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p3",
+     "kind": "pitfall",
+     "error_code": "whisker-to-outlier",
+     "work": "(a)(i) $21-11=10$.\n(ii) $21+15=36$.\n(b) 16 is the median so half the readings, 30, are above 16. Answer 30.\n(c) Quartiles are 9.5 and 19.5 so IQR is 10. Subtracting the same number from all values does not change the spread.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "dB0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1",
+        "dB1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p4",
+     "kind": "pitfall",
+     "error_code": "median-position-error",
+     "work": "(a)(i) $21-11=10$.\n(ii) $21+1.5\\times10=36$.\n(b) 16 is a quartile so a quarter of the readings are above it: $60\\div4=15$. Answer 15.\n(c) Corrected quartiles 9.5 and 19.5, IQR $=10$; the same amount is taken off every reading so the spread stays the same.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B0",
+        "dB0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1",
+        "dB1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p5",
+     "kind": "pitfall",
+     "error_code": "coding-applied-to-spread",
+     "work": "(a)(i) $21-11=10$.\n(ii) $21+15=36$.\n(b) Half of 60 is 30 above 16, take off the outlier 44 to get 29.\n(c) The IQR was 10 and every reading goes down by 1.5, so the new IQR is $10-1.5=8.5$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "dB1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0",
+        "dB0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p6",
+     "kind": "pitfall",
+     "error_code": "median-position-error",
+     "work": "(a)(i) $21-11=10$.\n(ii) $21+1.5\\times10=36$.\n(b) 30 are above the median; remove the outlier 44 so 29.\n(c) The median becomes $16-1.5=14.5$, so the corrected data is centred lower.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "dB1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0",
+        "dB0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "partial",
+     "kind": "partial",
+     "error_code": null,
+     "work": "(a)(i) IQR $=21-11=10$.\n(ii) $21+1.5\\times10=36$.\n(b) Half of 60 is 30 above the median... I'm not sure what to do with the 44.\n(c) not attempted",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "dB0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0",
+        "dB0"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "correct",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a)(ii) boundary built from the median (31), not Q3."
+     ]
+    },
+    {
+     "id": "p2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B0",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a)(i) used 21-16 = 5, not 21-11 = 10. (a)(ii) and (c) follow through from it."
+     ]
+    },
+    {
+     "id": "p3",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) did not remove the outlier 44, so gave 30 instead of 29."
+     ]
+    },
+    {
+     "id": "p4",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B0",
+        "B0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) treated 16 as a quartile, so got 15 instead of 30. (b) second mark needs the first mark and the subtraction of 44."
+     ]
+    },
+    {
+     "id": "p5",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0",
+        "B0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(c) IQR given as 8.5, but a shift does not change it. The reason is also invalid."
+     ]
+    },
+    {
+     "id": "p6",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0",
+        "B0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(c) no IQR stated; it only discussed the median. No reason about the spread staying the same."
+     ]
+    },
+    {
+     "id": "partial",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0",
+        "B0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) did not deal with the 44, so no 29. (c) not attempted."
+     ]
+    }
+   ],
+   "awarded_second": [
+    {
+     "id": "correct",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "dB1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1",
+        "dB1"
+       ]
+      }
+     ],
+     "reasons": []
+    },
+    {
+     "id": "p1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "dB1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1",
+        "dB1"
+       ]
+      }
+     ],
+     "reasons": [
+      "a(ii) B0: the boundary was built from the median (16 + 15 = 31), which the scheme rejects."
+     ]
+    },
+    {
+     "id": "p2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B0",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "dB1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1",
+        "dB1"
+       ]
+      }
+     ],
+     "reasons": [
+      "a(i) B0: IQR given as 21 - 16 = 5 instead of 10. a(ii) gets the ft mark because Q3 = 21 was used with their IQR; (c) also gets the ft mark for their IQR of 5."
+     ]
+    },
+    {
+     "id": "p3",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "dB0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1",
+        "dB1"
+       ]
+      }
+     ],
+     "reasons": [
+      "b dB0: the reading of 44 was not taken away, so the final answer is 30, not 29."
+     ]
+    },
+    {
+     "id": "p4",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B0",
+        "dB0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1",
+        "dB1"
+       ]
+      }
+     ],
+     "reasons": [
+      "b B0: 16 was treated as a quartile, giving 15, rather than half of 60 (30) above the median.",
+      "b dB0: depends on the previous B mark, and the answer is not 29."
+     ]
+    },
+    {
+     "id": "p5",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "dB1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0",
+        "dB0"
+       ]
+      }
+     ],
+     "reasons": [
+      "c B0: the corrected IQR is given as 8.5, which the scheme rejects.",
+      "c dB0: depends on the previous B mark, and the reasoning is wrong."
+     ]
+    },
+    {
+     "id": "p6",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "dB1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0",
+        "dB0"
+       ]
+      }
+     ],
+     "reasons": [
+      "c B0: no corrected IQR is stated; only the median shift is discussed.",
+      "c dB0: depends on the previous B mark, and there is no reason about the spread staying the same."
+     ]
+    },
+    {
+     "id": "partial",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "dB0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0",
+        "dB0"
+       ]
+      }
+     ],
+     "reasons": [
+      "b dB0: the reading of 44 was not taken away, and no final answer of 29 is given.",
+      "c B0: not attempted.",
+      "c dB0: not attempted."
+     ]
+    }
+   ],
+   "cost_usd": 0.0966
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "agreement": "3/3",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.016051,
+   "retagged": {
+    "ai": [
+     "median-quartiles-iqr"
+    ],
+    "aii": [
+     "identify-outliers-using-rule",
+     "median-quartiles-iqr"
+    ],
+    "b": [
+     "box-plot-reading-and-drawing",
+     "median-quartiles-iqr"
+    ],
+    "c": [
+     "effect-of-changing-data-on-statistics",
+     "median-quartiles-iqr"
+    ]
+   }
+  },
+  "GL": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part a: copy check flag: cosine 0.862 with part:IAL2018_WST01_Oct2020_Q4:b",
+    "part b: copy check flag: cosine 0.780 with question:IAL2013_WST01_Oct2016_Q6",
+    "part c: copy check flag: cosine 0.829 with question:IAL2018_WST01_Oct2020_Q4"
+   ],
+   "parts_checked": 3
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

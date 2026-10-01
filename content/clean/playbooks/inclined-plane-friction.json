@@ -1,0 +1,140 @@
+{
+ "id": "inclined-plane-friction",
+ "question_type": "inclined-plane-friction",
+ "component": "mech",
+ "title": "Particle on a rough inclined plane",
+ "what_it_asks": "You are given a particle on a slope, usually with a diagram. Often there is also a push or pull at an angle, and the slope angle may come through $\\tan\\alpha$. You resolve parallel and perpendicular to the slope, find the normal reaction and friction, then find $\\mu$, a force or an acceleration. Sometimes you must decide whether the particle moves. The idea is that $F \\leqslant \\mu R$ in equilibrium, $F = \\mu R$ when limiting or sliding, and $F = ma$ along the slope when it moves.",
+ "typical_structure": "Most questions have two or three parts, and some have just one. The total is typically around ten marks, with about three to five marks per part. The first part often asks for a reaction, a friction force or $\\mu$. A later part usually reuses that result to find an acceleration, a distance or a speed, or changes the situation, for example by removing a force. Answers carry forward, so an early slip can spread. Some parts are \"show that\" and give you a printed value to reach.",
+ "mark_pattern": "A typical part is M1 A1 A1 or M1 A1. The M1 is for one resolving equation with the right components and the right number of terms. The A1 marks are for that equation being correct, then for the value you get from it. Longer parts often open with B1 for a stated quantity, such as $\\sin\\alpha$ or $\\cos\\alpha$ from a triangle. They then run M1 A1 for resolving perpendicular to the slope and M1 A1 for the friction or $F = ma$ equation. Sometimes an A2 is used for a longer equation, where one error drops it to A1. A dM1 is used when a step needs the earlier resolving equation. A show-that part ends with A1*, which needs a complete argument.",
+ "where_marks_leak": [
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You give the final answer to the wrong number of significant figures or decimal places, for example a long calculator value when 2 s.f. is expected. The final A1 is lost. This is a common error on this type."
+  },
+  {
+   "error_code": "resultant-force-error",
+   "mark_family": "method",
+   "text": "You do not set the resultant force equal to $ma$. You may treat $ma$ as an extra force, or get the direction wrong. The M1 for the equation of motion is lost, and the A1 and any dM1 that depend on it go too."
+  },
+  {
+   "error_code": "friction-wrong-direction",
+   "mark_family": "method",
+   "text": "You point friction the wrong way, so it does not oppose the motion or likely motion. The M1 for the equation is usually lost, along with the accuracy marks that follow."
+  },
+  {
+   "error_code": "premature-rounding",
+   "mark_family": "accuracy",
+   "text": "You round $R$ or $F$ midway and use the rounded value later. The final answer drifts outside the accepted range and the last A1 is lost."
+  },
+  {
+   "error_code": "slope-weight-component-error",
+   "mark_family": "method",
+   "text": "You use $mg$ instead of $mg\\sin\\theta$ along the slope, or swap sine and cosine. The resolving M1 is lost, and the A1 marks depending on it."
+  }
+ ],
+ "write_to_earn": [
+  "Draw a large diagram with weight, normal reaction, friction, any applied force and the direction of motion or likely motion.",
+  "Write each resolving equation in words or symbols first, such as $R = mg\\cos\\alpha + \\dots$, before you substitute numbers.",
+  "When $\\tan\\alpha$ is given, draw the triangle and state $\\sin\\alpha$ and $\\cos\\alpha$ as exact values.",
+  "Write $F = \\mu R$ only when the particle is limiting or sliding, and use $F \\leqslant \\mu R$ to justify whether it moves.",
+  "Keep unrounded values until the last line, then give the answer to the accuracy stated, with units."
+ ],
+ "check_before_you_leave": [
+  "Friction opposes motion?",
+  "Every force on the diagram?",
+  "Sin and cos the right way round?",
+  "$F = \\mu R$ valid here?",
+  "Accuracy and units stated?"
+ ],
+ "skills": [
+  "resolve-forces-on-inclined-plane",
+  "friction-f-equals-mu-r",
+  "resolve-force-at-angle",
+  "friction-direction",
+  "equilibrium-of-particle",
+  "limiting-equilibrium-friction",
+  "trig-ratios-from-given-tan",
+  "newtons-second-law-equation"
+ ],
+ "related_types": [
+  "rough-horizontal-plane-dynamics",
+  "connected-particles-pulley",
+  "vector-forces-newtons-second-law"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:13:34",
+ "cost_usd": 0.047,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 49,
+  "codes_listed": {
+   "wrong-final-accuracy": 17,
+   "resultant-force-error": 6,
+   "friction-wrong-direction": 4,
+   "g-accuracy-overstated": 4,
+   "premature-rounding": 4,
+   "slope-weight-component-error": 3,
+   "connected-particles-tension-error": 2,
+   "force-omitted-from-diagram": 2
+  },
+  "frequent_codes": [
+   "wrong-final-accuracy"
+  ],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.898 with part:IAL2018_WME01_Oct2024_Q6:b"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.001,
+   "shared_numbers": 0,
+   "max_cosine": 0.898,
+   "cosine_source": "part:IAL2018_WME01_Oct2024_Q6:b"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 22
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.898 with part:IAL2018_WME01_Oct2024_Q6:b"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

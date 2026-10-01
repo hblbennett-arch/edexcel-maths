@@ -1,0 +1,1142 @@
+{
+ "id": "cr-pure-sigma-notation-sums-002",
+ "blueprint_id": "bp-pure-sigma-notation-sums-002",
+ "question_type": "sigma-notation-sums",
+ "component": "pure",
+ "tier": "standard",
+ "kind": "exam",
+ "stem": null,
+ "parts": [
+  {
+   "label": "a",
+   "marks": 4,
+   "text": "Find the value of $\\displaystyle\\sum_{r=15}^{48} (5r - 2)$. (4)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "sigma-notation-sums",
+    "arithmetic-series-sum"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Recognises an arithmetic series and finds its first term from $r = 15$: $a = 73$ with $d = 5$ (or the last term from $r = 48$: $l = 238$)",
+     "notes": "Substituting $r = 15$ (or $r = 48$) into $5r - 2$ is enough. Accept a correct listing such as $73 + 78 + 83 + \\dots$"
+    },
+    {
+     "code": "M1",
+     "for": "Uses the correct number of terms, $n = 48 - 15 + 1 = 34$",
+     "notes": "$n = 33$ does not earn this mark."
+    },
+    {
+     "code": "M1",
+     "for": "Puts their $a$, $n$ and either $d$ or $l$ into a correct arithmetic sum formula, e.g. $\\frac{34}{2}(73 + 238)$ or $\\frac{34}{2}[2(73) + 33(5)]$",
+     "notes": "The formula must be quoted or used correctly. Their values may be wrong."
+    },
+    {
+     "code": "A1",
+     "for": "$5287$",
+     "notes": "cao"
+    }
+   ],
+   "alternatives": [
+    {
+     "name": "Way 2: subtract two sums that start at r = 1",
+     "marks": [
+      {
+       "code": "M1",
+       "for": "Writes the sum as $\\sum_{r=1}^{48}(5r-2) - \\sum_{r=1}^{14}(5r-2)$",
+       "notes": "The upper limit of the subtracted sum must be 14. Using 15 does not earn this mark."
+      },
+      {
+       "code": "M1",
+       "for": "Finds one of the two sums correctly with an AP formula or with $\\sum r = \\frac{n(n+1)}{2}$: $\\sum_{r=1}^{48} = 5784$ or $\\sum_{r=1}^{14} = 497$"
+      },
+      {
+       "code": "M1",
+       "for": "Finds both sums with a correct method and subtracts them"
+      },
+      {
+       "code": "A1",
+       "for": "$5287$",
+       "notes": "cao"
+      }
+     ]
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "This is an arithmetic series with common difference $d = 5$. The first term (at $r = 15$) is $a = 5(15) - 2 = 73$. The last term (at $r = 48$) is $l = 5(48) - 2 = 238$.",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "Number of terms: $n = 48 - 15 + 1 = 34$.",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$S = \\frac{n}{2}(a + l) = \\frac{34}{2}(73 + 238) = 17 \\times 311$",
+     "mark": "M1"
+    },
+    {
+     "step": 4,
+     "working": "$S = 5287$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "S",
+     "expr": "5287",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "(5*48*49/2 - 2*48) - (5*14*15/2 - 2*14)",
+     "answer": "S"
+    },
+    {
+     "type": "equals",
+     "lhs": "(34/2)*(2*73 + 33*5)",
+     "rhs": "5287"
+    }
+   ],
+   "hints": [
+    "Put $r = 15$ and $r = 48$ into $5r - 2$ to get the first and last terms. What sort of series is this?",
+    "Count the terms with care: the values run from $r = 15$ to $r = 48$, and both ends are included."
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$a = 5(15)-2 = 73,\\ d=5,\\ l = 5(48)-2 = 238$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$n = 48-15+1 = 34$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$S = \\frac{34}{2}(73+238) = 17\\times 311$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 4,
+      "working": "$S = 5287$",
+      "secures": [
+       "A1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "Terms: $73 + 78 + 83 + \\dots$",
+      "why": "You write out the first few terms by putting $r=15, 16, 17$ into $5r-2$, to see what kind of series it is.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "Each term is $5$ more than the last, so the series is arithmetic with $d = 5$.",
+      "why": "A constant gap between terms means you can use the arithmetic series sum formula.",
+      "secures": null,
+      "check": "$78-73=5$ and $83-78=5$."
+     },
+     {
+      "step": 3,
+      "working": "First term, at $r=15$: $a = 5(15) - 2$",
+      "why": "The sum starts at $r=15$, so you substitute $15$ into $5r-2$ to get the first term.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$a = 75 - 2$",
+      "why": "You evaluate $5\\times 15$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$a = 73$",
+      "why": "You subtract $2$ to get the first term.",
+      "secures": "M1",
+      "check": "This matches the first term in your list."
+     },
+     {
+      "step": 6,
+      "working": "Last term, at $r=48$: $l = 5(48) - 2$",
+      "why": "The sum ends at $r=48$, so you substitute $48$ into $5r-2$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "$l = 240 - 2$",
+      "why": "You evaluate $5\\times 48$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$l = 238$",
+      "why": "You subtract $2$ to get the last term.",
+      "secures": null,
+      "check": "$238-73 = 165 = 33\\times 5$."
+     },
+     {
+      "step": 9,
+      "working": "$n = 48 - 15 + 1$",
+      "why": "The number of terms from $r=15$ to $r=48$ includes both ends, so you add $1$ to the difference.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$n = 33 + 1 = 34$",
+      "why": "You subtract first, then add the $1$ so the first term is counted.",
+      "secures": "M1",
+      "check": "Counting $15$ to $48$ gives $34$ numbers, not $33$."
+     },
+     {
+      "step": 11,
+      "working": "$S = \\frac{n}{2}(a + l)$",
+      "why": "You quote the sum formula for an arithmetic series that uses the first and last terms.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 12,
+      "working": "$S = \\frac{34}{2}(73 + 238)$",
+      "why": "You put in $n=34$, $a=73$ and $l=238$.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 13,
+      "working": "$S = 17 \\times (73+238)$",
+      "why": "You halve $34$ to get $17$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 14,
+      "working": "$S = 17 \\times 311$",
+      "why": "You add $73$ and $238$ inside the bracket.",
+      "secures": null,
+      "check": "$73+238 = 311$."
+     },
+     {
+      "step": 15,
+      "working": "$S = 17\\times 300 + 17\\times 11$",
+      "why": "You split $311$ into $300 + 11$ to multiply more easily.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 16,
+      "working": "$S = 5100 + 187$",
+      "why": "You do the two multiplications.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 17,
+      "working": "$S = 5287$",
+      "why": "You add the two parts to get the final sum.",
+      "secures": "A1",
+      "check": "The average term is about $155.5$, and $34\\times155.5 = 5287$."
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T22:59:20+00:00",
+    "cost_usd": 0.0213,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
+  },
+  {
+   "label": "b",
+   "marks": 4,
+   "text": "Find the value of $\\displaystyle\\sum_{r=5}^{16} 3 \\times 2^{r-2}$. (4)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "sigma-notation-sums"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "States that the first term is $24$ (from $r = 5$) and the common ratio is $2$",
+     "notes": "Both values are needed."
+    },
+    {
+     "code": "M1",
+     "for": "Puts their first term and ratio into a correct geometric sum formula, $\\frac{a(r^n - 1)}{r - 1}$ or equivalent, with some number of terms $n$",
+     "notes": "The formula must be quoted or used correctly. If the ratio is written as $\\frac{1}{2}$, this mark can still be earned but the A1 is lost."
+    },
+    {
+     "code": "dM1",
+     "for": "Depends on the M1. Uses $n = 16 - 5 + 1 = 12$ terms, e.g. $\\frac{24(2^{12} - 1)}{2 - 1}$",
+     "notes": "$n = 11$ does not earn this mark."
+    },
+    {
+     "code": "A1",
+     "for": "$98280$",
+     "notes": "cao"
+    }
+   ],
+   "alternatives": [
+    {
+     "name": "Way 2: subtract two sums that start at r = 1",
+     "marks": [
+      {
+       "code": "B1",
+       "for": "States the first term $\\frac{3}{2}$ (from $r = 1$) and the ratio $2$, or writes the sum as $\\sum_{r=1}^{16} - \\sum_{r=1}^{4}$"
+      },
+      {
+       "code": "M1",
+       "for": "Uses a correct GP sum formula for one of the two sums, e.g. $\\frac{\\frac{3}{2}(2^{16} - 1)}{1} = 98302.5$"
+      },
+      {
+       "code": "dM1",
+       "for": "Depends on the M1. Subtracts the sum with upper limit 4, e.g. $98302.5 - \\frac{\\frac{3}{2}(2^{4} - 1)}{1} = 98302.5 - 22.5$",
+       "notes": "The subtracted sum must have upper limit 4."
+      },
+      {
+       "code": "A1",
+       "for": "$98280$",
+       "notes": "cao"
+      }
+     ]
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "At $r = 5$: $3 \\times 2^{3} = 24$. At $r = 6$: $3 \\times 2^{4} = 48$. So this is a geometric series with $a = 24$ and ratio $\\frac{48}{24} = 2$.",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "$S = \\frac{a(r^n - 1)}{r - 1} = \\frac{24(2^n - 1)}{2 - 1}$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "Number of terms: $n = 16 - 5 + 1 = 12$, so $S = 24(2^{12} - 1) = 24 \\times 4095$.",
+     "mark": "dM1"
+    },
+    {
+     "step": 4,
+     "working": "$S = 98280$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "T",
+     "expr": "98280",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "(3/2)*(2^16 - 1) - (3/2)*(2^4 - 1)",
+     "answer": "T"
+    },
+    {
+     "type": "equals",
+     "lhs": "24*(2^12 - 1)",
+     "rhs": "98280"
+    }
+   ],
+   "hints": [
+    "Write down the first two terms, at $r = 5$ and $r = 6$. They show you the kind of series and its ratio.",
+    "Before you use the sum formula, check how many values of $r$ there are from 5 to 16."
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$a = 3\\times2^{3} = 24$, ratio $=2$",
+      "secures": [
+       "B1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$S = \\dfrac{24(2^n-1)}{2-1}$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$n = 16-5+1 = 12$, so $S = 24(2^{12}-1) = 24\\times4095$",
+      "secures": [
+       "dM1"
+      ]
+     },
+     {
+      "step": 4,
+      "working": "$S = 98280$",
+      "secures": [
+       "A1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "First term, $r=5$: $3\\times2^{5-2}$",
+      "why": "The sum starts at $r=5$, so you put $r=5$ into the expression $3\\times2^{r-2}$ to get the first term.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$3\\times2^{3} = 3\\times8$",
+      "why": "You work out the power $2^3$ first.",
+      "secures": null,
+      "check": "$2^3 = 8$"
+     },
+     {
+      "step": 3,
+      "working": "$a = 24$",
+      "why": "Multiply $3\\times8$ to get the first term.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "Second term, $r=6$: $3\\times2^{4}$",
+      "why": "You need a second term so you can see what each term is multiplied by to reach the next.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$3\\times2^{4} = 3\\times16 = 48$",
+      "why": "Evaluate the power, then multiply by 3.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "Common ratio $=\\dfrac{48}{24}$",
+      "why": "In a geometric series (each term is a fixed multiple of the one before), the ratio is any term divided by the previous one.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "Ratio $=2$, so $a=24$ and common ratio $2$",
+      "why": "Dividing gives 2. You now have both values needed for the sum formula.",
+      "secures": "B1",
+      "check": "Raising $r$ by 1 raises the power of 2 by 1, so each term doubles."
+     },
+     {
+      "step": 8,
+      "working": "$S = \\dfrac{a(r^n-1)}{r-1}$",
+      "why": "This is the geometric sum formula, where $a$ is the first term, $r$ the ratio and $n$ the number of terms.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "$S = \\dfrac{24(2^n-1)}{2-1}$",
+      "why": "Substitute $a=24$ and ratio $2$ into the formula.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$n = 16-5+1$",
+      "why": "Counting from $r=5$ to $r=16$ inclusive, you add 1 to the difference so the first term is counted.",
+      "secures": null,
+      "check": "Listing 5, 6, …, 16 gives 12 values."
+     },
+     {
+      "step": 11,
+      "working": "$n=12$",
+      "why": "Evaluate $16-5+1$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 12,
+      "working": "$S = \\dfrac{24(2^{12}-1)}{2-1}$",
+      "why": "Put $n=12$ into your formula.",
+      "secures": "dM1",
+      "check": null
+     },
+     {
+      "step": 13,
+      "working": "$S = 24(2^{12}-1)$",
+      "why": "The denominator $2-1$ equals 1, so you can drop it.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 14,
+      "working": "$2^{12} = 4096$",
+      "why": "Evaluate the power.",
+      "secures": null,
+      "check": "$2^{10}=1024$, and $1024\\times4=4096$."
+     },
+     {
+      "step": 15,
+      "working": "$S = 24\\times4095$",
+      "why": "Subtract 1 from 4096 inside the bracket.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 16,
+      "working": "$24\\times4095 = 24\\times4000 + 24\\times95$",
+      "why": "Split 4095 into two parts to make the multiplication easier.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 17,
+      "working": "$24\\times4000 + 24\\times95 = 96000 + 2280$",
+      "why": "Do each of the two products.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 18,
+      "working": "$\\sum_{r=5}^{16}3\\times2^{r-2} = 98280$",
+      "why": "Add the two parts to get the final value.",
+      "secures": "A1",
+      "check": "The answer is $24\\times4096 = 98304$ minus 24, so just under 98304."
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T22:59:31+00:00",
+    "cost_usd": 0.0486,
+    "attempts": 2,
+    "errors": [],
+    "attempt_errors": [
+     [
+      "part b: copy check: 2 word 8-gram(s) also in the reference corpus (not whitelisted)",
+      "part b: reword these phrases: 'for the sum of the first n terms' | 'the sum of the first n terms of'"
+     ]
+    ]
+   }
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 3,
+   "error_code": "series-formula-error",
+   "text": "A common mistake is to misremember the sum formula, for example writing $\\frac{n}{2}(a + d)$ or $n(a + l)$ without halving. With $a = 73$, $l = 238$ and $n = 34$, the formula you need is $\\frac{34}{2}(73 + 238)$. A wrong formula loses the third M1 and the A1.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "nth-term-index-error",
+   "text": "If you find the last term using $a + nd = 73 + 34 \\times 5 = 243$ you get the wrong value, because the formula is $a + (n-1)d = 73 + 33 \\times 5 = 238$. Your sum will then be wrong and you lose the A1.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "sigma-term-count-error",
+   "text": "If you take $48 - 15 = 33$ as the number of terms, you have missed one, because both $r = 15$ and $r = 48$ are included. There are $34$ terms. Using 33 loses the M1 for the number of terms.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 3,
+   "error_code": "sigma-term-count-error",
+   "text": "From $r = 5$ to $r = 16$ there are $16 - 5 + 1 = 12$ terms, not $11$. If you use $n = 11$ you get $24(2^{11} - 1) = 49128$, and you lose the dM1 and the A1.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "common-ratio-inverted",
+   "text": "If you divide the first term by the second, $\\frac{24}{48}$, you get a ratio of $\\frac{1}{2}$. The ratio is a later term divided by the term before it, so $\\frac{48}{24} = 2$. An inverted ratio loses the B1 and the A1.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:39:44",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.3295
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 8
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.887 with question:IAL2013_WMA01_June2014_Q9"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "hits8": [],
+   "max_jaccard": 0.045,
+   "jaccard_source": "P2_June2019_Q8",
+   "shared_numbers": 1,
+   "max_cosine": 0.887,
+   "cosine_source": "question:IAL2013_WMA01_June2014_Q9"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 4,
+   "n_answers": 2,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0088,
+   "solver": {
+    "parts": [
+     {
+      "label": "(a)",
+      "answers": [
+       "5287"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "Arithmetic series, 34 terms, first term 73, last term 238. Sum = 17*(73+238) = 5287."
+     },
+     {
+      "label": "(b)",
+      "answers": [
+       "98280"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "Geometric series, 12 terms, first term 24, ratio 2. Sum = 24*(2^12-1) = 98280."
+     }
+    ],
+    "problems": []
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "n_responses": 8,
+   "agreed": [
+    "correct",
+    "pit-a-formula",
+    "pit-a-nth",
+    "pit-a-count",
+    "pit-b-count",
+    "pit-b-ratio",
+    "alt-way2",
+    "partial"
+   ],
+   "consistent": {},
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "correct",
+     "kind": "correct",
+     "work": "(a) Arithmetic, d=5. a=5(15)-2=73, l=5(48)-2=238. n=48-15+1=34. S=\\frac{34}{2}(73+238)=17\\times311=5287.\n(b) r=5: 3\\times2^3=24, r=6: 48, so a=24, ratio 2. n=16-5+1=12. S=\\frac{24(2^{12}-1)}{2-1}=24\\times4095=98280.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ],
+     "error_code": null
+    },
+    {
+     "id": "pit-a-formula",
+     "kind": "pitfall",
+     "work": "(a) a=73, d=5, l=238, n=48-15+1=34. S=n(a+l)=34(73+238)=34\\times311=10574.\n(b) a=24, r=2, n=12. S=\\frac{24(2^{12}-1)}{2-1}=24\\times4095=98280.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ],
+     "error_code": "series-formula-error"
+    },
+    {
+     "id": "pit-a-nth",
+     "kind": "pitfall",
+     "work": "(a) a=5(15)-2=73, d=5, n=34. Last term l=a+nd=73+34\\times5=243. S=\\frac{34}{2}(73+243)=17\\times316=5372.\n(b) a=24, r=2, n=16-5+1=12. S=\\frac{24(2^{12}-1)}{2-1}=98280.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ],
+     "error_code": "nth-term-index-error"
+    },
+    {
+     "id": "pit-a-count",
+     "kind": "pitfall",
+     "work": "(a) a=73, l=238. Number of terms n=48-15=33. S=\\frac{33}{2}(73+238)=\\frac{33\\times311}{2}=5131.5.\n(b) a=24, r=2, n=16-5+1=12. S=24(2^{12}-1)=98280.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M0",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ],
+     "error_code": "sigma-term-count-error"
+    },
+    {
+     "id": "pit-b-count",
+     "kind": "pitfall",
+     "work": "(a) a=73, l=238, n=34. S=\\frac{34}{2}(73+238)=5287.\n(b) a=3\\times2^3=24, r=2. n=16-5=11. S=\\frac{24(2^{11}-1)}{2-1}=24\\times2047=49128.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "dM0",
+        "A0"
+       ]
+      }
+     ],
+     "error_code": "sigma-term-count-error"
+    },
+    {
+     "id": "pit-b-ratio",
+     "kind": "pitfall",
+     "work": "(a) a=73, l=238, n=34. S=\\frac{34}{2}(73+238)=5287.\n(b) a=24, second term 48, ratio =\\frac{24}{48}=\\frac12. n=16-5+1=12. S=\\frac{24(1-(\\frac12)^{12})}{1-\\frac12}=48\\left(1-\\frac1{4096}\\right)\\approx47.99.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B0",
+        "M1",
+        "dM1",
+        "A0"
+       ]
+      }
+     ],
+     "error_code": "common-ratio-inverted"
+    },
+    {
+     "id": "alt-way2",
+     "kind": "alternative",
+     "work": "(a) \\sum_{r=1}^{48}(5r-2)-\\sum_{r=1}^{14}(5r-2). First: a=3, d=5: \\frac{48}{2}(6+47\\times5)=24\\times241=5784. Second: \\frac{14}{2}(6+13\\times5)=7\\times71=497. Difference =5287.\n(b) \\sum_{r=1}^{16}-\\sum_{r=1}^{4}, first term 3/2, ratio 2. \\sum_{1}^{16}=\\frac{1.5(2^{16}-1)}{1}=98302.5. \\sum_1^4=\\frac{1.5(2^4-1)}{1}=22.5. Difference =98280.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ],
+     "error_code": null
+    },
+    {
+     "id": "partial",
+     "kind": "partial",
+     "work": "(a) Arithmetic series, d=5. First term r=15: 5(15)-2=73. Number of terms 48-15+1=34. (stops)\n(b) First term 3\\times2^3=24 and common ratio 2. (stops)",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M0",
+        "dM0",
+        "A0"
+       ]
+      }
+     ],
+     "error_code": null
+    }
+   ],
+   "awarded": [
+    {
+     "id": "correct",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pit-a-formula",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "Third M0: S=n(a+l) is not a correct sum formula (missing the 1/2).",
+      "A0: 10574 is incorrect."
+     ]
+    },
+    {
+     "id": "pit-a-nth",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "A0: 5372 is incorrect because l was miscalculated."
+     ]
+    },
+    {
+     "id": "pit-a-count",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M0",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "Second M0: n=33 used instead of 34.",
+      "A0: 5131.5 is incorrect."
+     ]
+    },
+    {
+     "id": "pit-b-count",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "dM0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "dM0: n=11 used instead of 12.",
+      "A0: 49128 is incorrect."
+     ]
+    },
+    {
+     "id": "pit-b-ratio",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B0",
+        "M1",
+        "dM1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "B0: the common ratio was given as 1/2 instead of 2.",
+      "A0: the answer is about 47.99, not 98280."
+     ]
+    },
+    {
+     "id": "alt-way2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "partial",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "M1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "M0",
+        "dM0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "Third M0 in (a): no sum formula used.",
+      "A0 in (a): no final answer.",
+      "M0 in (b): no GP sum formula used.",
+      "dM0 in (b): no sum formula, so n=12 is not used.",
+      "A0 in (b): no final answer."
+     ]
+    }
+   ],
+   "awarded_second": [],
+   "cost_usd": 0.057
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "part b: same topic, different skills: tagged ['sigma-notation-sums'], retagged ['geometric-series-sum', 'geometric-sequence-nth-term']"
+   ],
+   "flag": true,
+   "agreement": "1/2",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.011577,
+   "retagged": {
+    "a": [
+     "arithmetic-series-sum",
+     "arithmetic-sequence-nth-term"
+    ],
+    "b": [
+     "geometric-series-sum",
+     "geometric-sequence-nth-term"
+    ]
+   }
+  },
+  "GL": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part a: copy check flag: cosine 0.860 with note:P2_June2018_Q4_n3",
+    "part b: copy check flag: cosine 0.854 with question:GCE2008_6664_June2006_Q9"
+   ],
+   "parts_checked": 2
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

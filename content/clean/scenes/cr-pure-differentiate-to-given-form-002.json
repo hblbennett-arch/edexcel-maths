@@ -1,0 +1,234 @@
+{
+ "item_id": "cr-pure-differentiate-to-given-form-002",
+ "applicable": true,
+ "reason": "A tangent sliding along the curve lets students check the derived gradient formula and the value 3/16 at x = 4.",
+ "scenes": [
+  {
+   "id": "cr-pure-differentiate-to-given-form-002::-::1",
+   "part": null,
+   "title": "Checking the derivative against the tangent",
+   "purpose": "See that the expanded sum of powers describes the same curve, and that the derivative you find gives the gradient of the tangent, including $\\frac{3}{16}$ at $x=4$.",
+   "approach": "algebraic-check",
+   "board": {
+    "x": [
+     0,
+     10
+    ],
+    "y": [
+     -1,
+     4
+    ],
+    "axis": true,
+    "grid": true,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "a",
+     "label": "position a",
+     "min": 1,
+     "max": 9,
+     "step": 0.05,
+     "value": 2
+    }
+   ],
+   "elements": [
+    {
+     "type": "function",
+     "id": "C",
+     "expr": "(x*sqrt(x)-4)^2/x^3",
+     "domain": [
+      "1",
+      "10"
+     ],
+     "color": "primary",
+     "label": "C"
+    },
+    {
+     "type": "function",
+     "id": "E",
+     "expr": "1-8*x^(-3/2)+16*x^(-3)",
+     "domain": [
+      "1",
+      "10"
+     ],
+     "color": "warning",
+     "dash": true
+    },
+    {
+     "type": "function",
+     "id": "D",
+     "expr": "12*x^(-5/2)-48*x^(-4)",
+     "domain": [
+      "1",
+      "10"
+     ],
+     "color": "secondary",
+     "label": "dy/dx"
+    },
+    {
+     "type": "point",
+     "id": "P",
+     "x": "a",
+     "y": "(a*sqrt(a)-4)^2/a^3",
+     "label": "P",
+     "color": "mark"
+    },
+    {
+     "type": "tangent",
+     "id": "T",
+     "at": "P",
+     "of": "C",
+     "color": "success"
+    },
+    {
+     "type": "vline",
+     "id": "V4",
+     "at": "4",
+     "color": "muted"
+    },
+    {
+     "type": "text",
+     "id": "G",
+     "x": "4.5",
+     "y": "3.3",
+     "value": "Gradient at $x={a}$ from the formula: {12*a^(-5/2)-48*a^(-4)}"
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "The solid curve is $y=\\frac{(x\\sqrt{x}-4)^2}{x^3}$ and the dashed curve is $1-8x^{-\\frac{3}{2}}+16x^{-3}$. They coincide, so expanding and dividing each term by $x^3$ is valid. This is the M1 for writing $y$ as a sum of powers first.",
+     "set": {
+      "a": 2
+     },
+     "hide": [
+      "D",
+      "V4"
+     ],
+     "highlight": [
+      "E"
+     ]
+    },
+    {
+     "n": 2,
+     "text": "The other curve is $\\frac{\\mathrm{d}y}{\\mathrm{d}x}=12x^{-\\frac{5}{2}}-48x^{-4}$. Drag $a$: the tangent at $P$ has gradient equal to the value in the label. The constant $1$ gave $0$, and the two A1 marks come from $12x^{-\\frac{5}{2}}$ and $-48x^{-4}$.",
+     "show": [
+      "D"
+     ],
+     "highlight": [
+      "D",
+      "T"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "Drag $a$ to about $2.52$, where $x\\sqrt{x}=4$. The curve touches the $x$-axis, the tangent is flat, and the gradient formula gives $0$.",
+     "set": {
+      "a": 2.52
+     }
+    },
+    {
+     "n": 4,
+     "text": "Set $a=4$: the tangent slopes upwards gently and the label reads $\\frac{3}{8}-\\frac{3}{16}=\\frac{3}{16}=0.1875$. This is the B1. Leaving the constant $1$ in would give $\\frac{19}{16}$, a far steeper line.",
+     "set": {
+      "a": 4
+     },
+     "show": [
+      "V4"
+     ],
+     "highlight": [
+      "T"
+     ]
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "marks": [
+     "M1",
+     "A1",
+     "B1"
+    ],
+    "pitfalls": [
+     "not-rewritten-as-powers",
+     "sign-error-differentiating-negative-power",
+     "constant-not-differentiated-to-zero"
+    ]
+   },
+   "guide": {
+    "what_you_see": "The curve $C$ with equation $y=\\frac{(x\\sqrt{x}-4)^2}{x^3}$ (solid), the dashed expanded form $1-8x^{-\\frac{3}{2}}+16x^{-3}$ lying exactly on top of it, and the derivative curve $\\frac{\\mathrm{d}y}{\\mathrm{d}x}=12x^{-\\frac{5}{2}}-48x^{-4}$. A point $P$ on $C$ carries a tangent, and a label gives the gradient predicted by the formula.",
+    "legend": [
+     {
+      "id": "C",
+      "meaning": "The curve $y=\\frac{(x\\sqrt{x}-4)^2}{x^3}$ from the question, drawn for $1\\leqslant x\\leqslant 10$."
+     },
+     {
+      "id": "E",
+      "meaning": "The dashed curve $y=1-8x^{-\\frac{3}{2}}+16x^{-3}$, the expanded sum of powers. It lies exactly on $C$, so the rewriting is valid."
+     },
+     {
+      "id": "D",
+      "meaning": "The derivative $\\frac{\\mathrm{d}y}{\\mathrm{d}x}=12x^{-\\frac{5}{2}}-48x^{-4}$. Its height at any $x$ is the gradient of $C$ there."
+     },
+     {
+      "id": "P",
+      "meaning": "The point on $C$ with $x=a$, whose position you set with the slider $a$."
+     },
+     {
+      "id": "T",
+      "meaning": "The tangent to $C$ at $P$. Its gradient is $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ at $x=a$."
+     },
+     {
+      "id": "V4",
+      "meaning": "A vertical guide line at $x=4$, the value where the question asks for the gradient."
+     }
+    ],
+    "interact": [
+     {
+      "control": "a",
+      "kind": "slider",
+      "do": "Drag the slider from $1$ to $9$. Stop at about $2.52$, then set it to exactly $4$.",
+      "watch": "$P$ slides along $C$ and the tangent $T$ turns with it. Near $a=2.52$, where $x\\sqrt{x}=4$, $C$ touches the $x$-axis, the tangent is flat and the label reads about $0$. At $a=4$ the tangent rises gently and the label reads $\\frac{3}{8}-\\frac{3}{16}=\\frac{3}{16}=0.1875$."
+     }
+    ],
+    "question_link": {
+     "part": null,
+     "marks": [
+      "M1",
+      "A1",
+      "A1",
+      "B1"
+     ],
+     "text": "The dashed curve $E$ sitting on $C$ is the M1 step of expanding and dividing by $x^3$ to get powers of $x$. The curve $D$ shows the two A1 terms $12x^{-\\frac{5}{2}}$ and $-48x^{-4}$, with the constant $1$ differentiating to $0$. The tangent at $P$ when $a=4$ has the gradient $\\frac{3}{16}$ asked for in the B1."
+    },
+    "read_off": [
+     "The label 'Gradient at $x=a$ from the formula' evaluates $12a^{-\\frac{5}{2}}-48a^{-4}$ at the current slider value. It should match the slope of the tangent $T$, and at $a=4$ it gives $\\frac{3}{16}=0.1875$."
+    ]
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0442,
+    "attempts": 1,
+    "gate": {
+     "pass": true,
+     "errors": []
+    },
+    "generated_at": "2026-09-30T23:12:57"
+   }
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:51:03",
+ "cost_usd": 0.0425,
+ "attempts": 1,
+ "checks": {
+  "pass": true,
+  "errors": [],
+  "n_scenes": 1
+ }
+}

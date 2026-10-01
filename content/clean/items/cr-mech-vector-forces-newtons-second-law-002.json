@@ -1,0 +1,262 @@
+{
+ "id": "cr-mech-vector-forces-newtons-second-law-002",
+ "blueprint_id": "bp-mech-vector-forces-newtons-second-law-002",
+ "question_type": "vector-forces-newtons-second-law",
+ "component": "mech",
+ "tier": "challenging",
+ "kind": "exam",
+ "stem": "On a building site, a bucket of wet concrete is lifted by two ropes fastened to its handle. The bucket and its contents have a combined mass of $40\\,\\mathrm{kg}$ and are modelled as a particle. Air resistance is ignored. The unit vectors $\\mathbf{i}$ and $\\mathbf{j}$ lie in the vertical plane that contains both ropes, with $\\mathbf{i}$ horizontal and $\\mathbf{j}$ pointing vertically upwards.\n\nOne rope pulls on the bucket with a force $(p\\,\\mathbf{i} + 250\\,\\mathbf{j})\\,\\mathrm{N}$. The other rope pulls with a force $(-90\\,\\mathbf{i} + 2p\\,\\mathbf{j})\\,\\mathrm{N}$. Here $p$ is a constant. Apart from these two rope forces, the only force on the bucket is its weight. Taken together, these three forces add to a single force that acts in the direction of the vector $(\\mathbf{i} + 4\\mathbf{j})$. Use $g = 9.8\\,\\mathrm{m\\,s^{-2}}$.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 3,
+   "text": "Find the value of $p$. (3)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "resultant-force-vectors",
+    "parallel-and-collinear-vectors",
+    "direction-condition-on-vector"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Adds all three forces to get the resultant, with the weight written as $-40g\\,\\mathbf{j}$ (i.e. $-392\\,\\mathbf{j}$), and uses the direction $(\\mathbf{i}+4\\mathbf{j})$ to link the components. This can be a ratio ($\\mathbf{j}$-component $= 4\\times$ $\\mathbf{i}$-component) or resultant $=\\lambda(\\mathbf{i}+4\\mathbf{j})$ with the components equated.",
+     "notes": "The weight term must be there and must be in the $\\mathbf{j}$ direction. Using $-40\\,\\mathbf{j}$ for the weight earns M0. Comparing the ratio the wrong way round, e.g. $p-90 = 4(2p-142)$, earns M0."
+    },
+    {
+     "code": "A1",
+     "for": "A correct equation in $p$: $2p - 142 = 4(p - 90)$ oe, or the pair $p - 90 = \\lambda$ and $2p - 142 = 4\\lambda$.",
+     "notes": "Accept an unsimplified $\\mathbf{j}$-component such as $250 + 2p - 392$."
+    },
+    {
+     "code": "A1",
+     "for": "$p = 109$",
+     "notes": "cao"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Weight $= -40g\\,\\mathbf{j} = -392\\,\\mathbf{j}\\,\\mathrm{N}$. Resultant $\\mathbf{R} = (p - 90)\\,\\mathbf{i} + (250 + 2p - 392)\\,\\mathbf{j} = (p-90)\\,\\mathbf{i} + (2p - 142)\\,\\mathbf{j}$",
+     "mark": "M1 (with step 2)"
+    },
+    {
+     "step": 2,
+     "working": "$\\mathbf{R}$ is a multiple of $(\\mathbf{i}+4\\mathbf{j})$, so $\\mathbf{R} = \\lambda(\\mathbf{i}+4\\mathbf{j})$. This gives $p - 90 = \\lambda$ and $2p - 142 = 4\\lambda$, so $2p - 142 = 4(p - 90)$",
+     "mark": "A1"
+    },
+    {
+     "step": 3,
+     "working": "$2p - 142 = 4p - 360 \\Rightarrow 2p = 218 \\Rightarrow p = 109$. Check: $\\mathbf{R} = 19\\,\\mathbf{i} + 76\\,\\mathbf{j} = 19(\\mathbf{i}+4\\mathbf{j})$, which is a positive multiple, so it points in the given direction.",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "p",
+     "expr": "109",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "solutions",
+     "equation": "2p - 142 = 4(p - 90)",
+     "var": "p",
+     "result": [
+      "109"
+     ],
+     "answer": "p"
+    },
+    {
+     "type": "substitute",
+     "expr": "(250 + 2p - 40*9.8)/(p - 90)",
+     "at": {
+      "p": "109"
+     },
+     "result": "4"
+    }
+   ],
+   "hints": [
+    "Write the weight as a force vector first. Remember that $\\mathbf{j}$ points upwards.",
+    "If a vector acts in the direction of $\\mathbf{i}+4\\mathbf{j}$, it can be written as $\\lambda(\\mathbf{i}+4\\mathbf{j})$. Compare its components."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 3,
+   "text": "At the moment the forces start to act, the bucket is moving with velocity $(-1.1\\,\\mathbf{i} + 0.4\\,\\mathbf{j})\\,\\mathrm{m\\,s^{-1}}$. The forces stay constant.\n\nFind the speed of the bucket $5$ seconds later. (3)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "vector-magnitude",
+    "resultant-force-vectors",
+    "newtons-second-law-equation",
+    "suvat-vectors"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Sets their resultant force from (a) equal to $40\\mathbf{a}$ and finds the acceleration: $\\mathbf{a} = \\frac{1}{40}(19\\,\\mathbf{i} + 76\\,\\mathbf{j}) = 0.475\\,\\mathbf{i} + 1.9\\,\\mathbf{j}$",
+     "ft_of": "a",
+     "notes": "Follow through their $p$. Dividing by $40g$ earns M0. So does treating $40\\mathbf{a}$ as an extra force added to the three forces."
+    },
+    {
+     "code": "M1",
+     "for": "Uses $\\mathbf{v} = \\mathbf{u} + 5\\mathbf{a}$ with the given $\\mathbf{u}$ and their $\\mathbf{a}$, then finds the magnitude of the resulting vector by squaring both components, adding and taking the square root.",
+     "notes": "Both parts of the method are needed. Adding the magnitudes $|\\mathbf{u}|$ and $5|\\mathbf{a}|$ earns M0."
+    },
+    {
+     "code": "A1",
+     "for": "Speed $= $ awrt $9.98\\,\\mathrm{m\\,s^{-1}}$",
+     "notes": "Exact form $\\frac{\\sqrt{159417}}{40}$ is also acceptable."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\mathbf{R} = 40\\mathbf{a}$: $19\\,\\mathbf{i} + 76\\,\\mathbf{j} = 40\\mathbf{a} \\Rightarrow \\mathbf{a} = (0.475\\,\\mathbf{i} + 1.9\\,\\mathbf{j})\\,\\mathrm{m\\,s^{-2}}$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$\\mathbf{v} = \\mathbf{u} + \\mathbf{a}t = (-1.1\\,\\mathbf{i} + 0.4\\,\\mathbf{j}) + 5(0.475\\,\\mathbf{i} + 1.9\\,\\mathbf{j}) = (1.275\\,\\mathbf{i} + 9.9\\,\\mathbf{j})\\,\\mathrm{m\\,s^{-1}}$. Speed $= \\sqrt{1.275^2 + 9.9^2}$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$\\sqrt{1.625625 + 98.01} = \\sqrt{99.635625} = 9.9817\\ldots \\approx 9.98\\,\\mathrm{m\\,s^{-1}}$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "speed",
+     "expr": "9.98",
+     "form": "sf-3",
+     "exact": "sqrt(159417)/40"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "sqrt((-1.1 + 5*19/40)^2 + (0.4 + 5*(250 + 2*109 - 40*9.8)/40)^2)",
+     "result": "9.98",
+     "form": "sf-3",
+     "answer": "speed"
+    },
+    {
+     "type": "equals",
+     "lhs": "sqrt(51^2 + 396^2)/40",
+     "rhs": "sqrt(159417)/40"
+    }
+   ],
+   "hints": [
+    "Use your resultant force from part (a) in $\\mathbf{F} = m\\mathbf{a}$ to find the acceleration vector.",
+    "Find the velocity vector after 5 seconds before you work out its magnitude."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "error_code": "mass-for-weight",
+   "step": 1,
+   "text": "The weight is $40g = 392\\,\\mathrm{N}$, not $40\\,\\mathrm{N}$. If you write it as $-40\\,\\mathbf{j}$, your $\\mathbf{j}$-component becomes $2p + 210$ instead of $2p - 142$, so you lose the M1 and everything after it.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "error_code": "resultant-force-error",
+   "step": 1,
+   "text": "Include all three forces in the resultant. If you add only the two rope forces and leave out the weight, or give the weight as $+392\\,\\mathbf{j}$ (upwards), the resultant is wrong and the M1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "error_code": "parallel-not-shown",
+   "step": 2,
+   "text": "Link the components properly: the $\\mathbf{j}$-component must be 4 times the $\\mathbf{i}$-component, so $2p - 142 = 4(p - 90)$. If you set them equal, or put the 4 on the wrong side, you lose the M1. Checking at the end that $\\mathbf{R} = 19(\\mathbf{i}+4\\mathbf{j})$ shows the scalar multiple clearly.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "error_code": "resultant-force-error",
+   "step": 1,
+   "text": "A common mistake is to treat $40\\mathbf{a}$ as a fourth force and add it to the others. $\\mathbf{F} = m\\mathbf{a}$ means the resultant $19\\,\\mathbf{i} + 76\\,\\mathbf{j}$ is itself equal to $40\\mathbf{a}$. Getting this wrong loses the first M1.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "error_code": "mass-for-weight",
+   "step": 1,
+   "text": "Divide the resultant by the mass, $40$, not by the weight, $392$. Dividing by $40g$ gives an acceleration about ten times too small and loses the first M1.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "error_code": "magnitude-error",
+   "step": 2,
+   "text": "A common mistake is to give $1.275 + 9.9$, or to leave the answer as $99.6$ without taking the square root. The speed is $\\sqrt{1.275^2 + 9.9^2}$. Also, don't add $|\\mathbf{u}|$ to $5|\\mathbf{a}|$: $\\mathbf{u}$ and $\\mathbf{a}$ point in different directions. Either error loses the second M1 and the A1.",
+   "says_common": true
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:37:45",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.3531
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 6
+  },
+  "G7": {
+   "pass": false,
+   "flag": true,
+   "reasons": [
+    "1 word 8-gram(s) also in the reference corpus (not whitelisted)"
+   ],
+   "flags": [
+    "3 rare words shared with IAL2018_WME01_June2021_Q4",
+    "cosine 0.873 with part:IAL2018_WME01_June2021_Q4:a"
+   ],
+   "hit_fields": [
+    "stem"
+   ],
+   "n_8gram_hits": 1,
+   "hits8": [
+    "acts in the direction of the vector i"
+   ],
+   "max_jaccard": 0.016,
+   "jaccard_source": "IAL2013_WME01_June2015_Q7",
+   "shared_numbers": 1,
+   "max_cosine": 0.873,
+   "cosine_source": "part:IAL2018_WME01_June2021_Q4:a"
+  },
+  "G2": {
+   "pass": false,
+   "errors": [
+    "part a check 1 (solutions): result ['109'] differs from answer p = 109"
+   ],
+   "n_checks": 4,
+   "n_answers": 2,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

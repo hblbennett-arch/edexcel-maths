@@ -95,7 +95,158 @@
    "hints": [
     "The square root is really an index of one half, so change $4\\sqrt{x}$ into index notation first. After that, the usual power rule works on it.",
     "The slope of $l$ is what the derivative gives at $x = 9$. Put that number together with the coordinates of $P$ to get the line."
-   ]
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 2x^{-\\frac12} - 1$",
+      "secures": [
+       "B1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "At $x=9$: $y = 4(3) - 9 = 3$, $m = \\frac{2}{3} - 1 = -\\frac13$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$y - 3 = -\\frac13(x - 9)$",
+      "secures": [
+       "A1ft"
+      ]
+     },
+     {
+      "step": 4,
+      "working": "$3y - 9 = -x + 9$, so with $m = -\\frac13$: $x + 3y = 18$",
+      "secures": [
+       "A1cao"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$y = 4x^{\\frac12} - x$",
+      "why": "You rewrite the square root as a power so that you can differentiate it with the power rule.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$\\frac{\\mathrm{d}}{\\mathrm{d}x}\\left(4x^{\\frac12}\\right) = 4 \\times \\frac12 x^{-\\frac12}$",
+      "why": "You differentiate, which gives the gradient function. Multiply by the power and lower the power by 1: $\\frac12 - 1 = -\\frac12$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$4 \\times \\frac12 x^{-\\frac12} = 2x^{-\\frac12}$",
+      "why": "You multiply the numbers $4$ and $\\frac12$ together.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$\\frac{\\mathrm{d}}{\\mathrm{d}x}(-x) = -1$",
+      "why": "The derivative of $x$ is $1$, and the minus sign stays.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 2x^{-\\frac12} - 1$",
+      "why": "You put the two derivatives together to get the gradient function of $C$.",
+      "secures": "B1",
+      "check": "Write $2x^{-\\frac12}$ as $\\frac{2}{\\sqrt x}$ to see the same thing in root form."
+     },
+     {
+      "step": 6,
+      "working": "At $x=9$: $y = 4\\sqrt9 - 9$",
+      "why": "You need the $y$-coordinate of $P$, so you substitute $x=9$ into the equation of $C$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "$y = 4(3) - 9 = 12 - 9 = 3$",
+      "why": "$\\sqrt9 = 3$, so you evaluate the product and then subtract. This gives $P=(9,3)$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 2(9)^{-\\frac12} - 1$",
+      "why": "The gradient of the tangent is the gradient function evaluated at $x=9$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "$2(9)^{-\\frac12} = \\frac{2}{3}$",
+      "why": "A power of $-\\frac12$ means one over the square root, so $9^{-\\frac12} = \\frac13$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$m = \\frac23 - 1 = -\\frac13$",
+      "why": "You subtract $1$ from $\\frac23$ to get the tangent gradient.",
+      "secures": "M1",
+      "check": "The curve is falling at $x=9$ (past its peak at $x=4$), so a negative gradient makes sense."
+     },
+     {
+      "step": 11,
+      "working": "$y - 3 = -\\frac13(x - 9)$",
+      "why": "You use $y - y_1 = m(x - x_1)$ with the point $(9,3)$ and gradient $-\\frac13$.",
+      "secures": "A1ft",
+      "check": "Put $x=9$ in: you get $y=3$, as it should."
+     },
+     {
+      "step": 12,
+      "working": "$3(y - 3) = -(x - 9)$",
+      "why": "You multiply both sides by $3$ to remove the fraction.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 13,
+      "working": "$3y - 9 = -x + 9$",
+      "why": "You expand both brackets.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 14,
+      "working": "$x + 3y - 9 = 9$",
+      "why": "You add $x$ to both sides so that the $x$ and $y$ terms are together on the left.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 15,
+      "working": "With $m = -\\frac13$: $x + 3y = 18$",
+      "why": "You add $9$ to both sides, which gives the printed equation of $l$, whose gradient is $m = -\\frac13$.",
+      "secures": "A1cao",
+      "check": "Check $P$: $9 + 3(3) = 18$."
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:49:30+00:00",
+    "cost_usd": 0.0582,
+    "attempts": 2,
+    "errors": [],
+    "attempt_errors": [
+     [
+      "part a: every_step: last working does not contain a value equal to answer m = -1/3 (to exact)"
+     ]
+    ]
+   }
   },
   {
    "label": "b",
@@ -285,7 +436,240 @@
    "hints": [
     "Draw a rough sketch: find where $C$ comes back down to the $x$-axis and where $l$ reaches it. Then decide which shape lies under $l$ and which piece under $C$ needs to be taken away.",
     "The part under $l$ from $x = 9$ is a right-angled triangle, so you don't need to integrate for it. Only the curve needs integrating."
-   ]
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$4\\sqrt{x}-x=0 \\Rightarrow \\sqrt{x}(4-\\sqrt{x})=0$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$x=16$, so $A(16,0)$",
+      "secures": [
+       "A1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$\\int (4x^{1/2}-x)\\,\\mathrm{d}x=\\frac{8}{3}x^{3/2}-\\frac{1}{2}x^2$",
+      "secures": [
+       "M1",
+       "A1",
+       "A1"
+      ]
+     },
+     {
+      "step": 4,
+      "working": "$\\left[\\frac{8}{3}x^{3/2}-\\frac12x^2\\right]_9^{16}=\\left(\\frac{512}{3}-128\\right)-\\left(72-\\frac{81}{2}\\right)=\\frac{67}{6}$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 5,
+      "working": "$B(18,0)$; triangle $=\\frac12\\times9\\times3=\\frac{27}{2}$; $R=\\frac{27}{2}-\\frac{67}{6}$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 6,
+      "working": "$R=\\frac{7}{3}$",
+      "secures": [
+       "A1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$4\\sqrt{x}-x=0$",
+      "why": "The curve meets the $x$-axis where $y=0$, so you set the equation of $C$ equal to zero.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$\\sqrt{x}\\,(4-\\sqrt{x})=0$",
+      "why": "Both terms contain $\\sqrt{x}$, so you factorise it out (since $x=\\sqrt{x}\\cdot\\sqrt{x}$).",
+      "secures": "M1",
+      "check": "Expand: $4\\sqrt{x}-x$ again."
+     },
+     {
+      "step": 3,
+      "working": "$\\sqrt{x}=0$ or $\\sqrt{x}=4$",
+      "why": "A product is zero only if one factor is zero, so you set each factor to zero.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$x=0$ or $x=16$",
+      "why": "You square $\\sqrt{x}=4$ to get $x$; the root $x=0$ is the origin, so the other is $A$.",
+      "secures": null,
+      "check": "$4\\sqrt{16}-16=0$."
+     },
+     {
+      "step": 5,
+      "working": "$A=(16,0)$",
+      "why": "On the $x$-axis, $y=0$, so you state the point.",
+      "secures": "A1",
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$y=4x^{1/2}-x$",
+      "why": "You rewrite the root as a power so it can be integrated.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "$\\int 4x^{1/2}\\,\\mathrm{d}x=4\\cdot\\frac{x^{3/2}}{3/2}$",
+      "why": "Integrating undoes differentiating: you raise the power $\\frac12$ by 1 to $\\frac32$ and divide by the new power.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$4\\cdot\\frac{x^{3/2}}{3/2}=\\frac{8}{3}x^{3/2}$",
+      "why": "Dividing by $\\frac32$ is multiplying by $\\frac23$, so $4\\times\\frac23=\\frac83$.",
+      "secures": "A1",
+      "check": "Differentiate: $\\frac83\\cdot\\frac32x^{1/2}=4x^{1/2}$."
+     },
+     {
+      "step": 9,
+      "working": "$\\int x\\,\\mathrm{d}x=\\frac12x^2$",
+      "why": "You raise the power 1 to 2 and divide by 2.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$\\int(4x^{1/2}-x)\\,\\mathrm{d}x=\\frac83x^{3/2}-\\frac12x^2$",
+      "why": "You combine the two integrated terms, keeping the minus sign.",
+      "secures": "A1",
+      "check": null
+     },
+     {
+      "step": 11,
+      "working": "$\\left[\\frac83x^{3/2}-\\frac12x^2\\right]_9^{16}$",
+      "why": "The curve part of $R$ lies between $x=9$ and $x=16$, so these are the limits.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 12,
+      "working": "At $x=16$: $16^{3/2}=64$, so $\\frac83\\times64-\\frac12\\times256=\\frac{512}{3}-128$",
+      "why": "You substitute the upper limit; $16^{3/2}=(\\sqrt{16})^3=64$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 13,
+      "working": "$\\frac{512}{3}-128=\\frac{512}{3}-\\frac{384}{3}=\\frac{128}{3}$",
+      "why": "You use a common denominator of 3 to subtract.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 14,
+      "working": "At $x=9$: $9^{3/2}=27$, so $\\frac83\\times27-\\frac12\\times81=72-\\frac{81}{2}$",
+      "why": "You substitute the lower limit; $9^{3/2}=3^3=27$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 15,
+      "working": "$72-\\frac{81}{2}=\\frac{144}{2}-\\frac{81}{2}=\\frac{63}{2}$",
+      "why": "You write 72 as halves to subtract.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 16,
+      "working": "$\\frac{128}{3}-\\frac{63}{2}=\\frac{256}{6}-\\frac{189}{6}$",
+      "why": "You subtract the value at 9 from the value at 16, using a common denominator of 6.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 17,
+      "working": "$\\frac{256}{6}-\\frac{189}{6}=\\frac{67}{6}$",
+      "why": "This is the area under the curve between $x=9$ and $x=16$.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 18,
+      "working": "On $l$, $y=0$: $x+3(0)=18$",
+      "why": "$B$ is where $l$ meets the $x$-axis, so you put $y=0$ in $x+3y=18$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 19,
+      "working": "$x=18$, so $B=(18,0)$",
+      "why": "This gives the right-hand end of the triangle.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 20,
+      "working": "At $x=9$: $y=4\\sqrt9-9=3$",
+      "why": "You find the height of $P$, which is the triangle's vertical side.",
+      "secures": null,
+      "check": "$9+3\\times3=18$."
+     },
+     {
+      "step": 21,
+      "working": "Triangle area $=\\frac12\\times(18-9)\\times3=\\frac{27}{2}$",
+      "why": "The triangle under $l$ has base 9 and height 3.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 22,
+      "working": "$R=\\frac{27}{2}-\\frac{67}{6}$",
+      "why": "The triangle under $l$ contains $R$ and the area under $C$, so you subtract the integral.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 23,
+      "working": "$\\frac{27}{2}=\\frac{81}{6}$",
+      "why": "You write with denominator 6 to subtract.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 24,
+      "working": "$\\frac{81}{6}-\\frac{67}{6}=\\frac{14}{6}$",
+      "why": "You subtract the numerators.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 25,
+      "working": "Area of $R=\\frac{7}{3}$",
+      "why": "You divide top and bottom of $\\frac{14}{6}$ by 2.",
+      "secures": "A1",
+      "check": "About 2.33, which is sensible against the triangle area of 13.5."
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:49:23+00:00",
+    "cost_usd": 0.0364,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
   }
  ],
  "pitfalls": [
@@ -932,6 +1316,15 @@
      "solve-power-equation"
     ]
    }
+  },
+  "GL": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part a: copy check flag: cosine 0.865 with part:GCE2008_6663_Jan2005_Q9:b",
+    "part b: copy check flag: cosine 0.868 with part:IAL2013_WMA01_Oct2020_Q5:a"
+   ],
+   "parts_checked": 2
   }
  },
  "review": {

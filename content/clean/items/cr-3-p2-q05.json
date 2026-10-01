@@ -1,0 +1,193 @@
+{
+ "id": "cr-3-p2-q05",
+ "blueprint_id": "mk-3-p2-q05",
+ "question_type": "small-angle-approximations",
+ "component": "pure",
+ "tier": "accessible",
+ "kind": "mock",
+ "stem": null,
+ "paper": "mock-3-P2",
+ "set": "mock-3",
+ "q_num": 5,
+ "parts": [
+  {
+   "label": null,
+   "marks": 3,
+   "text": "The angle $\\theta$ is small and is measured in radians. Find, using small angle approximations, the approximate positive value of $\\theta$, in radians, for which\n$$\\frac{\\tan 2\\theta}{3 - \\cos 2\\theta} = 0.15$$\nGive your answer to 3 significant figures. (3)",
+   "command": "find",
+   "forms": [
+    "radians"
+   ],
+   "skills": [
+    "small-angle-approximations",
+    "double-angle-formulae",
+    "simplify-algebraic-fractions",
+    "exact-form-answers"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Replaces both trigonometric terms by small angle approximations with the argument $2\\theta$ handled correctly: $\\tan 2\\theta \\approx 2\\theta$ and $\\cos 2\\theta \\approx 1 - \\frac{(2\\theta)^2}{2} = 1 - 2\\theta^2$, giving $\\frac{2\\theta}{2 + 2\\theta^2}$ or $\\frac{\\theta}{1+\\theta^2}$",
+     "notes": "Accept $\\cos 2\\theta = 1 - 2\\sin^2\\theta \\approx 1 - 2\\theta^2$. Do not award for $\\cos 2\\theta \\approx 1 - \\frac{\\theta^2}{2}$ or $1 - 2\\theta$."
+    },
+    {
+     "code": "M1",
+     "for": "Multiplies through by the denominator (not splitting the fraction) to form a 3-term quadratic in $\\theta$, e.g. $3\\theta^2 - 20\\theta + 3 = 0$ or $0.3\\theta^2 - 2\\theta + 0.3 = 0$, and solves it by formula, completing the square or calculator",
+     "notes": "Their quadratic must come from their approximated expression of the form $\\frac{a\\theta}{b + c\\theta^2}$."
+    },
+    {
+     "code": "A1",
+     "for": "$\\theta \\approx 0.154$ only, with the larger root $6.51$ rejected (or not given) because it is not small",
+     "notes": "awrt 0.154. Exact value $\\frac{10 - \\sqrt{91}}{3}$ seen then 0.154 is fine. A1 lost if $6.51$ is also given as an answer."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "With $\\theta$ small, $\\tan 2\\theta \\approx 2\\theta$ and $\\cos 2\\theta \\approx 1 - \\frac{(2\\theta)^2}{2} = 1 - 2\\theta^2$.",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "So $\\frac{\\tan 2\\theta}{3 - \\cos 2\\theta} \\approx \\frac{2\\theta}{3 - (1 - 2\\theta^2)} = \\frac{2\\theta}{2 + 2\\theta^2} = \\frac{\\theta}{1 + \\theta^2}$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$\\frac{\\theta}{1+\\theta^2} = 0.15 \\Rightarrow \\theta = 0.15 + 0.15\\theta^2 \\Rightarrow 3\\theta^2 - 20\\theta + 3 = 0$",
+     "mark": "0"
+    },
+    {
+     "step": 4,
+     "working": "$\\theta = \\frac{20 \\pm \\sqrt{400 - 36}}{6} = \\frac{10 \\pm \\sqrt{91}}{3}$, so $\\theta \\approx 0.1535$ or $\\theta \\approx 6.513$",
+     "mark": "M1"
+    },
+    {
+     "step": 5,
+     "working": "$6.51$ is not a small angle, so reject it. $\\theta \\approx 0.154$ radians.",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "theta",
+     "expr": "0.154",
+     "form": "sf-3",
+     "exact": "(10 - sqrt(91))/3"
+    }
+   ],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "2x/(3 - (1 - 2x^2))",
+     "rhs": "x/(1 + x^2)"
+    },
+    {
+     "type": "solutions",
+     "equation": "3x^2 - 20x + 3 = 0",
+     "var": "x",
+     "result": [
+      "(10 - sqrt(91))/3",
+      "(10 + sqrt(91))/3"
+     ]
+    },
+    {
+     "type": "substitute",
+     "expr": "x/(1 + x^2)",
+     "at": {
+      "x": "(10 - sqrt(91))/3"
+     },
+     "result": "3/20"
+    },
+    {
+     "type": "numeric",
+     "expr": "(10 - sqrt(91))/3",
+     "result": "0.154",
+     "form": "sf-3",
+     "answer": "theta"
+    }
+   ],
+   "hints": [
+    "Replace $\\tan 2\\theta$ and $\\cos 2\\theta$ by their small angle approximations. Remember the argument is $2\\theta$, not $\\theta$.",
+    "After simplifying the fraction, multiply both sides by the denominator to get a quadratic in $\\theta$."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "step": 1,
+   "error_code": "small-angle-approximation-error",
+   "text": "If you use $\\cos 2\\theta \\approx 1 - \\frac{\\theta^2}{2}$, you have forgotten to square the whole argument. You need $1 - \\frac{(2\\theta)^2}{2} = 1 - 2\\theta^2$. Using $1 - 2\\theta$ is also wrong. Either slip loses the first M1.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "step": 1,
+   "error_code": "double-angle-error",
+   "text": "A common mistake is to write $\\cos 2\\theta = 2\\cos^2\\theta - 1$ and then use $\\cos\\theta \\approx 1 - \\frac{\\theta^2}{2}$. This gives a messy quartic that doesn't help you. Writing $\\cos 2\\theta$ as $2\\cos\\theta$ is just wrong. Approximate $\\cos 2\\theta$ directly, or use $1 - 2\\sin^2\\theta \\approx 1 - 2\\theta^2$, to keep the first M1.",
+   "says_common": true
+  },
+  {
+   "part": null,
+   "step": 3,
+   "error_code": "splits-fraction-over-sum",
+   "text": "$\\frac{2\\theta}{2 + 2\\theta^2}$ is not equal to $\\frac{2\\theta}{2} + \\frac{2\\theta}{2\\theta^2}$. You can't split a fraction over a sum in the denominator. Multiply both sides by $2 + 2\\theta^2$ instead, or you lose the second M1.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:56:25",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.2628
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 3
+  },
+  "G7": {
+   "pass": false,
+   "flag": true,
+   "reasons": [
+    "1 word 8-gram(s) also in the reference corpus (not whitelisted)"
+   ],
+   "flags": [
+    "cosine 0.925 with part:P2_June2024_Q5:"
+   ],
+   "hit_fields": [
+    "part - text"
+   ],
+   "n_8gram_hits": 1,
+   "hits8": [
+    "theta is small and is measured in radians"
+   ],
+   "max_jaccard": 0.068,
+   "jaccard_source": "GCE2008_6664_Jan2007_Q4",
+   "shared_numbers": 1,
+   "max_cosine": 0.925,
+   "cosine_source": "part:P2_June2024_Q5:"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 4,
+   "n_answers": 1,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

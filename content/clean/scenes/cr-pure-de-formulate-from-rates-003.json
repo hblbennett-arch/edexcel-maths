@@ -1,0 +1,467 @@
+{
+ "item_id": "cr-pure-de-formulate-from-rates-003",
+ "applicable": true,
+ "reason": "The graph of S against x makes the derivative visible as a tangent gradient. In part (b), a gradient triangle at x = 5 shows why you divide 3 by 108 in the connected-rates step.",
+ "scenes": [
+  {
+   "id": "cr-pure-de-formulate-from-rates-003::a::1",
+   "part": "a",
+   "title": "Surface area $S = 12x^2 + \\frac{300}{x}$ and its gradient",
+   "purpose": "See how $S$ changes as the prism changes shape at a fixed volume. Check that the tangent gradient matches $\\frac{\\mathrm{d}S}{\\mathrm{d}x} = 24x - \\frac{300}{x^2}$, including its negative values for small $x$.",
+   "approach": "graphical",
+   "board": {
+    "x": [
+     0,
+     9
+    ],
+    "y": [
+     -350,
+     900
+    ],
+    "axis": true,
+    "grid": true,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "p",
+     "label": "x (triangle scale)",
+     "min": 1,
+     "max": 8,
+     "step": 0.05,
+     "value": 2
+    }
+   ],
+   "elements": [
+    {
+     "type": "function",
+     "id": "S",
+     "expr": "12*x^2 + 300/x",
+     "domain": [
+      "1",
+      "8"
+     ],
+     "color": "primary",
+     "label": "S"
+    },
+    {
+     "type": "function",
+     "id": "dS",
+     "expr": "24*x - 300/x^2",
+     "domain": [
+      "1",
+      "8"
+     ],
+     "color": "secondary",
+     "dash": true,
+     "label": "dS/dx"
+    },
+    {
+     "type": "point",
+     "id": "P",
+     "x": "p",
+     "y": "12*p^2 + 300/p",
+     "label": "P",
+     "color": "mark"
+    },
+    {
+     "type": "tangent",
+     "id": "tan",
+     "at": "P",
+     "of": "S",
+     "color": "warning"
+    },
+    {
+     "type": "text",
+     "id": "len",
+     "x": "0.3",
+     "y": "850",
+     "value": "l = 25/x^2 = {25/p^2} cm"
+    },
+    {
+     "type": "text",
+     "id": "area",
+     "x": "0.3",
+     "y": "780",
+     "value": "S = {12*p^2 + 300/p}"
+    },
+    {
+     "type": "text",
+     "id": "grad",
+     "x": "0.3",
+     "y": "710",
+     "value": "tangent gradient = 24x - 300/x^2 = {24*p - 300/p^2}"
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "The slider is the scale $x$ of the triangle. Because $6x^2 l = 150$, the length is $l = \\frac{25}{x^2}$ (the first M1). Substituting gives $S = 12x^2 + 12x\\cdot\\frac{25}{x^2} = 12x^2 + \\frac{300}{x}$, which is the A1 and the curve drawn here. Drag $x$ to $1$ and you get a long thin prism with $l = 25$. Drag it to $8$ and the prism is short and wide.",
+     "set": {
+      "p": 1
+     },
+     "hide": [
+      "dS"
+     ],
+     "highlight": [
+      "S",
+      "len"
+     ]
+    },
+    {
+     "type": "x",
+     "n": 2,
+     "text": "The orange line is the tangent at $P$. Before you differentiate, write $S = 12x^2 + 300x^{-1}$ (the second M1). Then $\\frac{\\mathrm{d}S}{\\mathrm{d}x} = 24x - 300x^{-2}$, and the gradient readout is exactly this value at the current $x$.",
+     "set": {
+      "p": 4
+     },
+     "highlight": [
+      "tan",
+      "grad"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "The dashed curve is $\\frac{\\mathrm{d}S}{\\mathrm{d}x} = 24x - \\frac{300}{x^2}$. At $x = 1$ it is $-276$, and the tangent slopes downwards. The minus sign comes from $-1 \\times 300x^{-2}$. If you wrote $+\\frac{300}{x^2}$, the gradient would be positive here, which the picture shows is wrong. Getting the sign right earns the final A1.",
+     "set": {
+      "p": 1
+     },
+     "show": [
+      "dS"
+     ],
+     "highlight": [
+      "dS",
+      "tan"
+     ]
+    },
+    {
+     "n": 4,
+     "text": "Drag $x$ to about $2.32$, where $x^3 = 12.5$. The tangent is flat, and the dashed curve crosses zero at the same $x$. This checks that your derivative matches the curve.",
+     "set": {
+      "p": 2.32
+     },
+     "highlight": [
+      "P",
+      "dS"
+     ]
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "marks": [
+     "M1",
+     "A1"
+    ],
+    "pitfalls": [
+     "not-rewritten-as-powers",
+     "sign-error-differentiating-negative-power"
+    ]
+   },
+   "guide": {
+    "what_you_see": "The graph of the prism's surface area $S=12x^2+\\frac{300}{x}$ against the triangle scale $x$, with a point $P$ on it and the tangent at $P$. A dashed curve shows the gradient function $\\frac{\\mathrm{d}S}{\\mathrm{d}x}=24x-\\frac{300}{x^2}$.",
+    "legend": [
+     {
+      "id": "S",
+      "meaning": "The curve $S=12x^2+\\frac{300}{x}$, the total surface area of the prism (in $\\mathrm{cm^2}$) once $l$ has been replaced using the fixed volume."
+     },
+     {
+      "id": "dS",
+      "meaning": "The dashed curve $\\frac{\\mathrm{d}S}{\\mathrm{d}x}=24x-\\frac{300}{x^2}$, the derivative of $S$. It is negative for small $x$ and positive for large $x$."
+     },
+     {
+      "id": "P",
+      "meaning": "The point on $S$ at the slider value $x$, with $y$-coordinate $12x^2+\\frac{300}{x}$."
+     },
+     {
+      "id": "tan",
+      "meaning": "The tangent to $S$ at $P$. Its gradient is $\\frac{\\mathrm{d}S}{\\mathrm{d}x}$ at the current $x$."
+     }
+    ],
+    "interact": [
+     {
+      "control": "p",
+      "kind": "slider",
+      "do": "Drag the slider $x$ from $1$ to $8$. Then set it to about $2.32$.",
+      "watch": "$P$ moves along $S$ and the tangent turns with it. At $x=1$: $l=25$, $S=312$, gradient $-276$ (steep downhill). At $x=2$: $l=6.25$, $S=198$, gradient $-27$. Near $x=2.32$ the tangent is flat, with $S\\approx 194$. At $x=8$: $l\\approx0.39$, $S=805.5$, gradient $\\approx187.3$ (uphill)."
+     }
+    ],
+    "question_link": {
+     "part": "a",
+     "marks": [
+      "M1",
+      "A1"
+     ],
+     "text": "The curve $S$ is the expression in $x$ alone that you get after using $6x^2l=150$ to write $l=\\frac{25}{x^2}$ (the first M1 and the A1). The tangent at $P$ and the dashed curve $\\mathrm{d}S/\\mathrm{d}x$ show the result of differentiating $12x^2+300x^{-1}$ (the second M1 and the final A1), including the negative sign on the $\\frac{300}{x^2}$ term."
+    },
+    "read_off": [
+     "The label 'l = 25/x^2' gives the prism length in cm for the current $x$, from $6x^2l=150$. For example, it reads $25$ at $x=1$.",
+     "The label 'S = ...' gives the surface area in $\\mathrm{cm^2}$, the height of $P$ on the curve, $12x^2+\\frac{300}{x}$.",
+     "The label 'tangent gradient' gives $24x-\\frac{300}{x^2}$ at the current $x$. This is the gradient of the tangent and the height of the dashed curve. It is negative for $x<2.32$, zero near $2.32$, and positive after that."
+    ]
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0263,
+    "attempts": 1,
+    "gate": {
+     "pass": true,
+     "errors": []
+    },
+    "generated_at": "2026-09-30T23:11:23"
+   }
+  },
+  {
+   "id": "cr-pure-de-formulate-from-rates-003::b::1",
+   "part": "b",
+   "title": "Why you divide: $\\frac{\\mathrm{d}x}{\\mathrm{d}t} = 3 \\div 108$",
+   "purpose": "Use a gradient triangle at $x = 5$ to see that $1$ cm of change in $x$ gives $108\\,\\mathrm{cm^2}$ of change in $S$. A rise of only $3\\,\\mathrm{cm^2}$ in $S$ each second therefore needs $x$ to change by $\\frac{3}{108}$ cm each second.",
+   "approach": "graphical",
+   "board": {
+    "x": [
+     0,
+     9.5
+    ],
+    "y": [
+     -100,
+     1100
+    ],
+    "axis": true,
+    "grid": true,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "p",
+     "label": "x (triangle scale)",
+     "min": 3,
+     "max": 8,
+     "step": 0.05,
+     "value": 3.5
+    }
+   ],
+   "elements": [
+    {
+     "type": "function",
+     "id": "S",
+     "expr": "12*x^2 + 300/x",
+     "domain": [
+      "1",
+      "8"
+     ],
+     "color": "primary",
+     "label": "S"
+    },
+    {
+     "type": "point",
+     "id": "P",
+     "x": "p",
+     "y": "12*p^2 + 300/p",
+     "label": "P",
+     "color": "mark"
+    },
+    {
+     "type": "tangent",
+     "id": "tan",
+     "at": "P",
+     "of": "S",
+     "color": "warning"
+    },
+    {
+     "type": "segment",
+     "id": "run",
+     "from": [
+      "p",
+      "12*p^2 + 300/p"
+     ],
+     "to": [
+      "p + 1",
+      "12*p^2 + 300/p"
+     ],
+     "color": "success",
+     "label": "1"
+    },
+    {
+     "type": "segment",
+     "id": "rise",
+     "from": [
+      "p + 1",
+      "12*p^2 + 300/p"
+     ],
+     "to": [
+      "p + 1",
+      "12*p^2 + 300/p + 24*p - 300/p^2"
+     ],
+     "color": "success",
+     "label": "dS/dx"
+    },
+    {
+     "type": "vline",
+     "id": "x5",
+     "at": "5"
+    },
+    {
+     "type": "text",
+     "id": "len",
+     "x": "0.3",
+     "y": "1050",
+     "value": "l = 25/x^2 = {25/p^2} cm"
+    },
+    {
+     "type": "text",
+     "id": "grad",
+     "x": "0.3",
+     "y": "970",
+     "value": "dS/dx = {24*p - 300/p^2}"
+    },
+    {
+     "type": "text",
+     "id": "rate",
+     "x": "0.3",
+     "y": "890",
+     "value": "dx/dt = 3 divided by {24*p - 300/p^2} = {3/(24*p - 300/p^2)} cm per second"
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "Drag $x$ until the length readout shows $l = 1$. This happens on the dashed line $x = 5$, because $\\frac{25}{x^2} = 1$ gives $x^2 = 25$, so $x = 5$ (taking $x > 0$). Substituting into your part (a) derivative gives the M1.",
+     "set": {
+      "p": 5
+     },
+     "hide": [
+      "run",
+      "rise"
+     ],
+     "highlight": [
+      "x5",
+      "len"
+     ]
+    },
+    {
+     "n": 2,
+     "text": "The green gradient triangle has a run of $1$ and a rise of $24(5) - \\frac{300}{25} = 120 - 12 = 108$. So $\\frac{\\mathrm{d}S}{\\mathrm{d}x} = 108$ at $x = 5$ (A1). Near this point, $S$ grows about $108$ times as fast as $x$.",
+     "show": [
+      "run",
+      "rise"
+     ],
+     "highlight": [
+      "rise",
+      "grad"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "Start from the chain rule, $\\frac{\\mathrm{d}S}{\\mathrm{d}t} = \\frac{\\mathrm{d}S}{\\mathrm{d}x}\\times\\frac{\\mathrm{d}x}{\\mathrm{d}t}$, so $3 = 108\\times\\frac{\\mathrm{d}x}{\\mathrm{d}t}$ (M1). This gives $\\frac{\\mathrm{d}x}{\\mathrm{d}t} = \\frac{3}{108} = \\frac{1}{36} \\approx 0.0278\\,\\mathrm{cm\\,s^{-1}}$ (A1). If you multiply and get $324$, or divide the wrong way and get $36$, then $x$ would change far faster than $S$. The triangle shows that $x$ must change very slowly.",
+     "set": {
+      "p": 5
+     },
+     "highlight": [
+      "rate"
+     ]
+    },
+    {
+     "n": 4,
+     "text": "Drag $x$ between $3$ and $8$. The steeper the curve, the larger $\\frac{\\mathrm{d}S}{\\mathrm{d}x}$ becomes, and the smaller $\\frac{\\mathrm{d}x}{\\mathrm{d}t} = 3 \\div \\frac{\\mathrm{d}S}{\\mathrm{d}x}$ gets. You always divide the known rate by the gradient.",
+     "set": {
+      "p": 7
+     },
+     "highlight": [
+      "tan",
+      "rate"
+     ]
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "marks": [
+     "M1",
+     "A1"
+    ],
+    "pitfalls": [
+     "connected-rates-chain-error",
+     "parametric-derivative-inverted"
+    ]
+   },
+   "guide": {
+    "what_you_see": "The graph of the surface area $S=12x^2+\\frac{300}{x}$ against $x$ for the prism, with a point $P$ on it, the tangent at $P$, and a green gradient triangle showing how fast $S$ changes per $1$ cm change in $x$. A dashed vertical line marks $x=5$, where $l=1$.",
+    "legend": [
+     {
+      "id": "S",
+      "meaning": "The curve $S=12x^2+\\frac{300}{x}$, the total surface area of the prism in $\\mathrm{cm^2}$ as a function of $x$, with $l=\\frac{25}{x^2}$ substituted in."
+     },
+     {
+      "id": "P",
+      "meaning": "The point on the curve at $x=p$, which you move with the slider."
+     },
+     {
+      "id": "tan",
+      "meaning": "The tangent to $S$ at $P$; its gradient is $\\frac{\\mathrm{d}S}{\\mathrm{d}x}=24x-\\frac{300}{x^2}$."
+     },
+     {
+      "id": "run",
+      "meaning": "The horizontal side of the gradient triangle, of length $1$ cm in $x$."
+     },
+     {
+      "id": "rise",
+      "meaning": "The vertical side of the gradient triangle, going from the end of the run up to the tangent. Its length is $\\frac{\\mathrm{d}S}{\\mathrm{d}x}$, the change in $S$ for a $1$ cm change in $x$."
+     },
+     {
+      "id": "x5",
+      "meaning": "The dashed vertical line $x=5$, the value of $x$ at which $l=1$."
+     }
+    ],
+    "interact": [
+     {
+      "control": "p",
+      "kind": "slider",
+      "do": "Drag the slider between $3$ and $8$. First set it to $5$, on the dashed line, then move it to about $7$.",
+      "watch": "At $p=5$ the length reads $l=1$, the gradient reads $108$ and the rate reads $\\frac{1}{36}\\approx 0.0278$. The rise is $108$ times the run. As $p$ increases the tangent gets steeper, the gradient reading grows and the $\\frac{\\mathrm{d}x}{\\mathrm{d}t}$ reading falls."
+     }
+    ],
+    "question_link": {
+     "part": "b",
+     "marks": [
+      "M1",
+      "A1",
+      "A1"
+     ],
+     "text": "The dashed line $x=5$ is where $l=1$, and the gradient of the tangent at $P$ there is your part (a) $\\frac{\\mathrm{d}S}{\\mathrm{d}x}=108$. That shows the first M1 and the first A1. Since $S$ rises by $3\\,\\mathrm{cm^2}$ each second, $\\frac{\\mathrm{d}x}{\\mathrm{d}t}=3\\div108\\approx0.0278\\,\\mathrm{cm\\,s^{-1}}$, which gives the final A1."
+    },
+    "read_off": [
+     "The 'l' label gives the prism length $l=\\frac{25}{x^2}$ in cm for the current $x$ (the slider $p$); it equals $1$ when $x=5$.",
+     "The 'dS/dx' label gives the gradient of the tangent at $P$, $24x-\\frac{300}{x^2}$, in $\\mathrm{cm^2}$ per cm. It equals $108$ at $x=5$.",
+     "The 'dx/dt' label gives $3$ divided by the current $\\frac{\\mathrm{d}S}{\\mathrm{d}x}$, in $\\mathrm{cm\\,s^{-1}}$. At $x=5$ it is $\\frac{1}{36}\\approx0.0278$."
+    ]
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0271,
+    "attempts": 1,
+    "gate": {
+     "pass": true,
+     "errors": []
+    },
+    "generated_at": "2026-09-30T23:11:23"
+   }
+  }
+ ],
+ "model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T22:51:38",
+ "cost_usd": 0.2564,
+ "attempts": 3,
+ "checks": {
+  "pass": true,
+  "errors": [],
+  "n_scenes": 2
+ }
+}

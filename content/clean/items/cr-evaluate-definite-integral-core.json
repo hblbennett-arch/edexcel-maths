@@ -120,7 +120,189 @@
    "hints": [
     "Rewrite $\\sqrt{x}$ and $\\frac{8}{x^2}$ as powers of $x$ before you integrate anything.",
     "When integrating, add 1 to the power and then divide by the new power. After that, put in $x = 4$, then $x = 1$, and subtract in that order."
-   ]
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$\\displaystyle\\int_1^4 \\left(x^{\\frac12}+8x^{-2}\\right)\\mathrm{d}x = \\left[\\frac{2}{3}x^{\\frac32}\\right.$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$\\displaystyle\\int 8x^{-2}\\,\\mathrm{d}x = -8x^{-1}$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$= \\left[\\frac{2}{3}x^{\\frac32} - \\frac{8}{x}\\right]_1^4$",
+      "secures": [
+       "A1"
+      ]
+     },
+     {
+      "step": 4,
+      "working": "$= \\left(\\frac{16}{3}-2\\right)-\\left(\\frac{2}{3}-8\\right)$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 5,
+      "working": "$= \\frac{10}{3}+\\frac{22}{3} = \\frac{32}{3}$",
+      "secures": [
+       "A1*"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$y = x^{\\frac12} + 8x^{-2}$",
+      "why": "You rewrite the root and the fraction as powers of $x$ so each term can be integrated with the power rule.",
+      "secures": null,
+      "check": "$\\sqrt{x}=x^{\\frac12}$ and $\\frac{8}{x^2}=8x^{-2}$."
+     },
+     {
+      "step": 2,
+      "working": "$\\text{Area} = \\displaystyle\\int_1^4 \\left(x^{\\frac12}+8x^{-2}\\right)\\mathrm{d}x$",
+      "why": "The region lies between $x=1$ and $x=4$ and above the $x$-axis, so its area is this definite integral.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$\\displaystyle\\int x^{\\frac12}\\,\\mathrm{d}x = \\frac{x^{\\frac12+1}}{\\frac12+1}$",
+      "why": "Integrating means undoing differentiating: you add 1 to the power and divide by the new power.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$= \\frac{x^{\\frac32}}{\\frac32}$",
+      "why": "You evaluate $\\frac12+1=\\frac32$ for both the power and the divisor.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$= \\frac{2}{3}x^{\\frac32}$",
+      "why": "Dividing by $\\frac32$ is the same as multiplying by $\\frac23$.",
+      "secures": "M1",
+      "check": "Differentiate: $\\frac23\\cdot\\frac32 x^{\\frac12}=x^{\\frac12}$."
+     },
+     {
+      "step": 6,
+      "working": "$\\displaystyle\\int 8x^{-2}\\,\\mathrm{d}x = \\frac{8x^{-2+1}}{-2+1}$",
+      "why": "Same rule: add 1 to the power $-2$ and divide by the new power, keeping the factor 8.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "$= \\frac{8x^{-1}}{-1}$",
+      "why": "You work out $-2+1=-1$ in the power and the divisor.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$= -8x^{-1}$",
+      "why": "Dividing by $-1$ just changes the sign.",
+      "secures": "M1",
+      "check": "Differentiate: $-8\\cdot(-1)x^{-2}=8x^{-2}$."
+     },
+     {
+      "step": 9,
+      "working": "$\\displaystyle\\int_1^4 \\left(x^{\\frac12}+8x^{-2}\\right)\\mathrm{d}x = \\left[\\frac{2}{3}x^{\\frac32} - 8x^{-1}\\right]_1^4$",
+      "why": "You put the two integrated terms together and keep the limits 1 and 4 on the bracket.",
+      "secures": "A1",
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$= \\left[\\frac{2}{3}x^{\\frac32} - \\frac{8}{x}\\right]_1^4$",
+      "why": "You write $x^{-1}$ as $\\frac1x$ to make substituting easier.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 11,
+      "working": "At $x=4$: $4^{\\frac32} = (\\sqrt{4})^3 = 2^3 = 8$",
+      "why": "You evaluate the fractional power by taking the square root first, then cubing.",
+      "secures": null,
+      "check": "$4^{\\frac32}=\\sqrt{64}=8$."
+     },
+     {
+      "step": 12,
+      "working": "At $x=4$: $\\frac23(8)-\\frac84 = \\frac{16}{3}-2$",
+      "why": "You substitute the upper limit $x=4$ into the integral.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 13,
+      "working": "At $x=1$: $\\frac23(1)-\\frac81 = \\frac23-8$",
+      "why": "You substitute the lower limit $x=1$; $1$ to any power is $1$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 14,
+      "working": "$= \\left(\\frac{16}{3}-2\\right)-\\left(\\frac23-8\\right)$",
+      "why": "For a definite integral you subtract: value at the upper limit minus value at the lower limit.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 15,
+      "working": "$\\frac{16}{3}-2 = \\frac{16}{3}-\\frac{6}{3} = \\frac{10}{3}$",
+      "why": "You write 2 as $\\frac63$ so the fractions share a denominator.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 16,
+      "working": "$\\frac23-8 = \\frac23-\\frac{24}{3} = -\\frac{22}{3}$",
+      "why": "You write 8 as $\\frac{24}{3}$ and subtract.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 17,
+      "working": "$= \\frac{10}{3}-\\left(-\\frac{22}{3}\\right)$",
+      "why": "You replace each bracket by its value.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 18,
+      "working": "$= \\frac{10}{3}+\\frac{22}{3}$",
+      "why": "Subtracting a negative is the same as adding.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 19,
+      "working": "$= \\frac{32}{3}$",
+      "why": "You add the numerators, $10+22=32$. The curve is above the $x$-axis, so this is the area of $R$, as required.",
+      "secures": "A1*",
+      "check": "$\\frac{32}{3}\\approx 10.67$ is plausible for a width of 3 with heights between about 2 and 9."
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:49:06+00:00",
+    "cost_usd": 0.0321,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
   }
  ],
  "pitfalls": [
@@ -470,6 +652,14 @@
      "rewrite-using-index-laws"
     ]
    }
+  },
+  "GL": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part -: copy check flag: cosine 0.839 with part:IAL2013_WMA01_Jan2020_Q4:"
+   ],
+   "parts_checked": 1
   }
  },
  "review": {

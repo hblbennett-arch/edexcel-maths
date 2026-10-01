@@ -1,0 +1,142 @@
+{
+ "id": "harmonic-form-and-trig-models",
+ "question_type": "harmonic-form-and-trig-models",
+ "component": "pure",
+ "title": "Harmonic form and trig models in context",
+ "what_it_asks": "You are given an expression such as $a\\cos x + b\\sin x$, or a real situation modelled by a sinusoidal function. You write it as a single $R\\cos(x \\pm \\alpha)$ or $R\\sin(x \\pm \\alpha)$, then use that form to find greatest and least values and the times they happen. The idea is that one trig function with amplitude $R$ is easier to analyse than a sum of two.",
+ "typical_structure": "Usually three parts, sometimes two or four, and the whole question is often worth around nine marks. The first part is typically the conversion to harmonic form, worth about three or four marks. Later parts use that form, often signalled by \"hence\", to state a maximum or minimum, solve an equation with a transformed argument, or answer a question about the model in context. Some questions have a diagram or graph of the model.",
+ "mark_pattern": "The most typical three-mark part is B1 M1 A1. The B1 is for the correct value of $R$, the M1 is for a correct method for $\\alpha$ (for example $\\tan\\alpha$ as a ratio of the coefficients), and the A1 is for $\\alpha$ in the required units and accuracy. Four-mark parts are usually M1 A1 M1 A1 or M1 A1 dM1 A1: set up and solve, then a second stage such as finding a time or value, with the dM1 needing the first method to be valid. Two-mark parts are usually M1 A1. One-mark parts are a single B1 or B1ft for stating a maximum or minimum, where the ft follows your own $R$.",
+ "where_marks_leak": [
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "Often made: you give $\\alpha$, a time or a value to the wrong number of decimal places or significant figures, or without units. The final A1 is lost even though the method was fine."
+  },
+  {
+   "error_code": "premature-rounding",
+   "mark_family": "accuracy",
+   "text": "Often made: you round $\\alpha$ or $R$ early and carry the rounded value into a later part. The answer drifts outside the accepted range and the A1 goes."
+  },
+  {
+   "error_code": "harmonic-form-error",
+   "mark_family": "accuracy",
+   "text": "You take $R$ as something other than $\\sqrt{a^2+b^2}$, invert $\\tan\\alpha$, or put $\\alpha$ in the wrong quadrant or units. The B1 or the A1 for $\\alpha$ is lost, and later follow-through may be affected."
+  },
+  {
+   "error_code": "trig-model-extreme-misread",
+   "mark_family": "accuracy",
+   "text": "You take the maximum where the cosine term is $-1$, or the reverse, or give the wrong time for it. The A1 for the value or time goes, and any dM1 built on it goes too."
+  },
+  {
+   "error_code": "compound-angle-sign-error",
+   "mark_family": "method",
+   "text": "When expanding $R\\cos(x+\\alpha)$ you get the sign wrong and match coefficients with the wrong signs. The M1 for setting up the identity is lost, and the A1 after it."
+  }
+ ],
+ "write_to_earn": [
+  "Expand $R\\cos(x \\pm \\alpha)$ first, then match coefficients of $\\cos x$ and $\\sin x$, so the signs are visible.",
+  "Write $R=\\sqrt{a^2+b^2}$ as a line of its own, since it earns a B1 independently.",
+  "State $\\tan\\alpha$ as a ratio before finding $\\alpha$, and check the units asked for (degrees or radians).",
+  "In a later part, write the maximum or minimum as a statement, then set the trig term equal to $1$ or $-1$ to find the time.",
+  "For transformed arguments, adjust the interval first, solve, then undo the transformation, keeping unrounded values until the final line."
+ ],
+ "check_before_you_leave": [
+  "Is $\\alpha$ in the right units?",
+  "Does expanding my form match the original?",
+  "Max or min: is the trig term $1$ or $-1$?",
+  "Rounded only at the end?",
+  "Answer in context, with units?"
+ ],
+ "skills": [
+  "harmonic-form",
+  "trig-model-max-min-and-times",
+  "use-hence-previous-result",
+  "solve-trig-with-transformed-argument",
+  "solve-trig-equation-in-interval",
+  "use-model-to-predict",
+  "accuracy-units-and-rounding",
+  "exact-trig-values"
+ ],
+ "related_types": [
+  "trig-identity-then-solve",
+  "optimisation-modelled-quantity",
+  "small-angle-approximations",
+  "radians-sectors-and-regions"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:08:32",
+ "cost_usd": 0.0616,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 54,
+  "codes_listed": {
+   "wrong-final-accuracy": 44,
+   "premature-rounding": 11,
+   "double-angle-error": 9,
+   "compound-angle-sign-error": 9,
+   "trig-model-extreme-misread": 7,
+   "harmonic-form-error": 7,
+   "reciprocal-trig-confused": 7,
+   "decimal-not-exact": 7
+  },
+  "frequent_codes": [
+   "premature-rounding",
+   "wrong-final-accuracy"
+  ],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.841 with part:GCE2008_6665_Jan2006_Q6:c(ii)"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.0,
+   "shared_numbers": 0,
+   "max_cosine": 0.841,
+   "cosine_source": "part:GCE2008_6665_Jan2006_Q6:c(ii)"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 30
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.841 with part:GCE2008_6665_Jan2006_Q6:c(ii)"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

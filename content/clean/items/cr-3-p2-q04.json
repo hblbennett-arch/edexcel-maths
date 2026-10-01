@@ -1,0 +1,240 @@
+{
+ "id": "cr-3-p2-q04",
+ "blueprint_id": "mk-3-p2-q04",
+ "question_type": "recurrence-and-periodic-sequences",
+ "component": "pure",
+ "tier": "accessible",
+ "kind": "mock",
+ "stem": "Starting from $u_1 = \\sqrt{2}$, each term of a sequence is obtained from the term before it using\n$$u_{n+1} = \\frac{u_n + k}{u_n - 1}, \\qquad n \\geqslant 1,$$\nin which $k$ is a positive constant.",
+ "paper": "mock-3-P2",
+ "set": "mock-3",
+ "q_num": 4,
+ "parts": [
+  {
+   "label": "a",
+   "marks": 1,
+   "text": "Write down an expression for $u_2$ in terms of $k$. (1)",
+   "command": "write-down",
+   "forms": [
+    "in-terms-of"
+   ],
+   "skills": [
+    "recurrence-relation-terms",
+    "simplify-algebraic-fractions"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "$u_2 = \\dfrac{\\sqrt{2} + k}{\\sqrt{2} - 1}$, or an equivalent expression such as $(\\sqrt{2}+k)(\\sqrt{2}+1)$ or $2 + k + (1+k)\\sqrt{2}$",
+     "notes": "oe. Any correct unsimplified form is fine. If a correct answer is followed by a wrong attempt to simplify it, isw."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Put $n = 1$ and $u_1 = \\sqrt{2}$ into the recurrence: $u_2 = \\dfrac{\\sqrt{2} + k}{\\sqrt{2} - 1}$ $\\left(= 2 + k + (1+k)\\sqrt{2}\\right)$",
+     "mark": "B1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "u2",
+     "expr": "(sqrt(2)+k)/(sqrt(2)-1)",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "(sqrt(2)+k)/(sqrt(2)-1)",
+     "rhs": "2 + k + (1+k)*sqrt(2)",
+     "domain": "positive"
+    }
+   ],
+   "hints": [
+    "Put $n = 1$ into the recurrence and replace $u_n$ with $\\sqrt{2}$."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 4,
+   "text": "It is given that $\\displaystyle\\sum_{r=1}^{40} u_r = 70 + 70\\sqrt{2}$.\n\nFind the value of $k$. (4)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "recurrence-relation-terms",
+    "sigma-notation-sums",
+    "simplify-algebraic-fractions",
+    "exact-form-answers"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Puts their $u_2$ into the recurrence to get $u_3$ and simplifies the compound fraction, e.g. multiplies top and bottom by $(\\sqrt{2}-1)$ to get $\\dfrac{\\sqrt{2}+k+k\\sqrt{2}-k}{\\sqrt{2}+k-\\sqrt{2}+1} = \\dfrac{\\sqrt{2}(1+k)}{1+k}$, reaching $u_3 = \\sqrt{2}$, so the terms alternate between $u_1$ and $u_2$",
+     "notes": "They may also argue that $u_3 = \\sqrt{2}$ by working with $u_2 = 2+k+(1+k)\\sqrt{2}$. A method that never shows $u_3 = u_1$ does not earn this mark."
+    },
+    {
+     "code": "M1",
+     "for": "Uses the period-2 pattern to write the sum of 40 terms as $20(u_1 + u_2)$ and sets it equal to the given value: $20\\left(\\sqrt{2} + \\dfrac{\\sqrt{2}+k}{\\sqrt{2}-1}\\right) = 70 + 70\\sqrt{2}$",
+     "notes": "Allow their $u_2$ from (a). The multiplier must be 20, not 40."
+    },
+    {
+     "code": "dM1",
+     "depends_on": "M1",
+     "for": "Solves their linear equation for $k$ and deals with the surds correctly, e.g. $\\dfrac{\\sqrt{2}+k}{\\sqrt{2}-1} = \\tfrac{7}{2} + \\tfrac{5}{2}\\sqrt{2}$, so $\\sqrt{2}+k = \\left(\\tfrac{7}{2}+\\tfrac{5}{2}\\sqrt{2}\\right)(\\sqrt{2}-1)$; or rationalises to get $(2+k)(1+\\sqrt{2}) = \\tfrac{7}{2}(1+\\sqrt{2})$",
+     "notes": "Depends on the second M1. Any rationalising must multiply numerator and denominator by $\\sqrt{2}+1$."
+    },
+    {
+     "code": "A1",
+     "for": "$k = \\dfrac{3}{2}$",
+     "notes": "cao; accept 1.5"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$u_3 = \\dfrac{u_2 + k}{u_2 - 1} = \\dfrac{\\frac{\\sqrt{2}+k}{\\sqrt{2}-1} + k}{\\frac{\\sqrt{2}+k}{\\sqrt{2}-1} - 1}$. Multiply top and bottom by $(\\sqrt{2}-1)$: $u_3 = \\dfrac{\\sqrt{2}+k+k\\sqrt{2}-k}{\\sqrt{2}+k-\\sqrt{2}+1} = \\dfrac{\\sqrt{2}(1+k)}{1+k} = \\sqrt{2} = u_1$. So the sequence goes $u_1, u_2, u_1, u_2, \\ldots$, repeating every 2 terms.",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "The 40 terms make 20 pairs, so $\\sum_{r=1}^{40} u_r = 20(u_1+u_2) = 20\\left(\\sqrt{2} + \\dfrac{\\sqrt{2}+k}{\\sqrt{2}-1}\\right) = 70 + 70\\sqrt{2}$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "Divide by 20: $\\sqrt{2} + \\dfrac{\\sqrt{2}+k}{\\sqrt{2}-1} = \\tfrac{7}{2} + \\tfrac{7}{2}\\sqrt{2}$, so $\\dfrac{\\sqrt{2}+k}{\\sqrt{2}-1} = \\tfrac{7}{2} + \\tfrac{5}{2}\\sqrt{2}$. Then $\\sqrt{2} + k = \\left(\\tfrac{7}{2}+\\tfrac{5}{2}\\sqrt{2}\\right)(\\sqrt{2}-1) = \\tfrac{7}{2}\\sqrt{2} - \\tfrac{7}{2} + 5 - \\tfrac{5}{2}\\sqrt{2} = \\sqrt{2} + \\tfrac{3}{2}$",
+     "mark": "dM1"
+    },
+    {
+     "step": 4,
+     "working": "$k = \\dfrac{3}{2}$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "k",
+     "expr": "3/2",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "((sqrt(2)+k)/(sqrt(2)-1) + k)/((sqrt(2)+k)/(sqrt(2)-1) - 1)",
+     "rhs": "sqrt(2)",
+     "domain": "positive"
+    },
+    {
+     "type": "solutions",
+     "equation": "20*(sqrt(2) + (sqrt(2)+k)/(sqrt(2)-1)) = 70 + 70*sqrt(2)",
+     "var": "k",
+     "result": [
+      "3/2"
+     ]
+    },
+    {
+     "type": "substitute",
+     "expr": "20*(sqrt(2) + (sqrt(2)+k)/(sqrt(2)-1))",
+     "at": {
+      "k": "3/2"
+     },
+     "answer": "k",
+     "result": "70 + 70*sqrt(2)"
+    }
+   ],
+   "hints": [
+    "Use your answer to (a) to find $u_3$ and simplify it fully. What do you notice?",
+    "Once you see the pattern, count how many times each different term appears in the first 40 terms."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "rationalising-error",
+   "text": "You don't have to simplify $u_2$. If you do rationalise $\\frac{\\sqrt{2}+k}{\\sqrt{2}-1}$, multiply the top and the bottom by $\\sqrt{2}+1$. If you multiply only the top, or use $\\sqrt{2}-1$ again, you get a wrong expression. This is a common mistake and loses the B1 unless your correct first answer is still visible.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "splits-fraction-over-sum",
+   "text": "$\\frac{\\sqrt{2}+k}{\\sqrt{2}-1}$ is not the same as $\\frac{\\sqrt{2}+k}{\\sqrt{2}} - \\frac{\\sqrt{2}+k}{1}$. You can't split a fraction over the terms of its denominator, and writing this as $u_2$ loses the B1.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "cancels-terms-not-factors",
+   "text": "When you simplify $u_3 = \\frac{\\sqrt{2}+k+k\\sqrt{2}-k}{1+k}$, first collect the terms in the numerator to get $\\sqrt{2}(1+k)$, then cancel the factor $(1+k)$. If you cancel a single $k$ from the top against the $k$ in $1+k$, you lose $u_3 = \\sqrt{2}$ and with it the first M1.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 3,
+   "error_code": "rationalising-error",
+   "text": "If you rationalise $\\frac{\\sqrt{2}+k}{\\sqrt{2}-1}$ while solving, multiply the top and the bottom by $\\sqrt{2}+1$ to get $(2+k)+(1+k)\\sqrt{2}$. Multiplying by the wrong conjugate, or only multiplying the top, is a common mistake. It gives a wrong equation for $k$ and loses the dM1 and A1.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "splits-fraction-over-sum",
+   "text": "Don't split $\\frac{\\sqrt{2}+k}{\\sqrt{2}-1}$ into $\\frac{\\sqrt{2}+k}{\\sqrt{2}} - (\\sqrt{2}+k)$ when you form the equation $20(u_1+u_2) = 70+70\\sqrt{2}$. The equation you get is wrong, so you can't reach $k = \\frac{3}{2}$ and you lose the A1.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:56:02",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.3764
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 5
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.871 with part:IAL2013_WMA01_June2019_Q5:a"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "hits8": [],
+   "max_jaccard": 0.053,
+   "jaccard_source": "GCE2008_6663R_June2014_Q3",
+   "shared_numbers": 1,
+   "max_cosine": 0.871,
+   "cosine_source": "part:IAL2013_WMA01_June2019_Q5:a"
+  },
+  "G2": {
+   "pass": false,
+   "errors": [
+    "part b check 3 (substitute): result 70 + 70*sqrt(2) differs from answer k = 3/2"
+   ],
+   "n_checks": 4,
+   "n_answers": 2,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

@@ -1,0 +1,120 @@
+{
+ "id": "two-way-table-probability",
+ "question_type": "two-way-table-probability",
+ "component": "stats",
+ "title": "Two-way table probabilities",
+ "what_it_asks": "You are given a frequency table that splits a group by two features, sometimes with a diagram or a context. You complete the table, then find probabilities for single events, unions, intersections, complements and \"given that\" events. The idea is that every probability is a count in the right region divided by the right total.",
+ "typical_structure": "There are usually four parts, sometimes five or six, and the whole question is worth around ten marks. Most parts carry two marks, with a few one-mark parts for completing or stating something and a few longer parts of three or four marks. Early parts are often about reading or completing the table. Later parts use those values, so an early slip can carry forward. A conditional part, or a comment on independence, often comes last.",
+ "mark_pattern": "Most parts follow M1 A1: a method mark for a correct ratio of counts or probabilities, then an accuracy mark for the correct value. Single-mark parts are usually B1, for a correct stated value or a correctly completed table entry. Some parts run M1 A1 A1, where the M1 is for setting up the calculation and the accuracy marks are for the values that follow. Longer parts may mix B and M marks, for example B1 B1 M1 A1: the B marks are for table entries or stated probabilities, the M1 is for the combining or conditional step, and the A1 is for the final value. A B1ft can appear where you must use your own table value correctly.",
+ "where_marks_leak": [
+  {
+   "error_code": "conditional-denominator-error",
+   "mark_family": "method",
+   "text": "In a \"given that\" part you divide by the wrong total, such as the grand total or the total for the event you want instead of the event you are given. The M1 is lost, and the A1 after it goes too."
+  },
+  {
+   "error_code": "independence-assumed",
+   "mark_family": "method",
+   "text": "You multiply two probabilities to get an intersection when the table already gives the joint count, or when independence has not been given or shown. The M1 is lost, and the A1 that depends on it goes too."
+  },
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You give the final probability to the wrong number of decimal places or significant figures, or round too early. The final A1 is lost even though the method was right."
+  }
+ ],
+ "write_to_earn": [
+  "Complete the table first and check that rows and columns add to their totals, since later parts rely on it.",
+  "Write the probability as a fraction of counts before simplifying, so the method mark is visible.",
+  "For a \"given that\" part, state which group you are restricting to and use its total as the denominator.",
+  "Do not multiply probabilities for an intersection unless independence is given or shown; read the joint cell instead.",
+  "Give the final answer in the form asked, as an exact fraction or a rounded decimal, and state it once."
+ ],
+ "check_before_you_leave": [
+  "Table totals add up",
+  "Denominator matches the condition",
+  "Answer in the form asked",
+  "Probability between 0 and 1",
+  "Later parts use corrected values"
+ ],
+ "skills": [
+  "two-way-table-probability",
+  "conditional-probability-formula",
+  "set-notation-for-events",
+  "complement-and-addition-rules",
+  "independence-test-and-use",
+  "explain-with-reason"
+ ],
+ "related_types": [
+  "venn-diagram-unknown-probabilities",
+  "tree-diagram-conditional-probability"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:11:47",
+ "cost_usd": 0.0842,
+ "attempts": 2,
+ "facts": {
+  "n_questions": 5,
+  "codes_listed": {
+   "conditional-denominator-error": 2,
+   "wrong-final-accuracy": 1,
+   "independence-assumed": 1
+  },
+  "frequent_codes": [],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.836 with note:P1_June2024_Q5_n18"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.0,
+   "shared_numbers": 0,
+   "max_cosine": 0.836,
+   "cosine_source": "note:P1_June2024_Q5_n18"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 0
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.836 with note:P1_June2024_Q5_n18"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

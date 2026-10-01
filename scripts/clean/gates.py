@@ -240,7 +240,7 @@ def g7_novelty(item: dict) -> dict:
     reasons, flags = [], []
     hits8 = [g for g in _grams(ws, 8) & c.grams8 if not _whitelisted(g, c.whitelist)]
     if hits8:
-        reasons.append(f"{len(hits8)} word 8-gram(s) also in the Pearson corpus (not whitelisted)")
+        reasons.append(f"{len(hits8)} word 8-gram(s) also in the reference corpus (not whitelisted)")
     hit_fields = sorted({name for name, t in item_fields(item) if _grams(words(t), 8) & set(hits8)})
     # 5-gram Jaccard and shared numbers compare like with like: our question text against theirs
     q_ws = words("\n".join([item.get("stem") or ""] + [p.get("text", "") for p in item.get("parts") or []]))
@@ -279,7 +279,8 @@ def g7_novelty(item: dict) -> dict:
     elif max_cos >= 0.75:
         flags.append(f"cosine {max_cos:.3f} with {cos_id}")
     return {"pass": not reasons, "flag": bool(flags), "reasons": reasons, "flags": flags, "hit_fields": hit_fields,
-            "n_8gram_hits": len(hits8), "max_jaccard": round(max_j, 3), "jaccard_source": max_q,
+            "n_8gram_hits": len(hits8), "hits8": sorted(hits8)[:5],  # our own text's offending 8-grams, so a retry can reword them
+             "max_jaccard": round(max_j, 3), "jaccard_source": max_q,
             "shared_numbers": num_n, "max_cosine": round(max_cos, 3), "cosine_source": cos_id}
 
 

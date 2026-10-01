@@ -1,0 +1,247 @@
+{
+ "item_id": "cr-differentiate-from-first-principles-core",
+ "applicable": true,
+ "reason": "A chord PQ swinging round to the tangent as h shrinks shows why the limit of the chord gradient gives dy/dx.",
+ "scenes": [
+  {
+   "id": "cr-differentiate-from-first-principles-core::-::1",
+   "part": null,
+   "title": "The chord PQ turning into the tangent",
+   "purpose": "See that the chord gradient is 7 - 4x - 2h and that letting h tend to zero leaves the tangent gradient 7 - 4x.",
+   "approach": "graphical",
+   "board": {
+    "x": [
+     -1,
+     5
+    ],
+    "y": [
+     -6,
+     8
+    ],
+    "axis": true,
+    "grid": true,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "h",
+     "label": "step h",
+     "min": -1,
+     "max": 1,
+     "step": 0.01,
+     "value": 0.8
+    },
+    {
+     "id": "p",
+     "label": "x-coordinate of P",
+     "min": 0,
+     "max": 3,
+     "step": 0.1,
+     "value": 1
+    }
+   ],
+   "elements": [
+    {
+     "type": "function",
+     "id": "C",
+     "expr": "7*x - 2*x^2",
+     "color": "primary",
+     "label": "y = 7x - 2x^2"
+    },
+    {
+     "type": "point",
+     "id": "P",
+     "x": "p",
+     "y": "7*p - 2*p^2",
+     "label": "P",
+     "color": "mark"
+    },
+    {
+     "type": "point",
+     "id": "Q",
+     "x": "p + h",
+     "y": "7*(p + h) - 2*(p + h)^2",
+     "label": "Q",
+     "color": "secondary"
+    },
+    {
+     "type": "line",
+     "id": "chord",
+     "from": "P",
+     "to": "Q",
+     "color": "secondary",
+     "label": "chord PQ"
+    },
+    {
+     "type": "line",
+     "id": "tan",
+     "from": [
+      "p - 1",
+      "7*p - 2*p^2 - (7 - 4*p)"
+     ],
+     "to": [
+      "p + 1",
+      "7*p - 2*p^2 + (7 - 4*p)"
+     ],
+     "color": "success",
+     "dash": true,
+     "label": "tangent"
+    },
+    {
+     "type": "text",
+     "id": "grad",
+     "x": "2.6",
+     "y": "-3",
+     "value": "Gradient of PQ $= 7 - 4x - 2h =$ {7 - 4*p - 2*h}"
+    },
+    {
+     "type": "text",
+     "id": "lim",
+     "x": "2.6",
+     "y": "-4.5",
+     "value": "Tangent gradient $7 - 4x =$ {7 - 4*p}",
+     "color": "success"
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "$P$ is on the curve at $x$ and $Q$ at $x+h$. Writing $y_Q = 7(x+h) - 2(x+h)^2$ and expanding gives $7x + 7h - 2x^2 - 4xh - 2h^2$. Missing the $-4xh$ term is the slip that loses the B1.",
+     "set": {
+      "h": 0.8,
+      "p": 1
+     },
+     "show": [
+      "P",
+      "Q",
+      "chord"
+     ],
+     "highlight": [
+      "Q"
+     ]
+    },
+    {
+     "n": 2,
+     "text": "The chord gradient is $\\frac{7h - 4xh - 2h^2}{h}$. Dividing every term by $h$ first gives $7 - 4x - 2h$, which matches the reading on the board as you move $h$. This is the M1. Setting $h=0$ before cancelling would give $\\frac{0}{0}$.",
+     "set": {
+      "h": 0.5
+     },
+     "highlight": [
+      "chord",
+      "grad"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "Shrink $h$ to $0.1$, then $0.01$: $Q$ slides towards $P$ and the chord lies along the dashed tangent. The gradient reading approaches $7 - 4x$ because the $-2h$ term vanishes.",
+     "set": {
+      "h": 0.1
+     },
+     "show": [
+      "tan"
+     ],
+     "highlight": [
+      "tan"
+     ]
+    },
+    {
+     "n": 4,
+     "text": "Write $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\lim_{h \\to 0}(7 - 4x - 2h) = 7 - 4x$. You need the limit statement, or the words 'as $h \\to 0$', to earn the A1. Try other values of the slider for $x$ to check the formula.",
+     "set": {
+      "h": 0.01,
+      "p": 2
+     },
+     "highlight": [
+      "lim"
+     ]
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     1,
+     2,
+     3
+    ],
+    "marks": [
+     "B1",
+     "M1",
+     "A1"
+    ],
+    "pitfalls": [
+     "first-principles-incomplete"
+    ]
+   },
+   "guide": {
+    "what_you_see": "The curve $y=7x-2x^2$ from the question with point $P$ at $x$ and point $Q$ at $x+h$ on it, joined by the chord $PQ$. A dashed tangent at $P$ shows what the chord turns into as $h$ tends to zero.",
+    "legend": [
+     {
+      "id": "C",
+      "meaning": "The curve $y=7x-2x^2$ from the question."
+     },
+     {
+      "id": "P",
+      "meaning": "The fixed point on the curve with $x$-coordinate $x$, set by the slider $p$; its $y$-coordinate is $7x-2x^2$."
+     },
+     {
+      "id": "Q",
+      "meaning": "The second point on the curve with $x$-coordinate $x+h$, so $y_Q=7(x+h)-2(x+h)^2$. It moves as $h$ changes."
+     },
+     {
+      "id": "chord",
+      "meaning": "The chord $PQ$, whose gradient is $\\frac{7(x+h)-2(x+h)^2-(7x-2x^2)}{h}=7-4x-2h$."
+     },
+     {
+      "id": "tan",
+      "meaning": "The dashed tangent to $C$ at $P$, with gradient $\\frac{\\mathrm{d}y}{\\mathrm{d}x}=7-4x$; the chord approaches this line as $h$ tends to $0$."
+     }
+    ],
+    "interact": [
+     {
+      "control": "h",
+      "kind": "slider",
+      "do": "Drag the step $h$ from $0.8$ towards $0$ (try $0.5$, $0.1$, $0.01$), then try negative values down to $-1$.",
+      "watch": "$Q$ slides along the curve towards $P$ and the chord swings towards the dashed tangent. With $p=1$ the chord gradient reads $3-2h$: $1.4$ at $h=0.8$, $2.8$ at $h=0.1$, and it tends to $3$. For negative $h$, $Q$ lies to the left of $P$ and the reading is above $3$."
+     },
+     {
+      "control": "p",
+      "kind": "slider",
+      "do": "Drag the $x$-coordinate of $P$ between $0$ and $3$, keeping $h$ small such as $0.01$.",
+      "watch": "$P$ and the tangent move along the curve. The tangent gradient reading equals $7-4x$: $7$ at $x=0$, $3$ at $x=1$, $-1$ at $x=2$, and $-5$ at $x=3$. The tangent is flat at $x=1.75$."
+     }
+    ],
+    "question_link": {
+     "part": null,
+     "marks": [
+      "B1",
+      "M1",
+      "A1"
+     ],
+     "text": "$P$ and $Q$ are the points of the question, and $y_Q=7(x+h)-2(x+h)^2$ is the expression the B1 asks for. The chord gradient reading is the simplified $7-4x-2h$ of the M1, and the chord settling onto the tangent as $h$ tends to $0$ is the limit step giving $\\frac{\\mathrm{d}y}{\\mathrm{d}x}=7-4x$ for the A1."
+    },
+    "read_off": [
+     "'Gradient of PQ' is the chord gradient $7-4x-2h$ evaluated at the current $x$ (the $p$ slider) and $h$. It changes as you move $h$.",
+     "'Tangent gradient' is $7-4x$ at the current $x$, the limit of the chord gradient as $h$ tends to $0$. It depends only on $p$, not on $h$, and the chord reading approaches it as $h$ shrinks."
+    ]
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0253,
+    "attempts": 1,
+    "gate": {
+     "pass": true,
+     "errors": []
+    },
+    "generated_at": "2026-09-30T23:12:20"
+   }
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:50:00",
+ "cost_usd": 0.0391,
+ "attempts": 1,
+ "checks": {
+  "pass": true,
+  "errors": [],
+  "n_scenes": 1
+ }
+}

@@ -1,0 +1,1382 @@
+{
+ "id": "cr-1-p1-q13",
+ "blueprint_id": "mk-1-p1-q13",
+ "question_type": "integration-by-substitution",
+ "component": "pure",
+ "tier": "challenging",
+ "kind": "mock",
+ "stem": "$$I = \\int_{2}^{2\\sqrt{3}} \\frac{16}{(4 + x^2)^2}\\,\\mathrm{d}x$$",
+ "paper": "mock-1-P1",
+ "set": "mock-1",
+ "q_num": 13,
+ "parts": [
+  {
+   "label": "a",
+   "marks": 4,
+   "text": "Use the substitution $x = 2\\tan\\theta$ to show that $$I = \\int_{\\frac{\\pi}{4}}^{\\frac{\\pi}{3}} 2\\cos^2\\theta\\,\\mathrm{d}\\theta$$ (4)",
+   "command": "show-that",
+   "forms": [],
+   "skills": [
+    "integration-by-substitution",
+    "change-limits-in-substitution",
+    "show-that-given-answer",
+    "pythagorean-identities"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Correct differential: $\\frac{\\mathrm{d}x}{\\mathrm{d}\\theta} = 2\\sec^2\\theta$, or $\\mathrm{d}x = 2\\sec^2\\theta\\,\\mathrm{d}\\theta$",
+     "notes": "Accept $\\frac{\\mathrm{d}\\theta}{\\mathrm{d}x} = \\frac{1}{2\\sec^2\\theta}$ or $\\frac{2}{\\cos^2\\theta}$ oe."
+    },
+    {
+     "code": "M1",
+     "for": "Puts $x = 2\\tan\\theta$ into $(4 + x^2)^2$ and uses $1 + \\tan^2\\theta = \\sec^2\\theta$ to get $(4\\sec^2\\theta)^2 = 16\\sec^4\\theta$. The integrand, including their $\\mathrm{d}x$, must be written entirely in $\\theta$.",
+     "notes": "The identity must be the correct one. A version such as $1 + \\tan^2\\theta = \\cos^2\\theta$ scores M0. Allow a slip in $\\mathrm{d}x$ for this mark."
+    },
+    {
+     "code": "M1",
+     "for": "Changes the limits using $\\tan\\theta = \\frac{x}{2}$: $x = 2 \\Rightarrow \\tan\\theta = 1 \\Rightarrow \\theta = \\frac{\\pi}{4}$ and $x = 2\\sqrt{3} \\Rightarrow \\tan\\theta = \\sqrt{3} \\Rightarrow \\theta = \\frac{\\pi}{3}$",
+     "notes": "Some working must be seen, e.g. $\\tan\\theta = 1$ and $\\tan\\theta = \\sqrt{3}$ or $\\arctan$ of these. Simply copying the printed limits does not score. Each $\\theta$-limit must be matched to the correct $x$-limit."
+    },
+    {
+     "code": "A1*",
+     "for": "Simplifies $\\frac{16 \\times 2\\sec^2\\theta}{16\\sec^4\\theta} = \\frac{2}{\\sec^2\\theta} = 2\\cos^2\\theta$ and reaches the printed integral with limits $\\frac{\\pi}{4}$ and $\\frac{\\pi}{3}$",
+     "notes": "cso. Every step must be correct and $\\mathrm{d}\\theta$ must appear in the final integral. Depends on both M marks."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$x = 2\\tan\\theta \\Rightarrow \\frac{\\mathrm{d}x}{\\mathrm{d}\\theta} = 2\\sec^2\\theta$, so $\\mathrm{d}x = 2\\sec^2\\theta\\,\\mathrm{d}\\theta$",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "$4 + x^2 = 4 + 4\\tan^2\\theta = 4(1 + \\tan^2\\theta) = 4\\sec^2\\theta$, so $(4 + x^2)^2 = 16\\sec^4\\theta$. Then $\\frac{16}{(4+x^2)^2}\\,\\mathrm{d}x = \\frac{16}{16\\sec^4\\theta}\\cdot 2\\sec^2\\theta\\,\\mathrm{d}\\theta$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "Limits: $x = 2 \\Rightarrow \\tan\\theta = 1 \\Rightarrow \\theta = \\frac{\\pi}{4}$. $x = 2\\sqrt{3} \\Rightarrow \\tan\\theta = \\sqrt{3} \\Rightarrow \\theta = \\frac{\\pi}{3}$",
+     "mark": "M1"
+    },
+    {
+     "step": 4,
+     "working": "$I = \\int_{\\frac{\\pi}{4}}^{\\frac{\\pi}{3}} \\frac{2\\sec^2\\theta}{\\sec^4\\theta}\\,\\mathrm{d}\\theta = \\int_{\\frac{\\pi}{4}}^{\\frac{\\pi}{3}} \\frac{2}{\\sec^2\\theta}\\,\\mathrm{d}\\theta = \\int_{\\frac{\\pi}{4}}^{\\frac{\\pi}{3}} 2\\cos^2\\theta\\,\\mathrm{d}\\theta$ as required",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [
+    {
+     "name": "theta_lower",
+     "expr": "pi/4",
+     "form": "exact"
+    },
+    {
+     "name": "theta_upper",
+     "expr": "pi/3",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "derivative",
+     "f": "2tan(t)",
+     "var": "t",
+     "result": "2sec(t)^2"
+    },
+    {
+     "type": "equals",
+     "lhs": "16/(4+(2tan(t))^2)^2 * 2sec(t)^2",
+     "rhs": "2cos(t)^2",
+     "domain": [
+      0,
+      "1.2"
+     ]
+    },
+    {
+     "type": "substitute",
+     "expr": "arctan(x/2)",
+     "at": {
+      "x": "2"
+     },
+     "answer": "theta_lower"
+    },
+    {
+     "type": "substitute",
+     "expr": "arctan(x/2)",
+     "at": {
+      "x": "2sqrt(3)"
+     },
+     "answer": "theta_upper"
+    }
+   ],
+   "hints": [
+    "Write $\\mathrm{d}x$ in terms of $\\mathrm{d}\\theta$ first. Then factorise $4 + 4\\tan^2\\theta$ and use an identity involving $\\tan^2\\theta$.",
+    "For the new limits, solve $2\\tan\\theta = 2$ and $2\\tan\\theta = 2\\sqrt{3}$."
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$x=2\\tan\\theta \\Rightarrow \\mathrm{d}x=2\\sec^2\\theta\\,\\mathrm{d}\\theta$",
+      "secures": [
+       "B1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$4+x^2=4+4\\tan^2\\theta=4\\sec^2\\theta$, so $(4+x^2)^2=16\\sec^4\\theta$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$x=2:\\tan\\theta=1,\\ \\theta=\\frac{\\pi}{4}$; $x=2\\sqrt3:\\tan\\theta=\\sqrt3,\\ \\theta=\\frac{\\pi}{3}$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 4,
+      "working": "$I=\\int_{\\pi/4}^{\\pi/3}\\frac{16\\cdot 2\\sec^2\\theta}{16\\sec^4\\theta}\\,\\mathrm{d}\\theta=\\int_{\\pi/4}^{\\pi/3}\\frac{2}{\\sec^2\\theta}\\,\\mathrm{d}\\theta=\\int_{\\frac{\\pi}{4}}^{\\frac{\\pi}{3}}2\\cos^2\\theta\\,\\mathrm{d}\\theta$",
+      "secures": [
+       "A1*"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$x=2\\tan\\theta$",
+      "why": "This is the substitution you are told to use, so you start by writing it down.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$\\frac{\\mathrm{d}x}{\\mathrm{d}\\theta}=2\\sec^2\\theta$",
+      "why": "You differentiate $x$ with respect to $\\theta$, using that $\\tan\\theta$ differentiates to $\\sec^2\\theta$.",
+      "secures": null,
+      "check": "Integrating $2\\sec^2\\theta$ gives back $2\\tan\\theta$."
+     },
+     {
+      "step": 3,
+      "working": "$\\mathrm{d}x=2\\sec^2\\theta\\,\\mathrm{d}\\theta$",
+      "why": "You multiply both sides by $\\mathrm{d}\\theta$ so that $\\mathrm{d}x$ can be replaced inside the integral.",
+      "secures": "B1",
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$x^2=(2\\tan\\theta)^2=4\\tan^2\\theta$",
+      "why": "You substitute $x=2\\tan\\theta$ into the $x^2$ in the denominator and square it.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$4+x^2=4+4\\tan^2\\theta$",
+      "why": "You put this into $4+x^2$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$4+4\\tan^2\\theta=4(1+\\tan^2\\theta)$",
+      "why": "You take out the common factor 4 so that the identity can be used.",
+      "secures": null,
+      "check": "Expanding the bracket gives back $4+4\\tan^2\\theta$."
+     },
+     {
+      "step": 7,
+      "working": "$4(1+\\tan^2\\theta)=4\\sec^2\\theta$",
+      "why": "You use the identity $1+\\tan^2\\theta=\\sec^2\\theta$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$(4+x^2)^2=(4\\sec^2\\theta)^2$",
+      "why": "You square both sides, since the denominator is $(4+x^2)^2$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "$(4\\sec^2\\theta)^2=16\\sec^4\\theta$",
+      "why": "You square the 4 to get 16 and square $\\sec^2\\theta$ to get $\\sec^4\\theta$.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$I=\\int \\frac{16}{16\\sec^4\\theta}\\cdot 2\\sec^2\\theta\\,\\mathrm{d}\\theta$",
+      "why": "You replace the denominator and $\\mathrm{d}x$, so the whole integrand is now in $\\theta$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 11,
+      "working": "When $x=2$: $\\tan\\theta=\\frac{2}{2}=1$",
+      "why": "You rearrange $x=2\\tan\\theta$ to $\\tan\\theta=\\frac{x}{2}$ and put in the lower limit.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 12,
+      "working": "$\\tan\\theta=1\\Rightarrow\\theta=\\frac{\\pi}{4}$",
+      "why": "You take the inverse tangent of 1, which is the angle whose tangent is 1.",
+      "secures": null,
+      "check": "$\\tan\\frac{\\pi}{4}=1$."
+     },
+     {
+      "step": 13,
+      "working": "When $x=2\\sqrt3$: $\\tan\\theta=\\frac{2\\sqrt3}{2}=\\sqrt3$",
+      "why": "You do the same for the upper limit.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 14,
+      "working": "$\\tan\\theta=\\sqrt3\\Rightarrow\\theta=\\frac{\\pi}{3}$",
+      "why": "You take the inverse tangent of $\\sqrt3$, which gives the new upper limit.",
+      "secures": "M1",
+      "check": "$\\tan\\frac{\\pi}{3}=\\sqrt3$."
+     },
+     {
+      "step": 15,
+      "working": "$I=\\int_{\\pi/4}^{\\pi/3}\\frac{16\\times2\\sec^2\\theta}{16\\sec^4\\theta}\\,\\mathrm{d}\\theta$",
+      "why": "You write the integrand with the new limits on the integral sign.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 16,
+      "working": "$\\frac{16\\times2\\sec^2\\theta}{16\\sec^4\\theta}=\\frac{2\\sec^2\\theta}{\\sec^4\\theta}$",
+      "why": "You cancel the 16 from top and bottom.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 17,
+      "working": "$\\frac{2\\sec^2\\theta}{\\sec^4\\theta}=\\frac{2}{\\sec^2\\theta}$",
+      "why": "You cancel $\\sec^2\\theta$ from top and bottom, leaving $\\sec^2\\theta$ below.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 18,
+      "working": "$\\frac{2}{\\sec^2\\theta}=2\\cos^2\\theta$",
+      "why": "Since $\\sec\\theta=\\frac{1}{\\cos\\theta}$, dividing by $\\sec^2\\theta$ is multiplying by $\\cos^2\\theta$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 19,
+      "working": "$I=\\int_{\\frac{\\pi}{4}}^{\\frac{\\pi}{3}}2\\cos^2\\theta\\,\\mathrm{d}\\theta$, with limits $\\theta=\\frac{\\pi}{4}$ and $\\theta=\\frac{\\pi}{3}$",
+      "why": "You put the simplified integrand together with the new limits and $\\mathrm{d}\\theta$, which is the printed result.",
+      "secures": "A1*",
+      "check": null
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T23:14:37+00:00",
+    "cost_usd": 0.0355,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
+  },
+  {
+   "label": "b",
+   "marks": 4,
+   "text": "Hence show that $$I = \\frac{\\pi + 3\\sqrt{3} - 6}{12}$$ (4)",
+   "command": "show-that",
+   "forms": [],
+   "skills": [
+    "evaluate-definite-integral",
+    "use-hence-previous-result",
+    "standard-integrals",
+    "exact-trig-values",
+    "exact-form-answers"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Uses $\\cos 2\\theta = 2\\cos^2\\theta - 1$ to write $2\\cos^2\\theta$ as $1 + \\cos 2\\theta$, then integrates to get a form $\\theta \\pm k\\sin 2\\theta$, where $k \\neq 0$",
+     "notes": "The identity must be correct. For example $2\\cos^2\\theta = 1 - \\cos 2\\theta$ scores M0."
+    },
+    {
+     "code": "A1",
+     "for": "Correct integral $\\theta + \\frac{1}{2}\\sin 2\\theta$",
+     "notes": "oe, e.g. $\\theta + \\sin\\theta\\cos\\theta$. Limits need not be shown yet."
+    },
+    {
+     "code": "dM1",
+     "for": "Puts in the limits $\\frac{\\pi}{3}$ and $\\frac{\\pi}{4}$ and subtracts in the correct order (upper minus lower) to get an expression that uses exact trig values",
+     "notes": "Depends on the first M1. The line $\\left(\\frac{\\pi}{3} + \\frac{1}{2}\\sin\\frac{2\\pi}{3}\\right) - \\left(\\frac{\\pi}{4} + \\frac{1}{2}\\sin\\frac{\\pi}{2}\\right)$ or equivalent must be seen."
+    },
+    {
+     "code": "A1*",
+     "for": "Uses $\\sin\\frac{2\\pi}{3} = \\frac{\\sqrt{3}}{2}$ and $\\sin\\frac{\\pi}{2} = 1$ to get $\\frac{\\pi}{12} + \\frac{\\sqrt{3}}{4} - \\frac{1}{2}$, then reaches $\\frac{\\pi + 3\\sqrt{3} - 6}{12}$",
+     "notes": "cso. The intermediate line $\\frac{\\pi}{12} + \\frac{\\sqrt{3}}{4} - \\frac{1}{2}$ (or equivalent) must be shown. A decimal check alone scores A0."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "From (a), $I = \\int_{\\frac{\\pi}{4}}^{\\frac{\\pi}{3}} 2\\cos^2\\theta\\,\\mathrm{d}\\theta$. Since $\\cos 2\\theta = 2\\cos^2\\theta - 1$, we have $2\\cos^2\\theta = 1 + \\cos 2\\theta$, so $I = \\int_{\\frac{\\pi}{4}}^{\\frac{\\pi}{3}} (1 + \\cos 2\\theta)\\,\\mathrm{d}\\theta$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$I = \\left[\\theta + \\frac{1}{2}\\sin 2\\theta\\right]_{\\frac{\\pi}{4}}^{\\frac{\\pi}{3}}$",
+     "mark": "A1"
+    },
+    {
+     "step": 3,
+     "working": "$I = \\left(\\frac{\\pi}{3} + \\frac{1}{2}\\sin\\frac{2\\pi}{3}\\right) - \\left(\\frac{\\pi}{4} + \\frac{1}{2}\\sin\\frac{\\pi}{2}\\right)$",
+     "mark": "M1"
+    },
+    {
+     "step": 4,
+     "working": "$I = \\left(\\frac{\\pi}{3} + \\frac{\\sqrt{3}}{4}\\right) - \\left(\\frac{\\pi}{4} + \\frac{1}{2}\\right) = \\frac{\\pi}{12} + \\frac{\\sqrt{3}}{4} - \\frac{1}{2} = \\frac{\\pi + 3\\sqrt{3} - 6}{12}$ as required",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [
+    {
+     "name": "I",
+     "expr": "(pi + 3*sqrt(3) - 6)/12",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "2cos(t)^2",
+     "rhs": "1 + cos(2t)"
+    },
+    {
+     "type": "integral",
+     "f": "1 + cos(2t)",
+     "var": "t",
+     "result": "t + sin(2t)/2"
+    },
+    {
+     "type": "integral",
+     "f": "2cos(t)^2",
+     "var": "t",
+     "lower": "pi/4",
+     "upper": "pi/3",
+     "answer": "I"
+    },
+    {
+     "type": "integral",
+     "f": "16/(4+x^2)^2",
+     "var": "x",
+     "lower": "2",
+     "upper": "2sqrt(3)",
+     "result": "(pi + 3sqrt(3) - 6)/12"
+    },
+    {
+     "type": "numeric",
+     "expr": "(pi + 3sqrt(3) - 6)/12",
+     "result": "0.195",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "You can't integrate $\\cos^2\\theta$ directly. Use a double angle formula for $\\cos 2\\theta$ to write it in a form you can integrate.",
+    "Once you have integrated, put in $\\theta = \\frac{\\pi}{3}$ and $\\theta = \\frac{\\pi}{4}$, and give the sine values exactly."
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$2\\cos^2\\theta = 1+\\cos 2\\theta$, so $I=\\int_{\\pi/4}^{\\pi/3}(1+\\cos 2\\theta)\\,\\mathrm{d}\\theta$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$I=\\left[\\theta+\\tfrac12\\sin 2\\theta\\right]_{\\pi/4}^{\\pi/3}$",
+      "secures": [
+       "A1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$=\\left(\\frac{\\pi}{3}+\\frac12\\sin\\frac{2\\pi}{3}\\right)-\\left(\\frac{\\pi}{4}+\\frac12\\sin\\frac{\\pi}{2}\\right)$",
+      "secures": [
+       "dM1"
+      ]
+     },
+     {
+      "step": 4,
+      "working": "$=\\frac{\\pi}{3}+\\frac{\\sqrt3}{4}-\\frac{\\pi}{4}-\\frac12=\\frac{\\pi}{12}+\\frac{\\sqrt3}{4}-\\frac12=\\frac{\\pi+3\\sqrt3-6}{12}$",
+      "secures": [
+       "A1*"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$\\cos 2\\theta = 2\\cos^2\\theta - 1$",
+      "why": "You can't integrate $\\cos^2\\theta$ directly, so you start from this double-angle identity, which you need to rewrite it.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$2\\cos^2\\theta = 1 + \\cos 2\\theta$",
+      "why": "You add 1 to both sides of the identity, which gives exactly the $2\\cos^2\\theta$ in your integrand.",
+      "secures": null,
+      "check": "At $\\theta=0$: $2\\cos^2 0 = 2$ and $1+\\cos 0 = 2$."
+     },
+     {
+      "step": 3,
+      "working": "$I=\\int_{\\pi/4}^{\\pi/3}(1+\\cos 2\\theta)\\,\\mathrm{d}\\theta$",
+      "why": "You replace the integrand from part (a) with the equivalent expression, keeping the same limits.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$\\int 1\\,\\mathrm{d}\\theta = \\theta$",
+      "why": "Integrating the constant 1 with respect to $\\theta$ gives $\\theta$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$\\int \\cos 2\\theta\\,\\mathrm{d}\\theta = \\tfrac12\\sin 2\\theta$",
+      "why": "Integrating $\\cos$ gives $\\sin$, and you divide by 2 to cancel the factor 2 that differentiating $2\\theta$ would bring out.",
+      "secures": null,
+      "check": "Differentiate $\\tfrac12\\sin2\\theta$: you get $\\cos2\\theta$."
+     },
+     {
+      "step": 6,
+      "working": "$I=\\left[\\theta+\\tfrac12\\sin 2\\theta\\right]_{\\pi/4}^{\\pi/3}$",
+      "why": "You combine the two integrals and show the limits in square brackets, ready to substitute.",
+      "secures": "A1",
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "Upper limit: $\\frac{\\pi}{3}+\\frac12\\sin\\frac{2\\pi}{3}$",
+      "why": "You substitute $\\theta=\\frac{\\pi}{3}$, so $2\\theta = \\frac{2\\pi}{3}$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "Lower limit: $\\frac{\\pi}{4}+\\frac12\\sin\\frac{\\pi}{2}$",
+      "why": "You substitute $\\theta=\\frac{\\pi}{4}$, so $2\\theta = \\frac{\\pi}{2}$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "$I=\\left(\\frac{\\pi}{3}+\\frac12\\sin\\frac{2\\pi}{3}\\right)-\\left(\\frac{\\pi}{4}+\\frac12\\sin\\frac{\\pi}{2}\\right)$",
+      "why": "You subtract the lower-limit value from the upper-limit value, in that order.",
+      "secures": "dM1",
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$\\sin\\frac{2\\pi}{3}=\\frac{\\sqrt3}{2},\\quad \\sin\\frac{\\pi}{2}=1$",
+      "why": "You use the exact values of these sines, so the answer stays exact.",
+      "secures": null,
+      "check": "$\\frac{2\\pi}{3}$ is $120^\\circ$, and $\\sin120^\\circ=\\sin60^\\circ$."
+     },
+     {
+      "step": 11,
+      "working": "$I=\\left(\\frac{\\pi}{3}+\\frac12\\cdot\\frac{\\sqrt3}{2}\\right)-\\left(\\frac{\\pi}{4}+\\frac12\\cdot1\\right)$",
+      "why": "You put those exact values into the brackets.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 12,
+      "working": "$I=\\frac{\\pi}{3}+\\frac{\\sqrt3}{4}-\\frac{\\pi}{4}-\\frac12$",
+      "why": "You multiply out the halves and remove the brackets, changing the signs in the second one.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 13,
+      "working": "$\\frac{\\pi}{3}-\\frac{\\pi}{4}=\\frac{4\\pi-3\\pi}{12}=\\frac{\\pi}{12}$",
+      "why": "You collect the $\\pi$ terms over the common denominator 12.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 14,
+      "working": "$I=\\frac{\\pi}{12}+\\frac{\\sqrt3}{4}-\\frac12$",
+      "why": "You write the collected terms together.",
+      "secures": null,
+      "check": "Numerically about $0.262+0.433-0.5=0.195$."
+     },
+     {
+      "step": 15,
+      "working": "$I=\\frac{\\pi}{12}+\\frac{3\\sqrt3}{12}-\\frac{6}{12}$",
+      "why": "You rewrite each term over 12 by multiplying top and bottom of $\\frac{\\sqrt3}{4}$ by 3 and of $\\frac12$ by 6.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 16,
+      "working": "$I=\\frac{\\pi+3\\sqrt3-6}{12}$",
+      "why": "You combine the fractions over the single denominator 12, which is the printed result.",
+      "secures": "A1*",
+      "check": null
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T23:14:41+00:00",
+    "cost_usd": 0.033,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 3,
+   "error_code": "wrong-limits-after-substitution",
+   "text": "A common mistake is to keep the limits $2$ and $2\\sqrt{3}$ once everything is written in $\\theta$. Those are values of $x$, not $\\theta$. You must solve $\\tan\\theta = 1$ and $\\tan\\theta = \\sqrt{3}$ to get $\\frac{\\pi}{4}$ and $\\frac{\\pi}{3}$. If you don't show this working, you lose the second M1 and so the A1*.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "pythagorean-identity-error",
+   "text": "A common slip is to write $1 + \\tan^2\\theta$ as $\\sec^2\\theta - 1$ or $\\cos^2\\theta$. The correct identity is $1 + \\tan^2\\theta = \\sec^2\\theta$, which gives $(4 + x^2)^2 = 16\\sec^4\\theta$. With the wrong identity, the $\\sec^2\\theta$ from $\\mathrm{d}x$ won't cancel properly. You lose the first M1 and cannot reach $2\\cos^2\\theta$.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 3,
+   "error_code": "limits-substitution-error",
+   "text": "Keep each new limit matched to its $x$-limit. The lower limit $x = 2$ goes to $\\theta = \\frac{\\pi}{4}$ and the upper limit $x = 2\\sqrt{3}$ goes to $\\theta = \\frac{\\pi}{3}$. If you swap them, you get the integral from $\\frac{\\pi}{3}$ to $\\frac{\\pi}{4}$, which is $-I$, and the limits M1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "trig-integral-sign-error",
+   "text": "A common error is to integrate $\\cos 2\\theta$ as $-\\frac{1}{2}\\sin 2\\theta$, or as $2\\sin 2\\theta$. Differentiating $\\sin 2\\theta$ gives $2\\cos 2\\theta$, so the integral of $\\cos 2\\theta$ is $+\\frac{1}{2}\\sin 2\\theta$. If you get the sign or the factor wrong, the A1 for $\\theta + \\frac{1}{2}\\sin 2\\theta$ is lost and you can't reach the printed answer.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 4,
+   "error_code": "exact-trig-value-error",
+   "text": "At the upper limit you need $\\sin\\frac{2\\pi}{3}$, not $\\sin\\frac{\\pi}{3}$. Both equal $\\frac{\\sqrt{3}}{2}$, but if you use $\\frac{1}{2}$ here, you get $\\frac{\\pi}{12} + \\frac{1}{4} - \\frac{1}{2}$ and lose the final A1*. Also check that $\\sin\\frac{\\pi}{2} = 1$ at the lower limit.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 3,
+   "error_code": "limits-substitution-error",
+   "text": "Subtract the value at $\\theta = \\frac{\\pi}{4}$ from the value at $\\theta = \\frac{\\pi}{3}$. Doing it the other way round gives $\\frac{6 - \\pi - 3\\sqrt{3}}{12}$, which is negative. You lose the dM1 and the A1*, even though your integration was correct.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:45:40",
+ "generation": {
+  "attempts": 1,
+  "cost_usd": 0.2004
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 8
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.879 with part:IAL2018_WMA14_June2025_Q7:a"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "hits8": [],
+   "max_jaccard": 0.016,
+   "jaccard_source": "IAL2013_WMA02_Jan2015_Q4",
+   "shared_numbers": 0,
+   "max_cosine": 0.879,
+   "cosine_source": "part:IAL2018_WMA14_June2025_Q7:a"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 9,
+   "n_answers": 3,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "part a: expected theta_lower = pi/4, solver got ['Integral of 2*cos(theta)**2 from pi/4 to pi/3 (shown)'] [judge: same - The solver's limits are θ = π/4 and θ = π/3, which match the setter's. The solver's integrand is 2cos²θ, which is the target result.]",
+    "part a: expected theta_upper = pi/3, solver got ['Integral of 2*cos(theta)**2 from pi/4 to pi/3 (shown)'] [judge: same - The solver's limits are θ = π/4 and θ = π/3, which match the setter's. The solver's integrand is 2cos²θ, which is the target result.]"
+   ],
+   "flag": true,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.016,
+   "solver": {
+    "parts": [
+     {
+      "label": "(a)",
+      "answers": [
+       "Integral of 2*cos(theta)**2 from pi/4 to pi/3 (shown)"
+      ],
+      "printed_result_correct": true,
+      "working_summary": "dx = 2sec^2θ dθ; 4+x^2 = 4sec^2θ, so the integrand becomes 16·2sec^2θ/(16sec^4θ) = 2cos^2θ. Limits: x=2 gives tanθ=1, θ=π/4; x=2√3 gives tanθ=√3, θ=π/3."
+     },
+     {
+      "label": "(b)",
+      "answers": [
+       "(pi + 3*sqrt(3) - 6)/12"
+      ],
+      "printed_result_correct": true,
+      "working_summary": "2cos^2θ = 1+cos2θ. The integral is [θ + (1/2)sin2θ] from π/4 to π/3 = (π/3 + √3/4) − (π/4 + 1/2) = π/12 + √3/4 − 1/2 = (π+3√3−6)/12."
+     }
+    ],
+    "problems": []
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "response correct (correct): second marker agrees with the design; first marker gave {'a': ['B1', 'M1', 'M1', 'A1'], 'b': ['M1', 'A1', 'M1', 'A1']}",
+    "response pit-wrong-limits-a (pitfall wrong-limits-after-substitution): second marker agrees with the design; first marker gave {'a': ['B1', 'M1', 'M0', 'A0'], 'b': ['M1', 'A1', 'M1', 'A1']}",
+    "response pit-pythag-a (pitfall pythagorean-identity-error): second marker agrees with the design; first marker gave {'a': ['B1', 'M0', 'M1', 'A0'], 'b': ['M1', 'A1', 'M1', 'A1']}",
+    "response pit-swap-limits-a (pitfall limits-substitution-error): second marker agrees with the design; first marker gave {'a': ['B1', 'M1', 'M0', 'A0'], 'b': ['M1', 'A1', 'M1', 'A1']}",
+    "response pit-trig-sign-b (pitfall trig-integral-sign-error): second marker agrees with the design; first marker gave {'a': ['B1', 'M1', 'M1', 'A1'], 'b': ['M1', 'A0', 'M1', 'A0']}",
+    "response pit-exact-trig-b (pitfall exact-trig-value-error): second marker agrees with the design; first marker gave {'a': ['B1', 'M1', 'M1', 'A1'], 'b': ['M1', 'A1', 'M1', 'A0']}",
+    "response pit-reverse-subtraction-b (pitfall limits-substitution-error): second marker agrees with the design; first marker gave {'a': ['B1', 'M1', 'M1', 'A1'], 'b': ['M1', 'A1', 'M0', 'A0']}",
+    "response partial (partial): second marker agrees with the design; first marker gave {'a': ['B1', 'M1', 'M0', 'A0'], 'b': ['M0', 'A0', 'M0', 'A0']}"
+   ],
+   "flag": true,
+   "n_responses": 8,
+   "agreed": [
+    "correct",
+    "pit-wrong-limits-a",
+    "pit-pythag-a",
+    "pit-swap-limits-a",
+    "pit-trig-sign-b",
+    "pit-exact-trig-b",
+    "pit-reverse-subtraction-b",
+    "partial"
+   ],
+   "consistent": {},
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "correct",
+     "kind": "correct",
+     "error_code": null,
+     "work": "(a) $x=2\\tan\\theta$, $\\frac{dx}{d\\theta}=2\\sec^2\\theta$, so $dx=2\\sec^2\\theta\\,d\\theta$.\n$4+x^2=4+4\\tan^2\\theta=4\\sec^2\\theta$, so $(4+x^2)^2=16\\sec^4\\theta$.\nLimits: $x=2\\Rightarrow\\tan\\theta=1\\Rightarrow\\theta=\\frac{\\pi}{4}$; $x=2\\sqrt3\\Rightarrow\\tan\\theta=\\sqrt3\\Rightarrow\\theta=\\frac{\\pi}{3}$.\n$I=\\int_{\\pi/4}^{\\pi/3}\\frac{16\\cdot2\\sec^2\\theta}{16\\sec^4\\theta}d\\theta=\\int\\frac{2}{\\sec^2\\theta}d\\theta=\\int_{\\pi/4}^{\\pi/3}2\\cos^2\\theta\\,d\\theta$.\n(b) $2\\cos^2\\theta=1+\\cos2\\theta$, so $I=\\left[\\theta+\\frac12\\sin2\\theta\\right]_{\\pi/4}^{\\pi/3}$\n$=\\left(\\frac{\\pi}{3}+\\frac12\\sin\\frac{2\\pi}{3}\\right)-\\left(\\frac{\\pi}{4}+\\frac12\\sin\\frac{\\pi}{2}\\right)=\\left(\\frac{\\pi}{3}+\\frac{\\sqrt3}{4}\\right)-\\left(\\frac{\\pi}{4}+\\frac12\\right)=\\frac{\\pi}{12}+\\frac{\\sqrt3}{4}-\\frac12=\\frac{\\pi+3\\sqrt3-6}{12}$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "dM1",
+        "A1*"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pit-wrong-limits-a",
+     "kind": "pitfall",
+     "error_code": "wrong-limits-after-substitution",
+     "work": "(a) $dx=2\\sec^2\\theta\\,d\\theta$. $(4+x^2)^2=(4+4\\tan^2\\theta)^2=16\\sec^4\\theta$.\n$I=\\int_2^{2\\sqrt3}\\frac{16\\cdot2\\sec^2\\theta}{16\\sec^4\\theta}d\\theta=\\int_2^{2\\sqrt3}2\\cos^2\\theta\\,d\\theta$ (limits kept as they were), then states this is $\\int_{\\pi/4}^{\\pi/3}2\\cos^2\\theta\\,d\\theta$ with no working.\n(b) $2\\cos^2\\theta=1+\\cos2\\theta$; $I=\\left[\\theta+\\frac12\\sin2\\theta\\right]_{\\pi/4}^{\\pi/3}=\\left(\\frac{\\pi}{3}+\\frac12\\sin\\frac{2\\pi}{3}\\right)-\\left(\\frac{\\pi}{4}+\\frac12\\sin\\frac{\\pi}{2}\\right)=\\frac{\\pi}{12}+\\frac{\\sqrt3}{4}-\\frac12=\\frac{\\pi+3\\sqrt3-6}{12}$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "dM1",
+        "A1*"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pit-pythag-a",
+     "kind": "pitfall",
+     "error_code": "pythagorean-identity-error",
+     "work": "(a) $dx=2\\sec^2\\theta\\,d\\theta$. $4+x^2=4+4\\tan^2\\theta=4\\cos^2\\theta$ (using $1+\\tan^2\\theta=\\cos^2\\theta$), so $(4+x^2)^2=16\\cos^4\\theta$.\nLimits: $\\tan\\theta=1\\Rightarrow\\theta=\\frac{\\pi}{4}$, $\\tan\\theta=\\sqrt3\\Rightarrow\\theta=\\frac{\\pi}{3}$.\n$I=\\int\\frac{16\\cdot2\\sec^2\\theta}{16\\cos^4\\theta}d\\theta=\\int\\frac{2}{\\cos^6\\theta}d\\theta$, which doesn't match, so I just state it equals $\\int_{\\pi/4}^{\\pi/3}2\\cos^2\\theta\\,d\\theta$.\n(b) $2\\cos^2\\theta=1+\\cos2\\theta$, $I=\\left[\\theta+\\frac12\\sin2\\theta\\right]_{\\pi/4}^{\\pi/3}=\\left(\\frac{\\pi}{3}+\\frac{\\sqrt3}{4}\\right)-\\left(\\frac{\\pi}{4}+\\frac12\\right)$ (from $\\left(\\frac{\\pi}{3}+\\frac12\\sin\\frac{2\\pi}{3}\\right)-\\left(\\frac{\\pi}{4}+\\frac12\\sin\\frac{\\pi}{2}\\right)$) $=\\frac{\\pi}{12}+\\frac{\\sqrt3}{4}-\\frac12=\\frac{\\pi+3\\sqrt3-6}{12}$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M0",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "dM1",
+        "A1*"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pit-swap-limits-a",
+     "kind": "pitfall",
+     "error_code": "limits-substitution-error",
+     "work": "(a) $dx=2\\sec^2\\theta\\,d\\theta$; $(4+x^2)^2=16\\sec^4\\theta$ using $1+\\tan^2\\theta=\\sec^2\\theta$.\nLimits: $x=2\\Rightarrow\\tan\\theta=1\\Rightarrow\\theta=\\frac{\\pi}{3}$ (wrong), $x=2\\sqrt3\\Rightarrow\\tan\\theta=\\sqrt3\\Rightarrow\\theta=\\frac{\\pi}{4}$ (wrong).\n$I=\\int_{\\pi/3}^{\\pi/4}\\frac{2\\sec^2\\theta}{\\sec^4\\theta}d\\theta=\\int_{\\pi/3}^{\\pi/4}2\\cos^2\\theta\\,d\\theta$, and I quote the printed limits $\\frac{\\pi}{4}$ to $\\frac{\\pi}{3}$.\n(b) $I=\\int(1+\\cos2\\theta)d\\theta=\\left[\\theta+\\frac12\\sin2\\theta\\right]_{\\pi/4}^{\\pi/3}=\\left(\\frac{\\pi}{3}+\\frac12\\sin\\frac{2\\pi}{3}\\right)-\\left(\\frac{\\pi}{4}+\\frac12\\sin\\frac{\\pi}{2}\\right)=\\frac{\\pi}{12}+\\frac{\\sqrt3}{4}-\\frac12=\\frac{\\pi+3\\sqrt3-6}{12}$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "dM1",
+        "A1*"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pit-trig-sign-b",
+     "kind": "pitfall",
+     "error_code": "trig-integral-sign-error",
+     "work": "(a) $dx=2\\sec^2\\theta\\,d\\theta$; $(4+x^2)^2=16\\sec^4\\theta$; $x=2\\to\\tan\\theta=1\\to\\theta=\\frac{\\pi}{4}$, $x=2\\sqrt3\\to\\tan\\theta=\\sqrt3\\to\\theta=\\frac{\\pi}{3}$. $I=\\int_{\\pi/4}^{\\pi/3}\\frac{2\\sec^2\\theta}{\\sec^4\\theta}d\\theta=\\int_{\\pi/4}^{\\pi/3}2\\cos^2\\theta\\,d\\theta$.\n(b) $2\\cos^2\\theta=1+\\cos2\\theta$, so $I=\\left[\\theta-\\frac12\\sin2\\theta\\right]_{\\pi/4}^{\\pi/3}=\\left(\\frac{\\pi}{3}-\\frac12\\sin\\frac{2\\pi}{3}\\right)-\\left(\\frac{\\pi}{4}-\\frac12\\sin\\frac{\\pi}{2}\\right)=\\frac{\\pi}{3}-\\frac{\\sqrt3}{4}-\\frac{\\pi}{4}+\\frac12=\\frac{\\pi}{12}-\\frac{\\sqrt3}{4}+\\frac12$, which doesn't match the printed answer.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0",
+        "dM1",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pit-exact-trig-b",
+     "kind": "pitfall",
+     "error_code": "exact-trig-value-error",
+     "work": "(a) $dx=2\\sec^2\\theta\\,d\\theta$; $(4+x^2)^2=16\\sec^4\\theta$; $\\tan\\theta=1\\to\\theta=\\frac{\\pi}{4}$, $\\tan\\theta=\\sqrt3\\to\\theta=\\frac{\\pi}{3}$. $I=\\int_{\\pi/4}^{\\pi/3}\\frac{2}{\\sec^2\\theta}d\\theta=\\int_{\\pi/4}^{\\pi/3}2\\cos^2\\theta\\,d\\theta$.\n(b) $2\\cos^2\\theta=1+\\cos2\\theta$; $I=\\left[\\theta+\\frac12\\sin2\\theta\\right]_{\\pi/4}^{\\pi/3}=\\left(\\frac{\\pi}{3}+\\frac12\\sin\\frac{2\\pi}{3}\\right)-\\left(\\frac{\\pi}{4}+\\frac12\\sin\\frac{\\pi}{2}\\right)$.\nI use $\\sin\\frac{2\\pi}{3}=\\frac12$ and $\\sin\\frac{\\pi}{2}=1$: $I=\\frac{\\pi}{12}+\\frac14-\\frac12=\\frac{\\pi-3}{12}$, which doesn't match the printed answer.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "dM1",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pit-reverse-subtraction-b",
+     "kind": "pitfall",
+     "error_code": "limits-substitution-error",
+     "work": "(a) $dx=2\\sec^2\\theta\\,d\\theta$; $(4+x^2)^2=16\\sec^4\\theta$; $\\tan\\theta=1\\to\\theta=\\frac{\\pi}{4}$, $\\tan\\theta=\\sqrt3\\to\\theta=\\frac{\\pi}{3}$. $I=\\int_{\\pi/4}^{\\pi/3}\\frac{2\\sec^2\\theta}{\\sec^4\\theta}d\\theta=\\int_{\\pi/4}^{\\pi/3}2\\cos^2\\theta\\,d\\theta$.\n(b) $2\\cos^2\\theta=1+\\cos2\\theta$; $I=\\left[\\theta+\\frac12\\sin2\\theta\\right]$.\nLower minus upper: $\\left(\\frac{\\pi}{4}+\\frac12\\sin\\frac{\\pi}{2}\\right)-\\left(\\frac{\\pi}{3}+\\frac12\\sin\\frac{2\\pi}{3}\\right)=\\frac{\\pi}{4}+\\frac12-\\frac{\\pi}{3}-\\frac{\\sqrt3}{4}=\\frac{6-\\pi-3\\sqrt3}{12}$, which is negative and doesn't match the printed answer.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "dM0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "partial",
+     "kind": "partial",
+     "error_code": null,
+     "work": "(a) $x=2\\tan\\theta$, so $dx=2\\sec^2\\theta\\,d\\theta$.\n$4+x^2=4+4\\tan^2\\theta=4\\sec^2\\theta$, so $(4+x^2)^2=16\\sec^4\\theta$.\n$I=\\int\\frac{16}{16\\sec^4\\theta}\\cdot2\\sec^2\\theta\\,d\\theta$ ... I'm not sure how to deal with the limits, so I stop here. Part (b) not attempted.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0",
+        "dM0",
+        "A0"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "correct",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pit-wrong-limits-a",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "a M0: limits not changed, printed limits just stated without working",
+      "a A0: depends on both M marks"
+     ]
+    },
+    {
+     "id": "pit-pythag-a",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M0",
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "a M0: incorrect identity 1+tan^2=cos^2",
+      "a A0: does not validly reach printed integral"
+     ]
+    },
+    {
+     "id": "pit-swap-limits-a",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "a M0: theta limits mismatched to x limits",
+      "a A0: depends on both M marks"
+     ]
+    },
+    {
+     "id": "pit-trig-sign-b",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0",
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "b A0: integral has wrong sign -1/2 sin2θ",
+      "b A0: final answer does not match printed answer"
+     ]
+    },
+    {
+     "id": "pit-exact-trig-b",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "b A0: used sin(2π/3)=1/2 instead of √3/2, so printed answer not reached"
+     ]
+    },
+    {
+     "id": "pit-reverse-subtraction-b",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "b dM0: subtracted lower minus upper, wrong order",
+      "b A0: printed answer not reached"
+     ]
+    },
+    {
+     "id": "partial",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "a M0: limits not changed",
+      "a A0: printed integral not reached",
+      "b: not attempted"
+     ]
+    }
+   ],
+   "awarded_second": [
+    {
+     "id": "correct",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "dM1",
+        "A1*"
+       ]
+      }
+     ],
+     "reasons": []
+    },
+    {
+     "id": "pit-wrong-limits-a",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M0",
+        "A0*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "dM1",
+        "A1*"
+       ]
+      }
+     ],
+     "reasons": [
+      "a M0: no working shown for changing the limits. The x-limits were kept, then the printed θ-limits were stated without justification.",
+      "a A0*: depends on both M marks and the limits were not correctly derived."
+     ]
+    },
+    {
+     "id": "pit-pythag-a",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M0",
+        "M1",
+        "A0*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "dM1",
+        "A1*"
+       ]
+      }
+     ],
+     "reasons": [
+      "a M0: used the incorrect identity 1+tan²θ=cos²θ.",
+      "a A0*: depends on both M marks. The integrand was also wrong and the printed result was just stated."
+     ]
+    },
+    {
+     "id": "pit-swap-limits-a",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M0",
+        "A0*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "dM1",
+        "A1*"
+       ]
+      }
+     ],
+     "reasons": [
+      "a M0: the θ-limits were matched to the wrong x-limits (x=2 gave π/3 and x=2√3 gave π/4).",
+      "a A0*: depends on both M marks, and the work switched to the printed limits without justification."
+     ]
+    },
+    {
+     "id": "pit-trig-sign-b",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A0",
+        "dM1",
+        "A0*"
+       ]
+      }
+     ],
+     "reasons": [
+      "b A0: the integral θ − ½sin2θ is incorrect because the sign of the sin2θ term is wrong.",
+      "b A0*: the printed answer was not reached. The result was π/12 − √3/4 + 1/2."
+     ]
+    },
+    {
+     "id": "pit-exact-trig-b",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "dM1",
+        "A0*"
+       ]
+      }
+     ],
+     "reasons": [
+      "b A0*: used sin(2π/3)=1/2 instead of √3/2, so the printed answer was not reached."
+     ]
+    },
+    {
+     "id": "pit-reverse-subtraction-b",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M1",
+        "A1*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1",
+        "dM0",
+        "A0*"
+       ]
+      }
+     ],
+     "reasons": [
+      "b dM0: the limits were subtracted in the wrong order (lower minus upper).",
+      "b A0*: the printed answer was not reached. The result was negative."
+     ]
+    },
+    {
+     "id": "partial",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "M1",
+        "M0",
+        "A0*"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0",
+        "dM0",
+        "A0*"
+       ]
+      }
+     ],
+     "reasons": [
+      "a M0: the limits were not changed.",
+      "a A0*: the integrand was not simplified to 2cos²θ, the printed integral was not reached, and the second M mark was not earned.",
+      "b: not attempted, so no marks."
+     ]
+    }
+   ],
+   "cost_usd": 0.178
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "agreement": "2/2",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.021011,
+   "retagged": {
+    "a": [
+     "integration-by-substitution",
+     "change-limits-in-substitution",
+     "pythagorean-identities"
+    ],
+    "b": [
+     "double-angle-formulae",
+     "standard-integrals",
+     "exact-trig-values"
+    ]
+   }
+  },
+  "GL": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part a: brisk: answer theta_lower = pi/4 appears in an earlier line but not the last working",
+    "part a: brisk: answer theta_upper = pi/3 appears in an earlier line but not the last working",
+    "part a: copy check flag: cosine 0.851 with note:IAL2013_WMA02_Jan2018_Q8_n1",
+    "part b: copy check flag: cosine 0.885 with part:IAL2013_WMA02_Oct2020_Q12:iii"
+   ],
+   "parts_checked": 2
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

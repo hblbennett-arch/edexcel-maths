@@ -1,0 +1,147 @@
+{
+ "id": "differentiate-to-given-form",
+ "question_type": "differentiate-to-given-form",
+ "component": "pure",
+ "title": "Differentiate to a given form, then use it",
+ "what_it_asks": "You are given a single function, often a quotient, a product or a function of a function. You must find its derivative and show it equals a printed expression. A later part then uses that result, for example to show the function is increasing or decreasing, or to find a condition on a constant. The idea is to choose the right rule, apply it cleanly and factorise so the result matches the printed form.",
+ "typical_structure": "Most questions have two or three parts, and a few have one or four. The first part is usually \"find\" or \"show that\" for the derivative, worth about three or four marks. A later part typically uses that derivative, often with \"hence\" or \"given that\", and is worth a similar amount. Totals are usually around six or seven marks, though longer questions run to ten or more. If your derivative is wrong, a later part can sometimes still follow through, but only if you use your own result correctly.",
+ "mark_pattern": "The most typical sequences are M1 A1 A1 and M1 A1 for the differentiation itself. A longer part is often M1 A1 M1 A1 or M1 A1 dM1 A1. The first M1 is for a correct rule with the right structure, such as the quotient rule with every piece present, or a power reduced by one. The A1 marks are for correct derivative terms. The second M1 or dM1 is for the follow-on step: factorising, setting up a sign condition, or solving. The last A1 is for the printed form or the final conclusion, and in a show-that part it is cso. Some parts start with a B1 for a correct standard derivative, then M1 A1.",
+ "where_marks_leak": [
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You give a final value to the wrong number of decimal places or significant figures, for example after evaluating the derivative at a point. The final A1 is lost even though the method was sound."
+  },
+  {
+   "error_code": "second-derivative-error",
+   "mark_family": "accuracy",
+   "text": "You slip when differentiating the first derivative again, often by mishandling a negative power or a chain-rule factor. The A1 for the second derivative is lost, and any dM1 or A1 that uses it goes too."
+  },
+  {
+   "error_code": "rationalising-error",
+   "mark_family": "method",
+   "text": "When a surd sits in a denominator, you multiply by the wrong conjugate or only change the numerator. The M1 for the rationalising step is lost, and the accuracy mark after it goes as well."
+  },
+  {
+   "error_code": "quotient-rule-error",
+   "mark_family": "method",
+   "text": "You swap the order in the numerator, writing $uv' - vu'$, or forget to square the denominator. The M1 for the quotient rule is lost, and the A1 marks that depend on it go too."
+  },
+  {
+   "error_code": "gradient-not-evaluated-at-point",
+   "mark_family": "method",
+   "text": "You leave the derivative in terms of $x$ and use it as the gradient of a line, instead of substituting the given $x$ value. The method mark for the tangent or normal is lost."
+  }
+ ],
+ "write_to_earn": [
+  "Write the rule in symbols, naming $u$, $v$, $u'$ and $v'$, before you substitute anything.",
+  "Put the quotient-rule numerator in the order $vu' - uv'$ and square the whole denominator.",
+  "Show the factorising or cancelling line that links your derivative to the printed form, then write the printed form.",
+  "Rewrite roots and reciprocals as powers before differentiating, so each term is clear.",
+  "In the follow-on part, state the condition you need, such as $\\frac{\\mathrm{d}y}{\\mathrm{d}x} > 0$, and give a conclusion in words."
+ ],
+ "check_before_you_leave": [
+  "Does my result match the printed form exactly?",
+  "Is the quotient-rule order correct?",
+  "Is the answer in the form asked for?",
+  "Did I round only at the end?",
+  "Did I state a conclusion in words?"
+ ],
+ "skills": [
+  "chain-rule",
+  "quotient-rule",
+  "simplify-derivative-to-given-form",
+  "show-that-given-answer",
+  "use-hence-previous-result",
+  "differentiate-negative-and-fractional-powers",
+  "rewrite-using-index-laws",
+  "differentiate-trig-functions"
+ ],
+ "related_types": [
+  "stationary-points-and-nature",
+  "implicit-differentiation-tangents",
+  "first-principles",
+  "find-curve-from-gradient"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:03:46",
+ "cost_usd": 0.0516,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 96,
+  "codes_listed": {
+   "wrong-final-accuracy": 31,
+   "rationalising-error": 23,
+   "second-derivative-error": 17,
+   "quotient-rule-error": 9,
+   "gradient-not-evaluated-at-point": 9,
+   "completing-square-error": 7,
+   "premature-rounding": 7,
+   "pythagorean-identity-error": 7
+  },
+  "frequent_codes": [
+   "rationalising-error",
+   "second-derivative-error",
+   "wrong-final-accuracy"
+  ],
+  "practice_items": [
+   "cr-differentiate-polynomials-starter",
+   "cr-pure-differentiate-to-given-form-002",
+   "cr-simplify-derivative-to-given-form-core"
+  ]
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.837 with note:IAL2013_WMA01_Jan2017_Q1_n4"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.002,
+   "shared_numbers": 0,
+   "max_cosine": 0.837,
+   "cosine_source": "note:IAL2013_WMA01_Jan2017_Q1_n4"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 9
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.837 with note:IAL2013_WMA01_Jan2017_Q1_n4"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

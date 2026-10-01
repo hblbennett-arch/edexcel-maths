@@ -1,0 +1,131 @@
+{
+ "id": "proof-by-contradiction",
+ "question_type": "proof-by-contradiction",
+ "component": "pure",
+ "title": "Proof by contradiction",
+ "what_it_asks": "You are given a statement, often about integers, parity, factors or an inequality, and told to prove it by contradiction. You assume the statement is false, reason algebraically, and reach something impossible. You then conclude that the original statement must be true.",
+ "typical_structure": "Most questions have a single part, usually worth about four marks. Some have two parts. In those, the first part often asks you to show or complete a result, and the later part uses it in the contradiction. There is no diagram. The working is a short chain: assume the negation, set up the algebra, reach the impossible result, then conclude.",
+ "mark_pattern": "A four-mark part is usually B1 M1 A1 A1*, or sometimes M1 A1 M1 A1. The B1 is for stating the assumption (the negation of the claim) correctly. The M1 is for setting up the algebra, such as writing numbers as $2k$ and $2k+1$, or factorising. The A1 is for correct manipulation. The final A1* is for the contradiction together with a conclusion. Shorter parts are often M1 A1*, and a part worth one mark is sometimes just a B1 for the assumption. A five-mark part may add a dM1, which depends on the method mark before it.",
+ "where_marks_leak": [
+  {
+   "error_code": "contradiction-assumption-wrong",
+   "mark_family": "independent",
+   "text": "You assume the wrong statement at the start, for example the claim itself, or only part of its negation. The B1 is lost, and the rest of the argument is aimed at the wrong target, which puts the later marks at risk."
+  },
+  {
+   "error_code": "no-final-conclusion",
+   "mark_family": "accuracy",
+   "text": "You reach the impossible result but never say that the assumption is false and so the original statement is true. The final A1* is lost, because it needs the conclusion as well as the contradiction."
+  },
+  {
+   "error_code": "exhaustion-case-missed",
+   "mark_family": "method",
+   "text": "You check some factor pairs or cases but leave one out. The method mark for a complete argument is lost, and the A1 that follows from it goes too."
+  },
+  {
+   "error_code": "arithmetic-slip",
+   "mark_family": "accuracy",
+   "text": "You make a numerical or algebraic slip in an otherwise sound method. The A1 is lost, and a contradiction built on the slip will not earn the final A1*."
+  }
+ ],
+ "write_to_earn": [
+  "Begin with a line that says \"Assume, for contradiction, that...\" and write the exact negation of the claim.",
+  "Define your letters clearly, for example \"let $n = 2k$ where $k$ is an integer\", before you manipulate anything.",
+  "Write each algebra step, such as expanding or factorising, on its own line so the method mark is visible.",
+  "State precisely what is impossible, for example an odd number equal to an even number, or no integer factor pair that works.",
+  "Finish with a sentence saying the assumption is false, so the original statement is true."
+ ],
+ "check_before_you_leave": [
+  "Negation stated exactly",
+  "Letters defined as integers",
+  "Every case covered",
+  "Contradiction named clearly",
+  "Conclusion sentence written"
+ ],
+ "skills": [
+  "proof-by-contradiction",
+  "explain-with-reason",
+  "algebraic-proof-odd-even-multiples",
+  "prove-inequality-or-positivity",
+  "proof-by-exhaustion-or-counterexample",
+  "show-that-given-answer"
+ ],
+ "related_types": [
+  "proof-by-cases-and-counterexample"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:08:06",
+ "cost_usd": 0.1038,
+ "attempts": 2,
+ "facts": {
+  "n_questions": 20,
+  "codes_listed": {
+   "contradiction-assumption-wrong": 14,
+   "wrong-final-accuracy": 4,
+   "double-angle-error": 2,
+   "rationalising-error": 2,
+   "arithmetic-slip": 1,
+   "even-power-negative-root-missed": 1,
+   "exhaustion-case-missed": 1,
+   "no-final-conclusion": 1
+  },
+  "frequent_codes": [
+   "contradiction-assumption-wrong"
+  ],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.833 with note:IAL2018_WMA12_June2025_Q10_n8"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.003,
+   "shared_numbers": 0,
+   "max_cosine": 0.833,
+   "cosine_source": "note:IAL2018_WMA12_June2025_Q10_n8"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 4
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.833 with note:IAL2018_WMA12_June2025_Q10_n8"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

@@ -88,7 +88,105 @@
    "hints": [
     "Being given that the resistor was accepted limits you to $460 \\leqslant R \\leqslant 480$. What goes in the denominator?",
     "The numerator is the part of the accepted range that is also above 475."
-   ]
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$\\mathrm{P}(\\text{accepted})=\\mathrm{P}(460<R<480)=0.9044\\ldots$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$\\mathrm{P}(R>475\\mid\\text{accepted})=\\dfrac{\\mathrm{P}(475<R<480)}{\\mathrm{P}(460<R<480)}=\\dfrac{0.1545\\ldots}{0.9044\\ldots}$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$=0.171$",
+      "secures": [
+       "A1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "We need $\\mathrm{P}(R>475\\mid 460\\leqslant R\\leqslant 480)$.",
+      "why": "You are told the resistor was accepted, so this is a conditional probability: the sample space shrinks to accepted resistors.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$\\mathrm{P}(R>475\\mid\\text{accepted})=\\dfrac{\\mathrm{P}(R>475\\ \\text{and accepted})}{\\mathrm{P}(\\text{accepted})}$",
+      "why": "You write the conditional probability as the probability of both events divided by the probability of the given event.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$\\mathrm{P}(\\text{accepted})=\\mathrm{P}(460<R<480)$ with $R\\sim\\mathrm{N}(470,6^2)$",
+      "why": "Accepted means the resistance is between 460 and 480, so you enter these limits, the mean 470 and standard deviation 6 into the calculator's normal distribution function.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$\\mathrm{P}(460<R<480)=0.904419\\ldots$",
+      "why": "This is the calculator value, and it will be the denominator of your fraction.",
+      "secures": "M1",
+      "check": "It should be large, since 460 and 480 are each more than 1.6 standard deviations from the mean."
+     },
+     {
+      "step": 5,
+      "working": "$R>475$ and accepted means $475<R<480$",
+      "why": "Being above 475 and also at most 480 leaves only this interval, so the upper limit 480 must stay in the numerator.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$\\mathrm{P}(475<R<480)=0.154538\\ldots$",
+      "why": "You enter the limits 475 and 480 into the same normal distribution on your calculator.",
+      "secures": null,
+      "check": "It should be small, since 475 is close to 1 standard deviation above the mean."
+     },
+     {
+      "step": 7,
+      "working": "$\\mathrm{P}(R>475\\mid\\text{accepted})=\\dfrac{0.154538\\ldots}{0.904419\\ldots}$",
+      "why": "You substitute the numerator and denominator into the conditional probability formula.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$=0.17087\\ldots$",
+      "why": "You divide the two numbers on your calculator.",
+      "secures": null,
+      "check": "The result is between 0 and 1, and less than the denominator ratio's numerator-sized value, as it should be."
+     },
+     {
+      "step": 9,
+      "working": "$p=0.171$ (3 s.f.)",
+      "why": "You round to three significant figures, since the fourth figure, 8, rounds the 0.170 up to 0.171.",
+      "secures": "A1",
+      "check": null
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:51:03+00:00",
+    "cost_usd": 0.0194,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
   },
   {
    "label": "b",
@@ -153,7 +251,112 @@
    "hints": [
     "Each accepted resistor independently either is or is not above 475 ohms. Which distribution counts successes in 12 trials?",
     "The success probability is your answer to (a), not the unconditional $\\mathrm{P}(R > 475)$."
-   ]
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$X\\sim \\mathrm{B}(12,0.17087)$, so $\\mathrm{P}(X=3)=\\binom{12}{3}(0.17087)^3(0.82913)^9$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$=0.20325\\ldots = 0.203$",
+      "secures": [
+       "A1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "Let $X$ be the number of the 12 accepted resistors with $R>475$. Then $X\\sim \\mathrm{B}(12,\\,0.17087)$.",
+      "why": "Each accepted resistor independently has the probability from part (a) of being above 475 ohms, and you have a fixed number, 12, of them. That makes the count binomial.",
+      "secures": null,
+      "check": "Two outcomes each time (above 475 or not), fixed $n=12$, same $p$ each time."
+     },
+     {
+      "step": 2,
+      "working": "We need $\\mathrm{P}(X=3)$.",
+      "why": "The question asks for exactly 3 resistors above 475 ohms, so you want a single binomial point probability.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$\\mathrm{P}(X=3)=\\binom{12}{3}p^3(1-p)^{9}$",
+      "why": "The binomial formula with $n=12$ and $r=3$ has $p^3$ for the three successes and $(1-p)^{12-3}=(1-p)^9$ for the nine failures.",
+      "secures": null,
+      "check": "The powers $3+9$ add up to 12."
+     },
+     {
+      "step": 4,
+      "working": "$\\mathrm{P}(X=3)=\\binom{12}{3}(0.17087)^3(0.82913)^9$",
+      "why": "Put in the value of $p$ from part (a), and $1-p=1-0.17087=0.82913$.",
+      "secures": "M1",
+      "check": "$0.17087+0.82913=1$."
+     },
+     {
+      "step": 5,
+      "working": "$\\binom{12}{3}=\\dfrac{12\\times 11\\times 10}{3\\times 2\\times 1}=220$",
+      "why": "This counts the ways of choosing which 3 of the 12 resistors are above 475 ohms.",
+      "secures": null,
+      "check": "$1320\\div 6=220$."
+     },
+     {
+      "step": 6,
+      "working": "$(0.17087)^3=0.0049889\\ldots$",
+      "why": "Evaluate the power of the success probability on your calculator.",
+      "secures": null,
+      "check": "$0.17^3\\approx0.0049$, so this is the right size."
+     },
+     {
+      "step": 7,
+      "working": "$(0.82913)^9=0.185184\\ldots$",
+      "why": "Evaluate the power of the failure probability on your calculator.",
+      "secures": null,
+      "check": "$0.83^9\\approx 0.186$, which is close."
+     },
+     {
+      "step": 8,
+      "working": "$\\mathrm{P}(X=3)=220\\times 0.0049889\\times 0.185184$",
+      "why": "Multiply the three evaluated parts together.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "$220\\times 0.0049889=1.09756\\ldots$",
+      "why": "Multiply the first two factors first, to keep the arithmetic in steps.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$1.09756\\times 0.185184=0.20325\\ldots$",
+      "why": "Multiply by the last factor to get the probability.",
+      "secures": null,
+      "check": "The answer lies between 0 and 1, as a probability must."
+     },
+     {
+      "step": 11,
+      "working": "$\\mathrm{P}(X=3)=0.203$ (3 s.f.)",
+      "why": "Round to 3 significant figures: the digit after 0.203 is 2, so you round down.",
+      "secures": "A1",
+      "check": null
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:53:41+00:00",
+    "cost_usd": 0.0148,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
   },
   {
    "label": "c",
@@ -228,7 +431,119 @@
    "hints": [
     "First write the expected number as a proportion of the batch: this gives $\\mathrm{P}(R < k)$.",
     "A proportion this small is in the lower tail, so should $k$ be above or below 470?"
-   ]
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$\\mathrm{P}(R<k)=\\frac{150}{2000}=0.075$, so $\\frac{k-470}{6}=z$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$z=-1.4395\\ldots$",
+      "secures": [
+       "B1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$k=470-6\\times1.4395=461.4$",
+      "secures": [
+       "A1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "Expected number $=2000\\times\\mathrm{P}(R<k)=150$",
+      "why": "The expected count in a batch is the batch size times the probability, so you set up an equation using the 2000 resistors and the 150.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$\\mathrm{P}(R<k)=\\dfrac{150}{2000}$",
+      "why": "You divide both sides by 2000 to isolate the probability.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$\\mathrm{P}(R<k)=0.075$",
+      "why": "You evaluate the fraction to get a decimal you can use with the inverse normal function.",
+      "secures": null,
+      "check": "$0.075\\times2000=150$."
+     },
+     {
+      "step": 4,
+      "working": "$\\mathrm{P}\\left(Z<\\dfrac{k-470}{6}\\right)=0.075$",
+      "why": "You standardise, subtracting the mean 470 and dividing by the standard deviation 6, so that you can use the standard normal $Z$.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$\\dfrac{k-470}{6}=\\Phi^{-1}(0.075)$",
+      "why": "The inverse normal function undoes the probability and gives the $z$-value that has 0.075 below it.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$\\dfrac{k-470}{6}=-1.4395\\ldots$",
+      "why": "You read off the value from your calculator. It is negative because 0.075 is less than 0.5, so $k$ lies below the mean.",
+      "secures": "B1",
+      "check": "Negative sign: $k$ should be below 470."
+     },
+     {
+      "step": 7,
+      "working": "$k-470=6\\times(-1.4395\\ldots)$",
+      "why": "You multiply both sides by 6 to remove the division.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$k-470=-8.637\\ldots$",
+      "why": "You evaluate the product.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "$k=470-8.637\\ldots$",
+      "why": "You add 470 to both sides to get $k$ on its own.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$k=461.36\\ldots$",
+      "why": "You subtract to get the unrounded value.",
+      "secures": null,
+      "check": "About 1.44 standard deviations below 470."
+     },
+     {
+      "step": 11,
+      "working": "$k=461.4$ (1 d.p.)",
+      "why": "You round to one decimal place as the question asks.",
+      "secures": "A1",
+      "check": null
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:51:06+00:00",
+    "cost_usd": 0.0182,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
   },
   {
    "label": "d",
@@ -302,7 +617,112 @@
    "hints": [
     "Only 5% are below 462 ohms, so 462 is in the lower tail: think about the sign of $z$.",
     "For the explanation, say what $\\mu$ measures for these particular resistors, and compare it with 470."
-   ]
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$\\dfrac{462-\\mu}{6}=-1.6449$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$\\mu$ is the mean resistance of resistors made after servicing, about $1.9$ ohms above the nominal $470$",
+      "secures": [
+       "B1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$\\mu=462+6\\times1.6449=471.9$",
+      "secures": [
+       "A1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$\\mathrm{P}(R<462)=0.05$",
+      "why": "You start from the information given: 5% of resistors made after servicing have resistance below 462 ohms.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$\\mathrm{P}\\left(Z<\\dfrac{462-\\mu}{6}\\right)=0.05$",
+      "why": "You standardise by subtracting the mean $\\mu$ and dividing by the standard deviation $6$, so you can use the standard normal $Z$.",
+      "secures": null,
+      "check": "You divide by 6, not by 36."
+     },
+     {
+      "step": 3,
+      "working": "$\\dfrac{462-\\mu}{6}=-1.64485\\ldots$",
+      "why": "You use the inverse normal function to find the $z$-value with 5% of the distribution below it. It is negative because 5% is less than half.",
+      "secures": "M1",
+      "check": "The $z$-value must be negative, as 462 lies below the mean."
+     },
+     {
+      "step": 4,
+      "working": "$\\mu$ is the mean resistance, in ohms, of resistors made after servicing; it turns out to be about $1.9$ ohms above the nominal $470$",
+      "why": "You say what $\\mu$ means in the context of the workshop: it is the average resistance of resistors from Line A after the servicing. The next lines find its value.",
+      "secures": "B1",
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$462-\\mu=6\\times(-1.64485\\ldots)$",
+      "why": "You multiply both sides by $6$ to remove the denominator.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$462-\\mu=-9.8691\\ldots$",
+      "why": "You evaluate $6\\times1.64485$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "$462=\\mu-9.8691\\ldots$",
+      "why": "You add $\\mu$ to both sides so that $\\mu$ has a positive sign.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$\\mu=462+9.8691\\ldots$",
+      "why": "You add $9.8691\\ldots$ to both sides to isolate $\\mu$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "$\\mu=471.869\\ldots$",
+      "why": "You add the two numbers.",
+      "secures": "A1",
+      "check": "Substitute back: $(462-471.87)/6\\approx-1.645$."
+     },
+     {
+      "step": 10,
+      "working": "$\\mu=471.9$, which is about $1.9$ ohms above the nominal $470$, so resistors made after servicing now average slightly above $470$ ohms",
+      "why": "You round to 1 decimal place and link the value back to the nominal rating of 470 ohms.",
+      "secures": null,
+      "check": "$471.9-470=1.9$."
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:52:47+00:00",
+    "cost_usd": 0.0182,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
   },
   {
    "label": "e",
@@ -405,7 +825,148 @@
    "hints": [
     "Write 'one in eight' and 'one in five' as probabilities, and decide which tail each one is in.",
     "Each statement gives an equation of the form $x = \\mu_B + z\\sigma_B$. Solve the two together."
-   ]
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$\\mathrm{P}(S>1030)=0.125 \\Rightarrow \\dfrac{1030-\\mu_B}{\\sigma_B}=1.1503$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$\\mathrm{P}(S<985)=0.2 \\Rightarrow \\dfrac{985-\\mu_B}{\\sigma_B}=-0.8416$; subtracting: $45=1.9920\\,\\sigma_B$",
+      "secures": [
+       "M1",
+       "B1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$\\sigma_B=22.59\\ldots$, $\\mu_B=1030-1.1503\\times22.59\\ldots=1004.0$, so $\\sigma_B=22.6$, $\\mu_B=1004.0$",
+      "secures": [
+       "A1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$\\mathrm{P}(S>1030)=\\dfrac{1}{8}=0.125$",
+      "why": "One resistor in every eight reads over 1030 ohms, so you turn that into an upper-tail probability.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$\\mathrm{P}(S<1030)=1-0.125=0.875$",
+      "why": "Your inverse normal function works from the area to the left, so you find the probability below 1030.",
+      "secures": null,
+      "check": "The two probabilities add to 1."
+     },
+     {
+      "step": 3,
+      "working": "$z_1=\\Phi^{-1}(0.875)=1.150349\\ldots$",
+      "why": "You use inverse normal, which finds the standard normal value with a given area to its left. This gives the z-value for 1030.",
+      "secures": "B1",
+      "check": "It is positive because 1030 is above the mean, since the upper tail is under a half."
+     },
+     {
+      "step": 4,
+      "working": "$\\dfrac{1030-\\mu_B}{\\sigma_B}=1.150349$",
+      "why": "You standardise 1030 by subtracting the mean and dividing by the standard deviation, and set it equal to the z-value.",
+      "secures": "M1",
+      "check": "The denominator is $\\sigma_B$, not $\\sigma_B^2$."
+     },
+     {
+      "step": 5,
+      "working": "$\\mathrm{P}(S<985)=\\dfrac{1}{5}=0.2$",
+      "why": "One resistor in every five reads under 985 ohms, which is already a lower-tail probability.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$z_2=\\Phi^{-1}(0.2)=-0.841621\\ldots$",
+      "why": "You use inverse normal again. The value is negative because 985 lies below the mean.",
+      "secures": "B1",
+      "check": "The sign is negative because 0.2 is less than 0.5."
+     },
+     {
+      "step": 7,
+      "working": "$\\dfrac{985-\\mu_B}{\\sigma_B}=-0.841621$",
+      "why": "You standardise 985 in the same way, giving a second equation in the same two unknowns.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$1030-\\mu_B=1.150349\\,\\sigma_B$",
+      "why": "You multiply the first equation by $\\sigma_B$ to clear the fraction.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "$985-\\mu_B=-0.841621\\,\\sigma_B$",
+      "why": "You multiply the second equation by $\\sigma_B$ in the same way.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$(1030-\\mu_B)-(985-\\mu_B)=1.150349\\,\\sigma_B-(-0.841621\\,\\sigma_B)$",
+      "why": "You subtract the second equation from the first so that $\\mu_B$ cancels.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 11,
+      "working": "$45=1.991970\\,\\sigma_B$",
+      "why": "The left side is $1030-985=45$. On the right, $1.150349+0.841621=1.991970$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 12,
+      "working": "$\\sigma_B=\\dfrac{45}{1.991970}=22.5907\\ldots$",
+      "why": "You divide both sides by 1.991970 to get $\\sigma_B$.",
+      "secures": null,
+      "check": "About 45 divided by 2 is 22.5, so the size is right."
+     },
+     {
+      "step": 13,
+      "working": "$\\mu_B=1030-1.150349\\times22.5907\\ldots$",
+      "why": "You put $\\sigma_B$ back into the first equation, rearranged to make $\\mu_B$ the subject.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 14,
+      "working": "$\\mu_B=1030-25.9877\\ldots=1004.01\\ldots$",
+      "why": "You multiply out $1.150349\\times22.5907$ and subtract it from 1030.",
+      "secures": null,
+      "check": "Check with 985: $985-1004.01=-19.01$, and $-19.01/22.59=-0.8416$, which matches $z_2$."
+     },
+     {
+      "step": 15,
+      "working": "$\\sigma_B=22.6$, $\\mu_B=1004.0$ (1 d.p.)",
+      "why": "You round both answers to 1 decimal place, as the question asks.",
+      "secures": "A1",
+      "check": null
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:52:41+00:00",
+    "cost_usd": 0.0277,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
   }
  ],
  "pitfalls": [
@@ -2422,6 +2983,18 @@
      "inverse-normal"
     ]
    }
+  },
+  "GL": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part a: copy check flag: cosine 0.759 with note:IAL2013_WST01_Jan2019_Q3_n4",
+    "part b: copy check flag: cosine 0.758 with note:IAL2013_WST01_Oct2018_Q4_n5",
+    "part c: copy check flag: cosine 0.790 with question:P3_June2022_stats_Q2",
+    "part e: every_step secures ['B1', 'M1', 'B1', 'M1', 'A1'], scheme is ['M1', 'M1', 'B1', 'A1']",
+    "part e: copy check flag: cosine 0.781 with part:GCE2008_6683_Jan2009_Q6:b"
+   ],
+   "parts_checked": 5
   }
  },
  "review": {

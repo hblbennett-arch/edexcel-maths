@@ -1,0 +1,283 @@
+{
+ "id": "cr-3-p2-q02",
+ "blueprint_id": "mk-3-p2-q02",
+ "question_type": "ap-gp-in-context",
+ "component": "pure",
+ "tier": "accessible",
+ "kind": "mock",
+ "stem": "A patient is starting a new anticonvulsant medicine. The hospital pharmacist sets up a titration schedule where the patient takes $12\\,\\mathrm{mg}$ on day 1, and the daily dose then goes up by $3\\,\\mathrm{mg}$ each day. So the dose on each day is $3\\,\\mathrm{mg}$ more than on the day before.\n\nThe schedule stops at the end of the day on which the total amount taken since day 1 reaches exactly $810\\,\\mathrm{mg}$. The schedule lasts $n$ days.",
+ "paper": "mock-3-P2",
+ "set": "mock-3",
+ "q_num": 2,
+ "parts": [
+  {
+   "label": "a",
+   "marks": 1,
+   "text": "Show that the dose the patient takes on day 15 is $54\\,\\mathrm{mg}$. (1)",
+   "command": "show-that",
+   "forms": [],
+   "skills": [
+    "arithmetic-sequence-nth-term",
+    "translate-context-into-model",
+    "show-that-given-answer"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1*",
+     "for": "Treats the daily doses as an arithmetic sequence with first term 12 and common difference 3, and shows $12 + (15-1)\\times 3 = 12 + 42 = 54$, so the day-15 dose is $54\\,\\mathrm{mg}$",
+     "notes": "Listing all 15 doses from 12 up to 54 is also acceptable. A bare statement of 54 with no working scores B0."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "The doses $12, 15, 18, \\ldots$ form an arithmetic sequence with $a = 12$ and $d = 3$. Day 15 is the 15th term: $u_{15} = 12 + (15-1)(3) = 12 + 42 = 54$, so the dose on day 15 is $54\\,\\mathrm{mg}$.",
+     "mark": "B1*"
+    }
+   ],
+   "answers": [
+    {
+     "name": "u15",
+     "expr": "54",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "12 + (15-1)*3",
+     "answer": "u15"
+    }
+   ],
+   "hints": [
+    "Day 1 is the first term. Count how many $3\\,\\mathrm{mg}$ increases take place between day 1 and day 15."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 2,
+   "text": "Show that $n$ satisfies the equation $n^2 + 7n - 540 = 0$. (2)",
+   "command": "show-that",
+   "forms": [],
+   "skills": [
+    "arithmetic-series-sum",
+    "translate-context-into-model",
+    "show-that-given-answer"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Writes the total taken over $n$ days as an arithmetic sum with $a = 12$ and $d = 3$, e.g. $\\frac{n}{2}[24 + 3(n-1)]$ or $\\frac{n}{2}[12 + (3n + 9)]$, and sets it equal to 810",
+     "notes": "The sum formula must have the correct structure, allowing slips in the numbers. Using $3n$ in place of $3(n-1)$ scores M0."
+    },
+    {
+     "code": "A1*",
+     "for": "Simplifies correctly through an intermediate line such as $3n^2 + 21n = 1620$ and reaches $n^2 + 7n - 540 = 0$ exactly",
+     "notes": "cso. Every step must be shown with no errors, including a correct expansion of the bracket."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Total taken over $n$ days: $S_n = \\frac{n}{2}\\left[2(12) + (n-1)(3)\\right] = 810$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$\\frac{n}{2}(3n + 21) = 810 \\Rightarrow 3n^2 + 21n = 1620 \\Rightarrow n^2 + 7n - 540 = 0$",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "n/2*(2*12 + (n-1)*3) - 810",
+     "rhs": "3/2*(n^2 + 7n - 540)"
+    }
+   ],
+   "hints": [
+    "The running total after $n$ days adds up $n$ doses that start at 12 and go up in steps of 3. Write this total in terms of $n$ and set it equal to 810.",
+    "To reach the printed form, multiply both sides by 2 to get rid of the fraction, then divide every term by 3."
+   ]
+  },
+  {
+   "label": "c",
+   "marks": 2,
+   "text": "Hence find the number of days the titration schedule lasts. (2)",
+   "command": "hence",
+   "forms": [],
+   "skills": [
+    "solve-quadratic-equation",
+    "use-hence-previous-result",
+    "reject-invalid-solutions"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Solves $n^2 + 7n - 540 = 0$ by a valid method, e.g. factorising to $(n + 27)(n - 20) = 0$ or substituting correctly into the quadratic formula",
+     "notes": "If factorising, the brackets must expand to give two of the three terms correctly. If using the formula, it must be quoted or substituted correctly."
+    },
+    {
+     "code": "A1",
+     "for": "Gives $n = 20$ days and rejects $n = -27$ because a number of days cannot be negative",
+     "notes": "cao. For the A1, $-27$ must be explicitly rejected or discarded."
+    }
+   ],
+   "alternatives": [
+    {
+     "name": "Way 2: quadratic formula",
+     "marks": [
+      {
+       "code": "M1",
+       "for": "$n = \\frac{-7 \\pm \\sqrt{49 + 2160}}{2} = \\frac{-7 \\pm 47}{2}$"
+      },
+      {
+       "code": "A1",
+       "for": "$n = 20$, with $n = -27$ rejected because the number of days must be positive"
+      }
+     ]
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$n^2 + 7n - 540 = 0 \\Rightarrow (n + 27)(n - 20) = 0$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$n = 20$ or $n = -27$. A number of days cannot be negative, so the schedule lasts $20$ days.",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "n",
+     "expr": "20",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "solutions",
+     "equation": "n^2 + 7n - 540 = 0",
+     "var": "n",
+     "result": [
+      "-27",
+      "20"
+     ]
+    },
+    {
+     "type": "substitute",
+     "expr": "n/2*(24 + 3*(n-1))",
+     "at": {
+      "n": 20
+     },
+     "result": "810"
+    },
+    {
+     "type": "solutions",
+     "equation": "n^2 + 7n - 540 = 0",
+     "var": "n",
+     "interval": [
+      0,
+      100
+     ],
+     "answer": "n"
+    }
+   ],
+   "hints": [
+    "Look for two numbers with a product of $-540$ and a sum of $7$.",
+    "Once you have both roots, ask which one makes sense as a number of days."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "nth-term-index-error",
+   "text": "If you work out $12 + 15 \\times 3 = 57$, you have counted one increase too many. Day 1 has no increase, so only 14 steps of $3\\,\\mathrm{mg}$ take you to day 15. You would not reach the printed 54, so the B1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "series-formula-error",
+   "text": "If you use $\\frac{n}{2}(12 + 3n)$ as the total, you have put the common difference in place of the last term. The last dose is $12 + 3(n-1) = 3n + 9$, so the correct total is $\\frac{n}{2}(12 + 3n + 9)$. With the wrong total the M1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "nth-term-index-error",
+   "text": "If you write $2(12) + 3n$ inside the bracket instead of $2(12) + 3(n-1)$, you get $3n^2 + 24n = 1620$. That will not simplify to $n^2 + 7n - 540 = 0$, so you lose the M1 and the A1*.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "step": 1,
+   "error_code": "quadratic-formula-error",
+   "text": "If you use the quadratic formula, the whole of $-7 \\pm \\sqrt{2209}$ must be divided by 2. It is a common error to divide only the square root, giving $-7 \\pm 23.5$, and this loses the M1. Also remember that $b = 7$, so the formula starts with $-7$, not $+7$.",
+   "says_common": true
+  },
+  {
+   "part": "c",
+   "step": 2,
+   "error_code": "incomplete-factorisation",
+   "text": "If you stop at $(n + 27)(n - 20) = 0$, or give both $20$ and $-27$ as the answer, you have not finished. You need to state that $n = 20$ days and reject $-27$ because it is negative. Otherwise the A1 is lost.",
+   "says_common": true
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:53:09",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.2546
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 5
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.791 with part:GCE2008_6665_June2016_Q9:c"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "hits8": [],
+   "max_jaccard": 0.007,
+   "jaccard_source": "IAL2018_WST01_June2025_Q7",
+   "shared_numbers": 1,
+   "max_cosine": 0.791,
+   "cosine_source": "part:GCE2008_6665_June2016_Q9:c"
+  },
+  "G2": {
+   "pass": false,
+   "errors": [
+    "part c check 3 (solutions): result must be a list of solutions"
+   ],
+   "n_checks": 5,
+   "n_answers": 2,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

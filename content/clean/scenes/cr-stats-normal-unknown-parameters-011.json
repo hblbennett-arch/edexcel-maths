@@ -1,0 +1,372 @@
+{
+ "item_id": "cr-stats-normal-unknown-parameters-011",
+ "applicable": true,
+ "reason": "Shaded areas under the normal curve show why the conditional probability divides by P(accepted), and how an inverse-normal value fixes k.",
+ "scenes": [
+  {
+   "id": "cr-stats-normal-unknown-parameters-011::a::1",
+   "part": "a",
+   "title": "Conditional probability as a fraction of the accepted region",
+   "purpose": "See that, given acceptance, the sample space shrinks to 460 to 480, so the answer is the small shaded area divided by the whole accepted area.",
+   "approach": "model",
+   "board": {
+    "x": [
+     445,
+     495
+    ],
+    "y": [
+     -0.012,
+     0.08
+    ],
+    "axis": true,
+    "grid": false,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "c",
+     "label": "lower limit c (ohms)",
+     "min": 460,
+     "max": 479,
+     "step": 0.5,
+     "value": 475
+    }
+   ],
+   "elements": [
+    {
+     "type": "function",
+     "id": "f",
+     "expr": "exp(-((x-470)^2)/(2*36))/(6*sqrt(2*pi))",
+     "color": "primary",
+     "label": "R"
+    },
+    {
+     "type": "integral",
+     "id": "A",
+     "of": "f",
+     "from": "460",
+     "to": "480",
+     "color": "secondary",
+     "opacity": 0.2
+    },
+    {
+     "type": "integral",
+     "id": "U",
+     "of": "f",
+     "from": "c",
+     "to": "480",
+     "color": "warning",
+     "opacity": 0.5
+    },
+    {
+     "type": "vline",
+     "id": "v460",
+     "at": "460"
+    },
+    {
+     "type": "vline",
+     "id": "v480",
+     "at": "480"
+    },
+    {
+     "type": "text",
+     "id": "tA",
+     "x": "447",
+     "y": "0.075",
+     "value": "P(accepted) = {area(A)}"
+    },
+    {
+     "type": "text",
+     "id": "tU",
+     "x": "447",
+     "y": "0.069",
+     "value": "P(c < R < 480) = {area(U)}"
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "The blue region is the accepted band $460 < R < 480$. Its area is $0.9044\\ldots$, which is the denominator. This is the first M1.",
+     "set": {
+      "c": 475
+     },
+     "show": [
+      "A"
+     ],
+     "highlight": [
+      "A"
+     ]
+    },
+    {
+     "n": 2,
+     "text": "The orange region is $475 < R < 480$, with area $0.1545\\ldots$. It is the numerator, because you only count accepted resistors above $475$. This is the second M1.",
+     "set": {
+      "c": 475
+     },
+     "highlight": [
+      "U"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "The answer is the orange area as a fraction of the accepted area: $\\frac{0.154538}{0.904419} \\approx 0.171$, the A1. Drag $c$ down towards $460$ and the fraction heads towards $1$. Dividing by $\\mathrm{P}(R>475)$ or not dividing at all would give a different number.",
+     "set": {
+      "c": 475
+     }
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     1,
+     2,
+     3
+    ],
+    "marks": [
+     "M1",
+     "A1"
+    ],
+    "pitfalls": [
+     "conditional-denominator-error",
+     "standardising-error"
+    ]
+   },
+   "guide": {
+    "what_you_see": "The bell curve for the resistance $R \\sim \\mathrm{N}(470, 6^2)$ of a Line A resistor, with the accepted band from $460$ to $480$ ohms shaded blue and a smaller orange slice inside it that starts at the slider value $c$.",
+    "legend": [
+     {
+      "id": "f",
+      "meaning": "The normal density curve of $R$, with mean $470$ and standard deviation $6$, from the question."
+     },
+     {
+      "id": "A",
+      "meaning": "The blue region under the curve between $460$ and $480$: the probability that the tester accepts a resistor, $\\mathrm{P}(460 < R < 480)\\approx 0.9044$."
+     },
+     {
+      "id": "U",
+      "meaning": "The orange region under the curve from $c$ to $480$: the accepted resistors with resistance above $c$. At $c=475$ it is $\\mathrm{P}(475 < R < 480)\\approx 0.1545$."
+     },
+     {
+      "id": "v460",
+      "meaning": "Vertical line at $R=460$, the lower acceptance limit."
+     },
+     {
+      "id": "v480",
+      "meaning": "Vertical line at $R=480$, the upper acceptance limit."
+     }
+    ],
+    "interact": [
+     {
+      "control": "c",
+      "kind": "slider",
+      "do": "Start at $c=475$, the value in the question. Then drag the slider down towards $460$ and back up towards $479$.",
+      "watch": "The orange region grows as $c$ decreases and shrinks as $c$ increases. At $c=475$ its area is $0.1545\\ldots$, which is about $0.171$ of the blue area. As $c$ approaches $460$ the orange region fills the blue one, so the fraction tends to $1$."
+     }
+    ],
+    "question_link": {
+     "part": "a",
+     "marks": [
+      "M1",
+      "A1"
+     ],
+     "text": "The blue region $A$ is the probability of acceptance, which is the denominator of the conditional probability and earns the first M1. The orange region $U$ at $c=475$ is $\\mathrm{P}(475 < R < 480)$, the numerator for the second M1. Their ratio $\\frac{0.1545\\ldots}{0.9044\\ldots}\\approx 0.171$ is the A1 answer."
+    },
+    "read_off": [
+     "'P(accepted)' is the blue area, $\\mathrm{P}(460 < R < 480)$. It stays fixed at about $0.9044$ and is the denominator.",
+     "'P(c < R < 480)' is the orange area. At $c=475$ it reads about $0.1545$, the numerator. Divide it by the 'P(accepted)' reading to get the answer, about $0.171$."
+    ]
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0224,
+    "attempts": 1,
+    "gate": {
+     "pass": true,
+     "errors": []
+    },
+    "generated_at": "2026-09-30T23:13:15"
+   }
+  },
+  {
+   "id": "cr-stats-normal-unknown-parameters-011::c::2",
+   "part": "c",
+   "title": "Sliding k until the lower tail is 0.075",
+   "purpose": "See that k is the point where the area to its left is 0.075, which lies below the mean so its z-value is negative.",
+   "approach": "graphical",
+   "board": {
+    "x": [
+     445,
+     495
+    ],
+    "y": [
+     -0.012,
+     0.08
+    ],
+    "axis": true,
+    "grid": false,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "k",
+     "label": "value of k (ohms)",
+     "min": 452,
+     "max": 480,
+     "step": 0.1,
+     "value": 468
+    }
+   ],
+   "elements": [
+    {
+     "type": "function",
+     "id": "f",
+     "expr": "exp(-((x-470)^2)/(2*36))/(6*sqrt(2*pi))",
+     "color": "primary",
+     "label": "R"
+    },
+    {
+     "type": "integral",
+     "id": "L",
+     "of": "f",
+     "from": "440",
+     "to": "k",
+     "color": "warning",
+     "opacity": 0.5
+    },
+    {
+     "type": "vline",
+     "id": "vk",
+     "at": "k"
+    },
+    {
+     "type": "vline",
+     "id": "vm",
+     "at": "470",
+     "color": "muted"
+    },
+    {
+     "type": "text",
+     "id": "tL",
+     "x": "473",
+     "y": "0.075",
+     "value": "P(R < k) = {area(L)}"
+    },
+    {
+     "type": "text",
+     "id": "tz",
+     "x": "473",
+     "y": "0.069",
+     "value": "z = (k - 470)/6 = {(k-470)/6}"
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "The expected count $150$ out of $2000$ means $\\mathrm{P}(R<k)=0.075$. The shaded area to the left of $k$ must equal $0.075$. This is the M1.",
+     "set": {
+      "k": 468
+     },
+     "highlight": [
+      "L"
+     ]
+    },
+    {
+     "n": 2,
+     "text": "Drag $k$ to the left of the mean at $470$ until the area reads $0.075$. The standardised value there is $z=-1.4395$, negative because $k$ is below the mean. This is the B1. Moving $k$ to the right of $470$ would give a positive $z$ and an area above $0.5$.",
+     "set": {
+      "k": 461.4
+     },
+     "highlight": [
+      "tz"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "At this position $k = 470 - 6\\times 1.4395 \\approx 461.4$, the A1.",
+     "set": {
+      "k": 461.4
+     },
+     "highlight": [
+      "vk"
+     ]
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     1,
+     2,
+     3
+    ],
+    "marks": [
+     "M1",
+     "B1",
+     "A1"
+    ],
+    "pitfalls": [
+     "z-sign-error",
+     "cumulative-individual-confused"
+    ]
+   },
+   "guide": {
+    "interact": [
+     {
+      "control": "k",
+      "kind": "slider",
+      "do": "Drag the slider $k$ between $452$ and $480$, starting at $468$ and moving it left towards about $461$.",
+      "watch": "The shaded area to the left of the line at $k$ shrinks as $k$ moves left. At $k=461.4$ the area reads about $0.075$ and $z$ reads about $-1.44$. Moving $k$ past $470$ makes $z$ positive and the area rise above $0.5$."
+     }
+    ],
+    "legend": [
+     {
+      "id": "f",
+      "meaning": "The bell-shaped density curve of $R\\sim\\mathrm{N}(470, 6^2)$, the resistance of a resistor from Line A, centred on $470$."
+     },
+     {
+      "id": "L",
+      "meaning": "The shaded area under the curve to the left of $k$, which is the probability $\\mathrm{P}(R<k)$."
+     },
+     {
+      "id": "vk",
+      "meaning": "The vertical line at $x=k$, the value you are trying to find."
+     },
+     {
+      "id": "vm",
+      "meaning": "The grey vertical line at the mean $470$, which marks where $z=0$."
+     }
+    ],
+    "question_link": {
+     "part": "c",
+     "marks": [
+      "M1",
+      "B1",
+      "A1"
+     ],
+     "text": "The shaded area $L$ is $\\mathrm{P}(R<k)$, which must equal $\\frac{150}{2000}=0.075$ (the M1). The $z$ reading at that position is the negative value $-1.4395$ (the B1), and the line at $k$ then sits at $470-6\\times1.4395\\approx461.4$ (the A1)."
+    },
+    "read_off": [
+     "The label 'P(R < k)' is the shaded area to the left of $k$, which is the probability that a resistor has resistance below $k$ ohms. You want it to equal $0.075$.",
+     "The label 'z = (k - 470)/6' is the standardised value of $k$, the number of standard deviations $k$ lies from the mean $470$. It is negative when $k<470$, and you want about $-1.4395$."
+    ],
+    "what_you_see": "The normal curve for the resistance $R\\\\sim\\\\mathrm{N}(470, 6^2)$ of a Line A resistor, with the area to the left of a movable line at $k$ shaded. A grey line marks the mean $470$."
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0196,
+    "attempts": 1,
+    "gate": {
+     "pass": true,
+     "errors": []
+    },
+    "generated_at": "2026-09-30T23:13:16"
+   }
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:51:55",
+ "cost_usd": 0.0515,
+ "attempts": 1,
+ "checks": {
+  "pass": true,
+  "errors": [],
+  "n_scenes": 2
+ }
+}

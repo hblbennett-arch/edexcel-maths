@@ -1,0 +1,139 @@
+{
+ "id": "factor-theorem-find-constant",
+ "question_type": "factor-theorem-find-constant",
+ "component": "pure",
+ "title": "Factor theorem: find the constant",
+ "what_it_asks": "You are given a polynomial, usually a cubic, with an unknown coefficient and a linear factor such as $(x - a)$. You substitute $x = a$, set the result equal to zero and solve for the constant. The idea is that $(x - a)$ is a factor exactly when $\\mathrm{f}(a) = 0$.",
+ "typical_structure": "Most questions have two or three parts, and a few have one or four. The first part usually finds the constant, or uses two facts to find two constants. It is often worth two to four marks. Later parts typically say \"hence\" or \"factorise\". They use your constant to divide out the known factor and then factorise or solve the quadratic that is left. Some parts are \"show that\" parts where the answer is printed. Whole questions are often worth seven to nine marks.",
+ "mark_pattern": "The most usual part is a 2-mark M1 A1. The M1 is for substituting the right value into $\\mathrm{f}(x)$ and setting it equal to zero. The A1 is for the correct constant. Longer finding parts run M1 A1 M1 A1 or M1 A1 dM1 A1. There you form one equation, then a second, and solve the pair. The dM1 is for solving the pair, and it depends on the first M1. Show-that parts run M1 A1*. The A1* is a cso for reaching the printed result. Factorising parts often run M1 M1 A1. The first M1 is for dividing out the known factor to reach a quadratic. The second M1 is for factorising that quadratic. The A1 is for the full factorised form.",
+ "where_marks_leak": [
+  {
+   "error_code": "factor-theorem-sign-error",
+   "mark_family": "method",
+   "text": "Often made: for a factor $(x + 2)$ you evaluate $\\mathrm{f}(2)$ instead of $\\mathrm{f}(-2)$. The M1 is lost, and the A1 and any dM1 that follow it are lost too."
+  },
+  {
+   "error_code": "arithmetic-slip",
+   "mark_family": "accuracy",
+   "text": "You set up $\\mathrm{f}(a) = 0$ correctly but slip when you evaluate powers or negatives. The M1 stays, but the A1 for the constant goes. If the wrong constant feeds a later division, the later accuracy marks go as well, unless an ft mark is offered."
+  },
+  {
+   "error_code": "incomplete-factorisation",
+   "mark_family": "accuracy",
+   "text": "You divide out the known factor but leave a quadratic that still factorises. The final A1 is lost, because the question asked you to factorise fully."
+  },
+  {
+   "error_code": "factorising-sign-error",
+   "mark_family": "method",
+   "text": "You factorise the quadratic with the wrong signs, so the roots have the wrong sign. The method mark for factorising is lost, and so is the A1 for the roots."
+  },
+  {
+   "error_code": "polynomial-division-error",
+   "mark_family": "method",
+   "text": "In long division you make a subtraction sign error or leave out a zero term such as $0x^2$. The quadratic factor is wrong, and the method marks for division and for factorising it can go."
+  }
+ ],
+ "write_to_earn": [
+  "Write the substitution line, such as $\\mathrm{f}(-2) = 0$, before you put in any numbers, so the M1 is secure.",
+  "Use brackets around negative values when you substitute, and expand each power on its own line.",
+  "For two unknowns, number your two equations and show the elimination or substitution before you state both constants.",
+  "In a show-that part, write the equation just before the printed result, then the printed result itself, with no skipped lines.",
+  "When you divide out the factor, write the quadratic factor clearly, then factorise it fully and state the complete product."
+ ],
+ "check_before_you_leave": [
+  "Factor $(x+a)$ means $\\mathrm{f}(-a)$",
+  "Substitute constant back: does $\\mathrm{f}(a)=0$?",
+  "Quadratic fully factorised?",
+  "Roots signs match brackets",
+  "Final form as asked"
+ ],
+ "skills": [
+  "factor-theorem",
+  "solve-simultaneous-linear-equations",
+  "show-that-given-answer",
+  "factorise-polynomial-by-division",
+  "use-hence-previous-result",
+  "solve-quadratic-equation"
+ ],
+ "related_types": [
+  "polynomial-factorise-and-solve",
+  "quadratic-and-polynomial-graphs",
+  "differentiate-to-given-form"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:09:12",
+ "cost_usd": 0.0431,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 34,
+  "codes_listed": {
+   "factor-theorem-sign-error": 10,
+   "rationalising-error": 10,
+   "arithmetic-slip": 6,
+   "incomplete-factorisation": 6,
+   "factorising-sign-error": 4,
+   "wrong-final-accuracy": 4,
+   "polynomial-division-error": 3,
+   "sign-error-expanding-brackets": 3
+  },
+  "frequent_codes": [
+   "factor-theorem-sign-error",
+   "rationalising-error"
+  ],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.893 with note:IAL2018_WMA11_June2019_Q5_n2"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.002,
+   "shared_numbers": 0,
+   "max_cosine": 0.893,
+   "cosine_source": "note:IAL2018_WMA11_June2019_Q5_n2"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 14
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.893 with note:IAL2018_WMA11_June2019_Q5_n2"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

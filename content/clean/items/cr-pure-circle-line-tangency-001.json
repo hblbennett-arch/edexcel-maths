@@ -1,0 +1,415 @@
+{
+ "id": "cr-pure-circle-line-tangency-001",
+ "blueprint_id": "bp-pure-circle-line-tangency-001",
+ "question_type": "circle-line-tangency",
+ "component": "pure",
+ "tier": "challenging",
+ "kind": "exam",
+ "stem": "The circle $C$ has equation $x^2 + y^2 - 10x + 4y + 20 = 0$. For each real constant $k$, $l_k$ is the straight line through the point $P(0,\\,1)$ with gradient $k$.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 4,
+   "text": "Show that the $x$-coordinate of any point lying on both $l_k$ and $C$ satisfies $$(1+k^2)x^2 + (6k-10)x + 25 = 0.$$ (4)",
+   "command": "show-that",
+   "forms": [],
+   "skills": [
+    "substitute-to-find-intersections"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Writes $l_k$ as $y = kx + 1$ and replaces $y$ in the equation of $C$, giving $x^2 + (kx+1)^2 - 10x + 4(kx+1) + 20 = 0$ or equivalent",
+     "notes": "The line equation must use the point $(0,1)$ correctly, so $y = kx+1$"
+    },
+    {
+     "code": "B1",
+     "for": "Expands the squared bracket correctly: $(kx+1)^2 = k^2x^2 + 2kx + 1$"
+    },
+    {
+     "code": "B1",
+     "for": "Expands $4(kx+1) = 4kx + 4$ and combines the constants to get $1 + 4 + 20 = 25$"
+    },
+    {
+     "code": "B1",
+     "for": "Groups terms by powers of $x$ to get $(1+k^2)x^2 + (6k-10)x + 25 = 0$ with no errors seen",
+     "notes": "cso. Must show the $x$ terms $2kx + 4kx - 10x$ being combined; the printed answer needs '= 0'"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "The line through $(0,1)$ with gradient $k$ is $y = kx + 1$. Substituting: $x^2 + (kx+1)^2 - 10x + 4(kx+1) + 20 = 0$",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "$(kx+1)^2 = k^2x^2 + 2kx + 1$",
+     "mark": "B1"
+    },
+    {
+     "step": 3,
+     "working": "$4(kx+1) = 4kx + 4$, and the constant terms are $1 + 4 + 20 = 25$",
+     "mark": "B1"
+    },
+    {
+     "step": 4,
+     "working": "$x^2 + k^2x^2 + 2kx + 4kx - 10x + 25 = 0 \\Rightarrow (1+k^2)x^2 + (6k-10)x + 25 = 0$",
+     "mark": "B1"
+    }
+   ],
+   "answers": [],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "x^2 + (k*x+1)^2 - 10*x + 4*(k*x+1) + 20",
+     "rhs": "(1+k^2)*x^2 + (6*k-10)*x + 25"
+    }
+   ],
+   "hints": [
+    "Write down the equation of $l_k$ in the form $y = mx + c$ first, using the point $P$.",
+    "Replace every $y$ in the circle's equation with your expression, then expand and collect terms by powers of $x$."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 4,
+   "text": "Find the range of values of the gradient $k$ that make $l_k$ cross $C$ at two different points. (4)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "discriminant-condition"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Writes the discriminant of the part (a) quadratic correctly: $(6k-10)^2 - 4(1+k^2)(25)$ or $(6k-10)^2 - 100(1+k^2)$"
+    },
+    {
+     "code": "M1",
+     "for": "Requires their discriminant to be $> 0$ and simplifies to a quadratic inequality in $k$, e.g. $-64k^2 - 120k > 0$ or $8k^2 + 15k < 0$",
+     "notes": "Must be the strict inequality $> 0$ (or $<0$ once the sign has been reversed correctly)"
+    },
+    {
+     "code": "M1",
+     "for": "Finds the critical values of their quadratic in $k$ (here $k = 0$ and $k = -\\tfrac{15}{8}$) and picks the region between or outside them to match the sign of their $k^2$ coefficient"
+    },
+    {
+     "code": "A1ft",
+     "for": "$-\\tfrac{15}{8} < k < 0$",
+     "ft_of": "their critical values from the second M1",
+     "notes": "Accept $k \\in (-\\tfrac{15}{8}, 0)$. Reject non-strict inequalities"
+    }
+   ],
+   "alternatives": [
+    {
+     "name": "Way 2 (distance from centre to line)",
+     "marks": [
+      {
+       "code": "B1",
+       "for": "Completes the square to get centre $(5, -2)$ and radius $3$"
+      },
+      {
+       "code": "M1",
+       "for": "Writes the perpendicular distance from $(5,-2)$ to $kx - y + 1 = 0$ as $\\frac{|5k + 3|}{\\sqrt{k^2+1}}$ and requires it to be $< 3$"
+      },
+      {
+       "code": "M1",
+       "for": "Squares both sides to get $(5k+3)^2 < 9(k^2+1)$, simplifies to $16k^2 + 30k < 0$ and finds the critical values $0$ and $-\\tfrac{15}{8}$"
+      },
+      {
+       "code": "A1ft",
+       "for": "$-\\tfrac{15}{8} < k < 0$",
+       "ft_of": "their critical values"
+      }
+     ]
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Here $a = 1+k^2$, $b = 6k-10$, $c = 25$, so $b^2 - 4ac = (6k-10)^2 - 100(1+k^2)$",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "Two distinct intersections require $b^2 - 4ac > 0$: $36k^2 - 120k + 100 - 100 - 100k^2 > 0 \\Rightarrow -64k^2 - 120k > 0 \\Rightarrow 8k^2 + 15k < 0$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$k(8k + 15) = 0$ when $k = 0$ or $k = -\\tfrac{15}{8}$. The parabola $8k^2 + 15k$ opens upwards, so it is negative between its roots",
+     "mark": "M1"
+    },
+    {
+     "step": 4,
+     "working": "$-\\tfrac{15}{8} < k < 0$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "k_lower",
+     "expr": "-15/8",
+     "form": "exact",
+     "check": "8*k_lower^2 + 15*k_lower = 0"
+    },
+    {
+     "name": "k_upper",
+     "expr": "0",
+     "form": "exact",
+     "check": "8*k_upper^2 + 15*k_upper = 0"
+    }
+   ],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "(6*k-10)^2 - 100*(1+k^2)",
+     "rhs": "-8*k*(8*k+15)"
+    },
+    {
+     "type": "solutions",
+     "equation": "8k^2 + 15k = 0",
+     "var": "k",
+     "result": [
+      "-15/8",
+      "0"
+     ]
+    },
+    {
+     "type": "substitute",
+     "expr": "(6*k-10)^2 - 100*(1+k^2)",
+     "at": {
+      "k": "-1"
+     },
+     "result": "56"
+    }
+   ],
+   "hints": [
+    "Two different crossing points means the quadratic from part (a) has two distinct real roots. Which discriminant condition goes with that?",
+    "If you divide by a negative number when you simplify, reverse the inequality sign."
+   ]
+  },
+  {
+   "label": "c",
+   "marks": 4,
+   "text": "The line with equation $x + y = 1$ is one of the lines $l_k$. Find, using your result from part (a), the exact coordinates of the two points where this line meets $C$. Give each coordinate in simplified surd form. (4)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "solve-quadratic-equation",
+    "use-hence-previous-result",
+    "exact-surd-manipulation"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Recognises $k = -1$ and substitutes into the part (a) equation to get $2x^2 - 16x + 25 = 0$, then solves it with a correct method (quadratic formula or completing the square)",
+     "notes": "Allow direct substitution of $y = 1 - x$ into $C$ if it leads to the same quadratic"
+    },
+    {
+     "code": "A1",
+     "for": "$x = 4 \\pm \\frac{\\sqrt{14}}{2}$ or equivalent, e.g. $\\frac{8 \\pm \\sqrt{14}}{2}$",
+     "notes": "Surd must be simplified: $\\sqrt{56}$ must be written as $2\\sqrt{14}$ at some stage. Decimals alone score A0"
+    },
+    {
+     "code": "M1",
+     "for": "Uses $y = 1 - x$ with at least one of their exact $x$ values to find the matching $y$-coordinate"
+    },
+    {
+     "code": "A1",
+     "for": "Both points, correctly paired: $\\left(4 + \\frac{\\sqrt{14}}{2},\\, -3 - \\frac{\\sqrt{14}}{2}\\right)$ and $\\left(4 - \\frac{\\sqrt{14}}{2},\\, -3 + \\frac{\\sqrt{14}}{2}\\right)$",
+     "notes": "cao, oe e.g. $\\left(\\frac{8+\\sqrt{14}}{2}, \\frac{-6-\\sqrt{14}}{2}\\right)$"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$x + y = 1 \\Rightarrow y = -x + 1$, so $k = -1$. From part (a): $(1+1)x^2 + (-6-10)x + 25 = 0 \\Rightarrow 2x^2 - 16x + 25 = 0$. Then $x = \\frac{16 \\pm \\sqrt{256 - 200}}{4} = \\frac{16 \\pm \\sqrt{56}}{4}$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$\\sqrt{56} = 2\\sqrt{14}$, so $x = \\frac{16 \\pm 2\\sqrt{14}}{4} = 4 \\pm \\frac{\\sqrt{14}}{2}$",
+     "mark": "A1"
+    },
+    {
+     "step": 3,
+     "working": "$y = 1 - x = 1 - \\left(4 \\pm \\frac{\\sqrt{14}}{2}\\right) = -3 \\mp \\frac{\\sqrt{14}}{2}$",
+     "mark": "M1"
+    },
+    {
+     "step": 4,
+     "working": "The points are $\\left(4 + \\frac{\\sqrt{14}}{2},\\, -3 - \\frac{\\sqrt{14}}{2}\\right)$ and $\\left(4 - \\frac{\\sqrt{14}}{2},\\, -3 + \\frac{\\sqrt{14}}{2}\\right)$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "x1",
+     "expr": "4 + sqrt(14)/2",
+     "form": "exact"
+    },
+    {
+     "name": "y1",
+     "expr": "-3 - sqrt(14)/2",
+     "form": "exact",
+     "check": "x1^2 + y1^2 - 10*x1 + 4*y1 + 20 = 0"
+    },
+    {
+     "name": "x2",
+     "expr": "4 - sqrt(14)/2",
+     "form": "exact"
+    },
+    {
+     "name": "y2",
+     "expr": "-3 + sqrt(14)/2",
+     "form": "exact",
+     "check": "x2^2 + y2^2 - 10*x2 + 4*y2 + 20 = 0"
+    }
+   ],
+   "checks": [
+    {
+     "type": "solutions",
+     "equation": "2x^2 - 16x + 25 = 0",
+     "var": "x",
+     "result": [
+      "4 + sqrt(14)/2",
+      "4 - sqrt(14)/2"
+     ]
+    },
+    {
+     "type": "substitute",
+     "expr": "1 - x",
+     "at": {
+      "x": "4 + sqrt(14)/2"
+     },
+     "answer": "y1"
+    },
+    {
+     "type": "substitute",
+     "expr": "1 - x",
+     "at": {
+      "x": "4 - sqrt(14)/2"
+     },
+     "answer": "y2"
+    },
+    {
+     "type": "equals",
+     "lhs": "sqrt(56)",
+     "rhs": "2*sqrt(14)"
+    }
+   ],
+   "hints": [
+    "Rearrange $x + y = 1$ into the form $y = kx + 1$ to read off $k$, then put that value into the quadratic from part (a).",
+    "Once you have the $x$-coordinates, you still need the $y$-coordinates. Use the line to get them."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "rearranging-inverse-operation-error",
+   "text": "If you write the line through $(0,1)$ as $y = kx - 1$ or $y = k(x - 1)$, because you undid the point's coordinates the wrong way, every later term is wrong. You then lose the first B1 and cannot reach the printed equation.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "step": 4,
+   "error_code": "simultaneous-elimination-error",
+   "text": "When you collect the $x$ terms $2kx + 4kx - 10x$, a sign slip such as writing $+10x$, or leaving out the $4kx$ from $4(kx+1)$, gives something other than $(6k-10)x$. The final B1 is then lost, because the printed answer needs a fully correct derivation.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "discriminant-wrong-condition",
+   "text": "Two different crossing points needs $b^2 - 4ac > 0$. If you use $= 0$ you only find the tangent gradients $0$ and $-\\tfrac{15}{8}$. If you use $\\geqslant 0$ you wrongly include the tangent lines. Either way you lose marks. Also watch out for $-64k^2 - 120k > 0$: dividing by $-8$ flips it to $8k^2 + 15k < 0$.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 3,
+   "error_code": "completing-square-error",
+   "text": "If you complete the square to solve $8k^2 + 15k < 0$ (or to find the centre in the distance method), take out the factor $8$ first: $8\\left[(k + \\tfrac{15}{16})^2 - \\tfrac{225}{256}\\right]$. Halving $15$ instead of $\\tfrac{15}{8}$ gives the wrong critical values, and you lose the second M1. This is a common mistake.",
+   "says_common": true
+  },
+  {
+   "part": "c",
+   "step": 2,
+   "error_code": "surd-simplification-error",
+   "text": "$\\sqrt{256 - 200}$ is $\\sqrt{56} = 2\\sqrt{14}$, not $\\sqrt{256} - \\sqrt{200} = 16 - 10\\sqrt{2}$. Splitting the square root across a subtraction like this is a common error, and it loses the method mark.",
+   "says_common": true
+  },
+  {
+   "part": "c",
+   "step": 1,
+   "error_code": "quadratic-formula-error",
+   "text": "For $2x^2 - 16x + 25 = 0$ the formula gives $x = \\frac{16 \\pm \\sqrt{56}}{4}$. The $16$ must also be divided by $4$, not just the root. Using $+b$ (giving $-4 \\pm \\ldots$) or dividing by $2$ instead of $2a = 4$ are common slips that lose the M1.",
+   "says_common": true
+  },
+  {
+   "part": "c",
+   "step": 3,
+   "error_code": "hidden-quadratic-not-converted-back",
+   "text": "The quadratic only gives you the $x$-coordinates. A common mistake is to stop at $x = 4 \\pm \\frac{\\sqrt{14}}{2}$ and never go back to the line $y = 1 - x$ for the $y$-values, which loses the last M1 and A1. Also check your pairing: the larger $x$ goes with the smaller $y$.",
+   "says_common": true
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:36:26",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.4359
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 12
+  },
+  "G7": {
+   "pass": false,
+   "flag": true,
+   "reasons": [
+    "2 word 8-gram(s) also in the reference corpus (not whitelisted)"
+   ],
+   "flags": [
+    "cosine 0.885 with question:IAL2018_WMA12_Jan2021_Q9"
+   ],
+   "hit_fields": [
+    "stem"
+   ],
+   "n_8gram_hits": 2,
+   "hits8": [
+    "circle c has equation x 2 y 2",
+    "the circle c has equation x 2 y"
+   ],
+   "max_jaccard": 0.049,
+   "jaccard_source": "P1_Oct2021_Q7",
+   "shared_numbers": 0,
+   "max_cosine": 0.885,
+   "cosine_source": "question:IAL2018_WMA12_Jan2021_Q9"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 8,
+   "n_answers": 6,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

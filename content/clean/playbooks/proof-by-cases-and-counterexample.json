@@ -1,0 +1,129 @@
+{
+ "id": "proof-by-cases-and-counterexample",
+ "question_type": "proof-by-cases-and-counterexample",
+ "component": "pure",
+ "title": "Algebraic proof by cases / counterexample",
+ "what_it_asks": "You are given a claim about integers, such as a property of $n^2$, a sum or a product. You must either prove it for every integer by writing $n$ in general forms like $2k$, $2k+1$ or $3k+r$, or disprove it with one specific counterexample. The idea is that a complete set of cases, each handled algebraically, covers every integer.",
+ "typical_structure": "Usually one or two parts, with about four marks in total. A two-part question often starts with a short disproof or a statement and then asks for a full algebraic proof, and the later part may build on the first. Questions are worded with \"prove\", \"show that\" or \"use\", and none has a diagram.",
+ "mark_pattern": "The most typical part is a 2-mark M1 A1. A 4-mark proof is usually M1 A1 dM1 A1*. The first M1 is for a correct general form or set of cases. The A1 is for correct expansion or simplification in the first case. The dM1 is for handling the next case or step, and it depends on the first M1. The final A1* is for a complete argument with a conclusion, and it needs a fully correct solution. A single counterexample is often a lone B1, or B1 M1 A1 when you must also show that the claim fails. Three-mark parts such as M1 A1 A1* also occur, where the last mark is for a clear, correct finish.",
+ "where_marks_leak": [
+  {
+   "error_code": "proof-by-examples",
+   "mark_family": "method",
+   "text": "You test a few numbers and say the result holds. That is not a general argument, so the first M1 is lost, along with the A1 and any dM1 that depend on it."
+  },
+  {
+   "error_code": "exhaustion-case-missed",
+   "mark_family": "method",
+   "text": "You handle only some cases, such as even $n$ but not odd $n$, or $3k+1$ but not $3k+2$. The dM1 for the remaining case is lost, and the final A1* cannot be earned."
+  },
+  {
+   "error_code": "proof-no-concluding-statement",
+   "mark_family": "accuracy",
+   "text": "The algebra is right but you never say what it shows. The final A1* needs a conclusion that covers all cases, so it can be lost even though the working is correct."
+  },
+  {
+   "error_code": "arithmetic-slip",
+   "mark_family": "accuracy",
+   "text": "You slip when expanding, for example $(2k+1)^2$, in an otherwise sound method. The A1 goes, and the final A1* goes too because the argument is no longer correct throughout."
+  }
+ ],
+ "write_to_earn": [
+  "Start by stating the general forms, such as $n=2k$ or $n=2k+1$ with $k$ an integer, before you substitute.",
+  "List every case you need and say why together they cover all integers.",
+  "Expand and factorise each case to show the required form, for example $2(\\ldots)$ or $3(\\ldots)$, and say that the bracket is an integer.",
+  "Write the step just before the printed result, then the result, in a show-that part.",
+  "For a counterexample, give one specific value, work out both sides and state that the claim is false."
+ ],
+ "check_before_you_leave": [
+  "Every case covered?",
+  "General forms used, not examples?",
+  "Bracket stated as an integer?",
+  "Concluding sentence written?",
+  "Counterexample actually checked?"
+ ],
+ "skills": [
+  "proof-by-exhaustion-or-counterexample",
+  "algebraic-proof-odd-even-multiples",
+  "explain-with-reason",
+  "show-that-given-answer",
+  "prove-inequality-or-positivity",
+  "complete-the-square"
+ ],
+ "related_types": [
+  "proof-by-contradiction"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:07:42",
+ "cost_usd": 0.0499,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 20,
+  "codes_listed": {
+   "proof-by-examples": 7,
+   "wrong-final-accuracy": 5,
+   "completing-square-error": 2,
+   "arithmetic-slip": 2,
+   "contradiction-assumption-wrong": 2,
+   "rationalising-error": 2,
+   "exhaustion-case-missed": 2,
+   "proof-no-concluding-statement": 1
+  },
+  "frequent_codes": [],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.835 with note:GCE2008_6683_June2013_Q6_n6"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.0,
+   "shared_numbers": 0,
+   "max_cosine": 0.835,
+   "cosine_source": "note:GCE2008_6683_June2013_Q6_n6"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 15
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.835 with note:GCE2008_6683_June2013_Q6_n6"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

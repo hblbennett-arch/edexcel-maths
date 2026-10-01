@@ -1,0 +1,139 @@
+{
+ "id": "venn-diagram-unknown-probabilities",
+ "question_type": "venn-diagram-unknown-probabilities",
+ "component": "stats",
+ "title": "Venn diagram with unknown probabilities",
+ "what_it_asks": "You are given a Venn diagram of three or four events, usually with some regions filled in and others left as unknowns. Some facts come in words, such as independence, a conditional probability or a stated total. You use these, with the fact that all regions add to 1, to find the unknowns, then use the completed diagram to find further probabilities.",
+ "typical_structure": "Usually four or five parts, sometimes three or six. Most parts are worth one to three marks, with an occasional longer part of four or more. An early part often asks you to find an unknown or to draw or complete the diagram. Later parts then use the completed diagram for set-notation probabilities, conditional probabilities or an independence check. Later parts often rely on values from earlier ones, so a slip early on can carry through.",
+ "mark_pattern": "The most usual two-mark part is M1 A1: form an equation or choose the right regions, then give the correct value. One-mark parts are usually B1, or B1ft when the value follows from your own diagram, such as reading off a region or stating a probability. Longer parts run M1 A1 M1 A1 or M1 A1ft A1. The first M1 is for an equation from independence, a conditional probability or the total of 1. The next A1 is for the solved unknown. A later M1 is for a ratio or sum over the right regions, and A1ft rewards correct use of your own earlier values. A show-that part ends in a final accuracy mark that needs a complete argument.",
+ "where_marks_leak": [
+  {
+   "error_code": "conditional-denominator-error",
+   "mark_family": "method",
+   "text": "You divide by the wrong probability, for example using $\\mathrm{P}(A \\cap B)/\\mathrm{P}(A)$ when the question asks for $\\mathrm{P}(A \\mid B)$. This is often made. The M1 for the ratio is lost, and the A1 after it goes too."
+  },
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You round the final answer to the wrong number of decimal places or significant figures, or round early. This is often made. The final A1 is lost even though the method is fine."
+  },
+  {
+   "error_code": "independence-assumed",
+   "mark_family": "method",
+   "text": "You multiply probabilities to get an intersection when independence was not given or shown. The M1 for the equation is lost, and the A1 that depends on it goes too."
+  },
+  {
+   "error_code": "exclusive-independent-confused",
+   "mark_family": "independent",
+   "text": "You treat mutually exclusive events as independent, or the reverse. You might say non-overlapping events are independent, so a B1 for a correct statement or value is lost."
+  },
+  {
+   "error_code": "decimal-not-exact",
+   "mark_family": "accuracy",
+   "text": "You give a rounded decimal when an exact fraction was asked for. The A1 is lost even though the value is right."
+  }
+ ],
+ "write_to_earn": [
+  "Write the equation first, such as the sum of all regions equal to 1 or $\\mathrm{P}(A \\cap B) = \\mathrm{P}(A)\\mathrm{P}(B)$, before you substitute, so the M1 is safe.",
+  "Label every region on the diagram as you find it, so a later B1ft can follow from your own values.",
+  "For a conditional probability, write the formula with the numerator and denominator named, then pick the regions for each.",
+  "To test independence, work out both sides of the product rule and state whether they are equal, with a short conclusion.",
+  "Keep fractions or unrounded values until the last line, then give the form the question asks for."
+ ],
+ "check_before_you_leave": [
+  "Regions sum to 1",
+  "No negative probabilities",
+  "Right denominator used",
+  "Independence given or shown",
+  "Answer in required form"
+ ],
+ "skills": [
+  "venn-diagram-find-unknowns",
+  "set-notation-for-events",
+  "complement-and-addition-rules",
+  "conditional-probability-formula",
+  "independence-test-and-use",
+  "mutually-exclusive-events",
+  "explain-with-reason"
+ ],
+ "related_types": [
+  "tree-diagram-conditional-probability",
+  "two-way-table-probability"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:11:02",
+ "cost_usd": 0.044,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 46,
+  "codes_listed": {
+   "conditional-denominator-error": 21,
+   "wrong-final-accuracy": 15,
+   "independence-assumed": 5,
+   "exclusive-independent-confused": 4,
+   "decimal-not-exact": 2,
+   "not-in-required-form": 2,
+   "arithmetic-slip": 2,
+   "rationalising-error": 2
+  },
+  "frequent_codes": [
+   "conditional-denominator-error",
+   "wrong-final-accuracy"
+  ],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.908 with part:GCE2008_6683R_June2013_Q6:c"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.0,
+   "shared_numbers": 0,
+   "max_cosine": 0.908,
+   "cosine_source": "part:GCE2008_6683R_June2013_Q6:c"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 3
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.908 with part:GCE2008_6683R_June2013_Q6:c"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

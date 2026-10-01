@@ -59,7 +59,84 @@
    ],
    "hints": [
     "A gold badge means $T < 70$. Enter mean 84 and standard deviation 11 in your calculator's normal cdf."
-   ]
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$z=\\frac{70-84}{11}=-1.27$, so $\\mathrm{P}(T<70)=\\mathrm{P}(Z<-1.27)$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$=0.102$",
+      "secures": [
+       "A1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "Gold badge needs $T<70$, so we want $\\mathrm{P}(T<70)$ where $T\\sim\\mathrm{N}(84,11^2)$.",
+      "why": "You first turn the words 'under 70 seconds' into a probability statement about $T$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$z=\\dfrac{70-84}{11}$",
+      "why": "You standardise, which means converting to the standard normal $Z$ by subtracting the mean $84$ and dividing by the standard deviation $11$ (not the variance $121$).",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$z=\\dfrac{-14}{11}$",
+      "why": "You evaluate the top: $70-84=-14$.",
+      "secures": null,
+      "check": "70 is below the mean 84, so $z$ must be negative."
+     },
+     {
+      "step": 4,
+      "working": "$z=-1.2727\\ldots$",
+      "why": "You divide $-14$ by $11$ to get the $z$-value.",
+      "secures": null,
+      "check": "$11\\times1.2727\\approx14$."
+     },
+     {
+      "step": 5,
+      "working": "$\\mathrm{P}(T<70)=\\mathrm{P}(Z<-1.2727)$",
+      "why": "You replace the condition on $T$ by the matching condition on $Z$, the area below $z=-1.2727$.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$\\mathrm{P}(Z<-1.2727)=0.10156\\ldots$",
+      "why": "You read the area from your calculator's normal distribution function (or tables).",
+      "secures": null,
+      "check": "About 1.27 standard deviations below the mean should leave roughly 10% in the tail."
+     },
+     {
+      "step": 7,
+      "working": "$\\mathrm{P}(\\text{gold})=0.102$",
+      "why": "You round the answer to 3 significant figures.",
+      "secures": "A1",
+      "check": null
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:50:44+00:00",
+    "cost_usd": 0.015,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
   },
   {
    "label": "b",
@@ -136,7 +213,137 @@
    "hints": [
     "Notice that 95 is exactly one standard deviation above the mean.",
     "Expected number = number of players × probability."
-   ]
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$\\mathrm{P}(70<T<95)=\\Phi(1)-\\mathrm{P}(T<70)=0.84134-0.10156$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$=0.73979$, so $p_{\\text{silver}}=0.740$",
+      "secures": [
+       "A1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$400\\times0.73979=295.9$, so $p_{\\text{silver}}=0.740$, $n_{\\text{silver}}=296$ players",
+      "secures": [
+       "M1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$\\mathrm{P}(\\text{silver})=\\mathrm{P}(70<T<95)$",
+      "why": "A silver badge is for times between 70 and 95 seconds, so you need the probability of that interval.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$\\mathrm{P}(70<T<95)=\\mathrm{P}(T<95)-\\mathrm{P}(T<70)$",
+      "why": "The probability between two values is the area below the upper value minus the area below the lower value.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$z=\\dfrac{95-84}{11}$",
+      "why": "You standardise 95 using the mean 84 and standard deviation 11, so you can use the standard normal distribution.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$z=\\dfrac{11}{11}$",
+      "why": "You work out the subtraction on the top, $95-84=11$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$z=1$",
+      "why": "You divide 11 by 11.",
+      "secures": null,
+      "check": "95 is exactly one standard deviation above the mean 84."
+     },
+     {
+      "step": 6,
+      "working": "$\\mathrm{P}(T<95)=\\Phi(1)=0.84134$",
+      "why": "You read off the standard normal probability below $z=1$ from your calculator or tables.",
+      "secures": null,
+      "check": "About 84% lies below one standard deviation above the mean."
+     },
+     {
+      "step": 7,
+      "working": "$\\mathrm{P}(T<70)=0.10156$",
+      "why": "This is the gold badge probability from part (a), so you reuse it.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$\\mathrm{P}(70<T<95)=0.84134-0.10156$",
+      "why": "You substitute both probabilities into the difference from step 2.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "$\\mathrm{P}(70<T<95)=0.73979$",
+      "why": "You subtract the two probabilities, keeping the unrounded values from your calculator.",
+      "secures": null,
+      "check": "0.84134 − 0.10156 is about 0.7398."
+     },
+     {
+      "step": 10,
+      "working": "$p_{\\text{silver}}=0.740$",
+      "why": "You round to 3 significant figures.",
+      "secures": "A1",
+      "check": null
+     },
+     {
+      "step": 11,
+      "working": "$E=400\\times 0.73979$",
+      "why": "The expected number is the number of players times the probability for one player.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 12,
+      "working": "$E=295.9$",
+      "why": "You multiply 400 by the probability.",
+      "secures": null,
+      "check": "0.74 × 400 = 296, so this is about right."
+     },
+     {
+      "step": 13,
+      "working": "$p_{\\text{silver}}=0.740,\\quad n_{\\text{silver}}=296$",
+      "why": "You round 295.9 to 3 significant figures and state both answers.",
+      "secures": null,
+      "check": null
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:50:59+00:00",
+    "cost_usd": 0.0446,
+    "attempts": 2,
+    "errors": [],
+    "attempt_errors": [
+     [
+      "part b: brisk: last working does not contain a value equal to answer p_silver = 0.740 (to sf-3)"
+     ]
+    ]
+   }
   },
   {
    "label": "c",
@@ -222,7 +429,133 @@
    "hints": [
     "What you know about Mira ($T > 70$) is the condition, so its probability goes in the denominator.",
     "Every time between 70 and 95 is also more than 70, so the intersection is just the silver event."
-   ]
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$\\mathrm{P}(\\text{silver}\\mid T>70)=\\dfrac{\\mathrm{P}(70<T<95)}{\\mathrm{P}(T>70)}$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$\\mathrm{P}(T>70)=1-0.10156=0.89844$",
+      "secures": [
+       "A1ft"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$=\\dfrac{0.73979}{0.89844}$",
+      "secures": [
+       "dM1"
+      ]
+     },
+     {
+      "step": 4,
+      "working": "$=0.8234\\ldots=0.823$",
+      "secures": [
+       "A1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "We want $\\mathrm{P}(70<T<95 \\mid T>70)$.",
+      "why": "You are told Mira's time was over 70 seconds, so this is a conditional probability: silver given that she did not win gold.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$\\mathrm{P}(70<T<95 \\mid T>70)=\\dfrac{\\mathrm{P}(70<T<95 \\,\\cap\\, T>70)}{\\mathrm{P}(T>70)}$",
+      "why": "You use the conditional probability formula: the chance of both events happening divided by the chance of the condition.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$70<T<95$ and $T>70$ together mean just $70<T<95$",
+      "why": "Any time between 70 and 95 is already over 70, so the overlap of the two events is the silver event itself.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$\\mathrm{P}(70<T<95 \\mid T>70)=\\dfrac{\\mathrm{P}(70<T<95)}{\\mathrm{P}(T>70)}$",
+      "why": "You replace the overlap in the top of the fraction with the silver probability.",
+      "secures": "M1",
+      "check": "The denominator must be the condition $T>70$, not the silver probability."
+     },
+     {
+      "step": 5,
+      "working": "$\\mathrm{P}(T>70)=1-\\mathrm{P}(T<70)$",
+      "why": "Gold means $T<70$, so the complement (everything else) gives the probability of being over 70.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$\\mathrm{P}(T<70)=0.10156$",
+      "why": "This is your answer to part (a), the probability of a gold badge, kept to more figures.",
+      "secures": null,
+      "check": "It rounds to the 0.102 found in part (a)."
+     },
+     {
+      "step": 7,
+      "working": "$\\mathrm{P}(T>70)=1-0.10156$",
+      "why": "You substitute the part (a) value into the complement.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$\\mathrm{P}(T>70)=0.89844$",
+      "why": "You subtract to get the probability of the condition.",
+      "secures": "A1ft",
+      "check": "It should be a little below 1, since gold is unlikely."
+     },
+     {
+      "step": 9,
+      "working": "$\\mathrm{P}(70<T<95)=0.73979$",
+      "why": "This is your answer to part (b), the silver probability, kept to more figures.",
+      "secures": null,
+      "check": "It rounds to 0.740."
+     },
+     {
+      "step": 10,
+      "working": "$\\dfrac{\\mathrm{P}(70<T<95)}{\\mathrm{P}(T>70)}=\\dfrac{0.73979}{0.89844}$",
+      "why": "You put the part (b) value over the value from step 8.",
+      "secures": "dM1",
+      "check": "The top is smaller than the bottom, so the answer is between 0 and 1."
+     },
+     {
+      "step": 11,
+      "working": "$\\dfrac{0.73979}{0.89844}=0.8234\\ldots$",
+      "why": "You divide on your calculator.",
+      "secures": null,
+      "check": "Since $0.9\\times0.82=0.738$, this is about right."
+     },
+     {
+      "step": 12,
+      "working": "$\\mathrm{P}(\\text{Mira won silver})=0.823$ (3 s.f.)",
+      "why": "You round to three significant figures.",
+      "secures": "A1",
+      "check": null
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:53:34+00:00",
+    "cost_usd": 0.0223,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
   },
   {
    "label": "d",
@@ -305,7 +638,133 @@
    "hints": [
     "The developer expects times to go down, so this is a one-tailed test.",
     "The sample mean of 25 players has standard deviation $\\frac{11}{\\sqrt{25}}$, not 11."
-   ]
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$\\mathrm{H}_0: \\mu = 84$, $\\mathrm{H}_1: \\mu < 84$",
+      "secures": [
+       "B1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "Under $\\mathrm{H}_0$, $\\bar{T} \\sim \\mathrm{N}\\left(84, 2.2^2\\right)$, so $z = \\frac{80.2-84}{2.2} = -1.727$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$p = \\mathrm{P}(\\bar{T} \\leqslant 80.2) = 0.0421$",
+      "secures": [
+       "A1"
+      ]
+     },
+     {
+      "step": 4,
+      "working": "$0.0421 < 0.05$, so reject $\\mathrm{H}_0$: there is evidence at the 5% level that the mean first-attempt time on Level 12 has decreased.",
+      "secures": [
+       "A1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$\\mathrm{H}_0: \\mu = 84$",
+      "why": "The null hypothesis says nothing has changed: the mean time after the update is still 84 seconds.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$\\mathrm{H}_1: \\mu < 84$",
+      "why": "The developer believes times have got shorter, so the alternative is one-tailed, with the mean below 84.",
+      "secures": "B1",
+      "check": "The inequality points the same way as the developer's belief (shorter times)."
+     },
+     {
+      "step": 3,
+      "working": "$\\bar{T} \\sim \\mathrm{N}\\left(84, \\frac{11^2}{25}\\right)$",
+      "why": "You are testing a mean of 25 players, so you use the distribution of the sample mean, which has the same mean but a smaller variance.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$\\frac{11}{\\sqrt{25}} = \\frac{11}{5}$",
+      "why": "The standard deviation of the sample mean is the population standard deviation divided by the square root of the sample size.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$\\frac{11}{5} = 2.2$",
+      "why": "Evaluate the fraction to get the standard deviation you will standardise with.",
+      "secures": null,
+      "check": "It must be smaller than 11, not equal to 11 or $\\frac{11}{25}$."
+     },
+     {
+      "step": 6,
+      "working": "$\\bar{T} \\sim \\mathrm{N}(84, 2.2^2)$",
+      "why": "Put the mean and the new standard deviation together as the distribution under $\\mathrm{H}_0$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "$\\mathrm{P}(\\bar{T} \\leqslant 80.2) = \\mathrm{P}\\left(Z \\leqslant \\frac{80.2-84}{2.2}\\right)$",
+      "why": "The p-value is the chance of a sample mean as low as 80.2 or lower if $\\mathrm{H}_0$ is true. Standardise so you can use the standard normal $Z$.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$80.2 - 84 = -3.8$",
+      "why": "Subtract the hypothesised mean from the observed sample mean.",
+      "secures": null,
+      "check": "Negative, since 80.2 is below 84."
+     },
+     {
+      "step": 9,
+      "working": "$z = \\frac{-3.8}{2.2} = -1.727$",
+      "why": "Divide by 2.2 to get the number of standard deviations below the mean.",
+      "secures": null,
+      "check": "$2.2 \\times 1.727 \\approx 3.8$."
+     },
+     {
+      "step": 10,
+      "working": "$\\mathrm{P}(Z \\leqslant -1.727) = 0.0421$",
+      "why": "Read the lower-tail probability from your calculator or tables. This is the p-value.",
+      "secures": "A1",
+      "check": "It is small and below 0.5, as expected for a z-value about 1.7 below zero."
+     },
+     {
+      "step": 11,
+      "working": "$0.0421 < 0.05$",
+      "why": "Compare the p-value with the 5% significance level.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 12,
+      "working": "So reject $\\mathrm{H}_0$. There is evidence at the 5% level that the mean first-attempt time on Level 12 has decreased, supporting the developer's belief. $p = 0.0421$",
+      "why": "The p-value is below 0.05, so the sample result is unlikely under $\\mathrm{H}_0$. Write the conclusion in context, and say 'evidence' rather than claiming proof.",
+      "secures": "A1",
+      "check": null
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:50:52+00:00",
+    "cost_usd": 0.0248,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
   }
  ],
  "pitfalls": [
@@ -1454,6 +1913,17 @@
      "conclude-test-in-context"
     ]
    }
+  },
+  "GL": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part a: copy check flag: cosine 0.799 with note:GCE2008_6683_June2012_Q6_n2",
+    "part b: copy check flag: cosine 0.826 with part:IAL2013_WST01_June2014_Q7:c",
+    "part c: copy check flag: cosine 0.795 with part:IAL2013_WST01_June2014_Q7:c",
+    "part d: copy check flag: cosine 0.809 with question:GCE2008_6683_June2013_Q4"
+   ],
+   "parts_checked": 4
   }
  },
  "review": {

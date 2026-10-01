@@ -1,0 +1,167 @@
+{
+ "id": "cr-1-p1-q04",
+ "blueprint_id": "mk-1-p1-q04",
+ "question_type": "first-principles",
+ "component": "pure",
+ "tier": "accessible",
+ "kind": "mock",
+ "stem": null,
+ "paper": "mock-1-P1",
+ "set": "mock-1",
+ "q_num": 4,
+ "parts": [
+  {
+   "label": null,
+   "marks": 3,
+   "text": "A curve has equation $y = \\cos 2x$, where $x$ is in radians. The points $P$ and $Q$ lie on the curve and have $x$-coordinates $x$ and $x + h$ respectively.\n\nYou may use the facts that, as $h \\to 0$,\n$$\\frac{\\sin 2h}{2h} \\to 1 \\quad \\text{and} \\quad \\frac{\\cos 2h - 1}{2h} \\to 0.$$\n\nStart from the gradient of the chord $PQ$ and let $h \\to 0$. Show that $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = -2\\sin 2x$. (3)",
+   "command": "show-that",
+   "forms": [],
+   "skills": [
+    "differentiate-from-first-principles",
+    "show-that-given-answer",
+    "compound-angle-formulae"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Writes the gradient of $PQ$ as $\\dfrac{\\cos(2x+2h) - \\cos 2x}{h}$ and expands the first term correctly as $\\cos 2x\\cos 2h - \\sin 2x \\sin 2h$",
+     "notes": "The compound angle expansion must have the correct minus sign. Allow $\\delta x$ in place of $h$ throughout. If the numerator is written without the denominator $h$, this mark is not earned."
+    },
+    {
+     "code": "A1",
+     "for": "Groups the terms into a form where the given limits can be used, e.g. $2\\cos 2x\\left(\\dfrac{\\cos 2h - 1}{2h}\\right) - 2\\sin 2x\\left(\\dfrac{\\sin 2h}{2h}\\right)$",
+     "notes": "The factor of 2 needed to match the given limits must appear, either explicitly as here or as $\\cos 2x \\cdot \\frac{\\cos 2h -1}{h} - \\sin 2x \\cdot \\frac{\\sin 2h}{h}$ followed by a correct statement that $\\frac{\\sin 2h}{h} \\to 2$ and $\\frac{\\cos 2h - 1}{h} \\to 0$."
+    },
+    {
+     "code": "A1*",
+     "for": "Uses the given limits correctly with the notation $h \\to 0$ (or $\\lim_{h\\to 0}$) to reach $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = -2\\sin 2x$",
+     "notes": "cso. The limit notation must be correct on the final lines, and there must be no earlier errors. Lines such as $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 2\\cos 2x \\cdot 0 - 2\\sin 2x \\cdot 1$ are acceptable before the final answer. Do not award if $h$ is set equal to 0 before dividing."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Gradient of $PQ = \\dfrac{\\cos(2x + 2h) - \\cos 2x}{h}$",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "$= \\dfrac{\\cos 2x \\cos 2h - \\sin 2x \\sin 2h - \\cos 2x}{h}$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$= \\cos 2x\\left(\\dfrac{\\cos 2h - 1}{h}\\right) - \\sin 2x\\left(\\dfrac{\\sin 2h}{h}\\right) = 2\\cos 2x\\left(\\dfrac{\\cos 2h - 1}{2h}\\right) - 2\\sin 2x\\left(\\dfrac{\\sin 2h}{2h}\\right)$",
+     "mark": "A1"
+    },
+    {
+     "step": 4,
+     "working": "$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = \\lim_{h \\to 0}\\left[2\\cos 2x\\left(\\dfrac{\\cos 2h - 1}{2h}\\right) - 2\\sin 2x\\left(\\dfrac{\\sin 2h}{2h}\\right)\\right] = 2\\cos 2x(0) - 2\\sin 2x(1) = -2\\sin 2x$",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [],
+   "checks": [
+    {
+     "type": "derivative",
+     "f": "cos(2x)",
+     "var": "x",
+     "result": "-2 sin(2x)"
+    },
+    {
+     "type": "equals",
+     "lhs": "cos(2x + 0.2)",
+     "rhs": "cos(2x)cos(0.2) - sin(2x)sin(0.2)"
+    },
+    {
+     "type": "equals",
+     "lhs": "(cos(2x + 0.2) - cos(2x))/0.1",
+     "rhs": "2cos(2x)(cos(0.2) - 1)/0.2 - 2sin(2x)sin(0.2)/0.2"
+    }
+   ],
+   "hints": [
+    "Write $y$ at $Q$ as $\\cos(2x + 2h)$, then expand it using the formula for $\\cos(A + B)$ with $A = 2x$ and $B = 2h$.",
+    "The given limits have $2h$ in the denominator, but your chord gradient has $h$. Multiply and divide by 2 so the expressions match."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "error_code": "compound-angle-sign-error",
+   "text": "If you expand $\\cos(2x + 2h)$ as $\\cos 2x\\cos 2h + \\sin 2x\\sin 2h$, the sign is wrong: $\\cos(A+B)$ has a minus between its terms. Your expansion is then incorrect and you lose the M1 and everything after it.",
+   "says_common": false,
+   "step": 2
+  },
+  {
+   "part": null,
+   "error_code": "double-angle-error",
+   "text": "Don't rewrite $\\cos 2h$ as $2\\cos h$ or $\\sin 2h$ as $2\\sin h$, and don't expand $\\cos 2x$ with a double-angle formula. That just makes more terms, and they won't match the limits you are given. Keep $2x$ and $2h$ as they are, so that $\\frac{\\sin 2h}{2h}$ and $\\frac{\\cos 2h - 1}{2h}$ appear directly.",
+   "says_common": false,
+   "step": 3
+  },
+  {
+   "part": null,
+   "error_code": "trig-derivative-sign-error",
+   "text": "If you lose the minus sign in front of $\\sin 2x \\sin 2h$ when you collect terms, you end up with $+2\\sin 2x$. That doesn't match the printed result, so the A1* is lost. Also check that you have kept the factor of 2: the answer is $-2\\sin 2x$, not $-\\sin 2x$.",
+   "says_common": false,
+   "step": 4
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:33:58",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.212
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 3
+  },
+  "G7": {
+   "pass": false,
+   "flag": true,
+   "reasons": [
+    "3 word 8-gram(s) also in the reference corpus (not whitelisted)"
+   ],
+   "flags": [
+    "cosine 0.880 with question:IAL2013_6665A_Jan2014_Q5"
+   ],
+   "hit_fields": [
+    "part - text"
+   ],
+   "n_8gram_hits": 3,
+   "hits8": [
+    "p and q lie on the curve and",
+    "points p and q lie on the curve",
+    "the points p and q lie on the"
+   ],
+   "max_jaccard": 0.041,
+   "jaccard_source": "IAL2013_WMA02_June2015_Q1",
+   "shared_numbers": 0,
+   "max_cosine": 0.88,
+   "cosine_source": "question:IAL2013_6665A_Jan2014_Q5"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 3,
+   "n_answers": 0,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

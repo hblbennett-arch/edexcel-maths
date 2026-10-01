@@ -1,0 +1,140 @@
+{
+ "id": "optimisation-constrained-shape",
+ "question_type": "optimisation-constrained-shape",
+ "component": "pure",
+ "title": "Optimise a 3D shape under a constraint",
+ "what_it_asks": "You are given a solid or container with a fixed volume, usually with a diagram. You must show that the surface area can be written as a function of one variable, then use calculus to find the value that gives the least (or greatest) surface area. The idea is to use the fixed volume to remove one variable, differentiate, and justify the optimum.",
+ "typical_structure": "Usually three or four parts, sometimes five, worth about eleven marks in total. The first part is a show-that: use the volume to express one dimension in terms of another and reach a printed surface-area formula. Later parts typically find the derivative, solve for the stationary value, calculate the optimum quantity to a stated accuracy, and justify that it is a minimum or maximum. Each part depends on the printed result from before, and later parts often say \"hence\" or \"use calculus\".",
+ "mark_pattern": "The show-that part is typically M1 A1 or B1 M1 A1*: a mark for a correct area or volume expression, a method mark for substituting from the constraint, and a final starred mark for reaching the printed form with no gaps. Differentiating is usually M1 A1, where the method mark is for reducing powers and the accuracy mark is for the correct derivative. Setting the derivative to zero and solving is usually M1 A1, often followed by a further M1 A1 for finding the required value of the optimum. The nature of the stationary point is typically M1 A1ft or M1 A1*: find the second derivative, evaluate or state its sign, then conclude. Dependent method marks need the earlier differentiation to be valid.",
+ "where_marks_leak": [
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You give the dimension or area to the wrong number of significant figures or decimal places, or leave it unrounded. This is a common error on this type. The final A1 is lost, even when all the calculus is right."
+  },
+  {
+   "error_code": "arithmetic-slip",
+   "mark_family": "accuracy",
+   "text": "A numerical slip in the constraint substitution or in solving the power equation gives a wrong value. The A1 is lost, and a later accuracy mark may go too, though follow-through can rescue some."
+  },
+  {
+   "error_code": "mensuration-formula-error",
+   "mark_family": "method",
+   "text": "You miss a face of the container, such as an open top or a base, or use the wrong curved-surface formula. The M1 in the show-that part goes, and the final A1* cannot be earned."
+  },
+  {
+   "error_code": "second-derivative-error",
+   "mark_family": "accuracy",
+   "text": "You differentiate the first derivative wrongly, for example mishandling a negative power. The A1 for the second derivative is lost, and the conclusion about the nature may not be secure."
+  },
+  {
+   "error_code": "zero-second-derivative-misread",
+   "mark_family": "independent",
+   "text": "You decide a point is an inflection because the second derivative is zero, or give no sign and conclusion. The independent mark for the justification is lost."
+  }
+ ],
+ "write_to_earn": [
+  "Write the volume formula and rearrange it for one variable before substituting into the surface area.",
+  "In the show-that part, show the line just before the printed result, then state the printed result itself.",
+  "Rewrite terms like $\\frac{k}{x}$ as $kx^{-1}$ before differentiating, then reduce each power by 1.",
+  "Set $\\frac{\\mathrm{d}A}{\\mathrm{d}x}=0$ explicitly, isolate the power, and take the root only after isolating it.",
+  "Find $\\frac{\\mathrm{d}^2A}{\\mathrm{d}x^2}$, state its sign at your value, and write a conclusion in words."
+ ],
+ "check_before_you_leave": [
+  "Every face included?",
+  "Printed result reached exactly?",
+  "Answer to required accuracy?",
+  "Second derivative sign stated?",
+  "Conclusion written in words?"
+ ],
+ "skills": [
+  "show-that-given-answer",
+  "mensuration-formulae",
+  "eliminate-variable-using-constraint",
+  "set-derivative-zero-and-solve",
+  "second-derivative",
+  "second-derivative-test",
+  "differentiate-negative-and-fractional-powers",
+  "solve-power-equation"
+ ],
+ "related_types": [
+  "optimisation-modelled-quantity",
+  "turning-point-by-iteration",
+  "de-formulate-from-rates"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:04:05",
+ "cost_usd": 0.0959,
+ "attempts": 2,
+ "facts": {
+  "n_questions": 26,
+  "codes_listed": {
+   "wrong-final-accuracy": 17,
+   "arithmetic-slip": 7,
+   "rationalising-error": 7,
+   "mensuration-formula-error": 6,
+   "second-derivative-error": 6,
+   "zero-second-derivative-misread": 4,
+   "set-notation-misused": 2,
+   "premature-rounding": 2
+  },
+  "frequent_codes": [
+   "wrong-final-accuracy"
+  ],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.848 with note:IAL2013_WMA01_Oct2016_G_n5"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.004,
+   "shared_numbers": 0,
+   "max_cosine": 0.848,
+   "cosine_source": "note:IAL2013_WMA01_Oct2016_G_n5"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 4
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.848 with note:IAL2013_WMA01_Oct2016_G_n5"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

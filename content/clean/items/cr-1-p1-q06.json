@@ -1,0 +1,1709 @@
+{
+ "id": "cr-1-p1-q06",
+ "blueprint_id": "mk-1-p1-q06",
+ "question_type": "modulus-and-transformations",
+ "component": "pure",
+ "tier": "challenging",
+ "kind": "mock",
+ "stem": "The function $\\mathrm{f}$ is defined by $\\mathrm{f}(x) = 2|x + 1| - 6$, $x \\in \\mathbb{R}$.",
+ "paper": "mock-1-P1",
+ "set": "mock-1",
+ "q_num": 6,
+ "parts": [
+  {
+   "label": "a",
+   "marks": 2,
+   "command": "sketch",
+   "forms": [],
+   "skills": [
+    "graph-transformations",
+    "sketch-curve-key-features",
+    "modulus-graph-vertex"
+   ],
+   "text": "Sketch the graph of $y = \\mathrm{f}(x)$. Mark the coordinates of its vertex and of each point where it meets the $x$-axis or the $y$-axis. (2)",
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "V shape made of two straight lines with its vertex at $(-1, -6)$, which lies below the $x$-axis",
+     "notes": "The vertex must be a sharp point, not rounded. Accept the vertex coordinates marked on the sketch or given in the working."
+    },
+    {
+     "code": "B1",
+     "for": "Axis crossings marked correctly: $(-4, 0)$ and $(2, 0)$ on the $x$-axis and $(0, -4)$ on the $y$-axis",
+     "notes": "Accept $-4$ and $2$ marked on the $x$-axis and $-4$ on the $y$-axis. All three are needed."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$|x+1|$ is smallest when $x = -1$, so the vertex is at $(-1, 2(0) - 6) = (-1, -6)$. For $x \\geqslant -1$ the graph is $y = 2x - 4$ (gradient $2$). For $x < -1$ it is $y = -2x - 8$ (gradient $-2$).",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "$x$-axis: $2|x+1| = 6 \\Rightarrow |x + 1| = 3 \\Rightarrow x = 2$ or $x = -4$. $y$-axis: $\\mathrm{f}(0) = 2(1) - 6 = -4$. Mark $(-4,0)$, $(2,0)$ and $(0,-4)$.",
+     "mark": "B1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "s",
+     "expr": "-1",
+     "form": "exact",
+     "check": "2*abs(s+1) - 6 = -6"
+    },
+    {
+     "name": "t",
+     "expr": "-6",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "substitute",
+     "expr": "2*abs(x+1) - 6",
+     "at": {
+      "x": "-1"
+     },
+     "answer": "t"
+    },
+    {
+     "type": "solutions",
+     "equation": "2*abs(x+1) - 6 = 0",
+     "var": "x",
+     "result": [
+      "-4",
+      "2"
+     ]
+    },
+    {
+     "type": "substitute",
+     "expr": "2*abs(x+1) - 6",
+     "at": {
+      "x": "0"
+     },
+     "result": "-4"
+    }
+   ],
+   "hints": [
+    "Find the value of $x$ that makes the expression inside the modulus zero. That gives the $x$-coordinate of the vertex.",
+    "To find where the graph meets the $x$-axis, solve $|x+1| = 3$. Remember there are two cases."
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "Vertex at $x=-1$: $\\mathrm{f}(-1)=-6$, so vertex $(-1,-6)$. V shape with branches $y=2x-4$ for $x\\geqslant -1$ and $y=-2x-8$ for $x<-1$.",
+      "secures": [
+       "B1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$y=0$: $|x+1|=3$, so $x=2$ or $x=-4$. $x=0$: $y=-4$. Mark $(-4,0)$, $(2,0)$, $(0,-4)$; vertex $(-1,-6)$, i.e. $s=-1$, $t=-6$.",
+      "secures": [
+       "B1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$|x+1|\\geqslant 0$ always, with smallest value $0$",
+      "why": "A modulus is never negative, so the lowest point of the graph comes where the inside of the modulus is zero.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$x+1=0$",
+      "why": "You set the inside of the modulus equal to zero to find where the graph turns.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$x=-1$",
+      "why": "You subtract $1$ from both sides to get the $x$-coordinate of the vertex (the sharp turning point).",
+      "secures": null,
+      "check": "$-1+1=0$."
+     },
+     {
+      "step": 4,
+      "working": "$\\mathrm{f}(-1)=2|-1+1|-6$",
+      "why": "You substitute $x=-1$ into $\\mathrm{f}$ to get the $y$-coordinate of the vertex.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$\\mathrm{f}(-1)=2(0)-6$",
+      "why": "Inside the modulus $-1+1=0$, and $|0|=0$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$\\mathrm{f}(-1)=-6$",
+      "why": "Evaluate $2\\times 0=0$, then subtract $6$.",
+      "secures": null,
+      "check": "The vertex is below the $x$-axis, as expected since we subtract $6$."
+     },
+     {
+      "step": 7,
+      "working": "Vertex: $(-1,-6)$",
+      "why": "You combine the two coordinates into the vertex point.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "For $x\\geqslant -1$: $|x+1|=x+1$, so $y=2(x+1)-6$",
+      "why": "When the inside is not negative the modulus signs can simply be dropped.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "$y=2x+2-6$",
+      "why": "You expand the bracket by multiplying $x$ and $1$ by $2$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$y=2x-4$",
+      "why": "Collect $2-6=-4$. This right-hand branch has gradient $2$.",
+      "secures": null,
+      "check": "At $x=-1$: $-2-4=-6$, matching the vertex."
+     },
+     {
+      "step": 11,
+      "working": "For $x<-1$: $|x+1|=-(x+1)$, so $y=-2(x+1)-6$",
+      "why": "When the inside is negative, the modulus changes its sign to make it positive.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 12,
+      "working": "$y=-2x-2-6$",
+      "why": "You expand the bracket by multiplying by $-2$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 13,
+      "working": "$y=-2x-8$",
+      "why": "Collect $-2-6=-8$. This left-hand branch has gradient $-2$, so the graph is a V shape with a sharp point at $(-1,-6)$.",
+      "secures": "B1",
+      "check": "At $x=-1$: $2-8=-6$, matching the vertex."
+     },
+     {
+      "step": 14,
+      "working": "Meets $x$-axis where $y=0$: $2|x+1|-6=0$",
+      "why": "Points on the $x$-axis have $y=0$, so you set $\\mathrm{f}(x)=0$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 15,
+      "working": "$2|x+1|=6$",
+      "why": "Add $6$ to both sides.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 16,
+      "working": "$|x+1|=3$",
+      "why": "Divide both sides by $2$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 17,
+      "working": "$x+1=3$ or $x+1=-3$",
+      "why": "A modulus equals $3$ when the inside is $3$ or $-3$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 18,
+      "working": "$x=2$ or $x=-4$",
+      "why": "Subtract $1$ from each side in both equations.",
+      "secures": null,
+      "check": "$2|3|-6=0$ and $2|-3|-6=0$."
+     },
+     {
+      "step": 19,
+      "working": "Meets $y$-axis where $x=0$: $\\mathrm{f}(0)=2|0+1|-6$",
+      "why": "Points on the $y$-axis have $x=0$, so you substitute $0$ into $\\mathrm{f}$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 20,
+      "working": "$\\mathrm{f}(0)=2(1)-6$",
+      "why": "$|0+1|=1$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 21,
+      "working": "$\\mathrm{f}(0)=-4$",
+      "why": "Evaluate $2-6$.",
+      "secures": null,
+      "check": "Using $y=2x-4$ at $x=0$ gives $-4$ too."
+     },
+     {
+      "step": 22,
+      "working": "Sketch the V with vertex $(-1,-6)$ and mark $(-4,0)$, $(2,0)$, $(0,-4)$; vertex $s=-1$, $t=-6$, i.e. $(-1,-6)$",
+      "why": "You draw the two straight branches through these points and label every required coordinate.",
+      "secures": "B1",
+      "check": "Both branches are straight and the sketch is symmetric about $x=-1$."
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T23:14:02+00:00",
+    "cost_usd": 0.0286,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
+  },
+  {
+   "label": "b",
+   "marks": 2,
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "graph-transformations",
+    "sketch-curve-key-features",
+    "solve-modulus-equation-or-inequality",
+    "set-notation-answers"
+   ],
+   "text": "Find all values of $x$ for which $\\mathrm{f}(x) > 4 - x$. Write your answer using set notation. (2)",
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Finds the critical value $x = \\frac{8}{3}$ from the branch $2x - 4 = 4 - x$ and gives the region $x > \\frac{8}{3}$",
+     "notes": "oe, e.g. $x > 2.67$ (awrt). Having the critical value without the correct inequality does not earn this mark."
+    },
+    {
+     "code": "B1",
+     "for": "Finds the critical value $x = -12$ from the branch $-2x - 8 = 4 - x$ and gives the full answer $\\{x : x < -12\\} \\cup \\{x : x > \\frac{8}{3}\\}$",
+     "notes": "cao for this mark. Needs correct set notation with the union. Reject $\\cap$, 'and', or a single interval running from $-12$ to $\\frac{8}{3}$."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "For $x \\geqslant -1$: $2x - 4 > 4 - x \\Rightarrow 3x > 8 \\Rightarrow x > \\frac{8}{3}$. This lies inside $x \\geqslant -1$, so it is valid.",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "For $x < -1$: $-2x - 8 > 4 - x \\Rightarrow -x > 12 \\Rightarrow x < -12$. This lies inside $x < -1$, so it is valid.",
+     "mark": "0"
+    },
+    {
+     "step": 3,
+     "working": "Check with the sketch from (a): the line $y = 4 - x$ crosses the V once on each arm, and the V lies above the line outside those two crossings. Answer: $\\{x : x < -12\\} \\cup \\{x : x > \\tfrac{8}{3}\\}$.",
+     "mark": "B1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "p",
+     "expr": "-12",
+     "form": "exact",
+     "check": "2*abs(p+1) - 6 = 4 - p"
+    },
+    {
+     "name": "q",
+     "expr": "8/3",
+     "form": "exact",
+     "check": "2*abs(q+1) - 6 = 4 - q"
+    }
+   ],
+   "checks": [
+    {
+     "type": "solutions",
+     "equation": "2*abs(x+1) - 6 = 4 - x",
+     "var": "x",
+     "result": [
+      "-12",
+      "8/3"
+     ]
+    },
+    {
+     "type": "substitute",
+     "expr": "2*abs(x+1) - 6 - (4 - x)",
+     "at": {
+      "x": "0"
+     },
+     "result": "-8"
+    },
+    {
+     "type": "substitute",
+     "expr": "2*abs(x+1) - 6 - (4 - x)",
+     "at": {
+      "x": "-13"
+     },
+     "result": "1"
+    }
+   ],
+   "hints": [
+    "Add the line $y = 4 - x$ to your sketch from part (a). How many times does it cross the V, and on which arms?",
+    "Write $\\mathrm{f}(x)$ without the modulus on each side of $x = -1$, then solve a linear inequality for each case."
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$x\\geqslant -1$: $2x-4>4-x \\Rightarrow 3x>8 \\Rightarrow x>\\frac{8}{3}$",
+      "secures": [
+       "B1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$x<-1$: $-2x-8>4-x \\Rightarrow x<-12$, so $\\{x : x < -12\\} \\cup \\{x : x > \\tfrac{8}{3}\\}$",
+      "secures": [
+       "B1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "For $x\\geqslant -1$, $|x+1| = x+1$, so $\\mathrm{f}(x)=2(x+1)-6$",
+      "why": "You first remove the modulus (absolute value) signs. When $x+1$ is not negative, $|x+1|$ is just $x+1$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$2(x+1)-6 = 2x+2-6$",
+      "why": "You expand the bracket by multiplying both terms inside by 2.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$\\mathrm{f}(x)=2x-4$",
+      "why": "You collect the constants $2-6=-4$.",
+      "secures": null,
+      "check": "At $x=0$: $2|1|-6=-4$. ✓"
+     },
+     {
+      "step": 4,
+      "working": "$2x-4>4-x$",
+      "why": "You set this branch of $\\mathrm{f}(x)$ greater than $4-x$, as the question asks.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$2x+x-4>4$",
+      "why": "You add $x$ to both sides so all the $x$ terms are on the left.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$3x>8$",
+      "why": "You add 4 to both sides and combine $2x+x=3x$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "$x>\\frac{8}{3}$",
+      "why": "You divide both sides by 3. This is positive, so the inequality direction stays the same.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$\\frac{8}{3}\\approx 2.67\\geqslant -1$, so $x>\\frac{8}{3}$ is valid",
+      "why": "You check that this region lies inside the assumed range $x\\geqslant -1$. It does, so this branch gives a solution.",
+      "secures": "B1",
+      "check": "At $x=3$: $\\mathrm{f}(3)=2\\times4-6=2$ and $4-3=1$, and $2>1$. ✓"
+     },
+     {
+      "step": 9,
+      "working": "For $x<-1$, $|x+1| = -(x+1)$, so $\\mathrm{f}(x)=-2(x+1)-6$",
+      "why": "When $x+1$ is negative, the modulus changes its sign to make it positive.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$-2(x+1)-6=-2x-2-6$",
+      "why": "You expand the bracket, multiplying both terms by $-2$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 11,
+      "working": "$\\mathrm{f}(x)=-2x-8$",
+      "why": "You collect the constants $-2-6=-8$.",
+      "secures": null,
+      "check": "At $x=-2$: $2|-1|-6=-4$ and $-2(-2)-8=-4$. ✓"
+     },
+     {
+      "step": 12,
+      "working": "$-2x-8>4-x$",
+      "why": "You set this branch greater than $4-x$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 13,
+      "working": "$-2x+x-8>4$",
+      "why": "You add $x$ to both sides to gather the $x$ terms on the left.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 14,
+      "working": "$-x-8>4$",
+      "why": "You combine $-2x+x=-x$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 15,
+      "working": "$-x>12$",
+      "why": "You add 8 to both sides.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 16,
+      "working": "$x<-12$",
+      "why": "You multiply both sides by $-1$. Multiplying by a negative number reverses the inequality sign.",
+      "secures": null,
+      "check": "At $x=-13$: $\\mathrm{f}=2\\times12-6=18$ and $4+13=17$, and $18>17$. ✓"
+     },
+     {
+      "step": 17,
+      "working": "$-12<-1$, so $x<-12$ is valid",
+      "why": "You check that this region lies inside the assumed range $x<-1$. It does.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 18,
+      "working": "$\\{x : x < -12\\} \\cup \\{x : x > \\tfrac{8}{3}\\}$",
+      "why": "The V-shaped graph lies above the line outside its two crossing points, $x=-12$ and $x=\\frac{8}{3}$. You join the two regions with a union $\\cup$ (\"or\"), because $x$ can be in either one. Answer: $p=-12$, $q=\\frac{8}{3}$.",
+      "secures": "B1",
+      "check": "At $x=0$ (between the crossings): $-4>4$ is false, so the middle is correctly excluded."
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T23:14:01+00:00",
+    "cost_usd": 0.0254,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
+  },
+  {
+   "label": "c",
+   "marks": 2,
+   "command": "write-down",
+   "forms": [],
+   "skills": [
+    "graph-transformations",
+    "sketch-curve-key-features",
+    "modulus-graph-vertex"
+   ],
+   "text": "The curve $C$ has equation $y = 2|\\mathrm{f}(x - 3)|$. Write down (i) the coordinates of the local maximum point of $C$, and (ii) the set of values of the constant $k$ for which the line $y = k$ meets $C$ at exactly four points. (2)",
+   "mark_scheme": [
+    {
+     "code": "B1ft",
+     "for": "(i) $(2, 12)$",
+     "ft_of": "a",
+     "notes": "Follow through from their vertex $(\\alpha, \\beta)$ in (a) with $\\beta < 0$: accept $(\\alpha + 3, -2\\beta)$."
+    },
+    {
+     "code": "B1ft",
+     "for": "(ii) $0 < k < 12$",
+     "ft_of": "a",
+     "notes": "oe, e.g. $\\{k : 0 < k < 12\\}$. Follow through as $0 < k < -2\\beta$. Both inequalities must be strict."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$y = \\mathrm{f}(x-3)$ is the graph from (a) translated by $3$ units in the positive $x$-direction, so its vertex is at $(2, -6)$. It meets the $x$-axis at $(-1, 0)$ and $(5, 0)$.",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "Taking the modulus reflects the part below the $x$-axis upwards, so $(2, -6)$ becomes a local maximum at $(2, 6)$. Multiplying by $2$ stretches the graph vertically, giving $(2, 12)$.",
+     "mark": "B1ft"
+    },
+    {
+     "step": 3,
+     "working": "$C$ is W-shaped. Its minima are at $(-1,0)$ and $(5,0)$ and its local maximum is at $(2,12)$. A horizontal line meets it four times exactly when it lies strictly between $0$ and $12$: $0 < k < 12$. At $k = 12$ there are 3 points and at $k = 0$ there are 2.",
+     "mark": "B1ft"
+    }
+   ],
+   "answers": [
+    {
+     "name": "h",
+     "expr": "2",
+     "form": "exact",
+     "check": "2*abs(2*abs(h - 2) - 6) = 12"
+    },
+    {
+     "name": "m",
+     "expr": "12",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "substitute",
+     "expr": "2*abs(2*abs(x - 2) - 6)",
+     "at": {
+      "x": "2"
+     },
+     "answer": "m"
+    },
+    {
+     "type": "equals",
+     "lhs": "2*abs(x - 3 + 1) - 6",
+     "rhs": "2*abs(x - 2) - 6"
+    },
+    {
+     "type": "solutions",
+     "equation": "2*abs(2*abs(x - 2) - 6) = 6",
+     "var": "x",
+     "result": [
+      "-5/2",
+      "1/2",
+      "7/2",
+      "13/2"
+     ]
+    },
+    {
+     "type": "solutions",
+     "equation": "2*abs(2*abs(x - 2) - 6) = 12",
+     "var": "x",
+     "result": [
+      "-4",
+      "2",
+      "8"
+     ]
+    }
+   ],
+   "hints": [
+    "Apply the transformations one at a time to the vertex from (a): first replace $x$ with $x - 3$, then take the modulus, then multiply by 2.",
+    "Sketch the W shape of $C$ and slide a horizontal line up from the $x$-axis. Count how many times it meets the curve."
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "Vertex of $f$ is $(-1,-6)$, so $f(x-3)$ has vertex $(2,-6)$. Modulus flips it to $(2,6)$, stretch by 2 gives local maximum $(2,12)$.",
+      "secures": [
+       "B1ft"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$C$ is W-shaped with minima at $(-1,0)$ and $(5,0)$ and maximum $(2,12)$, so four intersections need $0<k<12$.",
+      "secures": [
+       "B1ft"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "Vertex of $y=\\mathrm{f}(x)$ is $(-1,-6)$.",
+      "why": "You start from the vertex you found in part (a), because every later transformation moves this point.",
+      "secures": null,
+      "check": "$\\mathrm{f}(-1)=2|0|-6=-6$."
+     },
+     {
+      "step": 2,
+      "working": "$y=\\mathrm{f}(x-3)$ moves the graph $3$ units right.",
+      "why": "Replacing $x$ by $x-3$ shifts the graph in the positive $x$-direction by $3$, so you add $3$ to every $x$-coordinate.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$-1+3=2$",
+      "why": "You add $3$ to the $x$-coordinate of the vertex.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "Vertex of $y=\\mathrm{f}(x-3)$ is $(2,-6)$.",
+      "why": "The $y$-coordinate does not change in a horizontal shift, so the vertex is $(2,-6)$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$|{-6}|=6$",
+      "why": "The modulus turns any negative $y$-value into a positive one, reflecting the part of the graph below the $x$-axis upwards. The vertex is below the axis, so it gets reflected.",
+      "secures": null,
+      "check": "The new $y$-value must be positive."
+     },
+     {
+      "step": 6,
+      "working": "Vertex of $y=|\\mathrm{f}(x-3)|$ becomes $(2,6)$, a local maximum.",
+      "why": "After the reflection the old lowest point is now a peak between two points on the $x$-axis, so it is a local maximum.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "$2\\times 6=12$",
+      "why": "Multiplying the whole function by $2$ stretches the graph vertically, so you double the $y$-coordinate and leave $x$ alone.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "(i) Local maximum of $C$ is $(2,12)$.",
+      "why": "This is the point after the shift, the modulus and the stretch.",
+      "secures": "B1ft",
+      "check": "$y=2|\\mathrm{f}(2-3)|=2|\\mathrm{f}(-1)|=2\\times 6=12$."
+     },
+     {
+      "step": 9,
+      "working": "Solve $\\mathrm{f}(x)=0$: $2|x+1|-6=0$",
+      "why": "You need the points where the original graph meets the $x$-axis, because these become the lowest points of $C$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$2|x+1|=6$",
+      "why": "You add $6$ to both sides.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 11,
+      "working": "$|x+1|=3$",
+      "why": "You divide both sides by $2$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 12,
+      "working": "$x+1=3$ or $x+1=-3$",
+      "why": "A modulus equals $3$ when the inside is $3$ or $-3$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 13,
+      "working": "$x=2$ or $x=-4$",
+      "why": "You subtract $1$ from each side.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 14,
+      "working": "After the shift of $3$ right: $x=5$ and $x=-1$",
+      "why": "You add $3$ to each $x$-value. The stretch and the modulus keep these points on the $x$-axis.",
+      "secures": null,
+      "check": "$\\mathrm{f}(5-3)=\\mathrm{f}(2)=0$."
+     },
+     {
+      "step": 15,
+      "working": "$C$ is W-shaped: minima $(-1,0)$ and $(5,0)$, local maximum $(2,12)$.",
+      "why": "Between the two $x$-intercepts the graph rises to the peak, and outside them it rises away forever, which gives a W.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 16,
+      "working": "At $k=12$: the line touches the peak and meets $C$ at $3$ points.",
+      "why": "At exactly peak height the line meets the middle once and the two outer arms once each, so this is not four.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 17,
+      "working": "At $k=0$: the line meets $C$ at $2$ points.",
+      "why": "The line lies along the $x$-axis and touches only the two minima.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 18,
+      "working": "For $0<k<12$: two points on each side of the peak, so $4$ points.",
+      "why": "A line below the peak cuts the two outer arms and the two sides of the middle hump, giving four points. Both ends must be strict because of the last two lines.",
+      "secures": null,
+      "check": "Try $k=1$: four crossings."
+     },
+     {
+      "step": 19,
+      "working": "(i) $(2,12)$, so $h=2$, $m=12$; (ii) $\\{k: 0<k<12\\}$",
+      "why": "This collects both answers of the part.",
+      "secures": "B1ft",
+      "check": null
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T23:14:21+00:00",
+    "cost_usd": 0.039,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "modulus-reflection-wrong",
+   "text": "The modulus is only around $x + 1$, and the $-6$ is outside it. So the graph of $\\mathrm{f}$ does go below the $x$-axis, down to $(-1, -6)$. If you reflect the lower part upwards, as if you were drawing $|2(x+1) - 6|$, your shape is wrong and you lose the first B1. This is a common mistake.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "sketch-wrong-shape-or-asymptote",
+   "text": "Both arms of the graph are straight lines, with gradients $\\pm 2$, that meet at a sharp point at $(-1,-6)$. If you round off the bottom as if it were a parabola, the first B1 is lost. This mistake is common.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "sketch-missing-coordinates",
+   "text": "You need all three axis points: $(-4,0)$, $(2,0)$ and $(0,-4)$. A common slip is to leave out the $y$-intercept, or to mark it at $-6$, which confuses it with the vertex. Either loses the second B1.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "modulus-case-missing",
+   "text": "If you solve only $2(x+1) - 6 > 4 - x$, you find $x > \\frac{8}{3}$ but miss the region $x < -12$ that comes from the other arm of the V. The second B1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "modulus-extra-solution-kept",
+   "text": "Do not remove the modulus by putting $\\pm$ on the right-hand side, as in $2x - 4 = -(4 - x)$. That gives $x = 0$, which does not satisfy $\\mathrm{f}(x) = 4 - x$, because $\\mathrm{f}(0) = -4 \\ne 4$. If you keep $x = 0$ as a critical value, your answer is wrong and a B1 is lost. This mistake is common.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 3,
+   "error_code": "sketch-wrong-shape-or-asymptote",
+   "text": "If your V from (a) has the wrong shape, you may decide the region is between $-12$ and $\\frac{8}{3}$. In fact the V lies above the line only outside these values. Writing $\\{x : -12 < x < \\frac{8}{3}\\}$ loses the final B1. This error is common.",
+   "says_common": true
+  },
+  {
+   "part": "c",
+   "step": 2,
+   "error_code": "modulus-reflection-wrong",
+   "text": "The equation $y = 2|\\mathrm{f}(x-3)|$ reflects the part of the graph below the $x$-axis upwards. It does not reflect the right-hand half across the $y$-axis, which is what $\\mathrm{f}(|x|)$ does. If you mix these up, you will not get a local maximum at $(2, 12)$ and the first B1 is lost. This is a common mistake.",
+   "says_common": true
+  },
+  {
+   "part": "c",
+   "step": 1,
+   "error_code": "sketch-missing-coordinates",
+   "text": "$\\mathrm{f}(x - 3)$ moves the graph 3 units to the right, so the vertex moves to $x = 2$. It does not move left to $x = -4$. Also remember the factor of 2: if you give $(2, 6)$, you have forgotten the vertical stretch. Either slip is common, and each loses the first B1.",
+   "says_common": true
+  },
+  {
+   "part": "c",
+   "step": 3,
+   "error_code": "sketch-wrong-shape-or-asymptote",
+   "text": "$C$ is a W shape with a sharp peak at $(2,12)$. The line $y = 12$ passes through that peak and meets $C$ at only 3 points. So you must write $0 < k < 12$, not $0 < k \\leqslant 12$, or you lose the second B1. This mistake is common.",
+   "says_common": true
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:37:06",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.4175
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 6
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.894 with part:GCE2008_6663_June2012_Q10:c"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "hits8": [],
+   "max_jaccard": 0.052,
+   "jaccard_source": "P1_June2024_Q5",
+   "shared_numbers": 0,
+   "max_cosine": 0.894,
+   "cosine_source": "part:GCE2008_6663_June2012_Q10:c"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 10,
+   "n_answers": 6,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "part a: expected s = -1, solver got ['Vertex (-1, -6)', 'y-intercept (0, -4)', 'x-intercepts (-4, 0) and (2, 0)'] [judge: same - Vertex (-1,-6) matches. The solver also gives correct intercepts: (0,-4), (-4,0) and (2,0).]",
+    "part a: expected t = -6, solver got ['Vertex (-1, -6)', 'y-intercept (0, -4)', 'x-intercepts (-4, 0) and (2, 0)'] [judge: same - Vertex (-1,-6) matches. The solver also gives correct intercepts: (0,-4), (-4,0) and (2,0).]",
+    "part b: expected p = -12, solver got ['{x: x < -12} U {x: x > 8/3}'] [judge: same - x < -12 or x > 8/3 matches the setter's boundary values -12 and 8/3.]",
+    "part b: expected q = 8/3, solver got ['{x: x < -12} U {x: x > 8/3}'] [judge: same - x < -12 or x > 8/3 matches the setter's boundary values -12 and 8/3.]",
+    "part c: expected h = 2, solver got ['(i) (2, 12)', '(ii) {k: 0 < k < 12}'] [judge: same - The local maximum (2,12) matches the setter's values. The solver's 0<k<12 is correct and consistent with the setter's upper bound 12.]",
+    "part c: expected m = 12, solver got ['(i) (2, 12)', '(ii) {k: 0 < k < 12}'] [judge: same - The local maximum (2,12) matches the setter's values. The solver's 0<k<12 is correct and consistent with the setter's upper bound 12.]",
+    "marks (part -): Part (c) gives 2 marks for two separate answers, (i) and (ii). Part (ii) needs some reasoning, so the allocation is tight but workable."
+   ],
+   "flag": true,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0242,
+   "solver": {
+    "parts": [
+     {
+      "label": "a",
+      "answers": [
+       "Vertex (-1, -6)",
+       "y-intercept (0, -4)",
+       "x-intercepts (-4, 0) and (2, 0)"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "V-shape with vertex (-1,-6). f(0)=2-6=-4. f=0 gives |x+1|=3 so x=-4 or 2."
+     },
+     {
+      "label": "b",
+      "answers": [
+       "{x: x < -12} U {x: x > 8/3}"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "Need 2|x+1| > 10 - x. For x>=-1: 3x>8 so x>8/3. For x<-1: -2x-8>4-x so x<-12. The two boundary values are the intersections of the graphs."
+     },
+     {
+      "label": "c",
+      "answers": [
+       "(i) (2, 12)",
+       "(ii) {k: 0 < k < 12}"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "f(x-3) has vertex (2,-6) and zeros at x=-1 and x=5. Taking the modulus reflects the vertex to (2,6), and the factor 2 makes it (2,12). The graph is W-shaped. The line y=k meets it four times only for 0<k<12. At k=12 there are 3 points, and at k=0 there are 2."
+     }
+    ],
+    "problems": [
+     {
+      "kind": "marks",
+      "severity": "minor",
+      "detail": "Part (c) gives 2 marks for two separate answers, (i) and (ii). Part (ii) needs some reasoning, so the allocation is tight but workable."
+     }
+    ]
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "response p6 (pitfall sketch-wrong-shape-or-asymptote): both markers award {'a': ['B1', 'B1'], 'b': ['B0', 'B0'], 'c': ['B1', 'B1']}, not the designed {'a': ['B1', 'B1'], 'b': ['B1', 'B0'], 'c': ['B1', 'B1']} (script design off; scheme consistent)"
+   ],
+   "flag": true,
+   "n_responses": 11,
+   "agreed": [
+    "correct",
+    "p1",
+    "p2",
+    "p3",
+    "p4",
+    "p5",
+    "p7",
+    "p8",
+    "p9",
+    "partial"
+   ],
+   "consistent": {
+    "p6": [
+     {
+      "part": "a",
+      "marks": [
+       "B1",
+       "B1"
+      ]
+     },
+     {
+      "part": "b",
+      "marks": [
+       "B0",
+       "B0"
+      ]
+     },
+     {
+      "part": "c",
+      "marks": [
+       "B1ft",
+       "B1ft"
+      ]
+     }
+    ]
+   },
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "correct",
+     "kind": "correct",
+     "error_code": null,
+     "work": "(a) V-shape, sharp vertex at $(-1,-6)$. $y=2x-4$ for $x\\ge -1$, $y=-2x-8$ for $x<-1$. Crosses x-axis: $2|x+1|=6$, $x=2$ or $-4$: $(-4,0)$, $(2,0)$. y-axis: $f(0)=-4$: $(0,-4)$.\n(b) $x\\ge-1$: $2x-4>4-x \\Rightarrow x>8/3$. $x<-1$: $-2x-8>4-x \\Rightarrow x<-12$. Answer $\\{x:x<-12\\}\\cup\\{x:x>\\frac{8}{3}\\}$.\n(c)(i) $f(x-3)$ has vertex $(2,-6)$; modulus gives $(2,6)$; stretch gives $(2,12)$. (ii) W shape, minima at $y=0$, max 12, so $0<k<12$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1ft",
+        "B1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p1",
+     "kind": "pitfall",
+     "error_code": "modulus-reflection-wrong",
+     "work": "(a) I treated it as $|2(x+1)-6|=|2x-4|$ and reflected the part below the axis. V shape with vertex at $(2,0)$, meeting y-axis at $(0,4)$. Marked $(2,0)$ and $(0,4)$.\n(b) $x\\ge-1$: $2x-4>4-x$, $x>8/3$. $x<-1$: $-2x-8>4-x$, $x<-12$. Answer $\\{x:x<-12\\}\\cup\\{x:x>\\frac{8}{3}\\}$.\n(c) Using my sketch, vertex $(2,0)$ shifted 3 right gives $(5,0)$, so (i) $(5,0)$ and (ii) $k>0$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B0",
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0",
+        "B0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p2",
+     "kind": "pitfall",
+     "error_code": "sketch-wrong-shape-or-asymptote",
+     "work": "(a) Drew a smooth rounded U-shaped curve (like a parabola) with minimum at $(-1,-6)$, crossing the x-axis at $(-4,0)$ and $(2,0)$ and the y-axis at $(0,-4)$; all marked.\n(b) $x>8/3$ or $x<-12$: $\\{x:x<-12\\}\\cup\\{x:x>\\frac{8}{3}\\}$.\n(c)(i) $(2,12)$ (ii) $0<k<12$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B0",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1ft",
+        "B1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p3",
+     "kind": "pitfall",
+     "error_code": "sketch-missing-coordinates",
+     "work": "(a) Sharp V with vertex $(-1,-6)$, crossing x-axis at $(-4,0)$ and $(2,0)$. I marked the y-intercept as $(0,-6)$.\n(b) $x>8/3$ and $x<-12$: $\\{x:x<-12\\}\\cup\\{x:x>\\frac{8}{3}\\}$.\n(c) Vertex of $f(x-3)$ is $(2,-6)$, so $C$ has local max $(2,12)$; $0<k<12$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1ft",
+        "B1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p4",
+     "kind": "pitfall",
+     "error_code": "modulus-case-missing",
+     "work": "(a) V with vertex $(-1,-6)$, points $(-4,0)$, $(2,0)$, $(0,-4)$.\n(b) $2(x+1)-6>4-x \\Rightarrow 3x>8 \\Rightarrow x>\\frac{8}{3}$. Answer $\\{x:x>\\frac{8}{3}\\}$.\n(c)(i) $(2,12)$ (ii) $0<k<12$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1ft",
+        "B1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p5",
+     "kind": "pitfall",
+     "error_code": "modulus-extra-solution-kept",
+     "work": "(a) V vertex $(-1,-6)$, $(-4,0)$, $(2,0)$, $(0,-4)$.\n(b) Solve $2x-4=4-x$: $x=8/3$, so $x>8/3$. Also $2x-4=-(4-x)$ gives $x=0$, which I kept. $-2x-8=4-x$ gives $x=-12$. Answer $\\{x:x<-12\\}\\cup\\{x:x>\\frac{8}{3}\\}\\cup\\{0\\}$.\n(c)(i) $(2,12)$ (ii) $0<k<12$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1ft",
+        "B1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p6",
+     "kind": "pitfall",
+     "error_code": "sketch-wrong-shape-or-asymptote",
+     "work": "(a) V with vertex $(-1,-6)$, $(-4,0)$, $(2,0)$, $(0,-4)$.\n(b) Branches give $x>8/3$ and $x<-12$ as critical values; thinking the V is below the line between them I wrote $\\{x:-12<x<\\frac{8}{3}\\}$.\n(c)(i) $(2,12)$ (ii) $0<k<12$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1ft",
+        "B1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p7",
+     "kind": "pitfall",
+     "error_code": "modulus-reflection-wrong",
+     "work": "(a) V with vertex $(-1,-6)$, $(-4,0)$, $(2,0)$, $(0,-4)$.\n(b) $\\{x:x<-12\\}\\cup\\{x:x>\\frac{8}{3}\\}$.\n(c) I reflected the right-hand half in the y-axis (like $f(|x|)$), so the graph is symmetric about the y-axis with local max at $(0,-4)$ scaled to $(3,-8)$... (i) $(0,-8)$ (ii) $-8<k<0$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0",
+        "B0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p8",
+     "kind": "pitfall",
+     "error_code": "sketch-missing-coordinates",
+     "work": "(a) V vertex $(-1,-6)$, $(-4,0)$, $(2,0)$, $(0,-4)$.\n(b) $\\{x:x<-12\\}\\cup\\{x:x>\\frac{8}{3}\\}$.\n(c) Shift 3 right: vertex $(2,-6)$, modulus flips to $(2,6)$; forgot the factor 2. (i) $(2,6)$ (ii) $0<k<12$ since the peak of $C$ is at height 12 after stretch.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0",
+        "B1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p9",
+     "kind": "pitfall",
+     "error_code": "sketch-wrong-shape-or-asymptote",
+     "work": "(a) V vertex $(-1,-6)$, $(-4,0)$, $(2,0)$, $(0,-4)$.\n(b) $\\{x:x<-12\\}\\cup\\{x:x>\\frac{8}{3}\\}$.\n(c)(i) $(2,12)$ (ii) W shape, so $0<k\\le 12$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1ft",
+        "B0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "partial",
+     "kind": "partial",
+     "error_code": null,
+     "work": "(a) V with vertex $(-1,-6)$, $(-4,0)$, $(2,0)$, $(0,-4)$.\n(b) $2x-4>4-x \\Rightarrow x>8/3$. I'm not sure about the other branch so I stop here.\n(c) Not attempted.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0",
+        "B0"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "correct",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1ft",
+        "B1ft"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B0",
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0",
+        "B0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) Wrong function: vertex (2,0) not (-1,-6)",
+      "(a) Axis crossings wrong",
+      "(c) Follow-through needs a vertex with β<0; theirs is (2,0), and (5,0) is wrong",
+      "(c) k>0 is not 0<k<12"
+     ]
+    },
+    {
+     "id": "p2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B0",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1ft",
+        "B1ft"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) Rounded curve, not a sharp V"
+     ]
+    },
+    {
+     "id": "p3",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1ft",
+        "B1ft"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) y-intercept marked (0,-6) instead of (0,-4)"
+     ]
+    },
+    {
+     "id": "p4",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1ft",
+        "B1ft"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) Missing the x<-12 branch and the full union answer"
+     ]
+    },
+    {
+     "id": "p5",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1ft",
+        "B1ft"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) Extra {0} in the answer, so the final answer is not correct (cao)"
+     ]
+    },
+    {
+     "id": "p6",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B0",
+        "B0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1ft",
+        "B1ft"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) Wrong region: gave -12<x<8/3 instead of x>8/3 for the first mark",
+      "(b) Final answer wrong"
+     ]
+    },
+    {
+     "id": "p7",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0",
+        "B0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(c)(i) Wrong transformation; (0,-8) is not a follow-through of (α+3,-2β)",
+      "(c)(ii) -8<k<0 is wrong"
+     ]
+    },
+    {
+     "id": "p8",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0",
+        "B1ft"
+       ]
+      }
+     ],
+     "reasons": [
+      "(c)(i) (2,6) is missing the factor 2; it should be (2,12)"
+     ]
+    },
+    {
+     "id": "p9",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1ft",
+        "B0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(c)(ii) k≤12 is not strict; at k=12 the line meets C at only 2 points"
+     ]
+    },
+    {
+     "id": "partial",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B1",
+        "B0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B0",
+        "B0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) Second branch and the full answer are missing",
+      "(c) Not attempted"
+     ]
+    }
+   ],
+   "awarded_second": [
+    {
+     "id": "p6",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "B1",
+        "B1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "B0",
+        "B0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "B1ft",
+        "B1ft"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) B0: the final answer uses the region between the critical values, so x > 8/3 is not given as the answer.",
+      "(b) B0: the scheme rejects a single interval from -12 to 8/3; the answer needed {x : x < -12} ∪ {x : x > 8/3}."
+     ]
+    }
+   ],
+   "cost_usd": 0.1161
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "agreement": "3/3",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.038325000000000005,
+   "retagged": {
+    "a": [
+     "modulus-graph-vertex",
+     "sketch-curve-key-features"
+    ],
+    "b": [
+     "solve-modulus-equation-or-inequality"
+    ],
+    "ci": [
+     "graph-transformations",
+     "modulus-graph-vertex"
+    ],
+    "cii": [
+     "line-meets-graph-critical-cases"
+    ]
+   }
+  },
+  "GL": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part a: copy check flag: cosine 0.849 with part:IAL2018_WMA13_Oct2021_Q2:c",
+    "part b: brisk: answer q = 8/3 appears in an earlier line but not the last working",
+    "part b: every_step: answer p = -12 appears in an earlier line but not the last working",
+    "part b: every_step: answer q = 8/3 appears in an earlier line but not the last working",
+    "part b: copy check flag: cosine 0.838 with part:P2_Oct2021_Q11:b",
+    "part c: copy check flag: cosine 0.840 with part:IAL2018_WMA13_Oct2020_Q4:d"
+   ],
+   "parts_checked": 3
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

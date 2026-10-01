@@ -1,0 +1,147 @@
+{
+ "id": "trig-identity-then-solve",
+ "question_type": "trig-identity-then-solve",
+ "component": "pure",
+ "title": "Trig identity, then solve an equation",
+ "what_it_asks": "You are given an identity to prove, or one to use, built from double angle, compound angle, reciprocal or Pythagorean results. You then use it to turn a harder trig equation into one you can solve in a stated interval. The idea is to rewrite everything in one trig function, then use the symmetry and period of the graph to find every solution.",
+ "typical_structure": "Most questions have two parts, and some have three. The first part is usually a show-that or prove, worth about 3 to 5 marks. The second part usually says \"hence\" or \"use your answer\" and solves an equation, worth about 4 to 6 marks. Total marks are typically 7 to 9. The second part depends on the first. If you cannot do the first part, you can still use the printed result in the second.",
+ "mark_pattern": "A 4-mark part is often M1 A1 M1 A1, or M1 A1 dM1 A1. Five-mark parts often run M1 A1 M1 A1 A1 or M1 A1 dM1 A1 A1. In a proof, the first M1 is for converting to sin and cos or applying an identity. The A1 is for a correct intermediate form. The next method mark is for combining or simplifying, and the last A1* is for reaching the printed result with no gaps. In the solving part, the first M1 is for forming an equation in one trig function, often a quadratic. A later M1 or dM1 is for solving it and finding a first angle. The A1 marks are for correct solutions in the right form and interval. Short 2-mark parts are usually M1 A1. A B1 is sometimes given for a stated value or identity that stands on its own.",
+ "where_marks_leak": [
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You give angles to the wrong number of decimal places or significant figures, or in the wrong unit. The final A1 is lost even though the method was sound."
+  },
+  {
+   "error_code": "compound-angle-sign-error",
+   "mark_family": "method",
+   "text": "You use the wrong sign in an expansion of $\\cos(A \\pm B)$ or $\\tan(A \\pm B)$. The M1 is lost, and the A1 and any dM1 that depend on it go too."
+  },
+  {
+   "error_code": "reciprocal-trig-confused",
+   "mark_family": "method",
+   "text": "You treat $\\sec x$ as $\\frac{1}{\\sin x}$ or $\\operatorname{cosec} x$ as $\\frac{1}{\\cos x}$. The conversion M1 is lost, and the rest of the chain with it."
+  },
+  {
+   "error_code": "double-angle-error",
+   "mark_family": "method",
+   "text": "You write $\\sin 2x$ as $2\\sin x$, or choose a form of $\\cos 2x$ that leaves two different trig functions. The M1 is lost, and later marks that depend on it are lost too."
+  },
+  {
+   "error_code": "pythagorean-identity-error",
+   "mark_family": "method",
+   "text": "You misremember an identity such as $\\sec^2 x = 1 - \\tan^2 x$. The M1 for the substitution goes, and the quadratic you get is wrong, so the A1 marks fail."
+  }
+ ],
+ "write_to_earn": [
+  "Start a proof from one side only, and write the identity you use before you apply it.",
+  "Show the line just before the printed result, then write the printed result, so the final A1* is secure.",
+  "After 'hence', state the equation you get from the identity, in one trig function, before you solve it.",
+  "For a quadratic in $\\sin x$ or $\\cos x$, factorise or solve it on its own line, and reject any value outside $[-1, 1]$ in words.",
+  "For an argument like $2x + 30^\\circ$, adjust the interval first, list all angles, then undo the change, and keep unrounded values until the final line."
+ ],
+ "check_before_you_leave": [
+  "Answer in the asked unit",
+  "Decimal places or sf correct",
+  "All roots in the interval listed",
+  "Impossible values rejected",
+  "Printed result reached with no gaps"
+ ],
+ "skills": [
+  "solve-trig-equation-in-interval",
+  "reciprocal-trig-functions",
+  "pythagorean-identities",
+  "use-hence-previous-result",
+  "show-that-given-answer",
+  "solve-trig-with-transformed-argument",
+  "solve-trig-quadratic",
+  "double-angle-formulae"
+ ],
+ "related_types": [
+  "harmonic-form-and-trig-models",
+  "small-angle-approximations",
+  "differentiate-to-given-form",
+  "radians-sectors-and-regions"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:08:33",
+ "cost_usd": 0.0623,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 133,
+  "codes_listed": {
+   "wrong-final-accuracy": 60,
+   "compound-angle-sign-error": 31,
+   "reciprocal-trig-confused": 21,
+   "double-angle-error": 19,
+   "arithmetic-slip": 18,
+   "pythagorean-identity-error": 13,
+   "premature-rounding": 11,
+   "impossible-trig-value-kept": 9
+  },
+  "frequent_codes": [
+   "arithmetic-slip",
+   "compound-angle-sign-error",
+   "double-angle-error",
+   "premature-rounding",
+   "pythagorean-identity-error",
+   "reciprocal-trig-confused",
+   "wrong-final-accuracy"
+  ],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.860 with note:IAL2013_WMA02_June2017_Q7_n12"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.003,
+   "shared_numbers": 0,
+   "max_cosine": 0.86,
+   "cosine_source": "note:IAL2013_WMA02_June2017_Q7_n12"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 14
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.860 with note:IAL2013_WMA02_June2017_Q7_n12"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

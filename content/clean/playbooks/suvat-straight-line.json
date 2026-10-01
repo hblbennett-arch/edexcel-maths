@@ -1,0 +1,140 @@
+{
+ "id": "suvat-straight-line",
+ "question_type": "suvat-straight-line",
+ "component": "mech",
+ "title": "Constant acceleration in a straight line",
+ "what_it_asks": "You are given a particle, car, lift or similar object moving in a straight line with constant acceleration, together with some known quantities such as distances, times and speeds. You find the missing ones by choosing a suvat formula. Sometimes you also use $F = ma$ or $W = mg$ to link the motion to a force or a mass.",
+ "typical_structure": "Most questions have two or three parts, and a few have one or four. Each part is usually worth two to four marks, with the larger totals coming from longer, multi-stage contexts. Early parts often find an acceleration, a speed or a time. Later parts reuse that value, for example to find a force, a distance or a second time, so an early slip can carry forward. Some parts are \"show that\" and some involve a sketch.",
+ "mark_pattern": "The most typical part is three marks: M1 A1 A1. The M1 is for choosing a suvat equation that fits the quantities you know and substituting into it. The two A1 marks reward correct progress: usually the first is a correct equation or a correct unsimplified value, and the second is the final value in the form requested. Two-mark parts are often M1 A1, a single substitution and its result. Longer parts run as M1 A1 M1 A1, where a second method step, such as applying $F = ma$ or solving a quadratic in $t$, follows the first result. Occasionally a dM1 appears when the second step only makes sense once the first is in place. Short B1 B1ft parts reward stated values, where the second follows through from the first.",
+ "where_marks_leak": [
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "This is a common loss. You give the final answer to the wrong number of significant figures or decimal places, so the final A1 goes even though the method was fine."
+  },
+  {
+   "error_code": "premature-rounding",
+   "mark_family": "accuracy",
+   "text": "You round a speed or time part-way through and then use the rounded value later. The final answer drifts out of range and the last A1 is lost."
+  },
+  {
+   "error_code": "g-accuracy-overstated",
+   "mark_family": "accuracy",
+   "text": "You use $g = 9.8$ but quote four or five figures. The final A1 can be lost because the answer claims more precision than $g$ supports."
+  },
+  {
+   "error_code": "initial-value-misidentified",
+   "mark_family": "method",
+   "text": "You treat a value at $t = 1$ as the starting speed, or mix up the start with a later moment. The substitution is then wrong, so the M1 may go, and the A1 marks after it go too."
+  },
+  {
+   "error_code": "mass-for-weight",
+   "mark_family": "method",
+   "text": "You write $m$ where the weight $mg$ belongs in the force equation. The $F = ma$ equation is then invalid, which costs the M1 and the accuracy marks that depend on it."
+  }
+ ],
+ "write_to_earn": [
+  "List $s$, $u$, $v$, $a$, $t$ with the known values and the unknown before choosing a formula, so the M1 is clearly earned.",
+  "Write the chosen formula in symbols, then substitute, so a numerical slip still leaves the method mark safe.",
+  "Keep unrounded values from one part to the next and round only on the final line.",
+  "When forces appear, write the $F = ma$ equation with each force labelled and the direction of positive stated.",
+  "Give the final answer with units and to a sensible accuracy, such as 2 or 3 significant figures when $g = 9.8$ is used."
+ ],
+ "check_before_you_leave": [
+  "Right accuracy and units?",
+  "Signs of $a$ and $g$ consistent?",
+  "Unrounded values carried forward?",
+  "Did the motion change direction?",
+  "Answer sensible in context?"
+ ],
+ "skills": [
+  "suvat-scalar",
+  "accuracy-units-and-rounding",
+  "weight-and-g",
+  "newtons-second-law-equation",
+  "solve-quadratic-equation",
+  "translate-context-into-model",
+  "reject-invalid-solutions"
+ ],
+ "related_types": [
+  "velocity-time-graph",
+  "vector-constant-acceleration",
+  "connected-particles-pulley",
+  "rough-horizontal-plane-dynamics"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:13:13",
+ "cost_usd": 0.0949,
+ "attempts": 2,
+ "facts": {
+  "n_questions": 51,
+  "codes_listed": {
+   "wrong-final-accuracy": 19,
+   "premature-rounding": 6,
+   "arithmetic-slip": 3,
+   "initial-value-misidentified": 3,
+   "g-accuracy-overstated": 3,
+   "displacement-distance-confused": 2,
+   "mass-for-weight": 2,
+   "factorising-sign-error": 2
+  },
+  "frequent_codes": [
+   "wrong-final-accuracy"
+  ],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.880 with note:IAL2013_WME01_Jan2017_Q6_n4"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.004,
+   "shared_numbers": 0,
+   "max_cosine": 0.88,
+   "cosine_source": "note:IAL2013_WME01_Jan2017_Q6_n4"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 19
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.880 with note:IAL2013_WME01_Jan2017_Q6_n4"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

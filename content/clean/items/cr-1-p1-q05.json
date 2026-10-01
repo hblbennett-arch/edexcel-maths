@@ -1,0 +1,246 @@
+{
+ "id": "cr-1-p1-q05",
+ "blueprint_id": "mk-1-p1-q05",
+ "question_type": "differentiate-to-given-form",
+ "component": "pure",
+ "tier": "accessible",
+ "kind": "mock",
+ "stem": "The curve $C$ has equation $y = \\mathrm{f}(x)$, where\n$$\\mathrm{f}(x) = \\frac{(3x - 2)^2}{x\\sqrt{x}}, \\qquad x > 0.$$",
+ "paper": "mock-1-P1",
+ "set": "mock-1",
+ "q_num": 5,
+ "parts": [
+  {
+   "label": "a",
+   "marks": 3,
+   "text": "Show that $\\mathrm{f}(x)$ can be written as $9x^{\\frac{1}{2}} - 12x^{-\\frac{1}{2}} + 4x^{-\\frac{3}{2}}$. (3)",
+   "command": "show-that",
+   "forms": [],
+   "skills": [
+    "rewrite-using-index-laws"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Squares out the bracket to get a 3-term quadratic and writes the denominator $x\\sqrt{x}$ as $x^{\\frac{3}{2}}$ (or divides each term by $x\\sqrt{x}$ with some correct index work)",
+     "notes": "Accept a slip in the numerator, e.g. a wrong middle coefficient, as long as there are 3 terms and the denominator becomes a single power of $x$"
+    },
+    {
+     "code": "A1",
+     "for": "Correct numerator $9x^2 - 12x + 4$ over $x^{\\frac{3}{2}}$, or at least two of the three terms correctly divided",
+     "notes": "Accept $\\frac{9x^2}{x^{3/2}} - \\frac{12x}{x^{3/2}} + \\frac{4}{x^{3/2}}$"
+    },
+    {
+     "code": "A1*",
+     "for": "Reaches $9x^{\\frac{1}{2}} - 12x^{-\\frac{1}{2}} + 4x^{-\\frac{3}{2}}$ with every index step shown and no errors",
+     "notes": "cso; the division of each term must be shown, not just the final printed line"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$(3x - 2)^2 = 9x^2 - 12x + 4$ and $x\\sqrt{x} = x^1 \\times x^{\\frac{1}{2}} = x^{\\frac{3}{2}}$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$\\mathrm{f}(x) = \\dfrac{9x^2}{x^{\\frac{3}{2}}} - \\dfrac{12x}{x^{\\frac{3}{2}}} + \\dfrac{4}{x^{\\frac{3}{2}}}$",
+     "mark": "A1"
+    },
+    {
+     "step": 3,
+     "working": "$= 9x^{2 - \\frac{3}{2}} - 12x^{1 - \\frac{3}{2}} + 4x^{-\\frac{3}{2}} = 9x^{\\frac{1}{2}} - 12x^{-\\frac{1}{2}} + 4x^{-\\frac{3}{2}}$",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "(3x-2)^2/(x*sqrt(x))",
+     "rhs": "9x^(1/2) - 12x^(-1/2) + 4x^(-3/2)",
+     "domain": "positive"
+    },
+    {
+     "type": "equals",
+     "lhs": "(3x-2)^2",
+     "rhs": "9x^2 - 12x + 4"
+    }
+   ],
+   "hints": [
+    "Start by expanding $(3x-2)^2$, then write $x\\sqrt{x}$ as a single power of $x$.",
+    "Divide each term of the numerator separately, subtracting indices."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 3,
+   "text": "Using your answer to part (a), find $\\mathrm{f}'(x)$. Then find the exact gradient of $C$ at the point on $C$ with $x = 4$. (3)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "differentiate-polynomials",
+    "use-hence-previous-result"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Differentiates the three-term power form from (a), with at least one power of $x$ lowered by 1 and multiplied by its old index",
+     "notes": "e.g. $x^{\\frac{1}{2}} \\to x^{-\\frac{1}{2}}$ or $x^{-\\frac{3}{2}} \\to x^{-\\frac{5}{2}}$"
+    },
+    {
+     "code": "A1",
+     "for": "$\\mathrm{f}'(x) = \\frac{9}{2}x^{-\\frac{1}{2}} + 6x^{-\\frac{3}{2}} - 6x^{-\\frac{5}{2}}$",
+     "notes": "oe, any correct unsimplified form; isw"
+    },
+    {
+     "code": "A1",
+     "for": "Substitutes $x = 4$ to get gradient $\\frac{45}{16}$",
+     "notes": "cao; accept $2.8125$"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\mathrm{f}(x) = 9x^{\\frac{1}{2}} - 12x^{-\\frac{1}{2}} + 4x^{-\\frac{3}{2}}$, so differentiate term by term using $\\frac{\\mathrm{d}}{\\mathrm{d}x}(x^n) = nx^{n-1}$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$\\mathrm{f}'(x) = \\frac{9}{2}x^{-\\frac{1}{2}} + 6x^{-\\frac{3}{2}} - 6x^{-\\frac{5}{2}}$",
+     "mark": "A1"
+    },
+    {
+     "step": 3,
+     "working": "$\\mathrm{f}'(4) = \\frac{9}{2}\\cdot\\frac{1}{2} + 6\\cdot\\frac{1}{8} - 6\\cdot\\frac{1}{32} = \\frac{9}{4} + \\frac{3}{4} - \\frac{3}{16} = \\frac{45}{16}$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "gradient",
+     "expr": "45/16",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "derivative",
+     "f": "9x^(1/2) - 12x^(-1/2) + 4x^(-3/2)",
+     "var": "x",
+     "result": "(9/2)x^(-1/2) + 6x^(-3/2) - 6x^(-5/2)"
+    },
+    {
+     "type": "substitute",
+     "expr": "(9/2)x^(-1/2) + 6x^(-3/2) - 6x^(-5/2)",
+     "at": {
+      "x": 4
+     },
+     "answer": "gradient"
+    },
+    {
+     "type": "derivative",
+     "f": "(3x-2)^2/(x*sqrt(x))",
+     "var": "x",
+     "result": "(9/2)x^(-1/2) + 6x^(-3/2) - 6x^(-5/2)"
+    }
+   ],
+   "hints": [
+    "Use the form from part (a) instead of the original fraction: each term is now a power of $x$.",
+    "Be careful with negative indices: lowering $-\\frac{1}{2}$ by 1 gives $-\\frac{3}{2}$."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "index-law-error",
+   "text": "A common slip is to write $x\\sqrt{x}$ as $x^{\\frac{1}{2}}$. Indices add when you multiply, so $x \\times x^{\\frac{1}{2}} = x^{\\frac{3}{2}}$. With the wrong power, none of your terms match the printed form and you lose the M1.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 3,
+   "error_code": "index-law-error",
+   "text": "Students often write $\\frac{4}{x^{\\frac{3}{2}}}$ as $4x^{\\frac{3}{2}}$. A power in the denominator moves up with a negative index, so it is $4x^{-\\frac{3}{2}}$. If you drop the sign you can't get the A1*.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "surd-simplification-error",
+   "text": "Don't try to simplify by cancelling $\\sqrt{x}$ against only part of $(3x-2)^2$. Expand fully first, then divide every term by the same $x^{\\frac{3}{2}}$, or you lose the M1.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "sign-error-differentiating-negative-power",
+   "text": "When you differentiate $-12x^{-\\frac{1}{2}}$, the new power is $-\\frac{3}{2}$ (not $\\frac{1}{2}$), and $-12 \\times -\\frac{1}{2} = +6$. If either the sign or the index is wrong, you lose the first A1 and then the value $\\frac{45}{16}$.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "not-rewritten-as-powers",
+   "text": "If you try to differentiate $\\frac{(3x-2)^2}{x\\sqrt{x}}$ by differentiating the top and bottom separately, the method is invalid and you lose the M1. Use the power form from part (a).",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:35:52",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.3564
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 6
+  },
+  "G7": {
+   "pass": false,
+   "flag": true,
+   "reasons": [
+    "2 word 8-gram(s) also in the reference corpus (not whitelisted)"
+   ],
+   "flags": [
+    "cosine 0.914 with question:IAL2018_WMA11_June2022_Q7"
+   ],
+   "hit_fields": [
+    "part a text"
+   ],
+   "n_8gram_hits": 2,
+   "hits8": [
+    "can be written as 9 x 1 2",
+    "x can be written as 9 x 1"
+   ],
+   "max_jaccard": 0.071,
+   "jaccard_source": "GCE2008_6665_June2014_Q1",
+   "shared_numbers": 0,
+   "max_cosine": 0.914,
+   "cosine_source": "question:IAL2018_WMA11_June2022_Q7"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 5,
+   "n_answers": 1,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

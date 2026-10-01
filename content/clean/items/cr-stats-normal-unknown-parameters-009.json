@@ -91,7 +91,133 @@
     "The points of inflection of a normal curve are one standard deviation either side of the mean. What does that tell you about $\\mu$ and $\\sigma$?",
     "You already know the wedge is over $220$ g, so the probabilities you work with must be restricted to that event."
    ],
-   "forms": []
+   "forms": [],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$\\mu=\\frac{212+248}{2}=230,\\ \\sigma=248-230=18$; $\\mathrm{P}(X>260)=0.0478,\\ \\mathrm{P}(X>220)=0.7107$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$\\mathrm{P}(X>260\\mid X>220)=\\dfrac{\\mathrm{P}(X>260)}{\\mathrm{P}(X>220)}=\\dfrac{0.047792}{0.710742}$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$=0.0672$",
+      "secures": [
+       "A1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$\\mu=\\dfrac{212+248}{2}$",
+      "why": "A normal curve is symmetrical, and its points of inflection lie equally either side of the mean, so you take the midpoint of 212 and 248.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$\\mu=230$",
+      "why": "You evaluate the midpoint to get the mean.",
+      "secures": null,
+      "check": "230 is 18 above 212 and 18 below 248."
+     },
+     {
+      "step": 3,
+      "working": "$\\sigma=248-230$",
+      "why": "The points of inflection sit at $\\mu\\pm\\sigma$, so the gap from the mean to 248 is the standard deviation.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$\\sigma=18$, so $X\\sim\\mathrm{N}(230,18^2)$",
+      "why": "You evaluate the difference and state the model with the variance $18^2$.",
+      "secures": null,
+      "check": "Also 230 − 212 = 18."
+     },
+     {
+      "step": 5,
+      "working": "$\\mathrm{P}(X>260)=\\mathrm{P}\\left(Z>\\dfrac{260-230}{18}\\right)$",
+      "why": "You standardise by subtracting the mean and dividing by the standard deviation, so you can use the standard normal $Z$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$\\mathrm{P}(Z>1.6667)=0.047792$",
+      "why": "You evaluate $\\frac{30}{18}=1.6667$ and read the upper tail probability from your calculator. Using the calculator's normal function with $\\mu=230$, $\\sigma=18$ gives the same value.",
+      "secures": null,
+      "check": "About 0.048 is reasonable, since 260 is under 2 standard deviations above the mean."
+     },
+     {
+      "step": 7,
+      "working": "$\\mathrm{P}(X>220)=\\mathrm{P}\\left(Z>\\dfrac{220-230}{18}\\right)=\\mathrm{P}(Z>-0.5556)$",
+      "why": "You standardise the second value in the same way. It is below the mean, so $z$ is negative.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$\\mathrm{P}(X>220)=0.710742$",
+      "why": "You read this probability from your calculator. Both probabilities are now found.",
+      "secures": "M1",
+      "check": "It should be above 0.5 because 220 is below the mean."
+     },
+     {
+      "step": 9,
+      "working": "$\\mathrm{P}(X>260\\mid X>220)=\\dfrac{\\mathrm{P}(X>260\\ \\cap\\ X>220)}{\\mathrm{P}(X>220)}$",
+      "why": "This is the conditional probability formula: you divide by the probability of the information you are given, that the mass is over 220 g.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$\\mathrm{P}(X>260\\ \\cap\\ X>220)=\\mathrm{P}(X>260)$",
+      "why": "Any wedge over 260 g is automatically over 220 g, so the overlap is just the event $X>260$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 11,
+      "working": "$\\mathrm{P}(X>260\\mid X>220)=\\dfrac{0.047792}{0.710742}$",
+      "why": "You substitute your two probabilities into the fraction.",
+      "secures": "M1",
+      "check": "The top must be the smaller probability, so the answer is below 1."
+     },
+     {
+      "step": 12,
+      "working": "$=0.067244\\ldots$",
+      "why": "You divide the numerator by the denominator on your calculator.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 13,
+      "working": "$\\mathrm{P}=0.0672$",
+      "why": "You round to 3 significant figures, as asked.",
+      "secures": "A1",
+      "check": null
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:50:54+00:00",
+    "cost_usd": 0.0236,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
   },
   {
    "label": "b",
@@ -196,7 +322,161 @@
     "Turn each piece of information into a probability statement, then find the $z$-value that has that probability, using the correct tail.",
     "Think about which side of the mean $180$ g must be on. That tells you the sign of its $z$-value."
    ],
-   "forms": []
+   "forms": [],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$\\dfrac{180-\\mu}{\\sigma}=z_1,\\ \\mathrm{P}(Z<z_1)=0.2$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$z_1=-0.8416$, and $\\dfrac{270-\\mu}{\\sigma}=1.6449$",
+      "secures": [
+       "B1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$180-\\mu=-0.8416\\sigma,\\ 270-\\mu=1.6449\\sigma$, so $90=2.4865\\sigma$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 4,
+      "working": "$\\sigma=36.2,\\ \\mu=210.5$",
+      "secures": [
+       "M1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$\\mathrm{P}(Y<180)=\\frac15=0.2$",
+      "why": "One in five wedges weighs under 180 g, so you turn this into a probability.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$\\mathrm{P}\\left(Z<\\dfrac{180-\\mu}{\\sigma}\\right)=0.2$",
+      "why": "You standardise 180 by subtracting the mean and dividing by the standard deviation, so the probability is about the standard normal $Z$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$\\dfrac{180-\\mu}{\\sigma}=z_1$ where $\\mathrm{P}(Z<z_1)=0.2$",
+      "why": "You name the $z$-value that has 0.2 of the area below it, so you can set it equal to the standardised mass.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$z_1=-0.8416$",
+      "why": "Use the inverse normal function on your calculator with area 0.2. It is negative because 0.2 is less than 0.5.",
+      "secures": "B1",
+      "check": "A $z$-value below the mean should be negative."
+     },
+     {
+      "step": 5,
+      "working": "$\\mathrm{P}(Y>270)=\\frac1{20}=0.05$",
+      "why": "One in twenty wedges weighs over 270 g, so you write this as a probability.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$\\mathrm{P}(Y<270)=1-0.05=0.95$",
+      "why": "The calculator uses area to the left, so you take the complement of the upper tail.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "$\\dfrac{270-\\mu}{\\sigma}=1.6449$",
+      "why": "Inverse normal with area 0.95 gives a positive $z$-value, and you set it equal to the standardised 270.",
+      "secures": "B1",
+      "check": "270 is above the mean, so $z$ should be positive."
+     },
+     {
+      "step": 8,
+      "working": "$180-\\mu=-0.8416\\sigma$",
+      "why": "You multiply the first equation by $\\sigma$ to remove the fraction.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "$270-\\mu=1.6449\\sigma$",
+      "why": "You do the same for the second equation, giving two linear equations in $\\mu$ and $\\sigma$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$(270-\\mu)-(180-\\mu)=1.6449\\sigma-(-0.8416\\sigma)$",
+      "why": "You subtract the first equation from the second so that $\\mu$ cancels.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 11,
+      "working": "$90=2.4865\\sigma$",
+      "why": "The left side is $270-180=90$ and the right side is $1.6449+0.8416=2.4865$ lots of $\\sigma$.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 12,
+      "working": "$\\sigma=\\dfrac{90}{2.4865}=36.196\\ldots$",
+      "why": "You divide both sides by 2.4865 to get $\\sigma$.",
+      "secures": null,
+      "check": "$2.4865\\times 36.2\\approx 90$."
+     },
+     {
+      "step": 13,
+      "working": "$180-\\mu=-0.8416\\times36.196$",
+      "why": "Substitute $\\sigma$ into the first equation to find $\\mu$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 14,
+      "working": "$180-\\mu=-30.46$",
+      "why": "You multiply out $0.8416\\times36.196$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 15,
+      "working": "$\\mu=180+30.46=210.46\\ldots$",
+      "why": "You add $\\mu$ and $30.46$ to both sides, giving $\\mu$.",
+      "secures": "M1",
+      "check": "Then $270-210.46=59.54\\approx1.6449\\times36.196$."
+     },
+     {
+      "step": 16,
+      "working": "$\\mu=210.5,\\ \\sigma=36.2$",
+      "why": "You round both answers to 1 decimal place as asked.",
+      "secures": null,
+      "check": null
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:50:56+00:00",
+    "cost_usd": 0.0258,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
   },
   {
    "label": "c",
@@ -280,7 +560,147 @@
     "Start by finding the probability that a single wedge gets a sticker, then decide what distribution the number of stickered wedges in a day follows.",
     "The event is 'exactly 2 on Saturday AND exactly 2 on Sunday', and the two days are independent."
    ],
-   "forms": []
+   "forms": [],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$p=\\mathrm{P}(Y>250)=\\mathrm{P}\\left(Z>\\frac{250-210.46}{36.196}\\right)=\\mathrm{P}(Z>1.0923)=0.13735$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$W\\sim\\mathrm{B}(10,0.13735)$, so $\\mathrm{P}(W=2)=\\binom{10}{2}(0.13735)^2(0.86265)^8=0.26035$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "Both days: $0.26035^2=0.0678$",
+      "secures": [
+       "M1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$Y\\sim\\mathrm{N}(210.46,\\;36.196^2)$",
+      "why": "You start from the values of $\\mu$ and $\\sigma$ found in part (b), keeping extra decimal places so rounding does not spoil the final answer.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$p=\\mathrm{P}(Y>250)$",
+      "why": "A wedge gets a sticker when its mass is above $250$ g, so you first need the chance that one wedge does.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$p=\\mathrm{P}\\left(Z>\\frac{250-210.46}{36.196}\\right)$",
+      "why": "You standardise, meaning you subtract the mean and divide by the standard deviation, so you can use the standard normal $Z$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$\\frac{250-210.46}{36.196}=\\frac{39.54}{36.196}$",
+      "why": "You work out the top of the fraction: $250-210.46=39.54$.",
+      "secures": null,
+      "check": "$250-210.46=39.54$."
+     },
+     {
+      "step": 5,
+      "working": "$\\frac{39.54}{36.196}=1.0923$",
+      "why": "You divide to get the $z$-value, which is how many standard deviations $250$ is above the mean.",
+      "secures": null,
+      "check": "About $1.09$, a little more than one standard deviation above the mean."
+     },
+     {
+      "step": 6,
+      "working": "$p=\\mathrm{P}(Z>1.0923)=0.13735$",
+      "why": "You read the upper tail probability from your calculator's normal distribution function.",
+      "secures": "M1",
+      "check": "It should be below $0.5$, and a little under $0.16$ (the tail beyond $z=1$)."
+     },
+     {
+      "step": 7,
+      "working": "$1-p=1-0.13735=0.86265$",
+      "why": "You need the chance a wedge does not get a sticker, which is the complement of $p$.",
+      "secures": null,
+      "check": "$0.13735+0.86265=1$."
+     },
+     {
+      "step": 8,
+      "working": "$W\\sim\\mathrm{B}(10,\\,0.13735)$",
+      "why": "Each of the $10$ wedges independently either gets a sticker or does not, with the same chance $p$, so the number of stickers $W$ on one day is binomial.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "$\\mathrm{P}(W=2)=\\binom{10}{2}p^2(1-p)^8$",
+      "why": "You want exactly $2$ stickers, so you use the binomial formula for $W=2$ (not a cumulative probability).",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$\\binom{10}{2}=45$",
+      "why": "You count the ways of choosing which $2$ of the $10$ wedges get the stickers.",
+      "secures": null,
+      "check": "$\\frac{10\\times9}{2}=45$."
+     },
+     {
+      "step": 11,
+      "working": "$\\mathrm{P}(W=2)=45\\times0.13735^2\\times0.86265^8$",
+      "why": "You substitute $p=0.13735$ and $1-p=0.86265$ into the formula.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 12,
+      "working": "$\\mathrm{P}(W=2)=0.26035$",
+      "why": "You evaluate the product on your calculator.",
+      "secures": "M1",
+      "check": "A value around $0.26$ is sensible, since the mean number of stickers is $10p\\approx1.4$."
+     },
+     {
+      "step": 13,
+      "working": "$\\mathrm{P(both\\ days)}=\\mathrm{P}(W=2)\\times\\mathrm{P}(W=2)$",
+      "why": "Saturday and Sunday are independent, so you multiply the two probabilities.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 14,
+      "working": "$\\mathrm{P(both\\ days)}=0.26035^2$",
+      "why": "Both days have the same probability, so the product is a square.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 15,
+      "working": "$Q=0.0678$ (3 s.f.)",
+      "why": "You evaluate $0.26035^2$ and round to $3$ significant figures, as asked.",
+      "secures": null,
+      "check": "$0.26^2=0.0676$, which is close."
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:51:02+00:00",
+    "cost_usd": 0.0371,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
   }
  ],
  "pitfalls": [
@@ -1070,6 +1490,17 @@
      "combine-independent-observations"
     ]
    }
+  },
+  "GL": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part a: copy check flag: cosine 0.853 with part:IAL2018_WST01_Jan2024_Q8:a",
+    "part b: every_step secures ['M1', 'B1', 'B1', 'M1', 'M1'], scheme is ['M1', 'B1', 'M1', 'M1']",
+    "part b: copy check flag: cosine 0.800 with part:GCE2008_6683_Jan2010_Q7:c",
+    "part c: copy check flag: cosine 0.797 with question:P3_June2022_stats_Q2"
+   ],
+   "parts_checked": 3
   }
  },
  "review": {

@@ -1,0 +1,379 @@
+{
+ "item_id": "cr-stats-normal-conditional-probability-009",
+ "applicable": true,
+ "reason": "Shading tails of the normal curve shows why the conditional probability divides by the accepted region, and the sample-mean curve shows why the test uses a narrower distribution.",
+ "scenes": [
+  {
+   "id": "cr-stats-normal-conditional-probability-009::c::1",
+   "part": "c",
+   "title": "Premium fleeces inside the accepted fleeces",
+   "purpose": "See that the premium region sits wholly inside the accepted region, so the numerator is just P(F>3) and the denominator is the accepted area.",
+   "approach": "model",
+   "board": {
+    "x": [
+     0.8,
+     4.4
+    ],
+    "y": [
+     -0.15,
+     1.1
+    ],
+    "axis": true,
+    "grid": false,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "k",
+     "label": "acceptance threshold (kg)",
+     "min": 1,
+     "max": 2.6,
+     "step": 0.05,
+     "value": 2
+    }
+   ],
+   "elements": [
+    {
+     "type": "function",
+     "id": "N",
+     "expr": "exp(-((x-2.6)^2)/(2*0.45^2))/(0.45*sqrt(2*pi))",
+     "color": "primary",
+     "label": "F"
+    },
+    {
+     "type": "integral",
+     "id": "B",
+     "of": "N",
+     "from": "k",
+     "to": "4.4",
+     "color": "secondary",
+     "opacity": 0.2
+    },
+    {
+     "type": "integral",
+     "id": "A",
+     "of": "N",
+     "from": "3",
+     "to": "4.4",
+     "color": "warning",
+     "opacity": 0.5
+    },
+    {
+     "type": "vline",
+     "id": "v3",
+     "at": "3",
+     "color": "warning"
+    },
+    {
+     "type": "vline",
+     "id": "vk",
+     "at": "k",
+     "color": "secondary",
+     "dash": true
+    },
+    {
+     "type": "text",
+     "id": "tA",
+     "x": "3.2",
+     "y": "0.9",
+     "value": "Premium area P(F>3) = {area(A)}",
+     "color": "warning"
+    },
+    {
+     "type": "text",
+     "id": "tP",
+     "x": "3.2",
+     "y": "0.75",
+     "value": "Accepted area = {area(B)}",
+     "color": "secondary"
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "The blue-shaded region is the accepted fleeces, $F \\geqslant 2$, with area $0.909$. Because you are told the fleece was accepted, this is the new whole: the denominator. This is the M1 for writing $\\mathrm{P}(F>3 \\mid F\\geqslant 2)$ as a ratio.",
+     "set": {
+      "k": 2
+     },
+     "show": [
+      "B",
+      "vk"
+     ]
+    },
+    {
+     "n": 2,
+     "text": "The darker region, $F>3$, lies entirely inside the accepted region. So $\\mathrm{P}(F>3 \\cap F\\geqslant 2)=\\mathrm{P}(F>3)=0.187$, giving $\\dfrac{0.187}{0.909}$. This is the A1ft.",
+     "highlight": [
+      "A"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "Drag the threshold $k$ up to $2.6$ and the accepted area shrinks, so the ratio rises. At $k=2$ the answer is $\\dfrac{0.18703}{0.90878}\\approx 0.206$, the A1cso. Dividing by $\\mathrm{P}(F>3)$ instead would be the common slip.",
+     "set": {
+      "k": 2
+     }
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     1,
+     2,
+     3
+    ],
+    "marks": [
+     "M1",
+     "A1ft",
+     "A1cso"
+    ],
+    "pitfalls": [
+     "conditional-denominator-error",
+     "independence-assumed"
+    ]
+   },
+   "guide": {
+    "what_you_see": "The normal density curve for the fleece mass $F \\sim \\mathrm{N}(2.6, 0.45^2)$, with the accepted fleeces shaded from a movable threshold $k$ to the right and the premium fleeces ($F>3$) shaded more darkly inside that region.",
+    "legend": [
+     {
+      "id": "N",
+      "meaning": "The density curve of $F$, the fleece mass in kg, with mean $2.6$ and standard deviation $0.45$. Areas under it are probabilities."
+     },
+     {
+      "id": "B",
+      "meaning": "The lighter blue region under the curve from $x=k$ to the right-hand end. At $k=2$ it is the accepted fleeces, $\\mathrm{P}(F\\geqslant 2)$, the denominator of the conditional probability."
+     },
+     {
+      "id": "A",
+      "meaning": "The darker region under the curve for $F>3$, the premium fleeces. It lies wholly inside $B$, so it is the numerator $\\mathrm{P}(F>3)$."
+     },
+     {
+      "id": "v3",
+      "meaning": "The vertical line at $x=3$, the premium boundary of $3$ kg."
+     },
+     {
+      "id": "vk",
+      "meaning": "The dashed vertical line at $x=k$, the left-hand edge of the accepted region."
+     }
+    ],
+    "interact": [
+     {
+      "control": "k",
+      "kind": "slider",
+      "do": "Start at $k=2$, the acceptance threshold in the question, then drag the slider up towards $2.6$ and back down to $1$.",
+      "watch": "The dashed line moves and the accepted area shrinks as $k$ rises. At $k=2$ it reads about $0.909$, while the premium area stays at about $0.187$. So the ratio $\\frac{0.187}{\\text{accepted area}}$ rises above $0.206$ as $k$ increases, and only equals $0.206$ at $k=2$."
+     }
+    ],
+    "question_link": {
+     "part": "c",
+     "marks": [
+      "M1",
+      "A1ft",
+      "A1cso"
+     ],
+     "text": "The blue region $B$ at $k=2$ is the accepted fleeces, so it is the new whole in $\\mathrm{P}(F>3 \\mid F\\geqslant 2)$ (the M1). The darker region $A$ sits entirely inside it, so the numerator is just $\\mathrm{P}(F>3)$, giving $\\frac{0.187}{0.909}$ (the A1ft) and the value $0.206$ (the A1cso)."
+    },
+    "read_off": [
+     "The live label 'Premium area P(F>3)' is the area of $A$, the probability $\\mathrm{P}(F>3)\\approx 0.187$ from part (b). It does not change when you move $k$.",
+     "The live label 'Accepted area' is the area of $B$, the probability that $F\\geqslant k$. At $k=2$ it is about $0.909$, the value from part (a), and it is the denominator of your fraction."
+    ]
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0222,
+    "attempts": 1,
+    "gate": {
+     "pass": true,
+     "errors": []
+    },
+    "generated_at": "2026-09-30T23:13:08"
+   }
+  },
+  {
+   "id": "cr-stats-normal-conditional-probability-009::d::1",
+   "part": "d",
+   "title": "Why the sample mean is tested on a narrower curve",
+   "purpose": "See that the mean of 20 fleeces varies much less than one fleece, so 2.78 kg falls in the upper tail under the null hypothesis.",
+   "approach": "model",
+   "board": {
+    "x": [
+     2,
+     3.4
+    ],
+    "y": [
+     -0.5,
+     4.6
+    ],
+    "axis": true,
+    "grid": false,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "m",
+     "label": "sample mean (kg)",
+     "min": 2.4,
+     "max": 3.2,
+     "step": 0.01,
+     "value": 2.78
+    }
+   ],
+   "elements": [
+    {
+     "type": "function",
+     "id": "S",
+     "expr": "exp(-((x-2.6)^2)/(2*(0.45/sqrt(20))^2))/((0.45/sqrt(20))*sqrt(2*pi))",
+     "color": "primary",
+     "label": "sample mean"
+    },
+    {
+     "type": "function",
+     "id": "W",
+     "expr": "exp(-((x-2.6)^2)/(2*0.45^2))/(0.45*sqrt(2*pi))",
+     "color": "muted",
+     "dash": true,
+     "label": "single fleece"
+    },
+    {
+     "type": "integral",
+     "id": "T",
+     "of": "S",
+     "from": "m",
+     "to": "3.4",
+     "color": "warning",
+     "opacity": 0.4
+    },
+    {
+     "type": "vline",
+     "id": "vm",
+     "at": "m",
+     "color": "warning"
+    },
+    {
+     "type": "vline",
+     "id": "vc",
+     "at": "2.766",
+     "color": "success",
+     "dash": true
+    },
+    {
+     "type": "text",
+     "id": "tT",
+     "x": "2.85",
+     "y": "3.6",
+     "value": "Tail area for the sample mean = {area(T)}",
+     "color": "warning"
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "State $\\mathrm{H_0}: \\mu=2.6$ and $\\mathrm{H_1}: \\mu>2.6$. The dashed curve is a single fleece, with standard deviation $0.45$. The tall curve is the mean of 20 fleeces under $\\mathrm{H_0}$, with standard deviation $\\dfrac{0.45}{\\sqrt{20}}\\approx 0.1006$. This is the first M1.",
+     "show": [
+      "S",
+      "W"
+     ]
+    },
+    {
+     "n": 2,
+     "text": "With $m=2.78$, the shaded tail is $\\mathrm{P}(\\bar{F}\\geqslant 2.78)\\approx 0.0368$, which is less than $0.05$. This is the second M1. On the wide curve the tail would be about $0.345$, the scaling slip.",
+     "set": {
+      "m": 2.78
+     },
+     "highlight": [
+      "T"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "Drag $m$ below the dashed green line at the critical value $2.766$ and the tail area passes $0.05$, so you would not reject. At $2.78$ you reject $\\mathrm{H_0}$: there is sufficient evidence that the mineral licks have increased the mean fleece mass. This is the A1.",
+     "set": {
+      "m": 2.78
+     },
+     "highlight": [
+      "vc"
+     ]
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "marks": [
+     "M1",
+     "A1"
+    ],
+    "pitfalls": [
+     "sample-mean-sd-not-scaled",
+     "hypotheses-not-in-parameter",
+     "conclusion-too-definite-or-no-context"
+    ]
+   },
+   "guide": {
+    "what_you_see": "Two normal curves centred on the null-hypothesis mean $2.6$ kg: a wide dashed curve for one fleece and a tall narrow curve for the mean of 20 fleeces. The upper tail of the narrow curve is shaded from the slider value $m$ upwards.",
+    "legend": [
+     {
+      "id": "S",
+      "meaning": "The distribution of the sample mean $\\bar{F}$ of 20 fleeces under $\\mathrm{H_0}$: $\\mathrm{N}\\left(2.6,\\ \\frac{0.45^2}{20}\\right)$, with standard deviation $\\frac{0.45}{\\sqrt{20}}\\approx 0.1006$."
+     },
+     {
+      "id": "W",
+      "meaning": "The dashed curve for a single fleece, $F\\sim\\mathrm{N}(2.6,\\ 0.45^2)$, with the larger standard deviation $0.45$. It shows what you get if you forget to scale."
+     },
+     {
+      "id": "T",
+      "meaning": "The shaded upper tail of the sample-mean curve from $m$ to the right-hand edge, which is $\\mathrm{P}(\\bar{F}\\geqslant m)$ under $\\mathrm{H_0}$, the p-value when $m$ is the observed mean."
+     },
+     {
+      "id": "vm",
+      "meaning": "The vertical line at the slider value $m$, the sample mean being tested (start at $2.78$ kg)."
+     },
+     {
+      "id": "vc",
+      "meaning": "The dashed green line at the critical value $2.766$ kg; a sample mean at or above it is in the rejection region at the 5% level."
+     }
+    ],
+    "interact": [
+     {
+      "control": "m",
+      "kind": "slider",
+      "do": "Start at $m=2.78$, then drag the slider left towards $2.4$ and right towards $3.2$, passing the green dashed line at $2.766$.",
+      "watch": "At $m=2.78$ the tail area reads about $0.0368$, below $0.05$, so you reject $\\mathrm{H_0}$. As $m$ falls to $2.766$ the area rises to $0.05$, and below that it is larger than $0.05$, so you would not reject. Moving right makes the tail shrink towards $0$."
+     }
+    ],
+    "question_link": {
+     "part": "d",
+     "marks": [
+      "M1",
+      "A1"
+     ],
+     "text": "The tall curve $S$ is the distribution of $\\bar{F}$ under $\\mathrm{H_0}: \\mu=2.6$ with standard deviation $\\frac{0.45}{\\sqrt{20}}$, which is the first M1. The shaded tail $T$ at $m=2.78$ is $\\mathrm{P}(\\bar{F}\\geqslant 2.78)\\approx 0.0368$, compared with $0.05$ for the second M1, and it supports the A1 conclusion, with $\\mathrm{H_1}: \\mu>2.6$, that the licks have raised the mean fleece mass."
+    },
+    "read_off": [
+     "The live label 'Tail area for the sample mean' is $\\mathrm{P}(\\bar{F}\\geqslant m)$ under $\\mathrm{H_0}$. At $m=2.78$ it is about $0.0368$, which you compare with the $0.05$ significance level; a value below $0.05$ means reject $\\mathrm{H_0}$."
+    ]
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0254,
+    "attempts": 1,
+    "gate": {
+     "pass": true,
+     "errors": []
+    },
+    "generated_at": "2026-09-30T23:13:11"
+   }
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:52:09",
+ "cost_usd": 0.1096,
+ "attempts": 2,
+ "checks": {
+  "pass": true,
+  "errors": [],
+  "n_scenes": 2
+ }
+}

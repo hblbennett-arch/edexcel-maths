@@ -1,0 +1,416 @@
+{
+ "id": "cr-pure-geometric-series-with-unknowns-002",
+ "blueprint_id": "bp-pure-geometric-series-with-unknowns-002",
+ "question_type": "geometric-series-with-unknowns",
+ "component": "pure",
+ "tier": "standard",
+ "kind": "exam",
+ "stem": null,
+ "parts": [
+  {
+   "label": "a",
+   "marks": 4,
+   "text": "The numbers $a, ar, ar^2, \\dots$ form a geometric sequence, where $a$ and $r$ are constants and $r \\neq 1$. For each positive integer $n$, let $G_n = a + ar + ar^2 + \\dots + ar^{n-1}$.\n\nProve that $G_n = \\dfrac{a(1-r^n)}{1-r}$. (4)",
+   "command": "prove",
+   "skills": [
+    "prove-series-sum-formula",
+    "show-that-given-answer"
+   ],
+   "forms": [],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Writes down $rG_n = ar + ar^2 + \\dots + ar^{n-1} + ar^n$, i.e. every term of $G_n$ multiplied by $r$, ending in $ar^n$",
+     "notes": "The $\\dots$ is fine as long as the first and last terms are shown correctly"
+    },
+    {
+     "code": "M1",
+     "for": "Subtracts one line from the other so that the middle terms $ar, \\dots, ar^{n-1}$ cancel, reaching $G_n - rG_n = a - ar^n$ (or $rG_n - G_n = ar^n - a$)",
+     "notes": "Allow a sign slip on one side, provided it is clear the student intends the middle terms to cancel"
+    },
+    {
+     "code": "dM1",
+     "depends_on": "M1",
+     "for": "Takes out $G_n$ as a common factor to get $(1-r)G_n = a(1-r^n)$ oe, then divides by $(1-r)$",
+     "notes": "Depends on the previous M1"
+    },
+    {
+     "code": "A1cso",
+     "depends_on": "dM1",
+     "for": "Reaches $G_n = \\dfrac{a(1-r^n)}{1-r}$ with no errors in any line, and gives a reason why division is valid, e.g. $r \\neq 1$",
+     "notes": "If they subtracted the other way round, they must show $\\frac{a(r^n-1)}{r-1}$ turned into the printed form, e.g. by multiplying top and bottom by $-1$"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$G_n = a + ar + ar^2 + \\dots + ar^{n-1}$",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "Multiply every term by $r$: $rG_n = ar + ar^2 + \\dots + ar^{n-1} + ar^n$",
+     "mark": "B1"
+    },
+    {
+     "step": 3,
+     "working": "Take the second line away from the first. All terms from $ar$ up to $ar^{n-1}$ cancel, so $G_n - rG_n = a - ar^n$",
+     "mark": "M1"
+    },
+    {
+     "step": 4,
+     "working": "Factorise both sides: $(1-r)G_n = a(1-r^n)$",
+     "mark": "dM1"
+    },
+    {
+     "step": 5,
+     "working": "Because $r \\neq 1$, the factor $1-r$ is not zero, so we can divide by it: $G_n = \\dfrac{a(1-r^n)}{1-r}$, as required.",
+     "mark": "A1cso"
+    }
+   ],
+   "answers": [],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "a(1-r^5)/(1-r)",
+     "rhs": "a + a*r + a*r^2 + a*r^3 + a*r^4",
+     "domain": [
+      2,
+      5
+     ]
+    },
+    {
+     "type": "equals",
+     "lhs": "(a + a*r + a*r^2 + a*r^3) - r*(a + a*r + a*r^2 + a*r^3)",
+     "rhs": "a - a*r^4",
+     "domain": [
+      2,
+      5
+     ]
+    }
+   ],
+   "hints": [
+    "Write $G_n$ out, then write a second line for $rG_n$ with each term moved along one place so equal powers of $r$ line up.",
+    "Think about which terms are left once you subtract one line from the other."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 2,
+   "text": "A geometric series has $k$th term $u_k = 96x^{k-1}$, where $x$ is a constant and $x \\neq 1$.\n\nShow that $\\displaystyle\\sum_{k=3}^{7} u_k = \\frac{96x^2(1-x^5)}{1-x}$. (2)",
+   "command": "show-that",
+   "skills": [
+    "sigma-notation-sums"
+   ],
+   "forms": [],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Uses the result from (a) with first term $u_3 = 96x^2$, common ratio $x$ and $5$ terms, i.e. writes $\\frac{96x^2(1-x^5)}{1-x}$ with working shown; or works out $G_7 - G_2$ as $\\frac{96(1-x^7)}{1-x} - \\frac{96(1-x^2)}{1-x}$",
+     "notes": "The first term, the ratio and the number of terms must all be seen or implied. Using 4 terms is M0"
+    },
+    {
+     "code": "A1*",
+     "depends_on": "M1",
+     "for": "Reaches the printed result with no errors, e.g. by stating that the terms run from $u_3 = 96x^2$ to $u_7 = 96x^6$, which is $7 - 3 + 1 = 5$ terms, or by simplifying $\\frac{96(x^2 - x^7)}{1-x}$ to $\\frac{96x^2(1-x^5)}{1-x}$",
+     "notes": "cso"
+    }
+   ],
+   "alternatives": [
+    {
+     "name": "Way 2 (difference of two sums)",
+     "marks": [
+      {
+       "code": "M1",
+       "for": "Writes $\\sum_{k=3}^{7}u_k = G_7 - G_2 = \\frac{96(1-x^7)}{1-x} - \\frac{96(1-x^2)}{1-x}$"
+      },
+      {
+       "code": "A1*",
+       "depends_on": "M1",
+       "for": "Combines to $\\frac{96(x^2 - x^7)}{1-x}$ and takes out the factor $x^2$ to reach the printed answer, with no errors"
+      }
+     ]
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "The sum is $u_3 + u_4 + u_5 + u_6 + u_7 = 96x^2 + 96x^3 + 96x^4 + 96x^5 + 96x^6$: a geometric series with first term $96x^2$, common ratio $x$, and $7 - 3 + 1 = 5$ terms.",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "By part (a), $\\displaystyle\\sum_{k=3}^{7} u_k = \\frac{96x^2(1-x^5)}{1-x}$, as required.",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "96x^2 + 96x^3 + 96x^4 + 96x^5 + 96x^6",
+     "rhs": "96x^2(1-x^5)/(1-x)",
+     "domain": [
+      2,
+      5
+     ]
+    },
+    {
+     "type": "equals",
+     "lhs": "96(1-x^7)/(1-x) - 96(1-x^2)/(1-x)",
+     "rhs": "96x^2(1-x^5)/(1-x)",
+     "domain": [
+      2,
+      5
+     ]
+    }
+   ],
+   "hints": [
+    "Write out the first and last terms of the sum. What is the first term, and how many terms are there?",
+    "Take care counting the terms: $k = 3, 4, 5, 6, 7$."
+   ]
+  },
+  {
+   "label": "c",
+   "marks": 3,
+   "text": "Given also that $u_6 = -3$, find the value of $\\displaystyle\\sum_{k=3}^{7} u_k$. (3)",
+   "command": "find",
+   "skills": [
+    "geometric-sequence-nth-term"
+   ],
+   "forms": [],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Writes the correct equation $96x^5 = -3$ for the sixth term",
+     "notes": "$96x^6 = -3$ is B0"
+    },
+    {
+     "code": "M1",
+     "for": "Solves their equation for $x$ (e.g. $x^5 = -\\frac{1}{32}$ so $x = -\\frac{1}{2}$), then substitutes that value into the expression from (b) or adds the five terms $u_3$ to $u_7$",
+     "notes": "Their $x$ must not be 1"
+    },
+    {
+     "code": "A1",
+     "depends_on": "M1",
+     "for": "$\\frac{33}{2}$ (or $16.5$)",
+     "notes": "cao"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$u_6 = 96x^{6-1} = 96x^5 = -3$",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "$x^5 = -\\frac{3}{96} = -\\frac{1}{32}$, which gives $x = -\\frac{1}{2}$. Then $\\sum_{k=3}^{7}u_k = \\frac{96\\left(\\frac14\\right)\\left(1 + \\frac{1}{32}\\right)}{1 + \\frac12} = \\frac{24 \\times \\frac{33}{32}}{\\frac32}$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$= \\frac{33}{2}$. (Check: $24 - 12 + 6 - 3 + 1.5 = 16.5$.)",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "S",
+     "expr": "33/2",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "solutions",
+     "equation": "96x^5 = -3",
+     "var": "x",
+     "result": [
+      "-1/2"
+     ]
+    },
+    {
+     "type": "substitute",
+     "expr": "96x^2(1-x^5)/(1-x)",
+     "at": {
+      "x": "-1/2"
+     },
+     "answer": "S"
+    },
+    {
+     "type": "substitute",
+     "expr": "96x^2 + 96x^3 + 96x^4 + 96x^5 + 96x^6",
+     "at": {
+      "x": "-1/2"
+     },
+     "result": "33/2"
+    }
+   ],
+   "hints": [
+    "Use $u_k = 96x^{k-1}$ with $k = 6$ to get an equation in $x$.",
+    "A fifth root of a negative number is negative."
+   ]
+  },
+  {
+   "label": "d",
+   "marks": 1,
+   "text": "Using your value of $x$, find $\\displaystyle\\sum_{k=1}^{\\infty} u_k$. (1)",
+   "command": "find",
+   "skills": [
+    "sum-to-infinity-and-convergence"
+   ],
+   "forms": [],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "$64$, found from $\\frac{96}{1-\\left(-\\frac12\\right)}$",
+     "notes": "cao. The series converges because $|x| = \\frac12 < 1$; a student who does not state this can still get the mark"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$|x| = \\frac12 < 1$, so the sum to infinity exists: $\\displaystyle\\sum_{k=1}^{\\infty}u_k = \\frac{96}{1 - \\left(-\\frac12\\right)} = \\frac{96}{\\frac32} = 64$",
+     "mark": "B1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "Sinf",
+     "expr": "64",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "substitute",
+     "expr": "96/(1-x)",
+     "at": {
+      "x": "-1/2"
+     },
+     "answer": "Sinf"
+    }
+   ],
+   "hints": [
+    "This sum starts at $k = 1$, so the first term is $u_1$, not $u_3$.",
+    "Look at the size of $x$ first to check that the series converges."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 3,
+   "error_code": "series-proof-incomplete",
+   "text": "If you just write 'subtract' and then jump to $a - ar^n$, without writing the $rG_n$ line underneath and showing that $ar$ to $ar^{n-1}$ cancel, the proof has a gap. You lose the M1, and the dM1 and A1 go with it.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "series-formula-error",
+   "text": "If you let $G_n$ end at $ar^n$ instead of $ar^{n-1}$, then $G_n$ has $n+1$ terms and subtracting gives $a - ar^{n+1}$. You then can't reach the printed result, so the A1cso is lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "sigma-term-count-error",
+   "text": "From $k = 3$ to $k = 7$ there are $7 - 3 + 1 = 5$ terms, not $7 - 3 = 4$. If you use 4 terms you get $1 - x^4$ in the numerator, which doesn't match the printed answer, so the M1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "common-ratio-inverted",
+   "text": "The ratio is $u_4 \\div u_3 = x$. If you divide the other way you get $\\frac{1}{x}$, the formula gives the wrong expression, and the M1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "step": 1,
+   "error_code": "nth-term-index-error",
+   "text": "The sixth term is $96x^{5}$, not $96x^{6}$. If you write $96x^6 = -3$ you lose the B1. That equation also has no real solution, so you can't finish the part.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "step": 2,
+   "error_code": "common-ratio-inverted",
+   "text": "If you get $x^5 = -32$ by dividing $96$ by $-3$ instead of $-3$ by $96$, you end up with $x = -2$ in place of $-\\frac12$, and the A1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "d",
+   "step": 1,
+   "error_code": "sum-to-infinity-condition-ignored",
+   "text": "You can only use $\\frac{a}{1-r}$ because $|x| = \\frac12 < 1$. If your $x$ from (c) had size 1 or more, the series would have no sum to infinity, so check this before you use the formula.",
+   "says_common": false
+  },
+  {
+   "part": "d",
+   "step": 1,
+   "error_code": "series-formula-error",
+   "text": "If you use $u_3 = 24$ as the first term (from part (b)) you get $16$. If you write the denominator as $1 + x$ you get $192$. The sum starts at $u_1 = 96$ and the denominator is $1 - x = \\frac32$. Either slip loses the B1.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:35:02",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.4115
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 10
+  },
+  "G7": {
+   "pass": false,
+   "flag": true,
+   "reasons": [
+    "1 word 8-gram(s) also in the reference corpus (not whitelisted)"
+   ],
+   "flags": [
+    "cosine 0.876 with question:IAL2013_WMA01_Oct2018_Q16"
+   ],
+   "hit_fields": [
+    "part a solution",
+    "part a text"
+   ],
+   "n_8gram_hits": 1,
+   "hits8": [
+    "n a ar ar 2 ar n 1"
+   ],
+   "max_jaccard": 0.024,
+   "jaccard_source": "P2_Oct2020_Q15",
+   "shared_numbers": 1,
+   "max_cosine": 0.876,
+   "cosine_source": "question:IAL2013_WMA01_Oct2018_Q16"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 8,
+   "n_answers": 2,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part a: write A1cso as A1 with 'cso' in its notes"
+   ]
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mark my working</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<style>
+  :root {
+    --primary: #1a365d; --accent: #2b6cb0; --success: #276749; --warning: #c05621; --danger: #c53030;
+    --bg: #f7fafc; --card: #ffffff; --border: #e2e8f0; --text: #2d3748; --muted: #718096; --mark: #805ad5;
+    --hint-bg: #f0fff4; --warn-bg: #fffaf0; --user-bg: #ebf4ff; --ok-bg: #f0fff4; --miss-bg: #fffaf0; --code-bg: #edf2f7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --primary: #90cdf4; --accent: #63b3ed; --success: #68d391; --warning: #f6ad55; --danger: #fc8181;
+      --bg: #171923; --card: #1f2330; --border: #2d3748; --text: #e2e8f0; --muted: #a0aec0; --mark: #b794f4;
+      --hint-bg: #1c2e25; --warn-bg: #2e2518; --user-bg: #1e2a3d; --ok-bg: #1c2e25; --miss-bg: #2e2518; --code-bg: #2a2f3d;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  header { position: sticky; top: 0; z-index: 2; background: var(--primary); color: #fff; padding: 12px 16px;
+           display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) header { background: #102a43; } }
+  header h1 { margin: 0; font-size: 18px; font-weight: 600; }
+  header h1 span { font-weight: 400; opacity: .8; }
+  header > span { display: flex; flex-wrap: wrap; align-items: center; gap: 0 4px; margin: 0 -8px; }
+  header a { color: #fff; opacity: .85; font-size: 14px; padding: 10px 8px; min-height: 40px; box-sizing: border-box; display: inline-flex; align-items: center; }
+  header #badge { padding: 0 8px; }
+  #badge { font-size: 13px; opacity: .9; }
+  main { max-width: 860px; margin: 0 auto; padding: 16px 16px 40px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin: 12px 0; }
+  .card h3 { margin: 0 0 8px; font-size: 16px; color: var(--primary); }
+  .card h3 small { color: var(--muted); font-weight: 400; font-size: 13px; }
+  .question { border-left: 4px solid var(--accent); }
+  .script { border-left: 4px solid var(--mark); }
+  .pre { white-space: pre-wrap; overflow-x: auto; }
+  .pre.stem { margin-bottom: 8px; }
+  a { color: var(--accent); }
+  .picker { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: end; }
+  .picker label { display: block; font-size: 14px; color: var(--muted); margin-bottom: 3px; }
+  select, textarea { width: 100%; font: inherit; color: var(--text); background: var(--card); border: 1px solid var(--border);
+                     border-radius: 8px; padding: 8px 10px; }
+  select:focus, textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+  textarea { min-height: 160px; resize: vertical; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 14.5px; line-height: 1.5; }
+  .hint { color: var(--muted); font-size: 14px; margin: 4px 0 8px; }
+  .buttons { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 12px; }
+  button.act { background: var(--accent); color: #fff; border: 0; border-radius: 20px; padding: 8px 18px; min-height: 40px; font: inherit;
+               font-size: 15px; cursor: pointer; }
+  button.act:disabled { opacity: .45; cursor: default; }
+  button.act.secondary { background: var(--card); color: var(--accent); border: 1px solid var(--accent); }
+  .working { color: var(--muted); font-style: italic; display: flex; align-items: center; gap: 10px; margin: 12px 0; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: pulse 1s infinite alternate; }
+  @keyframes pulse { from { opacity: .2 } to { opacity: 1 } }
+  .warning { background: var(--warn-bg); border: 1px solid var(--warning); border-radius: 8px; padding: 10px 14px; margin: 12px 0; }
+  ol.transcript { margin: 4px 0 0; padding-left: 28px; }
+  ol.transcript li { padding: 2px 0; }
+  .facts { color: var(--muted); font-size: 14px; margin-top: 8px; border-top: 1px dashed var(--border); padding-top: 6px; }
+  .partname { font-size: 14px; color: var(--muted); margin: 14px 0 4px; }
+  .partname b { color: var(--text); }
+  .row { display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: start;
+         border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; margin: 8px 0; }
+  .row.ok { background: var(--ok-bg); border-color: var(--success); }
+  .row.miss { background: var(--miss-bg); border-color: var(--warning); }
+  .chip { display: inline-block; color: #fff; border-radius: 12px; font-size: 12.5px; padding: 2px 10px; min-width: 44px;
+          text-align: center; font-weight: 600; margin-top: 2px; background: var(--mark); }
+  .row.ok .chip { background: var(--success); }
+  .row.miss .chip { background: var(--warning); }
+  .for { min-width: 0; overflow-x: auto; }
+  .for .scheme { font-weight: 600; }
+  .notes { color: var(--muted); font-size: 14px; margin-top: 2px; }
+  .evidence { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 14px; background: var(--code-bg);
+              border-radius: 6px; padding: 6px 9px; margin: 6px 0; white-space: pre-wrap; word-break: break-word; }
+  .evidence span { color: var(--muted); font-family: inherit; }
+  .reason { margin: 4px 0; }
+  .conv { color: var(--muted); font-size: 13.5px; }
+  .conv b { color: var(--text); font-weight: 600; }
+  .earn { background: var(--hint-bg); border-left: 4px solid var(--success); border-radius: 8px; padding: 8px 12px; margin-top: 8px; font-size: 14.5px; }
+  .earn b { color: var(--success); }
+  .badge { display: inline-block; font-size: 12px; border-radius: 10px; padding: 1px 8px; margin-left: 6px; vertical-align: middle;
+           border: 1px solid var(--danger); color: var(--danger); background: var(--card); }
+  .badge.err { border-color: var(--warning); color: var(--warning); }
+  .result { border-left: 4px solid var(--success); }
+  .result .big { font-size: 22px; font-weight: 600; }
+  .result .stat { display: inline-block; margin: 4px 18px 4px 0; }
+  .result .stat span { color: var(--muted); font-size: 13px; display: block; }
+  .bars { margin: 8px 0; }
+  .bar { display: grid; grid-template-columns: 110px 1fr 90px; gap: 10px; align-items: center; margin: 5px 0; font-size: 14px; }
+  .bar .track { height: 10px; background: var(--border); border-radius: 5px; overflow: hidden; }
+  .bar .fill { height: 100%; background: var(--warning); border-radius: 5px; }
+  .bar .n { color: var(--muted); font-size: 13px; text-align: right; }
+  .list { margin: 6px 0 0; padding-left: 0; list-style: none; }
+  .list li { padding: 5px 0; border-top: 1px solid var(--border); font-size: 14.5px; }
+  .list li:first-child { border-top: 0; }
+  .list b { color: var(--primary); }
+  .list .def { color: var(--muted); font-size: 13.5px; }
+  .muted { color: var(--muted); }
+  footer { max-width: 860px; margin: 0 auto; padding: 8px 16px 32px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); }
+  .photo { margin-top: 12px; padding-top: 10px; border-top: 1px dashed var(--border); display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; }
+  .photo label.file { display: inline-block; background: var(--card); color: var(--accent); border: 1px solid var(--accent); border-radius: 18px;
+                      padding: 7px 16px; min-height: 40px; box-sizing: border-box; font-size: 15px; cursor: pointer; }
+  .photo input[type=file] { position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden; }
+  .photo img { max-height: 72px; max-width: 120px; border-radius: 6px; border: 1px solid var(--border); }
+  .confirm { border-left: 4px solid var(--warning); }
+  .tline { display: grid; grid-template-columns: 34px 1fr; gap: 8px; align-items: start; margin: 6px 0; }
+  .tline .n { color: var(--muted); font-size: 13px; padding-top: 9px; text-align: right; }
+  .tline textarea { min-height: 38px; padding: 7px 10px; }
+  .tline.low textarea { background: var(--warn-bg); border-color: var(--warning); }
+  .tline .check { grid-column: 2; color: var(--warning); font-size: 14px; margin-top: -2px; }
+  .katex-display { overflow-x: auto; overflow-y: hidden; }
+  .katex { font-size: 1.05em; }
+  @media (max-width: 600px) {
+    .picker { grid-template-columns: 1fr; }
+    .bar { grid-template-columns: 90px 1fr 70px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Mark my working <span>· every mark explained, the way an examiner sees it</span></h1>
+  <span><a href="/learn">Learn →</a> &nbsp; <a href="/examiner">Be the examiner →</a> &nbsp; <a href="/profile">My profile →</a> &nbsp; <span id="badge">Marks lost so far: –</span></span>
+</header>
+<main id="app">
+  <div class="card question" id="pick">
+    <h3>Choose a question</h3>
+    <div class="picker">
+      <div><label for="item">Question</label><select id="item"><option value="">Loading…</option></select></div>
+      <div><label for="part">Mark</label><select id="part"><option value="">whole question</option></select></div>
+    </div>
+    <div id="qcard"></div>
+  </div>
+  <div class="card script" id="entry">
+    <h3>Your working</h3>
+    <label for="text" class="hint">Type your working, one line per step (use $...$ for maths).</label>
+    <textarea id="text" placeholder="$-x^2+8x-5=x+1$&#10;$x^2-7x+6=0$ so $x=1, 6$&#10;Area $=\int_1^6 (-x^2+7x-6)\,dx$ …"></textarea>
+    <div class="buttons"><button class="act" id="mark" disabled>Mark it</button>
+      <span class="hint" id="status"></span></div>
+    <div class="photo">
+      <span class="hint" style="margin:0">Or photograph your working</span>
+      <label class="file" for="photo">Take or choose a photo<input type="file" id="photo" accept="image/*" capture="environment"></label>
+      <img id="thumb" alt="Your photo" hidden>
+      <span class="hint" id="photo-status" style="margin:0"></span>
+    </div>
+  </div>
+  <div id="confirm"></div>
+  <div id="result"></div>
+  <div class="card" id="profile-card"><h3>Your mark-leakage profile</h3><div id="profile" class="muted">Nothing marked yet.</div></div>
+</main>
+<footer id="foot"></footer>
+<script>
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+function typeset(el) {
+  if (window.renderMathInElement) renderMathInElement(el, {
+    delimiters: [{left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false}],
+    throwOnError: false,
+  });
+}
+// Opaque per-browser id, shared with "Be the examiner" so one profile covers both.
+function store(key, fallback) { try { const v = localStorage.getItem(key); return v === null ? fallback : JSON.parse(v); } catch { return fallback; } }
+function save(key, val) { try { localStorage.setItem(key, JSON.stringify(val)); } catch {} }
+const uuid = () => (crypto.randomUUID ? crypto.randomUUID() : "u-" + Math.random().toString(36).slice(2) + Date.now().toString(36));
+let user = store("bte-user", null); if (!user) { user = uuid(); save("bte-user", user); }
+let catalogue = null, defs = {}, busy = false;
+const $ = id => document.getElementById(id);
+const badge = $("badge");
+
+function partName(label) { return label == null || label === "-" ? "The question" : `Part (${label})`; }
+function plural(n, w) { return `${n} ${w}${n === 1 ? "" : "s"}`; }
+
+async function loadCatalogue() {
+  try {
+    const data = await (await fetch("/api/mark/catalogue")).json();
+    catalogue = data.items; defs = data.error_code_definitions || {};
+    $("foot").textContent = data.disclaimer + " Your working is sent only to this server and its marker; no name or email is stored.";
+    const groups = {};
+    catalogue.forEach(it => (groups[it.component || "other"] = groups[it.component || "other"] || []).push(it));
+    $("item").innerHTML = `<option value="">Choose a question…</option>` + Object.entries(groups).map(([c, its]) =>
+      `<optgroup label="${esc(c)}">${its.map(it => `<option value="${esc(it.item_id)}">${esc(it.title)} · ${plural(it.marks, "mark")}${it.tier ? ` · ${esc(it.tier)}` : ""}</option>`).join("")}</optgroup>`).join("");
+    const last = store("mmw-item", "");
+    const wanted = new URLSearchParams(location.search).get("item");
+    if (wanted && catalogue.some(it => it.item_id === wanted)) { $("item").value = wanted; }
+    else if (last && catalogue.some(it => it.item_id === last)) { $("item").value = last; }
+    onItem();
+  } catch (e) {
+    $("qcard").innerHTML = `<div class="warning">Couldn't load the questions (${esc(e.message || e)}). Is the server still running?</div>`;
+  }
+}
+
+function currentItem() { return catalogue && catalogue.find(it => it.item_id === $("item").value) || null; }
+
+function onItem() {
+  const it = currentItem();
+  const partSel = $("part");
+  if (!it) { partSel.innerHTML = `<option value="">whole question</option>`; $("qcard").innerHTML = ""; $("mark").disabled = true; return; }
+  save("mmw-item", it.item_id);
+  const labelled = it.parts.filter(p => p.label);
+  partSel.innerHTML = `<option value="">whole question</option>` + labelled.map(p => `<option value="${esc(p.label)}">part (${esc(p.label)}) · ${plural(p.marks, "mark")}</option>`).join("");
+  partSel.disabled = labelled.length === 0;
+  $("qcard").innerHTML = `<h3 style="margin-top:12px">${esc(it.title)} <small>· ${plural(it.marks, "mark")}${it.tier ? ` · ${esc(it.tier)}` : ""}</small></h3>
+    ${it.stem ? `<div class="pre stem">${esc(it.stem)}</div>` : ""}
+    ${it.parts.map(p => `<div class="pre">${p.label ? `<b>(${esc(p.label)})</b> ` : ""}${esc(p.text)}</div>`).join("")}
+    <div class="hint" style="margin-top:8px"><a href="/learn?item=${encodeURIComponent(it.item_id)}">Learn this question →</a> <span class="muted">· solution at three depths, mark scheme, pitfalls</span></div>`;
+  typeset($("qcard"));
+  $("mark").disabled = !$("text").value.trim();
+  $("result").innerHTML = "";
+}
+
+async function postMark(text, confirmed) {
+  const it = currentItem(); if (!it || busy) return;
+  if (!text.trim()) return;
+  busy = true;
+  const btn = $("mark"); btn.disabled = true; btn.textContent = "Marking…";
+  $("result").innerHTML = `<div class="working"><span class="dot"></span>Marking your working — this takes about 10 seconds.</div>`;
+  try {
+    const body = {user, item_id: it.item_id, part_label: $("part").value || null, text};
+    if (confirmed) body.transcript_confirmed = true;
+    const r = await fetch("/api/mark/submit", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(body)});
+    const data = await r.json();
+    if (!r.ok || data.error) throw new Error(data.error || r.statusText);
+    if (confirmed) { $("confirm").innerHTML = ""; }
+    renderResult(data);
+    if (data.profile) renderProfile(data.profile); else refreshProfile();
+  } catch (e) {
+    $("result").innerHTML = `<div class="warning">${esc(e.message || e)}</div>`;
+  } finally {
+    busy = false; btn.disabled = !$("text").value.trim(); btn.textContent = "Mark it";
+  }
+}
+function markIt() { return postMark($("text").value, false); }
+
+// ---- photo -> transcript -> confirm -> mark ----------------------------------------------------------
+const LOW = 0.7;
+function resetPhoto() {
+  $("photo").value = ""; $("thumb").hidden = true; $("thumb").removeAttribute("src");
+  $("photo-status").textContent = ""; $("confirm").innerHTML = "";
+}
+async function onPhoto() {
+  const file = $("photo").files && $("photo").files[0]; if (!file) return;
+  if (!currentItem()) { $("photo-status").textContent = "Choose a question first."; $("photo").value = ""; return; }
+  if (file.size > 6 * 1024 * 1024) { $("photo-status").textContent = "That photo is over 6 MB: try a smaller one."; $("photo").value = ""; return; }
+  const ext = (file.name.split(".").pop() || file.type.split("/").pop() || "").toLowerCase();
+  if (ext === "heic" || ext === "heif" || file.type === "image/heic") {
+    $("photo-status").textContent = "HEIC photos can't be read yet: choose the photo from your library (it converts to JPEG) or set Camera > Formats to Most Compatible.";
+    $("photo").value = ""; return;
+  }
+  const dataUrl = await new Promise((ok, no) => { const r = new FileReader(); r.onload = () => ok(r.result); r.onerror = no; r.readAsDataURL(file); });
+  $("thumb").src = dataUrl; $("thumb").hidden = false;
+  $("photo-status").textContent = "";
+  $("result").innerHTML = "";
+  $("confirm").innerHTML = `<div class="working"><span class="dot"></span>Reading your working…</div>`;
+  try {
+    const r = await fetch("/api/mark/photo", {method: "POST", headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({image_base64: dataUrl, ext})});
+    const t = await r.json();
+    if (!r.ok || t.error) throw new Error(t.error || r.statusText);
+    renderConfirm(t);
+  } catch (e) {
+    $("confirm").innerHTML = `<div class="warning">${esc(e.message || e)} <button class="act secondary" style="margin-left:8px" onclick="resetPhoto()">Start again</button></div>`;
+  }
+}
+function renderConfirm(t) {
+  const lines = t.lines || [], confs = t.line_confidence || [];
+  const low = lines.filter((_, i) => (confs[i] ?? 1) < LOW).length;
+  const rows = lines.length ? lines.map((l, i) => {
+    const isLow = (confs[i] ?? 1) < LOW;
+    return `<div class="tline${isLow ? " low" : ""}"><span class="n">${i + 1}</span><textarea rows="1" data-i="${i}" aria-label="line ${i + 1}">${esc(l)}</textarea>
+      ${isLow ? `<div class="check">check this line · we're only ${Math.round((confs[i] || 0) * 100)}% sure of it</div>` : ""}</div>`;
+  }).join("") : `<div class="warning">We couldn't find any working in that photo. Try a sharper, well-lit photo of just the page, or type it below.</div>`;
+  $("confirm").innerHTML = `<div class="card confirm"><h3>Is this what you wrote? <small>· ${plural(lines.length, "line")}${low ? ` · ${plural(low, "line")} to check` : ""}</small></h3>
+    <div class="hint">Nothing has been marked yet. Fix any line we misread (use $...$ for maths), then confirm. Amber lines are the ones we were least sure about.</div>
+    <div id="tlines">${rows}</div>
+    <div class="buttons">
+      <button class="act" id="confirm-mark" ${lines.length ? "" : "disabled"}>This is what I wrote, mark it</button>
+      <button class="act secondary" id="confirm-reset">Start again</button>
+      ${t.cost_usd != null ? `<span class="hint" style="margin:0">Transcription $${Number(t.cost_usd).toFixed(3)}</span>` : ""}
+    </div></div>`;
+  $("confirm").querySelectorAll("textarea").forEach(ta => { const grow = () => { ta.style.height = "auto"; ta.style.height = ta.scrollHeight + "px"; }; ta.oninput = grow; grow(); });
+  $("confirm-reset").onclick = resetPhoto;
+  $("confirm-mark").onclick = () => {
+    const text = [...$("confirm").querySelectorAll("textarea")].map(ta => ta.value.trim()).filter(Boolean).join("\n");
+    if (!text) return;
+    $("text").value = text;  // keep the confirmed transcript in the box so the student can re-mark or tweak it
+    postMark(text, true);
+  };
+  $("confirm").scrollIntoView({behavior: "smooth", block: "start"});
+}
+
+function familyText(lost) {
+  const keys = Object.keys(lost || {});
+  return keys.length ? keys.map(k => `${k} ${lost[k]}`).join(", ") : "none";
+}
+
+function renderResult(d) {
+  const transcript = `<div class="card script"><h3>This is what we read <small>· ${plural(d.transcript.lines.length, "line")}</small></h3>
+    <ol class="transcript">${d.transcript.lines.map(l => `<li>${esc(l)}</li>`).join("")}</ol>
+    ${d.facts.length ? `<div class="facts">${d.facts.map(f => esc(f)).join("<br>")}</div>` : ""}</div>`;
+  const byPart = d.parts.map(p => {
+    const rows = d.decisions.filter(x => (x.part ?? "-") === (p.label ?? "-") || (x.part == null && p.label == null));
+    return `<div class="partname"><b>${partName(p.label)}</b> · ${p.earned}/${p.total} marks · lost by family: ${esc(familyText(p.lost_by_family))}${p.implied_positions.length ? ` (${p.implied_positions.length} lost through dependency on an earlier mark)` : ""}</div>
+      ${rows.map(renderRow).join("")}`;
+  }).join("");
+  const s = d.summary;
+  $("result").innerHTML = transcript + `
+    <div class="card"><h3>Mark by mark <small>· ${esc(d.title)}</small></h3>${byPart}</div>
+    <div class="card result"><h3>Where the marks went</h3>
+      <div class="stat"><span>Scored</span><b class="big">${s.earned}/${s.total}</b></div>
+      <div class="stat"><span>Lost by family</span>${esc(familyText(s.lost_by_family))}${s.implied ? ` <span class="muted">(${s.implied} through dependency)</span>` : ""}</div>
+      ${s.check_this ? `<div class="stat"><span>Marker confidence</span>${plural(s.check_this, "decision")} flagged "check this one"</div>` : ""}
+      <div class="muted" style="font-size:13px;margin-top:6px">Marker ${esc(d.model || "")}${d.seconds ? `, ${Math.round(d.seconds)} s` : ""}${d.cost_usd != null ? `, $${Number(d.cost_usd).toFixed(3)}` : ""}.</div>
+    </div>`;
+  typeset($("result"));
+  $("result").scrollIntoView({behavior: "smooth", block: "start"});
+}
+
+function renderRow(x) {
+  const flags = (x.check_this ? `<span class="badge" title="${esc(x.self_contradiction ? "the reason contradicts the code" : x.overridden ? "the marker awarded it but the dependency chain withholds it" : "low marker confidence")}">check this one</span>` : "")
+              + (x.error_code ? `<span class="badge err" title="${esc(defs[x.error_code] || x.error_definition || "")}">${esc(x.error_code)}</span>` : "");
+  return `<div class="row ${x.awarded ? "ok" : "miss"}">
+    <span class="chip">${esc(x.code)}</span>
+    <div class="for">
+      <div><span class="scheme">${esc(x.scheme_code)} for:</span> ${esc(x.for)}${x.notes ? `<span class="notes"> (${esc(x.notes)})</span>` : ""}${flags}</div>
+      <div class="evidence"><span>evidence · </span>${esc(x.evidence)}</div>
+      <div class="reason">${esc(x.reason)}</div>
+      ${x.convention_short ? `<div class="conv"><b>${esc(x.awarded ? "Why this mark exists" : "Convention")}:</b> ${esc(x.convention_short)}</div>` : ""}
+      ${!x.awarded && x.rewrite_to_earn ? `<div class="earn"><b>Write this to earn it:</b> ${esc(x.rewrite_to_earn)}</div>` : ""}
+      ${x.error_definition && !x.awarded ? `<div class="notes">${esc(x.error_code)}: ${esc(x.error_definition)}</div>` : ""}
+      <div class="notes">confidence ${Math.round((x.confidence || 0) * 100)}%${x.overridden ? " · overridden by the dependency chain" : ""}${x.missing ? " · the marker gave no decision for this mark" : ""}</div>
+    </div>
+  </div>`;
+}
+
+function renderProfile(p) {
+  const fams = Object.entries(p.by_family || {});
+  badge.textContent = fams.length ? `Marks lost so far: ${p.total_lost} of ${fams.reduce((a, [, v]) => a + v.available, 0)}` : "Marks lost so far: nothing marked yet";
+  if (!fams.length) { $("profile").innerHTML = `<span class="muted">Nothing marked yet. Mark some working and your profile builds up here.</span>`; return; }
+  const bars = fams.sort((a, b) => b[1].lost - a[1].lost).map(([k, v]) => {
+    const pct = v.available ? Math.round(100 * v.lost / v.available) : 0;
+    return `<div class="bar"><span>${esc(k)}</span><div class="track"><div class="fill" style="width:${pct}%"></div></div><span class="n">${v.lost}/${v.available} lost</span></div>`;
+  }).join("");
+  const codes = Object.entries(p.by_error_code || {}).slice(0, 5);
+  const skills = Object.entries(p.by_skill || {}).filter(([, v]) => v.lost > 0).sort((a, b) => b[1].lost - a[1].lost).slice(0, 5);
+  const titles = p.skill_titles || {}, cdefs = p.error_code_definitions || defs;
+  $("profile").innerHTML = `
+    <div class="hint">Marks lost by family (from your own marked working)</div><div class="bars">${bars}</div>
+    <div class="hint" style="margin-top:12px">Top error codes</div>
+    ${codes.length ? `<ul class="list">${codes.map(([c, n]) => `<li><b>${esc(c)}</b> · ${plural(n, "mark")}<div class="def">${esc(cdefs[c] || "")}</div></li>`).join("")}</ul>` : `<div class="muted">No coded slips yet.</div>`}
+    <div class="hint" style="margin-top:12px">Top skills losing marks</div>
+    ${skills.length ? `<ul class="list">${skills.map(([s, v]) => `<li><b>${esc(titles[s] || s)}</b> · ${v.lost}/${v.available} lost</li>`).join("")}</ul>` : `<div class="muted">No skill has lost a mark yet.</div>`}
+    ${p.examiner_accuracy && p.examiner_accuracy.judged ? `<div class="hint" style="margin-top:12px">Your examiner accuracy (from <a href="/examiner">Be the examiner</a>): ${p.examiner_accuracy.correct}/${p.examiner_accuracy.judged} (${Math.round(p.examiner_accuracy.rate * 100)}%)</div>` : ""}`;
+}
+
+async function refreshProfile() {
+  try { renderProfile(await (await fetch(`/api/mark/profile?user=${encodeURIComponent(user)}`)).json()); } catch {}
+}
+
+$("item").onchange = onItem;
+$("part").onchange = () => { $("result").innerHTML = ""; };
+$("text").oninput = () => { $("mark").disabled = !currentItem() || !$("text").value.trim(); };
+$("mark").onclick = markIt;
+$("photo").onchange = onPhoto;
+window.addEventListener("load", () => { loadCatalogue(); refreshProfile(); });
+</script>
+</body>
+</html>

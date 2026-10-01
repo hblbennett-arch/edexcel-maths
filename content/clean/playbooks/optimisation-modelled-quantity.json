@@ -1,0 +1,140 @@
+{
+ "id": "optimisation-modelled-quantity",
+ "question_type": "optimisation-modelled-quantity",
+ "component": "pure",
+ "title": "Maximise a quantity given by a model",
+ "what_it_asks": "You are given a formula that models something in context, such as a speed, a growth rate or a bounce height. You are asked for its greatest value, or for the input that gives it. The idea is that the maximum occurs where the derivative of the model is zero. You then interpret the result in context.",
+ "typical_structure": "Usually three parts, sometimes two or four, worth about nine marks in total. Early parts are short, often one mark for a value or a statement from the model. A middle part asks you to differentiate, often with the product, quotient or chain rule, and sometimes to show a printed result. The last part often says \"hence\" or \"use\" and asks for the maximum, usually rounded and with units. About half of these questions have a diagram.",
+ "mark_pattern": "Short parts are often a lone B1 for a stated value or a modelling comment. Differentiation parts are typically M1 A1. The M1 is for applying a correct rule with the right structure. The A1 is for the correct derivative. Solving parts are often M1 M1 A1 or M1 A1 dM1 A1. You set the derivative to zero, solve, then substitute back into the model. The last A1 is for the value in the required accuracy. Show-that parts end in A1*, which needs a complete route to the printed result. A dM1 depends on the M1 before it, so a wrong derivative can cost several marks.",
+ "where_marks_leak": [
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You give the maximum to the wrong number of decimal places or significant figures, or round part-way through. The final A1 is lost even though the method was sound."
+  },
+  {
+   "error_code": "quotient-rule-error",
+   "mark_family": "method",
+   "text": "You swap the order of the terms in the numerator or forget to square the denominator. The M1 for the derivative goes, then the A1 and any dM1 that solves using it."
+  },
+  {
+   "error_code": "arithmetic-slip",
+   "mark_family": "accuracy",
+   "text": "You make a numerical slip while solving or substituting in an otherwise correct method. The A1 is lost, though earlier method marks stay."
+  },
+  {
+   "error_code": "answers-different-quantity",
+   "mark_family": "method",
+   "text": "You find the time or input where the maximum occurs when the question wants the maximum value, or the other way round. The substitution method mark is lost, and so is the final A1."
+  },
+  {
+   "error_code": "sign-error-differentiating-negative-power",
+   "mark_family": "accuracy",
+   "text": "You get the sign or the new power wrong when differentiating a term like $x^{-n}$. The A1 for the derivative goes, and the solving marks that follow rely on a wrong equation."
+  }
+ ],
+ "write_to_earn": [
+  "Write the derivative rule you are using, such as the product rule, before you substitute into it.",
+  "Set your derivative equal to zero on its own line, then solve, so the solving method mark is visible.",
+  "Substitute the solved input back into the original model when the maximum value is asked for.",
+  "In a show-that part, write the line just before the printed result, then the result itself.",
+  "Keep full accuracy until the last line, then round as asked and add the units."
+ ],
+ "check_before_you_leave": [
+  "Answered the quantity asked?",
+  "Rounded as required?",
+  "Units included?",
+  "Derivative checked for signs?",
+  "Max confirmed if asked?"
+ ],
+ "skills": [
+  "use-model-to-predict",
+  "set-derivative-zero-and-solve",
+  "accuracy-units-and-rounding",
+  "differentiate-exponentials-and-logs",
+  "differentiate-negative-and-fractional-powers",
+  "use-hence-previous-result",
+  "show-that-given-answer",
+  "second-derivative-test"
+ ],
+ "related_types": [
+  "stationary-points-and-nature",
+  "differentiate-to-given-form",
+  "exponential-model-in-context",
+  "optimisation-constrained-shape",
+  "turning-point-by-iteration"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:16:40",
+ "cost_usd": 0.0426,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 11,
+  "codes_listed": {
+   "wrong-final-accuracy": 5,
+   "quotient-rule-error": 3,
+   "arithmetic-slip": 3,
+   "answers-different-quantity": 2,
+   "not-in-required-form": 1,
+   "second-derivative-error": 1,
+   "sign-error-differentiating-negative-power": 1,
+   "assumption-not-relevant": 1
+  },
+  "frequent_codes": [],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.865 with note:IAL2018_WMA13_June2025_Q6_n7"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.002,
+   "shared_numbers": 0,
+   "max_cosine": 0.865,
+   "cosine_source": "note:IAL2018_WMA13_June2025_Q6_n7"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 1
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.865 with note:IAL2018_WMA13_June2025_Q6_n7"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

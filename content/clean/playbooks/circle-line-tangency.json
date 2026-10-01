@@ -1,0 +1,142 @@
+{
+ "id": "circle-line-tangency",
+ "question_type": "circle-line-tangency",
+ "component": "pure",
+ "title": "Circle meets a line: tangency and intersections",
+ "what_it_asks": "You are given a circle, often as an expanded equation or through points such as the ends of a diameter, and a line. You find the centre and radius, then decide how the line meets the circle: as a tangent, or at two points. The ideas are that a tangent is perpendicular to the radius at the point of contact, and that substituting a line into a circle gives a quadratic whose discriminant or roots show the intersections.",
+ "typical_structure": "Usually two or three parts, sometimes one or four, with about eight marks in total. The first part is typically short and finds the centre and radius. Later parts use that result: finding a tangent or normal equation, finding a length, or substituting a line to find intersections. Parts often depend on each other, and some are \"show that\" parts with a printed answer. Later parts may start with \"hence\".",
+ "mark_pattern": "Most parts are short method-and-accuracy blocks. The commonest is M1 A1: a method step, then the correct result. Longer parts run M1 A1 M1 A1, or M1 M1 A1 where two methods combine before one accuracy mark. Independent marks appear for stating the centre or radius, as B1 or B1 B1, and sometimes open a longer part as B1 M1 M1 A1. In a chain, the first M1 is usually completing the square, finding a gradient or substituting the line. The next M1 is the perpendicular gradient, the line equation or the discriminant condition. The A1 is the exact value or equation asked for. Show-that parts end in a starred A1, and some accuracy marks (A1ft) follow through from your own centre.",
+ "where_marks_leak": [
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "Many students give a final length or coordinate to the wrong number of significant figures or decimal places, or round part-way through. The final A1 is lost even though the method was right."
+  },
+  {
+   "error_code": "circle-centre-sign-error",
+   "mark_family": "independent",
+   "text": "Many students read the centre of $(x+a)^2+(y+b)^2=r^2$ as $(a, b)$ instead of $(-a, -b)$. The B1 for the centre is lost, and the gradient and tangent work built on it loses its A1 unless follow-through applies."
+  },
+  {
+   "error_code": "completing-square-error",
+   "mark_family": "method",
+   "text": "Many students halve the coefficient wrongly, forget the constant, or miss a coefficient of $x^2$ that is not 1. The M1 for completing the square goes, and the radius and later accuracy marks go with it."
+  },
+  {
+   "error_code": "arithmetic-slip",
+   "mark_family": "accuracy",
+   "text": "Often a slip in expanding a bracket or in the discriminant, in an otherwise correct method. The A1 is lost, and any dM1 that depends on the wrong quadratic may be at risk."
+  },
+  {
+   "error_code": "rationalising-error",
+   "mark_family": "method",
+   "text": "Many students multiply by the wrong conjugate, or only the numerator, when tidying a surd answer. The M1 for rationalising is lost, along with the exact-form accuracy mark."
+  }
+ ],
+ "write_to_earn": [
+  "Write the circle in completed-square form before stating the centre and radius, so the B1 marks are visible.",
+  "Write the method line for the perpendicular gradient, $m_1 m_2 = -1$, before you substitute numbers.",
+  "When substituting a line into the circle, show the expanded single quadratic set equal to zero before using the discriminant.",
+  "State the discriminant condition you are using ($b^2-4ac=0$ for a tangent, $>0$ for two points) and then solve.",
+  "In a show-that part, write the step just before the printed result, then the result itself, with no fudged line."
+ ],
+ "check_before_you_leave": [
+  "Centre signs checked",
+  "Answer in form asked",
+  "Exact or rounded as required",
+  "Surds simplified and rationalised",
+  "Printed result reached honestly"
+ ],
+ "skills": [
+  "circle-centre-and-radius",
+  "equation-of-straight-line",
+  "substitute-to-find-intersections",
+  "perpendicular-gradients",
+  "solve-quadratic-equation",
+  "complete-the-square",
+  "show-that-given-answer"
+ ],
+ "related_types": [
+  "circle-centre-radius-and-distances",
+  "vectors-lengths-and-shapes"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:07:50",
+ "cost_usd": 0.0609,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 53,
+  "codes_listed": {
+   "wrong-final-accuracy": 22,
+   "circle-centre-sign-error": 15,
+   "arithmetic-slip": 11,
+   "completing-square-error": 11,
+   "rationalising-error": 10,
+   "perpendicular-gradient-error": 5,
+   "hidden-quadratic-not-converted-back": 3,
+   "incomplete-factorisation": 3
+  },
+  "frequent_codes": [
+   "arithmetic-slip",
+   "circle-centre-sign-error",
+   "completing-square-error",
+   "rationalising-error",
+   "wrong-final-accuracy"
+  ],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.862 with note:IAL2013_WMA01_June2015_Q14_n9"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.006,
+   "shared_numbers": 0,
+   "max_cosine": 0.862,
+   "cosine_source": "note:IAL2013_WMA01_June2015_Q14_n9"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 7
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.862 with note:IAL2013_WMA01_June2015_Q14_n9"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

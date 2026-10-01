@@ -1,0 +1,246 @@
+{
+ "item_id": "cr-pure-area-between-curve-and-line-003",
+ "applicable": true,
+ "reason": "Seeing the curve above the line between O and P shows why the limit is 16 and why we integrate curve minus line.",
+ "scenes": [
+  {
+   "id": "cr-pure-area-between-curve-and-line-003::-::1",
+   "part": null,
+   "title": "Why the area is curve minus line, from 0 to 16",
+   "purpose": "See where C and l meet, that C lies above l between O and P, and that the area grows to 256/3 at x = 16.",
+   "approach": "graphical",
+   "board": {
+    "x": [
+     -2,
+     22
+    ],
+    "y": [
+     -4,
+     26
+    ],
+    "axis": true,
+    "grid": true,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "k",
+     "label": "upper limit k",
+     "min": 1,
+     "max": 16,
+     "step": 0.1,
+     "value": 6
+    }
+   ],
+   "elements": [
+    {
+     "type": "function",
+     "id": "C",
+     "expr": "8*sqrt(x)-x",
+     "domain": [
+      "0",
+      "22"
+     ],
+     "color": "primary",
+     "label": "C"
+    },
+    {
+     "type": "function",
+     "id": "l",
+     "expr": "x",
+     "color": "secondary",
+     "label": "l"
+    },
+    {
+     "type": "point",
+     "id": "O",
+     "x": "0",
+     "y": "0",
+     "label": "O"
+    },
+    {
+     "type": "point",
+     "id": "P",
+     "x": "16",
+     "y": "16",
+     "label": "P (16, 16)"
+    },
+    {
+     "type": "vline",
+     "id": "vk",
+     "at": "k",
+     "color": "muted"
+    },
+    {
+     "type": "integral",
+     "id": "R",
+     "between": [
+      "C",
+      "l"
+     ],
+     "from": "0",
+     "to": "k",
+     "color": "primary",
+     "opacity": 0.25
+    },
+    {
+     "type": "glider",
+     "id": "Q",
+     "on": "C",
+     "x": "4",
+     "label": "Q"
+    },
+    {
+     "type": "text",
+     "id": "areaLabel",
+     "x": "-1",
+     "y": "23",
+     "value": "Area from 0 to $k$ = {area(R)}  (exact area $\\frac{256}{3} \\approx 85.3$)"
+    },
+    {
+     "type": "text",
+     "id": "gapLabel",
+     "x": "-1",
+     "y": "20",
+     "value": "At Q: curve $y$ = {y(Q)}, line $y$ = {x(Q)}"
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "The curve and line cross at $O$ and at $P$. Setting $8\\sqrt{x} - x = x$ gives $\\sqrt{x} = 4$, so $x = 16$, not $4$. This is the M1 for finding the non-zero $x$-coordinate of $P$.",
+     "set": {
+      "k": 6
+     },
+     "highlight": [
+      "P",
+      "O"
+     ]
+    },
+    {
+     "n": 2,
+     "text": "Drag $Q$ along $C$ between $O$ and $P$. Its $y$-value is always bigger than the line's $y$-value, so the height of the region is curve $-$ line $= 8x^{\\frac{1}{2}} - 2x$. Reversing this gives a negative area.",
+     "highlight": [
+      "Q"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "Write $\\sqrt{x}$ as $x^{\\frac{1}{2}}$ and integrate: $\\int (8x^{\\frac{1}{2}} - 2x)\\,\\mathrm{d}x = \\frac{16}{3}x^{\\frac{3}{2}} - x^2$. The shaded area up to $k$ is this expression evaluated at $k$. This earns the integration M1 and the A1.",
+     "set": {
+      "k": 10
+     },
+     "show": [
+      "R"
+     ]
+    },
+    {
+     "n": 4,
+     "text": "Drag $k$ to $16$: the region closes at $P$. The working $\\frac{1024}{3} - \\frac{768}{3}$ gives the area $\\frac{256}{3} \\approx 85.3$, matching the label. This is the M1 for the limits and the final A1.",
+     "set": {
+      "k": 16
+     },
+     "highlight": [
+      "R"
+     ]
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "marks": [
+     "M1",
+     "A1"
+    ],
+    "pitfalls": [
+     "area-between-wrong-subtraction",
+     "integration-power-rule-error",
+     "not-rewritten-as-powers"
+    ]
+   },
+   "guide": {
+    "what_you_see": "The curve $C$ ($y=8\\sqrt{x}-x$) and the line $l$ ($y=x$) from the question, meeting at $O$ and at $P(16,16)$. The shaded region is the part of $R$ from $x=0$ up to the slider value $k$, and it fills all of $R$ when $k=16$.",
+    "legend": [
+     {
+      "id": "C",
+      "meaning": "The curve $y=8\\sqrt{x}-x$ for $x\\geqslant 0$ from the question."
+     },
+     {
+      "id": "l",
+      "meaning": "The line $y=x$ from the question."
+     },
+     {
+      "id": "O",
+      "meaning": "The origin $(0,0)$, the first point where $C$ and $l$ meet."
+     },
+     {
+      "id": "P",
+      "meaning": "The second meeting point $(16,16)$, found from $8\\sqrt{x}-x=x$, which gives $\\sqrt{x}=4$."
+     },
+     {
+      "id": "R",
+      "meaning": "The region between $C$ and $l$ from $x=0$ to $x=k$. Its area is $\\int_0^k (8x^{\\frac12}-2x)\\,\\mathrm{d}x$, and at $k=16$ it is the whole region $R$ of the question."
+     },
+     {
+      "id": "Q",
+      "meaning": "A point you can drag along $C$, used to compare the curve's height with the line's height at the same $x$."
+     },
+     {
+      "id": "vk",
+      "meaning": "The vertical grey line at $x=k$, marking the right-hand edge of the shaded region."
+     }
+    ],
+    "interact": [
+     {
+      "control": "k",
+      "kind": "slider",
+      "do": "Drag the slider from $1$ up to $16$ (it starts at $6$) to move the right-hand edge of the shaded region.",
+      "watch": "The shading grows and the 'Area from 0 to $k$' reading rises. It is about $42.4$ at $k=6$ and about $68.7$ at $k=10$. At $k=16$ the region closes at $P$ and the reading is $\\frac{256}{3}\\approx 85.3$."
+     },
+     {
+      "control": "Q",
+      "kind": "glider",
+      "do": "Drag $Q$ along $C$ between $O$ and $P$, that is for $x$ from $0$ to $16$.",
+      "watch": "The curve's $y$-value at $Q$ stays above the line's $y$-value for every $x$ between $0$ and $16$. For example, at $x=4$ they are $12$ and $4$. That is why the height of the region is curve minus line, $8x^{\\frac12}-2x$."
+     }
+    ],
+    "question_link": {
+     "part": null,
+     "marks": [
+      "M1",
+      "A1"
+     ],
+     "text": "$O$ and $P$ are the meeting points of $C$ and $l$, and $P$ at $x=16$ is the result of the first M1. The shaded region is $R$, and its area is the integral of curve minus line, $\\frac{16}{3}x^{\\frac32}-x^2$. That integral earns the integration M1 and the A1. Substituting the limits $16$ and $0$ gives the final M1, and the reading at $k=16$ is the final A1 value $\\frac{256}{3}$."
+    },
+    "read_off": [
+     "'Area from 0 to $k$' is the area of the shaded region, equal to $\\frac{16}{3}k^{\\frac32}-k^2$. It reaches the exact area $\\frac{256}{3}\\approx 85.3$ of $R$ when $k=16$.",
+     "'At Q: curve $y$ = ..., line $y$ = ...' gives the height of $C$ at $Q$ and the height of $l$ at the same $x$. The first number is always larger between $O$ and $P$, and their difference is the height of the strip, $8\\sqrt{x}-2x$."
+    ]
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0284,
+    "attempts": 1,
+    "gate": {
+     "pass": true,
+     "errors": []
+    },
+    "generated_at": "2026-09-30T23:12:32"
+   }
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:50:11",
+ "cost_usd": 0.0374,
+ "attempts": 1,
+ "checks": {
+  "pass": true,
+  "errors": [],
+  "n_scenes": 1
+ }
+}

@@ -1,0 +1,137 @@
+{
+ "id": "variable-acceleration-vectors",
+ "question_type": "variable-acceleration-vectors",
+ "component": "mech",
+ "title": "Variable acceleration using vector calculus",
+ "what_it_asks": "You are given position, velocity or acceleration as a function of $t$ in $\\mathbf{i}$-$\\mathbf{j}$ form. You must differentiate or integrate each component to move between them, then use a condition such as a given speed, a direction, or motion parallel or perpendicular to a vector. The idea is that calculus works component by component, and initial conditions fix the vector constant.",
+ "typical_structure": "Usually three or four parts, with a total that is typically around nine marks. Early parts are short, often a differentiation or an integration for two or three marks. Later parts are bigger: they use the result to find a time from a direction condition, then a speed, distance or direction at that time. Later parts often rely on the earlier answer, so a slip early on can carry forward. There are no diagrams.",
+ "mark_pattern": "The most typical part is a two-mark M1 A1: the method mark is for differentiating or integrating with the powers handled correctly, and the accuracy mark is for the correct vector. Three-mark parts are often M1 A1 A1, where the two A1 marks are for the $\\mathbf{i}$ and $\\mathbf{j}$ components, or B1 M1 A1, where the B1 is for a stated value or condition such as the vector at $t=0$. Longer parts run M1 A1 M1 A1, sometimes with a dM1 A1 at the end. There the first pair sets up and solves for $t$, and the second pair uses that $t$ to find a magnitude, angle or vector. A dM1 needs the method mark before it. An A1ft lets you follow through your own earlier value.",
+ "where_marks_leak": [
+  {
+   "error_code": "rationalising-error",
+   "mark_family": "method",
+   "text": "After finding a speed or time as a fraction with a surd in the denominator, you multiply by the wrong conjugate or only the numerator. The method mark for rationalising is lost, and the exact-form A1 after it goes too."
+  },
+  {
+   "error_code": "arithmetic-slip",
+   "mark_family": "accuracy",
+   "text": "Your differentiation or integration is set up correctly, but a numerical slip gives a wrong coefficient or a wrong value of the vector at your time. The M1 stays, but the A1 is lost, and any later accuracy mark that needs it."
+  },
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You round a speed, distance or angle to the wrong number of significant figures or decimal places, or round mid-way. The final A1 is lost even though the method is fully correct."
+  },
+  {
+   "error_code": "direction-angle-reference-error",
+   "mark_family": "accuracy",
+   "text": "You find the angle of the velocity from the wrong axis, or quote it without saying which direction it is measured from. The method mark for using trigonometry can stand, but the accuracy mark for the direction is lost."
+  },
+  {
+   "error_code": "integration-power-rule-error",
+   "mark_family": "method",
+   "text": "With a negative or fractional power of $t$, you divide by the old power or add 1 wrongly. The integration M1 is lost, and so are the A1 marks and any dM1 that depends on the result."
+  }
+ ],
+ "write_to_earn": [
+  "Write the rule you are using, such as $\\mathbf{v}=\\frac{\\mathrm{d}\\mathbf{r}}{\\mathrm{d}t}$, before you differentiate, so the method mark is secure.",
+  "Rewrite roots and reciprocals as powers of $t$ on their own line before differentiating or integrating.",
+  "When you integrate, add a vector constant $\\mathbf{c}$, then use the initial condition to find it and write the full vector.",
+  "To use a direction condition, state it first, for example the $\\mathbf{j}$ component equals zero, then solve for $t$ and give a reason for rejecting any invalid time.",
+  "Keep surds and unrounded values until the last line, then give the answer in the form asked."
+ ],
+ "check_before_you_leave": [
+  "Constant added and found?",
+  "Both components done?",
+  "Invalid $t$ rejected?",
+  "Exact or rounded, as asked?",
+  "Units and direction stated?"
+ ],
+ "skills": [
+  "differentiate-kinematics-vectors",
+  "integrate-kinematics-vectors",
+  "vector-magnitude",
+  "direction-condition-on-vector",
+  "differentiate-negative-and-fractional-powers",
+  "speed-and-direction-from-velocity",
+  "reject-invalid-solutions",
+  "exact-form-answers"
+ ],
+ "related_types": [
+  "vector-constant-acceleration",
+  "stationary-points-and-nature"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:12:48",
+ "cost_usd": 0.0375,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 9,
+  "codes_listed": {
+   "rationalising-error": 3,
+   "wrong-final-accuracy": 2,
+   "arithmetic-slip": 2,
+   "direction-angle-reference-error": 1,
+   "factorising-sign-error": 1,
+   "perpendicular-gradient-error": 1,
+   "integration-power-rule-error": 1,
+   "obtuse-sine-rule-case-missed": 1
+  },
+  "frequent_codes": [],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.845 with note:P3_June2018_Q8_n1"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.003,
+   "shared_numbers": 0,
+   "max_cosine": 0.845,
+   "cosine_source": "note:P3_June2018_Q8_n1"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 15
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.845 with note:P3_June2018_Q8_n1"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

@@ -1,0 +1,138 @@
+{
+ "id": "integration-by-substitution",
+ "question_type": "integration-by-substitution",
+ "component": "pure",
+ "title": "Integration by a given substitution",
+ "what_it_asks": "You are given an integral and a substitution, such as $u = 1 + \\sqrt{x}$ or $x = 2\\sin\\theta$. You rewrite the whole integral, including $\\mathrm{d}x$, in the new variable, change the limits, and integrate. The result is usually an exact value. The idea is that the new integral is easier than the original one.",
+ "typical_structure": "Usually one or two parts, sometimes three or four. A first part often says \"show that\" the substitution turns the integral into a printed form. A later part then evaluates it exactly, often using \"hence\" or a trig identity. Part marks typically range from about 3 to 7, with the longer parts holding the full transformation and evaluation. Some questions include a diagram, often of a curve whose area the integral gives.",
+ "mark_pattern": "Most marks are method and accuracy marks, with a few independent marks. A typical start is B1 for the correct $\\frac{\\mathrm{d}x}{\\mathrm{d}u}$ (or $\\frac{\\mathrm{d}u}{\\mathrm{d}x}$), or for the new limits. Then come M1 A1 for rewriting the integrand in the new variable and integrating. A longer part is often B1 M1 A1 A1ft M1 A1, where the ft follows your own integrand. The last M1 A1 is for putting in the new limits and simplifying to an exact answer. Shorter parts follow M1 A1 or B1 M1 A1*, where the starred mark needs a complete argument to the printed result. A dM1 appears when evaluating depends on the integration being a valid attempt.",
+ "where_marks_leak": [
+  {
+   "error_code": "by-parts-poor-choice",
+   "mark_family": "method",
+   "text": "You ignore the given substitution, or reach for parts and choose $u$ and $\\frac{\\mathrm{d}v}{\\mathrm{d}x}$ so that the new integral is harder. This is a common slip. The first M1 goes, and the A1 and dM1 that depend on it go too."
+  },
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You round to the wrong number of decimal places or significant figures, or give a decimal when the question wants an exact value. This is often made. The final A1 is lost even though the method is right."
+  },
+  {
+   "error_code": "wrong-limits-after-substitution",
+   "mark_family": "method",
+   "text": "You keep the $x$-limits on an integral that is now in $u$ or $\\theta$, or you change the variable but forget to convert the limits. The method mark for using limits is lost, and so is the accuracy mark after it."
+  },
+  {
+   "error_code": "double-angle-error",
+   "mark_family": "method",
+   "text": "On trigonometric substitutions you write $\\sin 2\\theta$ as $2\\sin\\theta$, or choose a form of $\\cos 2\\theta$ that does not make the integrand integrable. The M1 for rewriting the integrand goes, and the A1 and later dM1 go with it."
+  }
+ ],
+ "write_to_earn": [
+  "Write the derivative of the substitution first, for example $\\frac{\\mathrm{d}x}{\\mathrm{d}u} = \\dots$, so the B1 and the rewrite of $\\mathrm{d}x$ are both visible.",
+  "Convert the limits straight away, in a line of their own, and integrate only in the new variable.",
+  "Write the integrand fully in the new variable before you integrate, and simplify it so the standard integral is clear.",
+  "On a show-that part, write the line just before the printed result, then the result itself, with no steps skipped.",
+  "Put the new limits into the integrated expression with the method line shown, then simplify to the exact form asked for, and stop."
+ ],
+ "check_before_you_leave": [
+  "Is $\\mathrm{d}x$ replaced?",
+  "Are the limits converted?",
+  "No $x$ left in the integrand?",
+  "Exact or rounded, as asked?",
+  "Printed result reached cleanly?"
+ ],
+ "skills": [
+  "integration-by-substitution",
+  "change-limits-in-substitution",
+  "evaluate-definite-integral",
+  "standard-integrals",
+  "exact-form-answers",
+  "show-that-given-answer",
+  "use-hence-previous-result"
+ ],
+ "related_types": [
+  "integration-by-parts",
+  "definite-integrals-standard-forms",
+  "partial-fractions-then-calculus",
+  "parametric-area"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:06:08",
+ "cost_usd": 0.0531,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 35,
+  "codes_listed": {
+   "by-parts-poor-choice": 21,
+   "wrong-final-accuracy": 12,
+   "wrong-limits-after-substitution": 6,
+   "rationalising-error": 4,
+   "double-angle-error": 3,
+   "missing-constant-of-integration": 3,
+   "partial-fraction-wrong-form": 3,
+   "trapezium-strip-width-error": 3
+  },
+  "frequent_codes": [
+   "by-parts-poor-choice",
+   "wrong-final-accuracy"
+  ],
+  "practice_items": [
+   "cr-integrate-using-trig-identities-core"
+  ]
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.854 with part:P2_Oct2021_Q12:a"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.0,
+   "shared_numbers": 0,
+   "max_cosine": 0.854,
+   "cosine_source": "part:P2_Oct2021_Q12:a"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 17
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.854 with part:P2_Oct2021_Q12:a"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Second marking</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<style>
+  :root { --ink:#1b1f24; --muted:#5b6470; --line:#d9dee5; --bg:#f6f7f9; --card:#fff; --ok:#1f7a3a; --bad:#b3261e; --amber:#9a6b00; --accent:#2b5fd9; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:15px/1.45 -apple-system, system-ui, "Segoe UI", sans-serif; color:var(--ink); background:var(--bg); }
+  header { position:sticky; top:0; z-index:5; background:var(--card); border-bottom:1px solid var(--line); padding:10px 20px; display:flex; gap:24px; align-items:center; flex-wrap:wrap; }
+  header .stat { color:var(--muted); font-size:13px; }
+  header .stat b { color:var(--ink); font-size:15px; }
+  #timer { font-variant-numeric:tabular-nums; font-weight:600; margin-left:auto; }
+  main { max-width:1100px; margin:16px auto; padding:0 16px; display:grid; gap:14px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:14px 18px; }
+  .card h2 { margin:0 0 8px; font-size:13px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); }
+  .question p { margin:6px 0; }
+  .script { white-space:pre-wrap; font-family: ui-monospace, Menlo, monospace; font-size:14px; background:#fbfbfd; border:1px dashed var(--line); padding:10px 12px; border-radius:6px; }
+  table { width:100%; border-collapse:collapse; }
+  td, th { text-align:left; vertical-align:top; padding:8px 6px; border-top:1px solid var(--line); }
+  th { border-top:none; color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.05em; }
+  td.n { width:34px; color:var(--muted); font-variant-numeric:tabular-nums; }
+  td.code { width:64px; font-weight:600; white-space:nowrap; }
+  td.notes { color:var(--muted); font-size:13px; }
+  td.act { width:190px; white-space:nowrap; }
+  button { font:inherit; border:1px solid var(--line); background:#fff; border-radius:6px; padding:5px 10px; cursor:pointer; }
+  button.award.on { background:var(--ok); color:#fff; border-color:var(--ok); }
+  button.withhold.on { background:var(--bad); color:#fff; border-color:var(--bad); }
+  button.primary { background:var(--accent); color:#fff; border-color:var(--accent); padding:8px 16px; font-weight:600; }
+  button:disabled { opacity:.5; cursor:default; }
+  .bar { display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+  .hint { color:var(--muted); font-size:13px; }
+  .yes { color:var(--ok); font-weight:600; } .no { color:var(--bad); font-weight:600; } .na { color:var(--muted); }
+  tr.diff td { background:#fff7e6; }
+  .tag { display:inline-block; font-size:12px; padding:1px 8px; border-radius:999px; border:1px solid var(--line); color:var(--muted); margin-left:6px; }
+  .part-head td { background:#f0f3f8; font-weight:600; border-top:none; }
+  .err { color:var(--bad); }
+</style>
+</head>
+<body>
+<header>
+  <div class="stat">Marker <b id="marker">…</b></div>
+  <div class="stat">Scripts marked <b id="p-scripts">0</b> / <span id="p-total">0</span> · marks <b id="p-marks">0</b></div>
+  <div class="stat">Agreement human vs marker v2 <b id="p-v2">—</b></div>
+  <div class="stat">human vs G4 reference <b id="p-ref">—</b></div>
+  <div id="timer">0:00</div>
+</header>
+<main id="main">
+  <div class="card" id="loading">Loading queue…</div>
+</main>
+<script>
+const $ = (s, el=document) => el.querySelector(s);
+let queue = [], idx = -1, cur = null, human = [], t0 = 0, tick = null, phase = 'mark';
+
+function tex(el) {
+  if (window.renderMathInElement) renderMathInElement(el, { throwOnError:false, delimiters:[
+    {left:'$$', right:'$$', display:true}, {left:'\\[', right:'\\]', display:true},
+    {left:'$', right:'$', display:false}, {left:'\\(', right:'\\)', display:false}]});
+}
+function esc(s) { return String(s ?? '').replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+function paras(s) { return esc(s).split(/\n{2,}/).map(p => '<p>' + p.replace(/\n/g,'<br>') + '</p>').join(''); }
+function pct(x) { return x && x.pct !== null && x.pct !== undefined ? x.pct.toFixed(1) + '% (' + x.agree + '/' + x.n + ')' : '—'; }
+function showProgress(p) {
+  $('#p-scripts').textContent = p.scripts; $('#p-marks').textContent = p.marks;
+  $('#p-v2').textContent = pct(p.vs_v2); $('#p-ref').textContent = pct(p.vs_reference);
+}
+function startTimer() { t0 = Date.now(); clearInterval(tick); tick = setInterval(() => {
+  const s = Math.floor((Date.now() - t0) / 1000); $('#timer').textContent = Math.floor(s/60) + ':' + String(s%60).padStart(2,'0'); }, 500); }
+
+async function init() {
+  const meta = await (await fetch('/api/meta')).json();
+  $('#marker').textContent = meta.marker;
+  queue = (await (await fetch('/api/queue')).json()).queue;
+  $('#p-total').textContent = queue.length;
+  showProgress(await (await fetch('/api/progress')).json());
+  idx = queue.findIndex(r => !r.done) - 1;
+  next();
+}
+function next() {
+  idx += 1;
+  while (idx < queue.length && queue[idx].done) idx += 1;
+  if (idx >= queue.length) { $('#main').innerHTML = '<div class="card">Queue finished. Run <code>eval/second_marking_report.py</code> for the report.</div>'; return; }
+  load(queue[idx]);
+}
+async function load(row) {
+  const r = await fetch(`/api/script?item=${encodeURIComponent(row.item_id)}&script=${encodeURIComponent(row.script_id)}`);
+  cur = await r.json();
+  if (cur.error) { $('#main').innerHTML = `<div class="card err">${esc(cur.error)}</div>`; return; }
+  phase = 'mark';
+  const lines = []; // flat list of marks across parts
+  cur.parts.forEach(p => p.scheme.forEach((m, i) => lines.push({part:p.part, label:p.label, position:i, ...m})));
+  cur.lines = lines; human = lines.map(() => null);
+  let html = `<div class="card question"><h2>Question ${idx+1} of ${queue.length} <span class="tag">${esc(cur.item_id)}</span><span class="tag">script ${esc(cur.script_id)}</span></h2>`;
+  if (cur.stem) html += paras(cur.stem);
+  cur.parts.forEach(p => { html += (p.label ? `<p><b>(${esc(p.label)})</b> ` : '<p>') + paras(p.text).slice(3); });
+  html += `</div><div class="card"><h2>Script</h2><div class="script">${esc(cur.work)}</div></div>`;
+  html += `<div class="card"><h2>Scheme — award or withhold each mark</h2><table><tr><th></th><th>Code</th><th>For</th><th>Notes</th><th>Decision</th></tr>`;
+  let lastPart = null;
+  lines.forEach((m, k) => {
+    if (cur.parts.length > 1 && m.part !== lastPart) { html += `<tr class="part-head"><td colspan="5">Part (${esc(m.label)})</td></tr>`; lastPart = m.part; }
+    html += `<tr id="line-${k}"><td class="n">${k+1}</td><td class="code">${esc(m.code)}</td><td>${esc(m.for)}</td><td class="notes">${esc(m.notes)}</td>
+      <td class="act"><button class="award" onclick="setMark(${k},true)">Award</button> <button class="withhold" onclick="setMark(${k},false)">Withhold</button></td></tr>`;
+  });
+  html += `</table></div><div class="card bar"><button class="primary" id="submit" onclick="submit()" disabled>Submit (Enter)</button>
+    <span class="hint">Keys 1–9 toggle mark n (award ↔ withhold); Enter submits when every mark is decided. Nothing about the marker's or the reference vector is shown until you submit.</span><span id="msg" class="err"></span></div>`;
+  $('#main').innerHTML = html; tex($('#main')); startTimer(); window.scrollTo(0, 0);
+}
+function setMark(k, v) {
+  human[k] = v;
+  const row = $(`#line-${k}`);
+  row.querySelector('.award').classList.toggle('on', v === true);
+  row.querySelector('.withhold').classList.toggle('on', v === false);
+  $('#submit').disabled = human.some(x => x === null);
+}
+async function submit() {
+  if (phase !== 'mark' || human.some(x => x === null)) return;
+  clearInterval(tick);
+  const byPart = {};
+  cur.lines.forEach((m, k) => { (byPart[m.part] = byPart[m.part] || []).push(human[k]); });
+  const body = { item_id: cur.item_id, script_id: cur.script_id, human: byPart, seconds: Math.round((Date.now() - t0) / 10) / 100 };
+  const r = await fetch('/api/submit', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) });
+  const res = await r.json();
+  if (res.error) { $('#msg').textContent = res.error; return; }
+  queue[idx].done = true; phase = 'reveal';
+  showProgress(res.progress); reveal(res);
+}
+function yn(v) { return v === true ? '<span class="yes">Award</span>' : v === false ? '<span class="no">Withhold</span>' : '<span class="na">n/a</span>'; }
+function reveal(res) {
+  let html = `<div class="card"><h2>Comparison — ${esc(res.item_id)} / ${esc(res.script_id)} <span class="tag">${esc(res.kind || '')}${res.error_code ? ' · ' + esc(res.error_code) : ''}</span></h2>`;
+  if (!res.reference_available) html += `<p class="hint">No G4 reference vector for this script (the G4 markers did not agree one).</p>`;
+  html += `<table><tr><th></th><th>Code</th><th>You</th><th>Marker v2</th><th>G4 reference</th><th>Marker v2 reason / evidence</th></tr>`;
+  res.marks.forEach((m, k) => {
+    const diff = (m.v2 !== null && m.v2 !== m.human) || (m.reference !== null && m.reference !== m.human);
+    const why = m.v2_stored ? `${esc(m.v2_reason)}<div class="hint">${esc(m.v2_evidence)}${m.v2_confidence != null ? ' · confidence ' + m.v2_confidence : ''}</div>` : '<span class="na">reason not stored</span>';
+    html += `<tr class="${diff ? 'diff' : ''}"><td class="n">${k+1}</td><td class="code">${esc(m.code)}${m.part !== '-' ? '<div class="hint">(' + esc(m.part) + ')</div>' : ''}</td><td>${yn(m.human)}</td><td>${yn(m.v2)}</td><td>${yn(m.reference)}</td><td>${why}</td></tr>`;
+  });
+  html += `</table></div><div class="card bar"><button class="primary" onclick="next()">Next (Enter)</button><span class="hint">Highlighted rows: your decision differs from marker v2 or the reference.</span></div>`;
+  $('#main').innerHTML = html; tex($('#main')); window.scrollTo(0, 0);
+}
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+  if (e.key === 'Enter') { e.preventDefault(); if (phase === 'mark') submit(); else next(); return; }
+  if (phase === 'mark' && /^[1-9]$/.test(e.key)) {
+    const k = Number(e.key) - 1;
+    if (k < human.length) setMark(k, human[k] === true ? false : true);
+  }
+});
+init();
+</script>
+</body>
+</html>

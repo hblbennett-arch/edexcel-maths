@@ -1,0 +1,757 @@
+{
+ "id": "cr-integration-by-substitution-core",
+ "blueprint_id": "dr-integration-by-substitution-core",
+ "question_type": "integration-by-substitution",
+ "component": "pure",
+ "tier": "core",
+ "kind": "drill",
+ "stem": null,
+ "parts": [
+  {
+   "label": null,
+   "marks": 4,
+   "text": "Use the substitution $u = \\sqrt{2x - 3}$ to show that\n$$\\int_{2}^{6} \\frac{x + 3}{\\sqrt{2x - 3}}\\,\\mathrm{d}x = \\frac{40}{3}.$$ (4)",
+   "command": "show-that",
+   "forms": [],
+   "skills": [
+    "integration-by-substitution"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Uses $u = \\sqrt{2x-3}$ to write $x = \\frac{u^2+3}{2}$ and $\\mathrm{d}x = u\\,\\mathrm{d}u$ (or $\\frac{\\mathrm{d}u}{\\mathrm{d}x} = \\frac{1}{\\sqrt{2x-3}}$ oe). Replaces $x + 3$, $\\sqrt{2x-3}$ and $\\mathrm{d}x$ to get an integral in $u$ alone of the form $\\int (\\alpha u^2 + \\beta)\\,\\mathrm{d}u$",
+     "notes": "Every $x$ and the $\\mathrm{d}x$ must be replaced. An integrand that still contains $x$, or has no factor $u$ from $\\mathrm{d}x$, gets M0. Integration by parts gets M0, because the question says to use the substitution."
+    },
+    {
+     "code": "A1",
+     "for": "Correct integral in $u$ with correct $u$-limits: $\\int_{1}^{3} \\frac{u^2 + 9}{2}\\,\\mathrm{d}u$ oe, e.g. $\\int_1^3 \\left(\\frac{1}{2}u^2 + \\frac{9}{2}\\right)\\mathrm{d}u$",
+     "notes": "The limits $1$ and $3$ may appear at this stage or when evaluating. If the student substitutes back to $x$, correct use of $2$ and $6$ is also acceptable."
+    },
+    {
+     "code": "dM1",
+     "depends_on": "M1",
+     "for": "Integrates their $\\alpha u^2 + \\beta$ to $\\frac{\\alpha}{3}u^3 + \\beta u$, with at least one term correct, and substitutes the $u$-limits $3$ and $1$ and subtracts (or substitutes back to $x$ and uses $6$ and $2$)",
+     "notes": "M0 if the $x$-limits $2$ and $6$ are put into an expression in $u$."
+    },
+    {
+     "code": "A1*",
+     "for": "Correct evaluation to reach $\\frac{40}{3}$, with a correct intermediate step such as $\\left(\\frac{9}{2} + \\frac{27}{2}\\right) - \\left(\\frac{1}{6} + \\frac{9}{2}\\right)$ and no errors anywhere",
+     "notes": "cso. This is a printed answer, so an answer stated with no correct working does not earn this mark."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$u = \\sqrt{2x-3} \\Rightarrow u^2 = 2x - 3 \\Rightarrow x = \\frac{u^2+3}{2}$, and $2u\\,\\frac{\\mathrm{d}u}{\\mathrm{d}x} = 2$, so $\\mathrm{d}x = u\\,\\mathrm{d}u$.",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "$x + 3 = \\frac{u^2 + 3}{2} + 3 = \\frac{u^2 + 9}{2}$, so $\\frac{x+3}{\\sqrt{2x-3}}\\,\\mathrm{d}x = \\frac{u^2+9}{2u}\\cdot u\\,\\mathrm{d}u = \\frac{u^2+9}{2}\\,\\mathrm{d}u$.",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "Limits: when $x = 2$, $u = \\sqrt{1} = 1$; when $x = 6$, $u = \\sqrt{9} = 3$. So the integral is $\\int_1^3 \\frac{u^2 + 9}{2}\\,\\mathrm{d}u$.",
+     "mark": "A1"
+    },
+    {
+     "step": 4,
+     "working": "$\\int_1^3 \\left(\\frac{1}{2}u^2 + \\frac{9}{2}\\right)\\mathrm{d}u = \\left[\\frac{u^3}{6} + \\frac{9u}{2}\\right]_1^3$",
+     "mark": "dM1"
+    },
+    {
+     "step": 5,
+     "working": "$= \\left(\\frac{27}{6} + \\frac{27}{2}\\right) - \\left(\\frac{1}{6} + \\frac{9}{2}\\right) = 18 - \\frac{14}{3} = \\frac{40}{3}$",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [
+    {
+     "name": "I",
+     "expr": "40/3",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "integral",
+     "f": "(x + 3)/sqrt(2x - 3)",
+     "var": "x",
+     "lower": 2,
+     "upper": 6,
+     "answer": "I"
+    },
+    {
+     "type": "integral",
+     "f": "(u^2 + 9)/2",
+     "var": "u",
+     "lower": 1,
+     "upper": 3,
+     "result": "40/3"
+    },
+    {
+     "type": "derivative",
+     "f": "(u^2 + 3)/2",
+     "var": "u",
+     "result": "u"
+    },
+    {
+     "type": "equals",
+     "lhs": "(((u^2 + 3)/2 + 3)/u) * u",
+     "rhs": "(u^2 + 9)/2",
+     "domain": "positive"
+    },
+    {
+     "type": "substitute",
+     "expr": "sqrt(2x - 3)",
+     "at": {
+      "x": 6
+     },
+     "result": "3"
+    },
+    {
+     "type": "substitute",
+     "expr": "sqrt(2x - 3)",
+     "at": {
+      "x": 2
+     },
+     "result": "1"
+    }
+   ],
+   "hints": [
+    "Square the substitution to write $x$ in terms of $u$, then differentiate to find $\\mathrm{d}x$ in terms of $u$ and $\\mathrm{d}u$.",
+    "Before you integrate, change the limits: work out the value of $u$ when $x = 2$ and when $x = 6$."
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$u^2=2x-3\\Rightarrow x=\\frac{u^2+3}{2}$, $\\;\\mathrm{d}x=u\\,\\mathrm{d}u$, $\\;x+3=\\frac{u^2+9}{2}$, so $\\frac{x+3}{\\sqrt{2x-3}}\\,\\mathrm{d}x=\\frac{u^2+9}{2u}\\cdot u\\,\\mathrm{d}u=\\frac{u^2+9}{2}\\,\\mathrm{d}u$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$x=2\\Rightarrow u=1$, $x=6\\Rightarrow u=3$: $\\displaystyle\\int_1^3\\left(\\frac{1}{2}u^2+\\frac{9}{2}\\right)\\mathrm{d}u$",
+      "secures": [
+       "A1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$=\\left[\\frac{u^3}{6}+\\frac{9u}{2}\\right]_1^3$",
+      "secures": [
+       "dM1"
+      ]
+     },
+     {
+      "step": 4,
+      "working": "$=\\left(\\frac{9}{2}+\\frac{27}{2}\\right)-\\left(\\frac16+\\frac92\\right)=18-\\frac{14}{3}=\\frac{40}{3}$",
+      "secures": [
+       "A1*"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$u=\\sqrt{2x-3}\\Rightarrow u^2=2x-3$",
+      "why": "You square both sides so the square root disappears and you can solve for $x$ in terms of $u$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$2x=u^2+3$",
+      "why": "You add 3 to both sides of $u^2=2x-3$ to get the $x$ term on its own.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$x=\\frac{u^2+3}{2}$",
+      "why": "You divide both sides by 2 to get $x$ as a function of $u$.",
+      "secures": null,
+      "check": "Put $u=1$: $x=2$, which matches $\\sqrt{2\\cdot2-3}=1$."
+     },
+     {
+      "step": 4,
+      "working": "$\\frac{\\mathrm{d}x}{\\mathrm{d}u}=u$",
+      "why": "You differentiate $x=\\frac{u^2+3}{2}$ with respect to $u$: the $u^2/2$ gives $u$ and the constant goes.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$\\mathrm{d}x=u\\,\\mathrm{d}u$",
+      "why": "You multiply by $\\mathrm{d}u$ so that $\\mathrm{d}x$ can be replaced in the integral.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$x+3=\\frac{u^2+3}{2}+3$",
+      "why": "You replace $x$ in the numerator by its expression in $u$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "$x+3=\\frac{u^2+3}{2}+\\frac{6}{2}$",
+      "why": "You write 3 as $\\frac62$ so both terms have the same denominator.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$x+3=\\frac{u^2+9}{2}$",
+      "why": "You add the numerators over the common denominator 2.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "$\\frac{x+3}{\\sqrt{2x-3}}\\,\\mathrm{d}x=\\frac{\\frac{u^2+9}{2}}{u}\\cdot u\\,\\mathrm{d}u$",
+      "why": "You replace the numerator, the denominator $\\sqrt{2x-3}=u$, and $\\mathrm{d}x=u\\,\\mathrm{d}u$, so no $x$ is left.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$=\\frac{u^2+9}{2u}\\cdot u\\,\\mathrm{d}u$",
+      "why": "You write the fraction of a fraction as a single fraction with denominator $2u$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 11,
+      "working": "$=\\frac{u^2+9}{2}\\,\\mathrm{d}u$",
+      "why": "You cancel the factor $u$ on the top and bottom.",
+      "secures": "M1",
+      "check": "No $x$ remains and the integrand has no $u$ in the denominator."
+     },
+     {
+      "step": 12,
+      "working": "At $x=2$: $u=\\sqrt{2(2)-3}=\\sqrt1=1$",
+      "why": "The limits are for $x$, so you convert the lower limit to a $u$ value.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 13,
+      "working": "At $x=6$: $u=\\sqrt{2(6)-3}=\\sqrt9=3$",
+      "why": "You do the same for the upper limit.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 14,
+      "working": "$\\displaystyle\\int_1^3\\frac{u^2+9}{2}\\,\\mathrm{d}u$",
+      "why": "You put the new integrand together with the new limits 1 and 3.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 15,
+      "working": "$\\displaystyle=\\int_1^3\\left(\\frac{1}{2}u^2+\\frac{9}{2}\\right)\\mathrm{d}u$",
+      "why": "You split the fraction into separate terms so each can be integrated by the power rule.",
+      "secures": "A1",
+      "check": null
+     },
+     {
+      "step": 16,
+      "working": "$\\displaystyle\\int\\frac12u^2\\,\\mathrm{d}u=\\frac{u^3}{6}$",
+      "why": "You integrate, which undoes differentiating: raise the power to 3 and divide by 3, giving $\\frac12\\cdot\\frac{u^3}{3}$.",
+      "secures": null,
+      "check": "Differentiate $\\frac{u^3}{6}$ to get $\\frac{u^2}{2}$."
+     },
+     {
+      "step": 17,
+      "working": "$\\displaystyle\\int\\frac92\\,\\mathrm{d}u=\\frac{9u}{2}$",
+      "why": "The integral of a constant is the constant times $u$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 18,
+      "working": "$=\\left[\\frac{u^3}{6}+\\frac{9u}{2}\\right]_1^3$",
+      "why": "You combine the two terms and keep the limits 1 and 3 for substituting.",
+      "secures": "dM1",
+      "check": null
+     },
+     {
+      "step": 19,
+      "working": "Upper: $\\frac{3^3}{6}+\\frac{9(3)}{2}=\\frac{27}{6}+\\frac{27}{2}$",
+      "why": "You substitute $u=3$ into the integrated expression.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 20,
+      "working": "$\\frac{27}{6}=\\frac92$, so upper $=\\frac92+\\frac{27}{2}=\\frac{36}{2}=18$",
+      "why": "You simplify $\\frac{27}{6}$ and add the two halves.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 21,
+      "working": "Lower: $\\frac{1^3}{6}+\\frac{9(1)}{2}=\\frac16+\\frac92$",
+      "why": "You substitute $u=1$ into the same expression.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 22,
+      "working": "$\\frac16+\\frac92=\\frac16+\\frac{27}{6}=\\frac{28}{6}=\\frac{14}{3}$",
+      "why": "You use sixths as a common denominator, add, then reduce the fraction.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 23,
+      "working": "$18-\\frac{14}{3}=\\frac{54}{3}-\\frac{14}{3}$",
+      "why": "You subtract the lower value from the upper value, writing 18 as thirds first.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 24,
+      "working": "$\\displaystyle\\int_{2}^{6} \\frac{x + 3}{\\sqrt{2x - 3}}\\,\\mathrm{d}x=\\frac{40}{3}$",
+      "why": "The numerators subtract to give $\\frac{40}{3}$, which is the printed result.",
+      "secures": "A1*",
+      "check": "$\\frac{40}{3}\\approx13.3$ is plausible: the integrand is about 3 to 3.0 over an interval of length 4."
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T22:59:50+00:00",
+    "cost_usd": 0.04,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "error_code": "substitution-dx-not-replaced",
+   "step": 2,
+   "text": "If you replace $\\mathrm{d}x$ with just $\\mathrm{d}u$ you get $\\int \\frac{u^2+9}{2u}\\,\\mathrm{d}u$. That integrand is wrong and the answer will not come out as $\\frac{40}{3}$. You need $\\mathrm{d}x = u\\,\\mathrm{d}u$, and the factor $u$ cancels with the $\\sqrt{2x-3} = u$ in the denominator. Without it the M1 is lost, and so are the marks that depend on it.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "error_code": "wrong-limits-after-substitution",
+   "step": 3,
+   "text": "Your integral is now in terms of $u$, so the limits must be $u = 1$ and $u = 3$, not $x = 2$ and $x = 6$. If you put $2$ and $6$ into $\\frac{u^3}{6} + \\frac{9u}{2}$ you get $\\frac{176}{3}$ instead of $\\frac{40}{3}$, and the dM1 and A1* are lost.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "error_code": "by-parts-poor-choice",
+   "step": 2,
+   "text": "This is a common mistake: you see a product and reach for integration by parts. For example, you might differentiate $(2x-3)^{-\\frac{1}{2}}$ and integrate $x + 3$, which gives a harder integral than the one you started with. Also, the question tells you to use $u = \\sqrt{2x-3}$, so a by-parts method earns no method marks. Follow the substitution given.",
+   "says_common": true
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:53:20",
+ "generation": {
+  "attempts": 1,
+  "cost_usd": 0.1184
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 4
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.886 with part:P1_Oct2020_Q10:a"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "hits8": [],
+   "max_jaccard": 0.024,
+   "jaccard_source": "IAL2018_WMA14_Jan2023_Q4",
+   "shared_numbers": 0,
+   "max_cosine": 0.886,
+   "cosine_source": "part:P1_Oct2020_Q10:a"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 6,
+   "n_answers": 1,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0105,
+   "solver": {
+    "parts": [
+     {
+      "label": null,
+      "answers": [
+       "40/3"
+      ],
+      "printed_result_correct": true,
+      "working_summary": "u^2=2x-3, dx=u du, x+3=(u^2+9)/2; limits 1 to 3; integral of (u^2+9)/2 du = 1/2[u^3/3+9u]_1^3 = 1/2(36-28/3)=40/3."
+     }
+    ],
+    "problems": []
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "response r1 (correct): second marker agrees with the design; first marker gave {'-': ['M1', 'A1', 'M1', 'A1']}",
+    "response r2 (pitfall substitution-dx-not-replaced): second marker agrees with the design; first marker gave {'-': ['M0', 'A0', 'M0', 'A0']}",
+    "response r3 (pitfall wrong-limits-after-substitution): second marker agrees with the design; first marker gave {'-': ['M1', 'A0', 'M0', 'A0']}",
+    "response r4 (pitfall by-parts-poor-choice): second marker agrees with the design; first marker gave {'-': ['M0', 'A0', 'M0', 'A0']}",
+    "response r5 (partial): second marker agrees with the design; first marker gave {'-': ['M1', 'A1', 'M0', 'A0']}"
+   ],
+   "flag": true,
+   "n_responses": 5,
+   "agreed": [
+    "r1",
+    "r2",
+    "r3",
+    "r4",
+    "r5"
+   ],
+   "consistent": {},
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "r1",
+     "kind": "correct",
+     "work": "$u=\\sqrt{2x-3}$ so $u^2=2x-3$, $x=\\frac{u^2+3}{2}$, $\\frac{dx}{du}=u$.\nWhen $x=2,u=1$; $x=6,u=3$.\n$\\int \\frac{x+3}{\\sqrt{2x-3}}dx=\\int_1^3 \\frac{\\frac{u^2+3}{2}+3}{u}\\,u\\,du=\\int_1^3 \\frac{u^2+9}{2}du$\n$=\\left[\\frac{u^3}{6}+\\frac{9u}{2}\\right]_1^3$\n$=\\left(\\frac{27}{6}+\\frac{27}{2}\\right)-\\left(\\frac16+\\frac92\\right)=18-\\frac{14}{3}=\\frac{40}{3}$",
+     "error_code": null,
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "dM1",
+        "A1*"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "kind": "pitfall",
+     "work": "$u^2=2x-3$, $x=\\frac{u^2+3}{2}$. Limits $u=1$ to $3$.\nI replace $dx$ with $du$: $\\int_1^3 \\frac{\\frac{u^2+3}{2}+3}{u}du=\\int_1^3\\frac{u^2+9}{2u}du$\n$=\\int_1^3 \\left(\\frac u2+\\frac{9}{2u}\\right)du=\\left[\\frac{u^2}{4}+\\frac92\\ln u\\right]_1^3=\\frac94-\\frac14+\\frac92\\ln3=2+\\frac92\\ln 3$\nThis is not $\\frac{40}{3}$ but I can't see the error.",
+     "error_code": "substitution-dx-not-replaced",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M0",
+        "A0",
+        "dM0",
+        "A0*"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r3",
+     "kind": "pitfall",
+     "work": "$u^2=2x-3$, $x=\\frac{u^2+3}{2}$, $dx=u\\,du$.\n$\\int \\frac{u^2+9}{2}du=\\left[\\frac{u^3}{6}+\\frac{9u}{2}\\right]$\nUsing the limits $x=2$ and $x=6$:\n$\\left(\\frac{216}{6}+27\\right)-\\left(\\frac86+9\\right)=63-\\frac{31}{3}=\\frac{158}{3}$\nSo this gives the wrong answer; I'll just state $\\frac{40}{3}$.",
+     "error_code": "wrong-limits-after-substitution",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A0",
+        "dM0",
+        "A0*"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r4",
+     "kind": "pitfall",
+     "work": "Use by parts: let $v=x+3$, $dw/dx=(2x-3)^{-1/2}$, so $w=(2x-3)^{1/2}$.\n$\\int=(x+3)\\sqrt{2x-3}-\\int\\sqrt{2x-3}\\,dx$\n$=\\left[(x+3)\\sqrt{2x-3}-\\frac13(2x-3)^{3/2}\\right]_2^6=(27-9)-(5-\\frac13)=\\frac{40}{3}$",
+     "error_code": "by-parts-poor-choice",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M0",
+        "A0",
+        "dM0",
+        "A0*"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r5",
+     "kind": "partial",
+     "work": "$u^2=2x-3$ so $x=\\frac{u^2+3}{2}$ and $dx=u\\,du$.\nLimits: $x=2\\Rightarrow u=1$, $x=6\\Rightarrow u=3$.\n$\\int_1^3\\frac{u^2+9}{2}du$",
+     "error_code": null,
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "dM0",
+        "A0*"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "r1",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M0",
+        "A0",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "M0: dx replaced by du with no factor u, so the integrand is not of the form αu²+β.",
+      "A0: needs M1, and the integral in u is not correct.",
+      "M0: dependent on M1, and the integration gives a ln term.",
+      "A0: does not reach 40/3."
+     ]
+    },
+    {
+     "id": "r3",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A0",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "A0: u-limits 1 and 3 never appear; x-limits 2 and 6 are used in the u-integral.",
+      "M0: x-limits 2 and 6 substituted into an expression in u.",
+      "A0: the evaluation is wrong and 40/3 is stated with no valid working."
+     ]
+    },
+    {
+     "id": "r4",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M0",
+        "A0",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "M0: integration by parts used, not the required substitution.",
+      "A0: no correct integral in u.",
+      "M0: dependent on M1, which was not earned.",
+      "A0: dependent on the earlier marks; the method is invalid."
+     ]
+    },
+    {
+     "id": "r5",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "M0: the integral is never integrated or evaluated.",
+      "A0: no evaluation reaching 40/3."
+     ]
+    }
+   ],
+   "awarded_second": [
+    {
+     "id": "r1",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "dM1",
+        "A1*"
+       ]
+      }
+     ],
+     "reasons": []
+    },
+    {
+     "id": "r2",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M0",
+        "A0",
+        "dM0",
+        "A0*"
+       ]
+      }
+     ],
+     "reasons": [
+      "M0: dx replaced by du with no factor u, so the integrand is not of the form ∫(αu²+β)du.",
+      "A0: depends on M1, and the integral in u is incorrect.",
+      "dM0: depends on the previous M mark.",
+      "A0*: the answer 40/3 is not reached."
+     ]
+    },
+    {
+     "id": "r3",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A0",
+        "dM0",
+        "A0*"
+       ]
+      }
+     ],
+     "reasons": [
+      "A0: the u-limits 1 and 3 are never used; the x-limits 2 and 6 are put in instead.",
+      "dM0: the x-limits 2 and 6 are substituted into an expression in u.",
+      "A0*: the student gets 158/3 and then just states 40/3 with no correct working."
+     ]
+    },
+    {
+     "id": "r4",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M0",
+        "A0",
+        "dM0",
+        "A0*"
+       ]
+      }
+     ],
+     "reasons": [
+      "M0: integration by parts is used instead of the required substitution.",
+      "A0: depends on M1.",
+      "dM0: depends on M1.",
+      "A0*: cso; the required method was not used."
+     ]
+    },
+    {
+     "id": "r5",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "dM0",
+        "A0*"
+       ]
+      }
+     ],
+     "reasons": [
+      "dM0: the integral is not integrated or evaluated.",
+      "A0*: the answer 40/3 is not reached."
+     ]
+    }
+   ],
+   "cost_usd": 0.0715
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "agreement": "1/1",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.012076,
+   "retagged": {
+    "-": [
+     "integration-by-substitution",
+     "change-limits-in-substitution",
+     "integrate-powers-of-x",
+     "evaluate-definite-integral"
+    ]
+   }
+  },
+  "GL": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part -: copy check flag: cosine 0.846 with question:GCE2008_6666_June2018_Q3"
+   ],
+   "parts_checked": 1
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

@@ -135,6 +135,71 @@ table.ms tr.ms-way th { font-size: 12px; color: var(--accent); font-weight: 650;
 .pitfalls li:last-child { border-bottom: 0; }
 .pitfalls .where { font-size: 12px; color: var(--muted); margin-bottom: 3px; }
 .footer-meta { margin-top: 22px; font-size: 12px; color: var(--faint); }
+
+/* learn-layer sections (solution levels, scenes, playbook): collapsible, no inputs so a/r/e keep working */
+details.block > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 8px;
+                          font-size: 12px; text-transform: uppercase; letter-spacing: .07em; color: var(--muted);
+                          margin: 0 0 8px; font-weight: 650; }
+details.block > summary::-webkit-details-marker { display: none; }
+details.block > summary::before { content: "▸"; font-size: 11px; width: 10px; }
+details.block[open] > summary::before { content: "▾"; }
+details.block > summary .sum-note { text-transform: none; letter-spacing: 0; font-weight: 400; }
+.lv { padding: 4px 14px 12px; }
+.lv h3 { font-size: 13px; margin: 12px 0 4px; }
+.lv h4 { font-size: 11.5px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin: 10px 0 4px; font-weight: 650; }
+table.lvl { width: 100%; border-collapse: collapse; font-size: 14px; }
+table.lvl td { padding: 5px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+table.lvl td.n { width: 30px; color: var(--muted); font-family: var(--mono); font-size: 12px; }
+table.lvl td.sec { white-space: nowrap; width: 90px; text-align: right; }
+table.lvl .why { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+table.lvl .chk { font-size: 12.5px; color: var(--pass); margin-top: 2px; }
+table.lvl .chk::before { content: "check: "; color: var(--muted); }
+.scene { padding: 10px 14px 12px; border-bottom: 1px solid var(--line); }
+.scene:last-child { border-bottom: 0; }
+.scene h3 { font-size: 14px; margin: 0 0 4px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.scene .purpose { color: var(--muted); font-size: 13px; }
+table.legend { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+table.legend td { padding: 4px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+table.legend td.lid { font-family: var(--mono); font-weight: 650; width: 80px; white-space: nowrap; }
+.scene ul, .pb ul { margin: 2px 0; padding-left: 20px; }
+.scene li, .pb li { margin: 3px 0; }
+.scene .ctl { font-family: var(--mono); font-weight: 650; }
+.scene .watch { color: var(--muted); }
+.scene .steps li { margin: 5px 0; }
+.link-plain { font-family: var(--mono); font-size: 12px; color: var(--muted); word-break: break-all; margin-top: 8px; }
+.pb { padding: 4px 14px 12px; }
+.pb .pattern { margin: 4px 0 8px; }
+.pb .leak { display: grid; grid-template-columns: auto 1fr; gap: 4px 8px; align-items: start; font-size: 13px; }
+.pb .leak .fam { font-size: 11px; color: var(--faint); }
+
+/* papers panel */
+header.top .btn.small-btn { padding: 4px 10px; font-size: 12.5px; }
+header.top .btn.small-btn.on { background: var(--active); border-color: var(--accent); }
+.papers-overlay { position: fixed; inset: 0; background: rgba(10,14,22,.35); z-index: 20; display: flex; align-items: flex-start; justify-content: center; padding: 60px 16px; }
+.papers-overlay[hidden] { display: none; }
+.papers { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); width: min(900px, 100%);
+          max-height: calc(100vh - 100px); overflow: auto; }
+.papers .ph { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+.papers .ph h2 { font-size: 14px; margin: 0; flex: 1; }
+table.papers-t { width: 100%; border-collapse: collapse; font-size: 13px; }
+table.papers-t th, table.papers-t td { padding: 8px 12px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+table.papers-t th { font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); background: var(--bg); }
+table.papers-t td.num { text-align: right; font-family: var(--mono); white-space: nowrap; }
+table.papers-t th.num { text-align: right; }
+table.papers-t tr.cur td { background: var(--active); }
+table.papers-t .pid { font-family: var(--mono); font-weight: 650; }
+table.papers-t .ptitle { color: var(--muted); font-size: 12px; }
+.qdots { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 4px; }
+.qdot { font: 600 10px/16px var(--mono); min-width: 22px; padding: 0 3px; text-align: center; border-radius: 3px; background: var(--none-bg); color: var(--faint); }
+.qdot.gen { background: var(--warn-bg); color: var(--warn); }
+.qdot.ok { background: var(--pass-bg); color: var(--pass); }
+.qdot.acc { background: var(--pass); color: var(--panel); }
+.qdot.rej { background: var(--fail); color: var(--panel); }
+.qdot.ed { background: var(--edit-bg); color: var(--edit); }
+.paperchip { display: flex; align-items: center; gap: 6px; padding: 6px 12px; background: var(--active); border-bottom: 1px solid var(--line); font-size: 12.5px; }
+.paperchip[hidden] { display: none; }
+.paperchip .pid { font-family: var(--mono); font-weight: 650; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.paperchip button { border: 0; background: transparent; cursor: pointer; color: var(--accent); padding: 0 4px; font-weight: 600; }
 textarea.ed { width: 100%; min-height: 2.6em; font: 13px/1.45 var(--mono); padding: 6px 8px; border-radius: 6px;
               border: 1px solid var(--edit); background: var(--edit-bg); resize: vertical; color: var(--ink); }
 textarea.ed.changed { border-width: 2px; }
@@ -222,6 +287,7 @@ footer.bar select.need { border-color: var(--fail); box-shadow: 0 0 0 2px var(--
   <header class="top">
     <h1>Item review</h1>
     <span class="sub" id="sub">Loading…</span>
+    <button class="btn small-btn" id="b-papers" title="Mock papers: generated / gate-passed / accepted, review one paper in order">Papers</button>
     <span class="keys"><kbd>j</kbd>/<kbd>k</kbd> next/prev &nbsp; <kbd>a</kbd> accept &nbsp; <kbd>e</kbd> edit &nbsp; <kbd>r</kbd> reject &nbsp; <kbd>Esc</kbd> leave field</span>
   </header>
 
@@ -241,9 +307,17 @@ footer.bar select.need { border-color: var(--fail); box-shadow: 0 0 0 2px var(--
       <label class="wide"><input type="search" id="f-search" placeholder="Search id or question type"></label>
       <label class="check wide"><input type="checkbox" id="f-undecided"> Undecided only</label>
     </div>
+    <div class="paperchip" id="paperchip" hidden><span>Paper</span><span class="pid" id="paperchip-id"></span><button id="paperchip-clear" title="Back to the full queue">× clear</button></div>
     <div class="count" id="count"></div>
     <div class="qlist" id="qlist"></div>
   </aside>
+
+  <div class="papers-overlay" id="papers-overlay" hidden>
+    <div class="papers" role="dialog" aria-label="Mock papers">
+      <div class="ph"><h2>Mock papers</h2><span class="small" id="papers-note"></span><button class="btn small-btn" id="papers-close">Close <kbd>Esc</kbd></button></div>
+      <div id="papers-body"><div class="empty">Loading…</div></div>
+    </div>
+  </div>
 
   <main id="main"><div class="empty">Loading the queue…</div></main>
 
@@ -265,7 +339,7 @@ footer.bar select.need { border-color: var(--fail); box-shadow: 0 0 0 2px var(--
 const GATE_NAMES = {G1: "Structure", G2: "Maths checks", G3: "Blind solve", G4: "Mark-scheme scripts",
                     G5: "Pitfalls", G6: "Tags", G7: "Novelty", G8: "Style"};
 const S = { meta: null, items: [], shown: [], id: null, item: null, editing: false,
-            timerMs: 0, timerFrom: null };
+            timerMs: 0, timerFrom: null, paper: null, papers: [] };
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const store = { get(k) { try { return JSON.parse(localStorage.getItem("review:" + k)); } catch (e) { return null; } },
@@ -288,8 +362,11 @@ function status(msg, cls) { const el = $("status"); el.textContent = msg || ""; 
 
 /* ---------- queue ---------- */
 async function loadQueue() {
-  const {items} = await api("/api/items");
+  // with a paper chosen, the server returns that paper's generated questions in question order
+  const {items} = await api("/api/items" + (S.paper ? "?paper=" + encodeURIComponent(S.paper) : ""));
   S.items = items;
+  $("paperchip").hidden = !S.paper; $("paperchip-id").textContent = S.paper || "";
+  $("b-papers").classList.toggle("on", !!S.paper);
   for (const [sel, key] of [["f-component", "component"], ["f-kind", "kind"]]) {
     const el = $(sel), have = new Set([...el.options].map(o => o.value));
     [...new Set(items.map(i => i[key]).filter(Boolean))].sort().forEach(v => {
@@ -322,6 +399,7 @@ function applyFilters() {
     if (f.gates === "ungated" && !g.ungated) return false;
     return true;
   });
+  if (S.paper) S.shown.sort((x, y) => (x.q_num ?? 1e9) - (y.q_num ?? 1e9) || String(x.id).localeCompare(String(y.id)));
   renderQueue();
 }
 function renderQueue() {
@@ -335,7 +413,7 @@ function renderQueue() {
     const dots = Object.entries(i.gates).map(([g, v]) =>
       `<span class="dot ${v === true ? "pass" : v === false ? "fail" : "none"}${(i.gate_flags || {})[g] ? " flag" : ""}"
              title="${g} ${GATE_NAMES[g]}: ${v === true ? "pass" : v === false ? "fail" : "not run"}${(i.gate_flags || {})[g] ? " (flagged)" : ""}">${g.slice(1)}</span>`).join("");
-    const meta = [i.component, i.kind, i.band, `${i.total_marks} marks`].filter(Boolean).join(" · ");
+    const meta = [i.paper && i.q_num != null ? `Q${i.q_num}` : "", i.component, i.kind, i.band, `${i.total_marks} marks`].filter(Boolean).join(" · ");
     return `<div class="qrow risk${i.risk}${i.id === S.id ? " active" : ""}" data-id="${esc(i.id)}">
       <div class="qtop"><span class="qid" title="${esc(i.id)}">${esc(i.id)}</span>${i.decision ? `<span class="badge ${esc(i.decision)}">${esc(i.decision)}</span>` : ""}</div>
       <div class="qmeta">${esc(meta)}</div>
@@ -442,6 +520,9 @@ function renderItem() {
   });
   h += `</div></section>`;
 
+  // learn layer: solution levels, interactive scenes, playbook (collapsible; nothing in them is an input)
+  h += renderLevels(it) + renderScenes(it) + renderPlaybook(it);
+
   // hints
   const hasHints = parts.some(p => (p.hints || []).length);
   h += `<section class="block"><h2>Hints</h2><div class="card hints">`;
@@ -473,6 +554,137 @@ function renderItem() {
   $("b-edit").classList.toggle("on", E);
   $("b-edit").firstChild.textContent = E ? "Save edits" : "Edit";
 }
+
+/* ---------- learn layer: solution levels, scenes, playbook ---------- */
+const codeTags = (codes) => (Array.isArray(codes) ? codes : codes ? [codes] : []).filter(Boolean).map(c => `<span class="tag">${esc(c)}</span>`).join("") || `<span class="small">–</span>`;
+const pillOf = (r) => !r || !("pass" in r) ? ["none", "not run"] : r.pass ? ["pass", "pass"] : ["fail", "fail"];
+function renderLevels(it) {
+  const parts = (it.parts || []).filter(p => p.solution_levels && ((p.solution_levels.brisk || []).length || (p.solution_levels.every_step || []).length));
+  const gl = it.levels_gate || ((it.gate_results || {}).GL) || null;
+  const [st, stText] = pillOf(gl);
+  const nB = parts.reduce((s, p) => s + (p.solution_levels.brisk || []).length, 0);
+  const nE = parts.reduce((s, p) => s + (p.solution_levels.every_step || []).length, 0);
+  const warn = (gl && ((gl.warnings || []).length + (gl.errors || []).length)) || 0;
+  let h = `<details class="block"><summary>Solution levels <span class="sum-note">· ${parts.length ? `${nB} brisk / ${nE} every-step lines` : "none"}</span>
+           <span class="pill ${st}" title="GL: solution levels gate">GL ${stText}</span>${warn ? `<span class="pill flag">${warn} message${warn === 1 ? "" : "s"}</span>` : ""}</summary><div class="card lv">`;
+  if (!parts.length) h += `<p class="muted">No solution levels in this item (parts[i].solution_levels).</p>`;
+  parts.forEach(p => {
+    const L = p.solution_levels;
+    h += `<h3>${p.label ? `Part ${partName(p)}` : "Solution"}</h3>`;
+    if ((L.brisk || []).length) h += `<h4>Brisk · ${L.brisk.length} lines</h4><table class="lvl">${L.brisk.map(s =>
+      `<tr><td class="n">${esc(s.step)}</td><td>${esc(s.working)}</td><td class="sec">${codeTags(s.secures)}</td></tr>`).join("")}</table>`;
+    if ((L.every_step || []).length) h += `<h4>Every step · ${L.every_step.length} lines</h4><table class="lvl">${L.every_step.map(s =>
+      `<tr><td class="n">${esc(s.step)}</td><td>${esc(s.working)}${s.why ? `<div class="why">${esc(s.why)}</div>` : ""}${s.check ? `<div class="chk">${esc(s.check)}</div>` : ""}</td>
+           <td class="sec">${codeTags(s.secures)}</td></tr>`).join("")}</table>`;
+    const lm = p.levels_meta;
+    if (lm && typeof lm === "object") h += `<div class="small" style="margin-top:6px">${Object.entries(lm).filter(([, v]) => v != null && typeof v !== "object").map(([k, v]) => `${esc(k)}: ${esc(v)}`).join(" · ")}</div>`;
+  });
+  h += `<h4>GL gate</h4>`;
+  if (!gl) h += `<span class="small">No GL result stored (gate_results.GL).</span>`;
+  else {
+    h += `<span class="pill ${st}">${stText}</span> ` + msgs(gl.errors, "err") + msgs(gl.warnings, "flag");
+    const kv = Object.entries(gl).filter(([k, v]) => !["pass", "errors", "warnings"].includes(k) && v != null && typeof v !== "object");
+    if (kv.length) h += `<div class="kv">${kv.map(([k, v]) => `<span>${esc(k)}</span><b>${esc(v)}</b>`).join("")}</div>`;
+    if (gl.pass && !(gl.errors || []).length && !(gl.warnings || []).length) h += `<span class="small">Passed with no messages.</span>`;
+  }
+  return h + `</div></details>`;
+}
+function renderScenes(it) {
+  const sc = it.scenes, scenes = (sc && sc.scenes) || [];
+  const note = !sc ? "no scenes file" : sc.applicable === false ? "not applicable" : `${scenes.length} scene${scenes.length === 1 ? "" : "s"}`;
+  let h = `<details class="block"><summary>Interactive scenes <span class="sum-note">· ${esc(note)}</span></summary><div class="card">`;
+  if (!sc) h += `<p class="muted" style="padding:8px 14px">No scenes file for this item (content/clean/scenes/${esc(it.id)}.json).</p>`;
+  else if (sc.reason) h += `<p class="muted" style="padding:8px 14px 0">${esc(sc.reason)}</p>`;
+  scenes.forEach((s, n) => {
+    const g = s.guide || {}, ql = g.question_link || {}, gate = s.gate;
+    const [gst, gtext] = gate ? pillOf(gate) : [null, null];
+    h += `<div class="scene"><h3>${esc(s.title || `Scene ${n + 1}`)}
+          ${s.part ? `<span class="chip">part (${esc(s.part)})</span>` : ""}${s.approach ? `<span class="chip">${esc(s.approach)}</span>` : ""}
+          ${gate ? `<span class="pill ${gst}" title="scene gate">${gtext}</span>` : ""}</h3>`;
+    if (s.purpose) h += `<div class="purpose">${esc(s.purpose)}</div>`;
+    if (gate && ((gate.errors || []).length || (gate.warnings || []).length)) h += msgs(gate.errors, "err") + msgs(gate.warnings, "flag");
+    if (g.what_you_see) h += `<h4>What you see</h4><div>${esc(g.what_you_see)}</div>`;
+    if ((g.legend || []).length) h += `<h4>Legend</h4><table class="legend">${g.legend.map(l =>
+      `<tr><td class="lid">${esc(l.id)}</td><td>${esc(l.meaning)}</td></tr>`).join("")}</table>`;
+    if ((g.interact || []).length) h += `<h4>Interact</h4><ul>${g.interact.map(x =>
+      `<li><span class="ctl">${esc(x.control)}</span>${x.kind ? ` <span class="tag">${esc(x.kind)}</span>` : ""} ${esc(x.do)}${x.watch ? `<div class="watch">${esc(x.watch)}</div>` : ""}</li>`).join("")}</ul>`;
+    if (ql.text || (ql.marks || []).length) h += `<h4>Question link${ql.part ? ` · part (${esc(ql.part)})` : ""}</h4><div>${codeTags(ql.marks)}</div><div>${esc(ql.text)}</div>`;
+    if ((g.read_off || []).length) h += `<h4>Read off</h4><ul>${g.read_off.map(r => `<li>${esc(r)}</li>`).join("")}</ul>`;
+    if ((s.steps || []).length) h += `<h4>Steps</h4><ol class="steps">${s.steps.map(st => `<li value="${esc(st.n)}">${esc(st.text)}</li>`).join("")}</ol>`;
+    const L = s.links || {};
+    if (L.marks || L.pitfalls || L.solution_steps) h += `<div class="small" style="margin-top:6px">links · marks ${codeTags(L.marks)} ${L.solution_steps ? `· solution steps ${esc((L.solution_steps || []).join(", "))}` : ""} ${(L.pitfalls || []).length ? `· pitfalls ${L.pitfalls.map(errTag).join("")}` : ""}</div>`;
+    h += `</div>`;
+  });
+  if (sc) h += `<div class="link-plain" style="padding:0 14px 10px">Open in the product: http://127.0.0.1:8765/learn?item=${esc(encodeURIComponent(it.id))}&amp;tab=graphical</div>`;
+  return h + `</div></details>`;
+}
+function renderPlaybook(it) {
+  const pb = it.playbook;
+  let h = `<details class="block"><summary>Playbook <span class="sum-note">· ${pb ? esc(pb.title || pb.id || it.question_type) : "none for " + esc(it.question_type || "this type")}</span></summary><div class="card pb">`;
+  if (!pb) return h + `<p class="muted">No playbook for this question type (content/clean/playbooks/${esc(it.question_type || "?")}.json).</p></div></details>`;
+  h += `<h3 style="font-size:14px;margin:10px 0 2px">${esc(pb.title || pb.id)}</h3>`;
+  if (pb.what_it_asks) h += `<div class="muted" style="font-size:13px">${esc(pb.what_it_asks)}</div>`;
+  if (pb.typical_structure) h += `<h4>Typical structure</h4><div>${esc(pb.typical_structure)}</div>`;
+  h += `<h4>Mark pattern${pb.mark_family ? ` <span class="tag">${esc(pb.mark_family)}</span>` : ""}</h4><div class="pattern">${esc(pb.mark_pattern || "–")}</div>`;
+  const leaks = pb.where_marks_leak || [];
+  h += `<h4>Where marks leak · ${leaks.length}</h4>`;
+  h += leaks.length ? `<div class="leak">${leaks.map(l => `<div>${errTag(l.error_code)}${l.mark_family ? `<div class="fam">${esc(l.mark_family)}</div>` : ""}</div><div>${esc(l.text)}</div>`).join("")}</div>` : `<span class="small">none listed</span>`;
+  if ((pb.write_to_earn || []).length) h += `<h4>Write to earn</h4><ul>${pb.write_to_earn.map(t => `<li>${esc(t)}</li>`).join("")}</ul>`;
+  return h + `</div></details>`;
+}
+
+/* ---------- papers panel ---------- */
+const papersOpen = () => !$("papers-overlay").hidden;
+async function openPapers() {
+  $("papers-overlay").hidden = false;
+  $("papers-body").innerHTML = `<div class="empty">Loading…</div>`;
+  try {
+    const d = await api("/api/mocks");
+    S.papers = d.papers || [];
+    $("papers-note").textContent = d.mocks_dir ? `from ${d.mocks_dir} (or the mock blueprints and items)` : "";
+    renderPapers();
+  } catch (e) { $("papers-body").innerHTML = `<div class="empty">Could not load papers: ${esc(e.message)}</div>`; }
+}
+function closePapers() { $("papers-overlay").hidden = true; }
+function qdot(q) {
+  const cls = q.decision === "accept" ? "acc" : q.decision === "reject" ? "rej" : q.decision === "edit" ? "ed" : q.gates_passed ? "ok" : q.generated ? "gen" : "";
+  const state = q.decision ? q.decision : q.gates_passed ? "G1–G8 passed, undecided" : q.generated ? "generated, not fully gated" : "not generated";
+  const t = `Q${q.q_num ?? "?"} · ${q.marks ?? "?"} marks · ${q.question_type || ""} · ${state}${q.item_id ? " · " + q.item_id : ""}`;
+  return `<span class="qdot ${cls}" title="${esc(t)}"${q.item_id ? ` data-id="${esc(q.item_id)}" style="cursor:pointer"` : ""}>${esc(q.q_num ?? "?")}</span>`;
+}
+function renderPapers() {
+  if (!S.papers.length) { $("papers-body").innerHTML = `<div class="empty">No mock papers found (content/clean/mocks/*.json, or items with a <code>paper</code> field).</div>`; return; }
+  $("papers-body").innerHTML = `<table class="papers-t"><thead><tr><th>Paper</th><th class="num">Marks</th><th class="num">Min</th>
+      <th class="num">Questions</th><th class="num">Generated</th><th class="num">Gate-passed</th><th class="num">Accepted</th><th>Status by question</th><th></th></tr></thead><tbody>` +
+    S.papers.map(p => {
+      const c = p.counts || {};
+      return `<tr class="${p.id === S.paper ? "cur" : ""}"><td><div class="pid">${esc(p.id)}</div>${p.title && p.title !== p.id ? `<div class="ptitle">${esc(p.title)}</div>` : ""}<div class="ptitle">${esc(p.source || "")}</div></td>
+        <td class="num">${esc(p.marks)}${c.marks_generated != null && c.marks_generated !== p.marks ? `<div class="small">${esc(c.marks_generated)} gen.</div>` : ""}</td>
+        <td class="num">${esc(p.minutes)}</td><td class="num">${esc(c.questions)}</td><td class="num">${esc(c.generated)}</td>
+        <td class="num">${esc(c.gate_passed)}</td><td class="num">${esc(c.accepted)}${c.reviewed > c.accepted ? `<div class="small">${esc(c.reviewed)} reviewed</div>` : ""}</td>
+        <td><div class="qdots">${(p.questions || []).map(qdot).join("")}</div></td>
+        <td><button class="btn small-btn review-paper" data-paper="${esc(p.id)}" ${c.generated ? "" : "disabled"}>${p.id === S.paper ? "Reviewing" : "Review this paper"}</button></td></tr>`;
+    }).join("") + `</tbody></table>`;
+}
+async function reviewPaper(pid) {
+  if (S.editing && !confirm("Leave edit mode without saving?")) return;
+  S.paper = pid || null; S.editing = false;
+  store.set("paper", S.paper);
+  closePapers();
+  await loadQueue();
+  const first = (S.shown[0] || {}).id;
+  if (first) await openItem(first);
+  else { S.item = null; S.id = null; $("main").innerHTML = `<div class="empty">${S.paper ? "No generated questions for this paper match the filters." : "No items match these filters."}</div>`;
+         $("gates").innerHTML = ""; ["b-accept", "b-edit", "b-reject"].forEach(b => $(b).disabled = true); renderQueue(); }
+}
+$("b-papers").onclick = () => papersOpen() ? closePapers() : openPapers();
+$("papers-close").onclick = closePapers;
+$("papers-overlay").addEventListener("click", (e) => {
+  if (e.target === $("papers-overlay")) return closePapers();
+  const b = e.target.closest(".review-paper"); if (b) return reviewPaper(b.dataset.paper);
+  const d = e.target.closest(".qdot[data-id]"); if (d) { closePapers(); openItem(d.dataset.id); }
+});
+$("paperchip-clear").onclick = () => reviewPaper(null);
 
 /* ---------- gates ---------- */
 function msgs(list, cls) {
@@ -637,11 +849,13 @@ $("qlist").addEventListener("click", (e) => { const r = e.target.closest(".qrow"
 document.addEventListener("keydown", (e) => {
   const inField = /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName);
   if (e.key === "Escape") {
-    if (inField) e.target.blur();
+    if (papersOpen()) closePapers();
+    else if (inField) e.target.blur();
     else if (S.editing) { S.editing = false; renderItem(); }
     return;
   }
   if (inField || e.metaKey || e.ctrlKey || e.altKey) return;
+  if (papersOpen()) return;  // no decisions while the papers panel is in front of the item
   const act = { j: () => move(1), k: () => move(-1), a: () => decide("accept"), r: () => decide("reject"), e: toggleEdit }[e.key];
   if (act) { e.preventDefault(); act(); }
 });
@@ -652,7 +866,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     S.meta = await api("/api/meta");
     S.meta.reason_codes.forEach(c => $("reason").add(new Option(c, c)));
     $("sub").textContent = `${S.meta.items_dir} · reviewing as ${S.meta.reviewer}`;
+    const qp = new URLSearchParams(location.search).get("paper");
+    S.paper = qp || store.get("paper") || null;
     await loadQueue();
+    if (S.paper && !S.items.length) { S.paper = null; store.set("paper", null); await loadQueue(); }  // a stale saved paper
     const want = decodeURIComponent(location.hash.slice(1));
     const first = S.items.some(i => i.id === want) ? want : (S.shown[0] || S.items[0] || {}).id;
     if (first) await openItem(first);

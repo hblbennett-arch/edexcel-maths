@@ -1,0 +1,135 @@
+{
+ "id": "exponential-equations",
+ "question_type": "exponential-equations",
+ "component": "pure",
+ "title": "Exponential and index equations",
+ "what_it_asks": "You are given an equation with the unknown in a power, such as $3^{2x} = 5$ or $2^{2x} - 5 \\times 2^x + 4 = 0$. You must solve it by writing both sides with one base, by taking logarithms, or by spotting a hidden quadratic. The idea is to bring the unknown down from the power, or to turn the equation into one you already know how to solve.",
+ "typical_structure": "Usually two parts, sometimes one, and occasionally three. A short first part of 1 or 2 marks often asks you to rewrite or simplify an expression using index laws, or to state a value. A longer part of 3 or 4 marks then solves the equation, and this part sometimes says \"hence\". A show-that part appears now and then. The answer is often asked for in a stated form, and sometimes exactly or to a set number of decimal places.",
+ "mark_pattern": "The most typical part is a 2-mark part scored M1 A1: a method step such as taking logs or substituting $u$, then the correct result. Single-mark parts are usually a lone B1 for a stated value or a correct rewrite. Three-mark parts are often M1 dM1 A1: set up the method, carry out the second stage (solve the quadratic, or rearrange after taking logs), then give the correct answer. Some parts run M1 A1 M1 A1 when a hidden quadratic is solved and then converted back. A B1 followed by M1 A1 appears when a rewrite earns credit before the solving.",
+ "where_marks_leak": [
+  {
+   "error_code": "rationalising-error",
+   "mark_family": "method",
+   "text": "When the solution has a surd denominator, this mistake is often made: you multiply by the wrong conjugate, or only the numerator. The method mark for rationalising goes, and the A1 that follows goes with it."
+  },
+  {
+   "error_code": "index-law-error",
+   "mark_family": "method",
+   "text": "Writing $(2^x)^2$ as $2^{x+2}$, or a reciprocal root as a positive power, is often made. The first M1 is lost, and any dM1 and A1 that depend on it go too."
+  },
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You solve correctly but give the answer to the wrong number of decimal places or significant figures. The final A1 is lost."
+  },
+  {
+   "error_code": "surd-simplification-error",
+   "mark_family": "method",
+   "text": "You treat $\\sqrt{a+b}$ as $\\sqrt{a}+\\sqrt{b}$, or combine unlike surds, when tidying an exact root. The method mark for simplifying goes, and the accuracy mark after it."
+  }
+ ],
+ "write_to_earn": [
+  "Write the substitution, such as $u = 2^x$, before you form the quadratic, so the method mark is safe.",
+  "Take logs of both sides as a stated line, then bring the power down, before you rearrange.",
+  "When you solve a hidden quadratic, convert back to $x$ and reject any value that gives a negative power result.",
+  "Keep unrounded values until the last line, then give the form asked for.",
+  "In a show-that part, write the step just before the printed result and then the result itself."
+ ],
+ "check_before_you_leave": [
+  "Answer in required form?",
+  "Power law used correctly?",
+  "Impossible roots rejected?",
+  "Rounded only at the end?",
+  "Substitute back to check?"
+ ],
+ "skills": [
+  "rewrite-using-index-laws",
+  "exact-surd-manipulation",
+  "exact-form-answers",
+  "solve-exponential-equation",
+  "solve-hidden-quadratic",
+  "use-hence-previous-result",
+  "show-that-given-answer"
+ ],
+ "related_types": [
+  "log-laws-and-equations",
+  "exponential-model-in-context",
+  "log-linear-graph-model"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:05:46",
+ "cost_usd": 0.1159,
+ "attempts": 2,
+ "facts": {
+  "n_questions": 80,
+  "codes_listed": {
+   "rationalising-error": 46,
+   "index-law-error": 14,
+   "wrong-final-accuracy": 8,
+   "surd-simplification-error": 8,
+   "not-in-required-form": 6,
+   "arithmetic-slip": 6,
+   "log-power-law-misapplied": 4,
+   "premature-rounding": 3
+  },
+  "frequent_codes": [
+   "index-law-error",
+   "rationalising-error"
+  ],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.871 with note:IAL2013_WMA01_Jan2017_Q1_n4"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.002,
+   "shared_numbers": 0,
+   "max_cosine": 0.871,
+   "cosine_source": "note:IAL2013_WMA01_Jan2017_Q1_n4"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 9
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.871 with note:IAL2013_WMA01_Jan2017_Q1_n4"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

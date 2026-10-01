@@ -1,0 +1,198 @@
+{
+ "item_id": "cr-pure-de-given-separable-004",
+ "applicable": true,
+ "reason": "Part c is about picking one solution curve from a family using a point, which a slider on the constant shows well. Parts a and b are pure integration checks with no useful picture.",
+ "scenes": [
+  {
+   "id": "cr-pure-de-given-separable-004::c::1",
+   "part": "c",
+   "title": "Choosing the solution curve through (0, 3)",
+   "purpose": "See that each value of the constant c gives a different solution curve, and that only c = 5 passes through (0, 3), which fixes y at x = pi/6.",
+   "approach": "model",
+   "board": {
+    "x": [
+     -0.3,
+     1.5
+    ],
+    "y": [
+     0,
+     16
+    ],
+    "axis": true,
+    "grid": true,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "c",
+     "label": "constant c",
+     "min": 4,
+     "max": 6,
+     "step": 0.05,
+     "value": 4.5
+    }
+   ],
+   "elements": [
+    {
+     "type": "function",
+     "id": "S",
+     "expr": "sqrt((tan(x) - cos(2*x) + c)^2 - 7)",
+     "domain": [
+      "0",
+      "1.4"
+     ],
+     "color": "primary",
+     "label": "solution curve"
+    },
+    {
+     "type": "point",
+     "id": "P0",
+     "x": "0",
+     "y": "3",
+     "label": "(0, 3)",
+     "color": "warning"
+    },
+    {
+     "type": "vline",
+     "id": "V",
+     "at": "pi/6",
+     "color": "muted"
+    },
+    {
+     "type": "point",
+     "id": "Q",
+     "x": "pi/6",
+     "y": "sqrt((tan(pi/6) - cos(pi/3) + c)^2 - 7)",
+     "label": "x = π/6",
+     "color": "secondary"
+    },
+    {
+     "type": "text",
+     "id": "T",
+     "x": "0.1",
+     "y": "14",
+     "value": "c = {c}, y at x = π/6 is {y(Q)}",
+     "color": "mark"
+    },
+    {
+     "type": "text",
+     "id": "T0",
+     "x": "0.1",
+     "y": "12.5",
+     "value": "y at x = 0 is {sqrt((0 - 1 + c)^2 - 7)}",
+     "color": "mark"
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "After separating, parts (a) and (b) give $\\sqrt{y^2+7} = \\tan x - \\cos 2x + c$. Each value of $c$ is a different curve. Drag $c$ and watch the curve move up and down. Leaving out $c$ would lose the final mark.",
+     "set": {
+      "c": 4.5
+     },
+     "show": [
+      "S"
+     ],
+     "highlight": [
+      "S"
+     ]
+    },
+    {
+     "n": 2,
+     "text": "The curve must pass through $(0, 3)$. At $x=0$ the equation gives $\\sqrt{16} = 0 - 1 + c$, so $c = 5$. Set $c = 5$ and the curve meets the orange point. This is the M1 for using the condition to find $c$.",
+     "set": {
+      "c": 5
+     },
+     "highlight": [
+      "P0"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "Now read the curve at the dashed line $x = \\frac{\\pi}{6}$. Here $\\sqrt{y^2+7} = \\frac{1}{\\sqrt3} - \\frac12 + 5 \\approx 5.077$, so $y^2 \\approx 18.78$ and $y \\approx 4.33$, taking the positive root as $y>0$. This is the A1.",
+     "set": {
+      "c": 5
+     },
+     "highlight": [
+      "Q"
+     ]
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     2,
+     3,
+     4
+    ],
+    "marks": [
+     "M1",
+     "A1"
+    ],
+    "pitfalls": [
+     "missing-constant-of-integration",
+     "initial-conditions-not-used"
+    ]
+   },
+   "guide": {
+    "what_you_see": "A solution curve $S$ of the differential equation, drawn from $x=0$ to $x=1.4$. The curve depends on the constant $c$ in $\\sqrt{y^2+7}=\\tan x-\\cos 2x+c$. The orange point $(0,3)$ from the question and a dashed vertical line at $x=\\frac{\\pi}{6}$ are also shown.",
+    "legend": [
+     {
+      "id": "S",
+      "meaning": "The solution curve $y=\\sqrt{(\\tan x-\\cos 2x+c)^2-7}$ for the current value of $c$. It comes from the result of parts (a) and (b), $\\sqrt{y^2+7}=\\tan x-\\cos 2x+c$, taking $y>0$."
+     },
+     {
+      "id": "P0",
+      "meaning": "The given point $(0,3)$. The particular solution curve must pass through it."
+     },
+     {
+      "id": "Q",
+      "meaning": "The point on the curve where $x=\\frac{\\pi}{6}$. Its height is the $y$-coordinate the question asks for."
+     },
+     {
+      "id": "V",
+      "meaning": "The dashed vertical line $x=\\frac{\\pi}{6}$, which shows where to read the curve."
+     }
+    ],
+    "interact": [
+     {
+      "control": "c",
+      "kind": "slider",
+      "do": "Drag the slider from $4$ to $6$. Then set it to exactly $5$.",
+      "watch": "The whole curve moves up as $c$ increases, and $Q$ moves up with it. The curve meets $(0,3)$ only when $c=5$. At that value $Q$ sits at $y\\approx 4.33$. For comparison, $c=4.5$ gives $y\\approx 3.74$ at $x=\\frac{\\pi}{6}$."
+     }
+    ],
+    "question_link": {
+     "part": "c",
+     "marks": [
+      "M1",
+      "A1"
+     ],
+     "text": "The curve $S$ is the general solution from parts (a) and (b), and $P0$ is the point $(0,3)$ you substitute to find $c=5$, which is the M1 step. With $c=5$, the height of $Q$ on the line $x=\\frac{\\pi}{6}$ is the required value $y\\approx 4.33$, the A1."
+    },
+    "read_off": [
+     "The label 'c = …, y at x = π/6 is …' shows the current slider value and the height of $Q$. It is $y=\\sqrt{(\\tan\\frac{\\pi}{6}-\\cos\\frac{\\pi}{3}+c)^2-7}$, which reads $4.33$ (3 s.f.) when $c=5$.",
+     "The label 'y at x = 0 is …' shows where the curve crosses the $y$-axis for the current $c$, namely $\\sqrt{(c-1)^2-7}$. It reads $3$ only when $c=5$, which confirms the curve passes through $(0,3)$."
+    ]
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0407,
+    "attempts": 1,
+    "gate": {
+     "pass": true,
+     "errors": []
+    },
+    "generated_at": "2026-09-30T23:12:49"
+   }
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:50:43",
+ "cost_usd": 0.0418,
+ "attempts": 1,
+ "checks": {
+  "pass": true,
+  "errors": [],
+  "n_scenes": 1
+ }
+}

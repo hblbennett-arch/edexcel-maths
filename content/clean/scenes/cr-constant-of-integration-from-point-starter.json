@@ -1,0 +1,205 @@
+{
+ "item_id": "cr-constant-of-integration-from-point-starter",
+ "applicable": true,
+ "reason": "A family of curves sharing one gradient function, with the constant c fixed by a point, shows why +c matters and how (2, 9) picks out one curve.",
+ "scenes": [
+  {
+   "id": "cr-constant-of-integration-from-point-starter::-::1",
+   "part": null,
+   "title": "One gradient, many curves: the point picks $c$",
+   "purpose": "See that integrating $6x-4x^{-2}$ gives a whole family of curves, and that the point $(2, 9)$ selects the one with $c=-5$.",
+   "approach": "graphical",
+   "board": {
+    "x": [
+     -0.5,
+     4.5
+    ],
+    "y": [
+     -10,
+     50
+    ],
+    "axis": true,
+    "grid": true,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "c",
+     "label": "constant c",
+     "min": -15,
+     "max": 10,
+     "step": 1,
+     "value": 0
+    }
+   ],
+   "elements": [
+    {
+     "type": "function",
+     "id": "F",
+     "expr": "3*x^2+4/x+c",
+     "domain": [
+      "0.3",
+      "4"
+     ],
+     "color": "primary",
+     "label": "y = 3x^2 + 4/x + c"
+    },
+    {
+     "type": "point",
+     "id": "P",
+     "x": "2",
+     "y": "9",
+     "label": "(2, 9)",
+     "color": "warning"
+    },
+    {
+     "type": "point",
+     "id": "Q",
+     "x": "2",
+     "y": "14+c",
+     "label": "curve at x = 2",
+     "color": "secondary"
+    },
+    {
+     "type": "segment",
+     "id": "gap",
+     "from": [
+      "2",
+      "9"
+     ],
+     "to": [
+      "2",
+      "14+c"
+     ],
+     "dash": true,
+     "color": "muted"
+    },
+    {
+     "type": "text",
+     "id": "info",
+     "x": "0.2",
+     "y": "45",
+     "value": "With $c = {c}$, the curve has $y = {14+c}$ at $x=2$. It needs to be $9$."
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "After rewriting $\\frac{4}{x^2}$ as $4x^{-2}$ and integrating, you get $y = 3x^2 + 4x^{-1} + c$. This is the M1 and first A1. Every value of $c$ gives a curve with the same gradient, just shifted up or down. Drag $c$ to see this.",
+     "set": {
+      "c": 0
+     },
+     "show": [
+      "F"
+     ],
+     "highlight": [
+      "F"
+     ]
+    },
+    {
+     "n": 2,
+     "text": "With no $+c$ you are stuck on $c=0$, where the curve gives $y=14$ at $x=2$ and misses $(2, 9)$. The dashed gap shows how far off it is.",
+     "set": {
+      "c": 0
+     },
+     "highlight": [
+      "gap",
+      "Q"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "Put $x=2$, $y=9$ into $y$, not into the gradient: $9 = 12 + 2 + c$. So $c=-5$. Drag $c$ to $-5$ and the dashed gap closes. This is the final A1.",
+     "set": {
+      "c": -5
+     },
+     "highlight": [
+      "P",
+      "Q"
+     ]
+    },
+    {
+     "n": 4,
+     "text": "So $\\mathrm{f}(x) = 3x^2 + \\frac{4}{x} - 5$ is the only curve in the family through $(2, 9)$.",
+     "set": {
+      "c": -5
+     }
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     2,
+     3,
+     4
+    ],
+    "marks": [
+     "M1",
+     "A1"
+    ],
+    "pitfalls": [
+     "missing-constant-of-integration",
+     "constant-not-found-from-point"
+    ]
+   },
+   "guide": {
+    "what_you_see": "The curve $y=3x^2+\\frac{4}{x}+c$, which is the integral of the gradient $6x-\\frac{4}{x^2}$ from the question, and the fixed point $(2, 9)$ that $C$ must pass through. A dashed segment at $x=2$ shows the vertical gap between the curve and that point.",
+    "legend": [
+     {
+      "id": "F",
+      "meaning": "The curve $y=3x^2+\\frac{4}{x}+c$ for the current value of $c$. Every choice of $c$ has the gradient $6x-\\frac{4}{x^2}$, so the curves are vertical shifts of one another."
+     },
+     {
+      "id": "P",
+      "meaning": "The point $(2, 9)$ given in the question, which $C$ must pass through."
+     },
+     {
+      "id": "Q",
+      "meaning": "The point on the curve $F$ where $x=2$, at height $14+c$. It moves up and down as $c$ changes."
+     },
+     {
+      "id": "gap",
+      "meaning": "The dashed segment from $P$ to $Q$. Its length is how far the curve misses $(2, 9)$."
+     }
+    ],
+    "interact": [
+     {
+      "control": "c",
+      "kind": "slider",
+      "do": "Drag the slider from $0$ down to $-5$, then try other values between $-15$ and $10$.",
+      "watch": "The whole curve slides up or down without changing shape, so its gradient at any $x$ is unchanged. At $c=0$, $Q$ sits at $y=14$, above $P$. As $c$ falls the dashed gap shrinks. At $c=-5$, $Q$ lands on $P$ and the gap vanishes."
+     }
+    ],
+    "question_link": {
+     "part": null,
+     "marks": [
+      "M1",
+      "A1"
+     ],
+     "text": "The curve $F$ is the integral $3x^2+4x^{-1}+c$ of the gradient, after rewriting $\\frac{4}{x^2}$ as $4x^{-2}$. That is the M1 and the first A1. Making $F$ pass through $P=(2, 9)$ means solving $9=12+2+c$, which gives $c=-5$ and $\\mathrm{f}(x)=3x^2+\\frac{4}{x}-5$, the final A1."
+    },
+    "read_off": [
+     "The on-screen note states the current $c$ and the height $14+c$ of the curve at $x=2$. You need this height to equal $9$, which happens only when $c=-5$."
+    ]
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0306,
+    "attempts": 1,
+    "gate": {
+     "pass": true,
+     "errors": []
+    },
+    "generated_at": "2026-09-30T23:12:19"
+   }
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:49:58",
+ "cost_usd": 0.0344,
+ "attempts": 1,
+ "checks": {
+  "pass": true,
+  "errors": [],
+  "n_scenes": 1
+ }
+}

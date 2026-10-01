@@ -1,0 +1,120 @@
+{
+ "id": "projectile-range-and-greatest-height",
+ "question_type": "projectile-range-and-greatest-height",
+ "component": "mech",
+ "title": "Projectile from ground: range, height & path",
+ "what_it_asks": "A particle is launched from level ground with speed $U$ at angle $\\alpha$, and a diagram usually shows the path. You are asked to show a result linking $U$ and $\\alpha$, find the range, the greatest height or the equation of the path, and then comment on the model. The idea is to resolve the velocity, treat horizontal and vertical motion separately, and use $t$ to connect them.",
+ "typical_structure": "There are usually four or five parts, worth twelve marks in total. Several parts are one-mark statements, typically about modelling. One or two parts carry most of the marks, often a longer show-that or derivation of about six marks. Later parts often build on an earlier printed result, so a \"hence\" or \"use your answer\" link is typical. The modelling comment usually comes at the end or is a short stand-alone part.",
+ "mark_pattern": "One-mark parts are a single B1, typically for a correct statement such as a modelling assumption or a stated value. Two-mark parts are usually M1 A1: a method mark for a valid equation, then an accuracy mark for the result. A four-mark part is usually M1 A1 M1 A1: one M1 A1 pair for the horizontal or vertical equation, and a second pair for combining or solving. The six-mark parts run M1 A1 M1 A1 then a dM1 that depends on the earlier method. The chain ends with either a final A1* for a show-that, which needs a complete argument, or a last M1 for using the result. Protect the first M1 in each chain, because the later marks depend on it.",
+ "where_marks_leak": [
+  {
+   "error_code": "assumption-not-relevant",
+   "mark_family": "independent",
+   "text": "In the modelling part you give an assumption that does not matter for this motion, such as a fact about a different setup. The B1 is lost because it is only given for a point that genuinely affects a ground-launched projectile. Name a real refinement, such as air resistance, and say how it would change the range or height."
+  },
+  {
+   "error_code": "proof-no-concluding-statement",
+   "mark_family": "accuracy",
+   "text": "In a show-that part you finish the algebra but never write the printed result as a clear conclusion. The final A1* is lost because the argument is not complete. Write the last line so that it matches the given result exactly."
+  }
+ ],
+ "write_to_earn": [
+  "Resolve the velocity first, writing $U\\cos\\alpha$ and $U\\sin\\alpha$ before using either.",
+  "Write the suvat equation in symbols, with acceleration $-g$, before you substitute anything.",
+  "For the range, set the vertical displacement to zero, then use the horizontal equation with that time.",
+  "For the greatest height, state that the vertical velocity is zero at the top, then use it.",
+  "In a show-that, write the line just before the printed result, then the printed result itself, and finish with a short concluding sentence."
+ ],
+ "check_before_you_leave": [
+  "Signs of $g$ and displacement",
+  "Printed result reached exactly",
+  "Conclusion written",
+  "Modelling point relevant",
+  "Units and form asked for"
+ ],
+ "skills": [
+  "resolve-projection-velocity",
+  "projectile-horizontal-motion",
+  "projectile-vertical-motion",
+  "projectile-time-of-flight-and-range",
+  "projectile-greatest-height",
+  "eliminate-time-projectile",
+  "equation-of-trajectory",
+  "refine-mechanics-model"
+ ],
+ "related_types": [
+  "projectile-through-given-point",
+  "projectile-from-cliff",
+  "parametric-to-cartesian-and-intersections"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:13:29",
+ "cost_usd": 0.0336,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 2,
+  "codes_listed": {
+   "assumption-not-relevant": 1,
+   "proof-no-concluding-statement": 1
+  },
+  "frequent_codes": [],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.842 with part:P3_June2018_Q10:b"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.0,
+   "shared_numbers": 0,
+   "max_cosine": 0.842,
+   "cosine_source": "part:P3_June2018_Q10:b"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 9
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "2 where_marks_leak entries (wanted 3-5)"
+   ]
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.842 with part:P3_June2018_Q10:b",
+   "error_codes: 2 where_marks_leak entries (wanted 3-5)"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

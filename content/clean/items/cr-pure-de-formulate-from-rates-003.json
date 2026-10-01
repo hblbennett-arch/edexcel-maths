@@ -87,7 +87,168 @@
    "hints": [
     "Surface area: two triangles, each $\\frac12(3x)(4x)$, plus three rectangles. Each rectangle has length $l$.",
     "Make $l$ the subject of the volume equation. Before you differentiate, write any term like $\\frac{k}{x}$ as $kx^{-1}$."
-   ]
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$V = \\frac12(3x)(4x)\\,l = 6x^2 l = 150 \\Rightarrow l = \\frac{25}{x^2}$; $S = 2(6x^2) + (3x+4x+5x)l$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$S = 12x^2 + 12x\\cdot\\frac{25}{x^2} = 12x^2 + \\frac{300}{x}$",
+      "secures": [
+       "A1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$S = 12x^2 + 300x^{-1}$, so $\\frac{\\mathrm{d}S}{\\mathrm{d}x} = 24x - 300x^{-2}$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 4,
+      "working": "$\\frac{\\mathrm{d}S}{\\mathrm{d}x} = 24x - \\frac{300}{x^2}$",
+      "secures": [
+       "A1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "Triangle area $= \\frac12 \\times 3x \\times 4x$",
+      "why": "The two shorter sides of the right-angled triangle are the base and height, so you use them for the area.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$\\frac12 \\times 3x \\times 4x = 6x^2$",
+      "why": "You multiply the numbers and the $x$ terms: $\\frac12\\times 12 = 6$ and $x\\times x = x^2$.",
+      "secures": null,
+      "check": "Units: cm² for an area."
+     },
+     {
+      "step": 3,
+      "working": "$V = 6x^2 l$",
+      "why": "The volume of a prism is cross-section area times length.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$6x^2 l = 150$",
+      "why": "You set the volume equal to the given $150\\,\\mathrm{cm^3}$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$l = \\frac{150}{6x^2}$",
+      "why": "You divide both sides by $6x^2$ to make $l$ the subject.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$l = \\frac{25}{x^2}$",
+      "why": "You cancel the common factor: $150 \\div 6 = 25$.",
+      "secures": "M1",
+      "check": "$6x^2\\times\\frac{25}{x^2}=150$."
+     },
+     {
+      "step": 7,
+      "working": "$S = 2(6x^2) + (3x + 4x + 5x)\\,l$",
+      "why": "The surface area is two triangular ends plus three rectangles, each of length $l$ and width equal to a side of the triangle.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$S = 12x^2 + 12x\\,l$",
+      "why": "You double $6x^2$ and add up the three sides: $3x+4x+5x=12x$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "$S = 12x^2 + 12x\\cdot\\frac{25}{x^2}$",
+      "why": "You replace $l$ with $\\frac{25}{x^2}$ so that only $x$ remains.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$12x\\cdot\\frac{25}{x^2} = \\frac{300x}{x^2}$",
+      "why": "You multiply the numbers: $12\\times 25 = 300$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 11,
+      "working": "$\\frac{300x}{x^2} = \\frac{300}{x}$",
+      "why": "You cancel one factor of $x$ from top and bottom.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 12,
+      "working": "$S = 12x^2 + \\frac{300}{x}$",
+      "why": "You put the two parts together to get $S$ in terms of $x$ alone.",
+      "secures": "A1",
+      "check": null
+     },
+     {
+      "step": 13,
+      "working": "$S = 12x^2 + 300x^{-1}$",
+      "why": "You write $\\frac{300}{x}$ as a power of $x$ so that you can differentiate it (find the gradient function) with the power rule.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 14,
+      "working": "$\\frac{\\mathrm{d}}{\\mathrm{d}x}\\left(12x^2\\right) = 24x$",
+      "why": "You multiply by the power, 2, and reduce the power by one.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 15,
+      "working": "$\\frac{\\mathrm{d}}{\\mathrm{d}x}\\left(300x^{-1}\\right) = -300x^{-2}$",
+      "why": "You multiply by the power, $-1$, and reduce the power by one to get $-2$.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 16,
+      "working": "$\\frac{\\mathrm{d}S}{\\mathrm{d}x} = 24x - 300x^{-2}$",
+      "why": "You add the two derivatives together.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 17,
+      "working": "$\\frac{\\mathrm{d}S}{\\mathrm{d}x} = 24x - \\frac{300}{x^2}$",
+      "why": "You write the negative power as a fraction to give the final answer.",
+      "secures": "A1",
+      "check": "Integrating gives $12x^2+300x^{-1}$ again."
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:49:33+00:00",
+    "cost_usd": 0.0259,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
   },
   {
    "label": "b",
@@ -187,7 +348,162 @@
     "First find the value of $x$ that gives $l = 1$, using your expression for $l$ from part (a).",
     "Write the chain rule linking $\\frac{\\mathrm{d}S}{\\mathrm{d}t}$, $\\frac{\\mathrm{d}S}{\\mathrm{d}x}$ and $\\frac{\\mathrm{d}x}{\\mathrm{d}t}$, then rearrange it to get $\\frac{\\mathrm{d}x}{\\mathrm{d}t}$."
    ],
-   "forms": []
+   "forms": [],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$l=\\frac{25}{x^2}=1 \\Rightarrow x=5$; $\\frac{\\mathrm{d}S}{\\mathrm{d}x}=24(5)-\\frac{300}{25}$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$\\frac{\\mathrm{d}S}{\\mathrm{d}x}=120-12=108$",
+      "secures": [
+       "A1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$\\frac{\\mathrm{d}x}{\\mathrm{d}t}=\\frac{\\mathrm{d}S}{\\mathrm{d}t}\\div\\frac{\\mathrm{d}S}{\\mathrm{d}x}=\\frac{3}{108}$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 4,
+      "working": "$\\frac{\\mathrm{d}x}{\\mathrm{d}t}=\\frac{1}{36}=0.0278\\ \\mathrm{cm/s}$",
+      "secures": [
+       "A1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "Volume: $\\frac12(3x)(4x)\\,l=150$",
+      "why": "The cross-section is a right-angled triangle with legs $3x$ and $4x$, so its area times the length $l$ gives the volume.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$6x^2 l=150$",
+      "why": "You multiply out $\\frac12\\times3x\\times4x$ to get $6x^2$.",
+      "secures": null,
+      "check": "$\\frac12\\times3\\times4=6$."
+     },
+     {
+      "step": 3,
+      "working": "$l=\\frac{150}{6x^2}=\\frac{25}{x^2}$",
+      "why": "You divide both sides by $6x^2$ to make $l$ the subject.",
+      "secures": null,
+      "check": "$150\\div6=25$."
+     },
+     {
+      "step": 4,
+      "working": "At $l=1$: $\\frac{25}{x^2}=1$",
+      "why": "You put $l=1$ into the relationship to find $x$ at this moment.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$x^2=25$",
+      "why": "You multiply both sides by $x^2$ to get $x^2 = 25$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$x=5$",
+      "why": "You take the positive square root because $x$ is a length.",
+      "secures": null,
+      "check": "$25/5^2=1$."
+     },
+     {
+      "step": 7,
+      "working": "$\\frac{\\mathrm{d}S}{\\mathrm{d}x}=24x-\\frac{300}{x^2}$ at $x=5$: $24(5)-\\frac{300}{5^2}$",
+      "why": "You substitute $x=5$ into the derivative found in part (a).",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$24(5)=120$",
+      "why": "You evaluate the first term.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "$\\frac{300}{25}=12$",
+      "why": "You evaluate the second term, squaring 5 to get 25 and then dividing.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$\\frac{\\mathrm{d}S}{\\mathrm{d}x}=120-12=108$",
+      "why": "You subtract the two values to get the rate of change of $S$ with respect to $x$.",
+      "secures": "A1",
+      "check": "Positive, since the first term is larger."
+     },
+     {
+      "step": 11,
+      "working": "$\\frac{\\mathrm{d}S}{\\mathrm{d}t}=\\frac{\\mathrm{d}S}{\\mathrm{d}x}\\times\\frac{\\mathrm{d}x}{\\mathrm{d}t}$",
+      "why": "The chain rule links the rate of change of $S$ in time to the rate of change of $x$ in time.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 12,
+      "working": "$3=108\\times\\frac{\\mathrm{d}x}{\\mathrm{d}t}$",
+      "why": "You put in the given $\\frac{\\mathrm{d}S}{\\mathrm{d}t}=3$ and the value $108$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 13,
+      "working": "$\\frac{\\mathrm{d}x}{\\mathrm{d}t}=\\frac{3}{108}$",
+      "why": "You divide both sides by 108 to isolate $\\frac{\\mathrm{d}x}{\\mathrm{d}t}$.",
+      "secures": "M1",
+      "check": "Small, because $S$ is quite sensitive to $x$."
+     },
+     {
+      "step": 14,
+      "working": "$\\frac{\\mathrm{d}x}{\\mathrm{d}t}=\\frac{1}{36}$",
+      "why": "You cancel the common factor 3.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 15,
+      "working": "$\\frac{\\mathrm{d}x}{\\mathrm{d}t}=0.0278\\ \\mathrm{cm/s}$",
+      "why": "You convert $\\frac{1}{36}$ to a decimal rounded to 3 significant figures and include the units, since $x$ is in cm and time in seconds.",
+      "secures": "A1",
+      "check": "$36\\times0.0278\\approx1$."
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:49:49+00:00",
+    "cost_usd": 0.0619,
+    "attempts": 2,
+    "errors": [],
+    "attempt_errors": [
+     [
+      "part b: every_step: last working does not contain a value equal to answer rate = 0.0278 (to sf-3)"
+     ],
+     [
+      "part b: every_step: last working does not contain a value equal to answer rate = 0.0278 (to sf-3)"
+     ]
+    ],
+    "regated": "passes after gate_levels answer-parser fix (units, earlier-line answers)"
+   }
   }
  ],
  "pitfalls": [
@@ -669,6 +985,15 @@
      "solve-power-equation"
     ]
    }
+  },
+  "GL": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part a: copy check flag: cosine 0.853 with question:IAL2013_WMA01_June2014_Q14",
+    "part b: copy check flag: cosine 0.824 with part:IAL2013_WMA02_Jan2018_Q14:b"
+   ],
+   "parts_checked": 2
   }
  },
  "review": {

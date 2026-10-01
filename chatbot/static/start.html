@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Start</title>
+<script>
+  // The user has not chosen a product name yet: one constant, used everywhere on this page.
+  const PRODUCT_NAME = "[Product name]";
+</script>
+<style>
+  :root {
+    --primary: #1a365d; --accent: #2b6cb0; --success: #276749; --warning: #c05621; --danger: #c53030;
+    --bg: #f7fafc; --card: #ffffff; --border: #e2e8f0; --text: #2d3748; --muted: #718096; --mark: #805ad5;
+    --hint-bg: #f0fff4; --warn-bg: #fffaf0; --user-bg: #ebf4ff; --ok-bg: #f0fff4; --miss-bg: #fffaf0; --code-bg: #edf2f7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --primary: #90cdf4; --accent: #63b3ed; --success: #68d391; --warning: #f6ad55; --danger: #fc8181;
+      --bg: #171923; --card: #1f2330; --border: #2d3748; --text: #e2e8f0; --muted: #a0aec0; --mark: #b794f4;
+      --hint-bg: #1c2e25; --warn-bg: #2e2518; --user-bg: #1e2a3d; --ok-bg: #1c2e25; --miss-bg: #2e2518; --code-bg: #2a2f3d;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  header { position: sticky; top: 0; z-index: 2; background: var(--primary); color: #fff; padding: 12px 16px;
+           display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) header { background: #102a43; } }
+  header h1 { margin: 0; font-size: 18px; font-weight: 600; }
+  header h1 span { font-weight: 400; opacity: .8; }
+  header a { color: #fff; opacity: .85; font-size: 13px; }
+  main { max-width: 860px; margin: 0 auto; padding: 16px 16px 40px; }
+  .hero { padding: 22px 0 8px; }
+  .hero h2 { margin: 0 0 6px; font-size: 26px; line-height: 1.25; color: var(--primary); }
+  .hero p { margin: 0; color: var(--muted); font-size: 17px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; margin: 16px 0; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin: 0;
+          display: flex; flex-direction: column; gap: 8px; }
+  .card h3 { margin: 0; font-size: 16px; color: var(--primary); }
+  .card p { margin: 0; color: var(--muted); font-size: 14.5px; flex: 1; }
+  .card .num { font-size: 12px; font-weight: 600; color: var(--mark); letter-spacing: .04em; text-transform: uppercase; }
+  a.act { display: inline-block; align-self: flex-start; background: var(--accent); color: #fff; border: 0; border-radius: 18px;
+          padding: 8px 18px; font: inherit; font-size: 15px; text-decoration: none; }
+  a.act:hover { filter: brightness(1.08); }
+  a.act.secondary { background: var(--card); color: var(--accent); border: 1px solid var(--accent); }
+  .strip { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin: 20px 0 12px; }
+  .strip h3 { margin: 0 0 10px; font-size: 16px; color: var(--primary); }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; }
+  .step { display: grid; grid-template-columns: 30px 1fr; gap: 8px; align-items: start; font-size: 14.5px; }
+  .step .n { width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 600;
+             display: flex; align-items: center; justify-content: center; font-size: 13.5px; }
+  .more { color: var(--muted); font-size: 14.5px; margin: 8px 0; }
+  .more a { color: var(--accent); }
+  footer { max-width: 860px; margin: 0 auto; padding: 8px 16px 32px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); }
+  footer p { margin: 4px 0; }
+  @media (max-width: 600px) {
+    .hero h2 { font-size: 22px; }
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1><span class="product">[Product name]</span> <span>· Learn to write answers the way examiners mark them</span></h1>
+  <span><a href="/marks">How marks are awarded →</a></span>
+</header>
+<main>
+  <section class="hero">
+    <h2>Stop losing marks you already know how to get.</h2>
+    <p>Learn to write answers the way examiners mark them, then prove it on questions you have never seen.</p>
+  </section>
+
+  <section class="grid" aria-label="What you can do">
+    <div class="card">
+      <h3>Learn a question</h3>
+      <p>Work through one original exam-style question with every mark explained as it is earned.</p>
+      <a class="act" href="/learn">Learn a question</a>
+    </div>
+    <div class="card">
+      <h3>Be the examiner</h3>
+      <p>Read someone else's working and decide which marks it earns, then see how a real marker would judge it.</p>
+      <a class="act" href="/examiner">Be the examiner</a>
+    </div>
+    <div class="card">
+      <h3>Mark my working</h3>
+      <p>Type or photograph your own working and get every mark you kept, and every mark you lost, explained.</p>
+      <a class="act" href="/mark">Mark my working</a>
+    </div>
+    <div class="card">
+      <h3>Playbooks</h3>
+      <p>Short plans for each type of question: the lines the marker needs to see and the slips that cost marks.</p>
+      <a class="act" href="/playbooks">Playbooks</a>
+    </div>
+    <div class="card">
+      <h3>Practice paper</h3>
+      <p>Sit a timed paper made of original questions in the real exam mix, then get it marked.</p>
+      <a class="act" href="/mock">Practice paper</a>
+    </div>
+    <div class="card">
+      <h3>My profile</h3>
+      <p>See where your marks leak, by mark type and by question type, and watch the pattern shrink.</p>
+      <a class="act" href="/profile">My profile</a>
+    </div>
+  </section>
+
+  <section class="strip">
+    <h3>How it works</h3>
+    <div class="steps">
+      <div class="step"><span class="n">1</span><span>Learn the marking: what each mark is for and what has to be on the page.</span></div>
+      <div class="step"><span class="n">2</span><span>Practise on original questions in the same style and mix as the real papers.</span></div>
+      <div class="step"><span class="n">3</span><span>Get every lost mark explained, including the ones that went with it.</span></div>
+      <div class="step"><span class="n">4</span><span>Watch your leakage profile shrink as the same slips stop happening.</span></div>
+    </div>
+    <p class="more">New to mark schemes? Read <a href="/marks">How marks are awarded</a> first.</p>
+  </section>
+</main>
+<footer>
+  <p id="disclaimer">Independent: not affiliated with, endorsed or licensed by Pearson.</p>
+  <p>Every question and mark scheme here is our own.</p>
+</footer>
+<script>
+  document.querySelectorAll('.product').forEach(el => { el.textContent = PRODUCT_NAME; });
+  document.title = PRODUCT_NAME === "[Product name]" ? "Start" : PRODUCT_NAME;
+  // The disclaimer comes from the board profile so this page and the API never disagree.
+  fetch('/api/marks/glossary').then(r => r.ok ? r.json() : null).then(d => {
+    if (d && d.disclaimer) {
+      const first = d.disclaimer.split(/(?<=\.)\s+/)[0];
+      document.getElementById('disclaimer').textContent = first || d.disclaimer;
+    }
+  }).catch(() => {});
+</script>
+</body>
+</html>

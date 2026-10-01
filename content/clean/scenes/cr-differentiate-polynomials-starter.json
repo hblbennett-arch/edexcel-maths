@@ -1,0 +1,224 @@
+{
+ "item_id": "cr-differentiate-polynomials-starter",
+ "applicable": true,
+ "reason": "A tangent sliding along the curve lets the student check the derived formula against the actual gradient, including the sign of the $x^{-3/2}$ term.",
+ "scenes": [
+  {
+   "id": "cr-differentiate-polynomials-starter::-::1",
+   "part": null,
+   "title": "Checking the derivative against the tangent gradient",
+   "purpose": "See that the derivative you found gives the gradient of the curve, so the answer can be checked at any point.",
+   "approach": "algebraic-check",
+   "board": {
+    "x": [
+     -0.5,
+     3.5
+    ],
+    "y": [
+     -10,
+     40
+    ],
+    "axis": true,
+    "grid": true,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "a",
+     "label": "x-coordinate a",
+     "min": 0.3,
+     "max": 3,
+     "step": 0.05,
+     "value": 1
+    }
+   ],
+   "elements": [
+    {
+     "type": "function",
+     "id": "C",
+     "expr": "(4*x^3-3)/(2*sqrt(x))",
+     "domain": [
+      "0.1",
+      "3.2"
+     ],
+     "color": "primary",
+     "label": "y"
+    },
+    {
+     "type": "function",
+     "id": "D",
+     "expr": "5*x*sqrt(x)+3/(4*x*sqrt(x))",
+     "domain": [
+      "0.1",
+      "3.2"
+     ],
+     "color": "secondary",
+     "label": "dy/dx",
+     "dash": true
+    },
+    {
+     "type": "point",
+     "id": "P",
+     "x": "a",
+     "y": "(4*a^3-3)/(2*sqrt(a))",
+     "label": "P",
+     "color": "primary"
+    },
+    {
+     "type": "point",
+     "id": "Q",
+     "x": "a",
+     "y": "5*a*sqrt(a)+3/(4*a*sqrt(a))",
+     "label": "Q",
+     "color": "secondary"
+    },
+    {
+     "type": "tangent",
+     "id": "T",
+     "at": "P",
+     "of": "C",
+     "color": "warning"
+    },
+    {
+     "type": "vline",
+     "id": "V",
+     "at": "a"
+    },
+    {
+     "type": "text",
+     "id": "info",
+     "x": "0.1",
+     "y": "37",
+     "value": "At $x=a$: formula $5x^{3/2}+\\frac{3}{4}x^{-3/2}$ gives {5*a*sqrt(a)+3/(4*a*sqrt(a))}"
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "The solid curve is $y=\\frac{4x^3-3}{2\\sqrt{x}}$. Once you split it as $2x^{5/2}-\\frac{3}{2}x^{-1/2}$ (the first M1), you can differentiate term by term. Dividing top and bottom separately would not describe this curve's gradient.",
+     "set": {
+      "a": 1
+     },
+     "show": [
+      "C"
+     ],
+     "highlight": [
+      "C"
+     ]
+    },
+    {
+     "n": 2,
+     "text": "The dashed curve is $\\frac{\\mathrm{d}y}{\\mathrm{d}x}=5x^{3/2}+\\frac{3}{4}x^{-3/2}$. The term $5x^{3/2}$ comes from $2\\times\\frac{5}{2}x^{3/2}$, which earns the first A1 and completes the M1 for lowering the index.",
+     "highlight": [
+      "D"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "Drag $a$ and watch the tangent at $P$. Its gradient always equals the height of $Q$ on the dashed curve, so the formula is right.",
+     "set": {
+      "a": 2
+     },
+     "highlight": [
+      "T",
+      "Q"
+     ]
+    },
+    {
+     "n": 4,
+     "text": "Move $a$ close to $0.3$. The curve is steeply rising here, so the gradient is large and positive. This needs the term $+\\frac{3}{4}x^{-3/2}$: two negatives multiply to give a positive, and a wrong sign would give a negative gradient and lose the final A1.",
+     "set": {
+      "a": 0.35
+     },
+     "highlight": [
+      "Q",
+      "T"
+     ]
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "marks": [
+     "M1",
+     "A1"
+    ],
+    "pitfalls": [
+     "not-rewritten-as-powers",
+     "sign-error-differentiating-negative-power"
+    ]
+   },
+   "guide": {
+    "what_you_see": "The curve $y=\\dfrac{4x^3-3}{2\\sqrt{x}}$ from the question (solid), together with the dashed graph of the derivative $5x^{3/2}+\\frac{3}{4}x^{-3/2}$ you are asked to find. A tangent to the solid curve at $P$ lets you check that the derivative gives the gradient.",
+    "legend": [
+     {
+      "id": "C",
+      "meaning": "The curve $y=\\dfrac{4x^3-3}{2\\sqrt{x}}$ from the question, for $x>0$. It is the same as $2x^{5/2}-\\frac{3}{2}x^{-1/2}$ once split into powers of $x$."
+     },
+     {
+      "id": "D",
+      "meaning": "The dashed graph of the answer $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=5x^{3/2}+\\frac{3}{4}x^{-3/2}$. Its height at $x$ is the claimed gradient of $C$ at $x$."
+     },
+     {
+      "id": "P",
+      "meaning": "The point on $C$ with $x$-coordinate $a$, that is $\\left(a,\\frac{4a^3-3}{2\\sqrt{a}}\\right)$. It moves when you change the slider $a$."
+     },
+     {
+      "id": "Q",
+      "meaning": "The point on the dashed graph $D$ directly above or below $P$, at $x=a$. Its height is the value of $5a^{3/2}+\\frac{3}{4}a^{-3/2}$."
+     },
+     {
+      "id": "T",
+      "meaning": "The tangent to $C$ at $P$. Its gradient is the true gradient of the curve there."
+     },
+     {
+      "id": "V",
+      "meaning": "A vertical guide line at $x=a$ joining $P$ and $Q$."
+     }
+    ],
+    "interact": [
+     {
+      "control": "a",
+      "kind": "slider",
+      "do": "Drag $a$ from $0.3$ to $3$, then try the values $1$, $2$ and close to $0.3$.",
+      "watch": "$P$ and $Q$ move along their curves and the tangent $T$ turns. The height of $Q$ is always the gradient of $T$. At $a=1$ the tangent has gradient $5.75$ and $Q$ has height $5.75$. At $a=2$ both are about $14.4$. Near $a=0.3$ both are about $5.4$, positive even though $C$ is below the axis there, which relies on the $+\\frac{3}{4}x^{-3/2}$ term."
+     }
+    ],
+    "question_link": {
+     "part": null,
+     "marks": [
+      "M1",
+      "A1"
+     ],
+     "text": "The solid curve $C$ is the curve in the question, and splitting it into $2x^{5/2}-\\frac{3}{2}x^{-1/2}$ is the first M1 step. The dashed curve $D$ shows the differentiated result, with $5x^{3/2}$ and $+\\frac{3}{4}x^{-3/2}$ as the two A1 terms. Matching the height of $Q$ to the tangent gradient at $P$ checks both terms and their signs."
+    },
+    "read_off": [
+     "The live label gives the value of $5x^{3/2}+\\frac{3}{4}x^{-3/2}$ at $x=a$, which is the height of $Q$. It should equal the gradient of the tangent $T$ at $P$. For example, it reads $5.75$ when $a=1$."
+    ]
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0269,
+    "attempts": 1,
+    "gate": {
+     "pass": true,
+     "errors": []
+    },
+    "generated_at": "2026-09-30T23:12:19"
+   }
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:50:00",
+ "cost_usd": 0.0393,
+ "attempts": 1,
+ "checks": {
+  "pass": true,
+  "errors": [],
+  "n_scenes": 1
+ }
+}

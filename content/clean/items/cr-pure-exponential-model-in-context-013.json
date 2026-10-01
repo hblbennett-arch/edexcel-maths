@@ -1,0 +1,368 @@
+{
+ "id": "cr-pure-exponential-model-in-context-013",
+ "blueprint_id": "bp-pure-exponential-model-in-context-013",
+ "question_type": "exponential-model-in-context",
+ "component": "pure",
+ "tier": "standard",
+ "kind": "exam",
+ "stem": "Every spring, volunteers from a wildlife trust count the lesser horseshoe bats roosting in a disused railway tunnel. They recorded 240 bats at the first count in spring 2016 and 390 bats at the count five years later, in spring 2021. The trust uses $N = A\\mathrm{e}^{kt}$ to model the number of bats, $N$, in the tunnel $t$ years after the spring 2016 count. Here $A$ and $k$ take fixed positive values.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 4,
+   "text": "Find $A$ and $k$ from the two counts. Give $k$ correct to 3 significant figures. (4)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "form-exponential-model",
+    "accuracy-units-and-rounding"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Puts $t = 0$, $N = 240$ into the model, so that $240 = A\\mathrm{e}^{0}$"
+    },
+    {
+     "code": "A1",
+     "for": "$A = 240$",
+     "notes": "cao"
+    },
+    {
+     "code": "M1",
+     "for": "Puts $t = 5$, $N = 390$ into the model with their $A$ and uses natural logs to make $k$ the subject, e.g. $5k = \\ln\\left(\\frac{390}{240}\\right)$",
+     "notes": "The $\\mathrm{e}^{5k}$ term must be isolated before logs are taken"
+    },
+    {
+     "code": "A1",
+     "for": "$k = 0.0971$",
+     "notes": "awrt 0.0971. Also accept the exact form $\\frac{1}{5}\\ln 1.625$ if 0.0971 is given as well"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "At $t = 0$: $240 = A\\mathrm{e}^{0} = A$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$A = 240$",
+     "mark": "A1"
+    },
+    {
+     "step": 3,
+     "working": "At $t = 5$: $390 = 240\\mathrm{e}^{5k} \\Rightarrow \\mathrm{e}^{5k} = 1.625 \\Rightarrow 5k = \\ln 1.625$",
+     "mark": "M1"
+    },
+    {
+     "step": 4,
+     "working": "$k = \\frac{\\ln 1.625}{5} = 0.09710\\ldots \\approx 0.0971$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "A",
+     "expr": "240",
+     "form": "exact"
+    },
+    {
+     "name": "k",
+     "expr": "0.0971",
+     "form": "sf-3",
+     "exact": "ln(390/240)/5"
+    }
+   ],
+   "checks": [
+    {
+     "type": "substitute",
+     "expr": "A*exp(0)",
+     "at": {
+      "A": 240
+     },
+     "result": "240"
+    },
+    {
+     "type": "numeric",
+     "expr": "ln(390/240)/5",
+     "result": "0.0971",
+     "form": "sf-3"
+    },
+    {
+     "type": "solutions",
+     "equation": "240*exp(5*k) = 390",
+     "var": "k",
+     "result": [
+      "ln(13/8)/5"
+     ]
+    }
+   ],
+   "hints": [
+    "Which value of $t$ goes with the first count? Put it in, and remember that $\\mathrm{e}^0 = 1$.",
+    "Use the 2021 count to get an equation in $\\mathrm{e}^{5k}$. Get the exponential term on its own before you take natural logs."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 4,
+   "text": "About 3 km from the tunnel, a farm barn held 1150 lesser horseshoe bats in spring 2016. Survey evidence suggests that the number of bats in the barn halves every 12 years. The trust models the number of bats, $M$, in the barn $t$ years after spring 2016 by $M = 1150\\mathrm{e}^{-ct}$, where $c$ is a positive constant. Show that $c = \\frac{\\ln 2}{12}$, and hence that $c = 0.0578$ to 3 significant figures. (4)",
+   "command": "show-that",
+   "forms": [],
+   "skills": [
+    "translate-context-into-model",
+    "show-that-given-answer"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Turns the halving information into an equation: puts $t = 12$ and $M = 575$ (or $\\frac{1}{2}\\times 1150$) into the model, so that $575 = 1150\\mathrm{e}^{-12c}$"
+    },
+    {
+     "code": "A1",
+     "for": "Simplifies correctly to $\\mathrm{e}^{-12c} = \\frac{1}{2}$ (or $\\mathrm{e}^{12c} = 2$)"
+    },
+    {
+     "code": "dM1",
+     "for": "Takes natural logs of both sides correctly, e.g. $-12c = \\ln\\frac{1}{2}$ or $12c = \\ln 2$",
+     "depends_on": "M1"
+    },
+    {
+     "code": "A1*",
+     "for": "Reaches $c = \\frac{\\ln 2}{12}$, with $\\ln\\frac{1}{2} = -\\ln 2$ shown where it is needed, and then states $c = 0.05776\\ldots = 0.0578$ (3 s.f.)",
+     "notes": "cso. The decimal must come from the exact form and must not be printed without working"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "After 12 years the barn holds half of 1150, i.e. 575 bats: $575 = 1150\\mathrm{e}^{-12c}$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$\\mathrm{e}^{-12c} = \\frac{575}{1150} = \\frac{1}{2}$",
+     "mark": "A1"
+    },
+    {
+     "step": 3,
+     "working": "$-12c = \\ln\\frac{1}{2} = -\\ln 2$",
+     "mark": "dM1"
+    },
+    {
+     "step": 4,
+     "working": "$c = \\frac{\\ln 2}{12} = 0.057762\\ldots = 0.0578$ to 3 s.f.",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [
+    {
+     "name": "c",
+     "expr": "log(2)/12",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "solutions",
+     "equation": "1150*exp(-12*c) = 575",
+     "var": "c",
+     "result": [
+      "ln(2)/12"
+     ]
+    },
+    {
+     "type": "numeric",
+     "expr": "ln(2)/12",
+     "result": "0.0578",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "Halving every 12 years means that at $t = 12$ the model must give half the starting number.",
+    "Cancel down to an equation with $\\mathrm{e}^{-12c}$ on its own, then take natural logs."
+   ]
+  },
+  {
+   "label": "c",
+   "marks": 4,
+   "text": "Using the models from parts (a) and (b), find the year in which the tunnel and the barn are first predicted to hold the same number of bats. Find also the number of bats predicted in each roost at that time, to the nearest whole number. (4)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "solve-exponential-equation",
+    "use-model-to-predict",
+    "accuracy-units-and-rounding"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Sets the two models equal: $240\\mathrm{e}^{kt} = 1150\\mathrm{e}^{-ct}$ with their $k$ and $c$ (either exact or as decimals)"
+    },
+    {
+     "code": "dM1",
+     "for": "Uses logs correctly to find $t$. Either collects the exponentials to get $\\mathrm{e}^{(k+c)t} = \\frac{1150}{240}$ and takes ln, or takes ln of both sides to get $\\ln 240 + kt = \\ln 1150 - ct$, then makes $t$ the subject",
+     "depends_on": "M1"
+    },
+    {
+     "code": "A1",
+     "for": "$t = $ awrt $10.1$, and states the year as 2026",
+     "notes": "Both the value of $t$ and the year are needed"
+    },
+    {
+     "code": "A1",
+     "for": "Awrt 641 bats in each roost",
+     "notes": "Accept 640 to 642, since rounded values of $k$ and $c$ change the answer slightly. Condone the missing word 'bats'"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$240\\mathrm{e}^{0.09710t} = 1150\\mathrm{e}^{-0.05776t}$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$\\mathrm{e}^{(0.09710 + 0.05776)t} = \\frac{1150}{240} \\Rightarrow 0.15486t = \\ln\\left(\\frac{115}{24}\\right) = 1.5669\\ldots$",
+     "mark": "dM1"
+    },
+    {
+     "step": 3,
+     "working": "$t = \\frac{1.5669}{0.15486} = 10.12\\ldots$ years after spring 2016, so the year is 2026",
+     "mark": "A1"
+    },
+    {
+     "step": 4,
+     "working": "$N = 240\\mathrm{e}^{0.09710 \\times 10.118} = 641.0\\ldots$, so about 641 bats (check: $1150\\mathrm{e}^{-0.05776\\times 10.118} \\approx 641$)",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "t",
+     "expr": "10.1",
+     "form": "sf-3",
+     "exact": "ln(1150/240)/(ln(390/240)/5 + ln(2)/12)"
+    },
+    {
+     "name": "N",
+     "expr": "641",
+     "form": "sf-3",
+     "exact": "240*(390/240)^((ln(1150/240)/(ln(390/240)/5 + ln(2)/12))/5)"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "ln(1150/240)/(ln(390/240)/5 + ln(2)/12)",
+     "result": "10.1",
+     "form": "sf-3"
+    },
+    {
+     "type": "numeric",
+     "expr": "240*exp((ln(390/240)/5)*ln(1150/240)/(ln(390/240)/5 + ln(2)/12))",
+     "result": "641",
+     "form": "sf-3"
+    },
+    {
+     "type": "numeric",
+     "expr": "1150*exp(-(ln(2)/12)*ln(1150/240)/(ln(390/240)/5 + ln(2)/12))",
+     "result": "641",
+     "form": "sf-3"
+    }
+   ],
+   "hints": [
+    "Write down an equation that says the two models give the same number of bats.",
+    "Get all the exponential terms on one side as a single power of e before you take logs. Then turn your value of $t$ into a calendar year."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 3,
+   "error_code": "log-linear-constants-confused",
+   "text": "If you take logs as $\\ln N = \\ln A + kt$, keep track of which piece is which. $\\ln 240 = 5.48$ is the intercept, not $A$, and the gradient $k$ is $\\frac{\\ln 390 - \\ln 240}{5}$. If you give $A = 5.48$, or give $k = \\ln 1.625 = 0.486$ without dividing by 5, the method mark is lost.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "step": 3,
+   "error_code": "decay-sign-error",
+   "text": "If you swap the counts and write $240 = 390\\mathrm{e}^{5k}$, you get $k = -0.0971$. That model says the tunnel colony is shrinking, but the counts show it grew from 240 to 390, so the final A1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "parameter-meaning-no-context",
+   "text": "The 12 is the time in years for the barn population to fall to half its size. It is not a number to divide the population by. If you write $1150/12 = 1150\\mathrm{e}^{-12c}$ or $2300 = 1150\\mathrm{e}^{-12c}$, you have not modelled the halving, and no marks can follow.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "step": 2,
+   "error_code": "logs-taken-term-by-term",
+   "text": "The log of $240\\mathrm{e}^{kt}$ is $\\ln 240 + kt$, not $(\\ln 240)(kt)$ and not $\\ln 240 \\times \\mathrm{e}^{kt}$. If you take logs in the wrong way here, the dM1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "step": 2,
+   "error_code": "log-power-law-misapplied",
+   "text": "From $\\mathrm{e}^{0.15486t} = 4.79$, taking ln gives $0.15486t = \\ln 4.79$. If you write $t = \\ln(4.79 / 0.15486)$ or $\\ln(0.15486t) = \\ln 4.79$, you have brought the power down wrongly, and the dM1 and both A marks are lost.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:44:10",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.4391
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 12
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.834 with part:IAL2013_WMA02_Oct2018_Q9:b"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "hits8": [],
+   "max_jaccard": 0.01,
+   "jaccard_source": "IAL2013_WMA01_Jan2017_Q13",
+   "shared_numbers": 2,
+   "max_cosine": 0.834,
+   "cosine_source": "part:IAL2013_WMA02_Oct2018_Q9:b"
+  },
+  "G2": {
+   "pass": false,
+   "errors": [
+    "part c answer N: ValueError: exponent too large"
+   ],
+   "n_checks": 8,
+   "n_answers": 5,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": false,
+   "errors": [
+    "part c A1 for: write 'Awrt' in lowercase"
+   ],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

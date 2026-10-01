@@ -1,0 +1,138 @@
+{
+ "id": "rod-ladder-equilibrium",
+ "question_type": "rod-ladder-equilibrium",
+ "component": "mech",
+ "title": "Rod or ladder in limiting equilibrium",
+ "what_it_asks": "You are given a diagram of a rod or ladder resting on rough ground and against a wall, peg, rail or drum, or held by a string. You must find reactions, a coefficient of friction or a resultant force. The idea is that the body is in equilibrium, so the forces balance in two directions and the moments balance. At the point of slipping, friction is at its maximum, $F = \\mu R$.",
+ "typical_structure": "There are usually two to four parts, with the total around ten or eleven marks. An early part is often a one-mark statement or a show-that result, such as a reaction or a value of $\\mu$ in terms of an angle. Later parts reuse that result to find a numerical value, a force or a condition, and they may say \"hence\". Every question comes with a diagram. The marks are spread unevenly: a few parts are worth one mark and one or two long parts carry most of the marks.",
+ "mark_pattern": "Single-mark parts are a lone B1 for a correct statement, value or force direction. The most typical longer part is M1 A1 A1*. The M1 is for a moments equation about a sensible point, with every term being a force times a perpendicular distance. The first A1 is for that equation being correct. The final A1* is the cso mark for reaching the printed result with the intermediate line visible. Some parts run M1 A1 M1 A1*, where the second M1 is for resolving or for using $F = \\mu R$. The longest parts alternate M1 and A1 through moments, two resolutions and $F = \\mu R$, and then solve. Some parts have B1 marks for the forces and a dM1 for solving once the equations are set up.",
+ "where_marks_leak": [
+  {
+   "error_code": "friction-wrong-direction",
+   "mark_family": "method",
+   "text": "You draw friction pointing the wrong way, so it does not oppose the likely slipping. The resolving or moments equation then has a wrong sign. The M1 for that equation goes, and the A1 and any dM1 after it go with it."
+  },
+  {
+   "error_code": "smooth-reaction-direction-error",
+   "mark_family": "independent",
+   "text": "You draw the reaction at a smooth wall, peg or rail in the wrong direction. It should be perpendicular to the surface, or perpendicular to the rod at a peg or rail. The B1 for the correct force is lost, and later equations are built on the wrong components."
+  },
+  {
+   "error_code": "moment-distance-not-perpendicular",
+   "mark_family": "method",
+   "text": "You use the distance along the rod instead of the perpendicular distance, or you leave out the $\\sin\\theta$ or $\\cos\\theta$. The moments equation is then not valid, so the M1 is lost. The A1 and the final A1* are lost too."
+  },
+  {
+   "error_code": "moment-direction-inconsistent",
+   "mark_family": "method",
+   "text": "You put clockwise and anticlockwise moments on the same side of the equation without a sign change. The equation is not a true balance, so the M1 is lost and the accuracy marks after it cannot be earned."
+  },
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You give the final answer to the wrong number of significant figures or decimal places. The final A1 is lost even though the method was sound."
+  }
+ ],
+ "write_to_earn": [
+  "Mark every force on the diagram first, including friction opposing slipping and each smooth reaction perpendicular to its surface, so the B1 marks are secured.",
+  "Choose a moments point that removes unknown forces, write the equation in words or symbols, and only then substitute the lengths and angles.",
+  "Write the perpendicular distance for each force, such as $x\\cos\\theta$ or $x\\sin\\theta$, before you form the equation.",
+  "Resolve horizontally and vertically as separate lines, then write $F = \\mu R$ as its own line before substituting.",
+  "In a show-that part, write the line just before the printed result, then the result itself, with no steps skipped."
+ ],
+ "check_before_you_leave": [
+  "Friction direction opposes slipping",
+  "Smooth reactions perpendicular",
+  "Moments all same sense",
+  "sin and cos not swapped",
+  "Answer form and accuracy"
+ ],
+ "skills": [
+  "take-moments-about-a-point",
+  "reaction-at-smooth-contact",
+  "moments-with-angled-forces",
+  "rigid-body-resolve-and-moments",
+  "show-that-given-answer",
+  "limiting-equilibrium-friction",
+  "friction-f-equals-mu-r",
+  "trig-ratios-from-given-tan"
+ ],
+ "related_types": [
+  "horizontal-beam-rope-and-wall"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:14:20",
+ "cost_usd": 0.0385,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 7,
+  "codes_listed": {
+   "friction-wrong-direction": 4,
+   "smooth-reaction-direction-error": 3,
+   "wrong-final-accuracy": 3,
+   "moment-direction-inconsistent": 2,
+   "moment-distance-not-perpendicular": 2,
+   "not-in-required-form": 2,
+   "premature-rounding": 2,
+   "resolving-sin-cos-swapped": 2
+  },
+  "frequent_codes": [],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "4 rare words shared with P3_Oct2021_stats_Q3",
+    "cosine 0.878 with part:P3_Oct2020_mech_Q4:b"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.001,
+   "shared_numbers": 0,
+   "max_cosine": 0.878,
+   "cosine_source": "part:P3_Oct2020_mech_Q4:b"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 9
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: 4 rare words shared with P3_Oct2021_stats_Q3",
+   "copy: cosine 0.878 with part:P3_Oct2020_mech_Q4:b"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

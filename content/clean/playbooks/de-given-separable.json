@@ -1,0 +1,145 @@
+{
+ "id": "de-given-separable",
+ "question_type": "de-given-separable",
+ "component": "pure",
+ "title": "Solve a given separable differential equation",
+ "what_it_asks": "You are given a differential equation where the variables can be split onto opposite sides. You separate them, integrate, use a condition to find the constant, then rearrange into a stated form or use the result to make a prediction. The idea is that $\\frac{\\mathrm{d}y}{\\mathrm{d}x}=f(x)g(y)$ becomes $\\int \\frac{1}{g(y)}\\,\\mathrm{d}y=\\int f(x)\\,\\mathrm{d}x$.",
+ "typical_structure": "Usually two or three parts, with about ten marks in total. An early part is often short: a substitution, a partial fraction split or a show-that step. The main part separates, integrates and uses a condition. A later part often uses the solution to find a value in context, or rearranges it into a form such as $y=A+B\\mathrm{e}^{-kt}$. Later parts usually rely on earlier results, sometimes with \"hence\".",
+ "mark_pattern": "Short parts are often M1 A1: separate and integrate, then a correct result. A 3-mark part is often M1 dM1 A1. The first M1 is for separating and integrating, the dM1 is for using the condition to find the constant, and the A1 is for the final result. Longer parts often run B1 M1 M1 A1 M1 A1. The B1 is for a correct stated result, such as the separated form or a partial fraction value. The M1 marks cover integrating, using the condition and rearranging. The A1 marks are for correct integrals, the constant and the final answer. A single B1 is usually for one stated value or result. The last A1 often depends on giving the required form or accuracy.",
+ "where_marks_leak": [
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "This is a common loss. You round to the wrong number of significant figures or decimal places in a prediction, or round early. The final A1 goes even though the method is sound."
+  },
+  {
+   "error_code": "missing-constant-of-integration",
+   "mark_family": "accuracy",
+   "text": "This is a common loss. You leave out $+c$ after integrating. The A1 for the integrated equation goes, and the dM1 for using a condition usually goes too, as there is no constant to find."
+  },
+  {
+   "error_code": "separation-error",
+   "mark_family": "method",
+   "text": "You leave a $y$ term on the $x$ side, or split by adding instead of multiplying or dividing. The first M1 is lost, and the A1 and dM1 after it in the chain go with it."
+  },
+  {
+   "error_code": "not-in-required-form",
+   "mark_family": "accuracy",
+   "text": "Your value is right but the constants are not identified in the form asked, such as $y=A+B\\mathrm{e}^{-kt}$. The final A1 is lost."
+  },
+  {
+   "error_code": "reverse-chain-coefficient-error",
+   "mark_family": "accuracy",
+   "text": "You multiply by $k$ instead of dividing when integrating $\\mathrm{e}^{kx}$ or $\\frac{1}{ax+b}$. The A1 for the integral is lost, and later accuracy marks that follow from it are lost too."
+  }
+ ],
+ "write_to_earn": [
+  "Write the separated form $\\int \\frac{1}{g(y)}\\,\\mathrm{d}y=\\int f(x)\\,\\mathrm{d}x$ before you integrate.",
+  "Put $+c$ in straight away when you integrate, then substitute the given condition to find it.",
+  "Combine logarithms with the log laws and exponentiate in clear steps when you rearrange.",
+  "In a show-that part, write the line just before the printed result, then the result itself.",
+  "Keep unrounded values until the last line, then give the stated accuracy with units."
+ ],
+ "check_before_you_leave": [
+  "Constant found and used?",
+  "Variables fully separated?",
+  "Required form given?",
+  "Accuracy and units correct?",
+  "Answer makes sense in context?"
+ ],
+ "skills": [
+  "find-constants-from-conditions",
+  "separate-variables-and-integrate",
+  "rearrange-solution-explicitly",
+  "use-hence-previous-result",
+  "use-model-to-predict",
+  "standard-integrals",
+  "laws-of-logarithms"
+ ],
+ "related_types": [
+  "de-formulate-from-rates",
+  "integration-by-parts",
+  "optimisation-modelled-quantity"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:07:22",
+ "cost_usd": 0.1075,
+ "attempts": 2,
+ "facts": {
+  "n_questions": 44,
+  "codes_listed": {
+   "wrong-final-accuracy": 19,
+   "missing-constant-of-integration": 13,
+   "separation-error": 9,
+   "by-parts-poor-choice": 9,
+   "not-in-required-form": 4,
+   "integration-power-rule-error": 4,
+   "arithmetic-slip": 4,
+   "reverse-chain-coefficient-error": 4
+  },
+  "frequent_codes": [
+   "missing-constant-of-integration",
+   "wrong-final-accuracy"
+  ],
+  "practice_items": [
+   "cr-pure-de-given-separable-001",
+   "cr-pure-de-given-separable-003",
+   "cr-pure-de-given-separable-004",
+   "cr-pure-de-given-separable-005"
+  ]
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.860 with note:IAL2013_WMA02_June2014_Q6_n6"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.0,
+   "shared_numbers": 0,
+   "max_cosine": 0.86,
+   "cosine_source": "note:IAL2013_WMA02_June2014_Q6_n6"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 12
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.860 with note:IAL2013_WMA02_June2014_Q6_n6"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

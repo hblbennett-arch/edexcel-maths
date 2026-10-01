@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My profile</title>
+<style>
+  :root {
+    --primary: #1a365d; --accent: #2b6cb0; --success: #276749; --warning: #c05621; --danger: #c53030;
+    --bg: #f7fafc; --card: #ffffff; --border: #e2e8f0; --text: #2d3748; --muted: #718096; --mark: #805ad5;
+    --hint-bg: #f0fff4; --warn-bg: #fffaf0; --user-bg: #ebf4ff; --ok-bg: #f0fff4; --miss-bg: #fffaf0; --code-bg: #edf2f7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --primary: #90cdf4; --accent: #63b3ed; --success: #68d391; --warning: #f6ad55; --danger: #fc8181;
+      --bg: #171923; --card: #1f2330; --border: #2d3748; --text: #e2e8f0; --muted: #a0aec0; --mark: #b794f4;
+      --hint-bg: #1c2e25; --warn-bg: #2e2518; --user-bg: #1e2a3d; --ok-bg: #1c2e25; --miss-bg: #2e2518; --code-bg: #2a2f3d;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  header { position: sticky; top: 0; z-index: 2; background: var(--primary); color: #fff; padding: 12px 16px;
+           display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) header { background: #102a43; } }
+  header h1 { margin: 0; font-size: 18px; font-weight: 600; }
+  header h1 span { font-weight: 400; opacity: .8; }
+  header > span { display: flex; flex-wrap: wrap; align-items: center; gap: 0 4px; margin: 0 -8px; }
+  header a { color: #fff; opacity: .85; font-size: 14px; padding: 10px 8px; min-height: 40px; box-sizing: border-box; display: inline-flex; align-items: center; }
+  header #badge { padding: 0 8px; }
+  main { max-width: 860px; margin: 0 auto; padding: 16px 16px 40px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin: 12px 0; }
+  .card h3 { margin: 0 0 8px; font-size: 16px; color: var(--primary); }
+  .card h3 small { color: var(--muted); font-weight: 400; font-size: 13px; }
+  .summary { border-left: 4px solid var(--accent); font-size: 17px; }
+  .summary .stats { margin-top: 8px; }
+  .stat { display: inline-block; margin: 4px 18px 4px 0; }
+  .stat span { color: var(--muted); font-size: 13px; display: block; }
+  .stat b { font-size: 22px; font-weight: 600; }
+  .bars { margin: 8px 0; }
+  .bar { display: grid; grid-template-columns: 150px 1fr 150px; gap: 10px; align-items: center; margin: 6px 0; font-size: 14px; }
+  .bar .track { height: 12px; background: var(--border); border-radius: 6px; overflow: hidden; display: flex; }
+  .bar .kept { height: 100%; background: var(--success); }
+  .bar .fill { height: 100%; background: var(--warning); }
+  .bar .n { color: var(--muted); font-size: 13px; text-align: right; }
+  .code { border-left: 4px solid var(--warning); }
+  .code h3 { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+  .chip { display: inline-block; color: #fff; border-radius: 12px; font-size: 12.5px; padding: 2px 10px; font-weight: 600; background: var(--mark); }
+  .chip.accuracy { background: var(--warning); } .chip.method { background: var(--accent); } .chip.independent { background: var(--success); }
+  .lost { color: var(--danger); font-weight: 600; font-size: 14px; }
+  .def { color: var(--muted); font-size: 14px; margin: 2px 0 8px; }
+  .skills { font-size: 14px; margin: 4px 0; }
+  .skills b { color: var(--primary); }
+  .drills { border-top: 1px dashed var(--border); margin-top: 8px; padding-top: 8px; font-size: 14.5px; }
+  .drills .kind { color: var(--muted); font-size: 13px; margin-top: 6px; }
+  .drills ul { margin: 2px 0 0; padding-left: 18px; }
+  .drills li { padding: 2px 0; }
+  a { color: var(--accent); }
+  a.link { color: var(--accent); display: inline-block; padding: 6px 0; }
+  .tw { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 6px 8px; border-top: 1px solid var(--border); }
+  th { color: var(--muted); font-weight: 600; font-size: 13px; border-top: 0; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .spark { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 15px; letter-spacing: 2px; color: var(--warning); }
+  .muted { color: var(--muted); }
+  .empty { background: var(--user-bg); border-left: 4px solid var(--accent); border-radius: 8px; padding: 10px 14px; }
+  .warning { background: var(--warn-bg); border: 1px solid var(--warning); border-radius: 8px; padding: 10px 14px; margin: 12px 0; }
+  .note { font-size: 14px; color: var(--muted); }
+  footer { max-width: 860px; margin: 0 auto; padding: 8px 16px 32px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); }
+  @media (max-width: 600px) { .bar { grid-template-columns: 90px 1fr 100px; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>My profile <span>· where your marks leak, and what to drill</span></h1>
+  <span><a href="/learn">Learn →</a> &nbsp; <a href="/mark">Mark my working →</a> &nbsp; <a href="/examiner">Be the examiner →</a> &nbsp; <a href="/playbooks">Playbooks →</a></span>
+</header>
+<main id="app"><div class="muted">Loading your profile…</div></main>
+<footer id="foot"></footer>
+<script>
+const app = document.getElementById("app");
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+// The same opaque per-browser id as Learn, Mark my working and Be the examiner: one profile covers all of them.
+function store(key, fallback) { try { const v = localStorage.getItem(key); return v === null ? fallback : JSON.parse(v); } catch { return fallback; } }
+function save(key, val) { try { localStorage.setItem(key, JSON.stringify(val)); } catch {} }
+const uuid = () => (crypto.randomUUID ? crypto.randomUUID() : "u-" + Math.random().toString(36).slice(2) + Date.now().toString(36));
+let user = store("bte-user", null); if (!user) { user = uuid(); save("bte-user", user); }
+
+const pct = v => v === null || v === undefined ? "–" : `${v}%`;
+const plural = (n, w) => `${n} ${w}${n === 1 ? "" : "s"}`;
+
+function familyBars(fams, totals) {
+  if (!fams.length) return `<div class="muted">No marked working yet.</div>`;
+  return `<div class="bars">${fams.map(f => {
+    const keptW = f.available ? 100 * (f.available - f.lost) / f.available : 0, lostW = f.available ? 100 * f.lost / f.available : 0;
+    return `<div class="bar"><span>${esc(f.label)}</span>
+      <div class="track" title="${f.available - f.lost} kept, ${f.lost} lost"><div class="kept" style="width:${keptW}%"></div><div class="fill" style="width:${lostW}%"></div></div>
+      <span class="n">${f.lost}/${f.available} lost (${pct(f.lost_pct)})${f.lost ? ` · ${pct(f.share_of_lost)} of all lost` : ""}</span></div>`; }).join("")}</div>
+    <div class="note">Green: marks kept. Amber: marks lost. The second percentage is this family's share of everything you have dropped (${totals.lost} marks).</div>`;
+}
+
+function drills(d) {
+  if (!d) return "";
+  const items = d.items.map(x => `<li>${esc(x.title)} <span class="muted">(${esc(x.item_id)})</span> · <a class="link" href="${esc(x.learn_url)}">Learn</a> · <a class="link" href="${esc(x.mark_url)}">Mark my working</a></li>`).join("");
+  const exs = d.exercises.map(x => `<li><a class="link" href="${esc(x.url)}">Mark this script</a> <span class="muted">(${esc(x.item_id)}, script ${esc(x.script_id)})</span></li>`).join("");
+  const pbs = d.playbooks.map(x => `<li><a class="link" href="${esc(x.url)}">${esc(x.title)}</a></li>`).join("");
+  if (!items && !exs && !pbs) return `<div class="drills muted">No drills for this code yet.</div>`;
+  return `<div class="drills"><b>Drill it</b>
+    ${items ? `<div class="kind">Questions whose pitfalls show this slip</div><ul>${items}</ul>` : ""}
+    ${exs ? `<div class="kind">Be the examiner: scripts that make this slip</div><ul>${exs}</ul>` : ""}
+    ${pbs ? `<div class="kind">Playbooks that warn about it</div><ul>${pbs}</ul>` : ""}
+  </div>`;
+}
+
+function codeCards(codes) {
+  if (!codes.length) return `<div class="card"><h3>Top error codes</h3><div class="muted">No lost marks carry an error code yet.</div></div>`;
+  return codes.map((c, i) => `<div class="card code">
+    <h3>${i + 1}. ${esc(c.label)} ${c.loses_family ? `<span class="chip ${esc(c.loses_family)}">loses ${esc(c.loses_family)} marks</span>` : ""}
+        <span class="lost">${plural(c.lost, "mark")} lost${c.share_of_lost !== null ? ` · ${pct(c.share_of_lost)} of all lost` : ""}</span></h3>
+    <div class="def">${esc(c.definition)}</div>
+    ${c.skills.length ? `<div class="skills"><b>Skills it hit:</b> ${c.skills.map(s => `${esc(s.title)} (${s.lost})`).join(", ")}</div>` : ""}
+    ${drills(c.drills)}
+  </div>`).join("");
+}
+
+function skillsTable(skills) {
+  if (!skills.length) return `<div class="muted">No skill has lost a mark yet.</div>`;
+  return `<div class="tw"><table><tr><th>Skill</th><th class="num">Lost</th><th class="num">Available</th><th class="num">Lost %</th></tr>
+    ${skills.map(s => `<tr><td>${esc(s.title)}</td><td class="num">${s.lost}</td><td class="num">${s.available}</td><td class="num">${pct(s.lost_pct)}</td></tr>`).join("")}</table></div>`;
+}
+
+function trend(weeks) {
+  const blocks = " ▁▂▃▄▅▆▇█";
+  const spark = weeks.map(w => w.available ? blocks[Math.min(8, Math.max(1, Math.ceil(w.lost_share / 12.5)))] : "·").join("");
+  const any = weeks.some(w => w.available);
+  return `<div class="spark" title="share of marks lost, week by week">${esc(spark)}</div>
+    ${any ? "" : `<div class="muted">Nothing marked in the last 8 weeks.</div>`}
+    <div class="tw"><table><tr><th>Week starting</th><th class="num">Marks available</th><th class="num">Lost</th><th class="num">Lost %</th></tr>
+    ${weeks.map(w => `<tr><td>${esc(w.week_start)}</td><td class="num">${w.available}</td><td class="num">${w.lost}</td><td class="num">${pct(w.lost_share)}</td></tr>`).join("")}</table></div>
+    <div class="note">Lower is better: the share of the marks available that week you did not earn.</div>`;
+}
+
+function examinerAccuracy(a) {
+  if (!a || !a.judged) return `<div class="muted">You have not judged any scripts yet. <a class="link" href="/examiner">Be the examiner →</a></div>`;
+  return `<div class="stat"><span>Marks judged</span><b>${a.judged}</b></div>
+    <div class="stat"><span>Agreed with the reference</span><b>${a.correct}</b></div>
+    <div class="stat"><span>Accuracy</span><b>${Math.round(a.rate * 100)}%</b></div>
+    <div class="note">The closer you get to 100%, the better you can see your own working as an examiner will.</div>`;
+}
+
+function render(v) {
+  app.innerHTML = `
+    <div class="card summary"><div>${esc(v.summary)}</div>
+      ${v.empty ? `<div class="empty" style="margin-top:10px">Start with <a class="link" href="/examiner">Be the examiner</a> (judge a script mark by mark) or <a class="link" href="/mark">Mark my working</a> (paste or photograph your own).</div>`
+                : `<div class="stats"><div class="stat"><span>Marks available</span><b>${v.totals.available}</b></div>
+                   <div class="stat"><span>Kept</span><b>${v.totals.kept}</b></div>
+                   <div class="stat"><span>Lost</span><b>${v.totals.lost}</b></div>
+                   <div class="stat"><span>Lost share</span><b>${pct(v.totals.lost_pct)}</b></div></div>`}
+    </div>
+    <div class="card"><h3>By mark family <small>· what kind of mark you drop</small></h3>${familyBars(v.by_family, v.totals)}</div>
+    ${codeCards(v.top_error_codes)}
+    <div class="card"><h3>Skills that lost marks <small>· worst first</small></h3>${skillsTable(v.top_skills)}</div>
+    <div class="card"><h3>Trend <small>· last 8 weeks</small></h3>${trend(v.trend)}</div>
+    <div class="card"><h3>Your examiner accuracy</h3>${examinerAccuracy(v.examiner_accuracy)}</div>
+    <div class="card"><h3>Reset my data</h3><div class="note">${esc(v.privacy)} If you clear this browser's site data you get a fresh id, but the old events stay on the server until deletion ships.</div></div>`;
+  document.getElementById("foot").textContent = (v.disclaimer || "") + " Nothing you do here is sent anywhere except this server; no name or email is stored.";
+}
+
+window.addEventListener("load", async () => {
+  try {
+    const r = await fetch(`/api/profile?user=${encodeURIComponent(user)}`);
+    const v = await r.json();
+    if (!r.ok) throw new Error(v.error || r.statusText);
+    render(v);
+  } catch (e) {
+    app.innerHTML = `<div class="warning">Couldn't load your profile (${esc(e.message || e)}). Is the server still running?</div>`;
+  }
+});
+</script>
+</body>
+</html>

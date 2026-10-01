@@ -1,0 +1,140 @@
+{
+ "id": "find-curve-from-gradient",
+ "question_type": "find-curve-from-gradient",
+ "component": "pure",
+ "title": "Find a curve from its gradient function",
+ "what_it_asks": "You are given $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ as an expression in $x$, often with roots or reciprocals, plus a point the curve passes through. You must integrate to get $y$ and use the point to find the constant of integration. The idea is that integration reverses differentiation, and one extra piece of information fixes the constant.",
+ "typical_structure": "Most questions have one or two parts, and a few have three. The marks are often concentrated in one integration part worth about four or five marks. When there are two parts, an earlier part often asks you to simplify or rewrite the gradient, or to find a gradient or tangent, and the later part uses that result. Sometimes a turning point or a factor supplies the condition for the constant.",
+ "mark_pattern": "Integration parts are usually one method mark followed by accuracy marks, such as M1 A1 A1 A1 or M1 A1 A1. The M1 is for raising at least one power by 1 once the expression is in index form. Each A1 is for a correct integrated term, and the last is often for the simplified form. Where the constant is found in the same part, the pattern is often M1 A1 A1 M1 A1 or M1 A1 dM1 A1. The second M1 or dM1 is for substituting the given point into your integrated expression. The final A1 is for the value of $c$ and the full equation. Shorter parts are M1 A1. A preliminary rewriting or stated value can carry a B1.",
+ "where_marks_leak": [
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You give the final constant or equation to the wrong accuracy, or as a rounded decimal when an exact value is wanted. The final A1 is lost."
+  },
+  {
+   "error_code": "rationalising-error",
+   "mark_family": "method",
+   "text": "The gradient has a surd in the denominator, and you multiply by the wrong conjugate or change only the numerator. The simplifying M1 goes, and the integration marks that rely on the simplified form are at risk."
+  },
+  {
+   "error_code": "missing-constant-of-integration",
+   "mark_family": "accuracy",
+   "text": "You integrate and leave out $+c$, so you never use the point. The A1 for the full integrated expression is lost, and so is the dM1 for substituting the point, along with the final A1."
+  },
+  {
+   "error_code": "integration-power-rule-error",
+   "mark_family": "method",
+   "text": "With a negative or fractional power you multiply by the power, divide by the old power, or add 1 wrongly. The M1 for raising the power is lost, and the accuracy marks after it go too."
+  }
+ ],
+ "write_to_earn": [
+  "Rewrite every root and reciprocal as a power of $x$ on its own line before you integrate.",
+  "Write $y = \\int \\ldots\\,\\mathrm{d}x$ and add $+ c$ as soon as you integrate each term.",
+  "Simplify each coefficient, such as $\\frac{x^{3/2}}{3/2}$, so that each A1 is clearly correct.",
+  "Substitute the given point into your integrated expression, and show the equation for $c$ before you solve it.",
+  "Finish with $y = \\ldots$ with the value of $c$ in it, in the form the question asks for."
+ ],
+ "check_before_you_leave": [
+  "Is $+c$ included?",
+  "Does the point fit your equation?",
+  "Are all powers raised by 1 and divided correctly?",
+  "Is the answer exact or in the requested form?",
+  "Is $y = \\ldots$ stated fully?"
+ ],
+ "skills": [
+  "rewrite-using-index-laws",
+  "integrate-powers-of-x",
+  "constant-of-integration-from-point",
+  "simplify-algebraic-fractions",
+  "equation-of-straight-line",
+  "use-hence-previous-result"
+ ],
+ "related_types": [
+  "definite-integrals-standard-forms",
+  "differentiate-to-given-form",
+  "stationary-points-and-nature",
+  "area-between-curve-and-line"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:05:20",
+ "cost_usd": 0.0573,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 87,
+  "codes_listed": {
+   "wrong-final-accuracy": 32,
+   "rationalising-error": 19,
+   "missing-constant-of-integration": 18,
+   "integration-power-rule-error": 17,
+   "arithmetic-slip": 6,
+   "not-rewritten-as-powers": 6,
+   "ft-value-not-carried": 4,
+   "not-in-required-form": 4
+  },
+  "frequent_codes": [
+   "integration-power-rule-error",
+   "missing-constant-of-integration",
+   "rationalising-error",
+   "wrong-final-accuracy"
+  ],
+  "practice_items": [
+   "cr-constant-of-integration-from-point-starter",
+   "cr-pure-find-curve-from-gradient-001"
+  ]
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.868 with part:IAL2018_WMA11_Jan2019_Q12:b"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.003,
+   "shared_numbers": 1,
+   "max_cosine": 0.868,
+   "cosine_source": "part:IAL2018_WMA11_Jan2019_Q12:b"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 14
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.868 with part:IAL2018_WMA11_Jan2019_Q12:b"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

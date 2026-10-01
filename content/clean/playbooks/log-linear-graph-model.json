@@ -1,0 +1,140 @@
+{
+ "id": "log-linear-graph-model",
+ "question_type": "log-linear-graph-model",
+ "component": "pure",
+ "title": "Straight-line log graph model",
+ "what_it_asks": "You are given a straight-line graph or table of $\\log y$ against $x$ (or against $\\log x$), and a model of the form $y = ab^x$ or $y = kx^n$. You must turn the line into the constants of the model, then use or interpret the model. The idea is that taking logs turns the model into a linear equation, so the gradient and intercept of the line carry the constants.",
+ "typical_structure": "Usually two or three parts, worth about six or seven marks in total. The first part often asks you to find the equation of the line, or to take logs of the model. Later parts use the constants to find a value, make a prediction, or interpret a constant in context. Later parts rely on the constants from earlier ones, so an early slip travels forward. About half of these questions come with a diagram of the line.",
+ "mark_pattern": "The commonest part is a 2-mark M1 A1. The M1 is for a valid method, such as finding the gradient from two points or taking logs of the model. The A1 is for the correct value or equation. Three-mark parts are usually B1 M1 A1, M1 dM1 A1 or M1 M1 A1. The B1 is for a value read from the graph or stated. The M1 marks are for forming the linear equation and then undoing the logs. The last A1 is for the constants in the form asked for. A single B1 part is typically a reading or an interpretation. Follow-through (A1ft or B1ft) sometimes lets you use your own constants in a later part. A few parts end with a cso A1.",
+ "where_marks_leak": [
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "This is a common loss. You give a constant or a prediction to the wrong number of significant figures or decimal places, so the final A1 goes even though the method was sound."
+  },
+  {
+   "error_code": "log-linear-constants-confused",
+   "mark_family": "method",
+   "text": "You swap the gradient and the intercept, or you leave the intercept as $\\log a$ and never undo the log to get $a$. The M1 for matching the line to the model is lost, and the A1 after it goes too."
+  },
+  {
+   "error_code": "premature-rounding",
+   "mark_family": "accuracy",
+   "text": "You round the gradient or intercept early, then use the rounded values to find $a$ or $b$. The final A1 drifts outside the accepted range."
+  },
+  {
+   "error_code": "log-base-confusion",
+   "mark_family": "accuracy",
+   "text": "You read the graph as $\\log_{10}$ but undo it with $\\mathrm{e}$, or the other way round. The A1 for the constant is lost."
+  },
+  {
+   "error_code": "model-judged-without-comparison",
+   "mark_family": "independent",
+   "text": "You call the model good or poor without comparing a predicted value with the given data. The B1 for the evaluation is lost."
+  }
+ ],
+ "write_to_earn": [
+  "Write the model, then the logged form, for example $\\log y = \\log a + x\\log b$, before you read off anything.",
+  "Show the gradient calculation with two clear points before you give its value.",
+  "Match the gradient and the intercept to the model in words, then undo the log to state $a$ and $b$ (or $k$ and $n$).",
+  "Give the constants in the form the question asks for, and keep unrounded values until the final line.",
+  "For a prediction or interpretation, substitute your constants, then state the answer in context with units."
+ ],
+ "check_before_you_leave": [
+  "Gradient and intercept matched correctly",
+  "Logs undone for the constants",
+  "Same log base throughout",
+  "Accuracy and form as asked",
+  "Answer stated in context"
+ ],
+ "skills": [
+  "log-linear-graph-model",
+  "accuracy-units-and-rounding",
+  "remove-logarithms",
+  "use-model-to-predict",
+  "laws-of-logarithms",
+  "interpret-model-parameters",
+  "equation-of-straight-line"
+ ],
+ "related_types": [
+  "log-coded-regression-model",
+  "exponential-model-in-context",
+  "log-laws-and-equations",
+  "exponential-equations"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:05:23",
+ "cost_usd": 0.0603,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 17,
+  "codes_listed": {
+   "wrong-final-accuracy": 10,
+   "rationalising-error": 4,
+   "log-linear-constants-confused": 3,
+   "premature-rounding": 3,
+   "log-base-confusion": 2,
+   "initial-value-misidentified": 1,
+   "log-argument-not-positive": 1,
+   "model-judged-without-comparison": 1
+  },
+  "frequent_codes": [
+   "wrong-final-accuracy"
+  ],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.872 with part:IAL2018_WMA13_Jan2023_Q3:b"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.003,
+   "shared_numbers": 0,
+   "max_cosine": 0.872,
+   "cosine_source": "part:IAL2018_WMA13_Jan2023_Q3:b"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 16
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.872 with part:IAL2018_WMA13_Jan2023_Q3:b"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

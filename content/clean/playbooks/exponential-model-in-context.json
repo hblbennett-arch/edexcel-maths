@@ -1,0 +1,145 @@
+{
+ "id": "exponential-model-in-context",
+ "question_type": "exponential-model-in-context",
+ "component": "pure",
+ "title": "Exponential model in context",
+ "what_it_asks": "You are given a real-world situation, such as a population, a value, a temperature or a drug level, and some data. You find the constants of an exponential model, then use it to predict, to find a rate of change, to compare with a second model or to adapt the model. The idea is that substituting data fixes the constants, and logarithms undo the exponential when you need the input.",
+ "typical_structure": "Usually three parts, sometimes four, and the total is typically around eight or nine marks. Early parts are often short, worth one or two marks, such as stating an initial value or substituting $t=0$. Middle parts are worth three or four marks and ask you to solve for a time using logs, to show a printed result, or to differentiate for a rate. Later parts often build on the constants you found, so an early slip can carry forward. The last part may ask you to interpret, compare or criticise the model.",
+ "mark_pattern": "A one-mark part is most often a single B1, for a stated value or an interpretation. Two-mark parts are usually M1 A1: substitute into the model, then get the correct value. Longer parts run M1 A1 M1 A1 or M1 A1 dM1 A1, where the first pair sets up and solves for a constant or differentiates, and the second pair uses it, for example by taking logs or substituting a time. Three-mark parts are often M1 dM1 A1: set up the equation, take logs, then give the final value. Show-that parts end with a starred A1 that needs the complete argument. The final accuracy mark usually depends on giving the requested accuracy.",
+ "mark_pattern_placeholder": "",
+ "where_marks_leak": [
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "This is a common error. You give the final time or value to the wrong number of significant figures or decimal places, or ignore a request such as 'nearest day'. The final A1 is lost even though the method is fine."
+  },
+  {
+   "error_code": "premature-rounding",
+   "mark_family": "accuracy",
+   "text": "You round $k$ or $\\ln$ of a ratio early and use the rounded figure in later parts. The final answer drifts outside what is accepted, so the A1 goes, and any follow-on A1 may go too."
+  },
+  {
+   "error_code": "arithmetic-slip",
+   "mark_family": "accuracy",
+   "text": "A numerical slip when finding a constant or evaluating the model in an otherwise correct method. The A1 is lost, and a later A1 depending on that value may also be lost."
+  },
+  {
+   "error_code": "exponentiating-sum-error",
+   "mark_family": "method",
+   "text": "After reaching $\\ln y = f(t) + c$, you write $y = \\mathrm{e}^{f(t)} + c$ instead of $y = A\\mathrm{e}^{f(t)}$. The method mark for undoing the log is lost, along with the accuracy mark that follows."
+  },
+  {
+   "error_code": "decay-sign-error",
+   "mark_family": "accuracy",
+   "text": "You use the wrong sign for $k$ so a decaying quantity grows, or the reverse. The A1 for the constant goes, and later predictions are wrong. Only a follow-through mark can still be earned."
+  }
+ ],
+ "write_to_earn": [
+  "Write the model with the data substituted, such as $V = A\\mathrm{e}^{kt}$ at $t=0$, before you solve for any constant.",
+  "To find a time, isolate the exponential term first, then write the line taking logs, then solve.",
+  "In a show-that part, write the step just before the printed result, and do not skip the log or rearrangement line.",
+  "For a rate, differentiate first and only then substitute the time; say what the units of the rate are.",
+  "Keep unrounded values in your calculator and round once, to the accuracy asked for, in the last line."
+ ],
+ "check_before_you_leave": [
+  "Accuracy and units match the question",
+  "No early rounding used",
+  "Sign of $k$ fits growth or decay",
+  "Constants stated, in required form",
+  "Answer makes sense in context"
+ ],
+ "skills": [
+  "accuracy-units-and-rounding",
+  "use-model-to-predict",
+  "solve-exponential-equation",
+  "form-exponential-model",
+  "rate-of-change-of-model",
+  "differentiate-exponentials-and-logs",
+  "show-that-given-answer",
+  "interpret-model-parameters"
+ ],
+ "related_types": [
+  "log-linear-graph-model",
+  "log-laws-and-equations",
+  "exponential-equations",
+  "de-formulate-from-rates",
+  "linear-and-quadratic-models"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:04:23",
+ "cost_usd": 0.0354,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 44,
+  "codes_listed": {
+   "wrong-final-accuracy": 31,
+   "premature-rounding": 7,
+   "arithmetic-slip": 5,
+   "exponentiating-sum-error": 4,
+   "second-derivative-error": 4,
+   "constant-not-differentiated-to-zero": 3,
+   "not-in-required-form": 3,
+   "decay-sign-error": 3
+  },
+  "frequent_codes": [
+   "wrong-final-accuracy"
+  ],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "3 rare words shared with P1_June2019_Q4",
+    "cosine 0.837 with note:IAL2013_WMA01_Jan2017_Q5_n3"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.0,
+   "shared_numbers": 0,
+   "max_cosine": 0.837,
+   "cosine_source": "note:IAL2013_WMA01_Jan2017_Q5_n3"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 10
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: 3 rare words shared with P1_June2019_Q4",
+   "copy: cosine 0.837 with note:IAL2013_WMA01_Jan2017_Q5_n3"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

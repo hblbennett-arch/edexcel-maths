@@ -1,0 +1,345 @@
+{
+ "id": "cr-pure-parametric-differentiation-tangents-006",
+ "blueprint_id": "bp-pure-parametric-differentiation-tangents-006",
+ "question_type": "parametric-differentiation-tangents",
+ "component": "pure",
+ "tier": "standard",
+ "kind": "exam",
+ "stem": "For values of the parameter $t$ with $0 \\leqslant t \\leqslant \\frac{\\pi}{2}$, the curve $C$ is traced out by\n$$x = 2\\sin 2t, \\qquad y = 3\\cos^2 t.$$",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 3,
+   "command": "simplify",
+   "forms": [
+    "in-terms-of"
+   ],
+   "skills": [
+    "parametric-differentiation",
+    "differentiate-trig-functions",
+    "chain-rule"
+   ],
+   "text": "Differentiate $x$ and $y$ with respect to $t$, and use your results to write down an expression for $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$. Simplify this expression so that $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ is given in terms of $t$ as a constant multiple of a single trigonometric function of $2t$. (3)",
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Differentiates both $x$ and $y$ with respect to $t$, getting $\\frac{\\mathrm{d}x}{\\mathrm{d}t}$ of the form $k\\cos 2t$ and $\\frac{\\mathrm{d}y}{\\mathrm{d}t}$ of the form $\\pm k\\sin t\\cos t$ (or $\\pm k\\sin 2t$), then puts $\\frac{\\mathrm{d}y}{\\mathrm{d}t}$ over $\\frac{\\mathrm{d}x}{\\mathrm{d}t}$",
+     "notes": "The division must be the right way up: $\\frac{\\mathrm{d}x}{\\mathrm{d}t} \\div \\frac{\\mathrm{d}y}{\\mathrm{d}t}$ scores M0. The coefficients do not need to be correct for this mark."
+    },
+    {
+     "code": "A1",
+     "for": "Gets the correct unsimplified quotient $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\frac{-6\\sin t\\cos t}{4\\cos 2t}$ oe",
+     "notes": "Both derivatives must be correct, including the minus sign from differentiating $\\cos t$ and the factor 2 from the inner function $2t$. Accept $\\frac{-3\\sin 2t}{4\\cos 2t}$."
+    },
+    {
+     "code": "B1",
+     "for": "Uses $2\\sin t\\cos t = \\sin 2t$ to reach $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = -\\frac{3}{4}\\tan 2t$",
+     "notes": "cao. Accept $-0.75\\tan 2t$. Isw once the correct form has been reached."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\frac{\\mathrm{d}x}{\\mathrm{d}t} = 2 \\times 2\\cos 2t = 4\\cos 2t$ and $\\frac{\\mathrm{d}y}{\\mathrm{d}t} = 3 \\times 2\\cos t \\times (-\\sin t) = -6\\sin t\\cos t$",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\frac{\\mathrm{d}y/\\mathrm{d}t}{\\mathrm{d}x/\\mathrm{d}t} = \\frac{-6\\sin t\\cos t}{4\\cos 2t}$",
+     "mark": "M1 A1"
+    },
+    {
+     "step": 3,
+     "working": "Since $6\\sin t\\cos t = 3\\sin 2t$, $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\frac{-3\\sin 2t}{4\\cos 2t} = -\\frac{3}{4}\\tan 2t$",
+     "mark": "B1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "dydx",
+     "expr": "-3/4*tan(2t)",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "derivative",
+     "f": "2 sin(2t)",
+     "var": "t",
+     "result": "4 cos(2t)"
+    },
+    {
+     "type": "derivative",
+     "f": "3 cos(t)^2",
+     "var": "t",
+     "result": "-6 sin(t) cos(t)"
+    },
+    {
+     "type": "equals",
+     "lhs": "(-6 sin(t) cos(t))/(4 cos(2t))",
+     "rhs": "-3/4*tan(2t)",
+     "domain": [
+      "0.1",
+      "0.7"
+     ]
+    },
+    {
+     "type": "equals",
+     "lhs": "(-6 sin(t) cos(t))/(4 cos(2t))",
+     "answer": "dydx",
+     "domain": [
+      "0.1",
+      "0.7"
+     ]
+    }
+   ],
+   "hints": [
+    "Find $\\frac{\\mathrm{d}x}{\\mathrm{d}t}$ and $\\frac{\\mathrm{d}y}{\\mathrm{d}t}$ separately. Treat $3\\cos^2 t$ as $3(\\cos t)^2$ and use the chain rule.",
+    "Look for a double-angle identity that turns the numerator into a function of $2t$."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 5,
+   "command": "find",
+   "forms": [
+    "exact"
+   ],
+   "skills": [
+    "exact-trig-values",
+    "parametric-differentiation",
+    "equation-of-straight-line",
+    "exact-form-answers"
+   ],
+   "text": "The point $P$ lies on $C$ and its $y$-coordinate is $\\frac{9}{4}$. The tangent to $C$ at $P$ crosses the $x$-axis at the point $Q$. Find the exact $x$-coordinate of $Q$. (5)",
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Sets $3\\cos^2 t = \\frac{9}{4}$ and solves it within the given range, reaching $\\cos t = \\frac{\\sqrt{3}}{2}$ and so $t = \\frac{\\pi}{6}$",
+     "notes": "Accept $t = 30^\\circ$ if it is then used correctly. Using $x$ or $y$ values directly as $t$ scores M0."
+    },
+    {
+     "code": "M1",
+     "for": "Puts their value of $t$ into their $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ from part (a) to get a numerical gradient, e.g. $-\\frac{3}{4}\\tan\\frac{\\pi}{3} = -\\frac{3\\sqrt{3}}{4}$",
+     "notes": "Follow through on their part (a) expression, as long as it came from $\\frac{\\mathrm{d}y}{\\mathrm{d}t} \\div \\frac{\\mathrm{d}x}{\\mathrm{d}t}$."
+    },
+    {
+     "code": "M1",
+     "for": "Finds $x = 2\\sin\\frac{\\pi}{3} = \\sqrt{3}$ at $P$ and writes the equation of a straight line through $(\\sqrt{3}, \\frac{9}{4})$ using their gradient",
+     "notes": "This must be the tangent gradient, not the negative reciprocal. Their $x$-coordinate of $P$ must come from their $t$."
+    },
+    {
+     "code": "A1",
+     "for": "Correct tangent: $y - \\frac{9}{4} = -\\frac{3\\sqrt{3}}{4}(x - \\sqrt{3})$, or the same line in any form, e.g. $y = -\\frac{3\\sqrt{3}}{4}x + \\frac{9}{2}$",
+     "notes": "oe. Exact coefficients are needed; decimals such as $-1.299$ score A0."
+    },
+    {
+     "code": "M1",
+     "for": "Puts $y = 0$ into their tangent equation and solves for $x$ exactly, giving $x = 2\\sqrt{3}$",
+     "notes": "Accept $\\frac{6}{\\sqrt{3}}$ or $\\sqrt{12}$. A decimal only (3.46) scores M0 because the question asks for an exact value."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$3\\cos^2 t = \\frac{9}{4} \\Rightarrow \\cos^2 t = \\frac{3}{4} \\Rightarrow \\cos t = \\frac{\\sqrt{3}}{2}$ (since $\\cos t \\geqslant 0$ on $0 \\leqslant t \\leqslant \\frac{\\pi}{2}$), so $t = \\frac{\\pi}{6}$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "Gradient at $P$: $-\\frac{3}{4}\\tan\\left(2 \\times \\frac{\\pi}{6}\\right) = -\\frac{3}{4}\\tan\\frac{\\pi}{3} = -\\frac{3\\sqrt{3}}{4}$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "At $t = \\frac{\\pi}{6}$: $x = 2\\sin\\frac{\\pi}{3} = 2 \\times \\frac{\\sqrt{3}}{2} = \\sqrt{3}$, so $P = \\left(\\sqrt{3}, \\frac{9}{4}\\right)$. Tangent: $y - \\frac{9}{4} = -\\frac{3\\sqrt{3}}{4}(x - \\sqrt{3})$",
+     "mark": "M1"
+    },
+    {
+     "step": 4,
+     "working": "Expanding: $y = -\\frac{3\\sqrt{3}}{4}x + \\frac{9}{4} + \\frac{9}{4} = -\\frac{3\\sqrt{3}}{4}x + \\frac{9}{2}$",
+     "mark": "A1"
+    },
+    {
+     "step": 5,
+     "working": "At $Q$, $y = 0$: $\\frac{3\\sqrt{3}}{4}x = \\frac{9}{2} \\Rightarrow x = \\frac{9}{2} \\times \\frac{4}{3\\sqrt{3}} = \\frac{6}{\\sqrt{3}} = 2\\sqrt{3}$",
+     "mark": "M1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "t",
+     "expr": "pi/6",
+     "form": "exact",
+     "check": "3*cos(t)^2 = 9/4"
+    },
+    {
+     "name": "m",
+     "expr": "-3*sqrt(3)/4",
+     "form": "exact"
+    },
+    {
+     "name": "xQ",
+     "expr": "2*sqrt(3)",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "solutions",
+     "equation": "3 cos(t)^2 = 9/4",
+     "var": "t",
+     "interval": [
+      0,
+      "1.5"
+     ],
+     "result": [
+      "pi/6"
+     ]
+    },
+    {
+     "type": "substitute",
+     "expr": "2 sin(2t)",
+     "at": {
+      "t": "pi/6"
+     },
+     "result": "sqrt(3)"
+    },
+    {
+     "type": "substitute",
+     "expr": "-3/4*tan(2t)",
+     "at": {
+      "t": "pi/6"
+     },
+     "answer": "m"
+    },
+    {
+     "type": "solutions",
+     "equation": "0 - 9/4 = (-3*sqrt(3)/4)*(x - sqrt(3))",
+     "var": "x",
+     "result": [
+      "2*sqrt(3)"
+     ]
+    },
+    {
+     "type": "substitute",
+     "expr": "sqrt(3) - (9/4)/(-3/4*tan(2t))",
+     "at": {
+      "t": "pi/6"
+     },
+     "answer": "xQ"
+    }
+   ],
+   "hints": [
+    "You are told $y$ at $P$, not $t$. First work out which value of $t$ in the given range gives $y = \\frac{9}{4}$.",
+    "Once you have $t$, use it to get both the $x$-coordinate of $P$ and the gradient from part (a). Then write the tangent equation and set $y = 0$."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "parametric-derivative-inverted",
+   "text": "If you work out $\\frac{4\\cos 2t}{-6\\sin t\\cos t}$, you have divided $\\frac{\\mathrm{d}x}{\\mathrm{d}t}$ by $\\frac{\\mathrm{d}y}{\\mathrm{d}t}$. That gives $\\frac{\\mathrm{d}x}{\\mathrm{d}y}$, not $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$, so you lose the M1 and both marks that depend on it.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "trig-derivative-sign-error",
+   "text": "A common mistake is to differentiate $\\cos t$ as $+\\sin t$, which gives $\\frac{\\mathrm{d}y}{\\mathrm{d}t} = 6\\sin t\\cos t$ and a final answer of $+\\frac{3}{4}\\tan 2t$. The derivative of $\\cos t$ is $-\\sin t$, so this sign error loses the A1 and the B1.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "chain-rule-inner-derivative-missing",
+   "text": "If you differentiate $2\\sin 2t$ as $2\\cos 2t$, you have forgotten to multiply by 2, the derivative of the inside function $2t$. In the same way, $3\\cos^2 t$ needs the factor $2\\cos t$ from the outer square and then $-\\sin t$ from the inside. Missing an inner derivative loses the method mark.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "exact-trig-value-error",
+   "text": "You need $\\tan\\frac{\\pi}{3} = \\sqrt{3}$ and $\\sin\\frac{\\pi}{3} = \\frac{\\sqrt{3}}{2}$. If you use $\\tan\\frac{\\pi}{3} = \\frac{1}{\\sqrt{3}}$ instead, you get a gradient of $-\\frac{\\sqrt{3}}{4}$, and your tangent equation loses the A1.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "parametric-derivative-inverted",
+   "text": "If your gradient came from $\\frac{\\mathrm{d}x}{\\mathrm{d}t} \\div \\frac{\\mathrm{d}y}{\\mathrm{d}t}$, you would get $-\\frac{4}{3\\sqrt{3}}$ at $P$ instead of $-\\frac{3\\sqrt{3}}{4}$. This is not the gradient of the tangent, so the method marks that depend on it are lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "x-value-used-as-parameter",
+   "text": "Don't substitute $\\frac{9}{4}$ (or $\\sqrt{3}$) for $t$ in $-\\frac{3}{4}\\tan 2t$. Those are coordinates, not values of the parameter. You must first solve $3\\cos^2 t = \\frac{9}{4}$ to get $t = \\frac{\\pi}{6}$. Skipping this step loses the first M1 and gives a wrong gradient.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:47:34",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.4423
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 8
+  },
+  "G7": {
+   "pass": false,
+   "flag": true,
+   "reasons": [
+    "3 word 8-gram(s) also in the reference corpus (not whitelisted)"
+   ],
+   "flags": [
+    "cosine 0.895 with part:IAL2013_6665A_Jan2014_Q5:b"
+   ],
+   "hit_fields": [
+    "part a text",
+    "part b text"
+   ],
+   "n_8gram_hits": 3,
+   "hits8": [
+    "crosses the x axis at the point q",
+    "differentiate x and y with respect to t",
+    "p crosses the x axis at the point"
+   ],
+   "max_jaccard": 0.077,
+   "jaccard_source": "IAL2018_WMA13_Jan2023_Q7",
+   "shared_numbers": 0,
+   "max_cosine": 0.895,
+   "cosine_source": "part:IAL2013_6665A_Jan2014_Q5:b"
+  },
+  "G2": {
+   "pass": false,
+   "errors": [
+    "part a check 4 (equals): ValueError: not an expression: None",
+    "part b check 4 (solutions): NotImplementedError: sorted roots not supported over EX"
+   ],
+   "n_checks": 9,
+   "n_answers": 4,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": false,
+   "errors": [
+    "part a B1 notes: write 'Isw' in lowercase"
+   ],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

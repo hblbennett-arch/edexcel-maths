@@ -1,0 +1,796 @@
+{
+ "id": "cr-1-p1-q11",
+ "blueprint_id": "mk-1-p1-q11",
+ "question_type": "radians-sectors-and-regions",
+ "component": "pure",
+ "tier": "accessible",
+ "kind": "mock",
+ "stem": "In triangle $KLM$, $KL = 9\\,\\mathrm{cm}$, $KM = 6\\,\\mathrm{cm}$ and the angle $LKM$ is $1.1$ radians. The point $N$ lies on the side $KL$ and $KN = 6\\,\\mathrm{cm}$. A circular arc with centre $K$ runs from $M$ to $N$, inside the triangle. The shaded region $H$ is bounded by this arc $MN$ and the straight line segments $NL$ and $LM$.",
+ "paper": "mock-1-P1",
+ "set": "mock-1",
+ "q_num": 11,
+ "parts": [
+  {
+   "label": "a",
+   "marks": 2,
+   "text": "Find the length of the side $LM$. (2)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "triangle-trigonometry",
+    "accuracy-units-and-rounding"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Writes the cosine rule for side $LM$ using the included angle at $K$, i.e. $LM^2 = 9^2 + 6^2 - 2(9)(6)\\cos 1.1$",
+     "notes": "The two sides must be 9 and 6 and the angle must be 1.1 rad. Using the sine rule here scores M0."
+    },
+    {
+     "code": "A1",
+     "for": "$LM =$ awrt $8.25\\,\\mathrm{cm}$",
+     "notes": "Accept 8.247 or better. The value 3.00, from a calculator set to degrees, scores A0."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Side $LM$ is opposite the known angle at $K$, which lies between the two known sides, so the cosine rule applies: $LM^2 = 81 + 36 - 108\\cos 1.1 = 117 - 108(0.45360\\ldots) = 68.0116\\ldots$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$LM = \\sqrt{68.0116\\ldots} = 8.2469\\ldots \\approx 8.25\\,\\mathrm{cm}$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "LM",
+     "expr": "8.25",
+     "form": "sf-3",
+     "exact": "sqrt(117 - 108*cos(11/10))"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "sqrt(117 - 108*cos(1.1))",
+     "result": "8.25",
+     "form": "sf-3"
+    },
+    {
+     "type": "numeric",
+     "expr": "sqrt(9^2 + 6^2 - 2*9*6*cos(1.1))",
+     "result": "8.247",
+     "form": "sf-4"
+    }
+   ],
+   "hints": [
+    "You know two sides and the angle between them. Which rule links these to the third side?",
+    "The angle is in radians, so check your calculator mode before you evaluate $\\cos 1.1$."
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$LM^2 = 9^2 + 6^2 - 2(9)(6)\\cos 1.1 = 68.0116\\ldots$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$LM = \\sqrt{68.0116\\ldots} = 8.25\\,\\mathrm{cm}$",
+      "secures": [
+       "A1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$LM^2 = KL^2 + KM^2 - 2(KL)(KM)\\cos \\angle LKM$",
+      "why": "You know two sides, 9 and 6, and the angle between them, 1.1 radians, and you want the third side. That is exactly the situation for the cosine rule.",
+      "secures": null,
+      "check": "The angle 1.1 must sit between the two sides you use."
+     },
+     {
+      "step": 2,
+      "working": "$LM^2 = 9^2 + 6^2 - 2(9)(6)\\cos 1.1$",
+      "why": "Put in $KL = 9$, $KM = 6$ and the angle $1.1$.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$9^2 = 81, \\quad 6^2 = 36$",
+      "why": "Work out the two squares separately.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$2(9)(6) = 108$",
+      "why": "Multiply the numbers in front of the cosine together.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$LM^2 = 81 + 36 - 108\\cos 1.1$",
+      "why": "Replace the squares and the product with the values you just found.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$LM^2 = 117 - 108\\cos 1.1$",
+      "why": "Add $81$ and $36$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "$\\cos 1.1 = 0.45360\\ldots$",
+      "why": "Use your calculator in radian mode, because the angle is given in radians. In degree mode you would get a wrong answer of 3.00.",
+      "secures": null,
+      "check": "Radian mode gives a value of about 0.45. Degree mode would give about 0.9998."
+     },
+     {
+      "step": 8,
+      "working": "$108 \\times 0.45360\\ldots = 48.9884\\ldots$",
+      "why": "Multiply the cosine value by 108.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "$LM^2 = 117 - 48.9884\\ldots = 68.0116\\ldots$",
+      "why": "Subtract to get the value of $LM^2$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$LM = \\sqrt{68.0116\\ldots}$",
+      "why": "Take the square root, because you have $LM^2$ and need $LM$. The length is positive.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 11,
+      "working": "$LM = 8.2469\\ldots$",
+      "why": "Evaluate the square root on your calculator.",
+      "secures": null,
+      "check": "$8.25^2 \\approx 68.06$, close to $68.01$."
+     },
+     {
+      "step": 12,
+      "working": "$LM = 8.25\\,\\mathrm{cm}$ (3 s.f.)",
+      "why": "Round to three significant figures.",
+      "secures": "A1",
+      "check": "$LM$ is between $9-6 = 3$ and $9+6 = 15$, so 8.25 is reasonable."
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T23:14:13+00:00",
+    "cost_usd": 0.0197,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
+  },
+  {
+   "label": "b",
+   "marks": 2,
+   "text": "Find the area of the region $H$. (2)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "triangle-trigonometry",
+    "accuracy-units-and-rounding"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Takes the sector area away from the triangle area: $\\tfrac12(9)(6)\\sin 1.1 - \\tfrac12(6^2)(1.1)$",
+     "notes": "The triangle area must use sides 9 and 6 with the angle 1.1 between them. The sector must have radius 6 and angle 1.1 rad (or the equivalent in degrees used correctly)."
+    },
+    {
+     "code": "A1",
+     "for": "Area of $H =$ awrt $4.26\\,\\mathrm{cm^2}$",
+     "notes": "Accept 4.263 or better. Only the final rounded value needs to be seen, but do not accept a value built from rounded intermediate values that does not round to 4.26."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Area of triangle $KLM = \\tfrac12(9)(6)\\sin 1.1 = 27\\sin 1.1 = 24.0626\\ldots$. Area of sector $KMN = \\tfrac12(6^2)(1.1) = 19.8$. Region $H$ is the triangle with the sector removed: $24.0626\\ldots - 19.8$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "Area of $H = 4.2626\\ldots \\approx 4.26\\,\\mathrm{cm^2}$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "areaH",
+     "expr": "4.26",
+     "form": "sf-3",
+     "exact": "27*sin(11/10) - 99/5"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "0.5*9*6*sin(1.1) - 0.5*36*1.1",
+     "result": "4.26",
+     "form": "sf-3"
+    },
+    {
+     "type": "numeric",
+     "expr": "27*sin(1.1)",
+     "result": "24.06",
+     "form": "sf-4"
+    }
+   ],
+   "hints": [
+    "Region $H$ is what is left of the triangle once the sector with centre $K$ is removed.",
+    "Find the triangle's area from two sides and the angle between them, then find the sector's area with the angle in radians."
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$H = \\tfrac12(9)(6)\\sin 1.1 - \\tfrac12(6^2)(1.1) = 24.0626\\ldots - 19.8$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$= 4.26\\,\\mathrm{cm^2}$ (3 s.f.)",
+      "secures": [
+       "A1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "Region $H$ = triangle $KLM$ minus sector $KMN$",
+      "why": "The arc $MN$ is centred at $K$, so the sector $KMN$ sits inside the triangle. What is left over is $H$, so you subtract the sector from the triangle.",
+      "secures": null,
+      "check": "The sector fits inside the triangle, so the answer must be positive."
+     },
+     {
+      "step": 2,
+      "working": "Triangle area $=\\tfrac12 ab\\sin C$ with $a=9$, $b=6$, $C=1.1$",
+      "why": "You know two sides, $KL$ and $KM$, and the angle between them, so you use half the product of the sides times the sine of the included angle.",
+      "secures": null,
+      "check": "Calculator must be in radian mode."
+     },
+     {
+      "step": 3,
+      "working": "$\\text{Triangle} = \\tfrac12(9)(6)\\sin 1.1$",
+      "why": "You put the numbers into the formula.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$\\tfrac12(9)(6) = 27$, so $\\text{Triangle} = 27\\sin 1.1$",
+      "why": "You multiply $9\\times 6 = 54$ and halve it to get 27.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$\\sin 1.1 = 0.891207\\ldots$",
+      "why": "You evaluate the sine with your calculator in radians. Keep the full display value to avoid rounding errors.",
+      "secures": null,
+      "check": "$1.1$ rad is about $63^\\circ$, and $\\sin 63^\\circ\\approx0.89$."
+     },
+     {
+      "step": 6,
+      "working": "$\\text{Triangle} = 27\\times 0.891207\\ldots = 24.0626\\ldots$",
+      "why": "You multiply by 27 to get the triangle's area in $\\mathrm{cm^2}$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "Sector area $=\\tfrac12 r^2\\theta$ with $r=6$, $\\theta=1.1$",
+      "why": "The sector has radius $KM=6$ (equal to $KN$) and angle $1.1$ radians. The formula $\\tfrac12r^2\\theta$ needs the angle in radians.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$\\text{Sector}=\\tfrac12(6^2)(1.1)$",
+      "why": "You substitute the values.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "$6^2 = 36$, so $\\text{Sector}=\\tfrac12(36)(1.1)$",
+      "why": "You evaluate the power first.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$\\text{Sector}=18\\times1.1 = 19.8$",
+      "why": "You halve 36 to get 18, then multiply by 1.1.",
+      "secures": null,
+      "check": "19.8 is less than 24.06, as it should be."
+     },
+     {
+      "step": 11,
+      "working": "$H = 24.0626\\ldots - 19.8$",
+      "why": "You subtract the sector from the triangle.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 12,
+      "working": "$H = 4.2626\\ldots$",
+      "why": "You carry out the subtraction.",
+      "secures": null,
+      "check": "A small positive number, which is plausible for a thin region."
+     },
+     {
+      "step": 13,
+      "working": "Area of $H = 4.26\\,\\mathrm{cm^2}$ (3 s.f.)",
+      "why": "You round to 3 significant figures because the fourth figure, 2, is below 5.",
+      "secures": "A1",
+      "check": null
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T23:14:25+00:00",
+    "cost_usd": 0.0218,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "sine-cosine-rule-misapplied",
+   "text": "The only angle you know is at $K$, and it lies between the 9 cm and 6 cm sides. The sine rule needs a side together with the angle opposite it, and you don't have such a pair here. If you try $\\frac{LM}{\\sin 1.1} = \\frac{9}{\\sin 1.1}$ or something similar, the side and angle don't match, so M1 is lost. This is a common mistake.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "small-angle-approximation-error",
+   "text": "The angle 1.1 is in radians. If your calculator is in degree mode, $\\cos 1.1$ comes out as about 0.9998 and you get $LM \\approx 3.00$, which is wrong. Always check the mode when an angle has no degree sign. This is a common slip.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "sine-cosine-rule-misapplied",
+   "text": "For the triangle's area, $\\tfrac12 ab\\sin C$ needs the angle between the two sides. Here that is $\\tfrac12(9)(6)\\sin 1.1$. If you use 6 and 6, or put your value of $LM$ with the angle at $K$, you get the wrong triangle area and lose M1. This is a common error.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "small-angle-approximation-error",
+   "text": "The formula $\\tfrac12 r^2\\theta$ for a sector's area only works when $\\theta$ is in radians, so the sector area is $\\tfrac12(36)(1.1) = 19.8$. If you use $\\frac{1.1}{360}\\times\\pi(6^2)$, you are treating 1.1 as degrees, which gives a tiny sector and loses M1. The same goes for working out $\\sin 1.1$ in degree mode. This is a common error.",
+   "says_common": true
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:42:47",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.2291
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 4
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.825 with part:GCE2008_6664_Jan2013_Q7:c"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "hits8": [],
+   "max_jaccard": 0.019,
+   "jaccard_source": "GCE2008_6664_June2010_Q6",
+   "shared_numbers": 1,
+   "max_cosine": 0.825,
+   "cosine_source": "part:GCE2008_6664_Jan2013_Q7:c"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 4,
+   "n_answers": 2,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0102,
+   "solver": {
+    "parts": [
+     {
+      "label": "(a)",
+      "answers": [
+       "sqrt(117 - 108*cos(1.1))",
+       "8.25"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "Cosine rule: LM^2 = 9^2 + 6^2 - 2*9*6*cos(1.1) = 117 - 108*0.453596 = 68.01, so LM ≈ 8.247 cm, which is 8.25 cm to 3 s.f. (Use radian mode.)"
+     },
+     {
+      "label": "(b)",
+      "answers": [
+       "27*sin(1.1) - 19.8",
+       "4.26"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "Area of triangle KLM = 1/2*9*6*sin(1.1) = 24.063. Area of sector KMN = 1/2*6^2*1.1 = 19.8. H = 24.063 - 19.8 = 4.263 cm², which is 4.26 cm² to 3 s.f."
+     }
+    ],
+    "problems": []
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "n_responses": 6,
+   "agreed": [
+    "correct",
+    "pit1",
+    "pit2",
+    "pit3",
+    "pit4",
+    "partial"
+   ],
+   "consistent": {},
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "correct",
+     "kind": "correct",
+     "error_code": null,
+     "work": "(a) $LM^2 = 9^2 + 6^2 - 2(9)(6)\\cos 1.1 = 117 - 108\\cos 1.1 = 68.01...$\n$LM = 8.25$ cm\n(b) Triangle $= \\tfrac12(9)(6)\\sin 1.1 = 24.06...$\nSector $= \\tfrac12(6^2)(1.1) = 19.8$\n$H = 24.06 - 19.8 = 4.26$ cm$^2$ (4.2626...)",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pit1",
+     "kind": "pitfall",
+     "error_code": "sine-cosine-rule-misapplied",
+     "work": "(a) Using the sine rule: $\\frac{LM}{\\sin 1.1} = \\frac{9}{\\sin 1.1}$ so $LM = 9$ cm.\n(b) Triangle $= \\tfrac12(9)(6)\\sin 1.1 = 24.06$, sector $= \\tfrac12(36)(1.1) = 19.8$. $H = 24.06 - 19.8 = 4.26$ cm$^2$",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pit2",
+     "kind": "pitfall",
+     "error_code": "small-angle-approximation-error",
+     "work": "(a) Calculator in degree mode. $LM^2 = 81 + 36 - 108\\cos 1.1 = 117 - 108(0.99982) = 9.02$, $LM = 3.00$ cm\n(b) Calculator back in radians: triangle $= 27\\sin 1.1 = 24.06$, sector $= 19.8$, $H = 4.26$ cm$^2$",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pit3",
+     "kind": "pitfall",
+     "error_code": "sine-cosine-rule-misapplied",
+     "work": "(a) $LM^2 = 81+36-108\\cos 1.1 = 68.01$, $LM = 8.25$ cm\n(b) Triangle with sides 6 and 6: $\\tfrac12(6)(6)\\sin 1.1 = 16.04$. Sector $= \\tfrac12(36)(1.1) = 19.8$. $H = 16.04 - 19.8 = -3.76$, so area is 3.76 cm$^2$",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pit4",
+     "kind": "pitfall",
+     "error_code": "small-angle-approximation-error",
+     "work": "(a) $LM^2 = 117 - 108\\cos 1.1 = 68.01$, $LM = 8.25$ cm\n(b) Triangle $= \\tfrac12(9)(6)\\sin 1.1 = 24.06$. Sector treating 1.1 as degrees: $\\frac{1.1}{360}\\times\\pi\\times 6^2 = 0.346$. $H = 24.06 - 0.346 = 23.7$ cm$^2$",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "partial",
+     "kind": "partial",
+     "error_code": null,
+     "work": "(a) $LM^2 = 9^2 + 6^2 - 2(9)(6)\\cos 1.1 = 68.01$, $LM = 8.25$ cm\n(b) Area of triangle $= \\tfrac12(9)(6)\\sin 1.1 = 24.06$. I'm not sure what to do next.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "correct",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "pit1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) M0: sine rule used instead of cosine rule.",
+      "(a) A0: LM = 9 is incorrect."
+     ]
+    },
+    {
+     "id": "pit2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) A0: calculator in degree mode gave 3.00 rather than 8.25."
+     ]
+    },
+    {
+     "id": "pit3",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) M0: triangle area uses sides 6 and 6 instead of 9 and 6.",
+      "(b) A0: 3.76 is incorrect."
+     ]
+    },
+    {
+     "id": "pit4",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) M0: sector treats 1.1 as degrees, which is incorrect for radians.",
+      "(b) A0: 23.7 is incorrect."
+     ]
+    },
+    {
+     "id": "partial",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) M0: no sector area subtracted from the triangle area.",
+      "(b) A0: no final area for H."
+     ]
+    }
+   ],
+   "awarded_second": [],
+   "cost_usd": 0.0409
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "agreement": "2/2",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.01961375,
+   "retagged": {
+    "a": [
+     "triangle-trigonometry"
+    ],
+    "b": [
+     "sector-area",
+     "triangle-trigonometry"
+    ]
+   }
+  },
+  "GL": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part a: copy check flag: cosine 0.797 with question:IAL2018_WMA13_Jan2025_Q8",
+    "part b: copy check flag: cosine 0.861 with part:P1_June2018_Q3:"
+   ],
+   "parts_checked": 2
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

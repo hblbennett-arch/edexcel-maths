@@ -1,0 +1,152 @@
+{
+ "id": "cr-area-under-curve-starter",
+ "blueprint_id": "dr-area-under-curve-starter",
+ "question_type": "area-between-curve-and-line",
+ "component": "pure",
+ "tier": "starter",
+ "kind": "drill",
+ "stem": null,
+ "parts": [
+  {
+   "label": null,
+   "marks": 2,
+   "text": "A curve $C$ has equation $y = 3\\sqrt{x} - x$ for $x \\geqslant 0$. $C$ passes through the origin $O$ and cuts the $x$-axis again at the point $P(9, 0)$. For $0 < x < 9$, the curve lies above the $x$-axis.\n\nFind the area of the region bounded by $C$ and the line segment $OP$. (2)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "area-under-curve"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Writes $3\\sqrt{x}$ as $3x^{\\frac{1}{2}}$ and integrates so that at least one power of $x$ goes up by 1 (e.g. $2x^{\\frac{3}{2}}$ or $\\tfrac{1}{2}x^{2}$ appears), then substitutes $x = 9$ and $x = 0$ and subtracts.",
+     "notes": "Seeing the limit $9$ substituted into their integrated expression is enough; the $x = 0$ value may be left implicit because it is zero. Differentiating instead of integrating scores M0."
+    },
+    {
+     "code": "A1",
+     "for": "Area $= \\frac{27}{2}$",
+     "depends_on": "M1",
+     "notes": "Accept $13.5$ or $13\\tfrac{1}{2}$. A final answer of $-\\frac{27}{2}$ given as the area scores A0. Units not needed."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\displaystyle\\int_0^9 \\left(3x^{\\frac{1}{2}} - x\\right)\\mathrm{d}x = \\left[2x^{\\frac{3}{2}} - \\tfrac{1}{2}x^{2}\\right]_0^9 = \\left(2(27) - \\tfrac{81}{2}\\right) - 0$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$= 54 - 40.5 = \\frac{27}{2}$, so the area is $\\frac{27}{2}$ (that is, $13.5$).",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "A",
+     "expr": "27/2",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "integral",
+     "f": "3sqrt(x) - x",
+     "var": "x",
+     "lower": 0,
+     "upper": 9,
+     "answer": "A"
+    },
+    {
+     "type": "integral",
+     "f": "3sqrt(x) - x",
+     "var": "x",
+     "result": "2x^(3/2) - x^2/2"
+    },
+    {
+     "type": "solutions",
+     "equation": "3sqrt(x) - x = 0",
+     "var": "x",
+     "interval": [
+      0,
+      20
+     ],
+     "result": [
+      "0",
+      "9"
+     ]
+    }
+   ],
+   "hints": [
+    "Write $\\sqrt{x}$ as a power of $x$ before you integrate.",
+    "The region runs from $x = 0$ to $x = 9$, so those are your limits."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "error_code": "area-between-wrong-subtraction",
+   "text": "If you use the wrong limits, for example by taking $x = 3$ as the upper limit because $\\sqrt{9} = 3$, you are not integrating over the region between $O$ and $P(9, 0)$, and the M1 is lost.",
+   "says_common": false,
+   "step": 1
+  },
+  {
+   "part": null,
+   "error_code": "negative-area-taken",
+   "text": "If you integrate $x - 3\\sqrt{x}$ by mistake, or subtract as $F(0) - F(9)$, you get $-\\frac{27}{2}$. An area cannot be negative, so giving $-\\frac{27}{2}$ as your answer loses the A1.",
+   "says_common": false,
+   "step": 2
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:54:26",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.1417
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 2
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.891 with part:IAL2018_WMA12_June2023_Q10:c"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "hits8": [],
+   "max_jaccard": 0.032,
+   "jaccard_source": "GCE2008_6665_June2010_Q2",
+   "shared_numbers": 0,
+   "max_cosine": 0.891,
+   "cosine_source": "part:IAL2018_WMA12_June2023_Q10:c"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 3,
+   "n_answers": 1,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": false,
+   "errors": [
+    "area-between-curve-and-line: total marks 2 outside 4-16 (seen 5-15, +-1)"
+   ],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

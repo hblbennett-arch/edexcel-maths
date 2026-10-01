@@ -1,0 +1,576 @@
+{
+ "item_id": "cr-stats-box-plot-outliers-and-percentiles-002",
+ "applicable": false,
+ "reason": "Withdrawn 2026-10-01 00:06: the guide's read-off values (quartiles and IQR) share three distinctive numbers with a real question (G7). Regenerate after the item's numbers are changed and re-gated (checklist §34).",
+ "scenes": [],
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T23:56:41",
+ "cost_usd": 0.0532,
+ "attempts": 1,
+ "checks": {
+  "pass": true,
+  "errors": [],
+  "n_scenes": 2
+ },
+ "withdrawn_scenes": [
+  {
+   "id": "cr-stats-box-plot-outliers-and-percentiles-002::a::1",
+   "part": "a",
+   "title": "Where the outlier fence sits",
+   "purpose": "See the interquartile range as the width of the box and the outlier boundary as a fence measured from the upper quartile.",
+   "approach": "graphical",
+   "board": {
+    "x": [
+     -8,
+     52
+    ],
+    "y": [
+     -1,
+     6
+    ],
+    "axis": true,
+    "grid": false,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "m",
+     "label": "multiplier of the IQR",
+     "min": 0.5,
+     "max": 2.5,
+     "step": 0.1,
+     "value": 1.5
+    }
+   ],
+   "elements": [
+    {
+     "type": "polygon",
+     "id": "box",
+     "points": [
+      [
+       "11",
+       "1"
+      ],
+      [
+       "21",
+       "1"
+      ],
+      [
+       "21",
+       "3"
+      ],
+      [
+       "11",
+       "3"
+      ]
+     ],
+     "color": "primary",
+     "opacity": 0.2
+    },
+    {
+     "type": "segment",
+     "id": "med",
+     "from": [
+      "16",
+      "1"
+     ],
+     "to": [
+      "16",
+      "3"
+     ],
+     "color": "primary"
+    },
+    {
+     "type": "segment",
+     "id": "wl",
+     "from": [
+      "3",
+      "2"
+     ],
+     "to": [
+      "11",
+      "2"
+     ],
+     "color": "primary"
+    },
+    {
+     "type": "segment",
+     "id": "wr",
+     "from": [
+      "21",
+      "2"
+     ],
+     "to": [
+      "33",
+      "2"
+     ],
+     "color": "primary"
+    },
+    {
+     "type": "segment",
+     "id": "capl",
+     "from": [
+      "3",
+      "1.5"
+     ],
+     "to": [
+      "3",
+      "2.5"
+     ],
+     "color": "primary"
+    },
+    {
+     "type": "segment",
+     "id": "capr",
+     "from": [
+      "33",
+      "1.5"
+     ],
+     "to": [
+      "33",
+      "2.5"
+     ],
+     "color": "primary"
+    },
+    {
+     "type": "point",
+     "id": "out",
+     "x": "44",
+     "y": "2",
+     "label": "44",
+     "color": "warning"
+    },
+    {
+     "type": "vline",
+     "id": "fenceU",
+     "at": "21+m*10",
+     "color": "warning"
+    },
+    {
+     "type": "vline",
+     "id": "fenceL",
+     "at": "11-m*10",
+     "color": "muted"
+    },
+    {
+     "type": "segment",
+     "id": "iqr",
+     "from": [
+      "11",
+      "4"
+     ],
+     "to": [
+      "21",
+      "4"
+     ],
+     "color": "success",
+     "label": "IQR"
+    },
+    {
+     "type": "text",
+     "id": "t1",
+     "x": "-6",
+     "y": "5.5",
+     "value": "IQR $= 21 - 11 = {21-11}$"
+    },
+    {
+     "type": "text",
+     "id": "t2",
+     "x": "-6",
+     "y": "4.9",
+     "value": "Upper boundary $= 21 + m \\times 10 = {21+m*10}$"
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "The box runs from $Q_1=11$ to $Q_3=21$, so its width is the interquartile range, $21-11=10$. This is the first B1.",
+     "set": {
+      "m": 1.5
+     },
+     "highlight": [
+      "iqr",
+      "box"
+     ]
+    },
+    {
+     "n": 2,
+     "text": "With $m=1.5$ the upper fence starts at the upper quartile: $21+1.5\\times 10=36$. The whisker ends at $33$, inside the fence, and $44$ is beyond it. This is the second B1.",
+     "set": {
+      "m": 1.5
+     },
+     "highlight": [
+      "fenceU",
+      "out"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "Drag $m$ to $1$: the fence moves to $31$. That is the slip of adding only one IQR, and it would wrongly put the whisker end of $33$ outside the fence. The lower fence $11-15=-4$ is below every reading, so there are no low outliers.",
+     "set": {
+      "m": 1
+     },
+     "highlight": [
+      "fenceU",
+      "fenceL"
+     ]
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     1,
+     2
+    ],
+    "marks": [
+     "B1"
+    ],
+    "pitfalls": [
+     "outlier-fence-error",
+     "median-position-error"
+    ]
+   },
+   "guide": {
+    "what_you_see": "A box plot of the nitrate readings with a shaded box, a median line, whiskers with end caps and a single outlying reading. A vertical fence line shows the upper outlier boundary, and a green bar above the box shows its width.",
+    "legend": [
+     {
+      "id": "out",
+      "meaning": "The single reading plotted on its own as an outlier, at $44$ mg per litre."
+     },
+     {
+      "id": "iqr",
+      "meaning": "A green bar spanning the box from the lower quartile to the upper quartile, so its length is the interquartile range, $Q_3-Q_1=10$."
+     },
+     {
+      "id": "box",
+      "meaning": "The box, running from the lower quartile to the upper quartile, with the median line inside it."
+     },
+     {
+      "id": "fenceU",
+      "meaning": "The upper outlier fence at $Q_3+m\\times \\mathrm{IQR}$; readings beyond it count as outliers."
+     },
+     {
+      "id": "fenceL",
+      "meaning": "The lower fence at $Q_1-m\\times \\mathrm{IQR}$, drawn in a muted colour; it lies below every reading."
+     }
+    ],
+    "interact": [
+     {
+      "control": "m",
+      "kind": "slider",
+      "do": "Drag the slider between $0.5$ and $2.5$, then set it back to the trust's rule value of $1.5$.",
+      "watch": "The upper fence slides right as $m$ grows and left as it shrinks. At $m=1.5$ it sits at $36$: the whisker end is inside it and the point $44$ is beyond it. Lower values of $m$ show how using the wrong multiple would misplace the fence."
+     }
+    ],
+    "question_link": {
+     "part": "a",
+     "marks": [
+      "B1"
+     ],
+     "text": "The green bar is the interquartile range asked for in (i), giving $10$ mg per litre for the first B1. The fence at $m=1.5$ is the boundary asked for in (ii), $Q_3+1.5\\times 10=36$, for the second B1."
+    },
+    "read_off": [
+     "The on-screen text restates the interquartile range and the upper boundary as $Q_3+m\\times 10$; it updates with the slider, and at the trust's rule it gives $36$ mg per litre."
+    ]
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0487,
+    "attempts": 2,
+    "gate": {
+     "pass": false,
+     "errors": [
+      "G7 copy check: 3 distinctive numbers shared with GCE2008_6683_June2013_Q4"
+     ]
+    },
+    "generated_at": "2026-10-01T00:03:19"
+   }
+  },
+  {
+   "id": "cr-stats-box-plot-outliers-and-percentiles-002::c::1",
+   "part": "c",
+   "title": "Taking the same amount off every reading",
+   "purpose": "See that subtracting a constant slides the whole box plot left without changing the width of the box.",
+   "approach": "graphical",
+   "board": {
+    "x": [
+     -8,
+     52
+    ],
+    "y": [
+     -1,
+     7
+    ],
+    "axis": true,
+    "grid": false,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "s",
+     "label": "amount taken off, s",
+     "min": 0,
+     "max": 4,
+     "step": 0.1,
+     "value": 0
+    }
+   ],
+   "elements": [
+    {
+     "type": "polygon",
+     "id": "ghost",
+     "points": [
+      [
+       "11",
+       "4"
+      ],
+      [
+       "21",
+       "4"
+      ],
+      [
+       "21",
+       "6"
+      ],
+      [
+       "11",
+       "6"
+      ]
+     ],
+     "color": "muted",
+     "opacity": 0.15
+    },
+    {
+     "type": "segment",
+     "id": "gmed",
+     "from": [
+      "16",
+      "4"
+     ],
+     "to": [
+      "16",
+      "6"
+     ],
+     "color": "muted"
+    },
+    {
+     "type": "polygon",
+     "id": "box",
+     "points": [
+      [
+       "11-s",
+       "1"
+      ],
+      [
+       "21-s",
+       "1"
+      ],
+      [
+       "21-s",
+       "3"
+      ],
+      [
+       "11-s",
+       "3"
+      ]
+     ],
+     "color": "primary",
+     "opacity": 0.25
+    },
+    {
+     "type": "segment",
+     "id": "med",
+     "from": [
+      "16-s",
+      "1"
+     ],
+     "to": [
+      "16-s",
+      "3"
+     ],
+     "color": "primary"
+    },
+    {
+     "type": "segment",
+     "id": "wl",
+     "from": [
+      "3-s",
+      "2"
+     ],
+     "to": [
+      "11-s",
+      "2"
+     ],
+     "color": "primary"
+    },
+    {
+     "type": "segment",
+     "id": "wr",
+     "from": [
+      "21-s",
+      "2"
+     ],
+     "to": [
+      "33-s",
+      "2"
+     ],
+     "color": "primary"
+    },
+    {
+     "type": "point",
+     "id": "out",
+     "x": "44-s",
+     "y": "2",
+     "color": "warning"
+    },
+    {
+     "type": "segment",
+     "id": "iqr",
+     "from": [
+      "11-s",
+      "0"
+     ],
+     "to": [
+      "21-s",
+      "0"
+     ],
+     "color": "success",
+     "label": "IQR"
+    },
+    {
+     "type": "text",
+     "id": "t1",
+     "x": "-6",
+     "y": "6.5",
+     "value": "Old quartiles: $11$ and $21$ (grey box)"
+    },
+    {
+     "type": "text",
+     "id": "t2",
+     "x": "26",
+     "y": "5.2",
+     "value": "New quartiles: ${11-s}$ and ${21-s}$"
+    },
+    {
+     "type": "text",
+     "id": "t3",
+     "x": "26",
+     "y": "4.4",
+     "value": "New IQR $= {(21-s)-(11-s)}$"
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "At $s=0$ the box is the original one, with quartiles $11$ and $21$ and IQR $10$.",
+     "set": {
+      "s": 0
+     },
+     "highlight": [
+      "box"
+     ]
+    },
+    {
+     "n": 2,
+     "text": "Drag $s$ to $1.5$: the quartiles become $9.5$ and $19.5$, so the IQR is $19.5-9.5=10$. This is the B1 for the value $10$.",
+     "set": {
+      "s": 1.5
+     },
+     "highlight": [
+      "iqr"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "Both quartiles slide left by the same amount, so the box keeps its width. A shift changes the location, not the spread, so the IQR stays $10$, not $8.5$. This is the dB1 for the reason.",
+     "set": {
+      "s": 1.5
+     },
+     "highlight": [
+      "box",
+      "ghost"
+     ]
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     1,
+     2
+    ],
+    "marks": [
+     "B1",
+     "dB1"
+    ],
+    "pitfalls": [
+     "coding-applied-to-spread"
+    ]
+   },
+   "guide": {
+    "what_you_see": "The box plot of the 60 nitrate readings (blue, with the outlier as a separate point) and, above it, a grey copy of the original box with quartiles $11$ and $21$. A green bar under the plot shows the interquartile range.",
+    "legend": [
+     {
+      "id": "iqr",
+      "meaning": "The green bar along the bottom, from the lower quartile $11-s$ to the upper quartile $21-s$; its length is the interquartile range of the readings after $s$ has been taken off."
+     },
+     {
+      "id": "box",
+      "meaning": "The box of the box plot, running from the lower quartile $11-s$ to the upper quartile $21-s$."
+     },
+     {
+      "id": "med",
+      "meaning": "The median line inside the box, at $16-s$."
+     },
+     {
+      "id": "wl",
+      "meaning": "The left whisker, from the lowest reading $3-s$ to the lower quartile."
+     },
+     {
+      "id": "wr",
+      "meaning": "The right whisker, from the upper quartile to $33-s$."
+     },
+     {
+      "id": "out",
+      "meaning": "The outlier, originally the reading $44$, now at $44-s$."
+     },
+     {
+      "id": "ghost",
+      "meaning": "A fixed grey copy of the original box (quartiles $11$ and $21$), for comparison."
+     },
+     {
+      "id": "gmed",
+      "meaning": "The median of the original data, $16$, drawn in the grey box."
+     }
+    ],
+    "interact": [
+     {
+      "control": "s",
+      "kind": "slider",
+      "do": "Drag $s$ from $0$ up to $4$, and stop at $1.5$, the amount the question takes off every reading.",
+      "watch": "The whole blue plot slides left as one piece, while the grey box stays put. At $s=1.5$ the quartiles are $9.5$ and $19.5$, and the green bar still has length $10$, not $8.5$. Its length stays $10$ for every value of $s$."
+     }
+    ],
+    "question_link": {
+     "part": "c",
+     "marks": [
+      "B1",
+      "dB1"
+     ],
+     "text": "The green bar is the interquartile range of the corrected readings, and at $s=1.5$ it has length $19.5-9.5=10$, which is the B1 value. The blue box sliding left with the same width as the grey one shows the dB1 reason: taking the same amount off every reading moves both quartiles by $1.5$, so the gap between them is unchanged."
+    },
+    "read_off": [
+     "The text 'New quartiles' gives $11-s$ and $21-s$; at $s=1.5$ these are $9.5$ and $19.5$.",
+     "The text 'New IQR' gives $(21-s)-(11-s)$, which is $10$ for every $s$."
+    ]
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0232,
+    "attempts": 1,
+    "gate": {
+     "pass": true,
+     "errors": []
+    },
+    "generated_at": "2026-10-01T00:03:09"
+   }
+  }
+ ]
+}

@@ -1,0 +1,484 @@
+{
+ "item_id": "cr-pure-area-between-curve-and-line-010",
+ "applicable": true,
+ "reason": "The tangent and the region bounded by the curve, tangent and x-axis are best understood graphically.",
+ "scenes": [
+  {
+   "id": "cr-pure-area-between-curve-and-line-010::a::1",
+   "part": "a",
+   "title": "A chord turning into the tangent at P",
+   "purpose": "See that the tangent at $P(9, 3)$ is the limit of chords from $P$, and that its gradient $-\\frac{1}{3}$ gives the line $x + 3y = 18$.",
+   "approach": "graphical",
+   "board": {
+    "x": [
+     -1,
+     20
+    ],
+    "y": [
+     -2,
+     7
+    ],
+    "axis": true,
+    "grid": true,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "s",
+     "label": "chord end x-coordinate s",
+     "min": 9.05,
+     "max": 16,
+     "step": 0.05,
+     "value": 14
+    }
+   ],
+   "elements": [
+    {
+     "type": "function",
+     "id": "C",
+     "expr": "4*sqrt(x)-x",
+     "domain": [
+      "0",
+      "20"
+     ],
+     "color": "primary",
+     "label": "C"
+    },
+    {
+     "type": "point",
+     "id": "P",
+     "x": "9",
+     "y": "3",
+     "label": "P(9, 3)"
+    },
+    {
+     "type": "point",
+     "id": "Q",
+     "x": "s",
+     "y": "4*sqrt(s)-s",
+     "label": "Q",
+     "color": "warning"
+    },
+    {
+     "type": "line",
+     "id": "chord",
+     "from": "P",
+     "to": "Q",
+     "color": "warning",
+     "dash": true
+    },
+    {
+     "type": "function",
+     "id": "l",
+     "expr": "(18-x)/3",
+     "domain": [
+      "0",
+      "20"
+     ],
+     "color": "secondary",
+     "label": "l"
+    },
+    {
+     "type": "text",
+     "id": "grad",
+     "x": "11",
+     "y": "6",
+     "value": "Chord gradient = {(4*sqrt(s)-s-3)/(s-9)}, tangent gradient = $-\\frac{1}{3}$"
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "The curve $C$ is $y = 4x^{\\frac{1}{2}} - x$. Writing $\\sqrt{x}$ as a power first is what earns the B1 for $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 2x^{-\\frac{1}{2}} - 1$. The dashed chord joins $P$ to $Q$.",
+     "set": {
+      "s": 14
+     },
+     "show": [
+      "chord"
+     ],
+     "highlight": [
+      "C"
+     ]
+    },
+    {
+     "n": 2,
+     "text": "Slide $s$ towards $9$. $Q$ slides towards $P$, and the chord gradient approaches $2\\times\\frac{1}{3} - 1 = -\\frac{1}{3}$, which is the value of the derivative at $x = 9$ (the M1).",
+     "set": {
+      "s": 9.05
+     },
+     "highlight": [
+      "Q"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "The tangent $l$ passes through $(9, 3)$ with gradient $-\\frac{1}{3}$, so $y - 3 = -\\frac{1}{3}(x - 9)$ (A1ft). Multiplying by $3$ gives $x + 3y = 18$ (A1cao).",
+     "set": {
+      "s": 10
+     },
+     "highlight": [
+      "l",
+      "P"
+     ]
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "marks": [
+     "B1",
+     "M1",
+     "A1ft",
+     "A1cao"
+    ],
+    "pitfalls": [
+     "not-rewritten-as-powers",
+     "sign-error-differentiating-negative-power"
+    ]
+   },
+   "guide": {
+    "what_you_see": "The curve $C$: $y=4\\sqrt{x}-x$ with the point $P(9, 3)$ on it, a second point $Q$ on $C$ further along, and a dashed chord from $P$ to $Q$. The tangent $l$ at $P$ is also drawn, so you can compare it with the chord.",
+    "legend": [
+     {
+      "id": "C",
+      "meaning": "The curve $y=4\\sqrt{x}-x$ from the question, for $x\\geqslant 0$."
+     },
+     {
+      "id": "P",
+      "meaning": "The point $P(9, 3)$ on $C$ where $x=9$; the tangent touches the curve here."
+     },
+     {
+      "id": "Q",
+      "meaning": "A point on $C$ with $x$-coordinate $s$, so $Q=(s,\\,4\\sqrt{s}-s)$. It moves when you change the slider."
+     },
+     {
+      "id": "chord",
+      "meaning": "The dashed chord joining $P$ to $Q$. Its gradient is $\\dfrac{4\\sqrt{s}-s-3}{s-9}$."
+     },
+     {
+      "id": "l",
+      "meaning": "The tangent to $C$ at $P$, the line $y=\\frac{18-x}{3}$, which is $x+3y=18$, the equation you are asked to show."
+     }
+    ],
+    "interact": [
+     {
+      "control": "s",
+      "kind": "slider",
+      "do": "Start at $s=14$, then drag the slider left in small steps down to $9.05$. You can also drag it right up to $16$ to see the chord tilt the other way.",
+      "watch": "$Q$ slides along $C$ towards $P$ and the dashed chord swings round to lie along $l$. The chord gradient is about $-0.41$ at $s=14$ and about $-0.33$ at $s=9.05$, close to the tangent gradient $-\\frac{1}{3}\\approx -0.333$."
+     }
+    ],
+    "question_link": {
+     "part": "a",
+     "marks": [
+      "B1",
+      "M1",
+      "A1ft",
+      "A1cao"
+     ],
+     "text": "The curve $C$ and point $P$ are those of the question. The chord gradient settling at the derivative $2x^{-\\frac{1}{2}}-1$ evaluated at $x=9$, which is $-\\frac{1}{3}$, is the gradient step (B1, M1). The line $l$ through $(9,3)$ with that gradient gives $y-3=-\\frac{1}{3}(x-9)$ (A1ft), which rearranges to $x+3y=18$ (A1cao)."
+    },
+    "read_off": [
+     "The live label 'Chord gradient' is the gradient of the line $PQ$ for the current $s$, namely $\\frac{4\\sqrt{s}-s-3}{s-9}$. As $s$ tends to $9$ it tends to the tangent gradient $-\\frac{1}{3}$, which is printed beside it and is the value of $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ at $x=9$."
+    ]
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0243,
+    "attempts": 1,
+    "gate": {
+     "pass": true,
+     "errors": []
+    },
+    "generated_at": "2026-09-30T23:12:30"
+   }
+  },
+  {
+   "id": "cr-pure-area-between-curve-and-line-010::b::1",
+   "part": "b",
+   "title": "Triangle minus the area under the curve",
+   "purpose": "See that $R$ is the triangle under $l$ from $x = 9$ to $18$ with the area under $C$ from $9$ to $16$ removed.",
+   "approach": "graphical",
+   "board": {
+    "x": [
+     -1,
+     20
+    ],
+    "y": [
+     -2,
+     7
+    ],
+    "axis": true,
+    "grid": true,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "k",
+     "label": "upper limit k",
+     "min": 10,
+     "max": 16,
+     "step": 0.1,
+     "value": 12
+    }
+   ],
+   "elements": [
+    {
+     "type": "function",
+     "id": "C",
+     "expr": "4*sqrt(x)-x",
+     "domain": [
+      "0",
+      "20"
+     ],
+     "color": "primary",
+     "label": "C"
+    },
+    {
+     "type": "function",
+     "id": "l",
+     "expr": "(18-x)/3",
+     "domain": [
+      "0",
+      "20"
+     ],
+     "color": "secondary",
+     "label": "l"
+    },
+    {
+     "type": "function",
+     "id": "Z",
+     "expr": "0",
+     "domain": [
+      "0",
+      "20"
+     ],
+     "color": "muted"
+    },
+    {
+     "type": "point",
+     "id": "P",
+     "x": "9",
+     "y": "3",
+     "label": "P"
+    },
+    {
+     "type": "point",
+     "id": "A",
+     "x": "16",
+     "y": "0",
+     "label": "A(16, 0)"
+    },
+    {
+     "type": "point",
+     "id": "B",
+     "x": "18",
+     "y": "0",
+     "label": "B(18, 0)"
+    },
+    {
+     "type": "vline",
+     "id": "v9",
+     "at": "9"
+    },
+    {
+     "type": "integral",
+     "id": "I",
+     "of": "C",
+     "from": "9",
+     "to": "k",
+     "color": "primary",
+     "opacity": 0.3
+    },
+    {
+     "type": "integral",
+     "id": "R1",
+     "between": [
+      "l",
+      "C"
+     ],
+     "from": "9",
+     "to": "16",
+     "color": "success",
+     "opacity": 0.4
+    },
+    {
+     "type": "integral",
+     "id": "R2",
+     "between": [
+      "l",
+      "Z"
+     ],
+     "from": "16",
+     "to": "18",
+     "color": "success",
+     "opacity": 0.4
+    },
+    {
+     "type": "text",
+     "id": "val",
+     "x": "10",
+     "y": "6",
+     "value": "Area under $C$ from $9$ to $k$ = {area(I)}"
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "$C$ meets the axis where $\\sqrt{x}(4 - \\sqrt{x}) = 0$, so $x = 16$ and $A$ is $(16, 0)$ (M1, A1). Drag $k$ to $16$ to close the blue region at $A$.",
+     "set": {
+      "k": 16
+     },
+     "hide": [
+      "R1",
+      "R2"
+     ],
+     "highlight": [
+      "A"
+     ]
+    },
+    {
+     "n": 2,
+     "text": "With $\\int\\left(4x^{\\frac{1}{2}} - x\\right)\\mathrm{d}x = \\frac{8}{3}x^{\\frac{3}{2}} - \\frac{1}{2}x^2$, the blue area from $9$ to $16$ reads $\\frac{67}{6} \\approx 11.17$ (M1 A1 A1, then M1 for the limits). Going past $16$ would count area below the axis.",
+     "set": {
+      "k": 16
+     },
+     "highlight": [
+      "I"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "On $l$, $y = 0$ gives $x = 18$, so the triangle with corners $(9, 3)$, $(9, 0)$, $(18, 0)$ has area $\\frac{27}{2}$ (M1). The green region $R$ is this triangle minus the blue area.",
+     "set": {
+      "k": 16
+     },
+     "show": [
+      "R1",
+      "R2"
+     ],
+     "highlight": [
+      "B"
+     ]
+    },
+    {
+     "n": 4,
+     "text": "$\\frac{27}{2} - \\frac{67}{6} = \\frac{81}{6} - \\frac{67}{6} = \\frac{7}{3}$ (A1). Drag $k$ back to see how the blue area changes.",
+     "set": {
+      "k": 12
+     },
+     "show": [
+      "R1",
+      "R2"
+     ]
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ],
+    "marks": [
+     "M1",
+     "A1"
+    ],
+    "pitfalls": [
+     "integration-power-rule-error",
+     "not-rewritten-as-powers",
+     "area-between-wrong-subtraction"
+    ]
+   },
+   "guide": {
+    "what_you_see": "The curve $C$: $y=4\\sqrt{x}-x$ and its tangent $l$ at $P$, which meets the $x$-axis at $B$. A blue region under $C$ starts at $x=9$ and ends at the slider value $k$, and the green region $R$ is the area bounded by $C$, $l$ and the $x$-axis to the right of $x=9$.",
+    "legend": [
+     {
+      "id": "C",
+      "meaning": "The curve $y=4\\sqrt{x}-x$ from the question. It meets the $x$-axis at the origin and at $A$."
+     },
+     {
+      "id": "l",
+      "meaning": "The tangent to $C$ at $P$, drawn as $y=\\frac{18-x}{3}$. It meets the $x$-axis at $B$."
+     },
+     {
+      "id": "P",
+      "meaning": "The point $(9, 3)$ on $C$ where $x=9$ and where $l$ touches the curve."
+     },
+     {
+      "id": "A",
+      "meaning": "The point $(16, 0)$ where $C$ meets the $x$-axis again, found from $\\sqrt{x}(4-\\sqrt{x})=0$."
+     },
+     {
+      "id": "B",
+      "meaning": "The point $(18, 0)$ where $l$ meets the $x$-axis."
+     },
+     {
+      "id": "I",
+      "meaning": "The blue region between $C$ and the $x$-axis from $x=9$ to $x=k$. Its area is $\\int_9^k\\left(4x^{\\frac12}-x\\right)\\mathrm{d}x$."
+     },
+     {
+      "id": "R1",
+      "meaning": "The green part of $R$ between $l$ (above) and $C$ (below), from $x=9$ to $x=16$. It appears in steps 3 and 4."
+     },
+     {
+      "id": "R2",
+      "meaning": "The green part of $R$ between $l$ and the $x$-axis, from $x=16$ to $x=18$. It appears in steps 3 and 4."
+     },
+     {
+      "id": "v9",
+      "meaning": "The vertical line $x=9$, which is the left-hand boundary of $R$ and the blue region."
+     },
+     {
+      "id": "Z",
+      "meaning": "The $x$-axis, $y=0$, drawn as a grey line. It is the lower boundary of the triangle and of $R$ beyond $A$."
+     }
+    ],
+    "interact": [
+     {
+      "control": "k",
+      "kind": "slider",
+      "do": "Drag the slider from $10$ up to $16$, and then back down to about $12$.",
+      "watch": "The right-hand edge of the blue region moves along with $k$ and the reading changes. At the start value $k=12$ it is about $7.35$, and at $k=16$ the region closes at $A$ and the reading is $\\frac{67}{6}\\approx 11.17$. The slider stops at $16$ because beyond $A$ the curve is below the axis."
+     }
+    ],
+    "question_link": {
+     "part": "b",
+     "marks": [
+      "M1",
+      "A1"
+     ],
+     "text": "The point $A$ is where $C$ meets the $x$-axis at $x=16$ (M1 A1). The blue area at $k=16$ is the integral of $4x^{\\frac12}-x$ from $9$ to $16$, which gives $\\frac{67}{6}$. The triangle under $l$ from $x=9$ to $B$ at $x=18$ has area $\\frac{27}{2}$. Subtracting the blue area from this triangle leaves the green region $R$, which has area $\\frac{7}{3}$ (final M1 A1)."
+    },
+    "read_off": [
+     "The label 'Area under $C$ from $9$ to $k$' is $\\int_9^k\\left(4x^{\\frac12}-x\\right)\\mathrm{d}x$, the blue area. At $k=16$ it is $\\frac{67}{6}\\approx 11.17$, and you take this away from the triangle area $\\frac{27}{2}$ to get $\\frac{7}{3}$ for $R$."
+    ]
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0298,
+    "attempts": 1,
+    "gate": {
+     "pass": true,
+     "errors": []
+    },
+    "generated_at": "2026-09-30T23:12:32"
+   }
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:50:44",
+ "cost_usd": 0.1065,
+ "attempts": 2,
+ "checks": {
+  "pass": true,
+  "errors": [],
+  "n_scenes": 2
+ }
+}

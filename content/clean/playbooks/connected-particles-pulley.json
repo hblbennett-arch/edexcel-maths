@@ -1,0 +1,142 @@
+{
+ "id": "connected-particles-pulley",
+ "question_type": "connected-particles-pulley",
+ "component": "mech",
+ "title": "Connected particles over a pulley",
+ "what_it_asks": "You are given two particles joined by a light inextensible string over a pulley, often with one on a rough plane or slope and one hanging. You find the acceleration and tension, then follow the motion after a particle hits the ground or the string goes slack. The idea is Newton's second law applied to each particle separately, with the same tension in the string and the same size of acceleration.",
+ "typical_structure": "There are usually three or four parts, and a diagram is almost always given. An early part often asks for a modelling comment or a short statement worth a single mark. The middle part is the long one: equations of motion, then the acceleration and tension, sometimes as a show-that. The last parts use suvat for the motion after the string goes slack or the particle lands, and they often rely on the speed or acceleration found earlier.",
+ "mark_pattern": "Totals are typically high, so most marks sit in the long middle parts. Short parts are often a single B1 for a modelling statement or a stated value. The usual equation-of-motion pattern is M1 A1 A1: the M1 is for a resultant-force equation for one particle, then the A1 marks are for correct equations or results. Longer parts run M1 A1 M1 A1, where each M1 A1 pair is one particle's equation. Some run M1 A1 dM1 A1, where the dM1 is the solving step, which needs the equations first. Later suvat parts are often M1 A1: choose a formula with the right values, then find the value.",
+ "where_marks_leak": [
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "This is a common loss. You give the final answer to the wrong number of significant figures or decimal places, so the final A1 goes even when the method is sound. With $g = 9.8$, two or three significant figures is usually what is wanted."
+  },
+  {
+   "error_code": "resultant-force-error",
+   "mark_family": "method",
+   "text": "This is often made. You treat $ma$ as an extra force or take the wrong direction for the acceleration, so the M1 for that equation is lost, and the A1 and any dM1 that depend on it go too."
+  },
+  {
+   "error_code": "premature-rounding",
+   "mark_family": "accuracy",
+   "text": "You round the acceleration or speed before using it in a later suvat part, so the final A1 drifts outside the accepted range. Keep the unrounded value in your calculator."
+  },
+  {
+   "error_code": "mass-for-weight",
+   "mark_family": "method",
+   "text": "You write $m$ instead of $mg$ for the weight in an equation of motion or in the resolving. The M1 for that equation is lost, and the accuracy marks after it with it."
+  },
+  {
+   "error_code": "force-omitted-from-diagram",
+   "mark_family": "method",
+   "text": "You leave out tension, friction or the normal reaction, so the resultant-force equation is incomplete and the M1 is at risk."
+  }
+ ],
+ "write_to_earn": [
+  "Draw or mark the forces on each particle, including tension, weight, normal reaction and friction, before writing any equation.",
+  "Write each equation as resultant force equals mass times acceleration, in the direction of motion, before you substitute.",
+  "Use $F = \\mu R$ only after you have found $R$ by resolving perpendicular to the plane.",
+  "In a show-that, write the line where you eliminate $T$ before the printed result.",
+  "Carry unrounded values into the suvat part and round only in the last line, to the accuracy that suits $g$."
+ ],
+ "check_before_you_leave": [
+  "Same $T$ and $a$ used?",
+  "Weight written as $mg$?",
+  "Answer to required accuracy?",
+  "Units included?",
+  "Slack-string motion uses new acceleration?"
+ ],
+ "skills": [
+  "newtons-second-law-equation",
+  "connected-particles-equations",
+  "resolve-forces-on-inclined-plane",
+  "suvat-scalar",
+  "friction-f-equals-mu-r",
+  "weight-and-g",
+  "accuracy-units-and-rounding",
+  "mechanics-modelling-assumptions"
+ ],
+ "related_types": [
+  "vector-forces-newtons-second-law",
+  "rough-horizontal-plane-dynamics",
+  "inclined-plane-friction",
+  "suvat-straight-line"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:14:58",
+ "cost_usd": 0.1234,
+ "attempts": 2,
+ "facts": {
+  "n_questions": 54,
+  "codes_listed": {
+   "wrong-final-accuracy": 16,
+   "resultant-force-error": 10,
+   "premature-rounding": 8,
+   "arithmetic-slip": 6,
+   "g-accuracy-overstated": 4,
+   "force-omitted-from-diagram": 4,
+   "mass-for-weight": 4,
+   "sine-cosine-rule-misapplied": 3
+  },
+  "frequent_codes": [
+   "resultant-force-error",
+   "wrong-final-accuracy"
+  ],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.888 with question:IAL2018_WME01_Oct2024_Q5"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.003,
+   "shared_numbers": 0,
+   "max_cosine": 0.888,
+   "cosine_source": "question:IAL2018_WME01_Oct2024_Q5"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 11
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.888 with question:IAL2018_WME01_Oct2024_Q5"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

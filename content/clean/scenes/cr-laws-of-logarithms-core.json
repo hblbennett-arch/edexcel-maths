@@ -1,0 +1,222 @@
+{
+ "item_id": "cr-laws-of-logarithms-core",
+ "applicable": true,
+ "reason": "Seeing the left-hand side cross y = 1 only once, and only for x > 0, shows why x = 6 is kept and x = -3 is rejected.",
+ "scenes": [
+  {
+   "id": "cr-laws-of-logarithms-core::-::1",
+   "part": null,
+   "title": "Why only x = 6 survives",
+   "purpose": "See the left-hand side as a curve that only exists for x > 0, crossing y = 1 once, so the second quadratic root is not a solution.",
+   "approach": "algebraic-check",
+   "board": {
+    "x": [
+     -5,
+     14
+    ],
+    "y": [
+     -4,
+     3
+    ],
+    "axis": true,
+    "grid": true,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "k",
+     "label": "x-value k",
+     "min": 0.5,
+     "max": 12,
+     "step": 0.1,
+     "value": 2
+    }
+   ],
+   "elements": [
+    {
+     "type": "function",
+     "id": "L",
+     "expr": "ln(x^2/(x+6))/ln(3)",
+     "domain": [
+      "0.1",
+      "13"
+     ],
+     "color": "primary",
+     "label": "y = 2log3(x) - log3(x+6)"
+    },
+    {
+     "type": "hline",
+     "id": "one",
+     "at": "1"
+    },
+    {
+     "type": "vline",
+     "id": "zero",
+     "at": "0"
+    },
+    {
+     "type": "point",
+     "id": "P",
+     "x": "k",
+     "y": "ln(k^2/(k+6))/ln(3)",
+     "label": "P",
+     "color": "warning"
+    },
+    {
+     "type": "text",
+     "id": "val",
+     "x": "4",
+     "y": "-2",
+     "value": "At $x = {k}$ the left side is {ln(k^2/(k+6))/ln(3)}"
+    },
+    {
+     "type": "function",
+     "id": "Q",
+     "expr": "(x^2-3*x-18)/6",
+     "domain": [
+      "-5",
+      "7"
+     ],
+     "color": "muted",
+     "dash": true,
+     "label": "quadratic (scaled)"
+    },
+    {
+     "type": "point",
+     "id": "R1",
+     "x": "6",
+     "y": "1",
+     "label": "(6, 1)",
+     "color": "success"
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "The power law gives $2\\log_3 x = \\log_3 x^2$, so the left side is $\\log_3\\frac{x^2}{x+6}$. Drag $k$ and watch $P$ move on this curve. This is the B1.",
+     "set": {
+      "k": 2
+     },
+     "show": [
+      "L",
+      "P",
+      "val"
+     ],
+     "hide": [
+      "Q"
+     ],
+     "highlight": [
+      "L"
+     ]
+    },
+    {
+     "n": 2,
+     "text": "The equation asks for the left side to equal $1$, that is $\\frac{x^2}{x+6} = 3$. Drag $k$ to $6$: $P$ meets the line $y=1$, and $36/12 = 3$. Combining first, then removing the logs, is the M1.",
+     "set": {
+      "k": 6
+     },
+     "highlight": [
+      "P",
+      "R1"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "The quadratic $x^2-3x-18=0$ (dashed, scaled down) has roots $x=6$ and $x=-3$. But the log curve has no points at all for $x \\leqslant 0$, since $\\log_3(-3)$ is undefined. So $x=-3$ is rejected and $x=6$ only. This is the A1.",
+     "show": [
+      "Q"
+     ],
+     "highlight": [
+      "Q",
+      "zero"
+     ]
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "marks": [
+     "B1",
+     "M1",
+     "A1"
+    ],
+    "pitfalls": [
+     "log-power-law-misapplied",
+     "logs-taken-term-by-term"
+    ]
+   },
+   "guide": {
+    "what_you_see": "The curve $y=2\\log_3 x-\\log_3(x+6)$, the left side of the equation, drawn only for $x>0$, with the horizontal line $y=1$ and the $y$-axis marked. A point $P$ on the curve shows the value of the left side at your chosen $x$.",
+    "legend": [
+     {
+      "id": "L",
+      "meaning": "The curve $y=2\\log_3 x-\\log_3(x+6)=\\log_3\\frac{x^2}{x+6}$, the left-hand side of the equation. It has no points for $x\\leqslant 0$."
+     },
+     {
+      "id": "P",
+      "meaning": "A point on $L$ at $x=k$, set by the slider, whose height is the value of the left side at that $x$."
+     },
+     {
+      "id": "Q",
+      "meaning": "The dashed curve $y=\\frac{x^2-3x-18}{6}$, the quadratic from the working scaled down by $6$. It crosses the $x$-axis at the roots $x=-3$ and $x=6$."
+     },
+     {
+      "id": "R1",
+      "meaning": "The point $(6,1)$, where $L$ meets the line $y=1$. It is the solution $x=6$."
+     },
+     {
+      "id": "one",
+      "meaning": "The horizontal line $y=1$, the right-hand side of the equation."
+     },
+     {
+      "id": "zero",
+      "meaning": "The vertical line $x=0$ (the $y$-axis). The logarithms are only defined to its right."
+     }
+    ],
+    "interact": [
+     {
+      "control": "k",
+      "kind": "slider",
+      "do": "Drag the slider from $0.5$ up to $12$, stopping at $k=2$, then at $k=6$.",
+      "watch": "$P$ moves along $L$ and the reading updates. At $k=2$ the value is $\\log_3\\frac{4}{8}\\approx -0.63$, below the line $y=1$. At $k=6$ it is $\\log_3 3=1$ and $P$ sits on the line $y=1$ at $(6,1)$. For larger $k$ it rises above $1$, so $L$ crosses $y=1$ only once."
+     }
+    ],
+    "question_link": {
+     "part": null,
+     "marks": [
+      "B1",
+      "M1",
+      "A1"
+     ],
+     "text": "The curve $L$ is the combined left side $\\log_3\\frac{x^2}{x+6}$ from the power law (B1), and $P$ reaching height $1$ at $x=6$ is the equation $\\frac{x^2}{x+6}=3$ from the M1 working. The dashed quadratic has a second root at $x=-3$, but $L$ has no points there, which is why that root is rejected for the A1."
+    },
+    "read_off": [
+     "The label 'At $x=k$ the left side is …' gives the value of $2\\log_3 x-\\log_3(x+6)$ at the slider's $x$-value. The solution is where this reads exactly $1$, which happens at $k=6$."
+    ]
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0218,
+    "attempts": 1,
+    "gate": {
+     "pass": true,
+     "errors": []
+    },
+    "generated_at": "2026-09-30T23:58:21"
+   }
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T23:56:58",
+ "cost_usd": 0.0378,
+ "attempts": 1,
+ "checks": {
+  "pass": true,
+  "errors": [],
+  "n_scenes": 1
+ }
+}

@@ -1,0 +1,127 @@
+{
+ "id": "binomial-critical-region-test",
+ "question_type": "binomial-critical-region-test",
+ "component": "stats",
+ "title": "Binomial hypothesis test with critical region",
+ "what_it_asks": "You are given a situation with a fixed number of independent trials and a claimed probability $p$. You must set up hypotheses, find the critical region for a stated significance level, and say what an observed value tells you. The idea is to use cumulative binomial probabilities to find the results that are unlikely enough under $\\mathrm{H}_0$ to reject it.",
+ "typical_structure": "Usually three or four short parts worth about six marks in total. Most parts are a single mark: write the hypotheses, state a probability or a critical region, or comment on an observed value. One part carries most of the marks, usually the critical region with its probabilities. Later parts depend on earlier ones: the conclusion uses your critical region, and the actual significance level uses the region you found.",
+ "mark_pattern": "Many parts are single marks, B1 or B1ft. Hypotheses in terms of $p$ earn a B1. A comment or conclusion that uses your own critical region typically earns B1ft. The main part is a short chain such as M1 A1 A1, or B1 M1 A1 A1 when the hypotheses sit in the same part. The M1 is for a cumulative probability calculation with the correct distribution. The A1 marks are for the correct critical region and for the probability or significance level that goes with it.",
+ "where_marks_leak": [
+  {
+   "error_code": "critical-region-probabilities-not-shown",
+   "mark_family": "method",
+   "text": "You write a critical region with no probabilities on either side of the boundary. The M1 is lost because the marker cannot see the cumulative probabilities that justify it, and the A1 marks that depend on it can go too."
+  },
+  {
+   "error_code": "wrong-distribution-chosen",
+   "mark_family": "method",
+   "text": "You model the count with a distribution that does not fit, instead of $\\mathrm{B}(n, p)$ under $\\mathrm{H}_0$. The M1 is lost, and the accuracy marks that follow from it go as well."
+  },
+  {
+   "error_code": "conclusion-too-definite-or-no-context",
+   "mark_family": "accuracy",
+   "text": "You say the test proves the claim, or you write only 'reject H0' with no reference to the situation. The final conclusion mark is lost, even if the critical region was right."
+  },
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You give a probability or significance level to the wrong number of decimal places or significant figures, or round too early. The A1 for that value is lost."
+  }
+ ],
+ "write_to_earn": [
+  "Write $\\mathrm{H}_0: p = \\dots$ and $\\mathrm{H}_1: p \\dots$ using the letter $p$, and choose one or two tails from the wording.",
+  "State the model first, for example $X \\sim \\mathrm{B}(n, p)$ under $\\mathrm{H}_0$, before any probabilities.",
+  "Show the cumulative probabilities on both sides of each boundary, such as $\\mathrm{P}(X \\leqslant k)$ and $\\mathrm{P}(X \\leqslant k+1)$, so the region is justified.",
+  "For a two-tailed test, compare each tail with half the significance level and write both parts of the region.",
+  "Add the tail probabilities of your region to give the actual significance level, then compare the observed value with the region and answer in the words of the question, without saying it proves anything."
+ ],
+ "check_before_you_leave": [
+  "Hypotheses use $p$",
+  "Right number of tails",
+  "Probabilities shown at boundary",
+  "Actual level from your region",
+  "Conclusion in context, not definite"
+ ],
+ "skills": [
+  "state-hypotheses-binomial-test",
+  "find-binomial-critical-region",
+  "binomial-cumulative-probability",
+  "two-tailed-test-and-p-value",
+  "actual-significance-level",
+  "conclude-test-in-context"
+ ],
+ "related_types": [
+  "normal-mean-hypothesis-test"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:12:12",
+ "cost_usd": 0.0423,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 2,
+  "codes_listed": {
+   "wrong-distribution-chosen": 1,
+   "conclusion-too-definite-or-no-context": 1,
+   "critical-region-probabilities-not-shown": 1,
+   "wrong-final-accuracy": 1
+  },
+  "frequent_codes": [],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "5 rare words shared with P3_June2022_stats_Q4",
+    "cosine 0.882 with note:P3_June2024_stats_Q4_n6"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.005,
+   "shared_numbers": 0,
+   "max_cosine": 0.882,
+   "cosine_source": "note:P3_June2024_stats_Q4_n6"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 13
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: 5 rare words shared with P3_June2022_stats_Q4",
+   "copy: cosine 0.882 with note:P3_June2024_stats_Q4_n6"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

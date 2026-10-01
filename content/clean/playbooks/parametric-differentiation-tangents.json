@@ -1,0 +1,137 @@
+{
+ "id": "parametric-differentiation-tangents",
+ "question_type": "parametric-differentiation-tangents",
+ "component": "pure",
+ "title": "Parametric differentiation and tangents",
+ "what_it_asks": "You are given a curve by $x = f(t)$ and $y = g(t)$, often with a diagram. You are asked for a gradient, a tangent or a related result at a point. You find $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ as $\\frac{\\mathrm{d}y/\\mathrm{d}t}{\\mathrm{d}x/\\mathrm{d}t}$, substitute the parameter value, then build a line. Sometimes you convert to Cartesian form first.",
+ "typical_structure": "Most questions have two or three parts, sometimes four. The total is typically around ten marks, but it ranges from about six to fifteen. An early part often finds the parameter or coordinates of a point. A middle part finds the gradient or a tangent equation, often with a printed answer to show. A later part may convert to Cartesian form or use the tangent further. Later parts usually rely on earlier results.",
+ "mark_pattern": "Short parts are usually M1 A1. The M1 is for the quotient of the two derivatives and the A1 is for the correct expression or gradient. Where a coordinate or parameter must be found, expect B1 M1 A1, with the B1 for a correct stated value. Longer tangent parts run B1 M1 M1 A1 or M1 dM1 A1. You differentiate, substitute the parameter, then use a line equation with your gradient and point. The dM1 needs the first M1 to have been earned. When the answer is printed, the last mark is a starred show-that mark, cso. Exact trig values feed the accuracy marks.",
+ "where_marks_leak": [
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You give the final value to the wrong number of decimal places or significant figures. The final A1 is lost, even though the method was fine."
+  },
+  {
+   "error_code": "trig-derivative-sign-error",
+   "mark_family": "accuracy",
+   "text": "You differentiate $\\cos t$ as $\\sin t$, or drop a sign in a chain-rule term. The A1 for the derivative goes, and so does any A1 that depends on it, though later method marks can still be earned by follow-through."
+  },
+  {
+   "error_code": "rationalising-error",
+   "mark_family": "method",
+   "text": "A gradient such as $\\frac{1}{\\sqrt{3}-1}$ is rationalised with the wrong conjugate, or only the numerator is multiplied. The method mark for rationalising is lost, and the exact final answer is lost too."
+  },
+  {
+   "error_code": "parametric-derivative-inverted",
+   "mark_family": "method",
+   "text": "You divide $\\frac{\\mathrm{d}x}{\\mathrm{d}t}$ by $\\frac{\\mathrm{d}y}{\\mathrm{d}t}$ instead of the other way round. The M1 for the quotient is lost, and the A1 and any dM1 after it go with it."
+  }
+ ],
+ "write_to_earn": [
+  "Write $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\frac{\\mathrm{d}y/\\mathrm{d}t}{\\mathrm{d}x/\\mathrm{d}t}$ before you substitute anything, so the M1 is secure.",
+  "Differentiate $x$ and $y$ separately and write each derivative on its own line.",
+  "State the parameter value at the point, and check it in both coordinates, to earn the B1.",
+  "Write the line as $y - y_1 = m(x - x_1)$ with your numbers in, then rearrange into the form asked for.",
+  "On a show-that part, write the line just before the printed result and then the printed result, with no fudged steps."
+ ],
+ "check_before_you_leave": [
+  "Is dy/dt on top?",
+  "Signs of trig derivatives",
+  "Parameter checked in both coordinates",
+  "Exact values, not decimals",
+  "Form of line as asked"
+ ],
+ "skills": [
+  "parametric-differentiation",
+  "exact-trig-values",
+  "show-that-given-answer",
+  "differentiate-trig-functions",
+  "equation-of-straight-line",
+  "tangent-at-a-point",
+  "find-parameter-at-point",
+  "parametric-to-cartesian"
+ ],
+ "related_types": [
+  "parametric-to-cartesian-and-intersections",
+  "parametric-area",
+  "first-principles"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:08:24",
+ "cost_usd": 0.0454,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 34,
+  "codes_listed": {
+   "wrong-final-accuracy": 12,
+   "trig-derivative-sign-error": 8,
+   "rationalising-error": 8,
+   "parametric-derivative-inverted": 7,
+   "second-derivative-error": 6,
+   "decimal-not-exact": 5,
+   "premature-rounding": 5,
+   "reciprocal-trig-confused": 4
+  },
+  "frequent_codes": [
+   "wrong-final-accuracy"
+  ],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "3 rare words shared with IAL2013_WST01_June2019_Q2",
+    "cosine 0.880 with part:IAL2013_6665A_Jan2014_Q5:b"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.002,
+   "shared_numbers": 0,
+   "max_cosine": 0.88,
+   "cosine_source": "part:IAL2013_6665A_Jan2014_Q5:b"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 13
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: 3 rare words shared with IAL2013_WST01_June2019_Q2",
+   "copy: cosine 0.880 with part:IAL2013_6665A_Jan2014_Q5:b"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

@@ -1,0 +1,232 @@
+{
+ "item_id": "cr-pure-de-given-separable-003",
+ "applicable": true,
+ "reason": "Part b is well shown by a family of solution curves through (1, 1), where the slider k is tuned until the curve hits (25, 3). Part a is symbol manipulation, so it gets no scene.",
+ "scenes": [
+  {
+   "id": "cr-pure-de-given-separable-003::b::1",
+   "part": "b",
+   "title": "Tuning k so the solution curve passes through both points",
+   "purpose": "See that the condition (1, 1) fixes the constant c, and the condition (25, 3) then picks out the single value of k.",
+   "approach": "model",
+   "board": {
+    "x": [
+     -2,
+     40
+    ],
+    "y": [
+     -1,
+     7
+    ],
+    "axis": true,
+    "grid": true,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "k",
+     "label": "constant k",
+     "min": 0.02,
+     "max": 0.2,
+     "step": 0.0001,
+     "value": 0.05
+    }
+   ],
+   "elements": [
+    {
+     "type": "function",
+     "id": "S",
+     "expr": "6*x^(6*k)/(5+x^(6*k))",
+     "domain": [
+      "0.01",
+      "40"
+     ],
+     "color": "primary",
+     "label": "y"
+    },
+    {
+     "type": "hline",
+     "id": "cap",
+     "at": "6",
+     "color": "muted"
+    },
+    {
+     "type": "vline",
+     "id": "v25",
+     "at": "25",
+     "color": "muted"
+    },
+    {
+     "type": "point",
+     "id": "P1",
+     "x": "1",
+     "y": "1",
+     "label": "(1, 1)",
+     "color": "secondary"
+    },
+    {
+     "type": "point",
+     "id": "P2",
+     "x": "25",
+     "y": "3",
+     "label": "(25, 3)",
+     "color": "success"
+    },
+    {
+     "type": "glider",
+     "id": "G",
+     "on": "S",
+     "x": "10",
+     "label": "G"
+    },
+    {
+     "type": "text",
+     "id": "readout",
+     "x": "2",
+     "y": "5",
+     "value": "At $x=25$ the curve has $y \\approx$ {6*25^(6*k)/(5+25^(6*k))}"
+    },
+    {
+     "type": "text",
+     "id": "gval",
+     "x": "2",
+     "y": "4",
+     "value": "$6k$ = {6*k}"
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "With $x=1$ and $y=1$ we get $\\ln\\left(\\frac15\\right)=6k\\ln 1+c$, so $c=-\\ln 5$ whatever $k$ is. Drag $k$: every curve passes through $(1,1)$. This is the B1 for finding $c$ first.",
+     "set": {
+      "k": 0.05
+     },
+     "highlight": [
+      "P1"
+     ]
+    },
+    {
+     "n": 2,
+     "text": "The second point $(25,3)$ makes the left side $\\ln 1=0$, giving $0=6k\\ln 25-\\ln 5$. On the board, the curve only passes through $(25,3)$ for one value of $k$. This is the M1 for an equation in $k$ alone.",
+     "highlight": [
+      "P2",
+      "v25"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "Use $\\ln 25=2\\ln 5$ to get $12k\\ln 5=\\ln 5$, so $k=\\frac1{12}\\approx 0.0833$. Set $k$ to this value and the curve hits $(25,3)$. These are the M1 and A1 for solving for $k$.",
+     "set": {
+      "k": 0.0833
+     },
+     "highlight": [
+      "P2"
+     ]
+    },
+    {
+     "n": 4,
+     "text": "With $6k=\\frac12$, $\\frac{y}{6-y}=\\frac{\\sqrt x}{5}$ rearranges to $y=\\frac{6\\sqrt x}{5+\\sqrt x}$. This is the curve drawn, so $A=6$, $B=5$, $n=\\frac12$. Drag $G$ along it: $y$ stays below $6$. These are the last M1 and A1.",
+     "highlight": [
+      "S",
+      "G",
+      "cap"
+     ]
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ],
+    "marks": [
+     "B1",
+     "M1",
+     "A1"
+    ],
+    "pitfalls": [
+     "initial-conditions-not-used",
+     "constant-not-found-from-point"
+    ]
+   },
+   "guide": {
+    "interact": [
+     {
+      "control": "k",
+      "kind": "slider",
+      "do": "Drag the slider between $0.02$ and $0.2$, then set it to about $0.0833$ (that is $\\frac{1}{12}$).",
+      "watch": "Every curve passes through $(1,1)$, but the height at $x=25$ changes. The curve passes through $(25,3)$ only when $k=\\frac{1}{12}\\approx 0.0833$, where $6k=0.5$ and the readout shows $3$."
+     },
+     {
+      "control": "G",
+      "kind": "glider",
+      "do": "Drag $G$ along the curve from near $x=0$ out to $x=40$.",
+      "watch": "With $k=\\frac{1}{12}$, $G$ passes through $(1,1)$ and $(25,3)$. Its height keeps rising but stays below the line $y=6$, which fits $0<y<6$."
+     }
+    ],
+    "legend": [
+     {
+      "id": "S",
+      "meaning": "The solution curve $y=\\dfrac{6x^{6k}}{5+x^{6k}}$ for the current $k$. It already satisfies $y=1$ at $x=1$ (so $c=-\\ln 5$)."
+     },
+     {
+      "id": "P1",
+      "meaning": "The given point $(1,1)$. It fixes $c=-\\ln 5$, whatever $k$ is."
+     },
+     {
+      "id": "P2",
+      "meaning": "The given point $(25,3)$. It fixes the value of $k$."
+     },
+     {
+      "id": "G",
+      "meaning": "A point you can drag along the solution curve $S$ to read off its position."
+     },
+     {
+      "id": "cap",
+      "meaning": "The horizontal line $y=6$, which the solution never reaches."
+     },
+     {
+      "id": "v25",
+      "meaning": "The vertical line $x=25$, where the curve must have height $3$."
+     }
+    ],
+    "question_link": {
+     "part": "b",
+     "marks": [
+      "B1",
+      "M1",
+      "A1"
+     ],
+     "text": "The curve $S$ is the solution $y$ of the differential equation, and $P1$ and $P2$ are the two given conditions. Every curve passing through $P1$ shows the B1 for $c=-\\ln 5$. Needing $S$ to hit $P2$ is the M1 equation in $k$, and $k=\\frac{1}{12}$ is the A1. The curve then matches $y=\\frac{6\\sqrt{x}}{5+\\sqrt{x}}$, so $A=6$, $B=5$, $n=\\frac12$."
+    },
+    "read_off": [
+     "The 'readout' label gives the height of the curve at $x=25$, which is $\\frac{6\\cdot 25^{6k}}{5+25^{6k}}$. It must equal $3$ for the curve to pass through $(25,3)$, and it does so when $k=\\frac{1}{12}$.",
+     "The '$6k$' label gives the index $n$ in $y=\\frac{6x^{n}}{5+x^{n}}$. At $k=\\frac{1}{12}$ it reads about $0.5$, so $n=\\frac12$."
+    ],
+    "what_you_see": "The solution curve $S$ of $x\\\\frac{\\\\mathrm{d}y}{\\\\mathrm{d}x}=ky(6-y)$, drawn as $y=\\\\frac{6x^{6k}}{5+x^{6k}}$, with the given points $(1,1)$ and $(25,3)$ and the ceiling $y=6$. The slider $k$ changes the curve."
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0249,
+    "attempts": 1,
+    "gate": {
+     "pass": true,
+     "errors": []
+    },
+    "generated_at": "2026-09-30T23:12:41"
+   }
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:50:28",
+ "cost_usd": 0.0423,
+ "attempts": 1,
+ "checks": {
+  "pass": true,
+  "errors": [],
+  "n_scenes": 1
+ }
+}

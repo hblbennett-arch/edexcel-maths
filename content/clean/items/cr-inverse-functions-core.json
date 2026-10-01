@@ -1,0 +1,227 @@
+{
+ "id": "cr-inverse-functions-core",
+ "blueprint_id": "dr-inverse-functions-core",
+ "question_type": "composite-and-inverse-functions",
+ "component": "pure",
+ "tier": "core",
+ "kind": "drill",
+ "stem": null,
+ "parts": [
+  {
+   "label": null,
+   "marks": 4,
+   "command": "show-that",
+   "forms": [],
+   "skills": [
+    "inverse-functions"
+   ],
+   "text": "The function $\\mathrm{f}$ is defined by\n$$\\mathrm{f}(x) = \\frac{3x+2}{x-1}, \\quad x \\in \\mathbb{R},\\ x > 1.$$\nShow that $\\mathrm{f}^{-1}(x) = \\dfrac{x+2}{x-3}$ and state the domain of $\\mathrm{f}^{-1}$. (4)",
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Writes $y = \\frac{3x+2}{x-1}$ (or $x = \\frac{3y+2}{y-1}$) and multiplies out to remove the fraction, e.g. $xy - y = 3x + 2$ or $xy - x = 3y + 2$",
+     "notes": "Swapping $x$ and $y$ may happen at the start or at the end. Using $\\frac{1}{\\mathrm{f}(x)}$ scores M0."
+    },
+    {
+     "code": "dM1",
+     "for": "Collects the terms in the subject variable on one side and factorises, e.g. $y(x-3) = x+2$ or $x(y-3) = y+2$",
+     "depends_on": "M1"
+    },
+    {
+     "code": "A1*",
+     "for": "Reaches $\\mathrm{f}^{-1}(x) = \\frac{x+2}{x-3}$ with the variables correctly interchanged and no errors",
+     "notes": "cso. The final line must be written in terms of $x$ and labelled as $\\mathrm{f}^{-1}(x)$ or $y =$ after the swap."
+    },
+    {
+     "code": "B1",
+     "for": "Domain of $\\mathrm{f}^{-1}$: $x > 3$",
+     "notes": "Accept $x \\in (3, \\infty)$ or $\\{x \\in \\mathbb{R}: x > 3\\}$. Do not accept $x \\geqslant 3$, $x > 1$, or $\\mathrm{f}^{-1}(x) > 3$. Independent of the method marks."
+    }
+   ],
+   "alternatives": [
+    {
+     "name": "Way 2: rewrite f first",
+     "marks": [
+      {
+       "code": "M1",
+       "for": "Writes $\\mathrm{f}(x) = 3 + \\frac{5}{x-1}$ and sets $y = 3 + \\frac{5}{x-1}$ (or with $x$ and $y$ swapped)"
+      },
+      {
+       "code": "dM1",
+       "for": "Rearranges to $x - 1 = \\frac{5}{y-3}$, so $x = 1 + \\frac{5}{y-3}$ (or equivalent in swapped variables)",
+       "depends_on": "M1"
+      },
+      {
+       "code": "A1*",
+       "for": "Combines to a single fraction $\\frac{y-3+5}{y-3} = \\frac{y+2}{y-3}$ and writes $\\mathrm{f}^{-1}(x) = \\frac{x+2}{x-3}$",
+       "notes": "cso"
+      },
+      {
+       "code": "B1",
+       "for": "Domain of $\\mathrm{f}^{-1}$: $x > 3$, e.g. because $\\frac{5}{x-1} > 0$ for $x > 1$ and so $\\mathrm{f}(x) > 3$"
+      }
+     ]
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Let $y = \\frac{3x+2}{x-1}$. Then $y(x-1) = 3x+2$, so $xy - y = 3x + 2$.",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "Collect the $x$ terms: $xy - 3x = y + 2$, so $x(y-3) = y+2$ and $x = \\frac{y+2}{y-3}$.",
+     "mark": "dM1"
+    },
+    {
+     "step": 3,
+     "working": "Swap $x$ and $y$: $\\mathrm{f}^{-1}(x) = \\frac{x+2}{x-3}$, as required.",
+     "mark": "A1*"
+    },
+    {
+     "step": 4,
+     "working": "The domain of $\\mathrm{f}^{-1}$ is the range of $\\mathrm{f}$. Since $\\mathrm{f}(x) = 3 + \\frac{5}{x-1}$ and $\\frac{5}{x-1}$ takes every positive value when $x > 1$, the range of $\\mathrm{f}$ is $\\mathrm{f}(x) > 3$. So the domain of $\\mathrm{f}^{-1}$ is $x > 3$.",
+     "mark": "B1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "finv",
+     "expr": "(x+2)/(x-3)",
+     "form": "exact"
+    },
+    {
+     "name": "domain_lower_bound",
+     "expr": "3",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "(3*((x+2)/(x-3)) + 2)/(((x+2)/(x-3)) - 1)",
+     "rhs": "x",
+     "domain": [
+      4,
+      20
+     ]
+    },
+    {
+     "type": "equals",
+     "lhs": "((3x+2)/(x-1) + 2)/((3x+2)/(x-1) - 3)",
+     "rhs": "x",
+     "domain": [
+      2,
+      20
+     ]
+    },
+    {
+     "type": "equals",
+     "lhs": "(3x+2)/(x-1)",
+     "rhs": "3 + 5/(x-1)",
+     "domain": [
+      2,
+      20
+     ]
+    },
+    {
+     "type": "solutions",
+     "equation": "x - 3 = 0",
+     "var": "x",
+     "result": [
+      "3"
+     ],
+     "answer": "domain_lower_bound"
+    }
+   ],
+   "hints": [
+    "Write $y = \\frac{3x+2}{x-1}$, multiply both sides by $(x-1)$, then get every term containing $x$ on one side so that you can factorise.",
+    "The domain of an inverse function is the range of the original function. Try writing $\\mathrm{f}(x)$ as $3 + \\frac{k}{x-1}$ to see what values it can take when $x > 1$."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "step": 4,
+   "error_code": "inverse-domain-not-range",
+   "text": "A common slip is to copy the domain of $\\mathrm{f}$ and write $x > 1$ as the domain of $\\mathrm{f}^{-1}$. The domain of $\\mathrm{f}^{-1}$ is the range of $\\mathrm{f}$, which is $\\mathrm{f}(x) > 3$, so the answer is $x > 3$. Writing $x > 1$ loses the B1.",
+   "says_common": true
+  },
+  {
+   "part": null,
+   "step": 1,
+   "error_code": "inverse-function-error",
+   "text": "$\\mathrm{f}^{-1}(x)$ does not mean $\\frac{1}{\\mathrm{f}(x)}$. If you write $\\frac{x-1}{3x+2}$ you have found a reciprocal, not an inverse, and the method marks are lost. You need to rearrange $y = \\frac{3x+2}{x-1}$ to make $x$ the subject.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "step": 4,
+   "error_code": "domain-range-confused",
+   "text": "The question asks for the domain of $\\mathrm{f}^{-1}$, which is a set of $x$-values. So write $x > 3$, not $\\mathrm{f}^{-1}(x) > 3$ or $y > 3$, which describe outputs. Writing it in terms of outputs loses the B1.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:52:12",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.2262
+ },
+ "gate_results": {
+  "G1": {
+   "pass": false,
+   "errors": [
+    "part -: 4 marks, the blueprint has 3"
+   ],
+   "total_marks": 4
+  },
+  "G7": {
+   "pass": false,
+   "flag": true,
+   "reasons": [
+    "2 word 8-gram(s) also in the reference corpus (not whitelisted)"
+   ],
+   "flags": [
+    "cosine 0.914 with question:GCE2008_6665_Jan2012_Q7"
+   ],
+   "hit_fields": [
+    "part - hints"
+   ],
+   "n_8gram_hits": 2,
+   "hits8": [
+    "function is the range of the original function",
+    "inverse function is the range of the original"
+   ],
+   "max_jaccard": 0.094,
+   "jaccard_source": "P1_Oct2020_Q4",
+   "shared_numbers": 0,
+   "max_cosine": 0.914,
+   "cosine_source": "question:GCE2008_6665_Jan2012_Q7"
+  },
+  "G2": {
+   "pass": false,
+   "errors": [
+    "part - answer finv: not verified (give exact, a check, or a check with \"answer\": \"finv\")",
+    "part - check 4 (solutions): result ['3'] differs from answer domain_lower_bound = 3"
+   ],
+   "n_checks": 4,
+   "n_answers": 2,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

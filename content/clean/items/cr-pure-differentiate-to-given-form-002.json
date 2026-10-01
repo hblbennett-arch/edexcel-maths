@@ -98,7 +98,194 @@
     "Before differentiating, expand the bracket and divide every term by $x^3$, so that $y$ is a sum of terms like $kx^n$. Remember that $x\\sqrt{x} = x^{\\frac{3}{2}}$.",
     "When you differentiate $x^n$ with $n$ negative, the new power is $n-1$, which is even more negative."
    ],
-   "forms": []
+   "forms": [],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$y = \\dfrac{x^3 - 8x^{3/2} + 16}{x^3} = 1 - 8x^{-\\frac32} + 16x^{-3}$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 12x^{-\\frac52} - 48x^{-4}$",
+      "secures": [
+       "A1",
+       "A1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "At $x=4$: $\\dfrac{12}{32} - \\dfrac{48}{256} = \\dfrac38 - \\dfrac3{16}$, so $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 12x^{-\\frac52} - 48x^{-4}$ and gradient $= \\dfrac{3}{16}$",
+      "secures": [
+       "B1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$(x\\sqrt{x}-4)^2 = (x\\sqrt{x}-4)(x\\sqrt{x}-4)$",
+      "why": "You can't differentiate the top and bottom separately, so first write the square out as a product to expand it.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$x\\sqrt{x} = x^{\\frac32}$",
+      "why": "Writing the root as a power lets you use index laws: $x = x^1$ and $\\sqrt{x} = x^{\\frac12}$, and you add the powers.",
+      "secures": null,
+      "check": "$1 + \\tfrac12 = \\tfrac32$"
+     },
+     {
+      "step": 3,
+      "working": "$(x^{\\frac32}-4)^2 = x^{3} - 4x^{\\frac32} - 4x^{\\frac32} + 16$",
+      "why": "Multiply each term of one bracket by each term of the other. $x^{\\frac32}\\times x^{\\frac32} = x^3$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$(x^{\\frac32}-4)^2 = x^3 - 8x^{\\frac32} + 16$",
+      "why": "Collect the two identical middle terms.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$y = \\dfrac{x^3}{x^3} - \\dfrac{8x^{\\frac32}}{x^3} + \\dfrac{16}{x^3}$",
+      "why": "Divide each term on the top by $x^3$ separately so that $y$ becomes a sum of powers.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$y = 1 - 8x^{\\frac32 - 3} + 16x^{-3}$",
+      "why": "Dividing powers of $x$ means subtracting the indices. $\\frac{1}{x^3}$ is $x^{-3}$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "$y = 1 - 8x^{-\\frac32} + 16x^{-3}$",
+      "why": "Evaluate $\\frac32 - 3 = -\\frac32$. Now each term is a number times a power of $x$, ready to differentiate.",
+      "secures": "M1",
+      "check": "At $x=1$: original $(1-4)^2/1 = 9$; new form $1-8+16 = 9$."
+     },
+     {
+      "step": 8,
+      "working": "$\\dfrac{\\mathrm{d}}{\\mathrm{d}x}(1) = 0$",
+      "why": "The derivative of a constant is zero, so no constant term is left.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "$\\dfrac{\\mathrm{d}}{\\mathrm{d}x}\\left(-8x^{-\\frac32}\\right) = -8\\times\\left(-\\tfrac32\\right)x^{-\\frac32-1}$",
+      "why": "Differentiate by bringing the power down as a multiplier and reducing the power by 1.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$-8\\times\\left(-\\tfrac32\\right) = 12$",
+      "why": "A negative times a negative is positive, and $8\\times\\frac32 = 12$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 11,
+      "working": "$-\\tfrac32 - 1 = -\\tfrac52$, so this term gives $12x^{-\\frac52}$",
+      "why": "Subtract 1 from the power to finish this term.",
+      "secures": "A1",
+      "check": null
+     },
+     {
+      "step": 12,
+      "working": "$\\dfrac{\\mathrm{d}}{\\mathrm{d}x}\\left(16x^{-3}\\right) = 16\\times(-3)x^{-3-1}$",
+      "why": "Use the same rule on the last term.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 13,
+      "working": "$16\\times(-3) = -48$ and $-3-1=-4$, so this term gives $-48x^{-4}$",
+      "why": "Multiply the coefficient by the power and lower the power by 1.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 14,
+      "working": "$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 12x^{-\\frac52} - 48x^{-4}$",
+      "why": "Put the terms together. The constant gave nothing, so only these two terms remain.",
+      "secures": "A1",
+      "check": null
+     },
+     {
+      "step": 15,
+      "working": "At $x=4$: $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 12\\times4^{-\\frac52} - 48\\times4^{-4}$",
+      "why": "The gradient of the curve at a point is the value of the derivative there, so substitute $x=4$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 16,
+      "working": "$4^{\\frac52} = (\\sqrt4)^5 = 2^5 = 32$",
+      "why": "Take the square root first, then the fifth power, to evaluate the fractional index.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 17,
+      "working": "$4^4 = 256$",
+      "why": "Multiply out $4\\times4\\times4\\times4$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 18,
+      "working": "$12\\times4^{-\\frac52} = \\dfrac{12}{32}$ and $48\\times4^{-4} = \\dfrac{48}{256}$",
+      "why": "A negative power means one over the positive power, so use the values of $4^{\\frac52}$ and $4^4$ you just found.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 19,
+      "working": "$\\dfrac{12}{32} = \\dfrac38$ and $\\dfrac{48}{256} = \\dfrac{3}{16}$",
+      "why": "Cancel each fraction: divide by 4 in the first and by 16 in the second.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 20,
+      "working": "$\\dfrac38 = \\dfrac6{16}$",
+      "why": "Use a common denominator of 16 so you can subtract.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 21,
+      "working": "$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x} = 12x^{-\\frac52} - 48x^{-4}$, and the gradient at $x=4$ is $\\dfrac6{16}-\\dfrac3{16} = \\dfrac{3}{16}$",
+      "why": "Subtract the fractions to get the exact gradient.",
+      "secures": "B1",
+      "check": "$3/16 = 0.1875$, which is small and positive, as expected."
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:50:37+00:00",
+    "cost_usd": 0.0758,
+    "attempts": 2,
+    "errors": [],
+    "attempt_errors": [
+     [
+      "part -: brisk: last working does not contain a value equal to answer dydx = 12x^(-5/2) - 48x^(-4) (to exact)"
+     ]
+    ]
+   }
   }
  ],
  "pitfalls": [
@@ -396,6 +583,14 @@
      "differentiate-negative-and-fractional-powers"
     ]
    }
+  },
+  "GL": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part -: copy check flag: cosine 0.873 with part:GCE2008_6663_Jan2010_Q4:"
+   ],
+   "parts_checked": 1
   }
  },
  "review": {

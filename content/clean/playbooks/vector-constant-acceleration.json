@@ -1,0 +1,144 @@
+{
+ "id": "vector-constant-acceleration",
+ "question_type": "vector-constant-acceleration",
+ "component": "mech",
+ "title": "Constant acceleration with i-j vectors",
+ "what_it_asks": "You are given a starting velocity or position and a constant acceleration (or enough information to find it), all as i-j vectors. You find velocities, positions, distances, speeds, bearings, or the time when motion is parallel to a given direction. The idea is vector suvat: $\\mathbf{v} = \\mathbf{u} + \\mathbf{a}t$ and $\\mathbf{r} = \\mathbf{r}_0 + \\mathbf{u}t + \\frac{1}{2}\\mathbf{a}t^2$, with the i and j components handled together as one vector.",
+ "typical_structure": "Usually three or four parts, sometimes one or two, and occasionally up to six. Most parts are worth two to four marks, and a whole question is typically around ten marks. Early parts often find a velocity or position at a given time, or find the acceleration. Later parts use that result to find a speed, a bearing, a distance or a time, and they are often worded as \"hence\" or \"show that\". Very few questions have a diagram.",
+ "mark_pattern": "The most typical part is a two-mark M1 A1. The method mark is for using a suvat equation in vector form. The accuracy mark is for the correct vector or value. Longer parts are often M1 A1 M1 A1. The first pair builds a vector such as a velocity or position. The second pair uses it, for example finding a magnitude or an angle, or setting a component to zero and solving for $t$. Three-mark parts are usually M1 A1 A1 or M1 M1 A1, where two stages or two components are credited separately. Sometimes a dM1 needs the first method mark, and an A1ft follows your own earlier vector. A show-that part ends with a starred accuracy mark for a complete argument. A lone B1 is usually for a value you write down.",
+ "where_marks_leak": [
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You give a speed, distance or angle to the wrong number of significant figures or decimal places, or not to the nearest unit asked for. The final A1 is lost even though the method marks are safe. This is a common error."
+  },
+  {
+   "error_code": "arithmetic-slip",
+   "mark_family": "accuracy",
+   "text": "You use the right suvat equation but slip when combining components, for example in the $\\frac{1}{2}at^2$ term or in a sign. The A1 is lost, and any dM1 or later A1 that depends on that vector may go too, unless an A1ft applies. This is a common error."
+  },
+  {
+   "error_code": "premature-rounding",
+   "mark_family": "accuracy",
+   "text": "You round a time or a component part-way through, then use it to find a speed or bearing. The final answer drifts outside what is accepted and the last A1 is lost."
+  },
+  {
+   "error_code": "direction-angle-reference-error",
+   "mark_family": "accuracy",
+   "text": "You measure the angle from the wrong axis, or give an angle when a three-figure bearing is wanted. The method mark for the trig is kept, but the A1 for the direction goes."
+  },
+  {
+   "error_code": "magnitude-error",
+   "mark_family": "method",
+   "text": "When finding a speed or distance you forget to square the components or to take the square root. The M1 for the magnitude is lost, and the A1 after it."
+  }
+ ],
+ "write_to_earn": [
+  "Write the vector suvat equation before you substitute, so the M1 is secure even if a number slips.",
+  "Put the i and j components in brackets as one vector, such as $(3\\mathbf{i} - 2\\mathbf{j})$, and simplify each component separately.",
+  "For a parallel or perpendicular condition, state which component is zero or which ratio you equate, then solve for $t$.",
+  "Keep exact or unrounded values until the last line, then round once to the accuracy asked and add units.",
+  "In a show-that part, write the line just before the printed result, then the result itself."
+ ],
+ "check_before_you_leave": [
+  "Speed or velocity asked?",
+  "Rounded once, at the end?",
+  "Bearing or angle from the right line?",
+  "Units and accuracy given?",
+  "Signs in each component checked?"
+ ],
+ "skills": [
+  "suvat-vectors",
+  "vector-magnitude",
+  "speed-and-direction-from-velocity",
+  "vector-between-points",
+  "accuracy-units-and-rounding",
+  "direction-condition-on-vector",
+  "show-that-given-answer",
+  "solve-quadratic-equation"
+ ],
+ "related_types": [
+  "suvat-straight-line",
+  "variable-acceleration-vectors",
+  "vector-forces-newtons-second-law",
+  "vectors-lengths-and-shapes"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:13:01",
+ "cost_usd": 0.0657,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 54,
+  "codes_listed": {
+   "wrong-final-accuracy": 15,
+   "arithmetic-slip": 10,
+   "premature-rounding": 6,
+   "direction-angle-reference-error": 4,
+   "miscopied-value": 3,
+   "velocity-given-for-speed": 2,
+   "magnitude-error": 2,
+   "rationalising-error": 2
+  },
+  "frequent_codes": [
+   "arithmetic-slip",
+   "wrong-final-accuracy"
+  ],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "3 rare words shared with IAL2013_WST01_June2019_Q2",
+    "cosine 0.883 with part:GCE2008_6677_Jan2010_Q7:a"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.0,
+   "shared_numbers": 0,
+   "max_cosine": 0.883,
+   "cosine_source": "part:GCE2008_6677_Jan2010_Q7:a"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 6
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: 3 rare words shared with IAL2013_WST01_June2019_Q2",
+   "copy: cosine 0.883 with part:GCE2008_6677_Jan2010_Q7:a"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

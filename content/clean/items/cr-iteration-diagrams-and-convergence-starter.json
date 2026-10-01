@@ -1,0 +1,182 @@
+{
+ "id": "cr-iteration-diagrams-and-convergence-starter",
+ "blueprint_id": "dr-iteration-diagrams-and-convergence-starter",
+ "question_type": "turning-point-by-iteration",
+ "component": "pure",
+ "tier": "starter",
+ "kind": "drill",
+ "stem": null,
+ "parts": [
+  {
+   "label": null,
+   "marks": 2,
+   "command": "find",
+   "skills": [
+    "iteration-diagrams-and-convergence"
+   ],
+   "forms": [],
+   "text": "A curve has equation $y = \\mathrm{e}^{x} - x^{3}$. One of its stationary points has $x$-coordinate $\\alpha$, where $0 < \\alpha < 2$, and $\\alpha$ is a root of $x = \\dfrac{\\mathrm{e}^{x/2}}{\\sqrt{3}}$.\n\nA sequence is defined by $x_{n+1} = \\dfrac{\\mathrm{e}^{x_n/2}}{\\sqrt{3}}$, starting from $x_1 = 1$. Find $x_2$, $x_3$ and $x_4$, writing each to 3 decimal places, and say whether these terms get closer to $\\alpha$ from above or from below. (2)",
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Puts $x_1 = 1$ into the formula to get $x_2 = \\frac{\\mathrm{e}^{0.5}}{\\sqrt{3}}$, then feeds that value back in to get $x_3$",
+     "notes": "Evidence can be $x_2$ = awrt 0.95 or a correct numerical expression for $x_2$. Using a rounded $x_2$ to find $x_3$ is fine."
+    },
+    {
+     "code": "A1",
+     "for": "$x_2 = 0.952$, $x_3 = 0.929$, $x_4 = 0.919$, all correct to 3 d.p., and says the terms decrease towards $\\alpha$, so they approach it from above",
+     "notes": "cao for all three values. Needs the direction statement, e.g. 'decreasing, so approaching from above' or 'staircase coming down to $\\alpha$'. Don't accept 'from below' or 'oscillating'.",
+     "depends_on": "M1"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$x_2 = \\dfrac{\\mathrm{e}^{1/2}}{\\sqrt{3}} = \\dfrac{1.64872\\ldots}{1.73205\\ldots} = 0.95189\\ldots$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$x_3 = \\dfrac{\\mathrm{e}^{0.47594\\ldots}}{\\sqrt{3}} = 0.92926\\ldots$, $\\quad x_4 = \\dfrac{\\mathrm{e}^{0.46463\\ldots}}{\\sqrt{3}} = 0.91881\\ldots$",
+     "mark": "0"
+    },
+    {
+     "step": 3,
+     "working": "To 3 d.p.: $x_2 = 0.952$, $x_3 = 0.929$, $x_4 = 0.919$. Each term is smaller than the one before, and $\\alpha \\approx 0.910$, so the terms approach $\\alpha$ from above. This makes a staircase that steps down to the root.",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "x_2",
+     "expr": "0.952",
+     "form": "dp-3",
+     "exact": "exp(1/2)/sqrt(3)"
+    },
+    {
+     "name": "x_3",
+     "expr": "0.929",
+     "form": "dp-3",
+     "exact": "exp(exp(1/2)/(2*sqrt(3)))/sqrt(3)"
+    },
+    {
+     "name": "x_4",
+     "expr": "0.919",
+     "form": "dp-3",
+     "exact": "exp(exp(exp(1/2)/(2*sqrt(3)))/(2*sqrt(3)))/sqrt(3)"
+    }
+   ],
+   "checks": [
+    {
+     "type": "derivative",
+     "f": "exp(x) - x^3",
+     "var": "x",
+     "result": "exp(x) - 3x^2"
+    },
+    {
+     "type": "equals",
+     "lhs": "sqrt(exp(x)/3)",
+     "rhs": "exp(x/2)/sqrt(3)",
+     "domain": "positive"
+    },
+    {
+     "type": "numeric",
+     "expr": "exp(1/2)/sqrt(3)",
+     "answer": "x_2",
+     "form": "dp-3"
+    },
+    {
+     "type": "numeric",
+     "expr": "exp(exp(1/2)/(2*sqrt(3)))/sqrt(3)",
+     "answer": "x_3",
+     "form": "dp-3"
+    },
+    {
+     "type": "numeric",
+     "expr": "exp(exp(exp(1/2)/(2*sqrt(3)))/(2*sqrt(3)))/sqrt(3)",
+     "answer": "x_4",
+     "form": "dp-3"
+    },
+    {
+     "type": "substitute",
+     "expr": "exp(x) - 3x^2",
+     "at": {
+      "x": "0.9100"
+     },
+     "result": "0.00",
+     "form": "dp-2"
+    }
+   ],
+   "hints": [
+    "Put $x_1 = 1$ into the right-hand side to get $x_2$. Keep the full calculator value (use ANS) when you work out the next term.",
+    "Look at whether each term is bigger or smaller than the one before it. That tells you which side of $\\alpha$ they come from."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "step": 3,
+   "error_code": "iteration-diagram-misdescribed",
+   "text": "The terms $0.952, 0.929, 0.919$ all fall steadily, so they approach $\\alpha$ from one side only. This is a staircase, not a cobweb. If you call it oscillating, or say the terms come from below, you lose the A1 even when your three values are right.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "step": 2,
+   "error_code": "iteration-diagram-misdescribed",
+   "text": "If you round $x_2$ to $0.95$ and keep rounding at every step, $x_4$ can drift away from $0.919$. Then you can't reliably tell how the terms are behaving, and a wrong value costs you the A1. Keep full calculator accuracy until the end.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:55:28",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.2244
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 2
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.868 with part:IAL2018_WMA13_Jan2023_Q9:e"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "hits8": [],
+   "max_jaccard": 0.018,
+   "jaccard_source": "GCE2008_6665_Jan2010_Q2",
+   "shared_numbers": 0,
+   "max_cosine": 0.868,
+   "cosine_source": "part:IAL2018_WMA13_Jan2023_Q9:e"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 6,
+   "n_answers": 3,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": false,
+   "errors": [
+    "turning-point-by-iteration: total marks 2 outside 6-14 (seen 7-13, +-1)"
+   ],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

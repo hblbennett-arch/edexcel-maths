@@ -1,0 +1,140 @@
+{
+ "id": "box-plot-outliers-and-percentiles",
+ "question_type": "box-plot-outliers-and-percentiles",
+ "component": "stats",
+ "title": "Box plots, outliers & percentiles",
+ "what_it_asks": "You are given a box plot, summary values or a data table. You read values, draw or complete the plot, and decide which values are outliers using a stated rule. Some questions also link the data to the large data set or to a normal model and its percentiles. The idea is to turn the quartiles and IQR into fences, then use them to place whiskers and outliers correctly.",
+ "typical_structure": "There are usually four or five parts, sometimes up to seven, and the whole question is often worth about twelve marks. Almost every question has a diagram. Early parts are short, worth one or two marks, and ask you to read or state a value. A middle part applies the outlier rule, often as a find or show-that part. A later part asks you to draw or complete the plot, or to compare distributions or comment in context. Later parts typically use values found earlier.",
+ "mark_pattern": "Independent marks dominate. A single B1 is the most usual part. B1 B1 and B1 B1 B1 are also usual, for reading values, stating features or drawing the plot (median, box, whiskers, outliers). Calculation parts are usually M1 A1. The M1 is for a correct quartile or fence calculation, and the A1 is for the correct value. A variant is M1 A1ft, where the accuracy mark follows your own earlier quartiles. Some parts run B1 M1 A1, with a stated value followed by a calculation. A show-that part ends in a final mark that needs a fully correct argument (cso).",
+ "where_marks_leak": [
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "This is a frequent error. You give a final value to the wrong number of decimal places or significant figures, so the A1 is lost even though the method was right."
+  },
+  {
+   "error_code": "outlier-fence-error",
+   "mark_family": "method",
+   "text": "You use the wrong multiple of the IQR, or start from the median instead of $Q_1$ or $Q_3$. The M1 for the fence is lost, and the A1 after it goes too."
+  },
+  {
+   "error_code": "whisker-to-outlier",
+   "mark_family": "independent",
+   "text": "You draw a whisker out to an outlier instead of stopping it at the largest or smallest value inside the fences and marking the outlier separately. The B1 for the whiskers is lost."
+  },
+  {
+   "error_code": "premature-rounding",
+   "mark_family": "accuracy",
+   "text": "You round a quartile, IQR or mean early, so the final limit drifts outside what is accepted. The A1 is lost."
+  },
+  {
+   "error_code": "approximation-parameters-wrong",
+   "mark_family": "method",
+   "text": "In a normal model you use $np$ as the variance or the wrong standard deviation. The M1 for the parameters is lost, and the accuracy mark after it goes too."
+  }
+ ],
+ "write_to_earn": [
+  "Write the fence rule with your quartiles, such as $Q_3 + 1.5 \\times \\mathrm{IQR}$, before you put numbers in.",
+  "Work out the IQR on its own line, then both the lower and upper limits, so each has its own mark.",
+  "When you draw, mark the median, the box ends and the whisker ends, then show each outlier separately with a cross.",
+  "Compare two distributions using a measure of location and a measure of spread, and put both in the context of the question.",
+  "In a show-that part, write the step just before the printed result, then the result itself."
+ ],
+ "check_before_you_leave": [
+  "Right quartile used?",
+  "Both fences checked?",
+  "Whiskers stop inside fences?",
+  "Outliers marked separately?",
+  "Accuracy and context stated?"
+ ],
+ "skills": [
+  "median-quartiles-iqr",
+  "box-plot-reading-and-drawing",
+  "identify-outliers-using-rule",
+  "explain-with-reason",
+  "compare-distributions-in-context",
+  "show-that-given-answer",
+  "accuracy-units-and-rounding"
+ ],
+ "related_types": [
+  "summary-statistics-and-lds",
+  "histogram-and-distribution-models"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:11:10",
+ "cost_usd": 0.0595,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 23,
+  "codes_listed": {
+   "wrong-final-accuracy": 23,
+   "outlier-fence-error": 8,
+   "approximation-parameters-wrong": 3,
+   "whisker-to-outlier": 2,
+   "premature-rounding": 2,
+   "comparison-without-context": 1,
+   "conditional-denominator-error": 1,
+   "decimal-not-exact": 1
+  },
+  "frequent_codes": [
+   "wrong-final-accuracy"
+  ],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "3 rare words shared with IAL2013_WST01_June2019_Q2",
+    "cosine 0.877 with part:GCE2008_6683_June2015_Q1:e"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.003,
+   "shared_numbers": 0,
+   "max_cosine": 0.877,
+   "cosine_source": "part:GCE2008_6683_June2015_Q1:e"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 4
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: 3 rare words shared with IAL2013_WST01_June2019_Q2",
+   "copy: cosine 0.877 with part:GCE2008_6683_June2015_Q1:e"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

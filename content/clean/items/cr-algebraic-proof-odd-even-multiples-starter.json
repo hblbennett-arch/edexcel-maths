@@ -1,0 +1,472 @@
+{
+ "id": "cr-algebraic-proof-odd-even-multiples-starter",
+ "blueprint_id": "dr-algebraic-proof-odd-even-multiples-starter",
+ "question_type": "proof-by-contradiction",
+ "component": "pure",
+ "tier": "starter",
+ "kind": "drill",
+ "stem": null,
+ "parts": [
+  {
+   "label": null,
+   "marks": 3,
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "algebraic-proof-odd-even-multiples"
+   ],
+   "text": "The integer $n$ is such that $n^3 + 2n + 5$ is even. You are going to show that $n$ cannot be even. Suppose, for contradiction, that $n$ is even, and let $n = 2k$, where $k$ is an integer. Find $n^3 + 2n + 5$ in terms of $k$, writing it as $2m + 1$ where $m$ is an expression in $k$. Then use this to finish a proof by contradiction that $n$ must be odd. (3)",
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Replaces $n$ with $2k$ in $n^3 + 2n + 5$ and expands, reaching at least $8k^3 + 4k + 5$ (allow one slip in a coefficient)",
+     "notes": "Substituting particular numbers such as $n = 2, 4, 6$ does not earn this mark"
+    },
+    {
+     "code": "A1",
+     "for": "Rewrites correctly as $2(4k^3 + 2k + 2) + 1$ oe, so $m = 4k^3 + 2k + 2$, and states or implies that this is odd because $m$ is an integer",
+     "notes": "Accept $8k^3 + 4k + 4 + 1$ together with a statement that $8k^3 + 4k + 4$ is even"
+    },
+    {
+     "code": "M1",
+     "for": "Says that an odd value contradicts the given fact that $n^3 + 2n + 5$ is even, so the assumption was false and $n$ is odd",
+     "notes": "Needs both the contradiction and the conclusion about $n$. Can be awarded after a minor slip in the algebra, as long as their expression has been shown to be odd"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Assume $n$ is even, so $n = 2k$ with $k \\in \\mathbb{Z}$. Then $n^3 + 2n + 5 = (2k)^3 + 2(2k) + 5 = 8k^3 + 4k + 5$.",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$8k^3 + 4k + 5 = 2(4k^3 + 2k + 2) + 1$, so $m = 4k^3 + 2k + 2$. Since $k$ is an integer, $m$ is an integer, so $n^3 + 2n + 5$ is odd.",
+     "mark": "A1"
+    },
+    {
+     "step": 3,
+     "working": "This contradicts the fact that $n^3 + 2n + 5$ is even. So the assumption that $n$ is even is false, and $n$ must be odd.",
+     "mark": "M1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "m",
+     "expr": "4k^3 + 2k + 2",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "((2k)^3 + 2(2k) + 5 - 1)/2",
+     "rhs": "4k^3 + 2k + 2"
+    },
+    {
+     "type": "equals",
+     "lhs": "(2k)^3 + 2(2k) + 5",
+     "rhs": "2(4k^3 + 2k + 2) + 1"
+    },
+    {
+     "type": "substitute",
+     "expr": "n^3 + 2n + 5",
+     "at": {
+      "n": 3
+     },
+     "result": "38"
+    }
+   ],
+   "hints": [
+    "Put $n = 2k$ into $n^3 + 2n + 5$, expand, and then look for a way to take a factor of 2 out of everything except one term.",
+    "At the end, say clearly which fact you were given that your result contradicts, and what that tells you about $n$."
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "Let $n=2k$: $n^3+2n+5=(2k)^3+2(2k)+5=8k^3+4k+5$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$=2(4k^3+2k+2)+1$, so $m=4k^3+2k+2$, an integer, so the expression is odd",
+      "secures": [
+       "A1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "This contradicts $n^3+2n+5$ being even, so $n$ is not even, hence $n$ is odd",
+      "secures": [
+       "M1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "Suppose $n$ is even, so $n=2k$ with $k$ an integer.",
+      "why": "Proof by contradiction starts by assuming the opposite of what you want to show. An even number is twice an integer.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$n^3+2n+5=(2k)^3+2(2k)+5$",
+      "why": "You replace every $n$ in the expression with $2k$.",
+      "secures": null,
+      "check": "Each $n$ has been replaced, including the one in $n^3$."
+     },
+     {
+      "step": 3,
+      "working": "$(2k)^3=8k^3$",
+      "why": "You cube both the 2 and the $k$: $2^3=8$.",
+      "secures": null,
+      "check": "$2^3=8$."
+     },
+     {
+      "step": 4,
+      "working": "$2(2k)=4k$",
+      "why": "You multiply out the middle term.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$n^3+2n+5=8k^3+4k+5$",
+      "why": "You put the expanded terms back together.",
+      "secures": "M1",
+      "check": "Try $k=1$: $n=2$ gives $8+4+5=17$, and $8+4+5=17$."
+     },
+     {
+      "step": 6,
+      "working": "$8k^3+4k+5=8k^3+4k+4+1$",
+      "why": "You split the 5 as $4+1$ so that the rest can be made into a multiple of 2.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "$8k^3+4k+4=2(4k^3+2k+2)$",
+      "why": "You take a factor of 2 out of each of the three terms.",
+      "secures": null,
+      "check": "Expand: $8k^3+4k+4$."
+     },
+     {
+      "step": 8,
+      "working": "$n^3+2n+5=2(4k^3+2k+2)+1$, so $m=4k^3+2k+2$",
+      "why": "You write it in the form $2m+1$ and read off $m$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "$k$ is an integer, so $m=4k^3+2k+2$ is an integer, so $2m+1$ is odd.",
+      "why": "Integers multiplied and added give integers, and twice an integer plus one is odd.",
+      "secures": "A1",
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "But $n^3+2n+5$ is given as even, which contradicts it being odd.",
+      "why": "The same number cannot be both odd and even, so something assumed is wrong.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 11,
+      "working": "So $n$ is not even, hence $n$ is odd. Here $m=4k^3+2k+2$.",
+      "why": "The only assumption made was that $n$ is even, so that must be false.",
+      "secures": "M1",
+      "check": null
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T22:59:39+00:00",
+    "cost_usd": 0.0191,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "error_code": "proof-by-examples",
+   "step": 1,
+   "text": "If you only try $n = 2$, $n = 4$ and $n = 6$ and see that $n^3 + 2n + 5$ comes out odd each time, you have not proved anything about every even $n$. You get no credit for the first M1, and the later marks go too. You must work with the general form $n = 2k$.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "error_code": "same-letter-for-different-numbers",
+   "step": 1,
+   "text": "If you write $n = 2n$ instead of bringing in a new letter, your algebra stops making sense ($n = 2n$ forces $n = 0$), so the M1 for substitution is lost. Use a separate integer $k$ and write $n = 2k$.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:52:07",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.1908
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 3
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.923 with part:IAL2018_WMA14_Oct2021_Q10:a"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "hits8": [],
+   "max_jaccard": 0.012,
+   "jaccard_source": "GCE2008_6663R_June2013_Q2",
+   "shared_numbers": 0,
+   "max_cosine": 0.923,
+   "cosine_source": "part:IAL2018_WMA14_Oct2021_Q10:a"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 3,
+   "n_answers": 1,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [
+    "marks (part -): Single combined part worth 3 marks: expansion, the 2m+1 form, and the conclusion. This fits, but the mark split is not explicit. The conclusion needs m to be an integer, which a student should state."
+   ],
+   "flag": true,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0089,
+   "solver": {
+    "parts": [
+     {
+      "label": null,
+      "answers": [
+       "8*k**3 + 4*k + 5",
+       "m = 4*k**3 + 2*k + 2"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "n=2k gives n^3+2n+5 = 8k^3+4k+5 = 2(4k^3+2k+2)+1 = 2m+1 with m = 4k^3+2k+2, an integer. So the expression is odd, contradicting that it is even. Hence n cannot be even, so n is odd."
+     }
+    ],
+    "problems": [
+     {
+      "kind": "marks",
+      "severity": "minor",
+      "part": null,
+      "detail": "Single combined part worth 3 marks: expansion, the 2m+1 form, and the conclusion. This fits, but the mark split is not explicit. The conclusion needs m to be an integer, which a student should state."
+     }
+    ]
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "n_responses": 4,
+   "agreed": [
+    "r1",
+    "p1",
+    "p2",
+    "partial"
+   ],
+   "consistent": {},
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "r1",
+     "kind": "correct",
+     "error_code": null,
+     "work": "Suppose $n$ is even, so $n=2k$ with $k$ an integer.\n$n^3+2n+5=(2k)^3+2(2k)+5=8k^3+4k+5$\n$=2(4k^3+2k+2)+1$, so $m=4k^3+2k+2$.\nSince $k$ is an integer, $m$ is an integer, so $2m+1$ is odd.\nThis contradicts the given fact that $n^3+2n+5$ is even. So the assumption is false and $n$ must be odd.",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "M1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p1",
+     "kind": "pitfall",
+     "error_code": "proof-by-examples",
+     "work": "Try $n=2$: $8+4+5=17$, odd.\n$n=4$: $64+8+5=77$, odd.\n$n=6$: $216+12+5=233$, odd.\nSo whenever $n$ is even the expression is odd, which contradicts it being even. Hence $n$ must be odd.",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M0",
+        "A0",
+        "M0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p2",
+     "kind": "pitfall",
+     "error_code": "same-letter-for-different-numbers",
+     "work": "Suppose $n$ is even, so $n=2n$.\nThen $n^3+2n+5=(2n)^3+2(2n)+5=8n^3+4n+5$\n$=2(4n^3+2n+2)+1$, so $m=4n^3+2n+2$, which is an integer, so the expression is odd.\nThis contradicts it being even, so $n$ is not even and $n$ is odd.",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M0",
+        "A0",
+        "M1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "partial",
+     "kind": "partial",
+     "error_code": null,
+     "work": "Let $n=2k$.\n$n^3+2n+5=(2k)^3+2(2k)+5=8k^3+4k+5$.\nI'm not sure how to finish.",
+     "designed": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A0",
+        "M0"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "r1",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A1",
+        "M1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p1",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M0",
+        "A0",
+        "M0"
+       ]
+      }
+     ],
+     "reasons": [
+      "M0: only substitutes particular values, not n=2k algebraically",
+      "A0: no general form 2m+1 shown",
+      "M0: no general proof; expression not shown to be odd in general"
+     ]
+    },
+    {
+     "id": "p2",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M0",
+        "A0",
+        "M1"
+       ]
+      }
+     ],
+     "reasons": [
+      "M0: writes n=2n (not a new integer k), so the substitution is invalid",
+      "A0: depends on the M1 and m is not given in terms of k"
+     ]
+    },
+    {
+     "id": "partial",
+     "awarded": [
+      {
+       "part": null,
+       "marks": [
+        "M1",
+        "A0",
+        "M0"
+       ]
+      }
+     ],
+     "reasons": [
+      "A0: does not rewrite as 2m+1 or state it is odd",
+      "M0: no contradiction or conclusion about n"
+     ]
+    }
+   ],
+   "awarded_second": [],
+   "cost_usd": 0.0278
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "agreement": "1/1",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.010599,
+   "retagged": {
+    "-": [
+     "proof-by-contradiction",
+     "algebraic-proof-odd-even-multiples"
+    ]
+   }
+  },
+  "GL": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part -: brisk: answer m = 4k^3 + 2k + 2 appears in an earlier line but not the last working",
+    "part -: copy check flag: cosine 0.871 with part:IAL2018_WMA14A_June2025_Q10:"
+   ],
+   "parts_checked": 1
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

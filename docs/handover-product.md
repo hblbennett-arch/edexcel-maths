@@ -52,7 +52,7 @@ How to work with the user:
 | **1 Foundations** | **Done.** Content packs with provenance columns; licence gate; fact layer (`content/facts/`) and its check; 267 seed error codes; error-code frequencies; all eight deterministic and model gates; tutor pack-aware. All `pearson-private` evals are byte-identical to before. |
 | **2 Pilot** | **Generated; waiting for the user's review.** 60 items (40 exam-style in the 9MA0 mix, 28 pure calculus-centred and 12 stats; 20 drills). **25 pass G1–G8** (18 exam-style, 7 drills). Spend **$39.96** over three rounds, about **$1.60 per passing item**. The review screen is built. |
 | **3 Scale** | **Ready to start after review.** All blueprints exist: 601 exam-style, 452 drills, 84 mock-paper questions (6 papers × 100 marks). |
-| **4 Product** | **Partly started.** The tutor runs on the clean pack. Not built: mark my working, weakness tracking, mock mode, caching, production backend, brand and legal pages. |
+| **4 Product** | **Foundations and three features built (30 Sept, after the market research; see `docs/market-research-product-strategy.md` and `docs/clean-room-pipeline.md`, "Product layer").** Built: mark-code ontology and board profile (`chatbot/marks.py`, `content/boards/edexcel-9ma0.json`); marking-event store and leakage profile (`chatbot/events.py`); **"Be the examiner"** (`/examiner`, 182 exercises from the 25 pilot items, no model calls); **marker v2 "Mark my working, explained"** (`chatbot/marker.py`, `/mark`; 98.0% per-mark agreement with the G4 reference, every withheld mark explained, $0.025 a script); **73 question-type playbooks** (`content/clean/playbooks/`, all checks passing, awaiting review). Evening 30 Sept (unsupervised, spec `docs/learn-layer-spec.md`): **solution levels** (brisk / standard / every step) on all 49 parts; **31 interactive JSXGraph scenes** on 24 items with a self-explaining guide (legend, how to interact, link to the question); **Learn pages** (`/learn`, depth selector, Graphical tab), **Playbooks pages** (`/playbooks`); **photo upload with transcript confirmation** on `/mark`; `item_json` in the pack. Integration runner: `eval.learn_layer_check`. Later that evening (23:00 to 00:30): **timed mock mode** (`/mock`, `chatbot/mock.py`: paper files in `content/clean/mocks/`, a practice set assembled from gate-passed pure items in the 9MA0 mix, grade estimate from the 2026 boundaries); **mark-leakage profile page** (`/profile`, `chatbot/profile.py`: drills, examiner exercises and playbooks per error code, 8-week trend); **start page and "How marks are awarded"** (`/start`, `/marks`; product name still a placeholder); **second-marking harness** for an independent marker accuracy figure (`scripts/clean/second_mark_server.py`, `eval/second_marking_report.py`); review UI shows levels, scenes and playbooks and has a Papers overlay; statistics helpers in the scene grammar. Not built: caching, production backend, brand and legal pages, second marking of real student scripts, scenes in the pack build. |
 | **5 Pilot students and launch** | Not started. |
 
 ## 4. How it works (data flow)
@@ -120,10 +120,15 @@ Measure every change with `eval.clean_gates_report` on a batch of 20–30 before
 - `CONTENT_PACK=clean .venv/bin/python scripts/build_embeddings.py`, then `CONTENT_PACK=clean .venv/bin/python -m eval.practice_eval`, `-m eval.practice_search_eval` and `-m eval.retrieval`. Re-baseline these on the clean pack (the handoff's targets: practice precision ≥ 99%).
 - The tutor's smoke test: `.venv/bin/python -m eval.clean_pack_smoke`.
 
-### Step 5: product features (priority order)
-1. **Mark my working.** Reuse the G4 marker (`gate_marking.MARKER_SYSTEM`) as the product marker, and unit-test it with the stored G4 scripts (every item keeps them under `gate_results.G4.responses`).
+### Step 5: product features (priority order; revised 30 Sept after the market research)
+The order and the reasons are in `docs/market-research-product-strategy.md` §4.2. Done so far: 1 (Be the examiner), 2 (marker v2 with the `/mark` page), 4 (playbook content, no page yet), and the event store behind 3.
+1. **Be the examiner** (built): `/examiner`. Grows automatically as gate-passed items are added (every G4 script becomes an exercise).
+2. **Mark my working, explained** (built, typed input): `/mark`. Still to do: photo upload using `marker.transcribe_image` with the confirm-transcript step; hand second-marking of real pilot scripts before any accuracy figure is published.
+3. **Mark-leakage profile** (built 30 Sept evening): `/profile` with drills, examiner exercises and playbooks per error code (`chatbot/profile.py`); the store is `chatbot/events.py`.
+4. **Playbooks**: 73 written; `/playbooks` built (30 Sept evening); still to pick the free subset.
+5. *(was 1)* The old note about reusing `gate_marking.MARKER_SYSTEM` is superseded: the product marker is `chatbot/marker.py` with its own prompt (`content/prompts/marker_system.md`).
 2. **Weakness tracking** per skill (privacy-first; Children's Code).
-3. **Mock mode:** timed, with a per-skill breakdown.
+3. **Mock mode** (built 30 Sept evening): `/mock`, timed, results by question, mark family and skill, grade estimate (see checklist §34 for the decisions it needs).
 4. **Bring your own question:** estimated marks ("likely M1"); process, then delete.
 5. **Caching** explanations, to fix the ~37 s wait.
 
@@ -131,6 +136,12 @@ Also still to do:
 - **Brand name** without "Edexcel" or "Pearson", plus the line "Built for Pearson Edexcel A Level Mathematics (9MA0) · Independent: not affiliated with, endorsed or licensed by Pearson".
 - **Product copy:** remove the remaining "past-paper" wording (welcome message; "official 9MA0 booklet").
 - **Diagrams:** our own SVG or JSXGraph; they don't exist yet.
+
+### Step 5b: what to try first tomorrow (1 Oct)
+1. Start the tutor (`CONTENT_PACK=clean .venv/bin/python -m chatbot.web --port 8765`) and open http://127.0.0.1:8765/start: the front door links every feature; read `/marks` too.
+2. Run the second-marking harness for 30 minutes: `.venv/bin/python scripts/clean/second_mark_server.py` (port 8767; keys 1–9, Enter), then `.venv/bin/python eval/second_marking_report.py`. That gives roughly 60 blind-marked scripts and the first honest marker agreement figure, with its interval and caveat.
+3. Review the pilot in the review UI (`.venv/bin/python scripts/clean/review_server.py`, port 8766): each item now shows its solution levels, scenes and playbook; the Papers button lists the mock papers and "Review this paper" walks one in question order.
+4. Run `.venv/bin/python -m eval.clean_gates_report` for the evening batch (up to 90 blueprints plus the mock-paper questions were generating overnight); the counts in §7 come from there, not from this document.
 
 ### Step 6: compliance before taking money
 - **Solicitor review:** questions 1–7 in `commercial-relaunch-plan.md` §9. Question 7 is about the generic exam phrasing we allow.
@@ -170,11 +181,15 @@ Stats and mechanics are over 85% multi-topic.
 
 **Bank targets:** ~600 exam-style questions (pure ~420, stats ~90, mech ~90), 6 mocks and ~490 drills.
 
+**Bank size now:** run `.venv/bin/python -m eval.clean_gates_report` (items generated, passing G1–G8, accepted, cost per item). A batch and the first mock paper were still generating when this was written (30 Sept, 23:55), so no count here is current. Spend on the product layer that evening: about $33 (levels $1.80, scenes $1.96, guides $0.88, playbooks $5.64, marker eval $5.42, marker smoke tests, the batch and mocks in progress).
+
 **Pilot costs:** $39.96 in total; about $0.35–0.45 per generation call and $0.05–0.15 for model gates per item. Generation takes about 1–3 minutes per item; about 16 minutes per 35 items at 5 in parallel.
 
 **Knowledge base** (local only): 2,702 questions, 7,055 parts, 21,764 examiner notes; 246 skills; 73 question types.
 
 ## 8. Market and competitor findings
+
+> **Superseded in part by `docs/market-research-product-strategy.md` (30 Sept 2026, six research sweeps, ~30 products).** Headline change: AI "mark my working" is now a commodity (free at Maths Genie on real 9MA0 papers; ExamSolutions, Medly, Revision Genie and alevelmathsrevision.com all sell it), so the flagship should be **examiner literacy**: "Be the examiner" exercises built from the G4 scripts, per-mark explanations, a mark-leakage profile by mark type and error code, question-type playbooks, and the synoptic finder. That document also holds the scaling order (8MA0 → 9FM0 → IAL → OCR → AQA after legal) and pricing. The notes below are kept for the record.
 
 ### alevelmathsrevision.com (researched 30 Sept 2026)
 - **Who runs it:** John Armstrong, a qualified A Level Maths teacher and tutor (PGCE/QTS 2013, MSc Applied Maths, 15+ years of tutoring, claims exam-board marking experience). I found no registered company, so he's probably a sole trader. No accounts are published, so profit is unknown.

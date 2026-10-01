@@ -1,0 +1,181 @@
+{
+ "id": "cr-1-p1-q01",
+ "blueprint_id": "mk-1-p1-q01",
+ "question_type": "factor-theorem-find-constant",
+ "component": "pure",
+ "tier": "accessible",
+ "kind": "mock",
+ "stem": null,
+ "paper": "mock-1-P1",
+ "set": "mock-1",
+ "q_num": 1,
+ "parts": [
+  {
+   "label": null,
+   "marks": 3,
+   "text": "A cubic is given by $\\mathrm{q}(x) = 3x^3 + ax^2 - 11x - 6$, where $a$ is a constant. The linear expression $(x + 3)$ divides into $\\mathrm{q}(x)$ with nothing left over. Find $a$. Show clearly how you use this fact. (3)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "factor-theorem",
+    "solve-simultaneous-linear-equations"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Substitutes $x = -3$ into $\\mathrm{q}(x)$, e.g. $3(-3)^3 + a(-3)^2 - 11(-3) - 6$",
+     "notes": "Using $x = 3$ is M0. Allow one arithmetic slip in evaluating the numerical terms."
+    },
+    {
+     "code": "M1",
+     "for": "Puts their $\\mathrm{q}(-3)$ equal to $0$ and solves the resulting linear equation in $a$, e.g. $9a - 54 = 0$",
+     "notes": "Needs the first M mark. Setting the expression equal to anything other than 0 is M0."
+    },
+    {
+     "code": "A1",
+     "for": "$a = 6$",
+     "notes": "cao"
+    }
+   ],
+   "alternatives": [
+    {
+     "name": "Way 2 (algebraic division)",
+     "marks": [
+      {
+       "code": "M1",
+       "for": "Divides $3x^3 + ax^2 - 11x - 6$ by $(x + 3)$ and gets a quotient of the form $3x^2 + (a - 9)x + \\ldots$ and a remainder in terms of $a$",
+       "notes": "Remainder should be $9a - 54$. Allow one slip."
+      },
+      {
+       "code": "M1",
+       "for": "Sets their remainder equal to $0$ and solves for $a$"
+      },
+      {
+       "code": "A1",
+       "for": "$a = 6$",
+       "notes": "cao"
+      }
+     ]
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$(x+3)$ is a factor, so by the factor theorem $\\mathrm{q}(-3) = 0$. Substitute: $\\mathrm{q}(-3) = 3(-27) + 9a + 33 - 6 = 9a - 54$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$9a - 54 = 0 \\Rightarrow 9a = 54$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$a = 6$. (Check: $\\mathrm{q}(x) = 3x^3 + 6x^2 - 11x - 6 = (x+3)(3x^2 - 3x - 2)$.)",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "a",
+     "expr": "6",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "solutions",
+     "equation": "3(-3)^3 + a(-3)^2 - 11(-3) - 6 = 0",
+     "var": "a",
+     "result": [
+      "6"
+     ],
+     "answer": "a"
+    },
+    {
+     "type": "substitute",
+     "expr": "3x^3 + 6x^2 - 11x - 6",
+     "at": {
+      "x": "-3"
+     },
+     "result": "0"
+    },
+    {
+     "type": "equals",
+     "lhs": "3x^3 + 6x^2 - 11x - 6",
+     "rhs": "(x+3)(3x^2 - 3x - 2)"
+    }
+   ],
+   "hints": [
+    "Work out which value of $x$ makes the bracket $(x + 3)$ zero, then put that value into the cubic.",
+    "If $(x+3)$ goes into the cubic exactly, what number must you get when you substitute that value?"
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "error_code": "factor-theorem-sign-error",
+   "step": 1,
+   "text": "The factor is $(x + 3)$, so you need $\\mathrm{q}(-3)$, not $\\mathrm{q}(3)$. If you substitute $x = 3$ you get $9a + 42 = 0$ and the wrong value $a = -\\frac{14}{3}$. That loses both method marks.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "error_code": "factor-condition-not-set",
+   "step": 2,
+   "text": "Getting to $9a - 54$ is not the end. You have to write $9a - 54 = 0$, because a factor gives a value of zero. If you never set up this equation, you cannot find $a$ and you lose the second M1 and the A1.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:31:55",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.1724
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 3
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.860 with part:IAL2018_WMA12_Jan2022_Q5:c"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "hits8": [],
+   "max_jaccard": 0.033,
+   "jaccard_source": "P2_Oct2020_Q4",
+   "shared_numbers": 0,
+   "max_cosine": 0.86,
+   "cosine_source": "part:IAL2018_WMA12_Jan2022_Q5:c"
+  },
+  "G2": {
+   "pass": false,
+   "errors": [
+    "part - check 1 (solutions): result ['6'] differs from answer a = 6"
+   ],
+   "n_checks": 3,
+   "n_answers": 1,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

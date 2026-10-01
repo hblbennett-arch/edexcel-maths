@@ -1,0 +1,249 @@
+{
+ "item_id": "cr-pure-de-given-separable-005",
+ "applicable": true,
+ "reason": "The solution curve shows how the starting mass fixes the constant $c$ and gives the mass at $t=12$, which is the whole of part (c).",
+ "scenes": [
+  {
+   "id": "cr-pure-de-given-separable-005::c::1",
+   "part": "c",
+   "title": "How the starting mass fixes the curve and the mass at $t = 12$",
+   "purpose": "See that $t=0$, $M=12$ picks one solution curve out of the family, and that reading it at $t=12$ gives $M = 4332\\,\\mathrm{e}^{-1} \\approx 1594$ grams.",
+   "approach": "model",
+   "board": {
+    "x": [
+     -1,
+     13.5
+    ],
+    "y": [
+     -200,
+     2400
+    ],
+    "axis": true,
+    "grid": true,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "m",
+     "label": "starting mass (grams)",
+     "min": 4,
+     "max": 16,
+     "step": 0.5,
+     "value": 12
+    }
+   ],
+   "elements": [
+    {
+     "type": "function",
+     "id": "C",
+     "expr": "(m/4)*(3*x+2)^2*exp(0.5*cos(pi*x/12)-0.5)",
+     "domain": [
+      "0",
+      "12"
+     ],
+     "color": "primary",
+     "label": "M(t)"
+    },
+    {
+     "type": "function",
+     "id": "W",
+     "expr": "(3*x+2)^2*exp(0.5*cos(pi*x/12))",
+     "domain": [
+      "0",
+      "12"
+     ],
+     "color": "muted",
+     "dash": true,
+     "label": "c = 0"
+    },
+    {
+     "type": "point",
+     "id": "S",
+     "x": "0",
+     "y": "m",
+     "label": "start",
+     "color": "secondary"
+    },
+    {
+     "type": "point",
+     "id": "E",
+     "x": "12",
+     "y": "m*361*exp(-1)",
+     "label": "t = 12",
+     "color": "mark"
+    },
+    {
+     "type": "vline",
+     "id": "V",
+     "at": "12"
+    },
+    {
+     "type": "glider",
+     "id": "P",
+     "on": "C",
+     "x": "4",
+     "label": "P"
+    },
+    {
+     "type": "text",
+     "id": "T",
+     "x": "0.5",
+     "y": "2200",
+     "value": "Mass at $t=12$: {m*361*exp(-1)} g = {m*361*exp(-1)/1000} kg"
+    },
+    {
+     "type": "text",
+     "id": "Tc",
+     "x": "0.5",
+     "y": "1950",
+     "value": "Constant: $c = $ {ln(m/4)-0.5}"
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "The horizontal axis is $t$ (hours) and the vertical axis is $M$ (grams). The blue curve starts at $(0, 12)$. Putting $t=0$, $M=12$ into $\\ln M = 2\\ln(3t+2) + \\frac{1}{2}\\cos\\left(\\frac{\\pi t}{12}\\right) + c$ and using $\\cos 0 = 1$ gives $\\ln 12 = \\ln 4 + \\frac{1}{2} + c$. That is the M1, and $c = \\ln 3 - \\frac{1}{2} \\approx 0.599$ is the A1.",
+     "set": {
+      "m": 12
+     },
+     "show": [
+      "C",
+      "S"
+     ],
+     "hide": [
+      "W"
+     ],
+     "highlight": [
+      "S"
+     ]
+    },
+    {
+     "n": 2,
+     "text": "The dashed curve shows what you get if you just take $c = 0$. It starts at $4\\mathrm{e}^{1/2} \\approx 6.6$ grams, not 12, so it is the wrong solution. You have to use the starting condition to find $c$.",
+     "show": [
+      "W"
+     ],
+     "highlight": [
+      "W"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "Drag $P$ along the blue curve to $t = 12$, where it meets the end point. There $\\cos\\pi = -1$, so $\\ln M = 2\\ln 38 - \\frac{1}{2} + \\ln 3 - \\frac{1}{2} = \\ln(3\\times 38^2) - 1$, which gives $M = 4332\\,\\mathrm{e}^{-1}$. That is the dM1. Watch out: $\\mathrm{e}^{2\\ln 38}$ is $38^2 = 1444$, not $76$. With $76$ the end point would sit at only about $84$ grams.",
+     "hide": [
+      "W"
+     ],
+     "highlight": [
+      "P",
+      "E"
+     ]
+    },
+    {
+     "n": 4,
+     "text": "The label reads about $1593.6$ grams, which is $1.59\\,\\mathrm{kg}$ to 3 s.f. That is the A1. Now move the starting-mass slider: $\\mathrm{e}^{c}$ is $\\frac{m}{4}\\mathrm{e}^{-1/2}$, so the mass at $t = 12$ is always $\\frac{361}{\\mathrm{e}}$ times the starting mass. This is why the starting condition decides the answer.",
+     "set": {
+      "m": 12
+     },
+     "highlight": [
+      "T",
+      "E"
+     ]
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "marks": [
+     "M1",
+     "A1",
+     "dM1"
+    ],
+    "pitfalls": [
+     "initial-conditions-not-used",
+     "log-power-law-misapplied",
+     "log-law-misapplied"
+    ]
+   },
+   "guide": {
+    "what_you_see": "The graph of the crystal mass $M$ (grams) against time $t$ (hours) for $0\\leqslant t\\leqslant 12$, showing the solution curve that starts at the given initial mass. A dashed curve shows the wrong solution you get by taking $c=0$, and a vertical line marks $t=12$, where you read off the mass.",
+    "legend": [
+     {
+      "id": "C",
+      "meaning": "The model's solution curve $M=\\frac{m}{4}(3t+2)^2\\mathrm{e}^{\\frac12\\cos\\left(\\frac{\\pi t}{12}\\right)-\\frac12}$, with $m$ the starting mass. For $m=12$ this is $M=3(3t+2)^2\\mathrm{e}^{\\frac12\\cos\\left(\\frac{\\pi t}{12}\\right)-\\frac12}$."
+     },
+     {
+      "id": "W",
+      "meaning": "The dashed curve $M=(3t+2)^2\\mathrm{e}^{\\frac12\\cos\\left(\\frac{\\pi t}{12}\\right)}$, which is what you get if you wrongly take $c=0$. It starts at about $6.6$ grams, so it does not satisfy the starting condition."
+     },
+     {
+      "id": "S",
+      "meaning": "The starting point $(0, m)$, where $t=0$ and the mass is the starting mass (12 grams in the question). Putting this point into the general solution fixes $c$."
+     },
+     {
+      "id": "E",
+      "meaning": "The end point at $t=12$ on curve $C$, at height $M=\\frac{361m}{\\mathrm{e}}$ grams. For $m=12$ this is $4332\\mathrm{e}^{-1}\\approx 1594$ grams."
+     },
+     {
+      "id": "P",
+      "meaning": "A point you can drag along curve $C$, to read the mass at any time from $0$ to $12$ hours."
+     },
+     {
+      "id": "V",
+      "meaning": "The vertical line $t=12$, marking 12 hours after the process begins."
+     }
+    ],
+    "interact": [
+     {
+      "control": "m",
+      "kind": "slider",
+      "do": "Drag the starting-mass slider between $4$ and $16$ grams, then return it to $12$, the value in the question.",
+      "watch": "The whole curve $C$ scales up or down and $S$ moves up or down the $M$-axis, while the dashed curve $W$ stays put. The constant $c=\\ln\\frac{m}{4}-\\frac12$ changes, from $-0.5$ at $m=4$ to about $0.886$ at $m=16$. At $m=12$ the end point $E$ sits at about $1593.6$ grams, always $\\frac{361}{\\mathrm{e}}\\approx 132.8$ times the starting mass."
+     },
+     {
+      "control": "P",
+      "kind": "glider",
+      "do": "Drag $P$ along the blue curve $C$ from $t=0$ to $t=12$, finishing on the vertical line.",
+      "watch": "The mass rises steeply at first, then the growth slows as the $\\cos$ term changes. When $P$ reaches $t=12$ it coincides with $E$, at about $1594$ grams when $m=12$."
+     }
+    ],
+    "question_link": {
+     "part": "c",
+     "marks": [
+      "M1",
+      "A1",
+      "dM1",
+      "A1"
+     ],
+     "text": "The point $S$ at $(0,12)$ is the starting condition: substituting it into the general solution from part (b) gives $c=\\ln 3-\\frac12$, which earns the M1 and first A1. The end point $E$ at $t=12$ is the substitution with $\\cos\\pi=-1$ and the removal of logarithms for the dM1, and its height $4332\\mathrm{e}^{-1}\\approx1594$ grams is $1.59$ kg, the final A1."
+    },
+    "read_off": [
+     "The label 'Mass at $t=12$' gives the mass in grams at 12 hours, $\\frac{361m}{\\mathrm{e}}$, and the same mass in kilograms (grams divided by $1000$). At $m=12$ it reads about $1593.6$ g, which is $1.59$ kg to 3 significant figures, the answer to the question.",
+     "The label 'Constant: $c=$' gives the constant of integration $c=\\ln\\frac{m}{4}-\\frac12$ for the current starting mass. At $m=12$ it reads about $0.599$, which is $\\ln 3-\\frac12$."
+    ]
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0332,
+    "attempts": 1,
+    "gate": {
+     "pass": true,
+     "errors": []
+    },
+    "generated_at": "2026-09-30T23:12:54"
+   }
+  }
+ ],
+ "model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T22:51:36",
+ "cost_usd": 0.1954,
+ "attempts": 3,
+ "checks": {
+  "pass": true,
+  "errors": [],
+  "n_scenes": 1
+ }
+}

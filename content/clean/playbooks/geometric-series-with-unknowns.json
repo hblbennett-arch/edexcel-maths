@@ -1,0 +1,140 @@
+{
+ "id": "geometric-series-with-unknowns",
+ "question_type": "geometric-series-with-unknowns",
+ "component": "pure",
+ "title": "Geometric series with unknowns",
+ "what_it_asks": "You are given terms or sums of a geometric series, written in terms of an unknown such as $k$ or $x$. You form an equation from the ratio property or the sum formula, solve it, then use the result to find a ratio, a term, a sum or a sum to infinity. The idea is that a geometric series has one fixed ratio, so consecutive terms must give equal ratios.",
+ "typical_structure": "Usually three or four parts, sometimes only two. Most parts carry two marks, with a few worth three or four. An early part often asks you to show that an equation holds, or to find the unknown. A later part then uses that value to find the common ratio, a finite sum or the sum to infinity. Some parts say \"hence\", so a later part leans on an earlier result.",
+ "mark_pattern": "The most typical part is a two-mark M1 A1: a method mark for setting up the equation or substituting into a formula, then an accuracy mark for the correct value. Show-that parts often run M1 A1* or M1 dM1 A1*. The first M1 is for the ratio equation, the dM1 is for expanding and rearranging, and the starred mark is for reaching the printed result with no gaps. Longer parts run M1 A1 M1 A1, where the second pair uses the solved value in a sum or sum to infinity. A single B1 is sometimes given for a stated value or condition, such as the range of $r$ for convergence.",
+ "where_marks_leak": [
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "Many students give a sum or term to the wrong number of decimal places or significant figures. The final A1 is lost even though the method was right."
+  },
+  {
+   "error_code": "sum-to-infinity-condition-ignored",
+   "mark_family": "independent",
+   "text": "You use $\\frac{a}{1-r}$ without checking $|r|<1$, or you do not state the condition when asked. The B1 for the condition goes, and a root with $|r| \\geqslant 1$ kept as valid costs the later accuracy mark."
+  },
+  {
+   "error_code": "premature-rounding",
+   "mark_family": "accuracy",
+   "text": "You round $r$ or $k$ part-way through, then use the rounded value in a sum. The final A1 drifts outside the accepted range and is lost."
+  },
+  {
+   "error_code": "series-formula-error",
+   "mark_family": "method",
+   "text": "You misremember $S_n$ or $S_\\infty$, for example using $1+r$ in the denominator. The M1 is lost, and the A1 and any dM1 that depend on it go too."
+  },
+  {
+   "error_code": "nth-term-index-error",
+   "mark_family": "method",
+   "text": "You write $ar^n$ where the term needs $ar^{n-1}$. The M1 for the term is lost, which spoils the equation that follows."
+  }
+ ],
+ "write_to_earn": [
+  "Write the ratio property, such as $\\frac{u_2}{u_1}=\\frac{u_3}{u_2}$, before substituting the terms.",
+  "In a show-that part, write the expanded line just before the printed result, then state the result.",
+  "Write each formula, $S_n$ or $S_\\infty$, before putting in $a$ and $r$.",
+  "When you solve for the unknown, list every root, then test each against $|r|<1$ and reject with a reason.",
+  "Keep unrounded values in your calculator and round only on the last line, to the accuracy asked."
+ ],
+ "check_before_you_leave": [
+  "Is $|r|<1$ checked?",
+  "Rejected roots explained?",
+  "Accuracy matches the question?",
+  "Formula uses $n-1$ correctly?",
+  "Printed answer reached with no gap?"
+ ],
+ "skills": [
+  "geometric-sequence-nth-term",
+  "sum-to-infinity-and-convergence",
+  "show-that-given-answer",
+  "geometric-series-sum",
+  "geometric-ratio-equation",
+  "reject-invalid-solutions",
+  "solve-quadratic-equation"
+ ],
+ "related_types": [
+  "ap-gp-in-context",
+  "sigma-notation-sums",
+  "recurrence-and-periodic-sequences",
+  "polynomial-factorise-and-solve"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:10:38",
+ "cost_usd": 0.1149,
+ "attempts": 2,
+ "facts": {
+  "n_questions": 33,
+  "codes_listed": {
+   "wrong-final-accuracy": 30,
+   "series-formula-error": 5,
+   "sum-to-infinity-condition-ignored": 5,
+   "premature-rounding": 5,
+   "rationalising-error": 5,
+   "series-proof-incomplete": 3,
+   "inequality-not-reversed": 2,
+   "nth-term-index-error": 2
+  },
+  "frequent_codes": [
+   "wrong-final-accuracy"
+  ],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.892 with note:GCE2008_6663_June2014_Q5_n5"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.002,
+   "shared_numbers": 0,
+   "max_cosine": 0.892,
+   "cosine_source": "note:GCE2008_6663_June2014_Q5_n5"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 21
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.892 with note:GCE2008_6663_June2014_Q5_n5"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

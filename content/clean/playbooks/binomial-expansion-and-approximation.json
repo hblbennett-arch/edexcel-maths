@@ -1,0 +1,143 @@
+{
+ "id": "binomial-expansion-and-approximation",
+ "question_type": "binomial-expansion-and-approximation",
+ "component": "pure",
+ "title": "Binomial expansion, validity & approximation",
+ "what_it_asks": "You are given an expression such as $(a + bx)^n$, often with a fractional or negative power, and asked to expand it in ascending powers of $x$ up to a stated term. Later parts may ask you to use the expansion to estimate a number, or to combine it with another series. The idea is that the series only works for small enough $x$, so you must factor the bracket correctly and choose $x$ with care.",
+ "typical_structure": "Most questions have two parts, and some have one or three. The first part is usually the expansion, worth three or four marks. A later part often says \"hence\" or \"use your expansion\" and asks for an approximation, a coefficient in a product, or a link to partial fractions. A whole question is typically worth around seven marks, and later parts depend on the expansion you found first.",
+ "mark_pattern": "The most typical part is a short M1 A1: the method mark is for the binomial form with the right power, and the accuracy mark is for the correct result. Longer expansion parts often run B1 M1 A1 A1 or M1 B1 A1 A1. The B1 is usually for taking out the constant factor correctly, such as $a^n$. The M1 is for the first terms of the expansion with the right structure. Each A1 is for a correct simplified term. Some parts run M1 dM1 A1, where the second method mark needs the first, for example when you multiply series after expanding. A lone B1 is often for a stated value. Accuracy marks form the largest group, so sign and coefficient slips cost the most.",
+ "mark_pattern_unused": "",
+ "where_marks_leak": [
+  {
+   "error_code": "binomial-negative-term-sign-error",
+   "mark_family": "accuracy",
+   "text": "When the bracket is $(1 - x)^n$ or has a negative coefficient, you lose the alternating signs. The A1 for each affected term goes, and any later accuracy mark that uses those terms goes with it."
+  },
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You round an approximation to the wrong number of decimal places or significant figures, or round too early. The final A1 is lost even though the method is right."
+  },
+  {
+   "error_code": "rationalising-error",
+   "mark_family": "method",
+   "text": "When a surd appears in the approximation, you multiply by the wrong conjugate or only the numerator. The method mark for simplifying is lost, and the A1 after it depends on it."
+  },
+  {
+   "error_code": "binomial-factor-not-taken-out",
+   "mark_family": "method",
+   "text": "You expand $(a + bx)^n$ without writing it as $a^n(1 + \\frac{b}{a}x)^n$, or you forget to raise $a$ to the power $n$. The B1 for the factor and the M1 for the expansion are at risk, and the A1 marks follow them."
+  },
+  {
+   "error_code": "binomial-coefficient-error",
+   "mark_family": "method",
+   "text": "You get $n(n-1)/2!$ wrong for a fractional or negative $n$. The M1 for the expansion structure can go, and the accuracy marks that depend on it go too."
+  }
+ ],
+ "write_to_earn": [
+  "Write the factored form $a^n(1 + \\frac{b}{a}x)^n$ first so the B1 for the factor is secured.",
+  "Write the general expansion with $n$ substituted before simplifying, putting each $(\\frac{b}{a}x)^k$ in brackets.",
+  "Show each term simplified on its own line, with its sign, so each A1 is visible.",
+  "In the approximation part, state the value of $x$ you substitute and show that it gives the target number.",
+  "Give the final answer in the form and accuracy asked, rounding only on the last line."
+ ],
+ "check_before_you_leave": [
+  "Signs alternate correctly",
+  "Constant factor raised to $n$",
+  "Coefficients recomputed",
+  "$x$ gives the target value",
+  "Accuracy matches the question"
+ ],
+ "skills": [
+  "binomial-expansion-terms",
+  "use-hence-previous-result",
+  "binomial-take-out-factor",
+  "rewrite-using-index-laws",
+  "multiply-series-and-truncate",
+  "binomial-approximation"
+ ],
+ "related_types": [
+  "differentiate-to-given-form",
+  "stationary-points-and-nature"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:07:05",
+ "cost_usd": 0.0598,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 119,
+  "codes_listed": {
+   "binomial-negative-term-sign-error": 47,
+   "wrong-final-accuracy": 34,
+   "rationalising-error": 27,
+   "binomial-factor-not-taken-out": 16,
+   "sign-error-expanding-brackets": 14,
+   "binomial-coefficient-error": 14,
+   "arithmetic-slip": 7,
+   "approximation-wrong-x": 6
+  },
+  "frequent_codes": [
+   "binomial-coefficient-error",
+   "binomial-factor-not-taken-out",
+   "binomial-negative-term-sign-error",
+   "rationalising-error",
+   "sign-error-expanding-brackets",
+   "wrong-final-accuracy"
+  ],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.861 with part:IAL2013_WMA02_Jan2017_Q3:b"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.006,
+   "shared_numbers": 0,
+   "max_cosine": 0.861,
+   "cosine_source": "part:IAL2013_WMA02_Jan2017_Q3:b"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 18
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.861 with part:IAL2013_WMA02_Jan2017_Q3:b"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

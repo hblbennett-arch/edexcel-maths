@@ -1,0 +1,215 @@
+{
+ "id": "cr-pure-binomial-expansion-and-approximation-010",
+ "blueprint_id": "bp-pure-binomial-expansion-and-approximation-010",
+ "question_type": "binomial-expansion-and-approximation",
+ "component": "pure",
+ "tier": "accessible",
+ "kind": "exam",
+ "stem": null,
+ "parts": [
+  {
+   "label": null,
+   "marks": 4,
+   "text": "For $|x| < \\frac{4}{5}$, the function $\\frac{1}{\\sqrt{4 - 5x}}$ can be written as a binomial series in ascending powers of $x$. Find this series up to and including the term in $x^2$. Write each coefficient in its simplest form. (4)",
+   "command": "find",
+   "forms": [
+    "simplest-form"
+   ],
+   "skills": [
+    "binomial-expansion-terms",
+    "binomial-take-out-factor"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Uses the binomial expansion of $(1 + kx)^{-\\frac{1}{2}}$ with $k \\neq 1$ and at least two of the terms after the 1 having the correct structure, e.g. $1 + (-\\tfrac{1}{2})(kx) + \\frac{(-\\frac{1}{2})(-\\frac{3}{2})}{2!}(kx)^2$",
+     "notes": "Accept any $k$ here, but the term in $x^2$ must have the bracket $(kx)^2$ with $k$ squared (or be recovered). Expanding $(4-5x)^{-\\frac12}$ directly with $4^{-\\frac12}$, $4^{-\\frac32}$, $4^{-\\frac52}$ powers is also acceptable if correctly structured."
+    },
+    {
+     "code": "B1",
+     "for": "Takes out the factor $4^{-\\frac{1}{2}} = \\frac{1}{2}$, giving $\\frac{1}{2}\\left(1 - \\frac{5}{4}x\\right)^{-\\frac{1}{2}}$",
+     "notes": "Accept the factor $\\frac12$ appearing as the constant term of the final answer."
+    },
+    {
+     "code": "A1",
+     "depends_on": "M1",
+     "for": "Two of the three terms $\\frac{1}{2}$, $\\frac{5}{16}x$, $\\frac{75}{256}x^2$ correct and simplified",
+     "notes": "Unsimplified fractions such as $\\frac{10}{32}x$ do not earn this mark."
+    },
+    {
+     "code": "A1",
+     "depends_on": "M1",
+     "for": "$\\frac{1}{2} + \\frac{5}{16}x + \\frac{75}{256}x^2$ fully correct",
+     "notes": "cao; isw after the correct expansion is seen. Accept decimals only if exact, e.g. $0.5 + 0.3125x + \\dots$ is not simplest form for the $x^2$ term, so require fractions."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Write $\\frac{1}{\\sqrt{4-5x}} = (4 - 5x)^{-\\frac{1}{2}} = 4^{-\\frac{1}{2}}\\left(1 - \\frac{5x}{4}\\right)^{-\\frac{1}{2}} = \\frac{1}{2}\\left(1 - \\frac{5x}{4}\\right)^{-\\frac{1}{2}}$",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "$\\left(1 - \\frac{5x}{4}\\right)^{-\\frac{1}{2}} = 1 + \\left(-\\tfrac{1}{2}\\right)\\left(-\\frac{5x}{4}\\right) + \\frac{\\left(-\\frac{1}{2}\\right)\\left(-\\frac{3}{2}\\right)}{2}\\left(-\\frac{5x}{4}\\right)^2 + \\dots$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$= 1 + \\frac{5}{8}x + \\frac{3}{8}\\cdot\\frac{25}{16}x^2 + \\dots = 1 + \\frac{5}{8}x + \\frac{75}{128}x^2 + \\dots$",
+     "mark": "0"
+    },
+    {
+     "step": 4,
+     "working": "Multiply by $\\frac{1}{2}$: $\\frac{1}{2} + \\frac{5}{16}x + \\dots$ (two terms correct)",
+     "mark": "A1"
+    },
+    {
+     "step": 5,
+     "working": "$\\frac{1}{\\sqrt{4-5x}} \\approx \\frac{1}{2} + \\frac{5}{16}x + \\frac{75}{256}x^2$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "c0",
+     "expr": "1/2",
+     "form": "exact"
+    },
+    {
+     "name": "c1",
+     "expr": "5/16",
+     "form": "exact"
+    },
+    {
+     "name": "c2",
+     "expr": "75/256",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "substitute",
+     "expr": "(4 - 5x)^(-1/2)",
+     "at": {
+      "x": 0
+     },
+     "answer": "c0"
+    },
+    {
+     "type": "derivative",
+     "f": "(4 - 5x)^(-1/2)",
+     "var": "x",
+     "result": "(5/2)(4 - 5x)^(-3/2)"
+    },
+    {
+     "type": "substitute",
+     "expr": "(5/2)(4 - 5x)^(-3/2)",
+     "at": {
+      "x": 0
+     },
+     "answer": "c1"
+    },
+    {
+     "type": "derivative",
+     "f": "(4 - 5x)^(-1/2)",
+     "var": "x",
+     "order": 2,
+     "result": "(75/4)(4 - 5x)^(-5/2)"
+    },
+    {
+     "type": "substitute",
+     "expr": "(75/8)(4 - 5x)^(-5/2)",
+     "at": {
+      "x": 0
+     },
+     "answer": "c2"
+    }
+   ],
+   "hints": [
+    "Write the function as a power first: $\\frac{1}{\\sqrt{4-5x}} = (4-5x)^{-\\frac12}$.",
+    "The standard expansion needs a 1 inside the bracket, so take a factor of 4 out before you expand, and remember to raise it to the power $-\\frac12$."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "step": 1,
+   "error_code": "binomial-factor-not-taken-out",
+   "text": "A common slip is to expand $(4 - 5x)^{-\\frac12}$ as if it were $(1 - 5x)^{-\\frac12}$, or to take out the 4 and write the factor as $4$ or $\\frac14$ when it should be $4^{-\\frac12} = \\frac12$. Either way the constant term is wrong: without the 1 inside the bracket you lose M1, and with the wrong factor you lose B1 and the A marks.",
+   "says_common": true
+  },
+  {
+   "part": null,
+   "step": 2,
+   "error_code": "binomial-negative-term-sign-error",
+   "text": "It's common to lose track of the minus sign inside $\\left(1 - \\frac{5x}{4}\\right)$. The $x$ term is $\\left(-\\frac12\\right)\\left(-\\frac{5x}{4}\\right) = +\\frac{5}{8}x$, so every term of this series is positive. If you get $-\\frac{5}{16}x$, the A marks are lost.",
+   "says_common": true
+  },
+  {
+   "part": null,
+   "step": 3,
+   "error_code": "binomial-coefficient-error",
+   "text": "A common mistake is getting the $x^2$ coefficient wrong, either by using $\\frac{n(n+1)}{2}$ in place of $\\frac{n(n-1)}{2!} = \\frac{(-\\frac12)(-\\frac32)}{2} = \\frac38$, or by squaring only the $x$ and not the $\\frac{5}{4}$. You need $\\left(-\\frac{5x}{4}\\right)^2 = \\frac{25}{16}x^2$, or the method mark is lost.",
+   "says_common": true
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:35:27",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.2307
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 4
+  },
+  "G7": {
+   "pass": false,
+   "flag": true,
+   "reasons": [
+    "3 word 8-gram(s) also in the reference corpus (not whitelisted)"
+   ],
+   "flags": [
+    "cosine 0.903 with question:IAL2018_WMA14_Oct2020_Q2"
+   ],
+   "hit_fields": [
+    "part - mark scheme",
+    "part - text"
+   ],
+   "n_8gram_hits": 3,
+   "hits8": [
+    "the binomial expansion of 1 kx 1 2",
+    "to and including the term in x 2",
+    "up to and including the term in x"
+   ],
+   "max_jaccard": 0.088,
+   "jaccard_source": "IAL2013_WMA02_Jan2016_Q1",
+   "shared_numbers": 0,
+   "max_cosine": 0.903,
+   "cosine_source": "question:IAL2018_WMA14_Oct2020_Q2"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 5,
+   "n_answers": 3,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

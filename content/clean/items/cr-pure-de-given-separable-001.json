@@ -138,7 +138,183 @@
    "hints": [
     "Put every term involving $y$ with $\\mathrm{d}y$ and every term involving $x$ with $\\mathrm{d}x$. Which reciprocal trig function is $\\frac{1}{\\cos^2 y}$?",
     "Before you integrate $\\frac{3x+1}{\\sqrt{x}}$, split it into two separate powers of $x$."
-   ]
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$\\int \\sec^2 y\\,\\mathrm{d}y = \\int \\frac{3x+1}{\\sqrt{x}}\\,\\mathrm{d}x$, with $\\int \\sec^2 y\\,\\mathrm{d}y=\\tan y$",
+      "secures": [
+       "B1",
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$\\int\\left(3x^{1/2}+x^{-1/2}\\right)\\mathrm{d}x = 2x^{3/2}+2x^{1/2}$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$\\tan y = 2x^{3/2}+2x^{1/2}+c$",
+      "secures": [
+       "A1"
+      ]
+     },
+     {
+      "step": 4,
+      "working": "$x=1,\\ y=\\frac{\\pi}{4}$: $1=4+c$, so $c=-3$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 5,
+      "working": "$y=\\arctan\\left(2x^{3/2}+2x^{1/2}-3\\right)$",
+      "secures": [
+       "A1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$\\dfrac{1}{\\cos^2 y}=\\sec^2 y$",
+      "why": "You rewrite the $\\cos^2 y$ factor as $\\sec^2 y$, a form you know how to integrate.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$\\int \\sec^2 y\\,\\mathrm{d}y=\\tan y$",
+      "why": "Integrating means finding the function that differentiates to $\\sec^2 y$, and that function is $\\tan y$.",
+      "secures": "B1",
+      "check": "Differentiate $\\tan y$ to get $\\sec^2 y$."
+     },
+     {
+      "step": 3,
+      "working": "$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\dfrac{(3x+1)\\cos^2 y}{\\sqrt{x}}$",
+      "why": "Start from the given equation, in which $y$ and $x$ are mixed together.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$\\dfrac{1}{\\cos^2 y}\\,\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\dfrac{3x+1}{\\sqrt{x}}$",
+      "why": "You divide both sides by $\\cos^2 y$ so that every $y$ term is on the left.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$\\sec^2 y\\,\\mathrm{d}y=\\dfrac{3x+1}{\\sqrt{x}}\\,\\mathrm{d}x$",
+      "why": "You treat $\\mathrm{d}y$ and $\\mathrm{d}x$ as separate pieces, which puts all the $y$ terms with $\\mathrm{d}y$ and all the $x$ terms with $\\mathrm{d}x$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$\\int \\sec^2 y\\,\\mathrm{d}y=\\int \\dfrac{3x+1}{\\sqrt{x}}\\,\\mathrm{d}x$",
+      "why": "You put an integral sign on each side to show that you will integrate both.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "$\\dfrac{3x+1}{\\sqrt{x}}=\\dfrac{3x}{\\sqrt{x}}+\\dfrac{1}{\\sqrt{x}}$",
+      "why": "You split the fraction into two terms, because each term is then a single power of $x$ that you can integrate.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$\\dfrac{3x}{\\sqrt{x}}=3x^{1-\\frac12}=3x^{1/2}$",
+      "why": "You subtract the powers of $x$ when you divide, and $x=x^1$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "$\\dfrac{1}{\\sqrt{x}}=x^{-1/2}$",
+      "why": "A square root in the denominator is the same as the power $-\\tfrac12$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$\\int\\left(3x^{1/2}+x^{-1/2}\\right)\\mathrm{d}x=3\\cdot\\dfrac{x^{3/2}}{3/2}+\\dfrac{x^{1/2}}{1/2}+c$",
+      "why": "You raise each power by 1 and divide by the new power, and you add a constant $c$ because this is an indefinite integral.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 11,
+      "working": "$3\\cdot\\dfrac{2}{3}x^{3/2}=2x^{3/2}$ and $\\dfrac{x^{1/2}}{1/2}=2x^{1/2}$",
+      "why": "Dividing by a fraction is the same as multiplying by its reciprocal, so the 3s cancel in the first term.",
+      "secures": null,
+      "check": "Differentiate $2x^{3/2}$ to get $3x^{1/2}$."
+     },
+     {
+      "step": 12,
+      "working": "$\\tan y=2x^{3/2}+2x^{1/2}+c$",
+      "why": "You join the two sides of the integrated equation, keeping the constant.",
+      "secures": "A1",
+      "check": null
+     },
+     {
+      "step": 13,
+      "working": "At $x=1$, $y=\\frac{\\pi}{4}$: $\\tan\\frac{\\pi}{4}=2(1)^{3/2}+2(1)^{1/2}+c$",
+      "why": "You use the given point to find $c$, by substituting $x=1$ and $y=\\frac{\\pi}{4}$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 14,
+      "working": "$1=2+2+c$",
+      "why": "$\\tan\\frac{\\pi}{4}=1$, and any power of 1 is 1.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 15,
+      "working": "$1=4+c$",
+      "why": "You add $2+2$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 16,
+      "working": "$c=-3$",
+      "why": "You subtract 4 from both sides to leave $c$ on its own.",
+      "secures": "M1",
+      "check": "Check that $4-3=1$."
+     },
+     {
+      "step": 17,
+      "working": "$\\tan y=2x^{3/2}+2x^{1/2}-3$",
+      "why": "You put $c=-3$ back into the general solution.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 18,
+      "working": "$y=\\arctan\\left(2x^{3/2}+2x^{1/2}-3\\right)$",
+      "why": "You apply $\\arctan$ to both sides to make $y$ the subject. This is valid because $y$ lies between $-\\frac{\\pi}{2}$ and $\\frac{\\pi}{2}$.",
+      "secures": "A1",
+      "check": "At $x=1$: $\\arctan(1)=\\frac{\\pi}{4}$."
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:49:52+00:00",
+    "cost_usd": 0.0396,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
   }
  ],
  "pitfalls": [
@@ -463,6 +639,14 @@
      "rearrange-solution-explicitly"
     ]
    }
+  },
+  "GL": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part -: copy check flag: cosine 0.855 with note:IAL2018_WMA14_June2025_Q7_n2"
+   ],
+   "parts_checked": 1
   }
  },
  "review": {

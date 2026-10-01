@@ -1,0 +1,136 @@
+{
+ "id": "small-angle-approximations",
+ "question_type": "small-angle-approximations",
+ "component": "pure",
+ "title": "Small angle approximations",
+ "what_it_asks": "You are given a trigonometric expression or equation involving a small angle in radians. You replace $\\sin x$ with $x$, $\\tan x$ with $x$ and $\\cos x$ with $1-\\frac{x^2}{2}$. This gives a simpler expression that you use to estimate a value, find an approximate root or simplify. The idea is that for small $x$ in radians these functions are very close to the simple forms.",
+ "typical_structure": "Most questions are a single part worth about 3 marks. Some have two parts, with up to 5 marks in total. In a two-part question, the first part often sets up or shows an expression, and the second part uses the approximation on it. A diagram sometimes supplies the angle or triangle. After approximating, you usually get a quadratic or an algebraic fraction to solve or simplify.",
+ "mark_pattern": "A 3-mark part is usually M1 dM1 A1. The M1 is for replacing the trig terms with their approximations, using the correct argument. The dM1 is for the next stage, such as forming and solving the equation or simplifying. The A1 is for the final value in the form asked for, often 3 decimal places or in radians. Some parts are M1 M1 A1 or B1 M1 A1, where the B1 is for a correct stated value or approximation. Two-mark parts are typically B1 B1 or M1 A1, for stating approximations or making a direct estimate.",
+ "where_marks_leak": [
+  {
+   "error_code": "small-angle-approximation-error",
+   "mark_family": "method",
+   "text": "You use a wrong form, such as $\\cos x \\approx 1-x$, or forget the angle must be in radians. The first M1 is lost, and the dM1 and A1 that depend on it go too."
+  },
+  {
+   "error_code": "sine-cosine-rule-misapplied",
+   "mark_family": "method",
+   "text": "In a triangle setting, you pair a side with an angle that is not opposite it, or pick the wrong rule. The method mark for setting up the equation is lost, and the later dependent marks with it."
+  },
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You give the final answer to the wrong number of decimal places or significant figures. The final A1 is lost even though the method is fine."
+  },
+  {
+   "error_code": "arithmetic-slip",
+   "mark_family": "accuracy",
+   "text": "You make a numerical slip while solving the simplified equation. The A1 is lost, though earlier method marks usually stay."
+  },
+  {
+   "error_code": "answer-not-in-context",
+   "mark_family": "independent",
+   "text": "You give a bare number where the question needs it interpreted in context. The independent mark for the interpretation is lost."
+  }
+ ],
+ "write_to_earn": [
+  "Write the approximations you use, such as $\\cos 3x \\approx 1-\\frac{9x^2}{2}$, before you substitute them.",
+  "Replace the whole argument, so $\\sin 2x$ becomes $2x$, not $x$.",
+  "Show the simplified equation after substituting and before you solve it.",
+  "Keep unrounded values until the last line, then give the form asked for.",
+  "If the question says show that, write the step just before the printed result."
+ ],
+ "check_before_you_leave": [
+  "Angle in radians?",
+  "Argument matched?",
+  "Correct triangle rule and opposite side?",
+  "Required accuracy given?",
+  "Answer interpreted in context?"
+ ],
+ "skills": [
+  "small-angle-approximations",
+  "simplify-algebraic-fractions",
+  "solve-quadratic-equation",
+  "reject-invalid-solutions",
+  "accuracy-units-and-rounding",
+  "double-angle-formulae"
+ ],
+ "related_types": [
+  "radians-sectors-and-regions",
+  "trig-identity-then-solve",
+  "harmonic-form-and-trig-models",
+  "polynomial-factorise-and-solve"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:07:41",
+ "cost_usd": 0.0471,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 5,
+  "codes_listed": {
+   "sine-cosine-rule-misapplied": 3,
+   "small-angle-approximation-error": 3,
+   "wrong-final-accuracy": 2,
+   "answer-not-in-context": 1,
+   "arithmetic-slip": 1,
+   "normal-uses-tangent-gradient": 1,
+   "rationalising-error": 1
+  },
+  "frequent_codes": [],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.880 with part:P1_June2019_Q2:b"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.0,
+   "shared_numbers": 0,
+   "max_cosine": 0.88,
+   "cosine_source": "part:P1_June2019_Q2:b"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 12
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.880 with part:P1_June2019_Q2:b"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

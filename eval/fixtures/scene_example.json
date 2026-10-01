@@ -1,0 +1,47 @@
+{
+  "id": "cr-area-between-curve-and-line-core::-::1",
+  "part": null,
+  "title": "Why the area is curve minus line",
+  "purpose": "See that the curve is above the line between the intersections, so the area is the integral of (curve - line).",
+  "approach": "graphical",
+  "board": {"x": [-1, 8], "y": [-2, 12], "axis": true, "grid": true, "aspect": "auto"},
+  "params": [
+    {"id": "k", "label": "upper limit k", "min": 1, "max": 6, "step": 0.1, "value": 3}
+  ],
+  "elements": [
+    {"type": "function", "id": "C", "expr": "-x^2 + 8*x - 5", "color": "primary", "label": "C"},
+    {"type": "function", "id": "l", "expr": "x + 1", "color": "secondary", "label": "l"},
+    {"type": "point", "id": "A", "x": "1", "y": "2", "label": "(1, 2)"},
+    {"type": "point", "id": "B", "x": "6", "y": "7", "label": "(6, 7)"},
+    {"type": "integral", "id": "R", "between": ["C", "l"], "from": "1", "to": "k", "color": "primary", "opacity": 0.25},
+    {"type": "vline", "id": "kLine", "at": "k", "color": "muted"},
+    {"type": "text", "id": "areaLabel", "x": "4.5", "y": "11", "value": "Area so far = {area(R)} (up to $x = k$)"},
+    {"type": "glider", "id": "Q", "on": "C", "x": "3", "label": "Q"},
+    {"type": "text", "id": "qLabel", "x": "-0.5", "y": "-1", "value": "$Q$ is at ({x(Q)}, {y(Q)}), above the line $l$"}
+  ],
+  "steps": [
+    {"n": 1, "text": "The shaded region grows as you drag $k$ to the right. It is bounded above by $C$ and below by $l$.", "set": {"k": 3}, "show": ["R"]},
+    {"n": 2, "text": "Drag $k$ to $6$: the region closes at the second intersection, and the area reads $\\frac{125}{6} \\approx 20.8$.", "set": {"k": 6}},
+    {"n": 3, "text": "Drag $Q$ along $C$ between $x=1$ and $x=6$: its $y$-value is always above the line's, which is why we integrate (curve $-$ line), not the other way round.", "highlight": ["Q"]}
+  ],
+  "links": {"solution_steps": [3, 4], "marks": ["M1", "dM1"], "pitfalls": ["area-between-wrong-subtraction"]},
+  "guide": {
+    "what_you_see": "The curve $C$ ($y = -x^2 + 8x - 5$) and the line $l$ ($y = x + 1$) from the question, meeting at $(1, 2)$ and $(6, 7)$. The shaded region $R$ lies between them, from $x = 1$ up to the dashed line at $x = k$.",
+    "legend": [
+      {"id": "C", "meaning": "The curve $y = -x^2 + 8x - 5$ from the question."},
+      {"id": "l", "meaning": "The line $y = x + 1$ from the question."},
+      {"id": "A", "meaning": "The first point where $C$ and $l$ meet."},
+      {"id": "B", "meaning": "The second point where $C$ and $l$ meet."},
+      {"id": "R", "meaning": "The region whose area the question asks for; it grows as you move $k$."},
+      {"id": "kLine", "meaning": "The current upper limit $x = k$ of the shaded region."},
+      {"id": "Q", "meaning": "A point you can drag along $C$ to compare its height with the line."}
+    ],
+    "interact": [
+      {"control": "k", "kind": "slider", "do": "Drag the slider to move the upper limit from $1$ to $6$.", "watch": "The shaded area and the live reading grow; at $k = 6$ the reading is $\\frac{125}{6} \\approx 20.8$."},
+      {"control": "Q", "kind": "glider", "do": "Drag $Q$ along the curve.", "watch": "Its $y$-value stays above the line between $x = 1$ and $x = 6$."}
+    ],
+    "question_link": {"part": null, "marks": ["M1", "dM1", "A1*"],
+                      "text": "The shaded region is $R$. Its area is what the 5-mark part asks you to show equals $\\frac{125}{6}$; the integral you set up (M1) and evaluate (dM1) is the area you are watching."},
+    "read_off": ["The live label 'Area so far' is the value of the integral from $1$ to $k$.", "The label at the bottom left gives the coordinates of $Q$ as you drag it."]
+  }
+}

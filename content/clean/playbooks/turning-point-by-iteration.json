@@ -1,0 +1,139 @@
+{
+ "id": "turning-point-by-iteration",
+ "question_type": "turning-point-by-iteration",
+ "component": "pure",
+ "title": "Turning point located by iteration",
+ "what_it_asks": "You are given a function, often with exponentials, logs or a product, whose graph has a turning point. You differentiate, set the derivative to zero, and rearrange into a printed form $x = g(x)$. Then you iterate from a starting value to a stated accuracy, and sometimes confirm the root with a sign change.",
+ "typical_structure": "Usually three or four parts, sometimes five, worth about ten marks in total. An early part is often a differentiation or a \"show that\" the turning point satisfies an equation. The next part usually asks you to show the equation rearranges into the given iterative form. A later part asks you to iterate from a starting value and give values to a set number of decimal places. A final part may ask for a sign-change check on a tight interval, or for a coordinate of the turning point. The parts lean on each other, so a wrong derivative spreads into the rearrangement and the iteration.",
+ "mark_pattern": "Most parts are short. A 2-mark part is usually M1 A1. A 3-mark part is usually M1 A1 A1, for example a method line and then two accurate values. Show-that parts are often M1 A1 dM1 A1* or M1 A1 M1 A1*. The first M1 is for a valid differentiation attempt, the A1 for the correct derivative, the next method mark for setting it to zero and rearranging, and the starred mark for reaching the printed result with no errors. A single B1 is sometimes given for a stated value or a correct substitution. In iteration parts, the accuracy marks are for values correct to the stated decimal places.",
+ "where_marks_leak": [
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You give the root or an iterate to the wrong number of decimal places, for example 3 when 4 were asked. The final A1 is lost even though the iteration itself was right."
+  },
+  {
+   "error_code": "premature-rounding",
+   "mark_family": "accuracy",
+   "text": "You round each iterate before feeding it back into $g(x)$, so the later values drift outside the accepted range. The A1 for the final value is lost."
+  },
+  {
+   "error_code": "sign-error-expanding-brackets",
+   "mark_family": "accuracy",
+   "text": "You drop a minus sign when expanding a bracket in the derivative or while rearranging. The A1 goes, and in a show-that part the final A1* is lost too because the printed result cannot be reached honestly."
+  },
+  {
+   "error_code": "derivative-not-simplified-to-form",
+   "mark_family": "accuracy",
+   "text": "You leave the derivative unsimplified when the question wants a given form. The A1 is lost, and the marks after it in the same show-that chain can go with it."
+  },
+  {
+   "error_code": "arithmetic-slip",
+   "mark_family": "accuracy",
+   "text": "You make a numerical slip in an otherwise correct substitution or evaluation. The method mark survives but the A1 is lost, and a sign-change conclusion may then fail."
+  }
+ ],
+ "write_to_earn": [
+  "Write the product, chain or quotient rule line before you substitute, so the first M1 is safe even if a slip follows.",
+  "Write $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 0$ explicitly, then show every rearrangement line down to the printed form $x = g(x)$.",
+  "Keep full calculator values in the iteration and round only when you write each answer to the stated decimal places.",
+  "For a sign change, evaluate $\\mathrm{f}$ at both ends of the interval, state both signs, say $\\mathrm{f}$ is continuous, and write a conclusion in words.",
+  "Show the starting value and each iterate in a short list, so the marker can see the method even if one value is off."
+ ],
+ "check_before_you_leave": [
+  "Decimal places as asked",
+  "Printed form reached exactly",
+  "Signs in the derivative",
+  "Sign change and conclusion stated",
+  "Iterates not rounded early"
+ ],
+ "skills": [
+  "fixed-point-iteration",
+  "rearrange-to-iterative-form",
+  "set-derivative-zero-and-solve",
+  "show-that-given-answer",
+  "accuracy-units-and-rounding",
+  "change-of-sign-root-location",
+  "product-rule",
+  "differentiate-exponentials-and-logs"
+ ],
+ "related_types": [
+  "locate-root-and-newton-raphson",
+  "optimisation-modelled-quantity",
+  "optimisation-constrained-shape",
+  "exponential-model-in-context"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:04:35",
+ "cost_usd": 0.0599,
+ "attempts": 1,
+ "facts": {
+  "n_questions": 22,
+  "codes_listed": {
+   "wrong-final-accuracy": 9,
+   "premature-rounding": 6,
+   "sign-error-expanding-brackets": 4,
+   "trig-derivative-sign-error": 3,
+   "second-derivative-error": 2,
+   "derivative-not-simplified-to-form": 2,
+   "arithmetic-slip": 2,
+   "answer-not-in-context": 1
+  },
+  "frequent_codes": [],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.855 with note:IAL2013_WMA01_Jan2019_Q11_n5"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.002,
+   "shared_numbers": 0,
+   "max_cosine": 0.855,
+   "cosine_source": "note:IAL2013_WMA01_Jan2019_Q11_n5"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 6
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.855 with note:IAL2013_WMA01_Jan2019_Q11_n5"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

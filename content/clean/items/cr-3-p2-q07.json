@@ -1,0 +1,953 @@
+{
+ "id": "cr-3-p2-q07",
+ "blueprint_id": "mk-3-p2-q07",
+ "question_type": "vectors-parallel-and-ratios",
+ "component": "pure",
+ "tier": "standard",
+ "kind": "mock",
+ "stem": "Coordinates are measured from an origin $O$. The point $P$ is at $(2, -1, 5)$ and the point $Q$ is at $(8, 3, -1)$.",
+ "paper": "mock-3-P2",
+ "set": "mock-3",
+ "q_num": 7,
+ "parts": [
+  {
+   "label": "a",
+   "marks": 2,
+   "command": "find",
+   "text": "Find $\\overrightarrow{PQ}$ in terms of $\\mathbf{i}$, $\\mathbf{j}$ and $\\mathbf{k}$. Use it to find the value of the constant $c$ that makes the vector $9\\mathbf{i} + c\\,\\mathbf{j} - 9\\mathbf{k}$ a scalar multiple of $\\overrightarrow{PQ}$. (2)",
+   "skills": [
+    "vector-between-points",
+    "parallel-and-collinear-vectors"
+   ],
+   "forms": [],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Subtracts position vectors the right way round to get $\\overrightarrow{PQ} = \\overrightarrow{OQ} - \\overrightarrow{OP}$, giving $6\\mathbf{i} + 4\\mathbf{j} - 6\\mathbf{k}$ (or with one slip in a component), and then compares $9\\mathbf{i} + c\\mathbf{j} - 9\\mathbf{k}$ with a multiple of their $\\overrightarrow{PQ}$, using the $\\mathbf{i}$ or $\\mathbf{k}$ component to find the scale factor",
+     "notes": "The factor can appear as $\\tfrac{9}{6}$ or $\\tfrac{3}{2}$, or as a ratio such as $\\tfrac{c}{4} = \\tfrac{9}{6}$."
+    },
+    {
+     "code": "A1",
+     "for": "$c = 6$",
+     "notes": "cao. $\\overrightarrow{PQ} = 6\\mathbf{i}+4\\mathbf{j}-6\\mathbf{k}$ must be seen correct, in any vector notation. Also accept $\\overrightarrow{PQ}=-6\\mathbf{i}-4\\mathbf{j}+6\\mathbf{k}$ followed by a factor of $-\\tfrac32$ only if it is clearly labelled as $\\overrightarrow{QP}$."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\overrightarrow{PQ} = (8-2)\\mathbf{i} + (3-(-1))\\mathbf{j} + (-1-5)\\mathbf{k} = 6\\mathbf{i} + 4\\mathbf{j} - 6\\mathbf{k}$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$9\\mathbf{i} + c\\mathbf{j} - 9\\mathbf{k} = s(6\\mathbf{i} + 4\\mathbf{j} - 6\\mathbf{k})$. From the $\\mathbf{i}$ component, $s = \\tfrac{3}{2}$, and the $\\mathbf{k}$ component agrees ($-9 = \\tfrac32 \\times -6$).",
+     "mark": "0"
+    },
+    {
+     "step": 3,
+     "working": "$c = \\tfrac{3}{2} \\times 4 = 6$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "c",
+     "expr": "6",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "system",
+     "equations": [
+      "9 = 6*s",
+      "c = 4*s",
+      "-9 = -6*s"
+     ],
+     "vars": [
+      "s",
+      "c"
+     ],
+     "result": {
+      "s": "3/2",
+      "c": "6"
+     }
+    },
+    {
+     "type": "equals",
+     "lhs": "(8-2)^2 + (3-(-1))^2 + (-1-5)^2",
+     "rhs": "88"
+    }
+   ],
+   "hints": [
+    "The vector from $P$ to $Q$ is 'where you finish minus where you start': $\\overrightarrow{OQ} - \\overrightarrow{OP}$.",
+    "Two vectors are parallel when every component of one is the same multiple of the matching component of the other. Use a component with no unknown to find that multiple."
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$\\overrightarrow{PQ}=\\overrightarrow{OQ}-\\overrightarrow{OP}=6\\mathbf{i}+4\\mathbf{j}-6\\mathbf{k}$; $9\\mathbf{i}+c\\mathbf{j}-9\\mathbf{k}=\\tfrac32\\overrightarrow{PQ}$ since $\\tfrac96=\\tfrac32$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$c=\\tfrac32\\times4=6$",
+      "secures": [
+       "A1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$\\overrightarrow{PQ}=\\overrightarrow{OQ}-\\overrightarrow{OP}$",
+      "why": "To get from $P$ to $Q$ you go back to $O$ and then out to $Q$, so you take the position vector of $P$ away from that of $Q$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$\\overrightarrow{PQ}=(8\\mathbf{i}+3\\mathbf{j}-\\mathbf{k})-(2\\mathbf{i}-\\mathbf{j}+5\\mathbf{k})$",
+      "why": "You write each position vector using the coordinates given for $Q$ and $P$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$\\overrightarrow{PQ}=(8-2)\\mathbf{i}+(3-(-1))\\mathbf{j}+(-1-5)\\mathbf{k}$",
+      "why": "You subtract component by component: $\\mathbf{i}$ with $\\mathbf{i}$, $\\mathbf{j}$ with $\\mathbf{j}$, $\\mathbf{k}$ with $\\mathbf{k}$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$\\overrightarrow{PQ}=6\\mathbf{i}+4\\mathbf{j}-6\\mathbf{k}$",
+      "why": "You evaluate each bracket: $8-2=6$, $3+1=4$, $-1-5=-6$.",
+      "secures": null,
+      "check": "Start at $P$ and add $\\overrightarrow{PQ}$: $(2+6,-1+4,5-6)=(8,3,-1)=Q$."
+     },
+     {
+      "step": 5,
+      "working": "$9\\mathbf{i}+c\\mathbf{j}-9\\mathbf{k}=s\\left(6\\mathbf{i}+4\\mathbf{j}-6\\mathbf{k}\\right)$",
+      "why": "A scalar multiple means the vector is some number $s$ times $\\overrightarrow{PQ}$, so you write that equation.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$9=6s$",
+      "why": "You match the $\\mathbf{i}$ components on both sides, which has no unknown $c$ in it.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "$s=\\frac{9}{6}=\\frac32$",
+      "why": "You divide both sides by 6 and cancel the common factor 3.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$-9=\\frac32\\times(-6)$",
+      "why": "You test the $\\mathbf{k}$ components with this $s$ to confirm the multiple is consistent.",
+      "secures": null,
+      "check": "$\\frac32\\times(-6)=-9$, which matches."
+     },
+     {
+      "step": 9,
+      "working": "$c=\\frac32\\times4$",
+      "why": "You match the $\\mathbf{j}$ components: $c$ is $s$ times the $\\mathbf{j}$ component of $\\overrightarrow{PQ}$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$c=6$",
+      "why": "You multiply: $\\frac32\\times4=\\frac{12}{2}=6$.",
+      "secures": "A1",
+      "check": "$\\frac{6}{4}=\\frac32$, the same factor as for the $\\mathbf{i}$ component."
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T23:14:47+00:00",
+    "cost_usd": 0.0224,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
+  },
+  {
+   "label": "b",
+   "marks": 3,
+   "command": "find",
+   "text": "The point $R$, at $(p, q, -10)$, lies on the straight line through $P$ and $Q$. Find the values of $p$ and $q$. (3)",
+   "skills": [
+    "parallel-and-collinear-vectors",
+    "vector-ratios-and-geometric-proof",
+    "vector-between-points",
+    "explain-with-reason"
+   ],
+   "forms": [],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Writes a statement of collinearity using $P$ as a common point: $\\overrightarrow{PR} = t\\,\\overrightarrow{PQ}$, i.e. $(p-2)\\mathbf{i} + (q+1)\\mathbf{j} - 15\\mathbf{k} = t(6\\mathbf{i}+4\\mathbf{j}-6\\mathbf{k})$, or $\\overrightarrow{OR} = \\overrightarrow{OP} + t\\,\\overrightarrow{PQ}$ using their $\\overrightarrow{PQ}$",
+     "notes": "Starting from $Q$ is also fine: $\\overrightarrow{QR} = u\\,\\overrightarrow{PQ}$, giving $u = \\tfrac32$."
+    },
+    {
+     "code": "dM1",
+     "for": "Uses the $\\mathbf{k}$ components to find the scalar, $5 - 6t = -10$ so $t = \\tfrac{5}{2}$ (or the matching value for their route), and substitutes it into the $\\mathbf{i}$ and $\\mathbf{j}$ components",
+     "notes": "Depends on the M1 above."
+    },
+    {
+     "code": "A1",
+     "for": "$p = 17$ and $q = 9$",
+     "notes": "cao, both values needed."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$R$ is on line $PQ$, so $\\overrightarrow{PR}$ is a scalar multiple of $\\overrightarrow{PQ}$ and the two vectors share the point $P$: $\\overrightarrow{OR} = \\overrightarrow{OP} + t\\,\\overrightarrow{PQ} = (2+6t)\\mathbf{i} + (-1+4t)\\mathbf{j} + (5-6t)\\mathbf{k}$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$\\mathbf{k}$ component: $5 - 6t = -10 \\Rightarrow t = \\tfrac{5}{2}$",
+     "mark": "dM1"
+    },
+    {
+     "step": 3,
+     "working": "$p = 2 + 6\\times\\tfrac52 = 17$, $q = -1 + 4\\times\\tfrac52 = 9$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "p",
+     "expr": "17",
+     "form": "exact"
+    },
+    {
+     "name": "q",
+     "expr": "9",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "system",
+     "equations": [
+      "p = 2 + 6*t",
+      "q = -1 + 4*t",
+      "-10 = 5 - 6*t"
+     ],
+     "vars": [
+      "t",
+      "p",
+      "q"
+     ],
+     "result": {
+      "t": "5/2",
+      "p": "17",
+      "q": "9"
+     }
+    },
+    {
+     "type": "equals",
+     "lhs": "(17-8)/6",
+     "rhs": "(9-3)/4"
+    }
+   ],
+   "hints": [
+    "Any point on the line through $P$ and $Q$ can be reached by starting at $P$ and moving some multiple $t$ of $\\overrightarrow{PQ}$.",
+    "You already know the $\\mathbf{k}$ coordinate of $R$. Use it to find $t$ first."
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$\\overrightarrow{OR}=\\overrightarrow{OP}+t\\overrightarrow{PQ}=(2+6t)\\mathbf{i}+(-1+4t)\\mathbf{j}+(5-6t)\\mathbf{k}$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$\\mathbf{k}$: $5-6t=-10\\Rightarrow t=\\tfrac52$",
+      "secures": [
+       "dM1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$p=2+6\\times\\tfrac52=17,\\quad q=-1+4\\times\\tfrac52=9$",
+      "secures": [
+       "A1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$\\overrightarrow{PQ}=6\\mathbf{i}+4\\mathbf{j}-6\\mathbf{k}$",
+      "why": "You start from the direction of the line, which is the vector from $P$ to $Q$ found in part (a).",
+      "secures": null,
+      "check": "Subtract: $(8-2,\\,3-(-1),\\,-1-5)=(6,4,-6)$."
+     },
+     {
+      "step": 2,
+      "working": "$\\overrightarrow{PR}=t\\,\\overrightarrow{PQ}$",
+      "why": "$R$ is on the line through $P$ and $Q$, so the step from $P$ to $R$ is a multiple $t$ of the step from $P$ to $Q$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$\\overrightarrow{OR}=\\overrightarrow{OP}+t\\,\\overrightarrow{PQ}$",
+      "why": "To reach $R$ from the origin, go to $P$ first and then move along the line by $t\\overrightarrow{PQ}$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$\\overrightarrow{OR}=(2\\mathbf{i}-\\mathbf{j}+5\\mathbf{k})+t(6\\mathbf{i}+4\\mathbf{j}-6\\mathbf{k})$",
+      "why": "You put in the actual position vector of $P$ and the vector $\\overrightarrow{PQ}$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$\\overrightarrow{OR}=(2+6t)\\mathbf{i}+(-1+4t)\\mathbf{j}+(5-6t)\\mathbf{k}$",
+      "why": "You multiply $t$ into each component and add the matching components of $P$ together.",
+      "secures": "M1",
+      "check": "At $t=0$ you get $P$; at $t=1$ you get $(8,3,-1)=Q$."
+     },
+     {
+      "step": 6,
+      "working": "$5-6t=-10$",
+      "why": "$R$ has $\\mathbf{k}$ component $-10$, and this is the only component that is fully known, so set it equal to the $\\mathbf{k}$ part of $\\overrightarrow{OR}$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "$-6t=-15$",
+      "why": "You take $5$ from both sides to get the $t$ term on its own.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$t=\\tfrac52$",
+      "why": "You divide both sides by $-6$ to get the value of $t$.",
+      "secures": "dM1",
+      "check": "$5-6\\times\\tfrac52=5-15=-10$."
+     },
+     {
+      "step": 9,
+      "working": "$p=2+6\\times\\tfrac52$",
+      "why": "The $\\mathbf{i}$ component of $\\overrightarrow{OR}$ is $p$, so you put $t=\\tfrac52$ into $2+6t$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$p=2+15=17$",
+      "why": "You evaluate $6\\times\\tfrac52=15$, then add $2$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 11,
+      "working": "$q=-1+4\\times\\tfrac52$",
+      "why": "The $\\mathbf{j}$ component of $\\overrightarrow{OR}$ is $q$, so you put $t=\\tfrac52$ into $-1+4t$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 12,
+      "working": "$q=-1+10=9$",
+      "why": "You evaluate $4\\times\\tfrac52=10$, then add $-1$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 13,
+      "working": "$p=17,\\quad q=9$",
+      "why": "These are the two required values, with $R=(17,9,-10)$.",
+      "secures": "A1",
+      "check": "$R-P=(15,10,-15)=\\tfrac52(6,4,-6)$."
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T23:14:52+00:00",
+    "cost_usd": 0.0245,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "vector-direction-reversed",
+   "text": "If you work out $\\overrightarrow{OP} - \\overrightarrow{OQ}$ you get $-6\\mathbf{i} - 4\\mathbf{j} + 6\\mathbf{k}$. That is $\\overrightarrow{QP}$, not $\\overrightarrow{PQ}$, so the M1 is lost unless you label it correctly.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "distance-formula-error",
+   "text": "Adding the coordinates, for example $2 + 8 = 10$ in the $\\mathbf{i}$ component, gives a vector that has nothing to do with the direction from $P$ to $Q$. You must subtract, and in the $\\mathbf{j}$ component $3 - (-1) = 4$, not $2$. This loses the M1.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "parallel-not-shown",
+   "text": "Don't just write $c = 6$ from inspection. Show the multiplier $\\tfrac32$ and check that it works for both the $\\mathbf{i}$ and $\\mathbf{k}$ components, otherwise you have not actually shown the vectors are parallel.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "vector-direction-reversed",
+   "text": "A frequent slip is writing $\\overrightarrow{PR} = \\overrightarrow{OP} - \\overrightarrow{OR}$, which gives $(2-p)\\mathbf{i} + (-1-q)\\mathbf{j} + 15\\mathbf{k}$. Setting this equal to $t\\,\\overrightarrow{PQ}$ gives $t = -\\tfrac52$ and wrong values of $p$ and $q$, so the M1 is lost and every mark after it goes too.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "parallel-not-shown",
+   "text": "Showing that $\\overrightarrow{OR}$ is parallel to $\\overrightarrow{PQ}$ is not the same as putting $R$ on the line. You need a vector that starts from $P$ (or $Q$), such as $\\overrightarrow{PR} = t\\,\\overrightarrow{PQ}$, so that the vectors share a point. Using $\\overrightarrow{OR} = t\\,\\overrightarrow{PQ}$ loses the M1.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "distance-formula-error",
+   "text": "Don't try to find $t$ by comparing lengths such as $|\\overrightarrow{PQ}| = \\sqrt{88}$, and never use $88$ without the square root. The $\\mathbf{k}$ component, $5 - 6t = -10$, gives $t = \\tfrac52$ directly. A method based on lengths also loses the sign of $t$.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:57:53",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.2625
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 5
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.876 with question:IAL2013_WMA01_June2014_Q5"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "hits8": [],
+   "max_jaccard": 0.02,
+   "jaccard_source": "GCE2008_6664_June2006_Q7",
+   "shared_numbers": 0,
+   "max_cosine": 0.876,
+   "cosine_source": "question:IAL2013_WMA01_June2014_Q5"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 4,
+   "n_answers": 3,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0091,
+   "solver": {
+    "parts": [
+     {
+      "label": "a",
+      "answers": [
+       "6*i + 4*j - 6*k",
+       "6"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "PQ = (8-2, 3-(-1), -1-5) = (6,4,-6). Scale factor 3/2 from the k component (-9/-6), so c = 4*3/2 = 6."
+     },
+     {
+      "label": "b",
+      "answers": [
+       "17",
+       "9"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "r = (2,-1,5)+t(6,4,-6). 5-6t=-10 gives t=5/2. p=2+15=17, q=-1+10=9."
+     }
+    ],
+    "problems": []
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "n_responses": 8,
+   "agreed": [
+    "r1",
+    "r2",
+    "r3",
+    "r4",
+    "r5",
+    "r6",
+    "r7",
+    "r8"
+   ],
+   "consistent": {},
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "r1",
+     "kind": "correct",
+     "work": "(a) $\\overrightarrow{PQ}=(8-2)\\mathbf{i}+(3+1)\\mathbf{j}+(-1-5)\\mathbf{k}=6\\mathbf{i}+4\\mathbf{j}-6\\mathbf{k}$. $9\\mathbf{i}+c\\mathbf{j}-9\\mathbf{k}=s(6\\mathbf{i}+4\\mathbf{j}-6\\mathbf{k})$, so $s=\\tfrac32$ (k agrees: $-6\\times\\tfrac32=-9$). $c=\\tfrac32\\times4=6$.\n(b) $\\overrightarrow{OR}=\\overrightarrow{OP}+t\\overrightarrow{PQ}=(2+6t)\\mathbf{i}+(-1+4t)\\mathbf{j}+(5-6t)\\mathbf{k}$. k: $5-6t=-10$, $t=\\tfrac52$. $p=2+15=17$, $q=-1+10=9$.",
+     "error_code": null,
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "kind": "pitfall",
+     "work": "(a) $\\overrightarrow{PQ}=\\overrightarrow{OP}-\\overrightarrow{OQ}=(2-8)\\mathbf{i}+(-1-3)\\mathbf{j}+(5+1)\\mathbf{k}=-6\\mathbf{i}-4\\mathbf{j}+6\\mathbf{k}$. Then $9=-6s$, $s=-\\tfrac32$, $c=-\\tfrac32\\times-4$... so $c=-6\\times$ hmm: $c=-\\tfrac32\\times(-4)=6$? I'll take $c=-\\tfrac32\\times4=-6$.\n(b) $\\overrightarrow{PR}=t\\overrightarrow{PQ}$ with $\\overrightarrow{PQ}=6\\mathbf{i}+4\\mathbf{j}-6\\mathbf{k}$: $(p-2)\\mathbf{i}+(q+1)\\mathbf{j}-15\\mathbf{k}=t(6\\mathbf{i}+4\\mathbf{j}-6\\mathbf{k})$. $-15=-6t$, $t=\\tfrac52$. $p=2+15=17$, $q=-1+10=9$.",
+     "error_code": "vector-direction-reversed",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r3",
+     "kind": "pitfall",
+     "work": "(a) Adding coordinates: $\\overrightarrow{PQ}=(2+8)\\mathbf{i}+(-1+3)\\mathbf{j}+(5-1)\\mathbf{k}=10\\mathbf{i}+2\\mathbf{j}+4\\mathbf{k}$. $9/10=s$, so $c=2\\times0.9=1.8$.\n(b) $\\overrightarrow{PR}=t\\overrightarrow{PQ}$: $(p-2)\\mathbf{i}+(q+1)\\mathbf{j}-15\\mathbf{k}=t(10\\mathbf{i}+2\\mathbf{j}+4\\mathbf{k})$. $-15=4t$, $t=-\\tfrac{15}{4}$. $p=2-37.5=-35.5$, $q=-1-7.5=-8.5$.",
+     "error_code": "distance-formula-error",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r4",
+     "kind": "pitfall",
+     "work": "(a) $\\overrightarrow{PQ}=6\\mathbf{i}+4\\mathbf{j}-6\\mathbf{k}$. By inspection $c=6$.\n(b) $\\overrightarrow{OR}=\\overrightarrow{OP}+t\\overrightarrow{PQ}=(2+6t)\\mathbf{i}+(-1+4t)\\mathbf{j}+(5-6t)\\mathbf{k}$. $5-6t=-10$, $t=\\tfrac52$, $p=17$, $q=9$.",
+     "error_code": "parallel-not-shown",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r5",
+     "kind": "pitfall",
+     "work": "(a) $\\overrightarrow{PQ}=6\\mathbf{i}+4\\mathbf{j}-6\\mathbf{k}$, $s=\\tfrac32$, $c=6$.\n(b) $\\overrightarrow{PR}=\\overrightarrow{OP}-\\overrightarrow{OR}=(2-p)\\mathbf{i}+(-1-q)\\mathbf{j}+15\\mathbf{k}=t(6\\mathbf{i}+4\\mathbf{j}-6\\mathbf{k})$. $15=-6t$, $t=-\\tfrac52$. Then $p=2+6t=-13$, $q=-1+4t=-11$.",
+     "error_code": "vector-direction-reversed",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "dM0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r6",
+     "kind": "pitfall",
+     "work": "(a) $\\overrightarrow{PQ}=6\\mathbf{i}+4\\mathbf{j}-6\\mathbf{k}$, $s=\\tfrac32$ from i, k agrees, $c=6$.\n(b) $\\overrightarrow{OR}=t\\overrightarrow{PQ}$: $p\\mathbf{i}+q\\mathbf{j}-10\\mathbf{k}=t(6\\mathbf{i}+4\\mathbf{j}-6\\mathbf{k})$. $-10=-6t$, $t=\\tfrac53$. $p=10$, $q=\\tfrac{20}{3}$.",
+     "error_code": "parallel-not-shown",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "dM0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r7",
+     "kind": "pitfall",
+     "work": "(a) $\\overrightarrow{PQ}=6\\mathbf{i}+4\\mathbf{j}-6\\mathbf{k}$, $s=\\tfrac32$, $c=6$.\n(b) $\\overrightarrow{PR}=t\\overrightarrow{PQ}$. Compare lengths: $|\\overrightarrow{PQ}|^2=36+16+36=88$ and I take $|\\overrightarrow{PR}|=15$ (the k part). So $t=\\tfrac{15}{88}$. $p=2+6\\times\\tfrac{15}{88}\\approx3.02$, $q=-1+4\\times\\tfrac{15}{88}\\approx-0.32$.",
+     "error_code": "distance-formula-error",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM0",
+        "A0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r8",
+     "kind": "partial",
+     "work": "(a) $\\overrightarrow{PQ}=6\\mathbf{i}+4\\mathbf{j}-6\\mathbf{k}$; $9/6=\\tfrac32$ so $c=6$.\n(b) $\\overrightarrow{PR}=t\\overrightarrow{PQ}$, so $(p-2)\\mathbf{i}+(q+1)\\mathbf{j}-15\\mathbf{k}=t(6\\mathbf{i}+4\\mathbf{j}-6\\mathbf{k})$. (stuck, stops)",
+     "error_code": null,
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM0",
+        "A0"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "r1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) M0: PQ found as OP-OQ (wrong way round, not labelled QP), and final c=-6 is wrong so A0."
+     ]
+    },
+    {
+     "id": "r3",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) M0: PQ found by adding coordinates, not subtraction; A0 follows.",
+      "(b) A0: p and q incorrect as they come from the wrong PQ."
+     ]
+    },
+    {
+     "id": "r4",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM1",
+        "A1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) M0: no scale factor or comparison of multiples shown, only 'by inspection'; A0 as it depends on M1."
+     ]
+    },
+    {
+     "id": "r5",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "dM0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) M0: the vector labelled PR is actually RP, so the collinearity statement is not valid as written, and p,q are then found inconsistently.",
+      "(b) dM0: depends on M1.",
+      "(b) A0: p=-13, q=-11 are wrong."
+     ]
+    },
+    {
+     "id": "r6",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "dM0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) M0: uses OR = t PQ, which ignores P as the common point.",
+      "(b) dM0: depends on M1.",
+      "(b) A0: p=10, q=20/3 are wrong."
+     ]
+    },
+    {
+     "id": "r7",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) dM0: t is not found from the k components, and the lengths method is invalid.",
+      "(b) A0: p and q are wrong."
+     ]
+    },
+    {
+     "id": "r8",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "dM0",
+        "A0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) dM0: no scalar is found from the k components.",
+      "(b) A0: p and q not found."
+     ]
+    }
+   ],
+   "awarded_second": [],
+   "cost_usd": 0.081
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "agreement": "2/2",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.014114999999999999,
+   "retagged": {
+    "a": [
+     "vector-between-points",
+     "parallel-and-collinear-vectors"
+    ],
+    "b": [
+     "vector-ratios-and-geometric-proof",
+     "parallel-and-collinear-vectors"
+    ]
+   }
+  },
+  "GL": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part a: copy check flag: cosine 0.815 with note:IAL2018_WME01_Oct2024_Q3_n5",
+    "part b: copy check flag: cosine 0.829 with note:IAL2018_WME01_Oct2024_Q3_n5"
+   ],
+   "parts_checked": 2
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

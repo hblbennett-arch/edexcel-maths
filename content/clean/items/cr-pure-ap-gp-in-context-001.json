@@ -1,0 +1,1381 @@
+{
+ "id": "cr-pure-ap-gp-in-context-001",
+ "blueprint_id": "bp-pure-ap-gp-in-context-001",
+ "question_type": "ap-gp-in-context",
+ "component": "pure",
+ "tier": "accessible",
+ "kind": "exam",
+ "stem": "The $n$th term of an arithmetic sequence is $u_n$. The first term is $u_1 = 50$, and every term after the first is $4$ less than the term before it.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 2,
+   "text": "The number $2$ is one of the terms. Find the value of $k$ for which $u_k = 2$. (2)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "arithmetic-sequence-nth-term"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Writes an nth-term equation using $a = 50$, $d = -4$ with the $(k-1)$ index, e.g. $50 - 4(k-1) = 2$, and tries to solve it for $k$",
+     "notes": "Also accept $50 + (k-1)(-4) = 2$. The equation $50 - 4k = 2$ does not score."
+    },
+    {
+     "code": "A1",
+     "for": "$k = 13$",
+     "notes": "cao"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$u_k = 50 + (k-1)(-4) = 2$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$4(k-1) = 48 \\Rightarrow k - 1 = 12 \\Rightarrow k = 13$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "k",
+     "expr": "13",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "solutions",
+     "equation": "50 - 4(k-1) = 2",
+     "var": "k",
+     "result": [
+      "13"
+     ]
+    },
+    {
+     "type": "substitute",
+     "expr": "50 - 4(n-1)",
+     "at": {
+      "n": 13
+     },
+     "result": "2"
+    }
+   ],
+   "hints": [
+    "Write down an expression for $u_k$ in terms of $k$, using the first term and the common difference, then set it equal to $2$."
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$50 + (k-1)(-4) = 2$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$4(k-1) = 48 \\Rightarrow k-1 = 12 \\Rightarrow k = 13$",
+      "secures": [
+       "A1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$u_n = a + (n-1)d$",
+      "why": "This is the formula for the $n$th term of an arithmetic sequence, where each term changes by the same amount $d$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$a = 50,\\quad d = -4$",
+      "why": "The first term is 50 and each term is 4 less than the one before, so the common difference is $-4$.",
+      "secures": null,
+      "check": "A sequence that decreases must have a negative $d$."
+     },
+     {
+      "step": 3,
+      "working": "$u_k = 50 + (k-1)(-4)$",
+      "why": "You put $a$ and $d$ into the formula, using $k$ in place of $n$ because you want the position $k$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$50 + (k-1)(-4) = 2$",
+      "why": "You are told that $u_k = 2$, so you set the expression for $u_k$ equal to 2.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$50 - 4(k-1) = 2$",
+      "why": "You rewrite adding $(k-1)(-4)$ as subtracting $4(k-1)$, which is easier to handle.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$50 - 2 = 4(k-1)$",
+      "why": "You add $4(k-1)$ to both sides and subtract 2 from both sides, so the bracket ends up with a positive coefficient.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "$48 = 4(k-1)$",
+      "why": "You evaluate $50 - 2$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$k - 1 = 12$",
+      "why": "You divide both sides by 4 to undo the multiplication of the bracket.",
+      "secures": null,
+      "check": "$4 \\times 12 = 48$."
+     },
+     {
+      "step": 9,
+      "working": "$k = 13$",
+      "why": "You add 1 to both sides to get $k$ on its own. The result is a positive whole number, as a position in the sequence must be.",
+      "secures": "A1",
+      "check": "$u_{13} = 50 - 4(12) = 50 - 48 = 2$."
+     },
+     {
+      "step": 10,
+      "working": "$k = 13$",
+      "why": "This is the final answer: the number 2 is the 13th term.",
+      "secures": null,
+      "check": null
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T22:59:08+00:00",
+    "cost_usd": 0.0159,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
+  },
+  {
+   "label": "b",
+   "marks": 2,
+   "text": "Find $\\displaystyle\\sum_{r=5}^{13} u_r$. (2)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "arithmetic-series-sum"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Uses a correct arithmetic sum formula with $9$ terms, beginning at $u_5 = 34$: e.g. $\\frac{9}{2}(34 + 2)$ or $\\frac{9}{2}[2(34) + 8(-4)]$. Also accept $S_{13} - S_4$ with both sums formed correctly",
+     "notes": "The number of terms must be 9 (not 8). If $S_{13} - S_4$ is used, $S_{13} = 338$ and $S_4 = 176$."
+    },
+    {
+     "code": "A1",
+     "for": "$162$",
+     "notes": "cao"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$u_5 = 50 + 4(-4) = 34$ and $u_{13} = 2$. From $r = 5$ to $r = 13$ there are $13 - 5 + 1 = 9$ terms.",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "$\\displaystyle\\sum_{r=5}^{13} u_r = \\frac{9}{2}(34 + 2)$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$= 162$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "S",
+     "expr": "162",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "9/2*(2*34 + 8*(-4))",
+     "result": "162"
+    },
+    {
+     "type": "numeric",
+     "expr": "13/2*(2*50 + 12*(-4)) - 4/2*(2*50 + 3*(-4))",
+     "result": "162"
+    },
+    {
+     "type": "substitute",
+     "expr": "50 - 4(n-1)",
+     "at": {
+      "n": 5
+     },
+     "result": "34"
+    }
+   ],
+   "hints": [
+    "Count carefully how many terms go from $u_5$ up to $u_{13}$, including both ends.",
+    "You know the first and last terms of this block, so the formula $\\frac{n}{2}(a + l)$ is quick."
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$u_5 = 50 + 4(-4) = 34$, $u_{13}=2$, 9 terms: $S = \\frac{9}{2}(34+2)$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$S = 162$",
+      "secures": [
+       "A1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$u_n = 50 + (n-1)(-4)$",
+      "why": "You start from the formula for the $n$th term of an arithmetic sequence, using first term $50$ and common difference $-4$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$u_5 = 50 + (5-1)(-4)$",
+      "why": "You need the first term of the sum, so you put $n=5$ into the formula.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$u_5 = 50 + 4(-4)$",
+      "why": "You work out the bracket $5-1=4$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$u_5 = 50 - 16$",
+      "why": "You multiply $4$ by $-4$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$u_5 = 34$",
+      "why": "You subtract to get the first term of the sum.",
+      "secures": null,
+      "check": "Start at $50$ and subtract $4$ four times: $46, 42, 38, 34$."
+     },
+     {
+      "step": 6,
+      "working": "$u_{13} = 2$",
+      "why": "Part (a) showed that the $13$th term is $2$, so this is the last term of the sum.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "Number of terms $= 13 - 5$",
+      "why": "To count the terms from $r=5$ to $r=13$, you first find the difference of the limits.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "Number of terms $= 8 + 1$",
+      "why": "You add $1$ because both end terms are included; subtracting alone would miss one.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "Number of terms $= 9$",
+      "why": "You add to get the count of terms.",
+      "secures": null,
+      "check": "List $r=5,6,7,8,9,10,11,12,13$: that is $9$ values."
+     },
+     {
+      "step": 10,
+      "working": "$S = \\frac{n}{2}(\\text{first} + \\text{last})$",
+      "why": "For an arithmetic series you can add up the terms using half the number of terms times the sum of the first and last.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 11,
+      "working": "$S = \\frac{9}{2}(34 + 2)$",
+      "why": "You substitute $9$ terms, first term $34$ and last term $2$.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 12,
+      "working": "$S = \\frac{9}{2}(36)$",
+      "why": "You add the numbers in the bracket.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 13,
+      "working": "$S = 9 \\times 18$",
+      "why": "You halve $36$ to make the multiplication easier.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 14,
+      "working": "$S = 162$",
+      "why": "You multiply to get the final value of the sum.",
+      "secures": "A1",
+      "check": "The average term is $18$ and there are $9$ terms, so $9\\times18=162$. Also $S_{13}-S_4=338-176=162$."
+     },
+     {
+      "step": 15,
+      "working": "$\\displaystyle\\sum_{r=5}^{13} u_r = 162$",
+      "why": "You state the answer to the question.",
+      "secures": null,
+      "check": null
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T22:59:08+00:00",
+    "cost_usd": 0.0191,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
+  },
+  {
+   "label": "c",
+   "marks": 3,
+   "text": "The integer $N$, where $N > 13$, satisfies $\\displaystyle\\sum_{r=14}^{N} u_r = -162$. Using your result from part (b), or otherwise, find $N$. (3)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "arithmetic-series-sum",
+    "use-hence-previous-result"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Uses part (b) to deduce $\\sum_{r=5}^{N} u_r = 0$ and writes an arithmetic sum for $m$ terms starting at $34$ with $d = -4$: $\\frac{m}{2}[68 + (m-1)(-4)] = 0$ oe",
+     "notes": "The sum formula must be correct in structure, with its $(m-1)$ factor."
+    },
+    {
+     "code": "A1ft",
+     "for": "Gets the number of terms: $m = 18$ (after rejecting $m = 0$)",
+     "ft_of": "part b",
+     "notes": "Follow through: the equation $\\frac{m}{2}[68 - 4(m-1)] = S_b - 162$, where $S_b$ is their answer to (b), solved correctly for positive $m$."
+    },
+    {
+     "code": "M1",
+     "for": "Turns the term count into the index correctly: $N = 5 + m - 1$ (i.e. $N = m + 4$), which gives $N = 22$",
+     "notes": "$N = m + 5$ does not score. A final answer of $22$ is needed for full credit."
+    }
+   ],
+   "alternatives": [
+    {
+     "name": "Way 2 (direct sum from $u_{14}$)",
+     "marks": [
+      {
+       "code": "M1",
+       "for": "$u_{14} = -2$, and a sum of $p$ terms with $d = -4$: $\\frac{p}{2}[-4 + (p-1)(-4)] = -162$ oe",
+       "notes": "The formula must be correct in structure."
+      },
+      {
+       "code": "A1ft",
+       "for": "Simplifies to $-2p^2 = -162$ and gets $p = 9$ (rejecting $-9$)",
+       "ft_of": "u_14",
+       "notes": "Follow through from their value of $u_{14}$."
+      },
+      {
+       "code": "M1",
+       "for": "$N = 14 + p - 1 = 22$",
+       "notes": "Needs the $-1$ in the conversion."
+      }
+     ]
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "By part (b), $\\sum_{r=5}^{13} u_r = 162$, so $\\sum_{r=5}^{N} u_r = 162 + (-162) = 0$.",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "Suppose there are $m$ terms from $u_5$ to $u_N$. Then $\\frac{m}{2}[2(34) + (m-1)(-4)] = 0$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$\\frac{m}{2}(72 - 4m) = 0 \\Rightarrow m = 18$ (because $m \\neq 0$)",
+     "mark": "A1ft"
+    },
+    {
+     "step": 4,
+     "working": "$N = 5 + 18 - 1 = 22$",
+     "mark": "M1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "N",
+     "expr": "22",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "solutions",
+     "equation": "m/2*(68 - 4(m-1)) = 0",
+     "var": "m",
+     "interval": [
+      1,
+      100
+     ],
+     "result": [
+      "18"
+     ]
+    },
+    {
+     "type": "solutions",
+     "equation": "(N-13)/2*(2*(-2) + (N-14)*(-4)) = -162",
+     "var": "N",
+     "interval": [
+      14,
+      100
+     ],
+     "result": [
+      "22"
+     ]
+    },
+    {
+     "type": "numeric",
+     "expr": "22/2*(2*50 + 21*(-4)) - 13/2*(2*50 + 12*(-4))",
+     "result": "-162"
+    }
+   ],
+   "hints": [
+    "Put this block of terms together with the block from part (b). What does that tell you about the sum from $u_5$ to $u_N$?",
+    "Once you know how many terms there are, take care turning that count into the index $N$ of the last term."
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$\\sum_{r=5}^{N}u_r = 162 + (-162) = 0$; $u_5 = 34$, so $\\frac{m}{2}[68 + (m-1)(-4)] = 0$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$\\frac{m}{2}(72-4m)=0 \\Rightarrow m = 18$ (as $m \\neq 0$)",
+      "secures": [
+       "A1ft"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$N = 5 + 18 - 1 = 22$",
+      "secures": [
+       "M1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$\\sum_{r=5}^{13}u_r = 162$",
+      "why": "Part (b) gave this value, and you want to build on it rather than start again.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$\\sum_{r=5}^{N}u_r = \\sum_{r=5}^{13}u_r + \\sum_{r=14}^{N}u_r$",
+      "why": "The terms from $u_5$ to $u_N$ split into those up to $u_{13}$ and those from $u_{14}$ onwards.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$\\sum_{r=5}^{N}u_r = 162 + (-162)$",
+      "why": "You substitute the part (b) value and the given sum $-162$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$\\sum_{r=5}^{N}u_r = 0$",
+      "why": "The two sums cancel, so the total from $u_5$ to $u_N$ is zero.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$u_5 = 50 + 4(-4)$",
+      "why": "The sum now starts at $u_5$, so you need its value. Each step down from $u_1$ subtracts 4, and there are 4 steps to reach $u_5$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$u_5 = 50 - 16 = 34$",
+      "why": "You evaluate the product and subtract.",
+      "secures": null,
+      "check": "Also $u_{13}=50-48=2$, matching part (a)."
+     },
+     {
+      "step": 7,
+      "working": "Let $m$ be the number of terms from $u_5$ to $u_N$. Then $S_m = \\frac{m}{2}[2a + (m-1)d]$ with $a = 34$, $d=-4$",
+      "why": "This is the arithmetic series sum formula. It needs the first term of the sum (34), the common difference (−4) and the number of terms $m$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$\\frac{m}{2}[2(34) + (m-1)(-4)] = 0$",
+      "why": "You substitute $a$ and $d$ and set the sum equal to zero, as found in step 4.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "$\\frac{m}{2}[68 - 4(m-1)] = 0$",
+      "why": "You evaluate $2(34)=68$ and write $(m-1)(-4)$ as $-4(m-1)$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$\\frac{m}{2}[68 - 4m + 4] = 0$",
+      "why": "You expand the bracket $-4(m-1)$, which gives $-4m+4$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 11,
+      "working": "$\\frac{m}{2}(72 - 4m) = 0$",
+      "why": "You collect $68+4=72$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 12,
+      "working": "$m = 0$ or $72 - 4m = 0$",
+      "why": "A product is zero only when one factor is zero.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 13,
+      "working": "$m \\neq 0$, so $4m = 72$",
+      "why": "You can't have zero terms, so you reject $m=0$ and move $-4m$ to the other side.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 14,
+      "working": "$m = 18$",
+      "why": "You divide both sides by 4.",
+      "secures": "A1ft",
+      "check": "$\\frac{18}{2}(72-72)=0$."
+     },
+     {
+      "step": 15,
+      "working": "$u_5$ is term 1 of the sum, $u_6$ is term 2, so $u_N$ is term $N-4$; hence $N - 4 = 18$",
+      "why": "The index runs from 5 upwards, so the $m$th term is $u_{m+4}$. This is one less than $m+5$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 16,
+      "working": "$N = 5 + 18 - 1$",
+      "why": "Equivalent to $N=m+4$: start at 5 and add 17 more terms.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 17,
+      "working": "$N = 22$",
+      "why": "You evaluate the sum. This is an integer greater than 13, as required.",
+      "secures": null,
+      "check": "$22-5+1=18$ terms."
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T22:59:11+00:00",
+    "cost_usd": 0.026,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "error_code": "nth-term-index-error",
+   "step": 1,
+   "text": "If you write $u_k = 50 - 4k$, you get $k = 12$. That is wrong because $u_1$ would then be $46$, not $50$. The index must be $(k-1)$, so you lose the M1 and the A1.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "error_code": "integer-n-rounded-wrong-way",
+   "step": 2,
+   "text": "Check that your $k$ is a whole number and that substituting it back gives $u_k = 2$. If an arithmetic slip gives something like $k = 12.5$ and you round it, you lose the A1: a term's position has to be an exact integer.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "error_code": "sigma-term-count-error",
+   "step": 1,
+   "text": "From $r = 5$ to $r = 13$ there are $13 - 5 + 1 = 9$ terms, not $8$. Using $8$ terms gives $\\frac{8}{2}(34 + 2) = 144$, which loses the M1.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "error_code": "series-formula-error",
+   "step": 2,
+   "text": "The sum is $\\frac{n}{2}(a + l)$. If you leave out the $\\frac{1}{2}$ and write $9(34 + 2) = 324$, the formula is wrong and you lose the M1.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "error_code": "nth-term-index-error",
+   "step": 1,
+   "text": "$u_5 = 50 + 4(-4) = 34$. Writing $u_5 = 50 - 5 \\times 4 = 30$ puts the index out by one, so your sum starts from the wrong term and you lose the M1.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "error_code": "sigma-term-count-error",
+   "step": 4,
+   "text": "If there are $18$ terms starting at $u_5$, the last one is $u_{22}$, not $u_{23}$. Writing $N = 5 + 18$ loses the final M1.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "error_code": "series-formula-error",
+   "step": 2,
+   "text": "The sum of $m$ terms is $\\frac{m}{2}[2a + (m-1)d]$. If you use $\\frac{m}{2}[a + (m-1)d]$ with $a = 34$, you get the wrong equation and lose the first M1.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:32:44",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.3027
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 7
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.886 with part:GCE2008_6663_June2011_Q9:c"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "hits8": [],
+   "max_jaccard": 0.029,
+   "jaccard_source": "IAL2013_WMA01_Jan2016_Q4",
+   "shared_numbers": 1,
+   "max_cosine": 0.886,
+   "cosine_source": "part:GCE2008_6663_June2011_Q9:c"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 8,
+   "n_answers": 3,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0107,
+   "solver": {
+    "parts": [
+     {
+      "label": "a",
+      "answers": [
+       "13"
+      ],
+      "working_summary": "u_n = 50 - 4(n-1) = 54 - 4n. Setting 54 - 4k = 2 gives k = 13.",
+      "printed_result_correct": null
+     },
+     {
+      "label": "b",
+      "answers": [
+       "162"
+      ],
+      "working_summary": "Terms 5 to 13 are 9 terms, with u5 = 34 and u13 = 2. Sum = 9/2 × (34 + 2) = 162.",
+      "printed_result_correct": null
+     },
+     {
+      "label": "c",
+      "answers": [
+       "22"
+      ],
+      "working_summary": "The sum from 5 to N equals 162 + (-162) = 0. So (N-4)/2 × (34 + 54 - 4N) = 0, which gives N = 22. Check: the sum of u14 to u22 is 9/2 × (-2 + -34) = -162.",
+      "printed_result_correct": null
+     }
+    ],
+    "problems": []
+   }
+  },
+  "G4": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "n_responses": 9,
+   "agreed": [
+    "r1",
+    "p1",
+    "p2",
+    "p3",
+    "p4",
+    "p5",
+    "p6",
+    "p7",
+    "partial"
+   ],
+   "consistent": {},
+   "mismatched": [],
+   "model": "claude-sonnet-5-5",
+   "responses": [
+    {
+     "id": "r1",
+     "kind": "correct",
+     "error_code": null,
+     "work": "(a) $50+(k-1)(-4)=2$, so $4(k-1)=48$, $k-1=12$, $k=13$.\n(b) $u_5=50+4(-4)=34$, $u_{13}=2$, 9 terms. $S=\\frac{9}{2}(34+2)=162$.\n(c) From (b), $\\sum_{5}^{N}u_r=162-162=0$. With $m$ terms from $u_5$: $\\frac{m}{2}[2(34)+(m-1)(-4)]=0$, so $\\frac{m}{2}(72-4m)=0$, $m=18$ (as $m\\ne0$). $N=5+18-1=22$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "M1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p1",
+     "kind": "pitfall",
+     "error_code": "nth-term-index-error",
+     "work": "(a) $u_k=50-4k=2$, so $4k=48$, $k=12$.\n(b) $u_5=34$, $u_{13}=2$, 9 terms: $\\frac{9}{2}(34+2)=162$.\n(c) Sum from $u_5$ to $u_N$ is $162-162=0$. $\\frac{m}{2}[2(34)+(m-1)(-4)]=0$, $72-4m=0$, $m=18$. $N=5+18-1=22$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "M1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p2",
+     "kind": "pitfall",
+     "error_code": "integer-n-rounded-wrong-way",
+     "work": "(a) $50-4(k-1)=2$, so $50-4k+4=2$... $4k=50$ (slip), $k=12.5$, so I'll round down: $k=12$.\n(b) $u_5=34$, $u_{13}=2$, 9 terms: $\\frac{9}{2}(34+2)=162$.\n(c) Sum from $u_5$ to $u_N$ is $0$. $\\frac{m}{2}[68-4(m-1)]=0$, $m=18$, $N=5+18-1=22$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "M1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p3",
+     "kind": "pitfall",
+     "error_code": "sigma-term-count-error",
+     "work": "(a) $50+(k-1)(-4)=2$, $k-1=12$, $k=13$.\n(b) $u_5=34$, $u_{13}=2$. Terms: $13-5=8$. $\\frac{8}{2}(34+2)=144$.\n(c) Using $u_{14}=50+13(-4)=-2$: $\\frac{p}{2}[-4+(p-1)(-4)]=-162$, $-2p^2=-162$, $p=9$. $N=14+9-1=22$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "M1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p4",
+     "kind": "pitfall",
+     "error_code": "series-formula-error",
+     "work": "(a) $50-4(k-1)=2$, $k=13$.\n(b) $u_5=34$, $u_{13}=2$, 9 terms: $9(34+2)=324$.\n(c) $u_{14}=-2$. $\\frac{p}{2}[-4+(p-1)(-4)]=-162$, $-2p^2=-162$, $p=9$, $N=14+9-1=22$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "M1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p5",
+     "kind": "pitfall",
+     "error_code": "nth-term-index-error",
+     "work": "(a) $50+(k-1)(-4)=2$, $k=13$.\n(b) $u_5=50-5\\times4=30$, $u_{13}=2$, 9 terms: $\\frac{9}{2}(30+2)=144$. (Using $u_{13}=2$ from (a).)\n(c) $u_{14}=-2$. $\\frac{p}{2}[-4+(p-1)(-4)]=-162$, $-2p^2=-162$, $p=9$, $N=14+9-1=22$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "M1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p6",
+     "kind": "pitfall",
+     "error_code": "sigma-term-count-error",
+     "work": "(a) $k=13$ from $50-4(k-1)=2$.\n(b) $\\frac{9}{2}(34+2)=162$.\n(c) Sum from $u_5$ to $u_N$ is $0$. $\\frac{m}{2}[68-4(m-1)]=0$, $72-4m=0$, $m=18$. $N=5+18=23$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "M0"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p7",
+     "kind": "pitfall",
+     "error_code": "series-formula-error",
+     "work": "(a) $k=13$ from $50-4(k-1)=2$.\n(b) $\\frac{9}{2}(34+2)=162$.\n(c) Sum from $u_5$ to $u_N$ is $0$. Using $\\frac{m}{2}[34+(m-1)(-4)]=0$: $34-4m+4=0$, $m=9.5$. $N=5+9.5-1=13.5$, so $N\\approx14$.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0",
+        "M1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "partial",
+     "kind": "partial",
+     "error_code": null,
+     "work": "(a) $50+(k-1)(-4)=2$, $k-1=12$, $k=13$.\n(b) $u_5=34$, 9 terms, $\\frac{9}{2}(34+2)=162$.\n(c) The sum from $u_5$ to $u_N$ must be $162-162=0$, but I'm not sure how to go on.",
+     "designed": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0",
+        "M0"
+       ]
+      }
+     ]
+    }
+   ],
+   "awarded": [
+    {
+     "id": "r1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "M1"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "p1",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "M1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) M0: used 50-4k=2, which the scheme says does not score; A0: k=12 is wrong."
+     ]
+    },
+    {
+     "id": "p2",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A0"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "M1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(a) A0: algebra slip gave k=12.5 and then 12, not 13."
+     ]
+    },
+    {
+     "id": "p3",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "M1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) M0: used 8 terms instead of 9; A0: 144 is wrong."
+     ]
+    },
+    {
+     "id": "p4",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "M1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) M0: used 9(34+2), which is not the correct sum formula; A0: 324 is wrong."
+     ]
+    },
+    {
+     "id": "p5",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M0",
+        "A0"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "M1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(b) M0: u5 was taken as 30 instead of 34, so the sum does not begin at 34; A0: 144 is wrong."
+     ]
+    },
+    {
+     "id": "p6",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M1",
+        "A1ft",
+        "M0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(c) M0: the conversion used N=5+m, so N=23, with no -1."
+     ]
+    },
+    {
+     "id": "p7",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0ft",
+        "M1"
+       ]
+      }
+     ],
+     "reasons": [
+      "(c) M0: the sum formula used 34 instead of 2a=68, so its structure is wrong; A0: m=9.5 is not the correct number of terms."
+     ]
+    },
+    {
+     "id": "partial",
+     "awarded": [
+      {
+       "part": "a",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "b",
+       "marks": [
+        "M1",
+        "A1"
+       ]
+      },
+      {
+       "part": "c",
+       "marks": [
+        "M0",
+        "A0ft",
+        "M0"
+       ]
+      }
+     ],
+     "reasons": [
+      "(c) M0: stated that the sum is 0 but wrote no sum formula for m terms; A0: no m found; M0: no conversion to N."
+     ]
+    }
+   ],
+   "awarded_second": [],
+   "cost_usd": 0.0788
+  },
+  "G5": {
+   "pass": true,
+   "errors": []
+  },
+  "G6": {
+   "pass": true,
+   "errors": [],
+   "flags": [],
+   "flag": false,
+   "agreement": "3/3",
+   "model": "claude-haiku-4-5",
+   "cost_usd": 0.014963749999999998,
+   "retagged": {
+    "a": [
+     "arithmetic-sequence-nth-term"
+    ],
+    "b": [
+     "arithmetic-series-sum",
+     "arithmetic-sequence-nth-term"
+    ],
+    "c": [
+     "arithmetic-series-sum",
+     "solve-quadratic-equation",
+     "arithmetic-sequence-nth-term"
+    ]
+   }
+  },
+  "GL": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part a: copy check flag: cosine 0.869 with part:GCE2008_6663_June2011_Q9:c",
+    "part b: copy check flag: cosine 0.859 with part:IAL2013_WMA01_June2019_Q14:a",
+    "part c: copy check flag: cosine 0.832 with note:P2_June2018_Q4_n3"
+   ],
+   "parts_checked": 3
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

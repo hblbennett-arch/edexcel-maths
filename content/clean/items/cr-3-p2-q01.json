@@ -1,0 +1,271 @@
+{
+ "id": "cr-3-p2-q01",
+ "blueprint_id": "mk-3-p2-q01",
+ "question_type": "stationary-points-and-nature",
+ "component": "pure",
+ "tier": "standard",
+ "kind": "mock",
+ "stem": "The curve $C$ has equation\n$$y = x^2 - \\frac{8}{x}, \\qquad x \\neq 0.$$",
+ "paper": "mock-3-P2",
+ "set": "mock-3",
+ "q_num": 1,
+ "parts": [
+  {
+   "label": "a",
+   "marks": 2,
+   "text": "Find $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ and $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2}$. (2)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "differentiate-polynomials",
+    "second-derivative"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Writes $\\frac{8}{x}$ as $8x^{-1}$ (or does this implicitly) and differentiates twice, reducing at least one power of $x$ by 1 each time. For example, $x^2 \\to kx$ and $x^{-1} \\to kx^{-2}$, then $x^{-2} \\to kx^{-3}$.",
+     "notes": "Both a first and a second derivative must be attempted. The second derivative must come from differentiating their first derivative."
+    },
+    {
+     "code": "A1",
+     "for": "$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 2x + 8x^{-2}$ and $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} = 2 - 16x^{-3}$",
+     "notes": "oe, e.g. $2x + \\frac{8}{x^2}$ and $2 - \\frac{16}{x^3}$. Both must be correct. isw after correct expressions are seen.",
+     "depends_on": "M1"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Write $y = x^2 - 8x^{-1}$.",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 2x - 8(-1)x^{-2} = 2x + 8x^{-2}$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} = 2 + 8(-2)x^{-3} = 2 - 16x^{-3} = 2 - \\frac{16}{x^3}$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "dydx",
+     "expr": "2x + 8x^(-2)",
+     "form": "exact"
+    },
+    {
+     "name": "d2ydx2",
+     "expr": "2 - 16x^(-3)",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "derivative",
+     "f": "x^2 - 8/x",
+     "var": "x",
+     "answer": "dydx"
+    },
+    {
+     "type": "derivative",
+     "f": "x^2 - 8/x",
+     "var": "x",
+     "order": 2,
+     "answer": "d2ydx2"
+    }
+   ],
+   "hints": [
+    "Start by writing $\\frac{8}{x}$ as a power of $x$, then differentiate each term using $\\frac{\\mathrm{d}}{\\mathrm{d}x}(x^n) = nx^{n-1}$.",
+    "For the second derivative, differentiate your first derivative again, taking care with the signs of the negative powers."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 3,
+   "text": "Show that $C$ has a point of inflection where $x = 2$. (3)",
+   "command": "show-that",
+   "forms": [],
+   "skills": [
+    "second-derivative-test",
+    "explain-with-reason",
+    "concavity-and-inflection"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Substitutes $x = 2$ into their $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2}$, or sets their $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} = 0$ and solves for $x$",
+     "notes": "It must be the second derivative. Setting $y = 0$ or $\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 0$ scores M0."
+    },
+    {
+     "code": "A1",
+     "for": "Shows $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} = 2 - \\frac{16}{8} = 0$ when $x = 2$, or solves $x^3 = 8$ to get $x = 2$",
+     "depends_on": "M1"
+    },
+    {
+     "code": "A1*",
+     "for": "Shows that $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2}$ changes sign either side of $x = 2$, e.g. at $x = 1.9$ its value is $\\approx -0.333 < 0$ and at $x = 2.1$ its value is $\\approx 0.272 > 0$. Then concludes that the curve changes from concave to convex, so there is a point of inflection at $x = 2$.",
+     "notes": "cso. Use values in the interval $1 < x < 3$, one on each side of 2, with correct signs. Accept a correct general argument instead, e.g. $\\frac{16}{x^3}$ is decreasing for $x > 0$, so $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} < 0$ for $0 < x < 2$ and $> 0$ for $x > 2$. A conclusion is needed. Saying only that $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} = 0$ scores A0 for this mark.",
+     "depends_on": "M1"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "At $x = 2$: $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} = 2 - \\frac{16}{2^3}$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$= 2 - 2 = 0$",
+     "mark": "A1"
+    },
+    {
+     "step": 3,
+     "working": "At $x = 1.9$: $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} = 2 - \\frac{16}{6.859} \\approx -0.333 < 0$, so $C$ is concave there. At $x = 2.1$: $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} = 2 - \\frac{16}{9.261} \\approx 0.272 > 0$, so $C$ is convex there.",
+     "mark": "0"
+    },
+    {
+     "step": 4,
+     "working": "$\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} = 0$ at $x = 2$ and changes sign from negative to positive, so $C$ has a point of inflection where $x = 2$ (at the point $(2, 0)$).",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [
+    {
+     "name": "x",
+     "expr": "2",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "solutions",
+     "equation": "2 - 16/x^3 = 0",
+     "var": "x",
+     "answer": "x"
+    },
+    {
+     "type": "substitute",
+     "expr": "2 - 16/x^3",
+     "at": {
+      "x": "2"
+     },
+     "result": "0"
+    },
+    {
+     "type": "numeric",
+     "expr": "2 - 16/1.9^3",
+     "result": "-0.333",
+     "form": "dp-3"
+    },
+    {
+     "type": "numeric",
+     "expr": "2 - 16/2.1^3",
+     "result": "0.272",
+     "form": "dp-3"
+    }
+   ],
+   "hints": [
+    "At a point of inflection, the second derivative is zero and changes sign. Use your answer to part (a).",
+    "Work out $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2}$ at a value of $x$ just below 2 and at one just above 2."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "error_code": "second-derivative-error",
+   "text": "A common slip is differentiating $8x^{-2}$ to get $-16x^{-1}$ or $16x^{-3}$. The power goes down by 1 to $-3$, and the coefficient is $8 \\times (-2) = -16$, so the correct term is $-16x^{-3}$. Getting this wrong loses the A1.",
+   "says_common": true,
+   "step": 3
+  },
+  {
+   "part": "a",
+   "error_code": "sign-error-differentiating-negative-power",
+   "text": "When you differentiate $-8x^{-1}$, the two negatives multiply: $-8 \\times (-1) = +8$, giving $+8x^{-2}$. If you write $-8x^{-2}$, or reduce the power to $x^{0}$, then $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ is wrong and you lose the A1.",
+   "says_common": false,
+   "step": 2
+  },
+  {
+   "part": "a",
+   "error_code": "not-rewritten-as-powers",
+   "text": "If you differentiate $\\frac{8}{x}$ as if it were $8x$ (getting 8), or as $\\frac{8}{1}$, you have not used the power rule. Rewrite it as $8x^{-1}$ first, otherwise the M1 is lost.",
+   "says_common": false,
+   "step": 1
+  },
+  {
+   "part": "b",
+   "error_code": "inflection-sign-change-not-shown",
+   "text": "Showing that $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} = 0$ at $x = 2$ is not enough. You must also show that it changes sign, e.g. negative at $x = 1.9$ and positive at $x = 2.1$, and then state the conclusion. Without this you lose the final A1*.",
+   "says_common": false,
+   "step": 3
+  },
+  {
+   "part": "b",
+   "error_code": "zero-second-derivative-misread",
+   "text": "A second derivative of zero does not guarantee a point of inflection: $y = x^4$ has $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2} = 0$ at $x = 0$, but that point is a minimum. If you conclude 'inflection' only because $2 - \\frac{16}{8} = 0$, the A1* is lost.",
+   "says_common": false,
+   "step": 4
+  },
+  {
+   "part": "b",
+   "error_code": "sets-y-zero-not-derivative",
+   "text": "Solving $y = 0$, i.e. $x^2 = \\frac{8}{x}$, also gives $x = 2$, but that only tells you where $C$ crosses the $x$-axis. It says nothing about concavity. You need the second derivative here, so this route scores M0.",
+   "says_common": false,
+   "step": 1
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:53:47",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.3569
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 5
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.893 with part:IAL2018_WMA11_Oct2022_Q1:a"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "hits8": [],
+   "max_jaccard": 0.057,
+   "jaccard_source": "GCE2008_6664_Jan2010_Q9",
+   "shared_numbers": 0,
+   "max_cosine": 0.893,
+   "cosine_source": "part:IAL2018_WMA11_Oct2022_Q1:a"
+  },
+  "G2": {
+   "pass": false,
+   "errors": [
+    "part b check 1 (solutions): result must be a list of solutions"
+   ],
+   "n_checks": 6,
+   "n_answers": 3,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

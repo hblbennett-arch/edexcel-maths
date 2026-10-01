@@ -66,10 +66,21 @@ from pathlib import Path
 
 import numpy as np
 import sympy as sp
-from sympy.parsing.sympy_parser import (convert_xor, implicit_multiplication_application, parse_expr,
-                                        rationalize, standard_transformations)
+from sympy.parsing.sympy_parser import (_token_splittable, convert_xor, function_exponentiation,
+                                        implicit_application, implicit_multiplication, parse_expr, rationalize,
+                                        split_symbols_custom, standard_transformations)
 
-TRANSFORMS = standard_transformations + (convert_xor, implicit_multiplication_application, rationalize)
+SUBSCRIPT_RE = re.compile(r"^[A-Za-z]+\d+$")  # x1, t2, ab12: one symbol, not x*1 (which raised NameError: Number)
+
+
+def _splittable(name: str) -> bool:
+    """sympy's default splits 'xy' -> x*y; keep that, but never split letter(s)+digits subscripted names."""
+    return not SUBSCRIPT_RE.match(name) and _token_splittable(name)
+
+
+# = implicit_multiplication_application, with its split_symbols step using our predicate
+TRANSFORMS = standard_transformations + (convert_xor, split_symbols_custom(_splittable), implicit_multiplication,
+                                         implicit_application, function_exponentiation, rationalize)
 FUNCS = {"sin": sp.sin, "cos": sp.cos, "tan": sp.tan, "sec": sp.sec, "csc": sp.csc, "cosec": sp.csc,
          "cot": sp.cot, "asin": sp.asin, "acos": sp.acos, "atan": sp.atan, "arcsin": sp.asin,
          "arccos": sp.acos, "arctan": sp.atan, "sinh": sp.sinh, "cosh": sp.cosh, "tanh": sp.tanh,

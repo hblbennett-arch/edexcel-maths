@@ -95,7 +95,141 @@
     "The function is a product of two parts, $(2x+1)^3$ and $\\mathrm{e}^{-3x}$, and each part needs the chain rule when you differentiate it.",
     "Once you have two terms, look for the factors they share before you try to expand anything."
    ],
-   "forms": []
+   "forms": [],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 6(2x+1)^2\\mathrm{e}^{-3x} - 3(2x+1)^3\\mathrm{e}^{-3x}$",
+      "secures": [
+       "M1",
+       "A1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$= 3(2x+1)^2\\mathrm{e}^{-3x}\\left[2-(2x+1)\\right]$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "$= 3(2x+1)^2\\mathrm{e}^{-3x}(2-2x-1) = 3(2x+1)^2(1-2x)\\mathrm{e}^{-3x}$",
+      "secures": [
+       "A1*"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "Let $u=(2x+1)^3$ and $v=\\mathrm{e}^{-3x}$.",
+      "why": "The curve is a product of two functions of $x$, so you name them to use the product rule.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$\\frac{\\mathrm{d}u}{\\mathrm{d}x}=3(2x+1)^2\\times 2$",
+      "why": "Differentiate the power, then multiply by the derivative of the inside $2x+1$, which is $2$ (chain rule).",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$\\frac{\\mathrm{d}u}{\\mathrm{d}x}=6(2x+1)^2$",
+      "why": "Multiply the constants $3\\times 2$ together.",
+      "secures": null,
+      "check": "Differentiating $(2x+1)^3$ should leave a square with a factor $6$."
+     },
+     {
+      "step": 4,
+      "working": "$\\frac{\\mathrm{d}v}{\\mathrm{d}x}=-3\\mathrm{e}^{-3x}$",
+      "why": "The derivative of $\\mathrm{e}^{kx}$ is $k\\mathrm{e}^{kx}$, and here $k=-3$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = v\\frac{\\mathrm{d}u}{\\mathrm{d}x} + u\\frac{\\mathrm{d}v}{\\mathrm{d}x}$",
+      "why": "This is the product rule: each term keeps one factor as it was and differentiates the other.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = \\mathrm{e}^{-3x}\\times 6(2x+1)^2 + (2x+1)^3\\times(-3\\mathrm{e}^{-3x})$",
+      "why": "Substitute the four pieces $u$, $v$, $\\frac{\\mathrm{d}u}{\\mathrm{d}x}$, $\\frac{\\mathrm{d}v}{\\mathrm{d}x}$ into the rule.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 6(2x+1)^2\\mathrm{e}^{-3x} - 3(2x+1)^3\\mathrm{e}^{-3x}$",
+      "why": "Tidy the order of the factors and move the minus sign to the front of the second term.",
+      "secures": "A1",
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "Common factor: $3(2x+1)^2\\mathrm{e}^{-3x}$",
+      "why": "Both terms contain $3$, $(2x+1)^2$ and $\\mathrm{e}^{-3x}$, so you can take these out.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "$6(2x+1)^2\\mathrm{e}^{-3x} = 3(2x+1)^2\\mathrm{e}^{-3x}\\times 2$",
+      "why": "Write the first term as the common factor times what is left, which is $2$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$3(2x+1)^3\\mathrm{e}^{-3x} = 3(2x+1)^2\\mathrm{e}^{-3x}\\times(2x+1)$",
+      "why": "Write the second term as the common factor times what is left, which is one power of $(2x+1)$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 11,
+      "working": "$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 3(2x+1)^2\\mathrm{e}^{-3x}\\left[2-(2x+1)\\right]$",
+      "why": "Put the common factor outside a bracket holding the two leftovers, keeping the minus sign between them.",
+      "secures": "M1",
+      "check": "Expand the bracket times the factor to get back the line above."
+     },
+     {
+      "step": 12,
+      "working": "$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 3(2x+1)^2\\mathrm{e}^{-3x}\\left[2-2x-1\\right]$",
+      "why": "Remove the inner bracket, changing the sign of each term inside because of the minus in front.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 13,
+      "working": "$2-2x-1 = 1-2x$",
+      "why": "Combine the numbers $2-1=1$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 14,
+      "working": "$\\frac{\\mathrm{d}y}{\\mathrm{d}x} = 3(2x+1)^2(1-2x)\\mathrm{e}^{-3x}$",
+      "why": "Substitute the simplified bracket and write the factors in the order of the printed result.",
+      "secures": "A1*",
+      "check": "At $x=0$: original gives $6-3=3$; result gives $3\\times1\\times1\\times1=3$."
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:50:30+00:00",
+    "cost_usd": 0.0291,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
   }
  ],
  "pitfalls": [
@@ -391,6 +525,14 @@
      "simplify-derivative-to-given-form"
     ]
    }
+  },
+  "GL": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part -: copy check flag: cosine 0.893 with part:IAL2018_WMA14_Jan2021_Q6:a"
+   ],
+   "parts_checked": 1
   }
  },
  "review": {

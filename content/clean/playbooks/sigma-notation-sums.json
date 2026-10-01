@@ -1,0 +1,127 @@
+{
+ "id": "sigma-notation-sums",
+ "question_type": "sigma-notation-sums",
+ "component": "pure",
+ "title": "Sums in sigma notation",
+ "what_it_asks": "You are given a sum written with $\\sum$, with a start and end index. You must evaluate it or show it equals a printed value. The idea is to recognise the terms as an arithmetic series, a geometric series, or a mix, and to count the terms correctly when the start index is not 1.",
+ "typical_structure": "Usually two parts, sometimes one or three. Most parts are worth about 3 marks, so the whole question is typically 5 to 7 marks. An early part often asks you to find or state a term or the first few terms. A later part asks for the sum, sometimes as a \"show that\" with a printed answer. Later parts may build on earlier results.",
+ "mark_pattern": "The usual 3-mark part is M1 M1 A1. The first M1 is for identifying the series type and its first term, difference or ratio, or for splitting the sum into parts. The second M1 is for using the correct sum formula with the right number of terms. The A1 is for the correct value. Shorter parts are B1 B1 or B1ft for stating terms or values. A 4-mark part can be B1 M1 dM1 A1, where the B1 is an independent stated value and the dM1 needs the first M1. A show-that part can be M1 M1 M1 A1*, where the final mark needs a complete, correct argument (cso).",
+ "where_marks_leak": [
+  {
+   "error_code": "series-formula-error",
+   "mark_family": "method",
+   "text": "You misremember the arithmetic or geometric sum formula, for example using the wrong power of $r$ or the wrong bracket. The second M1 is lost, and the A1 after it goes too."
+  },
+  {
+   "error_code": "wrong-final-accuracy",
+   "mark_family": "accuracy",
+   "text": "You give the final answer to the wrong number of decimal places or significant figures, or round early. The final A1 is lost even though the method was right."
+  },
+  {
+   "error_code": "sigma-term-count-error",
+   "mark_family": "method",
+   "text": "You count the terms from $r=a$ to $r=b$ as $b-a$ instead of $b-a+1$. The formula is then used with the wrong $n$, so the method mark for the sum is lost and the A1 with it."
+  },
+  {
+   "error_code": "series-proof-incomplete",
+   "mark_family": "method",
+   "text": "In a proof of a sum formula, you do not write the series both ways round or you skip the adding step. The method marks for the proof are lost, and the final starred mark cannot be earned."
+  }
+ ],
+ "write_to_earn": [
+  "Write the sum formula you are using before you substitute any numbers.",
+  "State the first term, the difference or ratio, and the number of terms as separate lines.",
+  "Work out the number of terms as last minus first plus 1, and write that calculation down.",
+  "In a show-that part, write the line just before the printed result, then the result itself.",
+  "Give the answer in the form asked for, exact or rounded, and round only on the last line."
+ ],
+ "check_before_you_leave": [
+  "Number of terms correct?",
+  "First term matches the start index?",
+  "Formula copied correctly?",
+  "Answer in the required form?",
+  "Show-that line reached with no gaps?"
+ ],
+ "skills": [
+  "sigma-notation-sums",
+  "show-that-given-answer",
+  "arithmetic-series-sum",
+  "sum-to-infinity-and-convergence",
+  "geometric-series-sum"
+ ],
+ "related_types": [
+  "ap-gp-in-context",
+  "geometric-series-with-unknowns",
+  "recurrence-and-periodic-sequences"
+ ],
+ "provenance": "original",
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:10:24",
+ "cost_usd": 0.0898,
+ "attempts": 2,
+ "facts": {
+  "n_questions": 7,
+  "codes_listed": {
+   "series-formula-error": 5,
+   "wrong-final-accuracy": 3,
+   "sigma-term-count-error": 2,
+   "series-proof-incomplete": 1,
+   "small-angle-approximation-error": 1
+  },
+  "frequent_codes": [],
+  "practice_items": []
+ },
+ "checks": {
+  "copy": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.858 with note:IAL2018_WMA12_June2025_Q7_n4"
+   ],
+   "hit_fields": [],
+   "hit_sentences": {},
+   "n_8gram_hits": 0,
+   "max_jaccard": 0.003,
+   "shared_numbers": 0,
+   "max_cosine": 0.858,
+   "cosine_source": "note:IAL2018_WMA12_June2025_Q7_n4"
+  },
+  "katex": {
+   "pass": true,
+   "errors": [],
+   "n_spans": 7
+  },
+  "banned": {
+   "pass": true,
+   "errors": []
+  },
+  "error_codes": {
+   "pass": true,
+   "errors": [],
+   "flags": []
+  },
+  "frequency_words": {
+   "pass": true,
+   "errors": []
+  },
+  "mark_codes": {
+   "pass": true,
+   "errors": []
+  },
+  "ids": {
+   "pass": true,
+   "flags": []
+  },
+  "pass": true,
+  "flags": [
+   "copy: cosine 0.858 with note:IAL2018_WMA12_June2025_Q7_n4"
+  ]
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

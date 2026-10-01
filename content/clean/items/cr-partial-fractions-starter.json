@@ -1,0 +1,246 @@
+{
+ "id": "cr-partial-fractions-starter",
+ "blueprint_id": "dr-partial-fractions-starter",
+ "question_type": "partial-fractions-then-calculus",
+ "component": "pure",
+ "tier": "starter",
+ "kind": "drill",
+ "stem": null,
+ "parts": [
+  {
+   "label": null,
+   "marks": 3,
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "partial-fractions"
+   ],
+   "text": "The denominator of $\\dfrac{x + 10}{2x^2 + 5x - 3}$ is a product of two linear factors. Find constants $A$ and $B$, and suitable linear factors, so that this fraction can be written as the sum of two fractions, each with a constant numerator ($A$ or $B$) and one of these linear factors as its denominator. (3)",
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Factorises the denominator as $(2x-1)(x+3)$, writes $\\frac{A}{2x-1} + \\frac{B}{x+3}$, forms $x + 10 \\equiv A(x+3) + B(2x-1)$ and uses a valid method (substituting $x = \\frac{1}{2}$ or $x = -3$, or comparing coefficients) to find at least one constant",
+     "notes": "The identity may be set up with the denominators the other way round. A slip when factorising that still gives two linear factors keeps the M mark if the method that follows is correct."
+    },
+    {
+     "code": "A1",
+     "for": "$A = 3$ (the constant over $2x - 1$)",
+     "depends_on": "M1",
+     "notes": "cao"
+    },
+    {
+     "code": "A1",
+     "for": "$B = -1$, with the final answer given as $\\frac{3}{2x-1} - \\frac{1}{x+3}$ or clearly stated values of the constants and factors",
+     "depends_on": "M1",
+     "notes": "cao; accept $\\frac{3}{2x-1} + \\frac{-1}{x+3}$"
+    }
+   ],
+   "alternatives": [
+    {
+     "name": "Way 2: comparing coefficients",
+     "marks": [
+      {
+       "code": "M1",
+       "for": "From $x + 10 \\equiv A(x+3) + B(2x-1)$, equates coefficients: $A + 2B = 1$ and $3A - B = 10$, then solves these two equations simultaneously"
+      },
+      {
+       "code": "A1",
+       "for": "$A = 3$",
+       "depends_on": "M1"
+      },
+      {
+       "code": "A1",
+       "for": "$B = -1$, giving $\\frac{3}{2x-1} - \\frac{1}{x+3}$",
+       "depends_on": "M1"
+      }
+     ]
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$2x^2 + 5x - 3 = (2x - 1)(x + 3)$, so $\\dfrac{x+10}{(2x-1)(x+3)} \\equiv \\dfrac{A}{2x-1} + \\dfrac{B}{x+3}$",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "Multiplying through by $(2x-1)(x+3)$: $x + 10 \\equiv A(x+3) + B(2x-1)$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "Put $x = \\frac{1}{2}$: $\\frac{21}{2} = \\frac{7}{2}A$, so $A = 3$",
+     "mark": "A1"
+    },
+    {
+     "step": 4,
+     "working": "Put $x = -3$: $7 = -7B$, so $B = -1$. Hence $\\dfrac{x+10}{2x^2+5x-3} = \\dfrac{3}{2x-1} - \\dfrac{1}{x+3}$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "A",
+     "expr": "3",
+     "form": "exact"
+    },
+    {
+     "name": "B",
+     "expr": "-1",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "(x+10)/(2x^2+5x-3)",
+     "rhs": "3/(2x-1) - 1/(x+3)",
+     "domain": [
+      1,
+      5
+     ]
+    },
+    {
+     "type": "substitute",
+     "expr": "(x+10)/(x+3)",
+     "at": {
+      "x": "1/2"
+     },
+     "answer": "A"
+    },
+    {
+     "type": "substitute",
+     "expr": "(x+10)/(2x-1)",
+     "at": {
+      "x": "-3"
+     },
+     "answer": "B"
+    },
+    {
+     "type": "system",
+     "equations": [
+      "A + 2B = 1",
+      "3A - B = 10"
+     ],
+     "vars": [
+      "A",
+      "B"
+     ],
+     "result": {
+      "A": "3",
+      "B": "-1"
+     }
+    }
+   ],
+   "hints": [
+    "Start by factorising $2x^2 + 5x - 3$ into two linear brackets. Then write one unknown constant over each bracket.",
+    "Multiply through by the whole denominator. Then choose values of $x$ that make one bracket zero."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": null,
+   "step": 1,
+   "error_code": "partial-fraction-wrong-form",
+   "text": "If you factorise $2x^2 + 5x - 3$ wrongly, for example as $(2x+1)(x-3)$, every fraction you set up is over the wrong denominator, and you lose the M1. Expand your brackets to check you get $2x^2 + 5x - 3$ before you go on. You also lose the method mark if you put $(Ax+B)$ over a linear factor.",
+   "says_common": true
+  },
+  {
+   "part": null,
+   "step": 1,
+   "error_code": "splits-fraction-over-sum",
+   "text": "You can't split $\\frac{x+10}{2x^2+5x-3}$ into separate pieces such as $\\frac{x+10}{2x^2} + \\frac{x+10}{5x} - \\frac{x+10}{3}$. A fraction only splits over the terms of its numerator, not its denominator. The only valid split here comes from the factors $(2x-1)(x+3)$, so this approach earns no marks.",
+   "says_common": false
+  },
+  {
+   "part": null,
+   "step": 3,
+   "error_code": "partial-fraction-constant-error",
+   "text": "The value that makes $2x - 1$ zero is $x = \\frac{1}{2}$, not $x = 1$. If you substitute $x = 1$, the $B$ term doesn't vanish, so you get a wrong value for $A$ and lose that A1. With $x = \\frac{1}{2}$ you get $\\frac{21}{2} = \\frac{7}{2}A$, which gives $A = 3$.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:51:02",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.2004
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 3
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.853 with question:GCE2008_6666_June2010_Q5"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "hits8": [],
+   "max_jaccard": 0.014,
+   "jaccard_source": "IAL2018_WMA11_Jan2025_Q1",
+   "shared_numbers": 0,
+   "max_cosine": 0.853,
+   "cosine_source": "question:GCE2008_6666_June2010_Q5"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 4,
+   "n_answers": 2,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  },
+  "G3": {
+   "pass": false,
+   "errors": [
+    "part -: expected A = 3, solver got ['A = 3 (over 2*x - 1)', 'B = -1 (over x + 3)', '(x+10)/(2*x**2+5*x-3) = 3/(2*x-1) - 1/(x+3)'] [judge: differs - no verdict]",
+    "part -: expected B = -1, solver got ['A = 3 (over 2*x - 1)', 'B = -1 (over x + 3)', '(x+10)/(2*x**2+5*x-3) = 3/(2*x-1) - 1/(x+3)'] [judge: differs - no verdict]"
+   ],
+   "flags": [
+    "ambiguity (part -): The question doesn't say which constant goes with which factor. A and B could be swapped (A=-1 over x+3, B=3 over 2x-1). The values depend on the pairing the student chooses, so a mark scheme should accept either order as long as the pairing is stated. The factors could also be written in other equivalent forms, such as (x+1/2) with a numerator of 3/2."
+   ],
+   "flag": true,
+   "model": "claude-sonnet-5-5",
+   "cost_usd": 0.0162,
+   "solver": {
+    "parts": [
+     {
+      "label": null,
+      "answers": [
+       "A = 3 (over 2*x - 1)",
+       "B = -1 (over x + 3)",
+       "(x+10)/(2*x**2+5*x-3) = 3/(2*x-1) - 1/(x+3)"
+      ],
+      "printed_result_correct": null,
+      "working_summary": "2x^2+5x-3 = (2x-1)(x+3). Set x+10 = A(x+3) + B(2x-1). x=1/2 gives 21/2 = 7A/2, so A=3. x=-3 gives 7 = -7B, so B=-1. Check: 3(x+3) - (2x-1) = x+10."
+     }
+    ],
+    "problems": [
+     {
+      "kind": "ambiguity",
+      "severity": "minor",
+      "detail": "The question doesn't say which constant goes with which factor. A and B could be swapped (A=-1 over x+3, B=3 over 2x-1). The values depend on the pairing the student chooses, so a mark scheme should accept either order as long as the pairing is stated. The factors could also be written in other equivalent forms, such as (x+1/2) with a numerator of 3/2."
+     }
+    ]
+   }
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

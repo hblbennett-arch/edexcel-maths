@@ -90,7 +90,133 @@
    "hints": [
     "Start by writing the gradient of the chord between the points on $C$ where the $x$-coordinates are $x$ and $x + h$. It is $\\frac{f(x+h) - f(x)}{h}$ with $f(x) = 5x^2 - 7x$.",
     "Expand and simplify the numerator until every term has a factor of $h$. Divide by $h$, and only after that think about what happens as $h \\to 0$."
-   ]
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=\\lim_{h\\to0}\\dfrac{5(x+h)^2-7(x+h)-(5x^2-7x)}{h}=\\lim_{h\\to0}\\dfrac{5x^2+10xh+5h^2-7x-7h-5x^2+7x}{h}$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "$=\\dfrac{10xh+5h^2-7h}{h}=10x+5h-7$",
+      "secures": [
+       "A1"
+      ]
+     },
+     {
+      "step": 3,
+      "working": "as $h\\to0$, $10x+5h-7\\to10x-7$, so $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=10x-7$",
+      "secures": [
+       "A1*"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "Gradient of chord from $(x,\\ 5x^2-7x)$ to $(x+h,\\ 5(x+h)^2-7(x+h))$:",
+      "why": "First principles starts with the gradient of a short chord (a straight line joining two points on the curve) a horizontal distance $h$ apart.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$$\\frac{5(x+h)^2-7(x+h)-(5x^2-7x)}{h}$$",
+      "why": "Gradient is change in $y$ divided by change in $x$. The change in $x$ is $(x+h)-x=h$, and the change in $y$ is the new $y$ minus the old $y$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$(x+h)^2=x^2+2xh+h^2$",
+      "why": "You need to expand the squared bracket so the terms can be combined later.",
+      "secures": null,
+      "check": "Multiply $(x+h)(x+h)$ out to confirm."
+     },
+     {
+      "step": 4,
+      "working": "$5(x+h)^2=5x^2+10xh+5h^2$",
+      "why": "Multiply each term of the expansion by 5.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$-7(x+h)=-7x-7h$",
+      "why": "Multiply out the second bracket, taking care with the minus sign.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 6,
+      "working": "$$\\frac{5x^2+10xh+5h^2-7x-7h-(5x^2-7x)}{h}$$",
+      "why": "Put the expanded pieces into the numerator of the gradient.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 7,
+      "working": "$$\\frac{5x^2+10xh+5h^2-7x-7h-5x^2+7x}{h}$$",
+      "why": "Remove the bracket by changing the sign of each term inside it, since it is being subtracted.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "$5x^2-5x^2=0$ and $-7x+7x=0$",
+      "why": "These pairs of terms cancel, leaving only terms containing $h$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "$$\\frac{10xh+5h^2-7h}{h}$$",
+      "why": "Write what is left of the numerator after the cancelling.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$$\\frac{h(10x+5h-7)}{h}$$",
+      "why": "Factorise out $h$ from every term in the numerator so it can be cancelled.",
+      "secures": null,
+      "check": "Expand $h(10x+5h-7)$ to get back $10xh+5h^2-7h$."
+     },
+     {
+      "step": 11,
+      "working": "$=10x+5h-7$",
+      "why": "Cancel the common factor $h$ from top and bottom. This is allowed because $h\\neq0$ while the chord exists.",
+      "secures": "A1",
+      "check": null
+     },
+     {
+      "step": 12,
+      "working": "$$\\frac{\\mathrm{d}y}{\\mathrm{d}x}=\\lim_{h\\to0}(10x+5h-7)$$",
+      "why": "The derivative is the gradient of the chord as the two points come together, so let $h$ tend to 0.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 13,
+      "working": "As $h\\to0$, $5h\\to0$, so $\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}=10x-7$",
+      "why": "The term $5h$ vanishes in the limit and the rest does not depend on $h$, giving the printed result.",
+      "secures": "A1*",
+      "check": null
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:50:16+00:00",
+    "cost_usd": 0.0234,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
   }
  ],
  "pitfalls": [
@@ -366,6 +492,14 @@
      "differentiate-from-first-principles"
     ]
    }
+  },
+  "GL": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part -: copy check flag: cosine 0.816 with part:GCE2008_6663_June2008_Q11:a"
+   ],
+   "parts_checked": 1
   }
  },
  "review": {

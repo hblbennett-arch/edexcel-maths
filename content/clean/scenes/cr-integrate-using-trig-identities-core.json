@@ -1,0 +1,258 @@
+{
+ "item_id": "cr-integrate-using-trig-identities-core",
+ "applicable": true,
+ "reason": "The substitution turns one area into an equal area under a simpler curve, and a slider for the upper limit shows both areas agreeing at 3π/4.",
+ "scenes": [
+  {
+   "id": "cr-integrate-using-trig-identities-core::-::1",
+   "part": null,
+   "title": "Two curves, one area: why the substitution works",
+   "purpose": "See that the area under x^2/sqrt(9-x^2) between x = 3/2 and 3*sqrt(3)/2 equals the area under 9 sin^2 of theta between pi/6 and pi/3.",
+   "approach": "graphical",
+   "board": {
+    "x": [
+     -0.5,
+     3.5
+    ],
+    "y": [
+     -1,
+     10
+    ],
+    "axis": true,
+    "grid": true,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "k",
+     "label": "upper limit k (in x)",
+     "min": 1.6,
+     "max": 2.6,
+     "step": 0.01,
+     "value": 2.6
+    }
+   ],
+   "elements": [
+    {
+     "type": "function",
+     "id": "F",
+     "expr": "x^2/sqrt(9-x^2)",
+     "domain": [
+      "0",
+      "2.8"
+     ],
+     "color": "primary",
+     "label": "original integrand"
+    },
+    {
+     "type": "function",
+     "id": "G",
+     "expr": "9*sin(x)^2",
+     "domain": [
+      "0",
+      "1.6"
+     ],
+     "color": "secondary",
+     "label": "9 sin^2 (horizontal axis is theta)"
+    },
+    {
+     "type": "integral",
+     "id": "R1",
+     "of": "F",
+     "from": "1.5",
+     "to": "k",
+     "color": "primary",
+     "opacity": 0.25
+    },
+    {
+     "type": "integral",
+     "id": "R2",
+     "of": "G",
+     "from": "pi/6",
+     "to": "asin(k/3)",
+     "color": "secondary",
+     "opacity": 0.25
+    },
+    {
+     "type": "vline",
+     "id": "xa",
+     "at": "1.5",
+     "color": "muted"
+    },
+    {
+     "type": "vline",
+     "id": "ta",
+     "at": "pi/6",
+     "color": "muted"
+    },
+    {
+     "type": "text",
+     "id": "T1",
+     "x": "1.6",
+     "y": "9.2",
+     "value": "Area in $x$ = {area(R1)}",
+     "color": "primary"
+    },
+    {
+     "type": "text",
+     "id": "T2",
+     "x": "1.6",
+     "y": "8.2",
+     "value": "Area in $\\theta$ = {area(R2)}",
+     "color": "secondary"
+    },
+    {
+     "type": "text",
+     "id": "T3",
+     "x": "1.6",
+     "y": "7.2",
+     "value": "$3\\pi/4 \\approx$ {3*pi/4}",
+     "color": "mark"
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "Only the blue curve $\\dfrac{x^2}{\\sqrt{9-x^2}}$ is shown. Drag $k$ to $2.6$ (that is $\\frac{3\\sqrt{3}}{2}$): the shaded area from $x=\\frac{3}{2}$ is what we must show equals $\\frac{3\\pi}{4}$.",
+     "set": {
+      "k": 2.6
+     },
+     "hide": [
+      "G",
+      "R2",
+      "ta",
+      "T2"
+     ],
+     "show": [
+      "F",
+      "R1",
+      "xa",
+      "T1"
+     ]
+    },
+    {
+     "n": 2,
+     "text": "With $x=3\\sin\\theta$, $\\mathrm{d}x=3\\cos\\theta\\,\\mathrm{d}\\theta$ and $\\sqrt{9-x^2}=3\\cos\\theta$, the integrand becomes $9\\sin^2\\theta$ (the M1). The orange curve is that, with $\\theta$ on the horizontal axis.",
+     "show": [
+      "G"
+     ],
+     "highlight": [
+      "G"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "The limits change: $\\sin\\theta=\\frac12$ gives $\\theta=\\frac{\\pi}{6}$ and $\\sin\\theta=\\frac{\\sqrt3}{2}$ gives $\\theta=\\frac{\\pi}{3}$. The orange area is $\\int_{\\pi/6}^{\\pi/3}9\\sin^2\\theta\\,\\mathrm{d}\\theta$ (the A1). Drag $k$: the two areas stay equal for every upper limit.",
+     "show": [
+      "R2",
+      "ta",
+      "T2"
+     ],
+     "set": {
+      "k": 2
+     }
+    },
+    {
+     "n": 4,
+     "text": "Set $k=2.6$ again. Writing $9\\sin^2\\theta=\\frac92(1-\\cos2\\theta)$ gives $\\left[\\frac92\\theta-\\frac94\\sin2\\theta\\right]$ (the dM1). The sine terms are equal at both limits and cancel, leaving $\\frac{3\\pi}{2}-\\frac{3\\pi}{4}=\\frac{3\\pi}{4}$ (the A1*).",
+     "set": {
+      "k": 2.6
+     },
+     "show": [
+      "T3"
+     ]
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "marks": [
+     "M1",
+     "A1",
+     "dM1",
+     "A1*"
+    ],
+    "pitfalls": [
+     "trig-power-integrated-directly",
+     "trig-integral-sign-error",
+     "double-angle-error"
+    ]
+   },
+   "guide": {
+    "what_you_see": "The blue curve $y=\\dfrac{x^2}{\\sqrt{9-x^2}}$ from the integral in the question, with its area shaded from $x=\\frac32$, and an orange curve $y=9\\sin^2\\theta$ (with $\\theta$ on the horizontal axis) whose matching area is shaded from $\\theta=\\frac{\\pi}{6}$. The two shaded areas are the same number, which is why the substitution works.",
+    "legend": [
+     {
+      "id": "F",
+      "meaning": "The original integrand $\\dfrac{x^2}{\\sqrt{9-x^2}}$ from the question, drawn against $x$."
+     },
+     {
+      "id": "G",
+      "meaning": "The new integrand $9\\sin^2\\theta$ after substituting $x=3\\sin\\theta$; the horizontal axis now shows $\\theta$ in radians."
+     },
+     {
+      "id": "R1",
+      "meaning": "The area under $F$ from $x=\\frac32$ to $x=k$; with $k=\\frac{3\\sqrt3}{2}\\approx 2.6$ it is the integral in the question."
+     },
+     {
+      "id": "R2",
+      "meaning": "The area under $G$ from $\\theta=\\frac{\\pi}{6}$ to $\\theta=\\arcsin\\frac{k}{3}$, the integral $\\int 9\\sin^2\\theta\\,\\mathrm{d}\\theta$ with the new limits."
+     },
+     {
+      "id": "xa",
+      "meaning": "Vertical guide line at the lower limit $x=\\frac32$."
+     },
+     {
+      "id": "ta",
+      "meaning": "Vertical guide line at the new lower limit $\\theta=\\frac{\\pi}{6}$, where $\\sin\\theta=\\frac12$."
+     }
+    ],
+    "interact": [
+     {
+      "control": "k",
+      "kind": "slider",
+      "do": "Drag the slider between $1.6$ and $2.6$; finish at $2.6$, which is $\\frac{3\\sqrt3}{2}$, the question's upper limit.",
+      "watch": "Both shaded regions grow and the readings 'Area in $x$' and 'Area in $\\theta$' stay equal at every $k$. At $k=2.6$ both are about $2.36$, matching $\\frac{3\\pi}{4}\\approx 2.36$."
+     }
+    ],
+    "question_link": {
+     "part": null,
+     "marks": [
+      "M1",
+      "A1",
+      "dM1",
+      "A1*"
+     ],
+     "text": "The blue area $R1$ is the integral in the question and the orange area $R2$ is what it becomes after $x=3\\sin\\theta$: the integrand $9\\sin^2\\theta$ (M1) with limits $\\frac{\\pi}{6}$ and $\\frac{\\pi}{3}$ (A1). Evaluating that orange area by the double-angle form (dM1) gives the value $\\frac{3\\pi}{4}$ that the A1* asks you to show."
+    },
+    "read_off": [
+     "'Area in $x$' is the area of $R1$, the value of $\\int_{3/2}^{k}\\frac{x^2}{\\sqrt{9-x^2}}\\,\\mathrm{d}x$.",
+     "'Area in $\\theta$' is the area of $R2$, the value of $\\int_{\\pi/6}^{\\arcsin(k/3)}9\\sin^2\\theta\\,\\mathrm{d}\\theta$; it should equal the 'Area in $x$' reading.",
+     "The third reading is the target value $\\frac{3\\pi}{4}\\approx 2.356$; both area readings reach it when $k=2.6$."
+    ]
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0265,
+    "attempts": 1,
+    "gate": {
+     "pass": true,
+     "errors": []
+    },
+    "generated_at": "2026-09-30T23:12:19"
+   }
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:50:02",
+ "cost_usd": 0.0443,
+ "attempts": 1,
+ "checks": {
+  "pass": true,
+  "errors": [],
+  "n_scenes": 1
+ }
+}

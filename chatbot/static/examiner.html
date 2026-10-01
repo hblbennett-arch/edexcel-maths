@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Be the examiner</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<style>
+  :root {
+    --primary: #1a365d; --accent: #2b6cb0; --success: #276749; --warning: #c05621; --danger: #c53030;
+    --bg: #f7fafc; --card: #ffffff; --border: #e2e8f0; --text: #2d3748; --muted: #718096; --mark: #805ad5;
+    --hint-bg: #f0fff4; --warn-bg: #fffaf0; --user-bg: #ebf4ff; --ok-bg: #f0fff4; --miss-bg: #fffaf0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --primary: #90cdf4; --accent: #63b3ed; --success: #68d391; --warning: #f6ad55; --danger: #fc8181;
+      --bg: #171923; --card: #1f2330; --border: #2d3748; --text: #e2e8f0; --muted: #a0aec0; --mark: #b794f4;
+      --hint-bg: #1c2e25; --warn-bg: #2e2518; --user-bg: #1e2a3d; --ok-bg: #1c2e25; --miss-bg: #2e2518;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  header { position: sticky; top: 0; z-index: 2; background: var(--primary); color: #fff; padding: 12px 16px;
+           display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) header { background: #102a43; } }
+  header h1 { margin: 0; font-size: 18px; font-weight: 600; }
+  header h1 span { font-weight: 400; opacity: .8; }
+  header > span { display: flex; flex-wrap: wrap; align-items: center; gap: 0 4px; margin: 0 -8px; }
+  header a { color: #fff; opacity: .85; font-size: 14px; padding: 10px 8px; min-height: 40px; box-sizing: border-box; display: inline-flex; align-items: center; }
+  header #badge { padding: 0 8px; }
+  #badge { font-size: 13px; opacity: .9; }
+  main { max-width: 860px; margin: 0 auto; padding: 16px 16px 40px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin: 12px 0; }
+  .card h3 { margin: 0 0 8px; font-size: 16px; color: var(--primary); }
+  .card h3 small { color: var(--muted); font-weight: 400; font-size: 13px; }
+  .question { border-left: 4px solid var(--accent); }
+  .script { border-left: 4px solid var(--mark); }
+  .pre { white-space: pre-wrap; overflow-x: auto; }
+  .pre.stem { margin-bottom: 8px; }
+  .script .pre { font-family: Georgia, "Times New Roman", serif; }
+  .partname { font-size: 14px; color: var(--muted); margin: 14px 0 4px; }
+  .partname b { color: var(--text); }
+  .way { font-size: 14px; color: var(--muted); margin: -2px 0 6px; }
+  a { color: var(--accent); }
+  .row { display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: start;
+         border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; margin: 8px 0; }
+  .row.ok { background: var(--ok-bg); border-color: var(--success); }
+  .row.miss { background: var(--miss-bg); border-color: var(--warning); }
+  .chip { display: inline-block; background: var(--mark); color: #fff; border-radius: 12px; font-size: 12.5px;
+          padding: 2px 10px; min-width: 44px; text-align: center; font-weight: 600; margin-top: 2px; }
+  .for { min-width: 0; overflow-x: auto; }
+  .notes { color: var(--muted); font-size: 14px; margin-top: 2px; }
+  .toggles { display: flex; gap: 6px; }
+  .toggles button { background: var(--card); border: 1px solid var(--border); color: var(--text); border-radius: 16px;
+                    padding: 5px 14px; min-height: 40px; font: inherit; font-size: 14px; cursor: pointer; white-space: nowrap; }
+  .toggles button:hover { border-color: var(--accent); }
+  .toggles button[aria-pressed="true"].award { background: var(--success); border-color: var(--success); color: #fff; }
+  .toggles button[aria-pressed="true"].withhold { background: var(--danger); border-color: var(--danger); color: #fff; }
+  .toggles button:disabled { cursor: default; opacity: .85; }
+  .verdict { grid-column: 1 / -1; font-size: 14.5px; border-top: 1px dashed var(--border); padding-top: 8px; }
+  .verdict .tag { font-weight: 600; }
+  .row.ok .tag { color: var(--success); } .row.miss .tag { color: var(--warning); }
+  .pitfall { grid-column: 1 / -1; background: var(--warn-bg); border-left: 4px solid var(--warning); border-radius: 8px;
+             padding: 8px 12px; font-size: 14.5px; white-space: pre-wrap; }
+  .pitfall b { color: var(--warning); }
+  .buttons { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 12px; }
+  button.act { background: var(--accent); color: #fff; border: 0; border-radius: 20px; padding: 8px 18px; min-height: 40px; font: inherit;
+               font-size: 15px; cursor: pointer; }
+  button.act:disabled { opacity: .45; cursor: default; }
+  button.act.secondary { background: var(--card); color: var(--accent); border: 1px solid var(--accent); }
+  .progress { color: var(--muted); font-size: 14px; }
+  .result { border-left: 4px solid var(--success); }
+  .result .big { font-size: 22px; font-weight: 600; }
+  .result .stat { display: inline-block; margin: 4px 18px 4px 0; }
+  .result .stat span { color: var(--muted); font-size: 13px; display: block; }
+  .lesson { background: var(--hint-bg); border-left: 4px solid var(--success); border-radius: 8px; padding: 10px 14px; margin-top: 10px; }
+  .lesson b { color: var(--success); }
+  .lesson .earn { color: var(--muted); font-size: 14px; margin-top: 4px; }
+  details.gloss summary { cursor: pointer; color: var(--accent); font-weight: 600; padding: 8px 0; min-height: 40px; box-sizing: border-box; }
+  .gl { border-top: 1px solid var(--border); padding: 10px 0; }
+  .gl:first-of-type { border-top: 0; }
+  .gl b { color: var(--primary); }
+  .gl .short { margin: 2px 0; }
+  .gl .explain { color: var(--text); font-size: 14.5px; }
+  .gl .earn { color: var(--muted); font-size: 14px; margin-top: 4px; }
+  .warning { background: var(--warn-bg); border: 1px solid var(--warning); border-radius: 8px; padding: 10px 14px; margin: 12px 0; }
+  .working { color: var(--muted); font-style: italic; display: flex; align-items: center; gap: 10px; margin: 12px 0; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: pulse 1s infinite alternate; }
+  @keyframes pulse { from { opacity: .2 } to { opacity: 1 } }
+  footer { max-width: 860px; margin: 0 auto; padding: 8px 16px 32px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); }
+  .learn-link { font-size: 14px; margin-left: 4px; color: var(--accent); }
+  .katex-display { overflow-x: auto; overflow-y: hidden; }
+  .katex { font-size: 1.05em; }
+  @media (max-width: 600px) {
+    .row { grid-template-columns: auto 1fr; }
+    .toggles { grid-column: 1 / -1; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Be the examiner <span>· learn to write answers the way examiners mark them</span></h1>
+  <span><a href="/learn">Learn →</a> &nbsp; <a href="/mark">Mark my working →</a> &nbsp; <a href="/profile">My profile →</a> &nbsp; <span id="badge">Your examiner accuracy: –</span></span>
+</header>
+<main id="app"></main>
+<footer id="foot"></footer>
+<script>
+const app = document.getElementById("app"), badge = document.getElementById("badge");
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+function typeset(el) {
+  if (window.renderMathInElement) renderMathInElement(el, {
+    delimiters: [{left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false}],
+    throwOnError: false,
+  });
+}
+// Opaque per-browser id (no names, no account) and the exercises already done, kept in this browser only.
+function store(key, fallback) { try { const v = localStorage.getItem(key); return v === null ? fallback : JSON.parse(v); } catch { return fallback; } }
+function save(key, val) { try { localStorage.setItem(key, JSON.stringify(val)); } catch {} }
+const uuid = () => (crypto.randomUUID ? crypto.randomUUID() : "u-" + Math.random().toString(36).slice(2) + Date.now().toString(36));
+let user = store("bte-user", null); if (!user) { user = uuid(); save("bte-user", user); }
+let done = store("bte-done", []);
+let glossary = null, current = null, judgements = null, busy = false;
+
+function setBadge(acc) {
+  badge.textContent = acc && acc.judged ? `Your examiner accuracy: ${acc.correct}/${acc.judged} (${Math.round(acc.rate * 100)}%)` : "Your examiner accuracy: no marks judged yet";
+}
+async function refreshBadge() {
+  try { const p = await (await fetch(`/api/examiner/profile?user=${encodeURIComponent(user)}`)).json(); setBadge(p.examiner_accuracy); } catch {}
+}
+
+function partName(label) { return label === "-" ? "The question" : `Part (${label})`; }
+
+function renderExercise(ex, meta) {
+  current = ex; judgements = ex.parts.map(p => p.lines.map(() => null));
+  const parts = ex.parts.map(p => `<div class="pre">${p.label === "-" ? "" : `<b>(${esc(p.label)})</b> `}${esc(p.text)}</div>`).join("");
+  const rows = ex.parts.map((p, pi) => `
+    <div class="partname"><b>${partName(p.label)}</b> · ${p.marks} mark${p.marks === 1 ? "" : "s"}</div>
+    ${p.way ? `<div class="way">This script uses another method, so it is marked against the scheme's ${esc(p.way)}.</div>` : ""}
+    ${p.lines.map((ln, i) => `
+      <div class="row" id="row-${pi}-${i}">
+        <span class="chip">${esc(ln.code)}</span>
+        <div class="for">${esc(ln.for)}${ln.notes ? `<div class="notes">${esc(ln.notes)}</div>` : ""}</div>
+        <div class="toggles">
+          <button type="button" class="award" aria-pressed="false" data-p="${pi}" data-i="${i}" data-v="1">Award</button>
+          <button type="button" class="withhold" aria-pressed="false" data-p="${pi}" data-i="${i}" data-v="0">Withhold</button>
+        </div>
+      </div>`).join("")}`).join("");
+  app.innerHTML = `
+    <div class="card question"><h3>The question <small>· ${ex.total_marks} mark${ex.total_marks === 1 ? "" : "s"}${ex.question_type ? ` · ${esc(ex.question_type.replace(/-/g, " "))}` : ""}</small></h3>
+      ${ex.stem ? `<div class="pre stem">${esc(ex.stem)}</div>` : ""}${parts}</div>
+    <div class="card script"><h3>The student's script</h3><div class="pre">${esc(ex.work)}</div></div>
+    <div class="card" id="marking"><h3>Your marking <small>· award or withhold each mark of the scheme</small></h3>
+      ${rows}
+      <div class="buttons"><button class="act" id="check" disabled>Check my marking</button>
+        <span class="progress">${meta.total ? `${meta.remaining} of ${meta.total} scripts left` : "a drill from your profile"}</span></div>
+    </div>
+    <div id="reveal"></div>
+    <div class="card"><details class="gloss"><summary>How marks are awarded</summary><div id="gloss"></div></details></div>`;
+  typeset(app);
+  app.querySelectorAll(".toggles button").forEach(b => b.onclick = () => judge(+b.dataset.p, +b.dataset.i, b.dataset.v === "1"));
+  document.getElementById("check").onclick = submit;
+  renderGlossary();
+}
+
+function judge(pi, i, val) {
+  if (!judgements || busy) return;
+  judgements[pi][i] = val;
+  const row = document.getElementById(`row-${pi}-${i}`);
+  row.querySelector(".award").setAttribute("aria-pressed", String(val));
+  row.querySelector(".withhold").setAttribute("aria-pressed", String(!val));
+  document.getElementById("check").disabled = !judgements.every(p => p.every(x => x !== null));
+}
+
+async function submit() {
+  if (busy || !current) return;
+  busy = true;
+  const btn = document.getElementById("check"); btn.disabled = true; btn.textContent = "Checking…";
+  try {
+    const r = await fetch("/api/examiner/submit", {method: "POST", headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({user, item_id: current.item_id, script_id: current.script_id, judgements})});
+    const data = await r.json();
+    if (!r.ok) throw new Error(data.error || r.statusText);
+    done.push(current.key); if (done.length > 400) done = done.slice(-400); save("bte-done", done);
+    renderReveal(data.reveal); setBadge(data.examiner_accuracy);
+  } catch (e) {
+    btn.disabled = false; btn.textContent = "Check my marking";
+    document.getElementById("reveal").innerHTML = `<div class="warning">Couldn't check your marking (${esc(e.message || e)}). Is the server still running?</div>`;
+  } finally { busy = false; }
+}
+
+function renderReveal(fb) {
+  app.querySelectorAll(".toggles button").forEach(b => b.disabled = true);
+  fb.parts.forEach((p, pi) => p.rows.forEach((r, i) => {
+    const row = document.getElementById(`row-${pi}-${i}`);
+    row.classList.add(r.correct ? "ok" : "miss");
+    const verdict = document.createElement("div"); verdict.className = "verdict";
+    verdict.innerHTML = `<span class="tag">${r.correct ? "You agreed with the reference" : `You ${r.judged ? "awarded" : "withheld"} it; the reference ${r.reference ? "awards" : "withholds"} it`}</span> · ${esc(r.explanation)}`;
+    row.appendChild(verdict);
+    if (r.pitfall) { const pf = document.createElement("div"); pf.className = "pitfall"; pf.innerHTML = `<b>The pitfall this script shows:</b> ${esc(r.pitfall)}`; row.appendChild(pf); }
+    typeset(row);
+  }));
+  document.getElementById("marking").querySelector(".buttons").remove();
+  const s = fb.score, ss = fb.script_score;
+  const lost = fb.summary.flatMap(x => Object.entries(x.lost_by_family)).reduce((a, [k, v]) => (a[k] = (a[k] || 0) + v, a), {});
+  const lostText = Object.keys(lost).length ? Object.entries(lost).map(([k, v]) => `${v} ${k}`).join(", ") : "none";
+  const implied = fb.summary.reduce((a, x) => a + x.implied_positions.length, 0);
+  document.getElementById("reveal").innerHTML = `
+    <div class="card result"><h3>Our verdict</h3>
+      <div class="stat"><span>Your marking</span><b class="big">${s.correct}/${s.total}</b> marks judged as the reference does</div>
+      <div class="stat"><span>The script scored</span><b class="big">${ss.earned}/${ss.total}</b></div>
+      <div class="stat"><span>Marks the script lost</span>${esc(lostText)}${implied ? ` (${implied} lost through dependency on an earlier mark)` : ""}</div>
+      ${fb.lesson ? `<div class="lesson"><b>Lesson · ${esc(fb.lesson.name)}:</b> ${esc(fb.lesson.short)}${fb.lesson.write_to_earn ? `<div class="earn">To earn it: ${esc(fb.lesson.write_to_earn)}</div>` : ""}</div>`
+                  : `<div class="lesson"><b>Lesson:</b> you agreed with the reference on every mark. Try a harder script.</div>`}
+      <div class="buttons"><button class="act" id="next">Next script</button>
+        <button class="act secondary" id="next-correct" title="A script that may or may not be fully correct">Another of a different kind</button>
+        <a class="learn-link" href="/learn?item=${encodeURIComponent(current.item_id)}">Learn this question →</a></div>
+    </div>`;
+  document.getElementById("next").onclick = () => next();
+  document.getElementById("next-correct").onclick = () => next(fb.kind === "pitfall" ? "correct" : "pitfall");
+  document.getElementById("reveal").scrollIntoView({behavior: "smooth", block: "start"});
+}
+
+async function renderGlossary() {
+  const box = document.getElementById("gloss"); if (!box) return;
+  if (!glossary) { try { glossary = await (await fetch("/api/examiner/glossary")).json(); } catch { return; } }
+  box.innerHTML = glossary.glossary.map(g => `<div class="gl"><b>${esc(g.name)}</b> <span class="short">— ${esc(g.short)}</span>
+      <div class="explain">${esc(g.explain)}</div><div class="earn">To earn it: ${esc(g.write_to_earn)}</div></div>`).join("");
+  document.getElementById("foot").textContent = glossary.disclaimer + " Nothing you do here is sent anywhere except this server; no name or email is stored.";
+}
+
+async function next(kind) {
+  if (busy) return;
+  busy = true;
+  app.innerHTML = `<div class="working"><span class="dot"></span>Fetching the next script…</div>`;
+  try {
+    const q = `user=${encodeURIComponent(user)}&done=${encodeURIComponent(done.join(","))}${kind ? `&kind=${kind}` : ""}`;
+    let data = await (await fetch(`/api/examiner/next?${q}`)).json();
+    if (!data.exercise && done.length) {        // everything done: start again
+      done = []; save("bte-done", done);
+      data = await (await fetch(`/api/examiner/next?user=${encodeURIComponent(user)}`)).json();
+      app.innerHTML = `<div class="warning">You have marked every script we have. Starting again from the top.</div>`;
+    }
+    if (!data.exercise) { app.innerHTML = `<div class="warning">No scripts are available yet.</div>`; return; }
+    renderExercise(data.exercise, data);
+  } catch (e) {
+    app.innerHTML = `<div class="warning">Couldn't reach the server (${esc(e.message || e)}). Is it still running?</div>`;
+  } finally { busy = false; }
+}
+
+// /examiner?exercise=item_id::script_id opens one script (a drill from /profile); otherwise the rotation as usual.
+async function openExercise(key) {
+  try { const d = await (await fetch(`/api/profile/exercise?key=${encodeURIComponent(key)}`)).json();
+        if (d.exercise) { renderExercise(d.exercise, {remaining: 0, total: 0}); return true; } } catch {}
+  return false;
+}
+window.addEventListener("load", async () => {
+  refreshBadge();
+  const key = new URLSearchParams(location.search).get("exercise");
+  if (!(key && await openExercise(key))) next();
+});
+</script>
+</body>
+</html>

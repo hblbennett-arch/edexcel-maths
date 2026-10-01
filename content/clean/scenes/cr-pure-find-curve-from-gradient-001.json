@@ -1,0 +1,221 @@
+{
+ "item_id": "cr-pure-find-curve-from-gradient-001",
+ "applicable": true,
+ "reason": "Sliding the constant shows that integrating gives a family of curves, and that the point (4, 10) picks out the single curve with c = 3.",
+ "scenes": [
+  {
+   "id": "cr-pure-find-curve-from-gradient-001::-::1",
+   "part": null,
+   "title": "One gradient, many curves: the point fixes c",
+   "purpose": "See that integrating gives a family of curves that differ only by the constant c, and that the point (4, 10) selects the one with c = 3.",
+   "approach": "graphical",
+   "board": {
+    "x": [
+     0,
+     9
+    ],
+    "y": [
+     -15,
+     40
+    ],
+    "axis": true,
+    "grid": true,
+    "aspect": "auto"
+   },
+   "params": [
+    {
+     "id": "c",
+     "label": "constant c",
+     "min": -5,
+     "max": 8,
+     "step": 0.5,
+     "value": 0
+    }
+   ],
+   "elements": [
+    {
+     "type": "function",
+     "id": "C",
+     "expr": "2*x^(3/2) - 16*x^(-2) - 2*x + c",
+     "domain": [
+      "0.6",
+      "8"
+     ],
+     "color": "primary",
+     "label": "y"
+    },
+    {
+     "type": "point",
+     "id": "P",
+     "x": "4",
+     "y": "10",
+     "label": "(4, 10)",
+     "color": "warning"
+    },
+    {
+     "type": "vline",
+     "id": "V4",
+     "at": "4",
+     "color": "muted"
+    },
+    {
+     "type": "glider",
+     "id": "G",
+     "on": "C",
+     "x": "2",
+     "label": "G"
+    },
+    {
+     "type": "tangent",
+     "id": "T",
+     "at": "G",
+     "of": "C",
+     "color": "secondary"
+    },
+    {
+     "type": "text",
+     "id": "val",
+     "x": "4.5",
+     "y": "-8",
+     "value": "At $x=4$ the curve has $y = {2*4^(3/2) - 16/4^2 - 2*4 + c}$; it needs to be $10$.",
+     "color": "mark"
+    }
+   ],
+   "steps": [
+    {
+     "n": 1,
+     "text": "After rewriting as $3x^{\\frac{1}{2}} + 32x^{-3} - 2$ and integrating term by term, you get $y = 2x^{\\frac{3}{2}} - 16x^{-2} - 2x + c$. This is the M1 and the two A1 marks for the integration. Changing $c$ slides the whole curve up or down.",
+     "set": {
+      "c": 0
+     },
+     "show": [
+      "C"
+     ]
+    },
+    {
+     "n": 2,
+     "text": "Drag the point $G$ along the curve and then change $c$. The tangent at a given $x$ stays parallel, because the gradient $3\\sqrt{x} + \\frac{32}{x^3} - 2$ does not contain $c$. That is why the gradient alone cannot fix $c$.",
+     "set": {
+      "c": 3
+     },
+     "highlight": [
+      "G",
+      "T"
+     ]
+    },
+    {
+     "n": 3,
+     "text": "With $c=0$ the curve gives $y=7$ at $x=4$, which misses $(4,10)$. Substituting $x=4$, $y=10$ gives $10 = 16 - 1 - 8 + c$, so $c=3$. This is the A1 for finding $c$.",
+     "set": {
+      "c": 0
+     },
+     "highlight": [
+      "P",
+      "val"
+     ]
+    },
+    {
+     "n": 4,
+     "text": "Set $c=3$: the curve passes through $(4, 10)$. So $y = 2x^{\\frac{3}{2}} - \\frac{16}{x^2} - 2x + 3$, the final A1. Leaving out $+c$ would force the curve through $y=7$ instead.",
+     "set": {
+      "c": 3
+     },
+     "highlight": [
+      "C",
+      "P"
+     ]
+    }
+   ],
+   "links": {
+    "solution_steps": [
+     2,
+     3,
+     4,
+     5,
+     6
+    ],
+    "marks": [
+     "M1",
+     "A1"
+    ],
+    "pitfalls": [
+     "missing-constant-of-integration",
+     "integration-power-rule-error"
+    ]
+   },
+   "guide": {
+    "what_you_see": "A curve $C$ whose equation comes from integrating the given gradient, drawn with a constant $c$ you can change, together with the marked point $(4, 10)$ that the question says lies on the curve. A movable point and its tangent show the slope of the curve at any chosen $x$.",
+    "legend": [
+     {
+      "id": "C",
+      "meaning": "The integrated curve $y=2x^{\\frac{3}{2}}-16x^{-2}-2x+c$, drawn for $0.6\\leqslant x\\leqslant 8$; its shape depends on the slider value of $c$."
+     },
+     {
+      "id": "P",
+      "meaning": "The given point $(4, 10)$, which the required curve must pass through."
+     },
+     {
+      "id": "G",
+      "meaning": "A point you can drag along $C$ to pick the $x$-value at which the slope is shown."
+     },
+     {
+      "id": "T",
+      "meaning": "The tangent to $C$ at $G$; its slope equals $\\frac{\\mathrm{d}y}{\\mathrm{d}x}=3\\sqrt{x}+\\frac{32}{x^3}-2$ at that $x$."
+     },
+     {
+      "id": "V4",
+      "meaning": "A vertical guide line at $x=4$, the $x$-value of the given point."
+     },
+     {
+      "id": "val",
+      "meaning": "A text note giving the height of the curve at $x=4$ for the current $c$, to compare with the required $10$."
+     }
+    ],
+    "interact": [
+     {
+      "control": "c",
+      "kind": "slider",
+      "do": "Move the slider between $-5$ and $8$, then set it to $0$ and finally to $3$.",
+      "watch": "The whole curve shifts vertically without changing shape. At $c=0$ it crosses $x=4$ at $y=7$, below $(4, 10)$; at $c=3$ it passes exactly through $(4, 10)$."
+     },
+     {
+      "control": "G",
+      "kind": "glider",
+      "do": "Drag $G$ left and right along the curve, for example to $x=2$, then change $c$ while $G$ stays put.",
+      "watch": "At $x=2$ the tangent slope is $3\\sqrt{2}+4-2\\approx 6.24$. Changing $c$ moves the curve but the tangent stays parallel to its earlier direction, because $c$ does not appear in the gradient."
+     }
+    ],
+    "question_link": {
+     "part": null,
+     "marks": [
+      "M1",
+      "A1"
+     ],
+     "text": "The curve $C$ is the family of solutions you get after rewriting and integrating, which earns the M1 and the integration A1 marks, and the tangent shows why the gradient cannot fix $c$. Substituting $x=4$, $y=10$ gives $10=16-1-8+c$, so $c=3$ (the A1 for $c$), and the curve through $P$ is the final equation $y=2x^{\\frac{3}{2}}-\\frac{16}{x^2}-2x+3$."
+    },
+    "read_off": [
+     "The note $val$ gives $2\\times4^{\\frac{3}{2}}-\\frac{16}{4^2}-8+c=7+c$, the height of the curve at $x=4$; it must equal $10$, which happens when $c=3$."
+    ]
+   },
+   "guide_meta": {
+    "model": "claude-sonnet-5-5",
+    "cost_usd": 0.0522,
+    "attempts": 2,
+    "gate": {
+     "pass": true,
+     "errors": []
+    },
+    "generated_at": "2026-09-30T23:13:03"
+   }
+  }
+ ],
+ "model": "claude-sonnet-5-5",
+ "generated_at": "2026-09-30T22:50:59",
+ "cost_usd": 0.0375,
+ "attempts": 1,
+ "checks": {
+  "pass": true,
+  "errors": [],
+  "n_scenes": 1
+ }
+}

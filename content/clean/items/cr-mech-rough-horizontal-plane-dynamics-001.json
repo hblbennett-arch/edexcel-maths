@@ -1,0 +1,244 @@
+{
+ "id": "cr-mech-rough-horizontal-plane-dynamics-001",
+ "blueprint_id": "bp-mech-rough-horizontal-plane-dynamics-001",
+ "question_type": "rough-horizontal-plane-dynamics",
+ "component": "mech",
+ "tier": "accessible",
+ "kind": "exam",
+ "stem": "When a play session at an adventure playground ends, a volunteer tidies up by dragging a wooden chest full of skipping ropes and beanbags across the flat tarmac. The chest has a total mass of $12\\,\\mathrm{kg}$. She pulls on a strap fixed to the chest. The strap is taut, has a tension of $50\\,\\mathrm{N}$, and makes a constant angle $\\alpha$ above the horizontal, where $\\tan\\alpha = \\frac{7}{24}$. The chest slides in a straight line in the direction of the horizontal component of the pull. The coefficient of friction between the chest and the tarmac is $0.3$. Treat the chest as a particle and the strap as light, and take $g = 9.8\\,\\mathrm{m\\,s^{-2}}$.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 1,
+   "text": "Find the magnitude of the contact force that the tarmac exerts on the chest at right angles to the ground. (1)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "equilibrium-of-particle",
+    "resolve-force-at-angle",
+    "friction-f-equals-mu-r",
+    "weight-and-g"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Resolves vertically with three terms: the upward normal force $R$, the upward component $50\\sin\\alpha = 14$ and the weight $12g$, e.g. $R + 50\\sin\\alpha = 12g$, which gives $R = 103.6$, so $R \\approx 104\\,\\mathrm{N}$",
+     "notes": "Accept $R = 12\\times 9.8 - 50\\times\\frac{7}{25}$ or any value that rounds to 104 (including 103.6). Using $\\cos\\alpha$ instead of $\\sin\\alpha$ for the vertical component earns M0. Using a weight of 12 instead of $12g$ earns M0."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\tan\\alpha = \\frac{7}{24}$ gives a 7–24–25 triangle, so $\\sin\\alpha = \\frac{7}{25}$ and $\\cos\\alpha = \\frac{24}{25}$.",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "The chest has no vertical acceleration. Resolving vertically: $R + 50\\times\\frac{7}{25} = 12\\times 9.8$, so $R + 14 = 117.6$ and $R = 103.6 \\approx 104\\,\\mathrm{N}$ (3 s.f.).",
+     "mark": "M1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "R",
+     "expr": "104",
+     "form": "sf-3",
+     "exact": "12*49/5 - 14"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "12*9.8 - 50*7/25",
+     "answer": "R",
+     "form": "sf-3"
+    },
+    {
+     "type": "equals",
+     "lhs": "sin(arctan(7/24))",
+     "rhs": "7/25"
+    }
+   ],
+   "hints": [
+    "Use $\\tan\\alpha = \\frac{7}{24}$ to get exact values for $\\sin\\alpha$ and $\\cos\\alpha$. Think about which component of the strap's pull acts vertically.",
+    "There is no vertical motion, so the upward forces must balance the downward ones."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 2,
+   "text": "Find the acceleration of the chest. (2)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "friction-f-equals-mu-r",
+    "newtons-second-law-equation",
+    "weight-and-g"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Writes a Newton's second law equation horizontally, with friction $0.3\\times$ their $R$ from (a) opposing the horizontal component $50\\cos\\alpha = 48$, e.g. $48 - 0.3R = 12a$",
+     "notes": "The horizontal component must use $\\cos\\alpha$ (or 48). Friction must be $0.3\\times$ their $R$, not $0.3\\times 12g$ unless that was their $R$ in (a). The equation must have exactly two force terms and $12a$ on the other side. Treating $12a$ as an extra force in an equilibrium equation earns M0."
+    },
+    {
+     "code": "A1",
+     "for": "$a = 1.41\\,\\mathrm{m\\,s^{-2}}$",
+     "notes": "cao. Accept 1.41 or awrt 1.41."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "The chest is sliding, so friction is limiting: $F = 0.3\\times 103.6 = 31.08\\,\\mathrm{N}$, acting against the motion.",
+     "mark": "0"
+    },
+    {
+     "step": 2,
+     "working": "Horizontally, taking the direction of motion as positive: $50\\times\\frac{24}{25} - 31.08 = 12a$, so $48 - 31.08 = 12a$.",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$16.92 = 12a$, so $a = 1.41\\,\\mathrm{m\\,s^{-2}}$.",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "a",
+     "expr": "1.41",
+     "form": "sf-3",
+     "exact": "(48 - 3/10*(588/5 - 14))/12"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "(50*24/25 - 0.3*(12*9.8 - 50*7/25))/12",
+     "answer": "a",
+     "form": "sf-3"
+    },
+    {
+     "type": "system",
+     "equations": [
+      "R + 14 = 12*9.8",
+      "48 - 0.3*R = 12*a"
+     ],
+     "vars": [
+      "R",
+      "a"
+     ],
+     "result": {
+      "R": "103.6",
+      "a": "1.41"
+     }
+    }
+   ],
+   "hints": [
+    "Friction acts against the motion. Because the chest is sliding, friction takes its maximum value, $0.3R$, using the $R$ you found in (a).",
+    "The resultant horizontal force equals mass × acceleration."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "error_code": "mass-for-weight",
+   "step": 2,
+   "text": "If you write $R + 14 = 12$ and use the mass 12 in place of the weight $12\\times 9.8 = 117.6\\,\\mathrm{N}$, your vertical equation mixes kilograms with newtons and the M1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "error_code": "friction-limiting-assumed",
+   "step": 2,
+   "text": "You can't get $R$ by setting $0.3R$ equal to the horizontal pull of 48 N. That assumes friction exactly balances the pull, but the chest is accelerating, so the forces don't balance horizontally. You must find $R$ by resolving vertically, otherwise the M1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "error_code": "g-accuracy-overstated",
+   "step": 2,
+   "text": "Because $g = 9.8$ is given to 2 significant figures, you should give your final answers to 2 or 3 significant figures, e.g. $104\\,\\mathrm{N}$. It is common to quote long decimals from intermediate working as final answers. Keep full accuracy (103.6) in your working for part (b).",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "error_code": "resultant-force-error",
+   "step": 2,
+   "text": "A common error is to write $48 - 31.08 - 12a = 0$, or $48 + 31.08 = 12a$. The first treats $12a$ as another force and the second points friction the wrong way. Either way, your equation does not set the resultant force equal to $12a$, so you lose the M1 and the A1.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "error_code": "mass-for-weight",
+   "step": 2,
+   "text": "Friction is $0.3R$ with $R = 103.6\\,\\mathrm{N}$. It is common to write $0.3\\times 12 = 3.6$ using the mass, or to use $0.3\\times 12g$ and ignore the lift from the strap. Both give the wrong friction force, so the M1 is lost.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "error_code": "friction-limiting-assumed",
+   "step": 1,
+   "text": "$F = 0.3R$ is valid here only because the chest is sliding. You would lose the method mark if you used $F = \\mu R$ for a chest that the question says is at rest but not on the point of moving. In that case friction is simply whatever is needed for balance.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:32:26",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.2484
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 3
+  },
+  "G7": {
+   "pass": false,
+   "flag": true,
+   "reasons": [
+    "2 word 8-gram(s) also in the reference corpus (not whitelisted)"
+   ],
+   "flags": [
+    "cosine 0.840 with part:P3_June2018_Q7:a"
+   ],
+   "hit_fields": [
+    "pitfalls",
+    "stem"
+   ],
+   "n_8gram_hits": 2,
+   "hits8": [
+    "angle alpha above the horizontal where tan alpha",
+    "final answers to 2 or 3 significant figures"
+   ],
+   "max_jaccard": 0.021,
+   "jaccard_source": "IAL2013_WME01_Jan2015_Q2",
+   "shared_numbers": 1,
+   "max_cosine": 0.84,
+   "cosine_source": "part:P3_June2018_Q7:a"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 4,
+   "n_answers": 2,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

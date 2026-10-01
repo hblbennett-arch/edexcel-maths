@@ -1,0 +1,411 @@
+{
+ "id": "cr-pure-optimisation-modelled-quantity-002",
+ "blueprint_id": "bp-pure-optimisation-modelled-quantity-002",
+ "question_type": "optimisation-modelled-quantity",
+ "component": "pure",
+ "tier": "challenging",
+ "kind": "exam",
+ "stem": "The function $\\mathrm{f}$ is defined by\n$$\\mathrm{f}(x) = \\frac{15x + 2x\\sqrt{x} - x^2}{\\sqrt{x}}, \\qquad x > 0.$$\nThe curve $C$ has equation $y = \\mathrm{f}(x)$.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 5,
+   "text": "Show that the $x$-coordinate of any stationary point of $C$ satisfies $$3x - 4\\sqrt{x} - 15 = 0.$$ (5)",
+   "command": "show-that",
+   "forms": [],
+   "skills": [
+    "differentiate-polynomials"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Divides each term of the numerator by $\\sqrt{x}$ to write $\\mathrm{f}(x)$ as a sum of powers of $x$, with at least two of $15x^{\\frac12}$, $2x$, $-x^{\\frac32}$ correct",
+     "notes": "Any correct index notation, e.g. $15x^{0.5}$. Splitting the fraction wrongly, e.g. giving $2x^{\\frac32}$ for the middle term, loses this mark only if two terms are then wrong."
+    },
+    {
+     "code": "A1",
+     "for": "$\\mathrm{f}(x) = 15x^{\\frac12} + 2x - x^{\\frac32}$, all three terms correct",
+     "depends_on": "M1"
+    },
+    {
+     "code": "M1",
+     "for": "Differentiates their sum of powers, with at least one term $kx^n$ becoming $knx^{n-1}$",
+     "notes": "A correct quotient-rule attempt on the original fraction may earn this M1 and the A1 above if it simplifies correctly."
+    },
+    {
+     "code": "dM1",
+     "for": "Sets their $\\mathrm{f}'(x) = \\frac{15}{2}x^{-\\frac12} + 2 - \\frac32 x^{\\frac12}$ equal to 0 and multiplies through by $2\\sqrt{x}$ (or $2x^{\\frac12}$) to remove the fractional powers",
+     "depends_on": "M1"
+    },
+    {
+     "code": "A1*",
+     "for": "Reaches $3x - 4\\sqrt{x} - 15 = 0$ with no errors anywhere, including a correct derivative seen",
+     "depends_on": "dM1",
+     "notes": "cso. Multiplying out $2\\sqrt{x} \\times \\frac32\\sqrt{x} = 3x$ must be correct; rearranging signs must be shown."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\mathrm{f}(x) = \\dfrac{15x}{x^{\\frac12}} + \\dfrac{2x^{\\frac32}}{x^{\\frac12}} - \\dfrac{x^2}{x^{\\frac12}} = 15x^{\\frac12} + 2x - x^{\\frac32}$",
+     "mark": "M1 A1"
+    },
+    {
+     "step": 2,
+     "working": "$\\mathrm{f}'(x) = \\dfrac{15}{2}x^{-\\frac12} + 2 - \\dfrac32 x^{\\frac12}$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "At a stationary point $\\mathrm{f}'(x) = 0$. Multiply by $2x^{\\frac12}$: $15 + 4x^{\\frac12} - 3x = 0$",
+     "mark": "dM1"
+    },
+    {
+     "step": 4,
+     "working": "So $3x - 4\\sqrt{x} - 15 = 0$, as required.",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "(15x + 2x*sqrt(x) - x^2)/sqrt(x)",
+     "rhs": "15*sqrt(x) + 2x - x^(3/2)",
+     "domain": "positive"
+    },
+    {
+     "type": "derivative",
+     "f": "15*sqrt(x) + 2x - x^(3/2)",
+     "var": "x",
+     "result": "15/(2*sqrt(x)) + 2 - (3/2)*sqrt(x)"
+    },
+    {
+     "type": "equals",
+     "lhs": "2*sqrt(x)*(15/(2*sqrt(x)) + 2 - (3/2)*sqrt(x))",
+     "rhs": "15 + 4*sqrt(x) - 3x",
+     "domain": "positive"
+    }
+   ],
+   "hints": [
+    "You can't differentiate the fraction term by term as it stands. Divide each term of the numerator by $x^{\\frac12}$ first.",
+    "After you set $\\mathrm{f}'(x)=0$, multiply every term by $2\\sqrt{x}$ to clear the fractional powers."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 4,
+   "text": "Hence find the exact value of $x$ at which $C$ has a stationary point. Your equation from part (a) gives two possible values of $\\sqrt{x}$; explain why only one of them is acceptable. Give the value of $\\mathrm{f}(x)$ at this point. (4)",
+   "command": "hence",
+   "forms": [],
+   "skills": [
+    "solve-quadratic-equation",
+    "reject-invalid-solutions",
+    "use-hence-previous-result"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Treats $3x - 4\\sqrt{x} - 15 = 0$ as a quadratic in $u = \\sqrt{x}$, i.e. $3u^2 - 4u - 15 = 0$, and solves it by factorising to $(3u+5)(u-3)$ or by a correct use of the formula",
+     "notes": "The formula must be $u = \\frac{4 \\pm \\sqrt{16 + 180}}{6}$ or equivalent, with the whole numerator over 6."
+    },
+    {
+     "code": "A1",
+     "for": "$\\sqrt{x} = 3$ and $\\sqrt{x} = -\\frac53$",
+     "depends_on": "M1"
+    },
+    {
+     "code": "dM1",
+     "for": "Rejects $\\sqrt{x} = -\\frac53$ with a reason (e.g. $\\sqrt{x}$ cannot be negative) and squares the positive root to find $x$",
+     "depends_on": "M1"
+    },
+    {
+     "code": "A1",
+     "for": "$x = 9$ and $\\mathrm{f}(9) = 36$",
+     "depends_on": "dM1",
+     "notes": "cao. Both values needed. Getting $x = \\frac{25}{9}$ as well, without rejecting it, loses this mark."
+    }
+   ],
+   "alternatives": [
+    {
+     "name": "Way 2 (isolate the root and square)",
+     "marks": [
+      {
+       "code": "M1",
+       "for": "Writes $3x - 15 = 4\\sqrt{x}$, squares to get $9x^2 - 106x + 225 = 0$ and solves it, e.g. $(x-9)(9x-25)=0$"
+      },
+      {
+       "code": "A1",
+       "for": "$x = 9$ and $x = \\frac{25}{9}$",
+       "depends_on": "M1"
+      },
+      {
+       "code": "dM1",
+       "for": "Tests $x = \\frac{25}{9}$ in $3x - 15 = 4\\sqrt{x}$ and rejects it, because the left side is $-\\frac{20}{3}$, which is negative, while $4\\sqrt{x}$ is positive",
+       "depends_on": "M1"
+      },
+      {
+       "code": "A1",
+       "for": "$x = 9$ and $\\mathrm{f}(9) = 36$",
+       "depends_on": "dM1"
+      }
+     ]
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "Let $u = \\sqrt{x}$, so $x = u^2$: $3u^2 - 4u - 15 = 0 \\Rightarrow (3u + 5)(u - 3) = 0$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$u = 3$ or $u = -\\frac53$",
+     "mark": "A1"
+    },
+    {
+     "step": 3,
+     "working": "$\\sqrt{x}$ is the positive square root, so it can't equal $-\\frac53$. Reject that root. Then $\\sqrt{x} = 3 \\Rightarrow x = 9$",
+     "mark": "dM1"
+    },
+    {
+     "step": 4,
+     "working": "$\\mathrm{f}(9) = 15(3) + 2(9) - 27 = 45 + 18 - 27 = 36$. The only stationary point is at $x = 9$, where $\\mathrm{f}(9) = 36$.",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "x",
+     "expr": "9",
+     "form": "exact"
+    },
+    {
+     "name": "fmax",
+     "expr": "36",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "solutions",
+     "equation": "3x - 4*sqrt(x) - 15 = 0",
+     "var": "x",
+     "interval": [
+      0,
+      1000
+     ],
+     "result": [
+      "9"
+     ],
+     "answer": "x"
+    },
+    {
+     "type": "solutions",
+     "equation": "3u^2 - 4u - 15 = 0",
+     "var": "u",
+     "result": [
+      "3",
+      "-5/3"
+     ]
+    },
+    {
+     "type": "substitute",
+     "expr": "15*sqrt(x) + 2x - x^(3/2)",
+     "at": {
+      "x": "9"
+     },
+     "result": "36",
+     "answer": "fmax"
+    }
+   ],
+   "hints": [
+    "Replace $\\sqrt{x}$ with a new letter, say $u$. Then $x = u^2$.",
+    "Once you know $u$, remember that you still need $x$. Think about which values a square root can take."
+   ]
+  },
+  {
+   "label": "c",
+   "marks": 4,
+   "text": "Use the second derivative $\\mathrm{f}''(x)$ to decide whether the stationary value you found in part (b) is a local maximum or a local minimum of $\\mathrm{f}$. Make clear how your working supports your decision. (4)",
+   "command": "use",
+   "forms": [],
+   "skills": [
+    "second-derivative",
+    "second-derivative-test",
+    "explain-with-reason"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Differentiates their $\\mathrm{f}'(x) = \\frac{15}{2}x^{-\\frac12} + 2 - \\frac32 x^{\\frac12}$ again, with at least one power reduced by 1 and the constant removed",
+     "notes": "Follow through from their $\\mathrm{f}'(x)$ in part (a) for this mark."
+    },
+    {
+     "code": "A1",
+     "for": "$\\mathrm{f}''(x) = -\\frac{15}{4}x^{-\\frac32} - \\frac34 x^{-\\frac12}$",
+     "depends_on": "M1",
+     "notes": "oe, e.g. $-\\frac{15}{4x\\sqrt{x}} - \\frac{3}{4\\sqrt{x}}$"
+    },
+    {
+     "code": "M1",
+     "for": "Substitutes their $x = 9$ into their $\\mathrm{f}''(x)$ and looks at the sign of the result, or argues that both terms are negative for all $x > 0$",
+     "ft_of": "b"
+    },
+    {
+     "code": "A1",
+     "for": "$\\mathrm{f}''(9) = -\\frac{7}{18}$ (awrt $-0.389$), which is negative, so the stationary value $36$ is a local maximum",
+     "depends_on": "M1",
+     "notes": "The value, or a correct sign argument, must come with a conclusion that names 'maximum'."
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\mathrm{f}''(x) = \\frac{15}{2}\\cdot\\left(-\\frac12\\right)x^{-\\frac32} - \\frac32\\cdot\\frac12 x^{-\\frac12} = -\\frac{15}{4}x^{-\\frac32} - \\frac34 x^{-\\frac12}$",
+     "mark": "M1 A1"
+    },
+    {
+     "step": 2,
+     "working": "$\\mathrm{f}''(9) = -\\frac{15}{4\\times 27} - \\frac{3}{4\\times 3} = -\\frac{5}{36} - \\frac{9}{36}$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$\\mathrm{f}''(9) = -\\frac{7}{18} < 0$, so the stationary point at $(9, 36)$ is a local maximum.",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "f2",
+     "expr": "-7/18",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "derivative",
+     "f": "15*sqrt(x) + 2x - x^(3/2)",
+     "var": "x",
+     "order": 2,
+     "result": "-(15/4)*x^(-3/2) - (3/4)*x^(-1/2)"
+    },
+    {
+     "type": "substitute",
+     "expr": "-(15/4)*x^(-3/2) - (3/4)*x^(-1/2)",
+     "at": {
+      "x": "9"
+     },
+     "result": "-7/18",
+     "answer": "f2"
+    }
+   ],
+   "hints": [
+    "Differentiate your $\\mathrm{f}'(x)$ term by term. The constant $2$ goes, and each fractional power drops by 1.",
+    "Only the sign of $\\mathrm{f}''(9)$ matters. Say what that sign tells you."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "not-rewritten-as-powers",
+   "text": "If you differentiate the numerator and the denominator separately, e.g. writing $\\frac{15 + 3\\sqrt{x} - 2x}{\\frac{1}{2\\sqrt{x}}}$, the result is not the derivative of $\\mathrm{f}$. You lose the M marks. Divide by $x^{\\frac12}$ first to get $15x^{\\frac12} + 2x - x^{\\frac32}$.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "sign-error-differentiating-negative-power",
+   "text": "When you differentiate $15x^{\\frac12}$, the new power is $-\\frac12$, not $+\\frac12$ or $-\\frac32$. With the wrong power, multiplying by $2\\sqrt{x}$ won't give $3x - 4\\sqrt{x} - 15 = 0$, so the A1* is lost.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "quadratic-formula-error",
+   "text": "If you use the formula on $3u^2 - 4u - 15 = 0$, the whole of $4 \\pm \\sqrt{196}$ goes over $6$. Writing $4 \\pm \\frac{14}{6}$, or starting with $-4$ instead of $+4$, gives wrong roots and loses the M1.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 3,
+   "error_code": "hidden-quadratic-not-converted-back",
+   "text": "A common slip is to stop at $u = 3$ and give $x = 3$. The equation was in $\\sqrt{x}$, so you must square to get $x = 9$. Stopping early, or keeping $\\sqrt{x} = -\\frac53$ with no reason for rejecting it, loses the marks for $x$.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "incomplete-factorisation",
+   "text": "A common mistake is to write $3u^2 - 4u - 15 = 0$ as $u(3u - 4) = 15$ and stop, or to try values from there. This isn't a factorisation that gives roots. Factorise it fully as $(3u+5)(u-3) = 0$, or the A1 is lost.",
+   "says_common": true
+  },
+  {
+   "part": "c",
+   "step": 1,
+   "error_code": "second-derivative-error",
+   "text": "A common error is to get $-\\frac{15}{4}x^{\\frac12}$ or a positive coefficient when you differentiate $\\frac{15}{2}x^{-\\frac12}$ again. The correct result is $-\\frac{15}{4}x^{-\\frac32}$. A wrong $\\mathrm{f}''(x)$ loses the A1, and the value $-\\frac{7}{18}$ will not follow.",
+   "says_common": true
+  },
+  {
+   "part": "c",
+   "step": 2,
+   "error_code": "sets-y-zero-not-derivative",
+   "text": "Deciding the nature from the value $\\mathrm{f}(9) = 36$ being positive, rather than from the sign of $\\mathrm{f}''(9)$, is not a valid test. You lose the second M1 and the final A1.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:34:08",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.5053
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 13
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.885 with question:IAL2018_WMA11_June2022_Q7"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "hits8": [],
+   "max_jaccard": 0.029,
+   "jaccard_source": "IAL2018_WMA13_Oct2023_Q2",
+   "shared_numbers": 0,
+   "max_cosine": 0.885,
+   "cosine_source": "question:IAL2018_WMA11_June2022_Q7"
+  },
+  "G2": {
+   "pass": false,
+   "errors": [
+    "part b check 1 (solutions): result ['9'] differs from answer x = 9"
+   ],
+   "n_checks": 8,
+   "n_answers": 3,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

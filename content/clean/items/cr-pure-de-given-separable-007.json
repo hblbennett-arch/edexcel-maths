@@ -1,0 +1,431 @@
+{
+ "id": "cr-pure-de-given-separable-007",
+ "blueprint_id": "bp-pure-de-given-separable-007",
+ "question_type": "de-given-separable",
+ "component": "pure",
+ "tier": "standard",
+ "kind": "exam",
+ "stem": "After fertiliser washed off nearby farmland into Tarnmoor Water, a small upland lake, a water-quality officer began recording the level of dissolved nitrate. Let $C$ micrograms per litre be the nitrate concentration $t$ weeks after the run-off. Plant uptake, sunlight and fresh inflow all remove nitrate, and together they are modelled by\n$$\\frac{\\mathrm{d}C}{\\mathrm{d}t} = -kC\\left(4\\mathrm{e}^{-t/3} + \\pi\\sin\\left(\\frac{\\pi t}{12}\\right) + \\frac{6}{2t+3}\\right), \\qquad 0 \\leqslant t \\leqslant 12,$$\nwhere $k$ is a positive constant and the angle $\\frac{\\pi t}{12}$ is in radians.",
+ "parts": [
+  {
+   "label": "a",
+   "marks": 6,
+   "command": "show-that",
+   "forms": [],
+   "skills": [
+    "standard-integrals"
+   ],
+   "text": "Show that\n$$\\int \\left(4\\mathrm{e}^{-t/3} + \\pi\\sin\\left(\\frac{\\pi t}{12}\\right) + \\frac{6}{2t+3}\\right)\\mathrm{d}t = 3\\ln(2t+3) - 12\\mathrm{e}^{-t/3} - 12\\cos\\left(\\frac{\\pi t}{12}\\right) + c,$$\nwhere $c$ is an arbitrary constant. (6)",
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Integrates $4\\mathrm{e}^{-t/3}$ to get $\\lambda\\mathrm{e}^{-t/3}$ for some constant $\\lambda \\neq 0$",
+     "notes": "The exponent must stay $-t/3$"
+    },
+    {
+     "code": "A1",
+     "for": "$-12\\mathrm{e}^{-t/3}$",
+     "notes": "$-\\frac{4}{3}\\mathrm{e}^{-t/3}$ is A0 (they multiplied by $-\\frac13$ instead of dividing)"
+    },
+    {
+     "code": "M1",
+     "for": "Integrates $\\pi\\sin\\left(\\frac{\\pi t}{12}\\right)$ to get $\\mu\\cos\\left(\\frac{\\pi t}{12}\\right)$ for some constant $\\mu \\neq 0$",
+     "notes": "The sign of $\\mu$ doesn't matter for this mark"
+    },
+    {
+     "code": "A1",
+     "for": "$-12\\cos\\left(\\frac{\\pi t}{12}\\right)$",
+     "notes": "$+12\\cos$ is A0"
+    },
+    {
+     "code": "dM1",
+     "depends_on": "both previous M1",
+     "for": "Integrates $\\frac{6}{2t+3}$ to get $\\nu\\ln(2t+3)$ for some $\\nu \\neq 0$, and writes all three integrated terms as one expression",
+     "notes": "Also accept $\\nu\\ln|2t+3|$"
+    },
+    {
+     "code": "A1*",
+     "for": "Gets exactly the printed result, with $3\\ln(2t+3)$, both earlier terms correct and $+c$ included",
+     "notes": "cso. Leaving out $+c$ is A0"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\int 4\\mathrm{e}^{-t/3}\\,\\mathrm{d}t = 4 \\cdot \\frac{1}{-1/3}\\mathrm{e}^{-t/3} = -12\\mathrm{e}^{-t/3}$",
+     "mark": "M1 A1"
+    },
+    {
+     "step": 2,
+     "working": "$\\int \\pi\\sin\\left(\\frac{\\pi t}{12}\\right)\\mathrm{d}t = \\pi \\cdot \\left(-\\frac{12}{\\pi}\\right)\\cos\\left(\\frac{\\pi t}{12}\\right) = -12\\cos\\left(\\frac{\\pi t}{12}\\right)$",
+     "mark": "M1 A1"
+    },
+    {
+     "step": 3,
+     "working": "$\\int \\frac{6}{2t+3}\\,\\mathrm{d}t = \\frac{6}{2}\\ln(2t+3) = 3\\ln(2t+3)$, which is valid because $2t+3>0$ for $t \\geqslant 0$",
+     "mark": "dM1"
+    },
+    {
+     "step": 4,
+     "working": "So the integral is $3\\ln(2t+3) - 12\\mathrm{e}^{-t/3} - 12\\cos\\left(\\frac{\\pi t}{12}\\right) + c$, as required",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [],
+   "checks": [
+    {
+     "type": "integral",
+     "f": "4*exp(-t/3) + pi*sin(pi*t/12) + 6/(2*t+3)",
+     "var": "t",
+     "result": "3*log(2*t+3) - 12*exp(-t/3) - 12*cos(pi*t/12)"
+    },
+    {
+     "type": "derivative",
+     "f": "-12*cos(pi*t/12)",
+     "var": "t",
+     "result": "pi*sin(pi*t/12)"
+    }
+   ],
+   "hints": [
+    "Integrate each of the three terms on its own. For $\\mathrm{e}^{at}$, $\\sin(at)$ and $\\frac{1}{at+b}$, divide by the coefficient $a$.",
+    "Think about the sign carefully: what do you differentiate to get $\\sin$?"
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 6,
+   "command": "solve",
+   "forms": [],
+   "skills": [
+    "separate-variables-and-integrate"
+   ],
+   "text": "When the run-off happened, the concentration was 80 micrograms per litre. Solve the differential equation, using $C = 80$ when $t = 0$, to find $C$ as a function of $t$ and $k$. (6)",
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Separates the variables correctly: $\\int \\frac{1}{C}\\,\\mathrm{d}C = -k\\int\\left(4\\mathrm{e}^{-t/3} + \\pi\\sin\\left(\\frac{\\pi t}{12}\\right) + \\frac{6}{2t+3}\\right)\\mathrm{d}t$",
+     "notes": "Integral signs may be implied by the next line"
+    },
+    {
+     "code": "M1",
+     "for": "Integrates both sides: $\\frac{1}{C}$ becomes a multiple of $\\ln C$, and the result from part (a) is used for the $t$ side"
+    },
+    {
+     "code": "A1",
+     "for": "$\\ln C$ on the left-hand side"
+    },
+    {
+     "code": "A1",
+     "for": "Right-hand side $-k\\left(3\\ln(2t+3) - 12\\mathrm{e}^{-t/3} - 12\\cos\\left(\\frac{\\pi t}{12}\\right)\\right) + c$, including the constant",
+     "notes": "oe. The constant may be on either side"
+    },
+    {
+     "code": "M1",
+     "for": "Substitutes $t = 0$ and $C = 80$ to find the constant, e.g. $c = \\ln 80 + k(3\\ln 3 - 24)$",
+     "notes": "Uses $\\cos 0 = 1$ and $\\mathrm{e}^0 = 1$"
+    },
+    {
+     "code": "ddM1",
+     "depends_on": "both previous M marks",
+     "for": "Exponentiates correctly to make $C$ the subject, e.g. $C = 80\\exp\\left(k\\left[12\\mathrm{e}^{-t/3} + 12\\cos\\left(\\frac{\\pi t}{12}\\right) - 24 + 3\\ln\\left(\\frac{3}{2t+3}\\right)\\right]\\right)$",
+     "notes": "oe, e.g. $C = 80\\left(\\frac{3}{2t+3}\\right)^{3k}\\mathrm{e}^{12k\\left(\\mathrm{e}^{-t/3} + \\cos(\\pi t/12) - 2\\right)}$. Separate $\\mathrm{e}^{\\ln C}$ and $\\mathrm{e}^{c}$ factors are fine if combined correctly"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\int \\frac{1}{C}\\,\\mathrm{d}C = -k\\int\\left(4\\mathrm{e}^{-t/3} + \\pi\\sin\\left(\\frac{\\pi t}{12}\\right) + \\frac{6}{2t+3}\\right)\\mathrm{d}t$",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "$\\ln C = -k\\left(3\\ln(2t+3) - 12\\mathrm{e}^{-t/3} - 12\\cos\\left(\\frac{\\pi t}{12}\\right)\\right) + c$ (since $C>0$)",
+     "mark": "M1 A1 A1"
+    },
+    {
+     "step": 3,
+     "working": "At $t=0$, $C=80$: $\\ln 80 = -k(3\\ln 3 - 12 - 12) + c$, so $c = \\ln 80 + k(3\\ln 3 - 24)$",
+     "mark": "M1"
+    },
+    {
+     "step": 4,
+     "working": "$\\ln C = \\ln 80 + k\\left[12\\mathrm{e}^{-t/3} + 12\\cos\\left(\\frac{\\pi t}{12}\\right) - 24 + 3\\ln 3 - 3\\ln(2t+3)\\right]$, so $C = 80\\exp\\left(k\\left[12\\mathrm{e}^{-t/3} + 12\\cos\\left(\\frac{\\pi t}{12}\\right) - 24 + 3\\ln\\left(\\frac{3}{2t+3}\\right)\\right]\\right)$",
+     "mark": "ddM1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "C",
+     "expr": "80*exp(k*(12*exp(-t/3) + 12*cos(pi*t/12) - 24 + 3*log(3/(2*t+3))))",
+     "form": "exact",
+     "check": "C = 80*(3/(2*t+3))^(3*k)*exp(12*k*(exp(-t/3) + cos(pi*t/12) - 2))"
+    }
+   ],
+   "checks": [
+    {
+     "type": "derivative",
+     "f": "log(80) + k*(12*exp(-t/3) + 12*cos(pi*t/12) - 24 + 3*log(3/(2*t+3)))",
+     "var": "t",
+     "result": "-k*(4*exp(-t/3) + pi*sin(pi*t/12) + 6/(2*t+3))"
+    },
+    {
+     "type": "substitute",
+     "expr": "80*exp(k*(12*exp(-t/3) + 12*cos(pi*t/12) - 24 + 3*log(3/(2*t+3))))",
+     "at": {
+      "t": 0
+     },
+     "result": "80"
+    }
+   ],
+   "hints": [
+    "Divide both sides by $C$ so that every $C$ is with $\\mathrm{d}C$ and every $t$ is with $\\mathrm{d}t$. Then use part (a).",
+    "Put in $C = 80$ and $t = 0$ before you exponentiate, and remember $\\cos 0 = 1$."
+   ]
+  },
+  {
+   "label": "c",
+   "marks": 7,
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "find-constants-from-conditions",
+    "laws-of-logarithms",
+    "use-model-to-predict",
+    "accuracy-units-and-rounding"
+   ],
+   "text": "Six weeks after the run-off, the officer measured the concentration as 20 micrograms per litre.\n\nFind the value of $k$, giving your answer to 3 significant figures. Then find the concentration that the model predicts 12 weeks after the run-off, giving your answer to 3 significant figures with units. The lake counts as recovered once the concentration is below 10 micrograms per litre. Using your answer, state whether the model predicts that the lake has recovered after 12 weeks. (7)",
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Correctly obtains $\\ln\\left(\\frac{20}{80}\\right) = \\ln\\frac14$ (or $-\\ln 4$) when $t=6$, $C=20$ are used with their equation",
+     "notes": "$\\frac{\\ln 20}{\\ln 80}$ is B0"
+    },
+    {
+     "code": "M1",
+     "for": "Substitutes $t=6$, $C=20$ into their solution from part (b), with the constant from $C=80$ included, and rearranges to $k = \\ldots$",
+     "notes": "e.g. $-\\ln 4 = k\\left(12\\mathrm{e}^{-2} + 0 - 24 + 3\\ln\\frac15\\right)$"
+    },
+    {
+     "code": "A1",
+     "for": "$k = 0.0510$",
+     "notes": "awrt 0.0510. Exact form $\\frac{\\ln 4}{24 + 3\\ln 5 - 12\\mathrm{e}^{-2}}$"
+    },
+    {
+     "code": "dM1",
+     "depends_on": "M1",
+     "for": "Substitutes $t = 12$ and their $k$ into their expression for $C$, with $\\cos\\pi = -1$ used",
+     "notes": "Bracket value $12\\mathrm{e}^{-4} - 36 - 3\\ln 9 \\approx -42.37$"
+    },
+    {
+     "code": "ddM1",
+     "depends_on": "both previous M marks",
+     "for": "Correctly evaluates $80\\mathrm{e}^{(\\text{their }k)(\\text{their bracket})}$ to get a value for $C$"
+    },
+    {
+     "code": "A1",
+     "for": "$C = 9.23$ micrograms per litre",
+     "notes": "awrt 9.2. If $k = 0.0510$ is used after rounding, the answer is 9.22, which is accepted"
+    },
+    {
+     "code": "A1",
+     "for": "Conclusion in context: $9.23 < 10$, so the model predicts that the lake has recovered after 12 weeks",
+     "notes": "Depends on a correct value for $C$ that is below 10 (awrt 9.2)"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "From part (b), $\\ln\\left(\\frac{C}{80}\\right) = k\\left[12\\mathrm{e}^{-t/3} + 12\\cos\\left(\\frac{\\pi t}{12}\\right) - 24 + 3\\ln\\left(\\frac{3}{2t+3}\\right)\\right]$. At $t=6$, $C=20$: the left-hand side is $\\ln\\frac{20}{80} = -\\ln 4$",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "Right-hand side: $k\\left(12\\mathrm{e}^{-2} + 12\\cos\\frac{\\pi}{2} - 24 + 3\\ln\\frac{3}{15}\\right) = -k(24 + 3\\ln 5 - 12\\mathrm{e}^{-2})$, so $k = \\frac{\\ln 4}{24 + 3\\ln 5 - 12\\mathrm{e}^{-2}}$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$k = \\frac{1.386294\\ldots}{27.20429\\ldots} = 0.05095\\ldots \\approx 0.0510$",
+     "mark": "A1"
+    },
+    {
+     "step": 4,
+     "working": "At $t=12$: bracket $= 12\\mathrm{e}^{-4} + 12\\cos\\pi - 24 + 3\\ln\\frac{3}{27} = 12\\mathrm{e}^{-4} - 36 - 3\\ln 9 = -42.3718\\ldots$",
+     "mark": "dM1"
+    },
+    {
+     "step": 5,
+     "working": "$C = 80\\mathrm{e}^{0.050958\\ldots \\times (-42.3718\\ldots)} = 80\\mathrm{e}^{-2.15921\\ldots}$",
+     "mark": "ddM1"
+    },
+    {
+     "step": 6,
+     "working": "$C = 9.23$ micrograms per litre (3 s.f.)",
+     "mark": "A1"
+    },
+    {
+     "step": 7,
+     "working": "$9.23 < 10$, so the model predicts that the lake has recovered 12 weeks after the run-off",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "k",
+     "expr": "0.0510",
+     "form": "sf-3",
+     "exact": "log(4)/(24 + 3*log(5) - 12*exp(-2))"
+    },
+    {
+     "name": "C12",
+     "expr": "9.23",
+     "form": "sf-3",
+     "exact": "80*exp(-log(4)*(36 + 6*log(3) - 12*exp(-4))/(24 + 3*log(5) - 12*exp(-2)))"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "log(4)/(24 + 3*log(5) - 12*exp(-2))",
+     "answer": "k",
+     "form": "sf-3"
+    },
+    {
+     "type": "numeric",
+     "expr": "80*exp(-log(4)*(36 + 6*log(3) - 12*exp(-4))/(24 + 3*log(5) - 12*exp(-2)))",
+     "answer": "C12",
+     "form": "sf-3"
+    },
+    {
+     "type": "substitute",
+     "expr": "12*exp(-t/3) + 12*cos(pi*t/12) - 24 + 3*log(3/(2*t+3))",
+     "at": {
+      "t": 6
+     },
+     "result": "12*exp(-2) - 24 - 3*log(5)"
+    }
+   ],
+   "hints": [
+    "Write your part (b) answer as $\\ln\\left(\\frac{C}{80}\\right) = k \\times (\\ldots)$, then put in $t=6$ and $C=20$.",
+    "Keep the unrounded value of $k$ in your calculator when you work out $C$ at $t=12$."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "step": 2,
+   "error_code": "trig-integral-sign-error",
+   "text": "A common slip is to integrate $\\pi\\sin\\left(\\frac{\\pi t}{12}\\right)$ to $+12\\cos\\left(\\frac{\\pi t}{12}\\right)$. The derivative of $\\cos$ is $-\\sin$, so the integral of $\\sin$ is $-\\cos$. With the wrong sign you lose the A1 for this term, and you can't reach the printed answer.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 4,
+   "error_code": "missing-constant-of-integration",
+   "text": "Many students leave out $+c$ at the end of an indefinite integral. The printed answer includes it, so without it your final A1* is lost.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "step": 1,
+   "error_code": "reverse-chain-coefficient-error",
+   "text": "If you multiply by $-\\frac13$ instead of dividing by it, $4\\mathrm{e}^{-t/3}$ becomes $-\\frac43\\mathrm{e}^{-t/3}$ instead of $-12\\mathrm{e}^{-t/3}$. You can still get the M1, but you lose the A1.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "step": 1,
+   "error_code": "separation-error",
+   "text": "A frequent mistake is to write $\\mathrm{d}C = -kC(\\ldots)\\,\\mathrm{d}t$ and integrate with $C$ still on the $t$ side. The $C$ must be moved across as $\\frac{1}{C}\\,\\mathrm{d}C$. If you get this wrong, the B1 and M1 are lost.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 2,
+   "error_code": "missing-constant-of-integration",
+   "text": "Students often forget the constant when they integrate both sides. Without it you can't use $C = 80$ at $t = 0$, so you lose the A1 for the right-hand side and cannot get the later method marks.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "step": 3,
+   "error_code": "initial-conditions-not-used",
+   "text": "If you stop at the general solution and never substitute $t=0$ and $C=80$, the constant is left unknown. You lose the M1, and with it the ddM1 for the final form.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "step": 2,
+   "error_code": "initial-conditions-not-used",
+   "text": "If you use only $C=20$ at $t=6$ in $\\ln C = -k(\\ldots) + c$ and never bring in the constant found from $C=80$, you have two unknowns and can't find $k$ correctly. The M1 is lost.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "step": 1,
+   "error_code": "log-law-misapplied",
+   "text": "A common error is to replace $\\ln 20 - \\ln 80$ with $\\frac{\\ln 20}{\\ln 80}$. Subtracting logs gives the log of the quotient: $\\ln\\frac{20}{80} = -\\ln 4$. The wrong version gives a wrong $k$, so you lose the B1 and the A1.",
+   "says_common": true
+  },
+  {
+   "part": "c",
+   "step": 2,
+   "error_code": "log-power-law-misapplied",
+   "text": "Watch the term $3\\ln\\frac{3}{15}$. Writing it as $\\ln\\frac{9}{15}$ or $\\ln\\frac35$ is wrong: the power law gives $\\ln\\left(\\frac15\\right)^3 = -3\\ln 5$. This slip is common and changes your $k$, so you lose the method mark.",
+   "says_common": true
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-09-30T23:49:53",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.7991
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 19
+  },
+  "G7": {
+   "pass": true,
+   "flag": true,
+   "reasons": [],
+   "flags": [
+    "cosine 0.851 with question:IAL2018_WMA14_Oct2022_Q7"
+   ],
+   "hit_fields": [],
+   "n_8gram_hits": 0,
+   "hits8": [],
+   "max_jaccard": 0.022,
+   "jaccard_source": "IAL2018_WMA13_June2025_Q6",
+   "shared_numbers": 1,
+   "max_cosine": 0.851,
+   "cosine_source": "question:IAL2018_WMA14_Oct2022_Q7"
+  },
+  "G2": {
+   "pass": false,
+   "errors": [
+    "part b answer C: check 'C = 80*(3/(2*t+3))^(3*k)*exp(12*k*(exp(-t/3) + cos(pi*t/12) - 2))' still has unknowns ['k', 't']"
+   ],
+   "n_checks": 7,
+   "n_answers": 3,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": false,
+   "errors": [
+    "de-given-separable: total marks 19 outside 4-16 (seen 5-15, +-1)"
+   ],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}

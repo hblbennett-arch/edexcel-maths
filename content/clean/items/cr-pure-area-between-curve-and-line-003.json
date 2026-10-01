@@ -159,7 +159,188 @@
    "hints": [
     "Start by finding where the curve and the line meet. Set $8\\sqrt{x} - x = x$ and solve for $x$. It may help to factorise out $\\sqrt{x}$.",
     "Before you integrate, rewrite $\\sqrt{x}$ as $x^{\\frac{1}{2}}$. Then integrate (upper graph $-$ lower graph) between the two $x$-values."
-   ]
+   ],
+   "solution_levels": {
+    "brisk": [
+     {
+      "step": 1,
+      "working": "$8\\sqrt{x}-x=x \\Rightarrow 8\\sqrt{x}=2x \\Rightarrow \\sqrt{x}=4 \\Rightarrow x=16$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 2,
+      "working": "Area $=\\int_0^{16}\\left(8x^{\\frac12}-2x\\right)\\mathrm{d}x$",
+      "secures": []
+     },
+     {
+      "step": 3,
+      "working": "$=\\left[\\frac{16}{3}x^{\\frac32}-x^2\\right]_0^{16}$",
+      "secures": [
+       "M1",
+       "A1"
+      ]
+     },
+     {
+      "step": 4,
+      "working": "$=\\frac{16}{3}(64)-256=\\frac{1024}{3}-\\frac{768}{3}$",
+      "secures": [
+       "M1"
+      ]
+     },
+     {
+      "step": 5,
+      "working": "Area $=\\frac{256}{3}$",
+      "secures": [
+       "A1"
+      ]
+     }
+    ],
+    "every_step": [
+     {
+      "step": 1,
+      "working": "$8\\sqrt{x}-x=x$",
+      "why": "At a meeting point the curve and the line have the same $y$, so you set the two expressions equal.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 2,
+      "working": "$8\\sqrt{x}=2x$",
+      "why": "You add $x$ to both sides so the $x$ terms are together on the right.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 3,
+      "working": "$4\\sqrt{x}=x$",
+      "why": "You divide both sides by 2 to make the numbers smaller.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 4,
+      "working": "$\\sqrt{x}=4$",
+      "why": "You divide both sides by $\\sqrt{x}$, which is allowed because $P$ is not the origin so $\\sqrt{x}\\neq 0$. This uses $x=(\\sqrt{x})^2$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 5,
+      "working": "$x=16$",
+      "why": "You square both sides to undo the square root, giving the $x$-coordinate of $P$.",
+      "secures": "M1",
+      "check": "At $x=16$: curve $8\\times4-16=16$, line $y=16$. They match."
+     },
+     {
+      "step": 6,
+      "working": "At $x=4$: curve $y=8\\times2-4=12$, line $y=4$",
+      "why": "You test a point between $0$ and $16$ to see which graph is on top.",
+      "secures": null,
+      "check": "The curve is higher, so curve minus line is positive."
+     },
+     {
+      "step": 7,
+      "working": "Area $=\\int_0^{16}\\left(8\\sqrt{x}-x-x\\right)\\mathrm{d}x$",
+      "why": "The area between two graphs is the integral of (upper minus lower) between the limits $0$ and $16$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 8,
+      "working": "Area $=\\int_0^{16}\\left(8\\sqrt{x}-2x\\right)\\mathrm{d}x$",
+      "why": "You collect the two $-x$ terms into $-2x$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 9,
+      "working": "Area $=\\int_0^{16}\\left(8x^{\\frac12}-2x\\right)\\mathrm{d}x$",
+      "why": "You write the square root as a power of $\\tfrac12$ so it can be integrated with the power rule.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 10,
+      "working": "$\\int 8x^{\\frac12}\\,\\mathrm{d}x=\\frac{8x^{\\frac32}}{\\frac32}$",
+      "why": "Integrating means raising the power by 1 and dividing by the new power, so $\\tfrac12$ becomes $\\tfrac32$.",
+      "secures": "M1",
+      "check": "Differentiating $\\frac{8x^{3/2}}{3/2}$ gives $8x^{1/2}$."
+     },
+     {
+      "step": 11,
+      "working": "$\\frac{8x^{\\frac32}}{\\frac32}=\\frac{16}{3}x^{\\frac32}$",
+      "why": "Dividing by $\\tfrac32$ is the same as multiplying by $\\tfrac23$, and $8\\times\\tfrac23=\\tfrac{16}{3}$.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 12,
+      "working": "$\\int 2x\\,\\mathrm{d}x=x^2$",
+      "why": "The power of $x$ goes from 1 to 2, and dividing by 2 cancels the coefficient 2.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 13,
+      "working": "$\\left[\\frac{16}{3}x^{\\frac32}-x^2\\right]_0^{16}$",
+      "why": "You put the two integrated parts together and add the limits $0$ and $16$.",
+      "secures": "A1",
+      "check": null
+     },
+     {
+      "step": 14,
+      "working": "$16^{\\frac32}=\\left(\\sqrt{16}\\right)^3=4^3=64$",
+      "why": "You evaluate the power by taking the square root first, then cubing.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 15,
+      "working": "Upper limit: $\\frac{16}{3}\\times64-16^2$",
+      "why": "You substitute $x=16$ into the integral.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 16,
+      "working": "$=\\frac{1024}{3}-256$",
+      "why": "You multiply $16\\times64=1024$ and square 16 to get 256.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 17,
+      "working": "$256=\\frac{768}{3}$",
+      "why": "You write 256 as a fraction over 3 so the two terms can be subtracted.",
+      "secures": null,
+      "check": null
+     },
+     {
+      "step": 18,
+      "working": "Lower limit: at $x=0$ the value is $0$, so Area $=\\frac{1024}{3}-\\frac{768}{3}$",
+      "why": "Substituting $x=0$ gives 0, so you subtract nothing.",
+      "secures": "M1",
+      "check": null
+     },
+     {
+      "step": 19,
+      "working": "Area of $R=\\frac{256}{3}$",
+      "why": "You subtract the numerators over the same denominator 3.",
+      "secures": "A1",
+      "check": "$\\frac{256}{3}\\approx85.3$, sensible for a region up to $16$ wide and about $12$ tall."
+     }
+    ]
+   },
+   "levels_meta": {
+    "model": "claude-sonnet-5-5",
+    "generated_at": "2026-09-30T21:49:11+00:00",
+    "cost_usd": 0.0303,
+    "attempts": 1,
+    "errors": [],
+    "attempt_errors": []
+   }
   }
  ],
  "pitfalls": [
@@ -528,6 +709,14 @@
      "integrate-powers-of-x"
     ]
    }
+  },
+  "GL": {
+   "pass": true,
+   "errors": [],
+   "warnings": [
+    "part -: copy check flag: cosine 0.830 with part:IAL2018_WMA12_Oct2019_Q8:ii"
+   ],
+   "parts_checked": 1
   }
  },
  "review": {

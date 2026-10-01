@@ -1,0 +1,457 @@
+{
+ "id": "cr-3-p2-q12",
+ "blueprint_id": "mk-3-p2-q12",
+ "question_type": "de-given-separable",
+ "component": "pure",
+ "tier": "standard",
+ "kind": "mock",
+ "stem": "A conservation trust releases native white-clawed crayfish into a flooded quarry lake. The number of crayfish in the lake, $t$ years after release, is $P$ thousand. The trust models how the population grows using the differential equation\n$$\\frac{\\mathrm{d}P}{\\mathrm{d}t} = \\frac{P(15 - P)}{45}, \\qquad 0 < P < 15.$$\nIn this model, $t$ and $P$ are treated as continuous variables.",
+ "paper": "mock-3-P2",
+ "set": "mock-3",
+ "q_num": 12,
+ "parts": [
+  {
+   "label": "a",
+   "marks": 2,
+   "text": "Express $\\dfrac{45}{P(15 - P)}$ in partial fractions. (2)",
+   "command": "express",
+   "forms": [],
+   "skills": [
+    "partial-fractions"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Writes $\\frac{45}{P(15-P)} \\equiv \\frac{A}{P} + \\frac{B}{15-P}$, clears the denominators to get $45 \\equiv A(15-P) + BP$, and finds at least one of $A$ or $B$ by substituting a value of $P$ or comparing coefficients",
+     "notes": "Accept $\\frac{B}{P-15}$ as the second term, which gives $B = -3$"
+    },
+    {
+     "code": "A1",
+     "for": "$\\frac{3}{P} + \\frac{3}{15-P}$",
+     "notes": "oe, e.g. $\\frac{3}{P} - \\frac{3}{P-15}$. cao"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\frac{45}{P(15-P)} \\equiv \\frac{A}{P} + \\frac{B}{15-P}$, so $45 \\equiv A(15-P) + BP$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$P = 0$: $45 = 15A$, so $A = 3$. $P = 15$: $45 = 15B$, so $B = 3$",
+     "mark": "M1"
+    },
+    {
+     "step": 3,
+     "working": "$\\frac{45}{P(15-P)} = \\frac{3}{P} + \\frac{3}{15-P}$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "pf",
+     "expr": "3/P + 3/(15-P)",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "3/P + 3/(15-P)",
+     "rhs": "45/(P(15-P))",
+     "domain": [
+      1,
+      14
+     ],
+     "answer": "pf"
+    }
+   ],
+   "hints": [
+    "There are two different linear factors in the denominator, so use one fraction for each: $\\frac{A}{P} + \\frac{B}{15-P}$.",
+    "Once you have cleared the fractions, choose values of $P$ that make one bracket equal to zero."
+   ]
+  },
+  {
+   "label": "b",
+   "marks": 5,
+   "text": "At the moment of release, $t = 0$, the lake held 3000 crayfish. Using your answer to part (a), solve the differential equation and write $t$ as a function of $P$. Find $t$ in the form $t = a\\ln\\left(\\dfrac{bP}{15 - P}\\right)$, where $a$ and $b$ are integers whose values you must determine. (5)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "separate-variables-and-integrate",
+    "integrate-partial-fractions-to-logs",
+    "find-constants-from-conditions",
+    "laws-of-logarithms"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Gets all the $P$ terms on one side and $t$ on the other, as $\\int \\frac{45}{P(15-P)}\\,\\mathrm{d}P = \\int 1\\,\\mathrm{d}t$, then integrates their partial fractions to give at least one log term in $P$",
+     "notes": "The separation may be written as $\\int \\frac{1}{P(15-P)}\\,\\mathrm{d}P = \\int \\frac{1}{45}\\,\\mathrm{d}t$"
+    },
+    {
+     "code": "A1ft",
+     "for": "$3\\ln P - 3\\ln(15-P) = t\\,(+c)$",
+     "ft_of": "a",
+     "notes": "Follow through their $A$ and $B$ from (a): $A\\ln P - B\\ln(15-P)$. The minus sign on the second log must be correct. Modulus signs not needed because $0 < P < 15$"
+    },
+    {
+     "code": "M1",
+     "for": "Includes a constant of integration and puts $t = 0$, $P = 3$ into their integrated equation to find it, e.g. $c = 3\\ln 3 - 3\\ln 12$",
+     "notes": "$P = 3000$ does not earn this mark"
+    },
+    {
+     "code": "dM1",
+     "for": "Uses correct log laws to combine the log terms and their constant into one logarithm, e.g. $3\\ln P - 3\\ln(15-P) - 3\\ln\\frac{1}{4} = 3\\ln\\frac{4P}{15-P}$",
+     "depends_on": "M1 (constant found)",
+     "notes": "Using a false rule such as $\\ln P - \\ln(15-P) = \\frac{\\ln P}{\\ln(15-P)}$ earns M0"
+    },
+    {
+     "code": "A1",
+     "for": "$t = 3\\ln\\left(\\frac{4P}{15-P}\\right)$, so $a = 3$, $b = 4$",
+     "notes": "cso"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\int \\frac{45}{P(15-P)}\\,\\mathrm{d}P = \\int 1\\,\\mathrm{d}t \\Rightarrow \\int \\left(\\frac{3}{P} + \\frac{3}{15-P}\\right)\\mathrm{d}P = \\int 1\\,\\mathrm{d}t$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$3\\ln P - 3\\ln(15-P) = t + c$",
+     "mark": "A1ft"
+    },
+    {
+     "step": 3,
+     "working": "When $t = 0$, $P = 3$: $3\\ln 3 - 3\\ln 12 = c$, so $c = 3\\ln\\frac{1}{4} = -3\\ln 4$",
+     "mark": "M1"
+    },
+    {
+     "step": 4,
+     "working": "$t = 3\\ln P - 3\\ln(15-P) + 3\\ln 4 = 3\\ln\\left(\\frac{4P}{15-P}\\right)$",
+     "mark": "dM1"
+    },
+    {
+     "step": 5,
+     "working": "$t = 3\\ln\\left(\\frac{4P}{15-P}\\right)$, so $a = 3$, $b = 4$",
+     "mark": "A1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "a",
+     "expr": "3",
+     "form": "exact",
+     "exact": "3"
+    },
+    {
+     "name": "b",
+     "expr": "4",
+     "form": "exact",
+     "exact": "4"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "45/15",
+     "answer": "a"
+    },
+    {
+     "type": "numeric",
+     "expr": "(15-3)/3",
+     "answer": "b"
+    },
+    {
+     "type": "derivative",
+     "f": "3*ln(4P/(15-P))",
+     "var": "P",
+     "result": "45/(P(15-P))"
+    },
+    {
+     "type": "substitute",
+     "expr": "3*ln(4P/(15-P))",
+     "at": {
+      "P": 3
+     },
+     "result": "0"
+    }
+   ],
+   "hints": [
+    "Rearrange the equation to $\\frac{45}{P(15-P)}\\,\\mathrm{d}P = \\mathrm{d}t$ and use part (a) to integrate the left-hand side.",
+    "Write 3000 crayfish as a value of $P$ in thousands before you find the constant."
+   ]
+  },
+  {
+   "label": "c",
+   "marks": 3,
+   "text": "Show that $P = \\dfrac{15}{1 + 4\\mathrm{e}^{-\\frac{t}{3}}}$. (3)",
+   "command": "show-that",
+   "forms": [],
+   "skills": [
+    "rearrange-solution-explicitly",
+    "rearrange-to-make-subject"
+   ],
+   "mark_scheme": [
+    {
+     "code": "M1",
+     "for": "Removes the logarithm from their answer to (b) correctly, to get $\\frac{4P}{15-P} = \\mathrm{e}^{\\frac{t}{3}}$",
+     "notes": "The whole fraction must equal the exponential. Writing $4P - (15 - P) = \\mathrm{e}^{t/3}$ or $\\mathrm{e}^{t} + c$ is M0"
+    },
+    {
+     "code": "dM1",
+     "for": "Multiplies out, gathers both terms in $P$ on one side and takes out $P$ as a factor: $P(4 + \\mathrm{e}^{\\frac{t}{3}}) = 15\\mathrm{e}^{\\frac{t}{3}}$",
+     "depends_on": "M1"
+    },
+    {
+     "code": "A1*",
+     "for": "Divides the top and bottom by $\\mathrm{e}^{\\frac{t}{3}}$ to reach $P = \\frac{15}{1 + 4\\mathrm{e}^{-\\frac{t}{3}}}$ with no errors",
+     "notes": "cso. The step through $\\frac{15\\mathrm{e}^{t/3}}{4 + \\mathrm{e}^{t/3}}$ must be shown"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "$\\frac{t}{3} = \\ln\\left(\\frac{4P}{15-P}\\right) \\Rightarrow \\frac{4P}{15-P} = \\mathrm{e}^{\\frac{t}{3}}$",
+     "mark": "M1"
+    },
+    {
+     "step": 2,
+     "working": "$4P = 15\\mathrm{e}^{\\frac{t}{3}} - P\\mathrm{e}^{\\frac{t}{3}} \\Rightarrow P\\left(4 + \\mathrm{e}^{\\frac{t}{3}}\\right) = 15\\mathrm{e}^{\\frac{t}{3}}$",
+     "mark": "dM1"
+    },
+    {
+     "step": 3,
+     "working": "$P = \\frac{15\\mathrm{e}^{\\frac{t}{3}}}{4 + \\mathrm{e}^{\\frac{t}{3}}} = \\frac{15}{4\\mathrm{e}^{-\\frac{t}{3}} + 1} = \\frac{15}{1 + 4\\mathrm{e}^{-\\frac{t}{3}}}$",
+     "mark": "A1*"
+    }
+   ],
+   "answers": [],
+   "checks": [
+    {
+     "type": "equals",
+     "lhs": "15*exp(t/3)/(4 + exp(t/3))",
+     "rhs": "15/(1 + 4*exp(-t/3))"
+    },
+    {
+     "type": "derivative",
+     "f": "15/(1 + 4*exp(-t/3))",
+     "var": "t",
+     "result": "(15/(1 + 4*exp(-t/3)))*(15 - 15/(1 + 4*exp(-t/3)))/45"
+    },
+    {
+     "type": "substitute",
+     "expr": "15/(1 + 4*exp(-t/3))",
+     "at": {
+      "t": 0
+     },
+     "result": "3"
+    }
+   ],
+   "hints": [
+    "Divide by 3, then take e to the power of each side to remove the logarithm.",
+    "Get every term containing $P$ on one side, then take $P$ out as a factor."
+   ]
+  },
+  {
+   "label": "d",
+   "marks": 2,
+   "text": "Find the number of crayfish that, according to the model, the lake will support in the long term, and give one reason why this long-term prediction may not be reliable. (2)",
+   "command": "find",
+   "forms": [],
+   "skills": [
+    "long-term-behaviour-of-model"
+   ],
+   "mark_scheme": [
+    {
+     "code": "B1",
+     "for": "Says that as $t \\to \\infty$, $\\mathrm{e}^{-\\frac{t}{3}} \\to 0$, so $P \\to 15$, giving 15 000 crayfish",
+     "notes": "Needs 15 000 (or 15 thousand), not only 15"
+    },
+    {
+     "code": "B1",
+     "for": "A sensible reason tied to this situation why the model may fail over long times, e.g. disease, predators, pollution, drought or changes to the lake could change the population; or the model has only been tested near the start and is being used far beyond that range",
+     "notes": "Reject vague answers such as 'models are not accurate' with no reference to the crayfish or the lake"
+    }
+   ],
+   "solution": [
+    {
+     "step": 1,
+     "working": "As $t \\to \\infty$, $\\mathrm{e}^{-\\frac{t}{3}} \\to 0$, so $P \\to \\frac{15}{1 + 0} = 15$: the model predicts about 15 000 crayfish",
+     "mark": "B1"
+    },
+    {
+     "step": 2,
+     "working": "Reason: the model assumes conditions in the lake stay the same for ever, but an outbreak of crayfish plague, new predators or a drop in water quality could change the population, so using the model far into the future may be unreliable",
+     "mark": "B1"
+    }
+   ],
+   "answers": [
+    {
+     "name": "Nlimit",
+     "expr": "15000",
+     "form": "exact"
+    }
+   ],
+   "checks": [
+    {
+     "type": "numeric",
+     "expr": "1000*15/(1 + 4*0)",
+     "answer": "Nlimit"
+    }
+   ],
+   "hints": [
+    "Think about what $\\mathrm{e}^{-\\frac{t}{3}}$ does as $t$ gets very large.",
+    "Remember that $P$ is measured in thousands."
+   ]
+  }
+ ],
+ "pitfalls": [
+  {
+   "part": "a",
+   "error_code": "partial-fraction-wrong-form",
+   "step": 1,
+   "text": "If you set up something like $\\frac{A}{P} + \\frac{B}{P^2}$, or use a single fraction, you won't match the two different linear factors $P$ and $(15-P)$, and you lose the M1. Use one constant over each factor.",
+   "says_common": true
+  },
+  {
+   "part": "a",
+   "error_code": "partial-fraction-constant-error",
+   "step": 2,
+   "text": "When you substitute $P = 15$ into $45 = A(15-P) + BP$, the $A$ term disappears and you get $45 = 15B$, so $B = 3$. If you write $B = -3$ (mixing up $15-P$ with $P-15$), you lose the A1.",
+   "says_common": false
+  },
+  {
+   "part": "a",
+   "error_code": "splits-fraction-over-sum",
+   "step": 1,
+   "text": "Don't treat $15 - P$ as if the fraction could be split term by term, e.g. $\\frac{45}{P(15-P)} = \\frac{45}{15P} - \\frac{45}{P^2}$. You can't split a fraction over a sum in its denominator, and doing so loses the M1.",
+   "says_common": false
+  },
+  {
+   "part": "b",
+   "error_code": "separation-error",
+   "step": 1,
+   "text": "The $45$ belongs with the $P$ terms (or goes over to the $t$ side as $\\frac{1}{45}$). If you write something like $\\frac{1}{P}\\,\\mathrm{d}P = (15-P)\\,\\mathrm{d}t$, you leave $P$ on the $t$ side and lose the first M1 and everything that depends on it.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "error_code": "log-law-misapplied",
+   "step": 4,
+   "text": "$3\\ln P - 3\\ln(15-P) + 3\\ln 4$ combines to $3\\ln\\frac{4P}{15-P}$. If you write $\\frac{\\ln P}{\\ln(15-P)}$, or turn $\\ln 4P$ into $\\ln 4 \\times \\ln P$, you have used a false log law and you lose the dM1 and the A1.",
+   "says_common": true
+  },
+  {
+   "part": "b",
+   "error_code": "initial-conditions-not-used",
+   "step": 3,
+   "text": "If you leave out the constant, or don't put $t = 0$, $P = 3$ into the integrated equation, you can't get the $b = 4$ inside the logarithm, and you lose the second M1. Also remember to use $P = 3$ (thousand), not $P = 3000$.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "error_code": "exponentiating-sum-error",
+   "step": 1,
+   "text": "If you worked with $\\ln\\frac{P}{15-P} = \\frac{t}{3} - \\ln 4$, then $\\frac{P}{15-P} = \\frac{1}{4}\\mathrm{e}^{\\frac{t}{3}}$, not $\\mathrm{e}^{\\frac{t}{3}} - \\ln 4$. Exponentiating a sum gives a product, and writing $\\mathrm{e}^{t/3} + c$ loses the M1.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "error_code": "rearranging-inverse-operation-error",
+   "step": 2,
+   "text": "From $4P = \\mathrm{e}^{\\frac{t}{3}}(15 - P)$ you must multiply out and move the whole $-P\\mathrm{e}^{\\frac{t}{3}}$ term across. Dividing by $4$ too early, or cancelling only one of the $P$ terms, loses the dM1.",
+   "says_common": false
+  },
+  {
+   "part": "c",
+   "error_code": "solution-not-made-explicit",
+   "step": 3,
+   "text": "Stopping at $P(4 + \\mathrm{e}^{\\frac{t}{3}}) = 15\\mathrm{e}^{\\frac{t}{3}}$ does not show the printed result. You must make $P$ the subject and divide the top and bottom by $\\mathrm{e}^{\\frac{t}{3}}$, or you lose the A1*.",
+   "says_common": false
+  },
+  {
+   "part": "d",
+   "error_code": "long-term-limit-error",
+   "step": 1,
+   "text": "As $t$ grows, $\\mathrm{e}^{-\\frac{t}{3}}$ tends to $0$, not to $1$ or to infinity. If you get $P \\to 3$ (the value at $t = 0$) or $P \\to 0$, you lose the first B1.",
+   "says_common": false
+  },
+  {
+   "part": "d",
+   "error_code": "rate-not-derivative",
+   "step": 1,
+   "text": "The question asks where the population itself settles, not how fast it changes. Saying the answer is $0$ because $\\frac{\\mathrm{d}P}{\\mathrm{d}t} \\to 0$ confuses the rate with the population, and loses the first B1. The rate tends to $0$ because $P$ tends to $15$.",
+   "says_common": false
+  },
+  {
+   "part": "d",
+   "error_code": "extrapolation-not-flagged",
+   "step": 2,
+   "text": "Giving 15 000 with no comment on reliability loses the second B1. The model is being used far into the future, and real events in this lake, such as disease or pollution, could make it fail.",
+   "says_common": false
+  }
+ ],
+ "provenance": "original",
+ "generator_model": "claude-opus-5-5",
+ "generated_at": "2026-10-01T00:06:45",
+ "generation": {
+  "attempts": 2,
+  "cost_usd": 0.4863
+ },
+ "gate_results": {
+  "G1": {
+   "pass": true,
+   "errors": [],
+   "total_marks": 12
+  },
+  "G7": {
+   "pass": false,
+   "flag": true,
+   "reasons": [
+    "5 word 8-gram(s) also in the reference corpus (not whitelisted)"
+   ],
+   "flags": [
+    "cosine 0.869 with question:GCE2008_6666R_June2013_Q1"
+   ],
+   "hit_fields": [
+    "part a mark scheme",
+    "part b mark scheme"
+   ],
+   "n_8gram_hits": 5,
+   "hits8": [
+    "and finds at least one of a or",
+    "correct log laws to combine the log terms",
+    "finds at least one of a or b",
+    "follow through their a and b from a",
+    "uses correct log laws to combine the log"
+   ],
+   "max_jaccard": 0.019,
+   "jaccard_source": "IAL2013_WMA02_Jan2016_Q8",
+   "shared_numbers": 1,
+   "max_cosine": 0.869,
+   "cosine_source": "question:GCE2008_6666R_June2013_Q1"
+  },
+  "G2": {
+   "pass": true,
+   "errors": [],
+   "n_checks": 9,
+   "n_answers": 4,
+   "unverified_parts": []
+  },
+  "G8": {
+   "pass": true,
+   "errors": [],
+   "warnings": []
+  }
+ },
+ "review": {
+  "by": null,
+  "at": null,
+  "decision": null,
+  "notes": null
+ }
+}
